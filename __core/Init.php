@@ -18,6 +18,7 @@
 
 	define('MODULES_DIR',		CORE_DIR .'Modules/');										# Modules Dir / Templates Dir
 	define('LIB_DIR',			CORE_DIR .'Lib/');											# Lib Dir
+	define('DB_DIR',			LIB_DIR .'DB/');											# DBLib Dir
 	define('PAGE_TYPES_DIR',	CORE_DIR .'PageTypes/');									# Page Types Dir
 
 	define('AFRAMEWORK_VERSION',	'aFramework v3');
@@ -31,6 +32,7 @@
 	require_once LIB_DIR .'MarkDown.php';
 	require_once LIB_DIR .'Functions.php';
 	require_once LIB_DIR .'NiceString.php';
+	require_once LIB_DIR .'NiceDate.php';
 
 	# Connect to DB
 	mysql_connect(DB_HOST, DB_USER, DB_PASS);
