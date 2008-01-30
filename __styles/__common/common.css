@@ -1,0 +1,58 @@
+/*
+	=== Code Blocks ===
+*/
+/* HighlightString() */
+p.code-block {
+	max-height: 400px;
+	background: #fff;
+	overflow: auto;
+	border: 1px solid #000;
+	padding: 10px;
+}
+
+	p.code-block .comment {
+		color: #FF8000;
+	}
+
+	p.code-block .keyword {
+		color: #007700;
+	}
+
+	p.code-block .var {
+		color: #0000BB;
+	}
+
+	p.code-block .string {
+		color: #DD0000;
+	}
+
+/* Textmate Sunburst */
+p.code-block {
+	background-color: #000;
+	font-family: Monaco;
+	color: #f8f8f8;
+}
+
+	p.code-block .comment {
+		color: #aeaeae;
+	}
+
+	p.code-block .keyword {
+		color: #e28964;
+	}
+
+	p.code-block .var {
+		color: #3e87e3;
+	}
+
+	p.code-block .string {
+		color: #65b042;
+	}
+
+/*
+	=== Form Validation ===
+*/
+form img[alt="Valid"], form img[alt="Invalid"] {
+	vertical-align: top;
+	margin-left: 10px;
+}
