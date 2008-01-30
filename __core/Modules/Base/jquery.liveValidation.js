@@ -39,9 +39,7 @@ jQuery.fn.liveValidation = function(conf) {
 					});
 				};
 
-				if(t.val().length) {
-					validate();
-				}
+				validate();
 				t.keyup(validate);
 			});
 		}
