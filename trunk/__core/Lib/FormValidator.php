@@ -1,9 +1,12 @@
 <?php
 	class FormValidator {
 		private $commonFields = array(
-			'name'		=> 'strlen($v) > 0', 
-			'message'	=> 'strlen($v) > 0', 
-			'email'		=> 'preg_match("/^.+?@.+?\..{2,4}$/", $v)' # needs great improvement but too lazy atm
+			'name'		=> 'strlen($v) > 0',
+			'author'	=> 'strlen($v) > 0',
+			'message'	=> 'strlen($v) > 0',
+			'comment'	=> 'strlen($v) > 0',
+			'url'		=> 'preg_match("/^(http:\/\/)?(www)?([^ |\.]*?)\.([^ ]){2,5}$/", $v)', # needs improvement
+			'email'		=> 'preg_match("/^.+?@.+?\..{2,4}$/", $v)' # needs improvement
 		);
 		private $validatedFields = array();
 

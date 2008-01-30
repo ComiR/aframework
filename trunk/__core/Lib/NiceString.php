@@ -1,10 +1,10 @@
 <?php
 	# Function version of class (cus it's handier)
-	function ns($str, $cutMore = false, $substr = false, $markdownHeadingLevel = false) {
+	function ns($str, $cutMore = false, $substr = false, $markdownHeadingLevel = false, $allowHTMLBlocks = false) {
 		$ns = new NiceString($str);
 
 		# If $cutMore is an array it is treated as the options-array, otherwise an options-array is built from the arguments (for backwards-compatibility)
-		$options = (is_array($cutMore)) ? $cutMore : array('cut_more' => $cutMore, 'substr' => $substr, 'markdown_heading_level' => $markdownHeadingLevel);
+		$options = (is_array($cutMore)) ? $cutMore : array('cut_more' => $cutMore, 'substr' => $substr, 'markdown_heading_level' => $markdownHeadingLevel, 'allow_html_blocks' => $allowHTMLBlocks);
 		$ns->setOptions($options);
 
 		return $ns->makeNice();
@@ -21,6 +21,7 @@
 		private $cutMore = false;
 		private $substr = false;
 		private $markdownHeadingLevel = false;
+		private $allowHTMLBlocks = false;
 		private $htmlBlocks = array();
 		private $codeBlocks = array();
 
@@ -46,6 +47,7 @@
 				$this->cutMore = @$options['cut_more'];
 				$this->substr = @$options['substr'];
 				$this->markdownHeadingLevel = @$options['markdown_heading_level'];
+				$this->allowHTMLBlocks = @$options['allow_html_blocks'];
 			}
 		}
 
@@ -57,7 +59,9 @@
 		public function makeNice() {
 			$this->convertLinebreaks();
 			$this->substrCut();
-			$this->extractHTMLBlocks();
+			if($this->allowHTMLBlocks) {
+				$this->extractHTMLBlocks();
+			}
 			$this->extractCodeBlocks();
 			$this->deleteComments();
 			$this->moreCut();
@@ -70,7 +74,9 @@
 			$this->autoAbbr();
 			$this->autoDel();
 			$this->youtubeClips();
-			$this->insertHTMLBlocks();
+			if($this->allowHTMLBlocks) {
+				$this->insertHTMLBlocks();
+			}
 			$this->insertCodeBlocks();
 
 			return $this->str;
@@ -290,40 +296,42 @@
 		 * @method fixImgWidthHeightAttrs
 		 */
 		private function fixImgWidthHeightAttrs() {
-			function callback($matches) {
-				$rootDir	= str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'] .'/');
-				$isSmall	= false;
-				$filePath	= substr($matches[1], 1);
+			if(!function_exists('_fixImgWidthHeightAttrsCallback')) {
+				function _fixImgWidthHeightAttrsCallback($matches) {
+					$rootDir	= str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'] .'/');
+					$isSmall	= false;
+					$filePath	= substr($matches[1], 1);
 
-				if(stristr($filePath, '_small.')) {
-					$isSmall	= true;
-					$filePath	= str_replace('_small.', '.', $filePath);
-					$pathQry	= explode('?', $filePath);
-					$filePath	= $pathQry[0];
-					$qry		= (isset($pathQry[1])) ? $pathQry[1] : '';
-					$widthMatch	= array();
-					$pattern	= '/w=([0-9]+)&?/';
-					preg_match($pattern, $qry, $widthMatch);
-					$smallWidth	= (isset($widthMatch[1])) ? $widthMatch[1] : 100; // should be same as default Thumb.php-size for accuracy
-				}
-		
-				if(file_exists($rootDir .$filePath)) {
-					$imgData = getimagesize($rootDir .$filePath);
-
-					if($isSmall) {
-						$w = $smallWidth;
-						$h = round($imgData[1] * ($w / $imgData[0] ));
-						$imgData[0] = $w;
-						$imgData[1] = $h;
+					if(stristr($filePath, '_small.')) {
+						$isSmall	= true;
+						$filePath	= str_replace('_small.', '.', $filePath);
+						$pathQry	= explode('?', $filePath);
+						$filePath	= $pathQry[0];
+						$qry		= (isset($pathQry[1])) ? $pathQry[1] : '';
+						$widthMatch	= array();
+						$pattern	= '/w=([0-9]+)&?/';
+						preg_match($pattern, $qry, $widthMatch);
+						$smallWidth	= (isset($widthMatch[1])) ? $widthMatch[1] : 100; // should be same as default Thumb.php-size for accuracy
 					}
 
-					return sprintf('<img src="%s"%s width="%s" height="%s" />', $matches[1], $matches[2], $imgData[0], $imgData[1]);
-				}
+					if(file_exists($rootDir .$filePath)) {
+						$imgData = getimagesize($rootDir .$filePath);
 
-				return $matches[0];
+						if($isSmall) {
+							$w = $smallWidth;
+							$h = round($imgData[1] * ($w / $imgData[0] ));
+							$imgData[0] = $w;
+							$imgData[1] = $h;
+						}
+
+						return sprintf('<img src="%s"%s width="%s" height="%s" />', $matches[1], $matches[2], $imgData[0], $imgData[1]);
+					}
+
+					return $matches[0];
+				}
 			}
 
-			$this->str = preg_replace_callback('/<img src="(.*?)"(.*?) \/>/', 'callback', $this->str);
+			$this->str = preg_replace_callback('/<img src="(.*?)"(.*?) \/>/', '_fixImgWidthHeightAttrsCallback', $this->str);
 		}
 
 		/**
