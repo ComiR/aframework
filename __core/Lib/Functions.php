@@ -72,6 +72,10 @@
 	//	return (get_magic_quotes_gpc()) ? $str : mysql_real_escape_string($str); // this caused problems somewhere...
 	}
 
+	function esc($s) {
+		return escape($s);
+	}
+
 	# Checks whether an ADMIN_SESSION session or cookie is set
 	function isLoggedIn() {
 		return (isset($_SESSION[ADMIN_SESSION]) or isset($_COOKIE[ADMIN_SESSION]));
