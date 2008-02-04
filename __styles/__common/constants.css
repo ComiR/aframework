@@ -10,6 +10,10 @@ $data-definition {
 		margin: 0 5px 5px 0;
 	}
 
+	$data-definition dt:after {
+		content: ": ";
+	}
+
 	$data-definition dd {
 		margin: 0 0 5px;
 	}
