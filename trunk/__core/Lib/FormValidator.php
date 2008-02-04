@@ -5,7 +5,7 @@
 			'author'	=> 'strlen($v) > 0',
 			'message'	=> 'strlen($v) > 0',
 			'comment'	=> 'strlen($v) > 0',
-			'url'		=> 'preg_match("/^(http:\/\/)?(www)?([^ |\.]*?)\.([^ ]){2,5}$/", $v)', # needs improvement
+			'url'		=> 'preg_match("/^(http:\/\/)?(www)?([^ |\.]*?)\.([^ ]){2,5}$/", $v) || $v == ""', # needs improvement
 			'email'		=> 'preg_match("/^.+?@.+?\..{2,4}$/", $v)' # needs improvement
 		);
 		private $validatedFields = array();
