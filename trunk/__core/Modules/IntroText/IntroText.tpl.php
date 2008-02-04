@@ -1,3 +1,3 @@
-<h2><?php echo $_TPLVARS['intro_text']['title']; ?></h2>
+<h2><?php echo $intro_text['title']; ?></h2>
 
-<?php echo $_TPLVARS['intro_text']['content']; ?>
+<?php echo $intro_text['content']; ?>
