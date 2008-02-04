@@ -1,6 +1,6 @@
 <h2>Please sign in</h2>
 
-<?php if($_TPLVARS['admin_login']['error']) { ?>
+<?php if($admin_login['error']) { ?>
 	<p><strong>Wrong user name or password. Please try again.</strong></p>
 <?php } ?>
 
