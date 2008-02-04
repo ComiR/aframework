@@ -41,7 +41,7 @@
 
 		<!--<script type="text/javascript" src="http://www.google-analytics.com/urchin.js"></script>
 		<script type="text/javascript">
-			_uacct = "UA-1823084-1";
+			_uacct = "<?php echo GA_ID; ?>";
 			urchinTracker();
 		</script>-->
 
