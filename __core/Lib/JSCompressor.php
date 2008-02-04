@@ -1,9 +1,14 @@
 <?php
-	require_once('JavaScriptPacker.php');
+	$docRoot = str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'] .'/');
+
+	require_once 'JavaScriptPacker.php';
+	require_once $docRoot .'__core/Config.php';
 
 	# Not part of class...
 	header('Content-type: application/x-javascript');
-	$modulesDir = str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'] .'/') .'__core/Modules/';
+
+	# Get all module-JS
+	$modulesDir = $docRoot .'__core/Modules/';
 	$dirs = array();
 	$dh = opendir($modulesDir);
 	while($f = readdir($dh)) {
@@ -11,6 +16,11 @@
 			$dirs[] = $modulesDir .$f;
 		}
 	}
+
+	# Get style-JS
+	$stylesDir = $docRoot .'__styles/';
+	$dirs[] = (isset($_COOKIE['style'])) ? $stylesDir .$_COOKIE['style'] : $stylesDir .DEFAULT_STYLE;
+
 	$JSCompressor = new JSCompressor($dirs);
 	echo $JSCompressor->pack();
 
