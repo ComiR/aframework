@@ -68,9 +68,13 @@
 
 			if(isset($_REQUEST['remember']) and $_REQUEST['remember']) {
 				setVisitorData($_REQUEST);
-			}
 
-			$_TPLVARS['visitor'] = getVisitorData();
+				$_TPLVARS['visitor'] = $_REQUEST;
+				$_TPLVARS['visitor']['remembered'] = true;
+			}
+			else {
+				$_TPLVARS['visitor'] = getVisitorData();
+			}
 		}
 
 		/**
