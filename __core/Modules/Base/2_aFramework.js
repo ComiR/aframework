@@ -15,7 +15,7 @@ var aFramework = {
 	 * is taken care of on dom ready (bottom of code)
 	 */
 	run: function() {
-		$('body').addClass('js-enabled').removeClass('js-disabled');
+		$('body').addClass('js-enabled').removeClass('js-disabled').imgbox();
 		aFramework.general.captchaRefresh('/captcha.png');
 		aFramework.general.codeBlocks();
 		aFramework.general.toggleTitles();
