@@ -4,6 +4,6 @@
 
 <ul>
 	<li><a href="/">Go back to the home page</a> and try to navigate from there</li>
-	<li><a href="#">Go back to the previous page</a> if you liked that one</li>
+	<li><a href="<?php echo $_SERVER['HTTP_REFERER']; ?>">Go back to the previous page</a> if you liked that one</li>
 	<li>More tips to come!</li>
 </ul>
