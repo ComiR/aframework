@@ -1,3 +1,12 @@
+/**
+ * Common CSS to all styles.
+ * File-paths to gfx/ dir must go
+ * through ../__common/gfx/ rather than
+ * just gfx/ because this file is merged
+ * with current style-files and accessed
+ * through __styles/CURRENT_STYLE/all.css
+**/
+
 /*
 	=== Code Blocks ===
 */
@@ -56,3 +65,36 @@ form img[alt="Valid"], form img[alt="Invalid"] {
 	vertical-align: top;
 	margin-left: 10px;
 }
+
+/*
+	=== General Classes / JS-added
+*/
+.default-value {
+	color: #777;
+	font-style: italic;
+}
+
+/*
+	=== IE and JS "warnings" ===
+*/
+#ie-warning p, noscript p {
+	background: #FFFFE1 url(../__common/gfx/icons/warning.gif) no-repeat 5px 50%;
+
+	margin: 0;
+	padding: 7px 10px 7px 30px;
+	border-bottom: 1px solid #767E85;
+
+	font: 12px/1 Arial;
+	color: #000;
+}
+
+	#ie-warning a {
+		color: blue;
+		text-decoration: underline;
+		border: 0;
+		background: transparent;
+	}
+
+	#ie-warning a:hover {
+		color: red;
+	}
