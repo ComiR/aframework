@@ -8,9 +8,9 @@
 </ul>
 
 <p>
-	Copyright &copy; <?php echo date('Y'); ?> <?php echo $_TPLVARS['base']['site_author']; ?>. Some Rights Reserved.<br />
+	Copyright &copy; <?php echo date('Y'); ?> <?php echo $base['site_author']; ?>. Some Rights Reserved.<br />
 	<small>
-		<?php echo $_TPLVARS['base']['site_title']; ?> is powered by 
-		<a href="http://exscale.se/archives/2008/01/20/a-simple-modular-php-framework/" title="<?php echo AFRAMEWORK_VERSION; ?> Website">aFramework</a>.
+		<?php echo $base['site_title']; ?> is powered by 
+		<a href="http://aframework.pixlperfik.com" title="<?php echo AFRAMEWORK_VERSION; ?> Website">aFramework</a>.
 	</small>
 </p>
