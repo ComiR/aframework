@@ -18,7 +18,8 @@
 	define('DEFAULT_STYLE',		'default');
 	define('CONTACT_EMAIL',		'you@yourdomain.com');
 
-	# For Askimet
+	# For Askimet and Google Analytics
 	define('WP_KEY_URL',		'http://yoursite.com');
 	define('WP_KEY_ID',			'YOUR_WP_KEY');
+	define('GA_ID',				'YOUR_GA_ID');
 ?>
