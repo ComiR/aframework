@@ -31,12 +31,46 @@
 			global $_TPLVARS;
 			global $_PARAMS;
 
+			$this->handleStyle();
+			$this->handleVisitorData();
+
 			if(isset($_GET['mod'])) {
 				$this->runModule($_GET['mod']);
 			}
 			else {
 				$this->runPageType();
 			}
+		}
+		
+		/**
+		 * Handles style-switching
+		 *
+		 * @method handleStyle
+		 */
+		private function handleStyle() {
+			$tmp = array_merge($_GET, $_POST);
+			$style = (isset($tmp['style'])) ? str_replace(array('..\\', '../', '/', '\\'), '', $tmp['style']) : false;
+
+			if($style !== false and file_exists(STYLES_DIR .$style .'/style.css')) {
+				setcookie('style', $style, time()+60*60*24*365, '/');
+				redirect('?changed_style');
+			}
+		}
+		
+
+		/**
+		 * Handles setting and getting of visitor-data
+		 *
+		 * @method handleVisitorData
+		 */
+		private function handleVisitorData() {
+			global $_TPLVARS;
+
+			if(isset($_REQUEST['remember']) and $_REQUEST['remember']) {
+				setVisitorData($_REQUEST);
+			}
+
+			$_TPLVARS['visitor'] = getVisitorData();
 		}
 
 		/**
@@ -51,6 +85,10 @@
 			if (is_file($f)) {
 				if($hideErrors) {
 					ini_set('display_errors', false);
+				}
+
+				foreach($_TPLVARS as $mod => $v) {
+					$$mod = $v;
 				}
 
 				ob_start();
@@ -102,10 +140,10 @@
 				# Make sure it exists
 				if(file_exists(MODULES_DIR ."$module/$tplFile.tpl.php")) {
 					$renderedModule = $this->fetchTpl(MODULES_DIR ."$module/$tplFile.tpl.php");
-				}
 
-				# Echo the module
-				echo $renderedModule;
+					# Echo the module
+					echo $renderedModule;
+				}
 			}
 		}
 
