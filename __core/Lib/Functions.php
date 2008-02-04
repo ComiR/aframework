@@ -6,14 +6,10 @@
 
 	# Retrieves stored visitor data
 	function getVisitorData() {
-		$data = array();
+		$data = false;
 
 		if(isset($_COOKIE['visitor'])) {
-			$declarations = explode('|', $_COOKIE['visitor']);
-			foreach($declarations as $declaration) {
-				$keyVal = explode(':', $declaration);
-				$data[$keyVal[0]] = $keyVal[1];
-			}
+			$data = unserialize(stripslashes($_COOKIE['visitor']));
 			$data['remembered'] = true;
 		}
 
@@ -22,15 +18,18 @@
 
 	# Sets visitor data
 	function setVisitorData($data) {
+		$validData = array('name', 'email', 'url');
 		$oldData = getVisitorData();
-		$data = array_merge($oldData, $data);
-		$cookie = '';
-		foreach($data as $k => $v) {
-			$cookie .= "$k:$v|";
-		}
-		$cookie = substr($cookie, 0, -1);
+		$oldData = $oldData ? $oldData : array();
+		$set = array();
 
-		setcookie('visitor', $cookie, time()+60*60*24*365, "/");
+		foreach($data as $k => $v) {
+			if(in_array($k, $validData)) {
+				$set[$k] = $v;
+			}
+		}
+
+		setcookie('visitor', serialize(array_merge($oldData, $set)), time()+60*60*24*365, "/");
 	}
 
 	# Replaces _first_ occurance of needle
@@ -85,6 +84,14 @@
 	function redirect($url) {
 		header("Location: $url");
 		die('Activate PHP Headers');
+	}
+
+	# Redirects to referrer
+	function redirectToReferer($append) {
+		$ref = $_SERVER['HTTP_REFERER'];
+		$ref = (stristr($ref, '?')) ? $ref .'&' : $ref .'?';
+
+		redirect($ref .$append);
 	}
 
 	# Instead of mysql_query, also counts queries and dies on error
