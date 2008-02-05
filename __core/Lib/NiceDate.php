@@ -1,7 +1,8 @@
 <?php
 	function nd($d, $l = 'se') {
 		$nd = new NiceDate($d);
-		return $nd->getTimeSinceStr($l);
+		return $nd->getNiceDate(false, $l);
+	//	return $nd->getTimeSinceStr($l);
 	}
 
 	/**
@@ -43,7 +44,26 @@
 				'second'	=> 'second',
 				'and'		=> 'and',
 				'ago'		=> 'ago', 
-				'recently'	=> 'just now'
+				'recently'	=> 'just now',
+				'january'	=> 'January',
+				'february'	=> 'February',
+				'march'		=> 'March',
+				'april'		=> 'April',
+				'may'		=> 'May',
+				'june	'	=> 'June',
+				'july	'	=> 'July',
+				'august'	=> 'August',
+				'september'	=> 'September',
+				'october'	=> 'October',
+				'november'	=> 'November',
+				'december'	=> 'December',
+				'monday'	=> 'Monday',
+				'tuesday'	=> 'Tuesday',
+				'wednesday'	=> 'Wednesday',
+				'thursday'	=> 'Thursday',
+				'friday'	=> 'Friday',
+				'saturday'	=> 'Saturday',
+				'sunday'	=> 'Sunday'
 			);
 			$this->lang['se']	= array(
 				'years'		=> 'år',
@@ -62,8 +82,39 @@
 				'second'	=> 'sekund',
 				'and'		=> 'och',
 				'ago'		=> 'sedan', 
-				'recently'	=> 'alldeles nyss'
+				'recently'	=> 'alldeles nyss', 
+				'january'	=> 'Januari',
+				'february'	=> 'Februari',
+				'march'		=> 'Mars',
+				'april'		=> 'April',
+				'may'		=> 'Maj',
+				'june	'	=> 'Juni',
+				'july	'	=> 'Juli',
+				'august'	=> 'Augusti',
+				'september'	=> 'September',
+				'october'	=> 'Oktober',
+				'november'	=> 'November',
+				'december'	=> 'December',
+				'monday'	=> 'Måndag',
+				'tuesday'	=> 'Tisdag',
+				'wednesday'	=> 'Onsdag',
+				'thursday'	=> 'Torsdag',
+				'friday'	=> 'Fredag',
+				'saturday'	=> 'Lordag',
+				'sunday'	=> 'Sondag'
 			);
+		}
+
+		/**
+		 * Returns nice date
+		 *
+		 * @method getTimeSince
+		 */
+		public function getNiceDate($f = '%e %B %Y', $l = 'en') {
+			if($f === false) { // just so you don't have to spec format if you wanna spec lang...
+				$f = '%e %B %Y';
+			}
+			return ($l == 'en') ? strftime($f, $this->timeStamp) : str_replace($this->lang['en'], $this->lang[$l], strftime($f, $this->timeStamp));
 		}
 
 		/**
@@ -148,6 +199,7 @@
 				return;
 			}
 
+			// Should display only month if more than 6 weeks, only weeks if more than 10 days only days etc... (not like now)
 			foreach($this->timeSince as $unit => $v) {
 				if($unit != 'diff' and $unit != 'seconds' and $this->timeSince[$unit] != 0) {
 					if($this->timeSince[$unit] == 1) {
