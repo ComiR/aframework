@@ -1,3 +1,8 @@
+/**
+ * Data Definition List
+ * Used on DLs to turn them into Key: Val
+ * Bold key with : after
+ */
 $data-definition {
 	margin-left: 0;
 	padding-left: 0;
@@ -18,6 +23,10 @@ $data-definition {
 		margin: 0 0 5px;
 	}
 
+/**
+ * Inline Menu
+ * Turns a UL into foo | bar | zaz
+ */
 $inline-menu {
 	margin-left: 0;
 	padding-left: 0;
@@ -36,6 +45,55 @@ $inline-menu {
 		content: "";
 	}
 
+/**
+ * Previous/Next Menu
+ * Turns a UL with 2 LIs into < prev | next >
+ * (Should add support for $constant = $constant)
+ * (to avoid duplicate self-clear-styling)
+ */
+$previous-next-menu {
+	_height: 1%;
+	*display: inline-block;
+	_display: block;
+}
+
+$previous-next-menu:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+$previous-next-menu {
+	margin-left: 0;
+	list-style-type: none;
+}
+
+	$previous-next-menu li {
+		float: right;
+	}
+
+	$previous-next-menu li:first-child {
+		float: left;
+	}
+
+		$previous-next-menu li a:after {
+			content: " >";
+		}
+
+		$previous-next-menu li:first-child a:after {
+			content: "";
+		}
+
+		$previous-next-menu li:first-child a:before {
+			content: "< ";
+		}
+
+/**
+ * Self Clear
+ * Classic self-clear
+ */
 $self-clear {
 	_height: 1%;
 	*display: inline-block;
