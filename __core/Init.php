@@ -4,7 +4,7 @@
 	 * and also takes care of initialising the framework
 	 */
 
-	# Directory paths
+	# Define some constants
 	define('AUTO_DIV',			true);
 
 	define('ROOT_DIR',			str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'] .'/'));	# Document Root
@@ -23,7 +23,7 @@
 
 	define('AFRAMEWORK_VERSION',	'aFramework v3');
 
-	define('AJAX_CALL',			(isset($_SERVER['HTTP_X_REQUESTED_WITH']) and $_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'));
+	define('AJAX_CALL',			isset($_SERVER['HTTP_X_REQUESTED_WITH']));
 
 	# Include some stuff
 	require_once CORE_DIR .'Config.php';
