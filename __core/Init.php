@@ -29,7 +29,7 @@
 	require_once CORE_DIR .'Config.php';
 	require_once LIB_DIR .'MicroAskimet.php';
 	require_once LIB_DIR .'MicroAskimet.php';
-	require_once LIB_DIR .'MarkDown.php';
+	require_once LIB_DIR .'Markdown.php';
 	require_once LIB_DIR .'Functions.php';
 	require_once LIB_DIR .'NiceString.php';
 	require_once LIB_DIR .'NiceDate.php';
