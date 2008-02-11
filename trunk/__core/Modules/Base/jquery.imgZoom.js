@@ -42,15 +42,15 @@ $.imgZoom = function(config) {
 				var img = $('<img src="' +imgSrc +'" alt="" />').appendTo(document.body).css({position: 'absolute'});
 
 				// Get its dimensions
-				var w = img.outerWidth();
-				var h = img.outerHeight();
-				var l = (jQuery(window).width() - w) / 2 + jQuery(window).scrollLeft();
-				var	t = (jQuery(window).height() - h) / 2 + jQuery(window).scrollTop();
+				var width = img.outerWidth();
+				var height = img.outerHeight();
+				var left = (jQuery(window).width() - width) / 2 + jQuery(window).scrollLeft();
+				var	top = (jQuery(window).height() - height) / 2 + jQuery(window).scrollTop();
 				var newDim = {
-					width: w,
-					height: h, 
-					left: l, 
-					top: t
+					width: width,
+					height: height, 
+					left: left, 
+					top: top
 				};
 
 				// Set its dimensions to clicked element's
@@ -60,17 +60,13 @@ $.imgZoom = function(config) {
 					width: oldDim.width, 
 					height: oldDim.height, 
 					opacity: 0
-				})
-				// Animate to the new dims
-				.animate({
+				}).animate({ // Animate to the new dims
 					left: newDim.left,
 					top: newDim.top, 
 					width: newDim.width, 
 					height: newDim.height, 
 					opacity: 1
-				}, conf.speed)
-				// Animate back and remove onclick
-				.click(function() {
+				}, conf.speed).click(function() { // Animate back and remove onclick
 					$(this).animate({
 						left: oldDim.left, 
 						top: oldDim.top, 
@@ -81,7 +77,7 @@ $.imgZoom = function(config) {
 						$(this).remove();
 					});
 				});
-			}
+			};
 
 			return false;
 		}
