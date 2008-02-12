@@ -1,15 +1,28 @@
-$.imgZoom = function(config) {
-	var conf = {
+/**
+ * Imgzoom 1.0 (Requires the dimensions-plugin)
+ *
+ * Opens links that point to images in the "ImgZoom" (zooms out the image)
+ *
+ * Usage: $.imgzoom();
+ *
+ * @class imgzoom
+ * @param {Object} conf, custom config-object
+ *
+ * Copyright (c) 2008 Andreas Lagerkvist (andreaslagerkvist.com)
+ * Released under a GNU General Public License v3 (http://creativecommons.org/licenses/by/3.0/)
+ */
+jQuery.imgzoom = function(conf) {
+	var config = {
 		speed: 200
 	};
-	conf = $.extend(conf, config);
+	config = jQuery.extend(config, conf);
 
 	// Let events bubble up to body (supports dynamically inserted links)
-	$(document.body).click(function(ev) {
+	jQuery(document.body).click(function(ev) {
 		// Get the clicked element
 		var el = ev.target;
 
-		// If the clicked element is not an anchor, see if any of its parents is
+		// If the clicked element is not an anchor, see if any of its parents is (use jQuery.fn.parents() instead?)
 		if(el.nodeName.toLowerCase() != 'a') {
 			while(el.nodeName.toLowerCase() != 'a' && el.nodeName.toLowerCase() != 'body') {
 				el = el.parentNode;
@@ -18,18 +31,19 @@ $.imgZoom = function(config) {
 
 		// If clicked element (or any of its parents) has an 'href'-attribute matching the image-reg-exp, continue
 		if(el.nodeName.toLowerCase() == 'a' && el.getAttribute('href').search(/(.*)\.(jpg|jpeg|gif|png|bmp|tif|tiff)/gi) != -1) {
-			// Store dimensions of clicked link
+			// Store dimensions of clicked link (or image in case there is one (dimensions returns bad dimensions for inline-elements containing images(?))
 			var imgSrc = el.getAttribute('href');
-			var t = $(el).find('img');
-			if(!t.length) {
-				t = $(el);
+			var e = jQuery(el).find('img');
+			if(!e.length) {
+				e = jQuery(el);
 			}
-			var offset = t.offset();
+			var offset = e.offset();
 			var oldDim = {
-				width: t.outerWidth(), 
-				height: t.outerHeight(), 
+				width: e.outerWidth(), 
+				height: e.outerHeight(), 
 				left: offset.left, 
-				top: offset.top
+				top: offset.top, 
+				opacity: 0
 			};
 
 			// Preload image
@@ -39,7 +53,7 @@ $.imgZoom = function(config) {
 			// Onload
 			preload.onload = function() {
 				// Append image to body
-				var img = $('<img src="' +imgSrc +'" alt="" />').appendTo(document.body).css({position: 'absolute'});
+				var img = jQuery('<img src="' +imgSrc +'" alt="" class="imgzoom" />').appendTo(document.body).css({position: 'absolute'});
 
 				// Get its dimensions
 				var width = img.outerWidth();
@@ -50,31 +64,14 @@ $.imgZoom = function(config) {
 					width: width,
 					height: height, 
 					left: left, 
-					top: top
+					top: top, 
+					opacity: 1
 				};
 
-				// Set its dimensions to clicked element's
-				img.css({
-					left: oldDim.left, 
-					top: oldDim.top, 
-					width: oldDim.width, 
-					height: oldDim.height, 
-					opacity: 0
-				}).animate({ // Animate to the new dims
-					left: newDim.left,
-					top: newDim.top, 
-					width: newDim.width, 
-					height: newDim.height, 
-					opacity: 1
-				}, conf.speed).click(function() { // Animate back and remove onclick
-					$(this).animate({
-						left: oldDim.left, 
-						top: oldDim.top, 
-						width: oldDim.width, 
-						height: oldDim.height, 
-						opacity: 0
-					}, conf.speed, function() {
-						$(this).remove();
+				// Set its dimensions to clicked element's, animate to new, onclick; animate back and remove
+				img.css(oldDim).animate(newDim, config.speed).click(function() {
+					jQuery(this).animate(oldDim, config.speed, function() {
+						jQuery(this).remove();
 					});
 				});
 			};

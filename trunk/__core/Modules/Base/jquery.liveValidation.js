@@ -1,9 +1,16 @@
 /**
+ * LiveValidation 1.0 (Requires my FormValidator PHP-Class)
+ *
  * Adds OK/Not Ok-icons next to 'formControls'
  * that indicates whether said control's value is valid
  *
+ * Usage: $('form').liveValidation({action: 'FormValidator.php', validIco: 'valid.gif', invalidIco: 'invalid.gif'});
+ *
  * @class liveValidation
  * @param {Object} conf, custom config-object
+ *
+ * Copyright (c) 2008 Andreas Lagerkvist (andreaslagerkvist.com)
+ * Released under a GNU General Public License v3 (http://creativecommons.org/licenses/by/3.0/)
  */
 jQuery.fn.liveValidation = function(conf) {
 	var config = {

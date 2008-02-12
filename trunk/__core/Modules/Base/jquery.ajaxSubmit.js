@@ -1,4 +1,6 @@
 /**
+ * AjaxSubmit 1.0
+ *
  * Submits a form using XHR. Grabs all form-controls
  * with name-attributes and submits to form's action
  * using form's method or custom action/method set in conf
@@ -6,6 +8,9 @@
  * @class ajaxSubmit
  * @param {String|Function} foo, CSS-selector to element to be updated with XHR-response or callback function for XHR-call (data is passed to function)
  * @param {Object} conf, custom config-object
+ * 
+ * Copyright (c) 2008 Andreas Lagerkvist (andreaslagerkvist.com)
+ * Released under a GNU General Public License v3 (http://creativecommons.org/licenses/by/3.0/)
  */
 jQuery.fn.ajaxSubmit = function(foo, conf) {
 	var config = {

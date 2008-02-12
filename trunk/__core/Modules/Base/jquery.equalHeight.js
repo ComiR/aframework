@@ -1,7 +1,15 @@
 /**
  * EqualHeight 1.0
  *
- * Copyright (c) 2007 Andreas Lagerkvist (exscale.se)
+ * Makes all matched elements equal height. Does not work in
+ * browsers that do not support min-height (no IE.. who cares)
+ *
+ * Usage: $('#content, #sub-content').equoalHeight();
+ *
+ * @class equalHeight
+ *
+ * Copyright (c) 2008 Andreas Lagerkvist (andreaslagerkvist.com)
+ * Released under a GNU General Public License v3 (http://creativecommons.org/licenses/by/3.0/)
  */
 jQuery.fn.equalHeight = function() {
 	var height = 0, 
