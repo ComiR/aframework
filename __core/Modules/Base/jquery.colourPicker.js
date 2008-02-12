@@ -1,43 +1,51 @@
-/*
+/**
  * ColourPicker 1.0
  *
- * Copyright (c) 2007 Andreas Lagerkvist (exscale.se)
- * 
- * Here's a little php-function you can
- * use to generate "web safe" colours:
- * 
-function gwsc()
-{
-	$colours = array("00", "33", "66", "99", "CC", "FF");
+ * Turns a <select>-element full of colours into an input with
+ * a "colour-picker-icon" next to it that opens a dialogue which
+ * allows user to pick any colour present in select
+ *
+ * Usage: $('select[name="colour"]').colourPicker();
+ *
+ * @class equalHeight
+ * @param {Object} conf, custom config-object
+ *
+ * Copyright (c) 2008 Andreas Lagerkvist (andreaslagerkvist.com)
+ * Released under a GNU General Public License v3 (http://creativecommons.org/licenses/by/3.0/)
+ */
 
-	for($i=0; $i<6; $i++)
-	{
-		for($j=0; $j<6; $j++)
-		{
-			for($k=0; $k<6; $k++)
-			{
-				$colour = $colours[$i] .$colours[$j] .$colours[$k];
-				echo "<option value=\"$colour\">#$colour</option>\n";
+/*
+Here's a little php-function you can
+use to generate "web safe" colours:
+
+function gwsc() {
+	$cs = array('00', '33', '66', '99', 'CC', 'FF');
+
+	for($i=0; $i<6; $i++) {
+		for($j=0; $j<6; $j++) {
+			for($k=0; $k<6; $k++) {
+				$c = $cs[$i] .$cs[$j] .$cs[$k];
+				echo "<option value=\"$c\">#$c</option>\n";
 			}
 		}
 	}
 }
- *
- * Use it like this:
- * 
+
+Use it like this:
+
 <select name="colour">
 	<?php gwsc(); ?>
 </select>
- */
+*/
 jQuery.fn.colourPicker = function(conf) {
 	// Returns inverted hex-value (well, _should_ do that)
 	function niceColour(hex) {
+		// Todo...
+		return 'ffffff';
+
 		var r = hex.substr(0, 2), 
 			g = hex.substr(2, 2), 
 			b = hex.substr(4, 2);
-
-		// Todo...
-		return 'ffffff';
 	}
 
 	// Config for plug-in

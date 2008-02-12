@@ -1,7 +1,14 @@
-/*
- * Center 1.0
+/**
+ * ColourPicker 1.0
  *
- * Copyright (c) 2007 Andreas Lagerkvist (exscale.se)
+ * Centers all matched elements using position: fixed (no IE)
+ *
+ * Usage: $('div.img-overlay').center();
+ *
+ * @class center
+ *
+ * Copyright (c) 2008 Andreas Lagerkvist (andreaslagerkvist.com)
+ * Released under a GNU General Public License v3 (http://creativecommons.org/licenses/by/3.0/)
  */
 jQuery.fn.center = function() {
 	// Always return each...

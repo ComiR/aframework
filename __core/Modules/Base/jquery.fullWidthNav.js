@@ -1,7 +1,16 @@
-/*
- * fullWidthNav 1.0 (Requires the dimensions plug-in)
+/**
+ * FullWIdthNav 1.0 (Requires the dimensions plug-in)
  *
- * Copyright (c) 2007 Andreas Lagerkvist (exscale.se)
+ * Takes any navigation built from a "ul li a" setup and increases
+ * each a's padding left/right so that the entire row of lis/as take
+ * up the full space of their parent.
+ *
+ * Usage: $('#navigation, ul.tabs').fullWidthNav();
+ *
+ * @class fullWidthNav
+ *
+ * Copyright (c) 2008 Andreas Lagerkvist (andreaslagerkvist.com)
+ * Released under a GNU General Public License v3 (http://creativecommons.org/licenses/by/3.0/)
  */
 jQuery.fn.fullWidthNav = function() {
 	// Always return each...

@@ -1,3 +1,24 @@
+$.paginate = function(what, conf) {
+	if(!what) {
+		return false;
+	}
+
+	var config = {
+		itemsPerPage: 1, 
+		loop: false, 
+		currentPage: 1
+	};
+	config = $.extend(config, conf);
+
+	var numItems = $(what).length;
+	var numPages = Math.ceil(numItems / config.itemsPerPage);
+
+	function nav() {
+		var previousPage = (config.currentPage == 1) ? config.numPages : config.currentPage - 1;
+		var nextPage = (config.currentPage == config.numPages) ? 1 : config.currentPage + 1;
+	}
+};
+
 function Paginate(what, itemsPerPage, loop, currentPage)
 {
 	if(what == undefined)			return false;

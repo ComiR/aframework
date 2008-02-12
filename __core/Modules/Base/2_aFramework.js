@@ -15,11 +15,12 @@ var aFramework = {
 	 * is taken care of on dom ready (bottom of code)
 	 */
 	run: function() {
-		$('body').addClass('js-enabled').removeClass('js-disabled').imgbox();
+		$('body').addClass('js-enabled').removeClass('js-disabled');
 		aFramework.general.captchaRefresh('/captcha.png');
 		aFramework.general.codeBlocks();
 		aFramework.general.toggleTitles();
 		aFramework.general.hideTopLinks();
+		$.imgzoom();
 	}, 
 
 	/*
