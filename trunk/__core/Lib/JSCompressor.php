@@ -49,7 +49,7 @@
 		 * @method pack
 		 */
 		public function pack() {
-			$packer = new JavaScriptPacker($this->code);
+			$packer = new JavaScriptPacker($this->code, 0); // 0 compression because regardless of compression gzipped size is basically the same and uncompresson is slow
 
 			return $packer->pack();
 		}
