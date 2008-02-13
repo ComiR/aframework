@@ -1,3 +1,35 @@
-img.imgzoom {
-	border: 10px solid #fff;
+div.imgzoom {
+	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	border: 5px solid #fff;
+	line-height: 1;
+	font-size: 1;
 }
+
+	div.imgzoom a {
+		background: url(../__common/gfx/icons/imgzoom-close.png) no-repeat;
+
+		display: block;
+		width: 44px;
+		height: 45px;
+
+		position: absolute;
+		left: -22px;
+		top: -22px;
+
+		text-decoration: none;
+		text-indent: -100000px;
+		outline: 0;
+	}
+
+	div.imgzoom a:hover {
+		background-position: left -45px;
+	}
+
+	div.imgzoom img {
+		width: 100%;
+	}
+
+	div.imgzoom p {
+		display: none;
+		font-size: 12px;
+	}
