@@ -11,14 +11,14 @@
 	RewriteRule ^mod/FormValidator/ /__core/Lib/AjaxFormValidator.php?%{QUERY_STRING} [L]
 
 	# Run /mod/ModuleName/ as single modules (commonly fetched with XHR)
-	RewriteRule ^mod/(.*?)/ /index.php?mod=$1&%{QUERY_STRING} [L]
+	RewriteRule ^mod/(.*)/ /index.php?mod=$1&%{QUERY_STRING} [L]
 
 	# Run images suffixed wiv _small through Thumb-generator
-	RewriteRule ^(.*?)_small\.(jp(e)?g|png|gif)$ /__core/Lib/Thumb.php?f=$1.$2&%{QUERY_STRING} [L,NC]
+	RewriteRule ^(.*)_small\.(jp(e)?g|png|gif)$ /__core/Lib/Thumb.php?f=$1.$2&%{QUERY_STRING} [L,NC]
 	
 	# Run 'all' CSS and JS-files through compressor
 	RewriteRule ^__js/all\.js /__core/Lib/JSCompressor.php [L]
-	RewriteRule ^__styles/(.*?)/all\.css /__core/Lib/CSSCompressor.php?current_style=$1 [L]
+	RewriteRule ^__styles/(.*)/all\.css /__core/Lib/CSSCompressor.php?current_style=$1 [L]
 
 	# Run everything else but real files through index.php
 	RewriteCond %{REQUEST_FILENAME} !-d
