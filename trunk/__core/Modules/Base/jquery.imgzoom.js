@@ -4,6 +4,13 @@
  * Opens links that point to images in the "ImgZoom" (zooms out the image)
  *
  * Usage: $.imgzoom();
+ * 
+ * Todo: 
+ * 	- underlay (fixed div), 
+ * 	- meassure div's dimensions wiv only img in there and add close, description and class last (so no styling can fook wiv dimesnions), 
+ * 	- position fixed after animation, re-animate on close, (?)
+ * 	- prevent same image from opening twice (give it ID?) (#imgzoom-filename?)
+ * 	- shoouldn't only display image onload, also if already loaded? (had problems wiv this on imgbox i remember.. doesn't seem to happen here so far...) (ie only no?)
  *
  * @class imgzoom
  * @param {Object} conf, custom config-object
