@@ -28,7 +28,6 @@
 	# Include some stuff
 	require_once CORE_DIR .'Config.php';
 	require_once LIB_DIR .'MicroAskimet.php';
-	require_once LIB_DIR .'MicroAskimet.php';
 	require_once LIB_DIR .'Markdown.php';
 	require_once LIB_DIR .'Functions.php';
 	require_once LIB_DIR .'NiceString.php';
