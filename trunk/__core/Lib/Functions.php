@@ -4,6 +4,26 @@
 	 * aFramework in various places
 	 */
 
+	# Adjusts heading-levels in $html so highest is $l
+	function setHighestHeadingLevel($html, $l) {
+		for($hl = 1; $hl < 7; $hl++) {
+			if(preg_match("/<h$hl(.*?)>/i", $html)) {
+				break;
+			}
+		}
+
+		$a = $l - $hl;
+
+		for($i = 1; $i < 7; $i++) {
+			$nl = ($i + $a) > 6 ? 6 : ($i + $a);
+			$nl = $nl < 1 ? 1 : $nl;
+
+			$html = preg_replace("/<h$i(.*?)>(.*?)<\/h[1-6]{1,1}>/i", "{{h$nl$1}}$2{{/h$nl}}", $html);
+		}
+
+		return preg_replace('/\{\{h([1-6])(.*?)\}\}(.*?)\{\{\/h([1-6])\}\}/i', '<h$1$2>$3</h$4>', $html);
+	}
+
 	# Retrieves stored visitor data
 	function getVisitorData() {
 		$data = false;
