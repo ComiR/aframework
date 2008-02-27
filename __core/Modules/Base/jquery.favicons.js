@@ -28,7 +28,7 @@ $.favicons = function(conf) {
 		extImg.src = faviconURL;
 
 		if(extImg.complete) {
-			faviconIMG.src = faviconURL;
+			faviconIMG.attr('src', faviconURL);
 		}
 		else {
 			extImg.onload = function() {
