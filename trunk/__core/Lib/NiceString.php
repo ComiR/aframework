@@ -296,42 +296,40 @@
 		 * @method fixImgWidthHeightAttrs
 		 */
 		private function fixImgWidthHeightAttrs() {
-			if(!function_exists('_fixImgWidthHeightAttrsCallback')) {
-				function _fixImgWidthHeightAttrsCallback($matches) {
-					$rootDir	= str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'] .'/');
-					$isSmall	= false;
-					$filePath	= substr($matches[1], 1);
+			$this->str = preg_replace_callback('/<img src="(.*?)"(.*?) \/>/', array($this, 'fixImgWidthHeightAttrsCallback'), $this->str);
+		}
 
-					if(stristr($filePath, '_small.')) {
-						$isSmall	= true;
-						$filePath	= str_replace('_small.', '.', $filePath);
-						$pathQry	= explode('?', $filePath);
-						$filePath	= $pathQry[0];
-						$qry		= (isset($pathQry[1])) ? $pathQry[1] : '';
-						$widthMatch	= array();
-						$pattern	= '/w=([0-9]+)&?/';
-						preg_match($pattern, $qry, $widthMatch);
-						$smallWidth	= (isset($widthMatch[1])) ? $widthMatch[1] : 100; // should be same as default Thumb.php-size for accuracy
-					}
+		private function fixImgWidthHeightAttrsCallback($matches) {
+			$rootDir	= str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'] .'/');
+			$isSmall	= false;
+			$filePath	= substr($matches[1], 1);
 
-					if(file_exists($rootDir .$filePath)) {
-						$imgData = getimagesize($rootDir .$filePath);
-
-						if($isSmall) {
-							$w = $smallWidth;
-							$h = round($imgData[1] * ($w / $imgData[0] ));
-							$imgData[0] = $w;
-							$imgData[1] = $h;
-						}
-
-						return sprintf('<img src="%s"%s width="%s" height="%s" />', $matches[1], $matches[2], $imgData[0], $imgData[1]);
-					}
-
-					return $matches[0];
-				}
+			if(stristr($filePath, '_small.')) {
+				$isSmall	= true;
+				$filePath	= str_replace('_small.', '.', $filePath);
+				$pathQry	= explode('?', $filePath);
+				$filePath	= $pathQry[0];
+				$qry		= (isset($pathQry[1])) ? $pathQry[1] : '';
+				$widthMatch	= array();
+				$pattern	= '/w=([0-9]+)&?/';
+				preg_match($pattern, $qry, $widthMatch);
+				$smallWidth	= (isset($widthMatch[1])) ? $widthMatch[1] : 100; // should be same as default Thumb.php-size for accuracy
 			}
 
-			$this->str = preg_replace_callback('/<img src="(.*?)"(.*?) \/>/', '_fixImgWidthHeightAttrsCallback', $this->str);
+			if(file_exists($rootDir .$filePath)) {
+				$imgData = getimagesize($rootDir .$filePath);
+
+				if($isSmall) {
+					$w = $smallWidth;
+					$h = round($imgData[1] * ($w / $imgData[0] ));
+					$imgData[0] = $w;
+					$imgData[1] = $h;
+				}
+
+				return sprintf('<img src="%s"%s width="%s" height="%s" />', $matches[1], $matches[2], $imgData[0], $imgData[1]);
+			}
+
+			return $matches[0];
 		}
 
 		/**
