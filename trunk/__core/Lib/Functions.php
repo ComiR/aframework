@@ -103,7 +103,7 @@
 	# Like header:location with a die
 	function redirect($url) {
 		header("Location: $url");
-		die('Activate PHP Headers');
+		die('Please go to <a href="' .$url .'">' .$url .'</a>');
 	}
 
 	# Redirects to referrer
