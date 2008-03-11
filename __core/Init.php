@@ -1,7 +1,7 @@
 <?php
 	/**
 	 * This file contains configuration constants
-	 * and also takes care of initialising the framework
+	 * and also takes care of initializing the framework
 	 */
 
 	# Define some constants
