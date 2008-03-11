@@ -85,18 +85,7 @@
 				$i++;
 			}
 
-			function cmp($a, $b) {
-				$aLen = strlen($a);
-				$bLen = strlen($b);
-
-				if($aLen == $bLen) {
-					return 0;
-				}
-
-				return ($aLen > $bLen) ? -1 : 1;
-			}
-
-			uasort($find, 'cmp');
+			uasort($find, array($this, 'compareConstantDefinitionsLength'));
 
 			# There's a reason for this... (order of keys and key-values and shit...)
 			$tmp = array();
@@ -106,6 +95,17 @@
 			$replace = $tmp;
 
 			$this->code = str_replace($find, $replace, $this->code);
+		}, 
+
+		private function compareConstantDefinitionsLength($a, $b) {
+			$aLen = strlen($a);
+			$bLen = strlen($b);
+
+			if($aLen == $bLen) {
+				return 0;
+			}
+
+			return ($aLen > $bLen) ? -1 : 1;
 		}
 
 		/**
