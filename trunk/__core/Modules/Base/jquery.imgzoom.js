@@ -4,13 +4,6 @@
  * Opens links that point to images in the "ImgZoom" (zooms out the image)
  *
  * Usage: $.imgzoom();
- * 
- * Todo: 
- * 	- underlay (fixed div), 
- * 	- meassure div's dimensions wiv only img in there and add close, description and class last (so no styling can fook wiv dimesnions), 
- * 	- position fixed after animation, re-animate on close, (?)
- * 	- prevent same image from opening twice (give it ID?) (#imgzoom-filename?)
- * 	- shoouldn't only display image onload, also if already loaded? (had problems wiv this on imgbox i remember.. doesn't seem to happen here so far...) (ie only no?)
  *
  * @class imgzoom
  * @param {Object} conf, custom config-object
@@ -37,7 +30,11 @@ jQuery.imgzoom = function(conf) {
 		// If clicked element (or any of its parents) has an 'href'-attribute matching the image-reg-exp, continue
 		if(clickedElement && clickedElement.nodeName.toLowerCase() == 'a' && clickedElement.getAttribute('href').search(/(.*)\.(jpg|jpeg|gif|png|bmp|tif|tiff)/gi) != -1) {
 			// Get the href (that points to the image)
-			var imgSrc = clickedElement.getAttribute('href');
+			var imgSrc = clickedElement.getAttribute('href', 2);
+
+			if($('div.imgzoom img[src="' +imgSrc +'"]').length) {
+				return false;
+			}
 
 			// See if link contains an image, if so get dimensions and description
 			// (alt-attribute) from it, else use anchor's dimensions and title-attribute
@@ -64,29 +61,31 @@ jQuery.imgzoom = function(conf) {
 				opacity: 0
 			};
 
-			// Preload image
-			var preload = new Image();
-			preload.src = imgSrc;
-
-			// Onload
-			preload.onload = function() {
+			// This function animates and displays the imgzoom-div
+			var displayImgzoom = function() {
 				// Append image to body
-				var imgzoom = jQuery('<div class="imgzoom"></div>').html('<a href="#">Close</a><img src="' +imgSrc +'" alt="" />' +description).appendTo(document.body).css({position: 'absolute'});
+				var imgzoom = jQuery('<div><img src="' +imgSrc +'" alt="" /></div>').css({position: 'absolute'}).appendTo(document.body);
 
 				// Get its dimensions
 				var width = imgzoom.outerWidth();
 				var height = imgzoom.outerHeight();
 				var left = (jQuery(window).width() - width) / 2 + jQuery(window).scrollLeft();
 				var	top = (jQuery(window).height() - height) / 2 + jQuery(window).scrollTop();
+
+				// Now add close-button and stuff (we don't want them in the dimensions-calculation)
+				imgzoom.addClass('imgzoom').append('<a href="#">Close</a>' +description);
+
+				// These are the dimensions of the imgzoom
 				var newDim = {
 					width: width,
 					height: height, 
 					left: left, 
 					top: top, 
-					opacity: 1
+					opacity: 1, 
+					overflow: 'auto'
 				};
 
-				// Set its dimensions to clicked element's, animate to new, onclick; animate back and remove
+				// Set imgzoom's dimensions to clicked element's, animate to new, onclick; animate back and remove
 				imgzoom.css(oldDim).animate(newDim, config.speed);
 
 				// Close imgzoom on-close-link-click (only link in imgzoom)
@@ -98,6 +97,18 @@ jQuery.imgzoom = function(conf) {
 					return false;
 				});
 			};
+
+			// Preload image
+			var preload = new Image();
+			preload.src = imgSrc;
+
+			// Onload
+			if(preload.complete) {
+				displayImgzoom();
+			}
+			else {
+				preload.onload = displayImgzoom;
+			}
 
 			return false;
 		}

@@ -1,14 +1,20 @@
 div.imgzoom {
+	line-height: 0;
+	font-size: 0;
+
+	z-index: 10;
+
+	border: 5px solid #fff;
+
 	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 	-moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-	border: 5px solid #fff;
-	line-height: 1;
-	font-size: 1;
 }
 
 	div.imgzoom a {
-		background: url(../__common/gfx/icons/imgzoom-close.png) no-repeat;
+		background: url(gfx/imgzoom-close.png) no-repeat;
+		_background: none;
+		_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/css/gfx/imgzoom-close.png', sizingMethod=scale);
 
 		display: block;
 		width: 44px;
@@ -21,6 +27,8 @@ div.imgzoom {
 		text-decoration: none;
 		text-indent: -100000px;
 		outline: 0;
+
+		z-index: 11;
 	}
 
 	div.imgzoom a:hover {
