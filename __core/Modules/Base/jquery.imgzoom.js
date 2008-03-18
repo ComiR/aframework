@@ -13,9 +13,11 @@
  */
 jQuery.imgzoom = function(conf) {
 	var config = {
-		speed: 200
+		speed: 200,		// animation-speed of zoom
+		dontFadeIn: 1	// 1 = do not fade in, 0 = do fade in
 	};
 	config = jQuery.extend(config, conf);
+	config.doubleSpeed= config.speed / 4;
 
 	// Let events bubble up to body (supports dynamically inserted links)
 	jQuery(document.body).click(function(event) {
@@ -28,10 +30,15 @@ jQuery.imgzoom = function(conf) {
 		}
 
 		// If clicked element (or any of its parents) has an 'href'-attribute matching the image-reg-exp, continue
-		if(clickedElement && clickedElement.nodeName.toLowerCase() == 'a' && clickedElement.getAttribute('href').search(/(.*)\.(jpg|jpeg|gif|png|bmp|tif|tiff)/gi) != -1) {
+		if(
+			clickedElement && 
+			clickedElement.nodeName.toLowerCase() == 'a' && 
+			clickedElement.getAttribute('href', 2).search(/(.*)\.(jpg|jpeg|gif|png|bmp|tif|tiff)/gi) != -1
+		) {
 			// Get the href (that points to the image)
 			var imgSrc = clickedElement.getAttribute('href', 2);
 
+			// If it's alredy open, do nothing
 			if($('div.imgzoom img[src="' +imgSrc +'"]').length) {
 				return false;
 			}
@@ -58,8 +65,10 @@ jQuery.imgzoom = function(conf) {
 				height: e.outerHeight(), 
 				left: offset.left, 
 				top: offset.top, 
-				opacity: 0
+				opacity: config.dontFadeIn
 			};
+
+			jQuery(clickedElement).css({visibility: 'hidden'});
 
 			// This function animates and displays the imgzoom-div
 			var displayImgzoom = function() {
@@ -73,7 +82,9 @@ jQuery.imgzoom = function(conf) {
 				var	top = (jQuery(window).height() - height) / 2 + jQuery(window).scrollTop();
 
 				// Now add close-button and stuff (we don't want them in the dimensions-calculation)
-				imgzoom.addClass('imgzoom').append('<a href="#">Close</a>' +description);
+				var closeButton = jQuery('<a href="#">Close</a>').appendTo(imgzoom).hide();
+
+				imgzoom.addClass('imgzoom').append(description);
 
 				// These are the dimensions of the imgzoom
 				var newDim = {
@@ -86,12 +97,18 @@ jQuery.imgzoom = function(conf) {
 				};
 
 				// Set imgzoom's dimensions to clicked element's, animate to new, onclick; animate back and remove
-				imgzoom.css(oldDim).animate(newDim, config.speed);
+				imgzoom.css(oldDim).animate(newDim, config.speed, function() {
+				//	imgzoom.center();
+					closeButton.fadeIn(config.doubleSpeed);
+				});
 
 				// Close imgzoom on-close-link-click (only link in imgzoom)
-				$('a', imgzoom).click(function() {
-					imgzoom.animate(oldDim, config.speed, function() {
-						imgzoom.remove();
+				closeButton.click(function() {
+					closeButton.fadeOut(config.doubleSpeed, function() {
+						imgzoom.animate(oldDim, config.speed, function() {
+							imgzoom.remove();
+							jQuery(clickedElement).css({visibility: 'visible'});
+						});
 					});
 
 					return false;
