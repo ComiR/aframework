@@ -41,8 +41,3 @@ div.imgzoom {
 		width: 100%;
 		height: 100%;
 	}
-
-	div.imgzoom p {
-		display: none;
-		font-size: 12px;
-	}
