@@ -63,7 +63,7 @@ jQuery.imgzoom = function(conf) {
 			};
 
 			if(hideClicked) {
-				clickedElement.css({visibility: 'hidden'});
+				clickedElement.css({visibility: 'hidden'}).addClass('imgzoom-hidden');
 			}
 
 			// This function animates and displays the imgzoom-div
@@ -124,22 +124,25 @@ jQuery.imgzoom = function(conf) {
 					}
 				});
 
+				// Hides the box
+				var hideImgzoom = function() {
+					if(!imgzoom.find('img').is(':visible')) {
+						imgzoom.find('img').show();
+						imgzoom.find('div').remove();
+					}
+
+					imgzoom.animate(oldDim, config.speed, function() {
+						imgzoom.remove();
+
+						if(hideClicked) {
+							clickedElement.css({visibility: 'visible'}).removeClass('imgzoom-hidden');
+						}
+					});
+				};
+
 				// Close imgzoom on-close-link-click
 				closeButton.click(function() {
-					closeButton.fadeOut(config.doubleSpeed, function() {
-						if(!imgzoom.find('img').is(':visible')) {
-							imgzoom.find('img').show();
-							imgzoom.find('div').remove();
-						}
-
-						imgzoom.animate(oldDim, config.speed, function() {
-							imgzoom.remove();
-
-							if(hideClicked) {
-								clickedElement.css({visibility: 'visible'});
-							}
-						});
-					});
+					closeButton.fadeOut(config.doubleSpeed, hideImgzoom);
 
 					return false;
 				});
@@ -161,3 +164,11 @@ jQuery.imgzoom = function(conf) {
 		}
 	});
 };
+
+// Quick way to destroy all open imgzooms (esc-key)
+jQuery(document).keydown(function(event) {
+	if(event.keyCode == 27) {
+		jQuery('div.imgzoom').remove();
+		jQuery('.imgzoom-hidden').css({visibility: 'visible'});
+	}
+});
