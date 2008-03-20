@@ -21,8 +21,8 @@
 		 *
 		 * @method __construct
 		 */
-		public function __construct($dirs) {
-			$this->getCodeFromDirs($dirs);
+		public function __construct($dirs, $not = false) {
+			$this->getCodeFromDirs($dirs, $not);
 		}
 
 		/**
@@ -46,7 +46,7 @@
 		private function extractConstantSelectors() {
 			$matches = array();
 			$mergedSelectors = array();
-			$pattern = '/([^;|\n|}][^=|}]*)[ ]?=[ ]?(\$[^;]*);/';
+			$pattern = '/([^;}]*?)=\s*?(\$.*?);/';
 
 			preg_match_all($pattern, $this->code, $matches);
 
@@ -70,22 +70,24 @@
 			$matches = array();
 			$find = array();
 			$replace = array();
-			$pattern = '/(\$[^ |:]*)(.*?)[ ]?{/';
+			$pattern = '/\s?(\$[^:\s]*)(.*?){/';
 
 			preg_match_all($pattern, $this->code, $matches);
 
 			$i = 0;
 			foreach($matches[1] as $constant) {
-				$find[$i] = $constant .$matches[2][$i];
+				$find[$i] = trim($constant .$matches[2][$i]);
 				$replace[$i] = array();
-				foreach($this->constantSelectors[$constant] as $selector) {
-					$replace[$i][] = $selector .$matches[2][$i];
+				if(isset($this->constantSelectors[$constant])) {
+					foreach($this->constantSelectors[$constant] as $selector) {
+						$replace[$i][] = trim($selector .$matches[2][$i]);
+					}
 				}
 				$replace[$i] = implode($replace[$i], ',');
 				$i++;
 			}
 
-			uasort($find, array($this, 'compareConstantDefinitionsLength'));
+			uasort($find, array($this, 'cmp'));
 
 			# There's a reason for this... (order of keys and key-values and shit...)
 			$tmp = array();
@@ -95,9 +97,9 @@
 			$replace = $tmp;
 
 			$this->code = str_replace($find, $replace, $this->code);
-		}, 
+		}
 
-		private function compareConstantDefinitionsLength($a, $b) {
+		private function cmp($a, $b) {
 			$aLen = strlen($a);
 			$bLen = strlen($b);
 
@@ -126,7 +128,7 @@
 		 *
 		 * @method getCodeFromDirs
 		 */
-		private function getCodeFromDirs($dirs) {
+		private function getCodeFromDirs($dirs, $not) {
 			$this->code = '';
 
 			if(!is_array($dirs)) {
@@ -139,7 +141,7 @@
 				$dh = opendir($dir);
 				if($dh) {
 					while($f = readdir($dh)) {
-						if('css' == end(explode('.', $f))) {
+						if('css' == end(explode('.', $f)) and $f != $not) {
 							$this->code .= file_get_contents("$dir/$f");
 						}
 					}
