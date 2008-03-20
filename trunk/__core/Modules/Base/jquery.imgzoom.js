@@ -14,7 +14,8 @@
 jQuery.imgzoom = function(conf) {
 	var config = {
 		speed: 200,		// animation-speed of zoom
-		dontFadeIn: 1	// 1 = do not fade in, 0 = do fade in
+		dontFadeIn: 1,	// 1 = do not fade in, 0 = do fade in
+		hideClicked: 1	// Whether to hide the image that was clicked to bring up the zoomed version
 	};
 	config = jQuery.extend(config, conf);
 	config.doubleSpeed= config.speed / 4;
@@ -43,19 +44,16 @@ jQuery.imgzoom = function(conf) {
 				return false;
 			}
 
-			// See if link contains an image, if so get dimensions and description
-			// (alt-attribute) from it, else use anchor's dimensions and title-attribute
+			// Whether to hide clicked element or not (set in config but always false for non-image-links)
+			var hideClicked = 0;
+
+			// See if link contains an image, if so get dimensions from the image rather than the link
 			var e = jQuery(clickedElement).find('img');
-			var description = '';
 			if(e.length) {
-				description = e.attr('alt') || '';
+				hideClicked = config.hideClicked;
 			}
 			else {
 				e = jQuery(clickedElement);
-				description = e.attr('title') || '';
-			}	
-			if(description.length) {
-				description = '<p>' +description +'</p>';
 			}
 
 			// Get the clicked element's dimensions
@@ -68,7 +66,9 @@ jQuery.imgzoom = function(conf) {
 				opacity: config.dontFadeIn
 			};
 
-			jQuery(clickedElement).css({visibility: 'hidden'});
+			if(hideClicked) {
+				jQuery(clickedElement).css({visibility: 'hidden'});
+			}
 
 			// This function animates and displays the imgzoom-div
 			var displayImgzoom = function() {
@@ -81,11 +81,6 @@ jQuery.imgzoom = function(conf) {
 				var left = (jQuery(window).width() - width) / 2 + jQuery(window).scrollLeft();
 				var	top = (jQuery(window).height() - height) / 2 + jQuery(window).scrollTop();
 
-				// Now add close-button and stuff (we don't want them in the dimensions-calculation)
-				var closeButton = jQuery('<a href="#">Close</a>').appendTo(imgzoom).hide();
-
-				imgzoom.addClass('imgzoom').append(description);
-
 				// These are the dimensions of the imgzoom
 				var newDim = {
 					width: width,
@@ -96,18 +91,50 @@ jQuery.imgzoom = function(conf) {
 					overflow: 'auto'
 				};
 
-				// Set imgzoom's dimensions to clicked element's, animate to new, onclick; animate back and remove
-				imgzoom.css(oldDim).animate(newDim, config.speed, function() {
+				// Now add close-button and stuff (we didn't want them in the dimensions-calculation)
+				var closeButton = jQuery('<a href="#">Close</a>').appendTo(imgzoom).hide();
+
+				// Set imgzoom's dimensions to clicked element's and animate to new
+				imgzoom.addClass('imgzoom').css(oldDim).animate(newDim, config.speed, function() {
 				//	imgzoom.center();
 					closeButton.fadeIn(config.doubleSpeed);
+
+					// This replaces the image with a youtube-clip if the clicked link has a class of youtube-.*
+					var classNames = jQuery(clickedElement).attr('class');
+
+					if(classNames) {
+						classNames = classNames.split(' ');
+
+						for(var i in classNames) {
+							if(classNames[i].indexOf('youtube-') != -1) {
+								var replaceDiv = jQuery('<div></div>').appendTo(imgzoom);
+								var movie = classNames[i].substr(8);
+
+								replaceDiv = replaceDiv[0];
+
+								imgzoom.find('img').hide();
+
+								var so = new SWFObject('http://www.youtube.com/v/' +movie, '', newDim.width, newDim.height, "9", "#fff");
+								so.write(replaceDiv);
+							}
+						}
+					}
 				});
 
-				// Close imgzoom on-close-link-click (only link in imgzoom)
+				// Close imgzoom on-close-link-click
 				closeButton.click(function() {
 					closeButton.fadeOut(config.doubleSpeed, function() {
+						if(!imgzoom.find('img').is(':visible')) {
+							imgzoom.find('img').show();
+							imgzoom.find('div').remove();
+						}
+
 						imgzoom.animate(oldDim, config.speed, function() {
 							imgzoom.remove();
-							jQuery(clickedElement).css({visibility: 'visible'});
+
+							if(hideClicked) {
+								jQuery(clickedElement).css({visibility: 'visible'});
+							}
 						});
 					});
 
