@@ -87,7 +87,7 @@ jQuery.imgzoom = function(conf) {
 					height: height, 
 					left: left, 
 					top: top, 
-					opacity: 1s
+					opacity: 1
 				};
 
 				// Now add close-button (we didn't want it in the dimensions-calculationas it's positioned absolutely anyway)
