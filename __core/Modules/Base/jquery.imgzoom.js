@@ -97,7 +97,7 @@ jQuery.imgzoom = function(conf) {
 				imgzoom.addClass('imgzoom').css(oldDim).animate(newDim, config.speed, function() {
 					// Now center the imgzoom fixed (so it follows when you scroll)
 				//	imgzoom.center();
-					imgzoom.css({overflow: 'none'});
+					imgzoom.css({overflow: 'visible'});
 
 					// Fade in the close-button (we do this because it looks ugly if shown during imgzoom animation due to overflow set to hidden)
 					closeButton.fadeIn(config.doubleSpeed);
