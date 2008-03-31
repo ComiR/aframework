@@ -87,12 +87,11 @@ jQuery.imgzoom = function(conf) {
 					height: height, 
 					left: left, 
 					top: top, 
-					opacity: 1, 
-					overflow: 'auto'
+					opacity: 1s
 				};
 
 				// Now add close-button (we didn't want it in the dimensions-calculationas it's positioned absolutely anyway)
-				var closeButton = jQuery('<a href="#">Close</a>').appendTo(imgzoom).hide();
+				var closeButton = jQuery('<a href="#">Close</a>').prependTo(imgzoom).hide();
 
 				// Add imgzoom-class, imgzoom's dimensions to clicked element's and animate to new
 				imgzoom.addClass('imgzoom').css(oldDim).animate(newDim, config.speed, function() {
