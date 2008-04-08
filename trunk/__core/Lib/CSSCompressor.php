@@ -70,7 +70,7 @@
 			$matches = array();
 			$find = array();
 			$replace = array();
-			$pattern = '/\s?(\$[^:\s]*)(.*?){/';
+			$pattern = '/\s?(\$[^\.:\s]*)(.*?){/';
 
 			preg_match_all($pattern, $this->code, $matches);
 
