@@ -1,7 +1,8 @@
 /**
- * Imgzoom 1.0 (Requires the dimensions-plugin)
+ * Imgzoom 1.1 (Requires the dimensions-plugin)
  *
  * Opens links that point to images in the "ImgZoom" (zooms out the image)
+ * If link has a class matching youtube-YOUTUBE_CODE the zoomed out image will be replaced with that youtube-clip
  *
  * Usage: $.imgzoom();
  *
@@ -13,9 +14,9 @@
  */
 jQuery.imgzoom = function(conf) {
 	var config = {
-		speed: 200,		// animation-speed of zoom
-		dontFadeIn: 1,	// 1 = do not fade in, 0 = do fade in
-		hideClicked: 1	// Whether to hide the image that was clicked to bring up the zoomed version
+		speed: 200,		// Animation-speed of zoom
+		dontFadeIn: 1,	// 1 = Do not fade in, 0 = Do fade in
+		hideClicked: 1	// Whether to hide the image that was clicked to bring up the imgzoom
 	};
 	config = jQuery.extend(config, conf);
 	config.doubleSpeed = config.speed / 4;
@@ -43,7 +44,7 @@ jQuery.imgzoom = function(conf) {
 			// Whether to hide clicked element or not (set in config but always false for non-image-links)
 			var hideClicked = 0;
 
-			// See if link contains an image, if so get dimensions from the image rather than the link
+			// See if link contains an image, if so get dimensions from the image rather than the link (also use config's hideClicked-property)
 			var tmpElement = clickedElement.find('img');
 			if(tmpElement.length) {
 				hideClicked = config.hideClicked;
@@ -62,16 +63,16 @@ jQuery.imgzoom = function(conf) {
 				opacity: config.dontFadeIn
 			};
 
-			if(hideClicked) {
-				clickedElement.css({visibility: 'hidden'}).addClass('imgzoom-hidden');
-			}
-
 			// This function animates and displays the imgzoom-div
 			var displayImgzoom = function() {
+				if(hideClicked) {
+					clickedElement.css({visibility: 'hidden'}).addClass('imgzoom-hidden');
+				}
+
 				// Append image to body
 				var imgzoom = jQuery('<div><img src="' +imgSrc +'" alt="" /></div>').css({position: 'absolute'}).appendTo(document.body);
 
-				// Get the image's dimensions as well as the windows scroll-pos/dimensions
+				// Get the image's dimensions as well as the window's scroll-pos/dimensions
 				var width = imgzoom.outerWidth();
 				var height = imgzoom.outerHeight();
 				var windowHeight = jQuery(window).height();
@@ -87,21 +88,21 @@ jQuery.imgzoom = function(conf) {
 					height: height, 
 					left: left, 
 					top: top, 
-					opacity: 1
+					opacity: 1, 
+					overflow: 'auto'
 				};
 
-				// Now add close-button (we didn't want it in the dimensions-calculationas it's positioned absolutely anyway)
-				var closeButton = jQuery('<a href="#">Close</a>').prependTo(imgzoom).hide();
+				// Now add close-button (we didn't want it in the dimensions-calculationas, it's positioned absolutely anyway)
+				var closeButton = jQuery('<a href="#">Close</a>').appendTo(imgzoom).hide();
 
-				// Add imgzoom-class, imgzoom's dimensions to clicked element's and animate to new
+				// Add imgzoom-class, set imgzoom's dimensions to clicked element's and animate to new
 				imgzoom.addClass('imgzoom').css(oldDim).animate(newDim, config.speed, function() {
 					// Now center the imgzoom fixed (so it follows when you scroll)
 				//	imgzoom.center();
-					imgzoom.css({overflow: 'visible'});
 
 					// Fade in the close-button (we do this because it looks ugly if shown during imgzoom animation due to overflow set to hidden)
 					closeButton.fadeIn(config.doubleSpeed);
-
+/*
 					// This replaces the image with a youtube-clip if the clicked link has a class of youtube-.*
 					var classNames = clickedElement.attr('class');
 
@@ -110,25 +111,62 @@ jQuery.imgzoom = function(conf) {
 
 						for(var i in classNames) {
 							if(classNames[i].indexOf('youtube-') != -1) {
-								var replaceDiv = jQuery('<div></div>').appendTo(imgzoom);
 								var movie = classNames[i].substr(8);
+								var containerID = new Date();
+								containerID = containerID.getTime();
+								var playerID = 'youtube-player-' +containerID;
+								containerID = 'youtube-player-container-' +containerID;
 
-								replaceDiv = replaceDiv[0];
+								jQuery('<div id="' +containerID +'"></div>').appendTo(imgzoom);
 
 								imgzoom.find('img').hide();
 
-								var so = new SWFObject('http://www.youtube.com/v/' +movie, '', newDim.width, newDim.height, "9", "#fff");
-								so.write(replaceDiv);
+								swfobject.embedSWF(
+								//	'http://www.youtube.com/v/' +movie, 
+									'http://gdata.youtube.com/apiplayer?key=' 
+											+aFramework.googleAPIKey 
+											+'&enablejsapi=1', 
+									containerID, 
+									newDim.width, 
+									newDim.height, 
+									'8', 
+									null, 
+									null, 
+									{
+										allowScriptAccess: 'always', 
+										bgcolor: '#ffffff'
+									}, 
+									{
+										id: playerID
+									}
+								);
+
+								if(!jQuery('#on-youtube-player-ready').length) {
+									// jQuery bug? unable to insert script, div works fine (but is obviously useless) resorting to native JS-functions
+								//	jQuery('<script type="text/javascript" id="on-youtube-player-ready">function onYouTubePlayerReady() {var youtubePlayer; youtubePlayer = document.getElementById("' +playerID +'"); youtubePlayer.loadVideoById("' +movie +'", 0); youtubePlayer.playVideo(); }</script>').appendTo(document.body);
+								//	jQuery('<div type="text/javascript" id="on-youtube-player-ready">function onYouTubePlayerReady() {var youtubePlayer; youtubePlayer = document.getElementById("' +playerID +'"); youtubePlayer.loadVideoById("' +movie +'", 0); youtubePlayer.playVideo(); }</div>').appendTo(document.body);
+
+									var script = document.createElement('script');
+
+									script.type = 'text/javascript';
+									script.id = 'on-youtube-player-ready';
+
+									// Should add to preay-function, use substr
+									script.innerHTML = 'function onYouTubePlayerReady() {var youtubePlayer; youtubePlayer = document.getElementById("' +playerID +'"); youtubePlayer.loadVideoById("' +movie +'", 0); youtubePlayer.playVideo(); }';
+
+									document.body.appendChild(script);
+								}
 							}
 						}
-					}
+					}*/
 				});
 
 				// Hides the box
 				var hideImgzoom = function() {
-					if(!imgzoom.find('img').is(':visible')) {
+					// Switch back to image before animation in case it's been switched to youtube-clip
+					if(imgzoom.find('object').length) {
 						imgzoom.find('img').show();
-						imgzoom.find('div').remove();
+						imgzoom.find('object').remove();
 					}
 
 					imgzoom.animate(oldDim, config.speed, function() {

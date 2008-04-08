@@ -7,6 +7,8 @@
  * extends aFramework.Module
  */
 var aFramework = {
+	googleAPIKey: 'AI39si4CeE6VNeikkYdKXmhvNeR85N3MAsptbX9qN_TxOgyyNDVX50tyVN4Sfn-NeZY93NbTygGKn1kHUHq9U9dqTxfplFS-0g', 
+
 	/*
 	 * run
 	 *
@@ -19,8 +21,9 @@ var aFramework = {
 		aFramework.general.captchaRefresh('/captcha.png');
 		aFramework.general.codeBlocks();
 		aFramework.general.toggleTitles();
-		aFramework.general.hideTopLinks();
+	//	aFramework.general.hideTopLinks(); // not til i top-link to !#
 		$.imgzoom();
+		$.youtubeAPI();
 	}, 
 
 	/*
