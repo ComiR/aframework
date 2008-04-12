@@ -7,6 +7,11 @@
 	RewriteCond %{HTTP_HOST} ^www\.yourdomain\.com$ [NC]
 	RewriteRule ^(.*)$ http://yourdomain\.com/$1 [R=301,L]
 
+	# Force a trailing slash for dirs
+	RewriteRule !\..{2,4}$ - [C]
+	RewriteCond %{REQUEST_URI} !^.*/$
+	RewriteRule ^(.+)$ /$1/ [R=301,L]
+
 	# Run form-validation requests through /mod/FormValidation/
 	RewriteRule ^mod/FormValidator/ /__core/Lib/AjaxFormValidator.php?%{QUERY_STRING} [L]
 
