@@ -1,10 +1,10 @@
 <?php
+	# Not part of class...
 	$docRoot = str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'] .'/');
 
 	require_once 'JavaScriptPacker.php';
 	require_once $docRoot .'__core/Config.php';
 
-	# Not part of class...
 	header('Content-type: application/x-javascript');
 
 	# Get all module-JS

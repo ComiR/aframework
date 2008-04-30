@@ -1,4 +1,26 @@
 /**
+ * Numeric definition list
+ */
+$numeric-definition {
+	margin-left: 0;
+	padding-left: 0;
+}
+
+	$numeric-definition dt {
+		counter-reset: i;
+	}
+
+	$numeric-definition dd + dd, 
+	$numeric-definition dd ~ dd:not(:last-child) {
+		counter-increment: i;
+	}
+
+	$numeric-definition dd + dd:before, 
+	$numeric-definition dd ~ dd:not(:last-child):before {
+		content: "(" counter(i) ") ";
+	}
+
+/**
  * Data Definition List
  * Used on DLs to turn them into Key: Val
  * Bold key with : after

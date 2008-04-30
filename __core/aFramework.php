@@ -48,6 +48,10 @@
 		 * @method handleStyle
 		 */
 		private function handleStyle() {
+			if(!ALLOW_STYLES) {
+				return false;
+			}
+
 			$tmp = array_merge($_GET, $_POST);
 			$style = (isset($tmp['style'])) ? str_replace(array('..\\', '../', '/', '\\'), '', $tmp['style']) : false;
 

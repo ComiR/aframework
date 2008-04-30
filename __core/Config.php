@@ -15,6 +15,7 @@
 	define('SITE_AUTHOR',		'You');
 	define('SITE_TITLE',		'Demo Site');
 	define('SITE_TAGLINE',		'This is just an aFramework example site');
+	define('ALLOW_STYLES',		true);
 	define('DEFAULT_STYLE',		'default');
 	define('CONTACT_EMAIL',		'you@yourdomain.com');
 
