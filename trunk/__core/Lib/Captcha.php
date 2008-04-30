@@ -1,4 +1,5 @@
 <?php
+	# Not part of class...
 	session_start();
 	$c = new Captcha(str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'] .'/') .'__files/captcha.ttf', 4);
 	$c->show();
