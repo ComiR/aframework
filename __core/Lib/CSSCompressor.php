@@ -21,7 +21,11 @@
 		 *
 		 * @method __construct
 		 */
-		public function __construct($dirs, $not = false) {
+		public function __construct($dirs, $not = array()) {
+			if(!is_array($not)) {
+				$not[] = $not;
+			}
+
 			$this->getCodeFromDirs($dirs, $not);
 		}
 
@@ -141,11 +145,17 @@
 				$dh = opendir($dir);
 				if($dh) {
 					while($f = readdir($dh)) {
-						if('css' == end(explode('.', $f)) and $f != $not) {
-							$this->code .= file_get_contents("$dir/$f");
+						if('css' == end(explode('.', $f)) and !in_array($f, $not)) {
+							$files[] = "$dir/$f";
 						}
 					}
 				}
+			}
+
+			sort($files);
+
+			foreach($files as $f) {
+				$this->code .= file_get_contents($f);
 			}
 		}
 	}

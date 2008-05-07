@@ -1,10 +1,10 @@
 <?php
-	# Not part of class...
 	$docRoot = str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'] .'/');
 
 	require_once 'JavaScriptPacker.php';
 	require_once $docRoot .'__core/Config.php';
 
+	# Not part of class...
 	header('Content-type: application/x-javascript');
 
 	# Get all module-JS
@@ -39,8 +39,12 @@
 		 *
 		 * @method __construct
 		 */
-		public function __construct($dirs) {
-			$this->getCodeFromDirs($dirs);
+		public function __construct($dirs, $not = array()) {
+			if(!is_array($not)) {
+				$not[] = $not;
+			}
+
+			$this->getCodeFromDirs($dirs, $not);
 		}
 
 		/**
@@ -49,6 +53,7 @@
 		 * @method pack
 		 */
 		public function pack() {
+			return $this->code;
 			$packer = new JavaScriptPacker($this->code, 0); // 0 compression because regardless of compression gzipped size is basically the same and uncompresson is slow
 
 			return $packer->pack();
@@ -59,7 +64,7 @@
 		 *
 		 * @method getCodeFromDirs
 		 */
-		private function getCodeFromDirs($dirs) {
+		private function getCodeFromDirs($dirs, $not = array()) {
 			$this->code = '';
 
 			if(!is_array($dirs)) {
@@ -72,11 +77,17 @@
 				$dh = opendir($dir);
 				if($dh) {
 					while($f = readdir($dh)) {
-						if('js' == end(explode('.', $f))) {
-							$this->code .= file_get_contents("$dir/$f");
+						if('js' == end(explode('.', $f)) and !in_array($f, $not)) {
+							$files[] = "$dir/$f";
 						}
 					}
 				}
+			}
+
+			sort($files);
+
+			foreach($files as $f) {
+				$this->code .= file_get_contents($f);
 			}
 		}
 	}
