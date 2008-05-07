@@ -4,7 +4,7 @@
  * Makes all matched elements equal height. Does not work in
  * browsers that do not support min-height (no IE.. who cares)
  *
- * Usage: $('#content, #sub-content').equoalHeight();
+ * Usage: jQuery('#content, #sub-content').equoalHeight();
  *
  * @class equalHeight
  *

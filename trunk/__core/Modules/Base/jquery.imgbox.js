@@ -4,7 +4,7 @@
  * Open links that point to images in the same scope in the "ImgBox"
  * Also groupds images in the same scope and adds navigation
  *
- * Usage: $('#random-images, #holiday-photos').imgbox();
+ * Usage: jQuery('#random-images, #holiday-photos').imgbox();
  *
  * @class imgbox
  * @param {Object} conf, custom config-object
@@ -27,7 +27,7 @@ jQuery.fn.imgbox = function(conf) {
 	var ltpti = 'a[href$=".jpg"], a[href$=".bmp"], a[href$=".gif"], a[href$=".png"]';
 
 	// Create imgbox container, loader and underlay if not already created
-	if(!$('#' +config.id).length) {
+	if(!jQuery('#' +config.id).length) {
 		jQuery('<div id="' +config.id +'"></div>').appendTo('body').hide();
 		jQuery('<div id="' +config.id +'-loading">' +config.loadingText +'</div>').appendTo('body').hide();
 	//	jQuery('<div id="' +config.id +'-underlay"></div>').appendTo('body').css({position: 'fixed', left: '0', top: '0', width: '100%', height: '100%', backgroundColor: '#000', opacity: '0.8', zIndex: '10'}).hide();

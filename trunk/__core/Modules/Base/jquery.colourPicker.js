@@ -5,7 +5,7 @@
  * a "colour-picker-icon" next to it that opens a dialogue which
  * allows user to pick any colour present in select
  *
- * Usage: $('select[name="colour"]').colourPicker();
+ * Usage: jQuery('select[name="colour"]').colourPicker();
  *
  * @class equalHeight
  * @param {Object} conf, custom config-object
@@ -56,11 +56,11 @@ jQuery.fn.colourPicker = function(conf) {
 		aniSpeed: 500			// Speed of colour picker show/hide animation
 	};
 
-	config = $.extend(config, conf);
+	config = jQuery.extend(config, conf);
 
 	// Create colour-picker container
-	if(!$('#colour-picker').length) {
-		$('<div id="colour-picker"></div>').appendTo('body').hide();
+	if(!jQuery('#colour-picker').length) {
+		jQuery('<div id="colour-picker"></div>').appendTo('body').hide();
 	}
 
 	// Always return each...

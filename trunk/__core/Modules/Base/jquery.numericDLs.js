@@ -3,7 +3,7 @@
  *
  * Adds numbers to definition-descriptions if there are more than one for a term
  *
- * Usage: $.numericDLs();
+ * Usage: jQuery.numericDLs();
  *
  * @class numericDLs
  *
@@ -11,9 +11,9 @@
  * Released under a GNU General Public License v3 (http://creativecommons.org/licenses/by/3.0/)
  */
 jQuery.numericDLs = function() {
-	$('dt').each(function() {
+	jQuery('dt').each(function() {
 		var numDDs = 0;
-		var dt = $(this);
+		var dt = jQuery(this);
 		var dd = dt.next('dd');
 		var i = 1;
 

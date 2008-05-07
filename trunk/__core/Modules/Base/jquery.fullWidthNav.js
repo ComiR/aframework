@@ -5,7 +5,7 @@
  * each a's padding left/right so that the entire row of lis/as take
  * up the full space of their parent.
  *
- * Usage: $('#navigation, ul.tabs').fullWidthNav();
+ * Usage: jQuery('#navigation, ul.tabs').fullWidthNav();
  *
  * @class fullWidthNav
  *
