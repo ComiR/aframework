@@ -23,7 +23,6 @@ var aFramework = {
 		aFramework.general.toggleTitles();
 	//	aFramework.general.hideTopLinks(); // not til i top-link to !#
 		$.imgzoom();
-		$.youtubeAPI();
 	}, 
 
 	/*
@@ -113,18 +112,21 @@ var aFramework = {
 		 */
 		toggleTitles: function() {
 			$('input[title], textarea[title]').each(function() {
-				if($(this).val() === '' || $(this).val() == $(this).attr('title')) {
-					$(this).addClass('default-value').val($(this).attr('title'));
+				var t = $(this);
+				if(t.val() === '' || t.val() == t.attr('title')) {
+					t.addClass('default-value').val(t.attr('title'));
 				}
 			})
 			.focus(function() {
-				if($(this).val() == $(this).attr('title')) {
-					$(this).val('').removeClass('default-value');
+				var t = $(this);
+				if(t.val() == t.attr('title')) {
+					t.val('').removeClass('default-value');
 				}
 			})
 			.blur(function() {
-				if($(this).val() === '' || $(this).val() == $(this).attr('title')) {
-					$(this).addClass('default-value').val($(this).attr('title'));
+				var t = $(this);
+				if(t.val() === '' || t.val() == t.attr('title')) {
+					t.addClass('default-value').val(t.attr('title'));
 				}
 			});
 		}, 
@@ -176,16 +178,6 @@ var aFramework = {
 		}
 	}, 
 
-	/*
-	 * Module
-	 *
-	 * Base module class, every module in aFramework.modules
-	 * automatically extends this class
-	 */
-	Module: {
-		// put stuff here every module can use...
-	}, 
-
 	modules: [
 		// Add your modules here and they will automatically run onload.
 		// Not in this file though, create your own .js-file in your module's 
@@ -193,7 +185,7 @@ var aFramework = {
 	]
 };
 
-$(document).ready(function() {
+$(function() {
 	aFramework.run();
 	aFramework.runModules();
 });
