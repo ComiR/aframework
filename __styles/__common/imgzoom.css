@@ -22,6 +22,9 @@ div.imgzoom {
 		position: absolute;
 		left: -22px;
 		top: -22px;
+		/* IE-users are prolly used to close-link in right-hand corner */
+		*left: auto;
+		*right: -22px;
 
 		text-decoration: none;
 		text-indent: -100000px;
