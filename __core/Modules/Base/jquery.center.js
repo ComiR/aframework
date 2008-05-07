@@ -3,7 +3,7 @@
  *
  * Centers all matched elements using position: fixed (no IE)
  *
- * Usage: $('div.img-overlay').center();
+ * Usage: jQuery('div.img-overlay').center();
  *
  * @class center
  *
@@ -55,7 +55,7 @@ jQuery.fn.center = function() {
 // Why is there no jQuery.fn.outerWidth bundled with jQuery?
 if(!jQuery.fn.outerWidth) {
 	jQuery.fn.outerWidth = function() {
-		var t = $(this[0]), 
+		var t = jQuery(this[0]), 
 			w = t.width(), 
 			lrPadding = parseInt(t.css('paddingLeft'), 10) + parseInt(t.css('paddingRight'), 10), 
 			lrBorder = parseInt(t.css('borderLeftWidth'), 10) + parseInt(t.css('borderRightWidth'), 10);
@@ -66,7 +66,7 @@ if(!jQuery.fn.outerWidth) {
 if(!jQuery.fn.outerHeight) {
 	jQuery.fn.outerHeight = function() {
 		return this.each(function() {
-			var t = $(this)[0], 
+			var t = jQuery(this)[0], 
 				h = t.height(), 
 				tbPadding = parseInt(t.css('paddingTop'), 10) + parseInt(t.css('paddingBottom'), 10), 
 				tbBorder = parseInt(t.css('borderTopWidth'), 10) + parseInt(t.css('borderBottomWidth'), 10);

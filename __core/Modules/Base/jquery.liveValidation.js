@@ -4,7 +4,7 @@
  * Adds OK/Not Ok-icons next to 'formControls'
  * that indicates whether said control's value is valid
  *
- * Usage: $('form').liveValidation({action: 'FormValidator.php', validIco: 'valid.gif', invalidIco: 'invalid.gif'});
+ * Usage: jQuery('form').liveValidation({action: 'FormValidator.php', validIco: 'valid.gif', invalidIco: 'invalid.gif'});
  *
  * @class liveValidation
  * @param {Object} conf, custom config-object
@@ -21,18 +21,18 @@ jQuery.fn.liveValidation = function(conf) {
 		valid: 'Valid', 
 		invalid: 'Invalid'
 	};
-	config = $.extend(config, conf);
+	config = jQuery.extend(config, conf);
 
 	return this.each(function() {
-		var form = $(this);
+		var form = jQuery(this);
 
 		if(form.is('form')) {
-			$(config.formControls, form).each(function() {
-				var t = $(this);
-				var validator = $('<img src="' +config.invalidIco +'" alt="' +config.invalid +'" />').insertAfter(t);
+			jQuery(config.formControls, form).each(function() {
+				var t = jQuery(this);
+				var validator = jQuery('<img src="' +config.invalidIco +'" alt="' +config.invalid +'" />').insertAfter(t);
 
 				var validate = function() {
-					$.get(config.action +'?' +t.attr('name') +'=' +t.val(), function(d) {
+					jQuery.get(config.action +'?' +t.attr('name') +'=' +t.val(), function(d) {
 						if(parseInt(d, 10)) {
 							if(validator.attr('alt') != config.valid) {
 								validator.attr('src', config.validIco);

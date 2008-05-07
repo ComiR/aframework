@@ -1,212 +1,106 @@
 /**
- * Imgzoom 1.1 (Requires the dimensions-plugin)
+ * Imgzoom 1.2 (Requires the dimensions-plugin)
  *
- * Opens links that point to images in the "ImgZoom" (zooms out the image)
- * If link has a class matching youtube-YOUTUBE_CODE the zoomed out image will be replaced with that youtube-clip
+ * Opens links that point to images in the "Imgzoom" (zooms out the image)
  *
- * Usage: $.imgzoom();
+ * Usage: jQuery.imgzoom();
  *
  * @class imgzoom
- * @param {Object} conf, custom config-object
+ * @param {Object} conf, custom config-object {speed: 500, dontFadeIn: 0, hideClicked: 0}
  *
  * Copyright (c) 2008 Andreas Lagerkvist (andreaslagerkvist.com)
  * Released under a GNU General Public License v3 (http://creativecommons.org/licenses/by/3.0/)
  */
 jQuery.imgzoom = function(conf) {
-	var config = {
+	// Some config. If you set dontFadeIn: 0 and hideClicked: 0 imgzoom will act exactly like fancyzoom
+	var config = jQuery.extend({
 		speed: 200,		// Animation-speed of zoom
 		dontFadeIn: 1,	// 1 = Do not fade in, 0 = Do fade in
 		hideClicked: 1	// Whether to hide the image that was clicked to bring up the imgzoom
-	};
-	config = jQuery.extend(config, conf);
-	config.doubleSpeed = config.speed / 4;
+	}, conf);
+	config.doubleSpeed = config.speed / 4; // Used for fading in the close-button
 
-	// Let events bubble up to body (supports dynamically inserted links)
-	jQuery(document.body).click(function(event) {
-		// Get the clicked element (it may be an image inside a link)
-		var clickedElement = jQuery(event.target);
-		clickedElement = clickedElement.is('a') ? clickedElement : clickedElement.parents('a');
+	// Set one click-event on body and then check what the target (actual) clicked element was
+	// Doing it this way instead of applying an event to each link (like imgbox) supports dynamically inserted links
+	jQuery(document.body).click(function(e) {
+		// Make sure the target-element is a link (or an element inside a link)
+		var clickedElement	= jQuery(e.target); // The element that was actually clicked
+		var clickedLink		= clickedElement.is('a') ? clickedElement : clickedElement.parents('a'); // If it's not an a, check if any of its parents is
+			clickedLink		= (clickedLink && clickedLink.is('a') && clickedLink.attr('href').search(/(.*)\.(jpg|jpeg|gif|png|bmp|tif|tiff)/gi) != -1) ? clickedLink : false; // If it was an a or child of an a, make sure it points to an image
 
-		// If clicked element has an 'href'-attribute matching the image-reg-exp, continue
-		if(
-			clickedElement && 
-			clickedElement.is('a') && 
-			clickedElement.attr('href').search(/(.*)\.(jpg|jpeg|gif|png|bmp|tif|tiff)/gi) != -1
-		) {
-			// Get the href (that points to the image)
-			var imgSrc = clickedElement.attr('href');
+		// Only continue if a link pointing to an image was clicked
+		if(clickedLink) {
+			var displayImgSrc = clickedLink.attr('href'); // The URI to the image we are going to display
 
-			// If it's alredy open, do nothing
-			if(jQuery('div.imgzoom img[src="' +imgSrc +'"]').length) {
+			// If an imgzoom wiv this image is already open dont do nathin
+			if(jQuery('div.imgzoom img[src="' +displayImgSrc +'"]').length) {
 				return false;
 			}
 
-			// Whether to hide clicked element or not (set in config but always false for non-image-links)
-			var hideClicked = 0;
+			// This function is run once the displayImgSrc-img has loaded (below)
+			var preloadOnload = function() {
+				// Now set some vars we need
+				var linkContainsImg	= clickedLink.find('img').length;
+				var dimElement		= linkContainsImg ? clickedLink.find('img') : clickedLink; // The element used to retrieve dimensions of imgzoom before zoom (either clicked link or img inside)
+				var hideClicked		= linkContainsImg ? config.hideClicked : 0; // Whether to hide clicked link (set in config but always true for non-image-links)
+				var offset			= dimElement.offset(); // Offset of clicked link (or image inside)
+				var imgzoomBefore	= { // The dimensions of the imgzoom _before_ it is zoomed out
+					width:		dimElement.outerWidth(), 
+					height:		dimElement.outerHeight(), 
+					left:		offset.left, 
+					top:		offset.top, 
+					opacity:	config.dontFadeIn
+				};
+				var imgzoom			= jQuery('<div><img src="' +displayImgSrc +'" alt="" /></div>').css({position: 'absolute'}).appendTo(document.body); // We don't want any class-name or any other contents part from the image when we calculate the new dimensions of the imgzoom
+				var imgzoomAfter	= { // The dimensions of the imgzoom _after_ it is zoomed out
+					width:		imgzoom.outerWidth(), 
+					height:		imgzoom.outerHeight(), 
+					opacity:	1
+				};
+				imgzoomAfter.left	= (jQuery(window).width() - imgzoomAfter.width) / 2 + jQuery(window).scrollLeft();
+				imgzoomAfter.top	= (jQuery(window).height() - imgzoomAfter.height) / 2 + jQuery(window).scrollTop();
+				var closeButton		= jQuery('<a href="#">Close</a>').appendTo(imgzoom).hide(); // The button that closes the imgzoom (we're adding this after the calculation of the dimensions)
 
-			// See if link contains an image, if so get dimensions from the image rather than the link (also use config's hideClicked-property)
-			var tmpElement = clickedElement.find('img');
-			if(tmpElement.length) {
-				hideClicked = config.hideClicked;
-			}
-			else {
-				tmpElement = clickedElement;
-			}
-
-			// Get the clicked element's dimensions (imgzoom will animate from this size to its real size)
-			var offset = tmpElement.offset();
-			var oldDim = {
-				width: tmpElement.outerWidth(), 
-				height: tmpElement.outerHeight(), 
-				left: offset.left, 
-				top: offset.top, 
-				opacity: config.dontFadeIn
-			};
-
-			// This function animates and displays the imgzoom-div
-			var displayImgzoom = function() {
+				// Hide the clicked link if set so in config
 				if(hideClicked) {
-					clickedElement.css({visibility: 'hidden'}).addClass('imgzoom-hidden');
+					clickedLink.css({visibility: 'hidden'});
 				}
 
-				// Append image to body
-				var imgzoom = jQuery('<div><img src="' +imgSrc +'" alt="" /></div>').css({position: 'absolute'}).appendTo(document.body);
-
-				// Get the image's dimensions as well as the window's scroll-pos/dimensions
-				var width = imgzoom.outerWidth();
-				var height = imgzoom.outerHeight();
-				var windowHeight = jQuery(window).height();
-				var windowWidth = jQuery(window).width();
-				var scrollLeft = jQuery(window).scrollLeft();
-				var scrollTop = jQuery(window).scrollTop();
-				var left = (windowWidth - width) / 2 + scrollLeft;
-				var	top = (windowHeight - height) / 2 + scrollTop;
-
-				// These are the dimensions of the imgzoom when zoomed out
-				var newDim = {
-					width: width,
-					height: height, 
-					left: left, 
-					top: top, 
-					opacity: 1, 
-					overflow: 'auto'
-				};
-
-				// Now add close-button (we didn't want it in the dimensions-calculationas, it's positioned absolutely anyway)
-				var closeButton = jQuery('<a href="#">Close</a>').appendTo(imgzoom).hide();
-
-				// Add imgzoom-class, set imgzoom's dimensions to clicked element's and animate to new
-				imgzoom.addClass('imgzoom').css(oldDim).animate(newDim, config.speed, function() {
-					// Now center the imgzoom fixed (so it follows when you scroll)
-				//	imgzoom.center();
-
-					// Fade in the close-button (we do this because it looks ugly if shown during imgzoom animation due to overflow set to hidden)
+				// Now animate the imgzoom from its small size to its large size, and then fade in the close-button
+				imgzoom.addClass('imgzoom').css(imgzoomBefore).animate(imgzoomAfter, config.speed, function() {
 					closeButton.fadeIn(config.doubleSpeed);
-/*
-					// This replaces the image with a youtube-clip if the clicked link has a class of youtube-.*
-					var classNames = clickedElement.attr('class');
-
-					if(classNames) {
-						classNames = classNames.split(' ');
-
-						for(var i in classNames) {
-							if(classNames[i].indexOf('youtube-') != -1) {
-								var movie = classNames[i].substr(8);
-								var containerID = new Date();
-								containerID = containerID.getTime();
-								var playerID = 'youtube-player-' +containerID;
-								containerID = 'youtube-player-container-' +containerID;
-
-								jQuery('<div id="' +containerID +'"></div>').appendTo(imgzoom);
-
-								imgzoom.find('img').hide();
-
-								swfobject.embedSWF(
-								//	'http://www.youtube.com/v/' +movie, 
-									'http://gdata.youtube.com/apiplayer?key=' 
-											+aFramework.googleAPIKey 
-											+'&enablejsapi=1', 
-									containerID, 
-									newDim.width, 
-									newDim.height, 
-									'8', 
-									null, 
-									null, 
-									{
-										allowScriptAccess: 'always', 
-										bgcolor: '#ffffff'
-									}, 
-									{
-										id: playerID
-									}
-								);
-
-								if(!jQuery('#on-youtube-player-ready').length) {
-									// jQuery bug? unable to insert script, div works fine (but is obviously useless) resorting to native JS-functions
-								//	jQuery('<script type="text/javascript" id="on-youtube-player-ready">function onYouTubePlayerReady() {var youtubePlayer; youtubePlayer = document.getElementById("' +playerID +'"); youtubePlayer.loadVideoById("' +movie +'", 0); youtubePlayer.playVideo(); }</script>').appendTo(document.body);
-								//	jQuery('<div type="text/javascript" id="on-youtube-player-ready">function onYouTubePlayerReady() {var youtubePlayer; youtubePlayer = document.getElementById("' +playerID +'"); youtubePlayer.loadVideoById("' +movie +'", 0); youtubePlayer.playVideo(); }</div>').appendTo(document.body);
-
-									var script = document.createElement('script');
-
-									script.type = 'text/javascript';
-									script.id = 'on-youtube-player-ready';
-
-									// Should add to preay-function, use substr
-									script.innerHTML = 'function onYouTubePlayerReady() {var youtubePlayer; youtubePlayer = document.getElementById("' +playerID +'"); youtubePlayer.loadVideoById("' +movie +'", 0); youtubePlayer.playVideo(); }';
-
-									document.body.appendChild(script);
-								}
-							}
-						}
-					}*/
 				});
 
-				// Hides the box
+				// This function closes the imgzoom
 				var hideImgzoom = function() {
-					// Switch back to image before animation in case it's been switched to youtube-clip
-					if(imgzoom.find('object').length) {
-						imgzoom.find('img').show();
-						imgzoom.find('object').remove();
-					}
-
-					imgzoom.animate(oldDim, config.speed, function() {
-						imgzoom.remove();
-
-						if(hideClicked) {
-							clickedElement.css({visibility: 'visible'}).removeClass('imgzoom-hidden');
-						}
+					closeButton.fadeOut(config.doubleSpeed, function() {
+						imgzoom.animate(imgzoomBefore, config.speed, function() {
+							clickedLink.css({visibility: 'visible'});
+							imgzoom.remove();
+						});
 					});
-				};
-
-				// Close imgzoom on-close-link-click
-				closeButton.click(function() {
-					closeButton.fadeOut(config.doubleSpeed, hideImgzoom);
 
 					return false;
-				});
+				};
+
+				// Close imgzoom when you click the closeButton or the imgzoom
+				imgzoom.click(hideImgzoom);
+				closeButton.click(hideImgzoom);
 			};
 
 			// Preload image
 			var preload = new Image();
-			preload.src = imgSrc;
+				preload.src = displayImgSrc;
 
-			// Onload
 			if(preload.complete) {
-				displayImgzoom();
+				preloadOnload();
 			}
 			else {
-				preload.onload = displayImgzoom;
+				preload.onload = preloadOnload;
 			}
 
+			// Finally return false from the click so the browser doesn't actually follow the link...
 			return false;
 		}
 	});
 };
-
-// Quick way to destroy all open imgzooms (esc-key)
-jQuery(document).keydown(function(event) {
-	if(event.keyCode == 27) {
-		jQuery('div.imgzoom').remove();
-		jQuery('.imgzoom-hidden').css({visibility: 'visible'});
-	}
-});

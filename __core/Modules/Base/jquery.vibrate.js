@@ -3,7 +3,7 @@
  *
  * Makes an element vibrate
  *
- * Usage: $('#my-annoying-ad').vibrate();
+ * Usage: jQuery('#my-annoying-ad').vibrate();
  *
  * @class vibrate
  * @param {Object} conf, custom config-object
@@ -22,7 +22,7 @@ jQuery.fn.vibrate = function(conf) {
 	config = jQuery.extend(config, conf);
 
 	return this.each(function() {
-		var t = $(this);
+		var t = jQuery(this);
 
 		var vibrate = function() {
 			var topPos = Math.floor(Math.random() * config.spread) - ((config.spread - 1) / 2);
