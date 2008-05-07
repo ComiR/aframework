@@ -6,7 +6,7 @@
  * Usage: jQuery.imgzoom();
  *
  * @class imgzoom
- * @param {Object} conf, custom config-object {speed: 500, dontFadeIn: 0, hideClicked: 0}
+ * @param {Object} conf, custom config-object {speed: 500, dontFadeIn: 0, hideClicked: 0} // pelase note that i've removed the ability to fade in/out the zoomed image because it caused a bug in IE. If you don't care about IE uncomment the opacity-stuff on line ~50
  *
  * Copyright (c) 2008 Andreas Lagerkvist (andreaslagerkvist.com)
  * Released under a GNU General Public License v3 (http://creativecommons.org/licenses/by/3.0/)
@@ -48,14 +48,14 @@ jQuery.imgzoom = function(conf) {
 					width:		dimElement.outerWidth(), 
 					height:		dimElement.outerHeight(), 
 					left:		offset.left, 
-					top:		offset.top, 
-					opacity:	config.dontFadeIn
+					top:		offset.top/*, 
+					opacity:	config.dontFadeIn*/
 				};
 				var imgzoom			= jQuery('<div><img src="' +displayImgSrc +'" alt="" /></div>').css({position: 'absolute'}).appendTo(document.body); // We don't want any class-name or any other contents part from the image when we calculate the new dimensions of the imgzoom
 				var imgzoomAfter	= { // The dimensions of the imgzoom _after_ it is zoomed out
 					width:		imgzoom.outerWidth(), 
-					height:		imgzoom.outerHeight(), 
-					opacity:	1
+					height:		imgzoom.outerHeight()/*, 
+					opacity:	1*/
 				};
 				imgzoomAfter.left	= (jQuery(window).width() - imgzoomAfter.width) / 2 + jQuery(window).scrollLeft();
 				imgzoomAfter.top	= (jQuery(window).height() - imgzoomAfter.height) / 2 + jQuery(window).scrollTop();
