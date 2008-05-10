@@ -10,6 +10,23 @@
  * Copyright (c) 2008 Andreas Lagerkvist (andreaslagerkvist.com)
  * Released under a GNU General Public License v3 (http://creativecommons.org/licenses/by/3.0/)
  */
+/*
+	CSS-version:
+
+	dl dt {
+		counter-reset: i;
+	}
+
+	dl dd + dd, 
+	dl dd ~ dd:not(:last-child) {
+		counter-increment: i;
+	}
+
+	dl dd + dd:before, 
+	dl dd ~ dd:not(:last-child):before {
+		content: "(" counter(i) ") ";
+	}
+*/
 jQuery.numericDLs = function() {
 	jQuery('dt').each(function() {
 		var numDDs = 0;
