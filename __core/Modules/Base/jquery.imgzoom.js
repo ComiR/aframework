@@ -39,6 +39,9 @@ jQuery.imgzoom = function(conf) {
 
 			// This function is run once the displayImgSrc-img has loaded (below)
 			var preloadOnload = function() {
+				// The clicked-link is faded out during loading, fade it back in
+				clickedLink.css({opacity: '1'});
+
 				// Now set some vars we need
 				var linkContainsImg	= clickedLink.find('img').length;
 				var dimElement		= linkContainsImg ? clickedLink.find('img') : clickedLink; // The element used to retrieve dimensions of imgzoom before zoom (either clicked link or img inside)
@@ -57,8 +60,25 @@ jQuery.imgzoom = function(conf) {
 					height:		imgzoom.outerHeight()/*, 
 					opacity:	1*/
 				};
-				imgzoomAfter.left	= (jQuery(window).width() - imgzoomAfter.width) / 2 + jQuery(window).scrollLeft();
-				imgzoomAfter.top	= (jQuery(window).height() - imgzoomAfter.height) / 2 + jQuery(window).scrollTop();
+				var windowDim = {
+					width: jQuery(window).width(), 
+					height: jQuery(window).height()
+				};
+				// Make sure imgzoom isn't wider than screen
+				if(imgzoomAfter.width > windowDim.width) {
+					var nWidth			= windowDim.width - 100;
+					imgzoomAfter.height	= (nWidth / imgzoomAfter.width) * imgzoomAfter.height;
+					imgzoomAfter.width	= nWidth;
+				}
+				// Now make sure it isn't taller
+				if(imgzoomAfter.height > windowDim.height) {
+					var nHeight = windowDim.height - 100;
+					imgzoomAfter.width	= (nHeight / imgzoomAfter.height) * imgzoomAfter.width;
+					imgzoomAfter.height	= nHeight;
+				}
+				// Center imgzoom
+				imgzoomAfter.left	= (windowDim.width - imgzoomAfter.width) / 2 + jQuery(window).scrollLeft();
+				imgzoomAfter.top	= (windowDim.height - imgzoomAfter.height) / 2 + jQuery(window).scrollTop();
 				var closeButton		= jQuery('<a href="#">Close</a>').appendTo(imgzoom).hide(); // The button that closes the imgzoom (we're adding this after the calculation of the dimensions)
 
 				// Hide the clicked link if set so in config
@@ -96,6 +116,7 @@ jQuery.imgzoom = function(conf) {
 				preloadOnload();
 			}
 			else {
+				clickedLink.css({opacity: '0.5'});
 				preload.onload = preloadOnload;
 			}
 

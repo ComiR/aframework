@@ -12,14 +12,12 @@
  * Released under a GNU General Public License v3 (http://creativecommons.org/licenses/by/3.0/)
  */
 jQuery.fn.vibrate = function(conf) {
-	var config = {
+	var config = jQuery.extend({
 		speed: 30, 
 		duration: 2000, 
 		frequency: 10000, 
 		spread: 3
-	};
-
-	config = jQuery.extend(config, conf);
+	}, conf);
 
 	return this.each(function() {
 		var t = jQuery(this);
@@ -27,7 +25,8 @@ jQuery.fn.vibrate = function(conf) {
 		var vibrate = function() {
 			var topPos = Math.floor(Math.random() * config.spread) - ((config.spread - 1) / 2);
 			var leftPos = Math.floor(Math.random() * config.spread) - ((config.spread - 1) / 2);
-			t.css({position: 'relative', left: leftPos +'px', top: topPos +'px'});
+			var rotate = Math.floor(Math.random() * config.spread - (config.spread - 1) / 2); // cheers to erik@birdy.nu for the rotation-idea
+			t.css({position: 'relative', left: leftPos +'px', top: topPos +'px', WebkitTransform: 'rotate(' +rotate +'deg)'});
 		};
 
 		var doVibration = function () {
