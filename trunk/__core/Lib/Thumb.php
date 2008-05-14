@@ -1,6 +1,6 @@
 <?php
 	# Not part of class
-	$thumb = new Thumb(@$_GET['f'], @$_GET['q'], @$_GET['w']);
+	$thumb = new Thumb(@$_GET['f'], @$_GET['w'], @$_GET['q']);
 	$thumb->show();
 
 	/**
@@ -55,8 +55,8 @@
 			$newWidth = $this->width;
 			$newHeight = $srcHeight * ($newWidth / $srcWidth);
 
-			# Just read file if source width is less or equal to new width
-			if($srcWidth <= $newWidth) {
+			# Just read file if source width is equal to new width
+			if($srcWidth == $newWidth) {
 				readfile($this->img);
 			}
 
