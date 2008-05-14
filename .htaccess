@@ -4,8 +4,8 @@
 	RewriteBase /
 
 	# Prevent access for visitors without user-agent string (prevents some spam)
-	RewriteCond %{HTTP_USER_AGENT} = ""
-	RewriteRule .* - [F,L]
+#	RewriteCond %{HTTP_USER_AGENT} = ""
+#	RewriteRule .* - [F,L]
 
 	# Prevent www-access (you should change the yourdomain-bit)
 	RewriteCond %{HTTP_HOST} ^www\.yourdomain\.com$ [NC]
@@ -36,16 +36,18 @@
 </IfModule>
 
 # These are for performance and they increase speed a fookin lot (try yslow wiv and wivout)
+# Configure ETags
+FileETag MTime Size
+
+# Enable expirations
 <IfModule mod_expires.c>
-	# Enable expirations
 	ExpiresActive On
 
-	# Sets the Expires date 3 days out from the time of the request
 	ExpiresDefault "access plus 3 days"
 </IfModule>
 
+# Gzip html, css and js
 <IfModule mod_deflate.c>
-	# Gzip html, css and js
 	AddOutputFilterByType DEFLATE text/html
 	AddOutputFilterByType DEFLATE text/css
 	AddOutputFilterByType DEFLATE application/x-javascript
