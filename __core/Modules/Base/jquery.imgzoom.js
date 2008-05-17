@@ -16,7 +16,8 @@ jQuery.imgzoom = function(conf) {
 	var config = jQuery.extend({
 		speed: 200,		// Animation-speed of zoom
 		dontFadeIn: 1,	// 1 = Do not fade in, 0 = Do fade in
-		hideClicked: 1	// Whether to hide the image that was clicked to bring up the imgzoom
+		hideClicked: 1,	// Whether to hide the image that was clicked to bring up the imgzoom
+		loading: 'Loading...'
 	}, conf);
 	config.doubleSpeed = config.speed / 4; // Used for fading in the close-button
 
@@ -27,10 +28,33 @@ jQuery.imgzoom = function(conf) {
 		var clickedElement	= jQuery(e.target); // The element that was actually clicked
 		var clickedLink		= clickedElement.is('a') ? clickedElement : clickedElement.parents('a'); // If it's not an a, check if any of its parents is
 			clickedLink		= (clickedLink && clickedLink.is('a') && clickedLink.attr('href').search(/(.*)\.(jpg|jpeg|gif|png|bmp|tif|tiff)/gi) != -1) ? clickedLink : false; // If it was an a or child of an a, make sure it points to an image
+		var clickedImg		= (clickedLink && clickedLink.find('img').length) ? clickedLink.find('img') : false; // See if the clicked link contains and image
 
 		// Only continue if a link pointing to an image was clicked
 		if(clickedLink) {
-			var displayImgSrc = clickedLink.attr('href'); // The URI to the image we are going to display
+			// These functions are used when the imaeg starts and stops loading (displays either 'loading..' or fades out the clicked img slightly)
+			clickedLink.oldText	= clickedLink.text();
+
+			clickedLink.setLoadingImg = function() {
+				if(clickedImg) {
+					clickedImg.css({opacity: '0.5'});
+				}
+				else {
+					clickedLink.text(config.loading);
+				}
+			};
+
+			clickedLink.setNotLoadingImg = function() {
+				if(clickedImg) {
+					clickedImg.css({opacity: '1'});
+				}
+				else {
+					clickedLink.text(clickedLink.oldText);
+				}
+			};
+
+			// The URI to the image we are going to display
+			var displayImgSrc = clickedLink.attr('href');
 
 			// If an imgzoom wiv this image is already open dont do nathin
 			if(jQuery('div.imgzoom img[src="' +displayImgSrc +'"]').length) {
@@ -40,7 +64,7 @@ jQuery.imgzoom = function(conf) {
 			// This function is run once the displayImgSrc-img has loaded (below)
 			var preloadOnload = function() {
 				// The clicked-link is faded out during loading, fade it back in
-				clickedLink.css({opacity: '1'});
+				clickedLink.setNotLoadingImg();
 
 				// Now set some vars we need
 				var linkContainsImg	= clickedLink.find('img').length;
@@ -116,7 +140,7 @@ jQuery.imgzoom = function(conf) {
 				preloadOnload();
 			}
 			else {
-				clickedLink.css({opacity: '0.5'});
+				clickedLink.setLoadingImg();
 				preload.onload = preloadOnload;
 			}
 
