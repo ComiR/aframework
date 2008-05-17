@@ -26,5 +26,6 @@ div.live-search-results {
 
 	div.live-search-results ol {
 		margin-left: 0;
+		padding-left: 0;
 		list-style: none;
 	}
