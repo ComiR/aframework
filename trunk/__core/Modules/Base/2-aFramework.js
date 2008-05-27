@@ -18,10 +18,10 @@ var aFramework = {
 	 */
 	run: function() {
 		$('body').addClass('js-enabled').removeClass('js-disabled');
-		aFramework.general.captchaRefresh('/captcha.png');
-		aFramework.general.codeBlocks();
-		aFramework.general.toggleTitles();
-	//	aFramework.general.hideTopLinks(); // not til i top-link to !#
+		this.general.captchaRefresh('/captcha.png');
+		this.general.codeBlocks();
+		this.general.toggleTitles();
+	//	this.general.hideTopLinks(); // not til i top-link to !#
 		$.imgzoom();
 	}, 
 
@@ -32,9 +32,9 @@ var aFramework = {
 	 */
 	runModules: function() {
 		// Run through all modules
-		for(var module in aFramework.modules) {
-			if(typeof(aFramework.modules[module].run) == 'function') {
-				aFramework.modules[module].run();
+		for(var module in this.modules) {
+			if(typeof(this.modules[module].run) == 'function') {
+				this.modules[module].run();
 			}
 		}
 	}, 
