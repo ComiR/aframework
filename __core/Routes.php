@@ -2,6 +2,7 @@
 	return array(
 		'/'			=> 'Home', 
 		'/contact'	=> 'Contact', 
-		'/admin'	=> 'AdminLogin'
+		'/admin'	=> 'AdminLogin', 
+		'/search'	=> 'Search'
 	);
 ?>
