@@ -3,7 +3,9 @@
 	<Wrapper name="wrapper">
 		<Header />
 		<Wrapper name="content">
+			<Search />
 			<FourOFour />
+			<SearchResults />
 		</Wrapper>
 		<Footer />
 	</Wrapper>

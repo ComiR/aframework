@@ -4,7 +4,7 @@
 		<Header />
 		<Wrapper name="content">
 			<Search />
-			<AdminLogin />
+			<SearchResults />
 		</Wrapper>
 		<Footer />
 	</Wrapper>
