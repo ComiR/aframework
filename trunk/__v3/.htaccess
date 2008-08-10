@@ -1,0 +1,54 @@
+#################################################################
+# A little rewriting
+# If you don't have access to mod_rewrite change 
+# the USE_MOD_REWRITE-setting in aFramework/Core/Config.php
+#################################################################
+
+<IfModule mod_rewrite.c>
+	# Start ModRewrite
+	RewriteEngine On
+	RewriteBase /
+
+	# Prevent access for visitors without user-agent string (prevents some spam)
+	# RewriteCond %{HTTP_USER_AGENT} = ""
+	# RewriteRule .* - [F,L]
+
+	# Prevent www-access (you should change the yourdomain-bit)
+	RewriteCond %{HTTP_HOST} ^www\.yourdomain\.com$ [NC]
+	RewriteRule ^(.*)$ http://yourdomain\.com/$1 [R=301,L]
+
+	# Force a trailing slash for dirs
+	# RewriteRule !\..{2,4}$ - [C]
+	# RewriteCond %{REQUEST_URI} !^.*/$
+	# RewriteRule ^(.+)$ /$1/ [R=301,L]
+
+	# Run images suffixed wiv _small through Thumb-generator
+	# RewriteRule ^(.*)_small\.(jp(e)?g|png|gif)$ /?mod=Img&img=$1.$2&%{QUERY_STRING} [L,NC]
+
+	# Run everything else but real files through index.php
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^(.*)$ index.php/$1?%{QUERY_STRING} [L]
+</IfModule>
+
+#################################################################
+# These are for performance and they increase
+# speed a fookin lot (try yslow wiv and wivout)
+#################################################################
+
+# Configure ETags
+FileETag MTime Size
+
+# Enable expirations
+<IfModule mod_expires.c>
+	ExpiresActive On
+
+	ExpiresDefault "access plus 3 days"
+</IfModule>
+
+# Gzip HTML, CSS and JS
+<IfModule mod_deflate.c>
+	AddOutputFilterByType DEFLATE text/html
+	AddOutputFilterByType DEFLATE text/css
+	AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
