@@ -16,5 +16,6 @@
 
 	# Misc
 	define('XHR',					isset($_SERVER['HTTP_X_REQUESTED_WITH']));
-	define('ADMIN',					isset($_COOKIE['admin']) or isset($_SESSION['admin']));
+	define('ADMIN_SESSION',			'admin');
+	define('ADMIN',					isset($_COOKIE[ADMIN_SESSION]) or isset($_SESSION[ADMIN_SESSION]));
 ?>

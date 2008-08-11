@@ -14,6 +14,9 @@
 	define('SITE_TITLE',		'aBlog');
 	define('SITE_TAGLINE',		'This is just an aBlog example site');
 
+	define('ADMIN_USER',		'admin');
+	define('ADMIN_PASS',		'nimda');
+
 	define('SITE_HIERARCHY',	CURRENT_SITE .' aFramework');
 	define('FOUR_O_FOUR_CONTROLLER','FourOFour');
 
