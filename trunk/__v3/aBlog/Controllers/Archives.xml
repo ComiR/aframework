@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Base cache-time="60">
+	<Wrapper name="wrapper">
+		<SkipNavigation />
+		<Header />
+		<Navigation />
+		<BreadCrumbs />
+		<Wrapper name="content">
+			<IntroText />
+			<ArticlesByDate />
+		</Wrapper>
+		<Wrapper name="sub-content">
+			<Search ajax-run="true" />
+			<TagCloud ajax-run="true" />
+			<RecentArticles ajax-run="true" />
+			<RecentComments ajax-run="true" />
+		</Wrapper>
+		<Footer />
+	</Wrapper>
+</Base>
