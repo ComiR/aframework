@@ -9,8 +9,8 @@
 	require_once CURRENT_SITE_DIR .'/Config.php';
 
 	# Connect to DB
-#	mysql_connect();
-#	mysql_select_db();
+	mysql_connect(DB_HOST, DB_USER, DB_PASS);
+	mysql_select_db(DB_NAME);
 
 	# Start sessions
 	session_start();

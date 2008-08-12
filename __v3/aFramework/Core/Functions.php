@@ -34,14 +34,22 @@
 	}
 
 	# Instead of mysql_query, also counts queries and dies on error
-	function dbQry($qry, $numQueries = false) {
+	function dbQry($qry, $info = false) {
+		static $cache = array();
 		static $i = 0;
-		if($numQueries) {
-			return $i;
+
+		if($info) {
+			return array('num_queries' => $i, 'cached_queries' => $cache);
 		}
+		if(isset($cache[$qry])) {
+			return $cache[$qry];
+		}
+
 		$i++;
-		$res = mysql_query($qry) or die(mysql_error() .'<hr /><pre>' .htmlentities($qry) .'</pre>');
-		return $res;
+
+		$cache[$qry] = mysql_query($qry) or die(mysql_error() .'<hr /><pre>' .htmlentities($qry) .'</pre>');
+
+		return $cache[$qry];
 	}
 
 	# "Debug" variables
