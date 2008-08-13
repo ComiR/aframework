@@ -18,4 +18,5 @@
 	define('XHR',					isset($_SERVER['HTTP_X_REQUESTED_WITH']));
 	define('ADMIN_SESSION',			'admin');
 	define('ADMIN',					isset($_COOKIE[ADMIN_SESSION]) or isset($_SESSION[ADMIN_SESSION]));
+	define('DEBUG',					isset($_GET['debug'])/* and ADMIN*/);
 ?>

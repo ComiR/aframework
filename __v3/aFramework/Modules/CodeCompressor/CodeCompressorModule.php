@@ -1,9 +1,11 @@
 <?php
-	class aFramework_CodeCompressorModule extends Module {
+	class aFramework_CodeCompressorModule {
+		public static $tplVars = array();
+		public static $tplFile = true;
+		public static $forceController = false;
+
 		protected static $type;
-
 		protected static $exclude = array();
-
 		protected static $mimeTypes = array(
 			'css' => 'text/css', 
 			'js' => 'application/x-javascript'
