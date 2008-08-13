@@ -1,5 +1,9 @@
 <?php	
-	class aFramework_SearchResultsModule extends Module {
+	class aFramework_SearchResultsModule {
+		public static $tplVars = array();
+		public static $tplFile = true;
+		public static $forceController = false;
+
 		public static function run() {
 			if(isset($_GET['q'])) {
 				self::$tplVars = self::getSearchResults($_GET['q'], isset($_GET['start']) ? $_GET['start'] : 0);

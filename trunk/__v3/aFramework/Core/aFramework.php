@@ -6,6 +6,7 @@
 	 **/
 	final class aFramework {
 		private static $forceController = false;
+		private static $debugInfo = array();
 
 		/**
 		 * run
@@ -14,10 +15,19 @@
 		 **/
 		public static function run() {
 			if(isset($_GET['module'])) {
-				self::runSingleModule(removeDots($_GET['module']));
+				echo self::runSingleModule(removeDots($_GET['module']));
 			}
 			elseif(isset($_GET['controller'])) {
-				self::runController(removeDots($_GET['controller']));
+				$theSite = self::runController(removeDots($_GET['controller']));
+
+				if(DEBUG) {
+					$debugHTML = self::fetchTpl(ROOT_DIR .'aFramework/Modules/Debug/Debug.tpl.php', self::$debugInfo);
+
+					echo str_replace('</body>', $debugHTML .'</body>', $theSite);;
+				}
+				else {
+					echo $theSite;
+				}
 			}
 		}
 
@@ -27,8 +37,10 @@
 		 * Runs and fetches a module
 		 **/
 		private static function runSingleModule($module) {
+			self::$debugInfo['controller'] = 'No Controller';
+
 			self::runModule($module);
-			echo self::fetchModule($module);
+			return self::fetchModule($module);
 		}
 
 		/**
@@ -37,6 +49,8 @@
 		 * Runs and fetches all modules in a controller
 		 **/
 		private static function runController($controller) {
+			self::$debugInfo['controller']['name'] = $controller;
+
 			$foundController = false;
 			$sites = explode(' ', SITE_HIERARCHY);
 
@@ -45,6 +59,9 @@
 				$path = ROOT_DIR .$site .'/Controllers/' .$controller .'.xml';
 				if(file_exists($path)) {
 					$foundController = true;
+
+					self::$debugInfo['controller']['path'] = ROOT_DIR .$site .'/Controllers/' .$controller .'.xml';
+
 					break;
 				}
 			}
@@ -61,21 +78,23 @@
 
 			# Run and fetch all modules
 			self::runModules($base);
-			$theWholeFrigginSite = self::fetchModules($base);
+			$theSite = self::fetchModules($base);
 
 			# Now we need to check if any module wanted to force
 			# a different controller (like 404 or login or whatever)
 			if(self::$forceController) {
-				$newController = $_GET['controller'] = self::$forceController; # the get-bit is a lil uglöy hack...
-				self::$forceController = false;
-				self::runController($newController);
+				$_GET['controller']		= self::$forceController; # a lil uglöy hack...
+				self::$forceController	= false;
+				self::$debugInfo		= array('__old' => self::$debugInfo);
+
+				return self::runController($_GET['controller']);
 			}
 
 			if($_GET['controller'] == FOUR_O_FOUR_CONTROLLER) {
 				header('HTTP/1.1 404 Not Found');
 			}
 
-			echo $theWholeFrigginSite;
+			return $theSite;
 		}
 
 		/**
@@ -158,11 +177,27 @@
 				$modName = $site .'_' .$module .'Module';
 
 				if(file_exists($modPath)) {
+					$start		= microtime(true);
+					$numQBefore	= dbQry(false, true);
+
 					$modName::run(); # call_user_func("$modName::run()");
+
+					$stop		= microtime(true);
+					$numQAfter	= dbQry(false, true);
 
 					if($modName::$forceController) {
 						self::$forceController = $modName::$forceController;
 					}
+
+					self::$debugInfo['modules'][$module] = array(
+						'path'				=> $modPath, 
+						'real_name'			=> $modName, 
+						'run_time'			=> $stop - $start, 
+						'force_controller'	=> $modName::$forceController,
+						'tpl_file'			=> $modName::$tplFile,
+						'tpl_vars'			=> $modName::$tplVars,
+						'num_queries'		=> $numQAfter['num_queries'] - $numQBefore['num_queries']
+					);
 
 					return true;
 				}
@@ -178,6 +213,8 @@
 		 * Also fetches Before or After-templates
 		 **/
 		private static function fetchModule($module, $tplVarsAdd = array()) {
+			self::$debugInfo['modules'][$module]['name'] = $module;
+
 			$sites		= explode(' ', SITE_HIERARCHY);
 			$tplFile	= null;
 			$tplVars	= $tplVarsAdd;
@@ -192,8 +229,6 @@
 				$modName = $site .'_' .$module .'Module';
 
 				if(file_exists($modPath)) {
-					require_once $modPath;
-
 					$tplFile = $modName::$tplFile === true ? $module : $modName::$tplFile;
 					$tplVars = array_merge($modName::$tplVars, $tplVars);
 
@@ -219,16 +254,22 @@
 
 				# Before
 				if($before == '' and file_exists($beforePath)) {
+					self::$debugInfo['modules'][$module]['tpl_paths']['before'] = $beforePath;
+
 					$before = self::fetchTpl($beforePath, $tplVars);
 				}
 
 				# Middle
 				if($middle == '' and file_exists($middlePath)) {
+					self::$debugInfo['modules'][$module]['tpl_paths']['middle'] = $middlePath;
+
 					$middle = self::fetchTpl($middlePath, $tplVars);
 				}
 
 				# After
 				if($after == '' and file_exists($afterPath)) {
+					self::$debugInfo['modules'][$module]['tpl_paths']['after'] = $afterPath;
+
 					$after = self::fetchTpl($afterPath, $tplVars);
 				}
 

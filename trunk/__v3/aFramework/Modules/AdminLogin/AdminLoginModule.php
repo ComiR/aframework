@@ -1,5 +1,9 @@
 <?php
-	class aFramework_AdminLoginModule extends Module {
+	class aFramework_AdminLoginModule {
+		public static $tplVars = array();
+		public static $tplFile = true;
+		public static $forceController = false;
+
 		public static function run() {
 			# User is trying to log in
 			if(isset($_REQUEST['login'])) {

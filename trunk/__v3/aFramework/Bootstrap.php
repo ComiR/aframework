@@ -9,8 +9,8 @@
 	require_once CURRENT_SITE_DIR .'/Config.php';
 
 	# Connect to DB
-	mysql_connect(DB_HOST, DB_USER, DB_PASS);
-	mysql_select_db(DB_NAME);
+#	mysql_connect(DB_HOST, DB_USER, DB_PASS);
+#	mysql_select_db(DB_NAME);
 
 	# Start sessions
 	session_start();
@@ -22,7 +22,6 @@
 	require_once 'Core/StyleSwitcher.php';
 	require_once 'Core/VisitorData.php';
 	require_once 'Core/aFramework.php';
-	require_once 'Core/Module.php';
 
 	spl_autoload_register('AutoLoader::load');
 
