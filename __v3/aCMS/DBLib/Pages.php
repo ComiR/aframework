@@ -1,6 +1,8 @@
 <?php
 	class Pages {
 		public static function getPageByUrlStr($urlStr) {
+			return false;
+
 			$res = dbQry('
 				SELECT
 					*
@@ -20,6 +22,8 @@
 		}
 
 		public static function getPagesInNavigation() {
+			return false;
+
 			$res = dbQry('
 				SELECT
 					title, 
