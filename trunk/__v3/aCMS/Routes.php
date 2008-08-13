@@ -1,5 +1,6 @@
 <?php
 	return array(
-		'/:url_str/' => 'Page'
+		'/'				=> 'Home', 
+		'/:url_str/'	=> 'Page'
 	);
 ?>
