@@ -1,5 +1,9 @@
 <?php
-	class aCMS_PageModule extends Module {
+	class aCMS_PageModule {
+		public static $tplVars = array();
+		public static $tplFile = true;
+		public static $forceController = false;
+
 		public static function run() {
 			if(isset($_GET['url_str'])) {
 				$page = Pages::getPageByUrlStr($_GET['url_str']);
