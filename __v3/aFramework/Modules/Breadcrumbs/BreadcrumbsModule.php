@@ -5,6 +5,10 @@
 		public static $forceController = false;
 
 		public static function run() {
+			self::$tplVars = array();
+			self::$tplFile = true;
+			self::$forceController = false;
+
 			self::$tplVars['crumbs'] = self::getBreadcrumbs();
 
 			if(!self::$tplVars['crumbs']) {

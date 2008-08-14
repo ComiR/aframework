@@ -5,6 +5,10 @@
 		public static $forceController = false;
 
 		public static function run() {
+			self::$tplVars = array();
+			self::$tplFile = true;
+			self::$forceController = false;
+
 			if(isset($_GET['q'])) {
 				self::$tplVars = self::getSearchResults($_GET['q'], isset($_GET['start']) ? $_GET['start'] : 0);
 

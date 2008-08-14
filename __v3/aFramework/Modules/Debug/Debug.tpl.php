@@ -1,8 +1,8 @@
 <div id="debug">
 
-	<h2>aFramework Debug <span>- Debugging <?php echo $controller['name']; ?></span></h2>
+	<h2>aFramework Debug <span>- Debugging <?php echo $controller['site'] .'_' .$controller['name']; ?></span></h2>
 
-	<p><?php echo $controller['path']; ?></p>
+	<p><?php echo str_replace(ROOT_DIR, '', $controller['path']); ?></p>
 
 	<?php if(isset($__old)) { ?>
 		<p><strong>This controller was forced by some module in old controller <?php echo $__old['controller']['name']; ?></strong></p>
@@ -13,9 +13,9 @@
 	<ul>
 		<?php foreach($modules as $mod) { ?>
 			<li>
-				<h4><?php echo $mod['name']; ?></h4>
+				<h4><?php echo $mod['site'] ? $mod['site'] : '[NoClass]'; echo '_' .$mod['name']; ?></h4>
 
-				<p><?php echo $mod['path'] ? $mod['path'] : '[no module-class]'; ?></p>
+				<p><?php echo isset($mod['path']) ? str_replace(ROOT_DIR, '', $mod['path']) : '[no module-class]'; ?></p>
 
 				<dl>
 					<dt>Run time</dt>
@@ -34,7 +34,7 @@
 							<dl>
 								<?php foreach($mod['tpl_paths'] as $k => $v) { ?>
 									<dt><?php echo ucfirst($k); ?></dt>
-									<dd><?php echo $v != '' ? $v : '[empty]'; ?></dd>
+									<dd><?php echo $v != '' ? str_replace(ROOT_DIR, '', $v) : '[empty]'; ?></dd>
 								<?php } ?>
 							</dl>
 						<?php } else { ?>
