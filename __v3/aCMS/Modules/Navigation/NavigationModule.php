@@ -5,6 +5,10 @@
 		public static $forceController = false;
 
 		public static function run() {
+			self::$tplVars = array();
+			self::$tplFile = true;
+			self::$forceController = false;
+
 			$pages		= Pages::getPagesInNavigation();
 			$navItems	= array(
 				0 => array(

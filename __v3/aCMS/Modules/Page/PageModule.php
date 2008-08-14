@@ -5,6 +5,10 @@
 		public static $forceController = false;
 
 		public static function run() {
+			self::$tplVars = array();
+			self::$tplFile = true;
+			self::$forceController = false;
+
 			$page = Pages::getPageByUrlStr(isset($_GET['url_str']) ? $_GET['url_str'] : 'home');
 
 			if(!$page) {

@@ -1,5 +1,5 @@
 body {
-	background: #fff;
+	background: #6af;
 
 	margin: 0;
 	padding: 0;
@@ -45,10 +45,34 @@ ul, ol {
 
 a = $underlined;
 
+a {
+	color: #369;
+}
+
 #wrapper {
 	background: #fafafa;
-	margin: 0 auto;
+
+	width: 45%;
+	min-width: 650px;
+	max-width: 1100px;
+
+	margin: 20px auto;
 	padding: 40px;
-	border: 1px solid #333;
-	border-width: 1px 0;
+
+	border: 5px solid #147;
+	-moz-border-radius: 10px;
 }
+
+#skip-navigation {
+	text-align: center;
+}
+
+	#skip-navigation ul = $pipe-menu;
+
+#navigation ul = $pipe-menu;
+
+#footer {
+	text-align: center;
+}
+
+	#footer ul = $pipe-menu;
