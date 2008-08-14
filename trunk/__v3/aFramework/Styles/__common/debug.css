@@ -2,27 +2,31 @@
 	background: #fff;
 
 	max-width: 800px;
+	height: 85%;
 
-	margin: 0;
-	padding: 10px 20px;
+	margin: 10px;
+	padding: 20px;
 
-	position: absolute;
+	position: fixed;
 	right: 0;
 	top: 0;
 
-	opacity: .9;
+	opacity: 1;
+	overflow: auto;
 
 	border: 1px solid #333;
 }
 
 #debug.hide {
 	width: auto;
+	height: auto;
 
 	opacity: .3;
+	overflow: visible;
 }
 
 #debug.hide:hover {
-	opacity: .7;
+	opacity: 1;
 }
 
 	#debug.hide > * {
@@ -36,7 +40,7 @@
 	#debug h2 {
 		background: #333;
 
-		margin: -10px -20px 10px;
+		margin: -20px -20px 10px;
 
 		color: #fff;
 	}
@@ -46,7 +50,7 @@
 	}
 
 	#debug.hide h2 {
-		margin-bottom: -10px;
+		margin-bottom: -20px;
 	}
 
 		#debug.hide h2 span {

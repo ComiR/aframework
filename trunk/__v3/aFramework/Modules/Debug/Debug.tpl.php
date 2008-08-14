@@ -5,7 +5,7 @@
 	<p><?php echo str_replace(ROOT_DIR, '', $controller['path']); ?></p>
 
 	<?php if(isset($__old)) { ?>
-		<p><strong>This controller was forced by some module in old controller <?php echo $__old['controller']['name']; ?></strong></p>
+		<p><strong>This controller was forced by module <?php echo $__old['controller']['forced_by']; ?> in old controller <?php echo $__old['controller']['name']; ?></strong></p>
 	<?php } ?>
 
 	<h3>Modules</h3>
@@ -122,12 +122,7 @@
 			var debugDiv			= document.getElementById('debug');
 			var debugHeading		= debugDiv.getElementsByTagName('h2')[0];
 			var debugHLink			= document.createElement('a');
-
-			debugDiv.className		= 'hide';
-			debugHLink.innerHTML	= debugHeading.innerHTML;
-			debugHeading.innerHTML	= '';
-			debugHLink.href			= '#';
-			debugHLink.onclick		= function() {
+			var toggleHideClass		= function() {
 				if(debugDiv.className == 'hide') {
 					debugDiv.className = '';
 				}
@@ -137,6 +132,12 @@
 
 				return false;
 			};
+
+			debugDiv.className		= 'hide';
+			debugHLink.innerHTML	= debugHeading.innerHTML;
+			debugHeading.innerHTML	= '';
+			debugHLink.href			= '#';
+			debugHLink.onclick		= toggleHideClass;
 
 			debugHeading.appendChild(debugHLink);
 		}
