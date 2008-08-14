@@ -1,5 +1,5 @@
 <ul>
-	<li><a href="#content">Skip to content</a></li>
-	<li><a href="#navigation">Skip to navigation</a></li>
-	<li><a href="#sub-content">Skip to secondary content</a></li>
+	<?php foreach($links as $l) { ?>
+		<li><a href="<?php echo $l['url']; ?>">Skip to <?php echo $l['title']; ?></a></li>
+	<?php } ?>
 </ul>

@@ -61,6 +61,7 @@
 					$foundController = true;
 
 					self::$debugInfo['controller']['path'] = ROOT_DIR .$site .'/Controllers/' .$controller .'.xml';
+					self::$debugInfo['controller']['site'] = $site;
 
 					break;
 				}
@@ -192,6 +193,7 @@
 
 					self::$debugInfo['modules'][$module] = array(
 						'path'				=> $modPath, 
+						'site'				=> $site, 
 						'real_name'			=> $modName, 
 						'run_time'			=> $stop - $start, 
 						'force_controller'	=> $modName::$forceController,
@@ -290,14 +292,20 @@
 		 * Extracts tpl-vars into function-scope, turns off errors, includes and returns template
 		 **/
 		private static function fetchTpl($tpl, $vars) {
-			ini_set('display_errors', false);
+		#	if(!DEBUG) {
+				ini_set('display_errors', false);
+		#	}
+
 			ob_start();
 			$__all = $vars;
 			extract((array)$vars);
 			include $tpl;
 			$contents = ob_get_contents();
 			ob_end_clean();
-			ini_set('display_errors', true);
+
+		#	if(!DEBUG) {
+				ini_set('display_errors', true);
+		#	}
 
 			return $contents;
 		}

@@ -5,6 +5,10 @@
 		public static $forceController = false;
 
 		public static function run() {
+			self::$tplVars = array();
+			self::$tplFile = true;
+			self::$forceController = false;
+
 			# User is trying to log in
 			if(isset($_REQUEST['login'])) {
 				if(isset($_REQUEST['username']) and $_REQUEST['username'] == ADMIN_USER and isset($_REQUEST['password']) and $_REQUEST['password'] == ADMIN_PASS) {
