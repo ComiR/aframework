@@ -189,6 +189,8 @@
 
 					if($modName::$forceController) {
 						self::$forceController = $modName::$forceController;
+
+						self::$debugInfo['controller']['forced_by'] = $modName;
 					}
 
 					self::$debugInfo['modules'][$module] = array(
