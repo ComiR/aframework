@@ -1,0 +1,93 @@
+#debug {
+	background: #fff;
+
+	max-width: 800px;
+
+	margin: 0;
+	padding: 10px 20px;
+
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	opacity: .9;
+
+	border: 1px solid #333;
+}
+
+#debug.hide {
+	width: auto;
+
+	opacity: .3;
+}
+
+#debug.hide:hover {
+	opacity: .7;
+}
+
+	#debug.hide > * {
+		display: none;
+	}
+
+	#debug.hide h2 {
+		display: block;
+	}
+
+	#debug h2 {
+		background: #333;
+
+		margin: -10px -20px 10px;
+
+		color: #fff;
+	}
+
+	body.js-disabled #debug h2 {
+		padding: 10px 20px;
+	}
+
+	#debug.hide h2 {
+		margin-bottom: -10px;
+	}
+
+		#debug.hide h2 span {
+			display: none;
+		}
+
+		#debug h2 a {
+			display: block;
+
+			padding: 10px 20px;
+
+			color: #fff;
+			text-decoration: none;
+		}
+
+		#debug h2 a:before {
+			content: "[V] ";
+		}
+
+		#debug.hide h2 a:before {
+			content: "[>] ";
+		}
+
+	#debug h4 {
+		clear: both;
+	}
+
+	#debug ul = $plain-list;
+
+	#debug dl {
+		
+	}
+
+		#debug dl dt {
+			font-weight: bold;		
+		}
+
+		#debug dl dt:after {
+			content: ": ";
+		}
+
+		#debug dl dd {
+		
+		}
