@@ -4,7 +4,7 @@
 	ini_set('display_errors', true);
 
 	# The site you wanna run
-	define('CURRENT_SITE', 'App');
+	define('CURRENT_SITE', 'aCMS');
 
 	# Include the framework
 	require_once 'aFramework/Bootstrap.php';
