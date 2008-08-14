@@ -1,6 +1,6 @@
 <div id="debug">
-	
-	<h2>Debugging Controller <?php echo $controller['name']; ?></h2>
+
+	<h2>aFramework Debug <span>- Debugging <?php echo $controller['name']; ?></span></h2>
 
 	<p><?php echo $controller['path']; ?></p>
 
@@ -19,13 +19,15 @@
 
 				<dl>
 					<dt>Run time</dt>
-					<dd><?php echo $mod['run_time'] ? $mod['run_time'] : '[no run]'; ?></dd>
+					<dd><?php echo $mod['run_time'] ? $mod['run_time'] : '[no run]'; ?> sec(s)</dd>
 					<dt>Number of queries</dt>
-					<dd><?php echo $mod['num_queries'] ? $mod['num_queries'] : '[no queries]'; ?></dd>
-					<dt>View</dt>
-					<dd><?php echo $mod['tpl_file'] ? $mod['tpl_file'] : 'no'; ?></dd>
-					<dt>Force controller</dt>
-					<dd><?php echo $mod['force_controller'] ? $mod['force_controller'] : 'no'; ?></dd>
+					<dd><?php echo $mod['num_queries'] ? $mod['num_queries'] : '[none]'; ?></dd>
+					<!--
+						<dt>View</dt>
+						<dd><?php echo $mod['tpl_file'] ? $mod['tpl_file'] === true ? '[yes]' : $mod['tpl_file'] : '[no]'; ?></dd>
+						<dt>Force controller</dt>
+						<dd><?php echo $mod['force_controller'] ? $mod['force_controller'] : '[no]'; ?></dd>
+					-->
 					<dt>Template paths</dt>
 					<dd>
 						<?php if(count($mod['tpl_paths'])) { ?>
@@ -45,7 +47,18 @@
 							<dl>
 								<?php foreach($mod['tpl_vars'] as $k => $v) { ?>
 									<dt><?php echo $k; ?></dt>
-									<dd><?php echo $v != '' ? $v : '[empty]'; ?></dd>
+									<dd>
+										<?php 
+											if(is_array($v)) {
+												echo '<pre>';
+												var_dump($v);
+												echo '</pre>';
+											}
+											else {
+												echo $v != '' ? $v : '[empty]';
+											}
+										?>
+									</dd>
 								<?php } ?>
 							</dl>
 						<?php } else { ?>
@@ -102,10 +115,32 @@
 	<?php } ?>
 
 </div>
-<!--
+
 <script type="text/javascript">
-	$('#debug').addClass('hide').find('h2').toggle(function() {
-		$('#debug').toggleClass('hide');
-	});
+	Debug = {
+		run: function() {
+			var debugDiv			= document.getElementById('debug');
+			var debugHeading		= debugDiv.getElementsByTagName('h2')[0];
+			var debugHLink			= document.createElement('a');
+
+			debugDiv.className		= 'hide';
+			debugHLink.innerHTML	= debugHeading.innerHTML;
+			debugHeading.innerHTML	= '';
+			debugHLink.href			= '#';
+			debugHLink.onclick		= function() {
+				if(debugDiv.className == 'hide') {
+					debugDiv.className = '';
+				}
+				else {
+					debugDiv.className = 'hide';
+				}
+
+				return false;
+			};
+
+			debugHeading.appendChild(debugHLink);
+		}
+	};
+
+	Debug.run();
 </script>
--->

@@ -6,7 +6,8 @@
 
 		protected static $type;
 		protected static $exclude = array();
-		protected static $mimeTypes = array(
+
+		private static $mimeTypes = array(
 			'css' => 'text/css', 
 			'js' => 'application/x-javascript'
 		);
@@ -122,25 +123,25 @@
 				# Controllers-dir
 				$path = ROOT_DIR .$site .'/Styles/' .$style .'/controllers/';
 				if(is_dir($path)) {
-					$code = self::getCodeInDir($path, self::$exclude, '-page') .$code;
+					$code = self::getCodeInDir($path, '-page') .$code;
 				}
 
 				# Modules-dir
 				$path = ROOT_DIR .$site .'/Styles/' .$style .'/modules/';
 				if(is_dir($path)) {
-					$code = self::getCodeInDir($path, self::$exclude, '') .$code;
+					$code = self::getCodeInDir($path, '') .$code;
 				}
 
 				# "Root"-dir
 				$path = ROOT_DIR .$site .'/Styles/' .$style .'/';
 				if(is_dir($path)) {
-					$code = self::getCodeInDir($path, self::$exclude) .$code;
+					$code = self::getCodeInDir($path) .$code;
 				}
 
 				# Common-dir
 				$path = ROOT_DIR .$site .'/Styles/__common/';
 				if(is_dir($path)) {
-					$code = self::getCodeInDir($path, self::$exclude) .$code;
+					$code = self::getCodeInDir($path) .$code;
 				}
 
 				# Actual module-js
@@ -165,15 +166,14 @@
 		 *
 		 * Gets all code in a particular directory. Sorts on filename
 		 */
-		private static function getCodeInDir($dir, $not = array(), $prefixSelectorsWithFilename = false) {
-			$code = '';
-			$files = array();
-
-			$dh = opendir($dir);
+		private static function getCodeInDir($dir, $prefixSelectorsWithFilename = false) {
+			$code	= '';
+			$files	= array();
+			$dh		= opendir($dir);
 
 			if($dh) {
 				while($f = readdir($dh)) {
-					if(self::$type == end(explode('.', $f)) and !in_array($f, $not)) {
+					if(self::$type == end(explode('.', $f)) and !in_array($f, self::$exclude)) {
 						$files[] = $dir .$f;
 					}
 				}
