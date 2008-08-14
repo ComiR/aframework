@@ -23,7 +23,7 @@
 				if(DEBUG) {
 					$debugHTML = self::fetchTpl(ROOT_DIR .'aFramework/Modules/Debug/Debug.tpl.php', self::$debugInfo);
 
-					echo str_replace('</body>', $debugHTML .'</body>', $theSite);;
+					echo str_replace('</body>', $debugHTML .'</body>', $theSite);
 				}
 				else {
 					echo $theSite;
@@ -180,7 +180,8 @@
 					$start		= microtime(true);
 					$numQBefore	= dbQry(false, true);
 
-					$modName::run(); # call_user_func("$modName::run()");
+					$modName::run();
+					#call_user_func("$modName::run()");
 
 					$stop		= microtime(true);
 					$numQAfter	= dbQry(false, true);
