@@ -2,17 +2,14 @@
 	background: #fff;
 
 	max-width: 800px;
-	height: 85%;
 
 	margin: 10px;
-	padding: 20px;
 
 	position: fixed;
 	right: 0;
 	top: 0;
 
 	opacity: 1;
-	overflow: auto;
 
 	border: 1px solid #333;
 }
@@ -22,42 +19,64 @@
 	height: auto;
 
 	opacity: .3;
-	overflow: visible;
 }
 
 #debug.hide:hover {
 	opacity: 1;
 }
 
-	#debug.hide > * {
-		display: none;
+	#debug-inner {
+		padding: 0 20px;
+		max-height: 550px;
+		overflow-y: auto;
+		overflow-x: hidden;
 	}
 
-	#debug.hide h2 {
-		display: block;
+	#debug p, 
+	#debug dl {
+		margin: 10px 0;
 	}
 
-	#debug h2 {
+	/* All clickable headings */
+	#debug h2, 
+	#debug h3, 
+	#debug h4 {
 		background: #333;
 
-		margin: -20px -20px 10px;
+		margin: 0;
 
 		color: #fff;
+
+		border-top: 1px solid #666;
+		border-top: 1px solid #000;
 	}
 
-	body.js-disabled #debug h2 {
+	#debug h3 {
+		background: #666;
+		border-top: 1px solid #999;
+		border-top: 1px solid #333;
+	}
+
+	#debug h4 {
+		background: #999;
+		border-top: 1px solid #ccc;
+		border-top: 1px solid #666;
+	}
+
+	#debug h3, 
+	#debug h4 {
+		margin: 0 -20px;
+	}
+
+	body.js-disabled #debug h2, 
+	body.js-disabled #debug h3, 
+	body.js-disabled #debug h4 {
 		padding: 10px 20px;
 	}
 
-	#debug.hide h2 {
-		margin-bottom: -20px;
-	}
-
-		#debug.hide h2 span {
-			display: none;
-		}
-
-		#debug h2 a {
+		#debug h2 a, 
+		#debug h3 a, 
+		#debug h4 a {
 			display: block;
 
 			padding: 10px 20px;
@@ -66,18 +85,32 @@
 			text-decoration: none;
 		}
 
-		#debug h2 a:before {
+		#debug h2 a:before, 
+		#debug h3 a:before, 
+		#debug h4 a:before {
 			content: "[V] ";
 		}
 
-		#debug.hide h2 a:before {
+		/* When collapsed */
+		#debug.hide h2 a:before, 
+		#debug h3.hide a:before, 
+		#debug li.hide h4 a:before {
 			content: "[>] ";
 		}
 
-	#debug h4 {
-		clear: both;
-	}
+		#debug.hide #debug-inner, 
+		#debug.hide h2 span, 
+		#debug h3.hide + dl, 
+		#debug h3.hide + ul, 
+		#debug li.hide > * {
+			display: none;
+		}
 
+		#debug li.hide > h4 {
+			display: block;
+		}
+
+	/* Additional styling */
 	#debug ul = $plain-list;
 
 	#debug dl {
