@@ -8,6 +8,13 @@
 		<p><strong>This controller was forced by module <?php echo $__old['controller']['forced_by']; ?> in old controller <?php echo $__old['controller']['name']; ?></strong></p>
 	<?php } ?>
 
+	<dl>
+		<dt>Run time</dt>
+		<dd><?php echo $controller['run_time']; ?> sec(s)</dd>
+		<dt>Num queries</dt>
+		<dd><?php echo $controller['num_queries']; ?></dd>
+	</dl>
+
 	<h3>Modules</h3>
 
 	<ul>
