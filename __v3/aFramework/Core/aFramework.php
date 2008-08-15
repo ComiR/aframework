@@ -144,14 +144,15 @@
 					}
 
 					$moduleTpl = self::fetchModule($module->nodeName, array('child_modules' => $childModules));
+					$id = (strtolower($module->nodeName) == 'wrapper') ? strtolower(ccFix($module->getAttribute('name'))) : strtolower(ccFix($module->nodeName));
+					
+					self::$debugInfo['modules'][$module->nodeName]['html_id'] = $id;
 
 					if($moduleTpl or $childModules) {
 						if($i > 0) {
 							$page .= "\n\n<hr />"; # :)
 						}
 						if($module->nodeName != 'Base') {
-							$id = (strtolower($module->nodeName) == 'wrapper') ? strtolower(ccFix($module->getAttribute('name'))) : strtolower(ccFix($module->nodeName));
-
 							$page .= "\n\n<div id=\"$id\">\n\n";
 						}
 						if(strtolower($module->nodeName) == 'wrapper') {
@@ -201,16 +202,14 @@
 						self::$debugInfo['controller']['forced_by'] = $modName;
 					}
 
-					self::$debugInfo['modules'][$module] = array(
-						'path'				=> $modPath, 
-						'site'				=> $site, 
-						'real_name'			=> $modName, 
-						'run_time'			=> $stop - $start, 
-						'force_controller'	=> $modName::$forceController,
-						'tpl_file'			=> $modName::$tplFile,
-						'tpl_vars'			=> $modName::$tplVars,
-						'num_queries'		=> $numQAfter['num_queries'] - $numQBefore['num_queries']
-					);
+					self::$debugInfo['modules'][$module]['path']				= $modPath;
+					self::$debugInfo['modules'][$module]['site']				= $site;
+					self::$debugInfo['modules'][$module]['real_name']			= $modName;
+					self::$debugInfo['modules'][$module]['run_time']			= $stop - $start;
+					self::$debugInfo['modules'][$module]['force_controller']	= $modName::$forceController;
+					self::$debugInfo['modules'][$module]['tpl_file']			= $modName::$tplFile;
+					self::$debugInfo['modules'][$module]['tpl_vars']			= $modName::$tplVars;
+					self::$debugInfo['modules'][$module]['num_queries']			= $numQAfter['num_queries'] - $numQBefore['num_queries'];
 
 					return true;
 				}
