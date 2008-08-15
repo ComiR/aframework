@@ -18,9 +18,17 @@
 				echo self::runSingleModule(removeDots($_GET['module']));
 			}
 			elseif(isset($_GET['controller'])) {
+				$start = microtime(true);
+
 				$theSite = self::runController(removeDots($_GET['controller']));
 
+				$end = microtime(true);
+				$numQueries = dbQry(false, true);
+
 				if(DEBUG) {
+					self::$debugInfo['controller']['run_time'] = $end - $start;
+					self::$debugInfo['controller']['num_queries'] = $numQueries['num_queries'];
+
 					$debugHTML = self::fetchTpl(ROOT_DIR .'aFramework/Modules/Debug/Debug.tpl.php', self::$debugInfo);
 
 					echo str_replace('</body>', $debugHTML .'</body>', $theSite);
