@@ -9,7 +9,7 @@
 	define('DB_TABLE_PREFIX',	'');
 
 	define('ALLOW_STYLES',		true);
-	define('DEFAULT_STYLE',		'default');
+	define('DEFAULT_STYLE',		'aframework');
 
 	define('SITE_AUTHOR',		'Andreas Lagerkvist');
 	define('SITE_TITLE',		'aFramework');

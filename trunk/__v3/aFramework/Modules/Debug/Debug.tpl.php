@@ -138,7 +138,6 @@
 				else {
 					debug.className = 'hide';
 				}
-				return false;
 			});
 
 			this.addLinks('h3', function(a) {
@@ -148,7 +147,6 @@
 				else {
 					a.parentNode.className = 'hide';
 				}
-				return false;
 			});
 
 			this.addLinks('h4', function(a) {
@@ -158,7 +156,6 @@
 				else {
 					a.parentNode.parentNode.className = 'hide';
 				}
-				return false;
 			});
 
 			this.addModuleHighlighting();
@@ -172,7 +169,7 @@
 				var a			= document.createElement('a');
 
 				a.href			= '#';
-				a.onclick		= function() {oc(this);};
+				a.onclick		= function() {oc(this); return false;};
 				a.innerHTML		= h[i].innerHTML;
 				h[i].innerHTML	= '';
 
