@@ -9,19 +9,24 @@
 			self::$tplFile = true;
 			self::$forceController = false;
 
-			$pages		= Pages::getPagesInNavigation();
-			$navItems	= array(
-				0 => array(
-					'title'	=> 'Home', 
-					'url'	=> Router::urlFor('Home')
-				)
+			$navItems[]	= array(
+				'title'	=> 'Home', 
+				'url'	=> Router::urlFor('Home')
 			);
+			$pages		= Pages::getPagesInNavigation();
 
 			if($pages) {
 				$navItems = array_merge($navItems, $pages);
 			}
 
 			self::$tplVars['nav_items'] = $navItems;
+
+			if(ADMIN) {
+				self::$tplVars['nav_items'][] = array(
+					'title'	=> 'Add page', 
+					'url' => Router::urlFor('AddPage')
+				);
+			}
 		}
 	}
 ?>
