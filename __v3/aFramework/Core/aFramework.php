@@ -260,9 +260,9 @@
 			# Now that we have the template-file, go through all sites 
 			# and get Before, Middle and After-templates
 			foreach($sites as $site) {
-				$beforePath = ROOT_DIR .$site .'/Modules/' .$module .'/Before' .$tplFile .'.tpl.php';
-				$middlePath = ROOT_DIR .$site .'/Modules/' .$module .'/' .$tplFile .'.tpl.php';
-				$afterPath = ROOT_DIR .$site .'/Modules/' .$module .'/After' .$tplFile .'.tpl.php';
+				$beforePath	= (ADMIN and file_exists(ROOT_DIR .$site .'/Modules/' .$module .'/Before' .$tplFile .'Admin.tpl.php')) ? ROOT_DIR .$site .'/Modules/' .$module .'/Before' .$tplFile .'Admin.tpl.php' : ROOT_DIR .$site .'/Modules/' .$module .'/Before' .$tplFile .'.tpl.php';
+				$middlePath	= (ADMIN and file_exists(ROOT_DIR .$site .'/Modules/' .$module .'/' .$tplFile .'Admin.tpl.php')) ? ROOT_DIR .$site .'/Modules/' .$module .'/' .$tplFile .'Admin.tpl.php' : ROOT_DIR .$site .'/Modules/' .$module .'/' .$tplFile .'.tpl.php';
+				$afterPath	= (ADMIN and file_exists(ROOT_DIR .$site .'/Modules/' .$module .'/After' .$tplFile .'Admin.tpl.php')) ? ROOT_DIR .$site .'/Modules/' .$module .'/After' .$tplFile .'Admin.tpl.php' : ROOT_DIR .$site .'/Modules/' .$module .'/After' .$tplFile .'.tpl.php';
 
 				# Before
 				if($before == '' and file_exists($beforePath)) {
