@@ -9,7 +9,7 @@
 	define('DB_TABLE_PREFIX',	'');
 
 	define('ALLOW_STYLES',		true);
-	define('DEFAULT_STYLE',		'default');
+	define('DEFAULT_STYLE',		'acms');
 
 	define('SITE_AUTHOR',		'Some Company');
 	define('SITE_TITLE',		'Some Company');
