@@ -41,7 +41,7 @@
 	#debug h2, 
 	#debug h3, 
 	#debug h4 {
-		background: #333;
+		background: #147;
 
 		margin: 0;
 
@@ -52,13 +52,13 @@
 	}
 
 	#debug h3 {
-		background: #666;
+		background: #26a;
 		border-top: 1px solid #999;
 		border-top: 1px solid #333;
 	}
 
 	#debug h4 {
-		background: #999;
+		background: #69c;
 		border-top: 1px solid #ccc;
 		border-top: 1px solid #666;
 	}
