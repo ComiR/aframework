@@ -3,7 +3,8 @@
 	<SkipNavigation />
 	<Header />
 	<Navigation />
-	<BreadCrumbs />
+	<Breadcrumbs />
 	<Page />
 	<Footer />
+	<ModuleListing />
 </Base>
