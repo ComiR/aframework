@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Base cache-time="60">
-	<SkipNavigation />
-	<Header />
-	<Navigation />
-	<BreadCrumbs />
-	<IntroText />
-	<Footer />
+	<SkipNavigation/>
+	<Header/>
+	<Navigation/>
+	<Breadcrumbs/>
+	<IntroText/>
+	<Footer/>
+	<ModuleListing/>
 </Base>

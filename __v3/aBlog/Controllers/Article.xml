@@ -3,7 +3,7 @@
 	<SkipNavigation />
 	<Header />
 	<Navigation />
-	<BreadCrumbs />
+	<Breadcrumbs />
 	<Wrapper name="content">
 		<Article />
 		<CommentListing />
@@ -16,4 +16,5 @@
 		<RecentComments ajax-run="true" />
 	</Wrapper>
 	<Footer />
+	<ModuleListing />
 </Base>
