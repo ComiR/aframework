@@ -42,8 +42,8 @@
 
 				# JS gets packed
 				if(self::$type == 'js') {
-					$jsPacker = new JavaScriptPacker($code, 0);
-					$code = $jsPacker->pack();
+				#	$jsPacker = new JavaScriptPacker($code, 0);
+				#	$code = $jsPacker->pack();
 				}
 				# CSS gets constant-treatment
 				elseif(self::$type == 'css') {
@@ -133,32 +133,35 @@
 				# Modules-dir
 				$path = ROOT_DIR .$site .'/Styles/' .$style .'/modules/';
 				if(is_dir($path)) {
-					$code = self::getCodeInDir($path, '') .$code;
+					$code = self::getCodeInDir(array($path), '') .$code;
 				}
 
 				# "Root"-dir
 				$path = ROOT_DIR .$site .'/Styles/' .$style .'/';
 				if(is_dir($path)) {
-					$code = self::getCodeInDir($path) .$code;
+					$code = self::getCodeInDirs(array($path)) .$code;
 				}
 
 				# Common-dir
 				$path = ROOT_DIR .$site .'/Styles/__common/';
 				if(is_dir($path)) {
-					$code = self::getCodeInDir($path) .$code;
+					$code = self::getCodeInDirs(array($path)) .$code;
 				}
 
 				# Actual module-js
 				if(self::$type == 'js') {
 					# Real modules-dir
+					$dirs = array();
 					$path = ROOT_DIR .$site .'/Modules/';
 					$dh = opendir($path);
 
 					while($f = readdir($dh)) {
 						if('.' != $f and '..' != $f and is_dir($path .$f .'/')) {
-							$code = self::getCodeInDir($path .$f .'/', self::$exclude) .$code;
+							$dirs[] = $path .$f .'/';
 						}
 					}
+
+					$code = self::getCodeInDirs($dirs) .$code;
 				}
 			}
 
@@ -170,27 +173,29 @@
 		 *
 		 * Gets all code in a particular directory. Sorts on filename
 		 */
-		private static function getCodeInDir($dir, $prefixSelectorsWithFilename = false) {
-			$code	= '';
-			$files	= array();
-			$dh		= opendir($dir);
+		private static function getCodeInDirs($dirs, $prefixSelectorsWithFilename = false) {
+			$code = '';
+			$files = array();
 
-			if($dh) {
-				while($f = readdir($dh)) {
-					if(self::$type == end(explode('.', $f)) and !in_array($f, self::$exclude)) {
-						$files[] = $dir .$f;
+			foreach($dirs as $dir) {
+				$dh = opendir($dir);
+
+				if($dh) {
+					while($f = readdir($dh)) {
+						if(self::$type == end(explode('.', $f)) and !in_array($f, self::$exclude)) {
+							$files["$dir$f"] = $f;
+						}
 					}
 				}
 			}
 
-			sort($files);
+			asort($files);
 
-			foreach($files as $f) {
-				$contents = file_get_contents($f);
+			foreach($files as $path => $name) {
+				$contents = file_get_contents($path);
 
 				if(self::$type == 'css' and $prefixSelectorsWithFilename !== false) {
-					$fileName = end(explode('/', $f));
-					$fileNameNoExt = substr($fileName, 0, -(strlen(end(explode('.', $fileName)))+1));
+					$fileNameNoExt = substr($name, 0, -(strlen(end(explode('.', $name)))+1));
 
 					$code .= CSSSelectorPrefixer::prefixSelectors($contents, '#' .$fileNameNoExt .$prefixSelectorsWithFilename);
 				}
