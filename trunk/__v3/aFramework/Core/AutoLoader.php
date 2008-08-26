@@ -4,10 +4,13 @@
 			# Only Modules-classes should contain _
 			if(strstr($class, '_')) {
 				$bits = explode('_', $class);
-				$path = ROOT_DIR .$bits[0] .'/Modules/' .str_replace('Module', '', $bits[1]) .'/' .$bits[1] .'.php';
+				$path = ROOT_DIR .$bits[0] .'/Modules/' .substr($bits[1], 0, -6) .'/' .$bits[1] .'.php';
 
 				if(file_exists($path)) {
 					require_once $path;
+				}
+				else {
+					die("$path does not exist");
 				}
 			}
 			# It's a Lib or DBLib-class
