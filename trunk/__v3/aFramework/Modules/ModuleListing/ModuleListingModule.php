@@ -4,6 +4,18 @@
 		public static $tplFile = true;
 		public static $forceController = false;
 
+		private static $notModules = array(
+			'..', 
+			'.', 
+			'.svn', 
+			'Base', 
+			'CodeCompressor', 
+			'CSSCompressor', 
+			'JSCompressor', 
+			'ModuleListing', 
+			'Debug'
+		);
+
 		/**
 		 * run
 		 *
@@ -15,6 +27,7 @@
 
 			$controller = isset($_GET['controller']) ? $_GET['controller'] : 'Home';
 
+			# Get all available modules for this site
 			self::$tplVars['modules'] = self::getAvailableModules($controller);
 
 			foreach(self::$tplVars['modules'] as $mod) {
@@ -23,16 +36,18 @@
 				}
 			}
 
+			# Someone wants to add a module to the controller
 			if(isset($_REQUEST['module_listing_add_module'])) {
-				self::addModuleToController($_REQUEST['module'], $_REQUEST['target'], $_REQUEST['before'], $controller);
+				self::addModuleToController($_REQUEST['module_to_add'], $_REQUEST['target'], $_REQUEST['before'], $_REQUEST['used_controller']);
 
 				if(!XHR) {
 					redirect('?added_module');
 				}
 			}
 
+			# Someone wants to remove a module from the controller
 			if(isset($_REQUEST['module_listing_remove_module'])) {
-				self::removeModuleFromController($_REQUEST['module'], $controller);
+				self::removeModuleFromController($_REQUEST['module_to_remove'], $_REQUEST['used_controller']);
 
 				if(!XHR) {
 					redirect('?removed_module');
@@ -45,29 +60,18 @@
 		 *
 		 **/
 		private static function getAvailableModules($controller) {
-			$notModules = array(
-				'..', 
-				'.', 
-				'.svn', 
-				'Base', 
-				'CodeCompressor', 
-				'CSSCompressor', 
-				'JSCompressor', 
-				'ModuleListing', 
-				'Debug'
-			);
 			$sites = explode(' ', SITE_HIERARCHY);
 			$modules = array();
 			$modulesInController = self::getModulesInController($controller);
 
 			foreach($sites as $site) {
-				$moduleDir = ROOT_DIR .$site .'/Modules/';
+				$modulesDir = ROOT_DIR .$site .'/Modules/';
 
-				if(is_dir($moduleDir)) {
-					$dh = opendir($moduleDir);
+				if(is_dir($modulesDir)) {
+					$dh = opendir($modulesDir);
 
 					while($f = readdir($dh)) {
-						if(!in_array($f, $notModules) and is_dir($moduleDir .$f)) {
+						if(!in_array($f, self::$notModules) and is_dir($modulesDir .$f)) {
 							$modules[$f]['name'] = $f;
 							$modules[$f]['in_use'] = in_array($f, $modulesInController);
 							$modules[$f]['html_id'] = strtolower(ccFix($f));
@@ -102,7 +106,9 @@
 			$mods = array();
 
 			foreach($modules as $mod) {
-				$mods[] = $mod->nodeName;
+				if(!in_array($mod->nodeName, self::$notModules)) {
+					$mods[] = $mod->nodeName;
+				}
 
 				if($mod->hasChildNodes()) {
 					$mods = array_merge($mods, self::__getModulesInController($mod->childNodes));
@@ -179,23 +185,15 @@
 			$doc = new DOMDocument();
 			$doc->load($path);
 
-			$bases = $doc->getElementsByTagName('Base');
-			$base = false;
-
-			foreach($bases as $b) {
-				$base = $b;
-				break;
-			}
-
-			$removers = $doc->getElementsByTagName($module);
+			$modules = $doc->getElementsByTagName($module);
 			$mod = false;
 
-			foreach($removers as $r) {
+			foreach($modules as $r) {
 				$mod = $r;
 				break;
 			}
 
-			$base->removeChild($mod);
+			$mod->parentNode->removeChild($mod);
 
 			file_put_contents($path, $doc->saveXML());
 

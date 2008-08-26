@@ -1,4 +1,4 @@
-html {
+body {
 	background: #69f;
 
 	margin: 0;
@@ -8,7 +8,7 @@ html {
 	color: #333;
 }
 
-body {
+#wrapper {
 	background: #fafafa;
 
 	width: 45%;
