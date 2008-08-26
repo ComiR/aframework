@@ -20,4 +20,5 @@
 	define('ADMIN',					isset($_COOKIE[ADMIN_SESSION]) or isset($_SESSION[ADMIN_SESSION]));
 	define('DEBUG',					isset($_GET['debug'])/* and ADMIN*/);
 	define('FOUR_O_FOUR_CONTROLLER','FourOFour');
+	define('AUTO_HR',				false);
 ?>

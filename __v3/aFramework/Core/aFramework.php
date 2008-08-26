@@ -149,7 +149,7 @@
 					self::$debugInfo['modules'][$module->nodeName]['html_id'] = $id;
 
 					if($moduleTpl or $childModules) {
-						if($i > 0) {
+						if(AUTO_HR and $i > 0) {
 							$page .= "\n\n<hr />"; # :)
 						}
 						if($module->nodeName != 'Base') {

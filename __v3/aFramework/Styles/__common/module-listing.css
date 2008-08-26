@@ -1,21 +1,50 @@
 #module-listing {
 	background: #fff;
 
-	max-width: 800px;
+	min-width: 300px;
+	max-width: 400px;
 	max-height: 550px;
-
-	overflow-y: auto;
-	overflow-x: hidden;
 
 	margin: 10px;
 	padding: 10px;
 
-	position: fixed;
+	position: absolute;
 	right: 0;
 	top: 0;
 
 	border: 1px solid #333;
+
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
 }
+
+body.js-disabled #module-listing {
+	position: fixed;
+	right: 0;
+	top: 0;
+
+	overflow-y: auto;
+	overflow-x: hidden;
+}
+
+	#module-listing h2 {
+		background: #333;
+
+		margin: -10px -10px 10px -10px;
+		padding: 5px 10px;
+
+		color: #fff;
+
+		-moz-border-radius: 10px 10px 0 0;
+		-webkit-border-radius: 10px 10px 0 0;
+		border-radius: 10px 10px 0 0;
+	}
+
+	body.js-enabled #module-listing h2, 
+	body.js-enabled #module-listing h3 {
+		cursor: move;
+	}
 
 	#module-listing div {
 		background: #fff;
@@ -24,17 +53,25 @@
 		padding: 10px;
 
 		border: 1px solid #369;
+
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
 	}
 
-		#module-listing div h2 {
+		#module-listing div h3 {
 			background: #369;
 
 			margin: -10px -10px 10px -10px;
 			padding: 5px 10px;
 
 			color: #fff;
+
+			-moz-border-radius: 10px 10px 0 0;
+			-webkit-border-radius: 10px 10px 0 0;
+			border-radius: 10px 10px 0 0;
 		}
 
-		#module-listing div.in-use h2 {
+		#module-listing div.in-use h3 {
 			color: #000;
 		}
