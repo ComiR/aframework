@@ -11,7 +11,7 @@ var ModuleListing = {
 			$('#module-listing div').draggable({
 				handle: 'h3',		
 				revert: 'invalid', 
-				revertDuration: 10, 
+				revertDuration: 100, 
 				opacity: .5
 			});
 			$('#module-listing form').remove();
@@ -52,7 +52,7 @@ var ModuleListing = {
 
 			// Make every module droppable so you can drag modules from the list in to other modules
 			module.droppable({
-				accept: 'div[id]', 
+				accept: 'div[id]:not(#module-listing)', 
 				hoverClass: 'droppable-hover', 
 				tolerance: 'pointer', 
 				greedy: true, 
