@@ -13,7 +13,10 @@
 			'CSSCompressor', 
 			'JSCompressor', 
 			'ModuleListing', 
-			'Debug'
+			'Debug',
+			'#text', 
+			'#comment', 
+			'#cdata-section'
 		);
 
 		/**
@@ -38,7 +41,7 @@
 
 			# Someone wants to add a module to the controller
 			if(isset($_REQUEST['module_listing_add_module'])) {
-				self::addModuleToController($_REQUEST['module_to_add'], $_REQUEST['target'], $_REQUEST['before'], $_REQUEST['used_controller']);
+				self::addModuleToController($_REQUEST['module_to_add'], $_REQUEST['target'], $_REQUEST['before'], $_REQUEST['controller_in_use']);
 
 				if(!XHR) {
 					redirect('?added_module');
@@ -47,7 +50,7 @@
 
 			# Someone wants to remove a module from the controller
 			if(isset($_REQUEST['module_listing_remove_module'])) {
-				self::removeModuleFromController($_REQUEST['module_to_remove'], $_REQUEST['used_controller']);
+				self::removeModuleFromController($_REQUEST['module_to_remove'], $_REQUEST['controller_in_use']);
 
 				if(!XHR) {
 					redirect('?removed_module');
@@ -62,7 +65,6 @@
 		private static function getAvailableModules($controller) {
 			$sites = explode(' ', SITE_HIERARCHY);
 			$modules = array();
-			$modulesInController = self::getModulesInController($controller);
 
 			foreach($sites as $site) {
 				$modulesDir = ROOT_DIR .$site .'/Modules/';
@@ -73,12 +75,14 @@
 					while($f = readdir($dh)) {
 						if(!in_array($f, self::$notModules) and is_dir($modulesDir .$f)) {
 							$modules[$f]['name'] = $f;
-							$modules[$f]['in_use'] = in_array($f, $modulesInController);
+							$modules[$f]['in_use'] = false;
 							$modules[$f]['html_id'] = strtolower(ccFix($f));
 						}
 					}
 				}
 			}
+
+			$modules = array_merge($modules, self::getModulesInController($controller));
 
 			sort($modules);
 
@@ -107,7 +111,11 @@
 
 			foreach($modules as $mod) {
 				if(!in_array($mod->nodeName, self::$notModules)) {
-					$mods[] = $mod->nodeName;
+					$mods[$mod->nodeName] = array(
+						'name' => $mod->nodeName, 
+						'in_use' => true, 
+						'html_id' => $mod->nodeName == 'Wrapper' ? $mod->getAttribute('name') : strtolower(ccFix($mod->nodeName))
+					);
 				}
 
 				if($mod->hasChildNodes()) {
