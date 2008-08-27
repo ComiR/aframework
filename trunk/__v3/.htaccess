@@ -37,18 +37,18 @@
 #################################################################
 
 # Configure ETags
-FileETag MTime Size
+# FileETag MTime Size
 
 # Enable expirations
 <IfModule mod_expires.c>
-	ExpiresActive On
+#	ExpiresActive On
 
-	ExpiresDefault "access plus 3 days"
+#	ExpiresDefault "access plus 3 days"
 </IfModule>
 
 # Gzip HTML, CSS and JS
 <IfModule mod_deflate.c>
-	AddOutputFilterByType DEFLATE text/html
-	AddOutputFilterByType DEFLATE text/css
-	AddOutputFilterByType DEFLATE application/x-javascript
+#	AddOutputFilterByType DEFLATE text/html
+#	AddOutputFilterByType DEFLATE text/css
+#	AddOutputFilterByType DEFLATE application/x-javascript
 </IfModule>
