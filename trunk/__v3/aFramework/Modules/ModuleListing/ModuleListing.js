@@ -2,41 +2,77 @@ var ModuleListing = {
 	controller: false, 
 
 	init: function() {
-		this.controller = $('#module-listing input[name="used_controller"]').val();
+		if(!$('body.admin').length) {
+			this.controller = $('#module-listing input[name="controller_in_use"]').val();
 
-		$('#module-listing > p + p').html('Simply click the [Remove]-button next to a module in use to remove it and place it back in the list, or drag modules from the list to the page to add them.');
-		$('#module-listing').draggable({handle: 'h2'});
-		$('#module-listing div').draggable({handle: 'h3'});
+		//	$('#module-listing > h2 + p + p').html('Simply click the [Remove]-button next to a module in use to remove it and place it back in the list, or drag modules from the list to the page to add them.');
+			$('#module-listing').draggable({handle: 'h2'});
+			$('#module-listing div').draggable({handle: 'h3'});
+			$('#module-listing form').remove();
 
-		this.removeFormsAndUsedModules();
-		this.addRemoveButtonsToUsedModules();
+			this.addRemoveButtonsToUsedModulesAndMakeDroppable();
+		}
 	}, 
 
-	removeFormsAndUsedModules: function() {
-		$('#module-listing form').remove();
-		$('#module-listing div.in-use').hide();
-	}, 
-
-	addRemoveButtonsToUsedModules: function() {
+	addRemoveButtonsToUsedModulesAndMakeDroppable: function() {
 		// Go through list in module-listing for .in-use divs
 		$('#module-listing div.in-use').each(function() {
-			// They have the same ID as the actual modules prepended with mod-
-			var modID = $(this).attr('id');
-			var div = $('#' +modID.replace(/mod-/, ''));
+			var modListingModule = $(this);
+			var moduleName = modListingModule.find('h3').text();
+			var module = $('#' +modListingModule.attr('id').replace(/^mod-/, ''));
+			var remove = $('<button title="Remove module ' +moduleName +' from the page">X</button>').appendTo(module);
 
-			// Create the remove-button
-			var removeButton = $('<p><button>Remove Module</button></p>').appendTo(div).find('button');
+			module.css({position: 'relative'});
+			remove.css({position: 'absolute', left: '0', top: '0'});
 
-			// And when you click it
-			removeButton.click(function() {
-				// Show the "mod" in module-listing and remove its class
-				$('#' +modID).removeClass('in-use').show();
+			// Add remove-button to all modules in use and remove the module when you click it
+			remove.click(function() {
+				var ajaxPostData = {
+					module_listing_remove_module: 1,
+					module_to_remove: moduleName, 
+					controller_in_use: ModuleListing.controller
+				};
 
-				// Remove the actual module
-				div.remove();
+				alert('Removing ' +ajaxPostData.module_to_remove +' from ' +ajaxPostData.controller_in_use);
 
-				// And make PHP remove the XML-node from the XML-Controller
-				// Todo
+				// Remove the in-use class from the module in the module-list so user can re-add it
+				modListingModule.removeClass('in-use');
+
+				// Remove the module-div from the page
+				module.remove();
+
+				// Ajax the change of the controller
+			});
+
+			// Make every module droppable so you can drag modules from the list in to other modules
+			module.droppable({
+				accept: 'div[id]', 
+				hoverClass: 'droppable-hover', 
+				tolerance: 'pointer', 
+				greedy: true, 
+				drop: function(ev, ui) {
+					var ajaxPostData = {
+						module_listing_add_module: 1, 
+						target: moduleName, 
+						module_to_add: ui.draggable.find('h3').text(), 
+						controller_in_use: ModuleListing.controller
+					};
+
+					alert('Adding ' +ajaxPostData.module_to_add +' to ' +ajaxPostData.target +' in ' +ajaxPostData.controller_in_use);
+
+					// Hide the newly added module from the module-list
+					ui.draggable.addClass('in-use');
+
+					// Add a div for the new module
+					var newMod = $('<div id="' +ui.draggable.attr('id').replace(/^mod-/, '') +'"><p>Loading ' +ajaxPostData.module_to_add +'...</p></div>').appendTo(module);
+
+					// Now fill the div with the modules stuff
+					$.get('/?module=' +ajaxPostData.module_to_add, function(data) {
+						newMod.html(data);
+					});
+
+					// Ajax the change of the controller
+				}
 			});
 		});
 	}
