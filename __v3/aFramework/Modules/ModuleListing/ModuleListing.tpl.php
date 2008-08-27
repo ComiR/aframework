@@ -1,8 +1,4 @@
-<h2>Page Creator</h2>
-
-<!--<p>With the page-creator you can add and remove modules on the page you are viewing.</p>
-
-<p>Simply use the form below each module in the list to either append it to another module, insert it <em>before</em> a module or remove it.</p>-->
+<h2>Modules</h2>
 
 <?php foreach($modules as $mod) { ?>
 	<div id="mod-<?php echo $mod['html_id']; ?>"<?php if($mod['in_use']) { ?> class="in-use"<?php } ?>>
@@ -59,7 +55,3 @@
 
 	</div>
 <?php } ?>
-
-<!--<p>If you add a module to another module and it doesn't show up it's because the other module's tpl-file is not echo:ing its $child_modules-var anywhere. Tell a developer to fix it! :)</p>
-
-<p>Some modules that are in use may not be displayed on the page. Breadcrumbs are for example never shown on the first page.</p>-->

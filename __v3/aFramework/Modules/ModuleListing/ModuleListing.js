@@ -5,7 +5,6 @@ var ModuleListing = {
 		if(!$('body.admin').length) {
 			this.controller = $('#module-listing input[name="controller_in_use"]').val();
 
-		//	$('#module-listing > h2 + p + p').html('Simply click the [Remove]-button next to a module in use to remove it and place it back in the list, or drag modules from the list to the page to add them.');
 			$('#module-listing').draggable({handle: 'h2'});
 			$('#module-listing div').draggable({handle: 'h3'});
 			$('#module-listing form').remove();
