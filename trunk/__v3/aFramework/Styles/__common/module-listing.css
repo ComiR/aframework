@@ -27,10 +27,6 @@ div.droppable-hover {
 	font-size: 80%;
 
 	border: 1px solid #333;
-
-	-moz-border-radius: 10px;
-	-webkit-border-radius: 10px;
-	border-radius: 10px;
 }
 
 body.js-disabled #module-listing {
@@ -51,10 +47,6 @@ body.js-disabled #module-listing {
 		padding: 5px 10px;
 
 		color: #fff;
-
-		-moz-border-radius: 10px 10px 0 0;
-		-webkit-border-radius: 10px 10px 0 0;
-		border-radius: 10px 10px 0 0;
 	}
 
 	body.js-enabled #module-listing h2, 
@@ -69,10 +61,6 @@ body.js-disabled #module-listing {
 		padding: 10px;
 
 		border: 1px solid #369;
-
-		-moz-border-radius: 10px;
-		-webkit-border-radius: 10px;
-		border-radius: 10px;
 	}
 
 	body.js-enabled #module-listing div.in-use {
@@ -86,10 +74,6 @@ body.js-disabled #module-listing {
 			padding: 5px 10px;
 
 			color: #fff;
-
-			-moz-border-radius: 10px 10px 0 0;
-			-webkit-border-radius: 10px 10px 0 0;
-			border-radius: 10px 10px 0 0;
 		}
 
 		#module-listing div.in-use h3 {
