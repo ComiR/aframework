@@ -5,8 +5,15 @@ var ModuleListing = {
 		if(!$('body.admin').length) {
 			this.controller = $('#module-listing input[name="controller_in_use"]').val();
 
-			$('#module-listing').draggable({handle: 'h2'});
-			$('#module-listing div').draggable({handle: 'h3'});
+			$('#module-listing').draggable({
+				handle: 'h2'
+			});
+			$('#module-listing div').draggable({
+				handle: 'h3',		
+				revert: 'invalid', 
+				revertDuration: 10, 
+				opacity: .5
+			});
 			$('#module-listing form').remove();
 
 			this.addRemoveButtonsToUsedModulesAndMakeDroppable();
