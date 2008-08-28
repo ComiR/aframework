@@ -1,17 +1,5 @@
-button[title^="Remove module "] {
-	opacity: .6;
-	cursor: pointer;
-}
-
-button[title^="Remove module "]:hover {
-	opacity: 1;
-}
-
-div.droppable-over {
-	background: #def !important;
-	outline: 5px dashed #369 !important;
-}
-
+/* Modules that are used and rendered on the page 
+   (fucks up design a bit but is pretty much required for drag-n-drop to work properlings) */
 div.module-listing-used-module {
 	border: 1px solid #369;
 	padding: 10px;
@@ -23,8 +11,27 @@ div.module-listing-used-module {
 		position: absolute;
 		left: 0;
 		top: 0;
+
+		opacity: .6;
+		cursor: pointer;
 	}
 
+	div.module-listing-used-module button[title^="Remove module "]:hover {
+		opacity: 1;
+	}
+
+/* When a module is to be inserted before this module */
+div.module-listing-insert-module-before {
+	border-top: 5px dotted #369;
+	padding-top: 5px;
+}
+
+/* When a module is to be inserted into this module */
+div.module-listing-append-module-to {
+	outline: 5px dotted #369;
+}
+
+/* The module-listing */
 #module-listing {
 	background: #fff;
 
@@ -70,8 +77,7 @@ body.js-disabled #module-listing {
 		cursor: move;
 	}
 
-	#module-listing div, 
-	div.module-listing-ghost-module {
+	#module-listing div {
 		background: #fff;
 
 		margin: 0 0 10px;
@@ -80,16 +86,11 @@ body.js-disabled #module-listing {
 		border: 1px solid #369;
 	}
 
-	div.module-listing-ghost-module {
-		opacity: .5;
-	}
-
 	body.js-enabled #module-listing div.in-use {
 		display: none;
 	}
 
-		#module-listing div h3, 
-		div.module-listing-ghost-module h2 {
+		#module-listing div h3 {
 			background: #369;
 
 			margin: -10px -10px 10px -10px;
