@@ -15,27 +15,11 @@
 		 **/
 		public static function run() {
 			if(isset($_GET['module'])) {
+				if(XHR) sleep(1);
 				echo self::runSingleModule(removeDots($_GET['module']));
 			}
 			elseif(isset($_GET['controller'])) {
-				$start = microtime(true);
-
-				$theSite = self::runController(removeDots($_GET['controller']));
-
-				$end = microtime(true);
-				$numQueries = dbQry(false, true);
-
-				if(DEBUG) {
-					self::$debugInfo['controller']['run_time'] = $end - $start;
-					self::$debugInfo['controller']['num_queries'] = $numQueries['num_queries'];
-
-					$debugHTML = self::fetchTpl(ROOT_DIR .'aFramework/Modules/Debug/Debug.tpl.php', self::$debugInfo);
-
-					echo str_replace('</body>', $debugHTML .'</body>', $theSite);
-				}
-				else {
-					echo $theSite;
-				}
+				echo self::runController(removeDots($_GET['controller']));
 			}
 		}
 
@@ -45,8 +29,6 @@
 		 * Runs and fetches a module
 		 **/
 		private static function runSingleModule($module) {
-			self::$debugInfo['controller'] = 'No Controller';
-
 			self::runModule($module);
 			return self::fetchModule($module);
 		}
@@ -57,7 +39,7 @@
 		 * Runs and fetches all modules in a controller
 		 **/
 		private static function runController($controller) {
-			self::$debugInfo['controller']['name'] = $controller;
+			aFramework_DebugModule::$tplVars['controller']['name'] = $controller;
 
 			$foundController = false;
 			$sites = explode(' ', SITE_HIERARCHY);
@@ -68,8 +50,8 @@
 				if(file_exists($path)) {
 					$foundController = true;
 
-					self::$debugInfo['controller']['path'] = ROOT_DIR .$site .'/Controllers/' .$controller .'.xml';
-					self::$debugInfo['controller']['site'] = $site;
+					aFramework_DebugModule::$tplVars['controller']['path'] = ROOT_DIR .$site .'/Controllers/' .$controller .'.xml';
+					aFramework_DebugModule::$tplVars['controller']['site'] = $site;
 
 					break;
 				}
@@ -92,9 +74,9 @@
 			# Now we need to check if any module wanted to force
 			# a different controller (like 404 or login or whatever)
 			if(self::$forceController) {
-				$_GET['controller']		= self::$forceController; # a lil uglöy hack...
-				self::$forceController	= false;
-				self::$debugInfo		= array('__old' => self::$debugInfo);
+				$_GET['controller']					= self::$forceController; # a lil uglöy hack...
+				self::$forceController				= false;
+				aFramework_DebugModule::$tplVars	= array('__old' => aFramework_DebugModule::$tplVars);
 
 				return self::runController($_GET['controller']);
 			}
@@ -145,8 +127,8 @@
 
 					$moduleTpl = self::fetchModule($module->nodeName, array('child_modules' => $childModules));
 					$id = (strtolower($module->nodeName) == 'wrapper') ? strtolower(ccFix($module->getAttribute('name'))) : strtolower(ccFix($module->nodeName));
-					
-					self::$debugInfo['modules'][$module->nodeName]['html_id'] = $id;
+
+					aFramework_DebugModule::$tplVars['modules'][$module->nodeName]['html_id'] = $id;
 
 					if($moduleTpl or $childModules) {
 						if(AUTO_HR and $i > 0) {
@@ -199,17 +181,17 @@
 					if($modName::$forceController) {
 						self::$forceController = $modName::$forceController;
 
-						self::$debugInfo['controller']['forced_by'] = $modName;
+						aFramework_DebugModule::$tplVars['controller']['forced_by'] = $modName;
 					}
 
-					self::$debugInfo['modules'][$module]['path']				= $modPath;
-					self::$debugInfo['modules'][$module]['site']				= $site;
-					self::$debugInfo['modules'][$module]['real_name']			= $modName;
-					self::$debugInfo['modules'][$module]['run_time']			= $stop - $start;
-					self::$debugInfo['modules'][$module]['force_controller']	= $modName::$forceController;
-					self::$debugInfo['modules'][$module]['tpl_file']			= $modName::$tplFile;
-					self::$debugInfo['modules'][$module]['tpl_vars']			= $modName::$tplVars;
-					self::$debugInfo['modules'][$module]['num_queries']			= $numQAfter['num_queries'] - $numQBefore['num_queries'];
+					aFramework_DebugModule::$tplVars['modules'][$module]['path']				= $modPath;
+					aFramework_DebugModule::$tplVars['modules'][$module]['site']				= $site;
+					aFramework_DebugModule::$tplVars['modules'][$module]['class_name']			= $modName;
+					aFramework_DebugModule::$tplVars['modules'][$module]['run_time']			= $stop - $start;
+					aFramework_DebugModule::$tplVars['modules'][$module]['force_controller']	= $modName::$forceController;
+					aFramework_DebugModule::$tplVars['modules'][$module]['tpl_file']			= $modName::$tplFile;
+					aFramework_DebugModule::$tplVars['modules'][$module]['tpl_vars']			= $modName::$tplVars;
+					aFramework_DebugModule::$tplVars['modules'][$module]['num_queries']			= $numQAfter['num_queries'] - $numQBefore['num_queries'];
 
 					return true;
 				}
@@ -225,7 +207,7 @@
 		 * Also fetches Before or After-templates
 		 **/
 		private static function fetchModule($module, $tplVarsAdd = array()) {
-			self::$debugInfo['modules'][$module]['name'] = $module;
+			aFramework_DebugModule::$tplVars['modules'][$module]['name'] = $module;
 
 			$sites		= explode(' ', SITE_HIERARCHY);
 			$tplFile	= null;
@@ -266,21 +248,21 @@
 
 				# Before
 				if($before == '' and file_exists($beforePath)) {
-					self::$debugInfo['modules'][$module]['tpl_paths']['before'] = $beforePath;
+					aFramework_DebugModule::$tplVars['modules'][$module]['tpl_paths']['before'] = $beforePath;
 
 					$before = self::fetchTpl($beforePath, $tplVars);
 				}
 
 				# Middle
 				if($middle == '' and file_exists($middlePath)) {
-					self::$debugInfo['modules'][$module]['tpl_paths']['middle'] = $middlePath;
+					aFramework_DebugModule::$tplVars['modules'][$module]['tpl_paths']['middle'] = $middlePath;
 
 					$middle = self::fetchTpl($middlePath, $tplVars);
 				}
 
 				# After
 				if($after == '' and file_exists($afterPath)) {
-					self::$debugInfo['modules'][$module]['tpl_paths']['after'] = $afterPath;
+					aFramework_DebugModule::$tplVars['modules'][$module]['tpl_paths']['after'] = $afterPath;
 
 					$after = self::fetchTpl($afterPath, $tplVars);
 				}

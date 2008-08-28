@@ -3,10 +3,10 @@
 	<Wrapper name="wrapper">
 		<SkipNavigation />
 		<Header />
-		<Navigation />
 		<Breadcrumbs />
 		<FourOFour />
 		<Footer />
 	</Wrapper>
 	<ModuleListing />
+	<Debug />
 </Base>
