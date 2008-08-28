@@ -19,4 +19,5 @@
 		<Footer />
 	</Wrapper>
 	<ModuleListing />
+	<Debug />
 </Base>

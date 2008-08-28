@@ -5,15 +5,15 @@
 		public static $forceController = false;
 
 		private static $notModules = array(
-			'..', 
 			'.', 
+			'..', 
 			'.svn', 
 			'Base', 
+			'Debug',
 			'CodeCompressor', 
 			'CSSCompressor', 
 			'JSCompressor', 
 			'ModuleListing', 
-			'Debug',
 			'#text', 
 			'#comment', 
 			'#cdata-section'
@@ -31,17 +31,15 @@
 			$controller = isset($_GET['controller']) ? $_GET['controller'] : 'Home';
 
 			# Get all available modules for this site
-			self::$tplVars['modules'] = self::getAvailableModules($controller);
-
-			foreach(self::$tplVars['modules'] as $mod) {
-				if($mod['in_use']) {
-					self::$tplVars['modules_in_controller'][] = $mod;
-				}
-			}
+			self::$tplVars = self::getAvailableModules($controller);
 
 			# Someone wants to add a module to the controller
-			if(isset($_REQUEST['module_listing_add_module'])) {
-				self::addModuleToController($_REQUEST['module_to_add'], $_REQUEST['target'], $_REQUEST['before'], $_REQUEST['controller_in_use']);
+			if(isset($_POST['module_listing_add_module'])) {
+				$insertBefore = $_POST['add_type'] == 'before' ? true : false;
+
+				if(!('Base' == $_POST['target'] and $insertBefore)) {
+					self::addModuleToController($_POST['module_to_add'], $_POST['target'], $insertBefore, $_POST['controller_in_use']);
+				}
 
 				if(!XHR) {
 					redirect('?added_module');
@@ -49,8 +47,8 @@
 			}
 
 			# Someone wants to remove a module from the controller
-			if(isset($_REQUEST['module_listing_remove_module'])) {
-				self::removeModuleFromController($_REQUEST['module_to_remove'], $_REQUEST['controller_in_use']);
+			if(isset($_POST['module_listing_remove_module'])) {
+				self::removeModuleFromController($_POST['module_to_remove'], $_POST['controller_in_use']);
 
 				if(!XHR) {
 					redirect('?removed_module');
@@ -61,10 +59,13 @@
 		/**
 		 * getAvailableModules
 		 *
+		 * Gets all available modules for this site (to be listed in module-listing)
 		 **/
 		private static function getAvailableModules($controller) {
 			$sites = explode(' ', SITE_HIERARCHY);
-			$modules = array();
+			$availableModules = array();
+			$usedModules = array();
+			$modulesInController = self::getModulesInController($controller);
 
 			foreach($sites as $site) {
 				$modulesDir = ROOT_DIR .$site .'/Modules/';
@@ -74,24 +75,34 @@
 
 					while($f = readdir($dh)) {
 						if(!in_array($f, self::$notModules) and is_dir($modulesDir .$f)) {
-							$modules[$f]['name'] = $f;
-							$modules[$f]['in_use'] = false;
-							$modules[$f]['html_id'] = strtolower(ccFix($f));
+							if(array_key_exists($f, $modulesInController)) {
+								$availableModules[$f]['name'] = $f;
+								$availableModules[$f]['in_use'] = true;
+								$availableModules[$f]['html_id'] = strtolower(ccFix($f));
+							}
+							else {
+								$usedModules[$f]['name'] = $f;
+								$usedModules[$f]['in_use'] = false;
+								$usedModules[$f]['html_id'] = strtolower(ccFix($f));
+							}
 						}
 					}
 				}
 			}
 
-			$modules = array_merge($modules, self::getModulesInController($controller));
+			sort($availableModules);
+		#	sort($usedModules);
 
-			sort($modules);
+			$modules = array_merge($usedModules, $availableModules);
 
-			return $modules;
+			return array('available_modules' => $modules, 'modules_in_controller' => $modulesInController);
 		}
 
 		/**
 		 * getModulesInController
 		 *
+		 * Gets all modules in the currently used controller (so we can differentiate between used and unused modules)
+		 * These also include 
 		 **/
 		private static function getModulesInController($controller) {
 			$path = self::getControllerPath($controller);
@@ -112,8 +123,7 @@
 			foreach($modules as $mod) {
 				if(!in_array($mod->nodeName, self::$notModules)) {
 					$mods[$mod->nodeName] = array(
-						'name' => $mod->nodeName, 
-						'in_use' => true, 
+						'name' => $mod->nodeName == 'Wrapper' ? $mod->nodeName .':' .$mod->getAttribute('name') : $mod->nodeName, 
 						'html_id' => $mod->nodeName == 'Wrapper' ? $mod->getAttribute('name') : strtolower(ccFix($mod->nodeName))
 					);
 				}
@@ -138,42 +148,57 @@
 				$path = ROOT_DIR .$site .'/Controllers/' .$controller .'.xml';
 
 				if(file_exists($path)) {
-					break;
+					return $path;
 				}
 			}
-
-			return $path;
 		}
 
 		/**
 		 * addModuleToController
 		 *
 		 **/
-		private static function addModuleToController($module, $target, $before = false, $controller) {
+		private static function addModuleToController($module, $target, $insertBefore = false, $controller) {
 			# Load the controller
 			$path = self::getControllerPath($controller);
-			
+
 			$doc = new DOMDocument();
 			$doc->load($path);
 
 			# Create the new node
 			$newModule = $doc->createElement($module);
 
-			# Either insert before other node
-			if($before) {
-				$beforeModules = $doc->getElementsByTagName($before);
+			# If target it's a wrapper-node, get name-attr
+			$wrapperName = false;
 
-				foreach($beforeModules as $mod) {
-					$mod->parentNode->insertBefore($newModule, $mod); 
-					break;
-				}
+			if('Wrapper' == substr($target, 0, 7)) {
+				$wrapperInfo = explode(':', $target);
+				$wrapperName = $wrapperInfo[1];
+				$target = $wrapperInfo[0];
 			}
-			# Or append to target
-			else {
-				$targetModules = $doc->getElementsByTagName($target);
-				
-				foreach($targetModules as $mod) {
-					$mod->appendChild($newModule);
+
+			$targetModules = $doc->getElementsByTagName($target);
+
+			foreach($targetModules as $mod) {
+				# If target is a wrapper, check that the name is correct
+				if($wrapperName) {
+					if($wrapperName == $mod->getAttribute('name')) {
+						if($insertBefore) {
+							$mod->parentNode->insertBefore($newModule, $mod); 
+						}
+						else {
+							$mod->appendChild($newModule); 
+						}
+						break;
+					}
+				}
+				# Otherwise just add at first occurence
+				else {
+					if($insertBefore) {
+						$mod->parentNode->insertBefore($newModule, $mod); 
+					}
+					else {
+						$mod->appendChild($newModule); 
+					}
 					break;
 				}
 			}
@@ -196,8 +221,8 @@
 			$modules = $doc->getElementsByTagName($module);
 			$mod = false;
 
-			foreach($modules as $r) {
-				$mod = $r;
+			foreach($modules as $m) {
+				$mod = $m;
 				break;
 			}
 

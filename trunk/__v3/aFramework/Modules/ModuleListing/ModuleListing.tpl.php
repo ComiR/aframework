@@ -1,6 +1,6 @@
 <h2>Modules</h2>
 
-<?php foreach($modules as $mod) { ?>
+<?php foreach($available_modules as $mod) { ?>
 	<div id="mod-<?php echo $mod['html_id']; ?>"<?php if($mod['in_use']) { ?> class="in-use"<?php } ?>>
 
 		<h3><?php echo $mod['name']; ?></h3>
@@ -19,28 +19,15 @@
 		<?php } else { ?>
 			<form method="post" action="">
 
-				<p>
-					<label>
-						Add this module to: 
-						<select name="target">
-							<option value="Base">Base</option>
-							<?php foreach($modules_in_controller as $modc) { ?>
-								<option value="<?php echo $modc['name']; ?>"><?php echo $modc['name']; ?></option>
-							<?php } ?>
-						</select>
-					</label>
-				</p>
+				<p><label><input type="radio" name="add_type" value="append" checked="checked" /> Add to</label> or <label><input type="radio" name="add_type" value="before" /> Insert before</label></p>
 
 				<p>
-					<label>
-						Or insert it before: 
-						<select name="before">
-							<option value="">-- Nothing --</option>
-							<?php foreach($modules_in_controller as $modc) { ?>
-								<option value="<?php echo $modc['name']; ?>"><?php echo $modc['name']; ?></option>
-							<?php } ?>
-						</select>
-					</label>
+					<select name="target">
+						<option value="Base" class="base">Base</option>
+						<?php foreach($modules_in_controller as $modc) { ?>
+							<option value="<?php echo $modc['name']; ?>" class="<?php echo $modc['html_id']; ?>"><?php echo $modc['name']; ?></option>
+						<?php } ?>
+					</select>
 				</p>
 
 				<p>

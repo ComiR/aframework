@@ -7,8 +7,15 @@ button[title^="Remove module "]:hover {
 	opacity: 1;
 }
 
-div.droppable-hover {
-	outline: 5px dotted #369;
+div.droppable-over {
+	background: #def !important;
+	outline: 5px dashed #369 !important;
+}
+
+div.module-listing-used-module {
+	border: 1px solid #369;
+	padding: 10px;
+	margin: 10px 0;
 }
 
 #module-listing {
@@ -35,6 +42,8 @@ body.js-disabled #module-listing {
 	top: 0;
 
 	max-height: 550px;
+	min-width: 350px;
+	max-width: 500px;
 
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -54,7 +63,8 @@ body.js-disabled #module-listing {
 		cursor: move;
 	}
 
-	#module-listing div {
+	#module-listing div, 
+	div.module-listing-ghost-module {
 		background: #fff;
 
 		margin: 0 0 10px;
@@ -63,11 +73,16 @@ body.js-disabled #module-listing {
 		border: 1px solid #369;
 	}
 
+	div.module-listing-ghost-module {
+		opacity: .5;
+	}
+
 	body.js-enabled #module-listing div.in-use {
 		display: none;
 	}
 
-		#module-listing div h3 {
+		#module-listing div h3, 
+		div.module-listing-ghost-module h2 {
 			background: #369;
 
 			margin: -10px -10px 10px -10px;
