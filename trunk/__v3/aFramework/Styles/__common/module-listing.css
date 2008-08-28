@@ -16,7 +16,14 @@ div.module-listing-used-module {
 	border: 1px solid #369;
 	padding: 10px;
 	margin: 10px 0;
+	position: relative;
 }
+
+	div.module-listing-used-module button[title^="Remove module "] {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
 
 #module-listing {
 	background: #fff;
