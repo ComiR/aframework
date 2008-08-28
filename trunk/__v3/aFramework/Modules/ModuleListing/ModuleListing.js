@@ -53,34 +53,36 @@ var ModuleListing = {
 
 		// Make every module droppable so you can drag modules from the list into other modules
 		var makeDroppable = function(module, moduleName, controllerInUse) {
+			var beforeClass = 'module-listing-insert-module-before';
+			var appendClass = 'module-listing-append-module-to';
+
 			module.droppable({
 				accept:		'div[id]:not(#module-listing)', 
 				tolerance:	'intersect', 
 				greedy:		true, 
 				// When a module is dragged over another
 				mouseover: function(ev, ui) {
-					// Remove any existing ghost-module
-					$('div.module-listing-ghost-module').remove();
+					// Remove any existing markers
+					$('.' +beforeClass).removeClass(beforeClass);
+					$('.' +appendClass).removeClass(appendClass);
 
 					// Get the position of the module
-					var targetOffset	= ui.element.offset();
-					var ghostMod		= '<div class="module-listing-ghost-module"><h2>' +ui.draggable.find('h3').text() +'</h2></div>';
+					var targetOffset = ui.element.offset();
 
 					// If the module being dragged is above the module
 					if(ui.absolutePosition.top < targetOffset.top) {
-						ghostMod = $(ghostMod).insertBefore(module);
-						ghostMod.parent().addClass('droppable-over');
+						module.addClass(beforeClass);
 					}
 					// It's inside
 					else {
-						ghostMod = $(ghostMod).appendTo(module);
-						module.addClass('droppable-over');
+						module.addClass(appendClass);
 					}
 				}, 
 				// When dragging out
 				mouseout: function() {
-					$('div.module-listing-ghost-module').remove();
-					$('.droppable-over').removeClass('droppable-over');
+					// Remove any existing markers
+					$('.' +beforeClass).removeClass(beforeClass);
+					$('.' +appendClass).removeClass(appendClass);
 				}, 
 				// When dropping module
 				drop: function(ev, ui) {
@@ -88,18 +90,35 @@ var ModuleListing = {
 					var moduleToAddID	= ui.draggable.attr('id').replace(/^mod-/, '');
 					var info			= 'Add ' +moduleToAdd +' to ' +moduleName +' in ' +controllerInUse;
 
-					// Remove any potential droppable-over-class
-					$('.droppable-over').removeClass('droppable-over');
+					// Ajax the change of the controller
+					var ajaxPostData = {
+						module_listing_add_module:	1, 
+						add_type:					$('.' +beforeClass).length ? 'before' : 'append', 
+						target:						moduleName, 
+						module_to_add:				moduleToAdd, 
+						controller_in_use:			controllerInUse
+					};
+
+					// Remove any existing markers
+					$('.' +beforeClass).removeClass(beforeClass);
+					$('.' +appendClass).removeClass(appendClass);
 
 					// Hide the newly added module from the module-list
 					ui.draggable.addClass('in-use').css({left: 0, top: 0});
 
 					// Use the ghost-div for the new module
-					var newMod = $('div.module-listing-ghost-module').attr('id', moduleToAddID).append('<p>Loading...</p>');
+					var newMod = $('<div id="' +moduleToAddID +'"><p>Loading...</p></div>');
+
+					if(ajaxPostData.add_type == 'before') {
+						newMod.insertBefore(module);
+					}
+					else {
+						newMod.appendTo(module);
+					}
 
 					// Now fill the div with the module's stuff
 					$.get('/?module=' +moduleToAdd, function(data) {
-						newMod.html(data).removeClass('module-listing-ghost-module').addClass('module-listing-used-module');
+						newMod.html(data).addClass('module-listing-used-module');
 
 					//	if(typeof(aFramework.modules[ajaxPostData.module_to_add].run) == 'function') {
 					//		aFramework.modules[ajaxPostData.module_to_add].run();
@@ -108,19 +127,6 @@ var ModuleListing = {
 						addRemoveButton(newMod, moduleToAdd, controllerInUse);
 						makeDroppable(newMod, moduleToAdd, controllerInUse);
 					});
-
-					// Ajax the change of the controller
-					var ajaxPostData = {
-						module_listing_add_module:	1, 
-						add_type:					'append', 
-						target:						moduleName, 
-						module_to_add:				moduleToAdd, 
-						controller_in_use:			controllerInUse
-					};
-
-					if(!ui.element.find('#' +moduleToAddID).length) {
-						ajaxPostData.add_type = 'before';
-					}
 
 					$.post('/?module=ModuleListing', ajaxPostData);
 				}
