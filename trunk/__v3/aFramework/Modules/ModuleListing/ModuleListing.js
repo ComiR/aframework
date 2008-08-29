@@ -120,8 +120,8 @@ var ModuleListing = {
 					$.get('/?module=' +moduleToAdd, function(data) {
 						newMod.html(data).addClass('module-listing-used-module');
 
-					//	if(typeof(aFramework.modules[ajaxPostData.module_to_add].run) == 'function') {
-					//		aFramework.modules[ajaxPostData.module_to_add].run();
+					//	if(LaptopLogic.modules[ajaxPostData.module_to_add] && typeof(LaptopLogic.modules[ajaxPostData.module_to_add].init) == 'function') {
+					//		LaptopLogic.modules[ajaxPostData.module_to_add].init();
 					//	}
 
 						addRemoveButton(newMod, moduleToAdd, controllerInUse);
