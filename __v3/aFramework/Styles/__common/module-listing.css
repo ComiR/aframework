@@ -1,9 +1,9 @@
 /* Modules that are used and rendered on the page 
    (fucks up design a bit but is pretty much required for drag-n-drop to work properlings) */
 div.module-listing-used-module {
-	border: 1px solid #369;
+	/*border: 1px solid #369;
 	padding: 10px;
-	margin: 10px 0;
+	margin: 10px 0;*/
 	position: relative;
 }
 
