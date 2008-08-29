@@ -1,9 +1,6 @@
 /* Modules that are used and rendered on the page 
    (fucks up design a bit but is pretty much required for drag-n-drop to work properlings) */
 div.module-listing-used-module {
-	/*border: 1px solid #369;
-	padding: 10px;
-	margin: 10px 0;*/
 	position: relative;
 }
 
@@ -12,7 +9,7 @@ div.module-listing-used-module {
 		left: 0;
 		top: 0;
 
-		opacity: .6;
+		opacity: .5;
 		cursor: pointer;
 	}
 
@@ -22,13 +19,13 @@ div.module-listing-used-module {
 
 /* When a module is to be inserted before this module */
 div.module-listing-insert-module-before {
-	border-top: 5px dotted #369;
+	border-top: 5px dotted #f90;
 	padding-top: 5px;
 }
 
 /* When a module is to be inserted into this module */
 div.module-listing-append-module-to {
-	outline: 5px dotted #369;
+	outline: 5px dotted #f90;
 }
 
 /* The module-listing */
@@ -39,15 +36,22 @@ div.module-listing-append-module-to {
 	max-width: 400px;
 
 	margin: 10px;
-	padding: 10px;
+	padding: 0 5px;
 
 	position: absolute;
 	right: 0;
 	top: 0;
 
-	font-size: 80%;
+	font: 10px/1.2 Verdana;
+	color: #333;
 
-	border: 1px solid #333;
+	opacity: .5;
+
+	border: 1px solid #369;
+}
+
+#module-listing:hover {
+	opacity: 1;
 }
 
 body.js-disabled #module-listing {
@@ -64,11 +68,12 @@ body.js-disabled #module-listing {
 }
 
 	#module-listing h2 {
-		background: #333;
+		background: #369;
 
-		margin: -10px -10px 10px -10px;
-		padding: 5px 10px;
+		margin: 0 -5px 5px -5px;
+		padding: 3px 5px;
 
+		font: bold 14px/1.2 Arial;
 		color: #fff;
 	}
 
@@ -80,8 +85,8 @@ body.js-disabled #module-listing {
 	#module-listing div {
 		background: #fff;
 
-		margin: 0 0 10px;
-		padding: 10px;
+		margin: 0 0 5px;
+		padding: 5px;
 
 		border: 1px solid #369;
 	}
@@ -93,12 +98,13 @@ body.js-disabled #module-listing {
 		#module-listing div h3 {
 			background: #369;
 
-			margin: -10px -10px 10px -10px;
-			padding: 5px 10px;
+			margin: -5px -5px 5px -5px;
+			padding: 2px 5px;
 
+			font: bold 12px/1.2 Arial;
 			color: #fff;
 		}
 
 		#module-listing div.in-use h3 {
-			color: #000;
+			color: yellow;
 		}
