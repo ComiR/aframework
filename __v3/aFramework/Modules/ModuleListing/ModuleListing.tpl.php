@@ -27,14 +27,11 @@
 						<?php foreach($modules_in_controller as $modc) { ?>
 							<option value="<?php echo $modc['name']; ?>" class="<?php echo $modc['html_id']; ?>"><?php echo $modc['name']; ?></option>
 						<?php } ?>
-					</select>
-				</p>
-
-				<p>
+					</select> 
 					<input type="hidden" name="module_listing_add_module" value="1" />
 					<input type="hidden" name="controller_in_use" value="<?php echo $_GET['controller']; ?>" />
 					<input type="hidden" name="module_to_add" value="<?php echo $mod['name']; ?>" />
-					<input type="submit" value="Add module" />
+					<input type="submit" value="Go" />
 				</p>
 
 			</form>
