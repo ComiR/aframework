@@ -32,8 +32,8 @@ div.module-listing-append-module-to {
 #module-listing {
 	background: #fff;
 
-	min-width: 300px;
-	max-width: 400px;
+	min-width: 100px;
+	max-width: 150px;
 
 	margin: 10px;
 	padding: 0 5px;
@@ -60,7 +60,7 @@ body.js-disabled #module-listing {
 	top: 0;
 
 	max-height: 550px;
-	min-width: 350px;
+	min-width: 250px;
 	max-width: 500px;
 
 	overflow-y: auto;
