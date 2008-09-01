@@ -122,8 +122,9 @@
 
 			foreach($modules as $mod) {
 				if(!in_array($mod->nodeName, self::$notModules)) {
-					$mods[$mod->nodeName] = array(
-						'name' => $mod->nodeName == 'Wrapper' ? $mod->nodeName .':' .$mod->getAttribute('name') : $mod->nodeName, 
+					$modName = $mod->nodeName == 'Wrapper' ? $mod->nodeName .':' .$mod->getAttribute('name') : $mod->nodeName;
+					$mods[$modName] = array(
+						'name' => $modName, 
 						'html_id' => $mod->nodeName == 'Wrapper' ? $mod->getAttribute('name') : strtolower(ccFix($mod->nodeName))
 					);
 				}

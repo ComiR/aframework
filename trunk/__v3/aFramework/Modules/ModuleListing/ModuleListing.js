@@ -120,9 +120,9 @@ var ModuleListing = {
 					$.get('/?module=' +moduleToAdd, function(data) {
 						newMod.html(data).addClass('module-listing-used-module');
 
-					//	if(LaptopLogic.modules[ajaxPostData.module_to_add] && typeof(LaptopLogic.modules[ajaxPostData.module_to_add].init) == 'function') {
-					//		LaptopLogic.modules[ajaxPostData.module_to_add].init();
-					//	}
+						if(LaptopLogic.modules[ajaxPostData.module_to_add] && typeof(LaptopLogic.modules[ajaxPostData.module_to_add].init) == 'function') {
+							LaptopLogic.modules[ajaxPostData.module_to_add].init();
+						}
 
 						addRemoveButton(newMod, moduleToAdd, controllerInUse);
 						makeDroppable(newMod, moduleToAdd, controllerInUse);
