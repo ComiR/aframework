@@ -153,11 +153,14 @@
 					# Real modules-dir
 					$dirs = array();
 					$path = ROOT_DIR .$site .'/Modules/';
-					$dh = opendir($path);
 
-					while($f = readdir($dh)) {
-						if('.' != $f and '..' != $f and is_dir($path .$f .'/')) {
-							$dirs[] = $path .$f .'/';
+					if(is_dir(ROOT_DIR .$site .'/Modules/')) {
+						$dh = opendir($path);
+
+						while($f = readdir($dh)) {
+							if('.' != $f and '..' != $f and is_dir($path .$f .'/')) {
+								$dirs[] = $path .$f .'/';
+							}
 						}
 					}
 
