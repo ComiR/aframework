@@ -9,11 +9,11 @@
 	define('DB_TABLE_PREFIX',	'');
 
 	define('ALLOW_STYLES',		true);
-	define('DEFAULT_STYLE',		'default');
+	define('DEFAULT_STYLE',		'aframework');
 
-	define('SITE_AUTHOR',		'Some Company');
-	define('SITE_TITLE',		'Some Company');
-	define('SITE_TAGLINE',		'Some Company Slogan');
+	define('SITE_AUTHOR',		'Andreas Lagerkvist');
+	define('SITE_TITLE',		'A jQuery Plug-in Site');
+	define('SITE_TAGLINE',		'List of jQuery Plug-ins');
 
 	define('ADMIN_USER',		'admin');
 	define('ADMIN_PASS',		'nimda');
