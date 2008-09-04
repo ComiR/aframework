@@ -5,7 +5,7 @@
 		<Header/>
 		<Breadcrumbs/>
 		<Wrapper name="content">
-			<IntroText/>
+			<Contact/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<Search/>
