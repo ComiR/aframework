@@ -15,6 +15,15 @@
 		<dd><?php echo $controller['num_queries']; ?></dd>
 	</dl>
 -->
+	<h3>Routes</h3>
+
+	<dl>
+		<?php foreach($routes as $k => $v) { ?>
+			<dt><?php echo $k; ?></dt>
+			<dd><?php echo $v != '' ? $v : '[empty]'; ?></dd>
+		<?php } ?>
+	</dl>
+
 	<?php if(count($_GET)) { ?>
 		<h3>GET-data</h3>
 

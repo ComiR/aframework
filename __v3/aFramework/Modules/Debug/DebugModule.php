@@ -8,6 +8,8 @@
 			if(!(DEBUG and ADMIN)) {
 				self::$tplFile = false;
 			}
+
+			self::$tplVars['routes'] = Router::getRoutes();
 		}
 	}
 ?>

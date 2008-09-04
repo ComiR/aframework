@@ -28,6 +28,10 @@
 			$_GET = array_merge($_GET, self::getParamsFromURI()); # Could switch places so ?controller= overrides /controller/ but that allows URL-trickery that can be potentially bad for SEO
 		}
 
+		public static function getRoutes() {
+			return self::$routes;
+		}
+
 		/**
 		 * urlFor
 		 * 
