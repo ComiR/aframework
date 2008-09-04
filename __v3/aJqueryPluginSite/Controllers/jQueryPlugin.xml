@@ -4,9 +4,14 @@
 		<SkipNavigation/>
 		<Header/>
 		<Breadcrumbs/>
-		<JqueryPlugin/>
+		<Wrapper name="content">
+			<JqueryPlugin/>
+		</Wrapper>
+		<Wrapper name="secondary-content">
+			<Search/>
+		</Wrapper>
 		<Footer/>
 	</Wrapper>
 	<ModuleListing/>
-	<Debug />
+	<Debug/>
 </Base>
