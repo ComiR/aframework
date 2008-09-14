@@ -3,7 +3,7 @@ var aFramework = {
 	//	$.imgzoom();
 	//	$.codeBlocks();
 	//	$.maxLengthInputs();
-	//	$.toggleInputTitles();
+	//	$.formHints();
 	//	$.captchaRefresh('/captha.png');
 	}, 
 
