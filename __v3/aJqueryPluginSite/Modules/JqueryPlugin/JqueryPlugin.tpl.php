@@ -20,15 +20,15 @@
 
 <h5><abbr title="HyperText Markup Language">HTML</abbr></h5>
 
-<p class="code-block"><code><?php echo $plugin['example_html_code']; ?></code></p>
+<pre class="code-block"><code><?php echo $plugin['example_html_code']; ?></code></pre>
 
 <h5><abbr title="Javascript">JS</abbr></h5>
 
-<p class="code-block"><code><?php echo $plugin['example_js_code']; ?></code></p>
+<pre class="code-block"><code><?php echo $plugin['example_js_code']; ?></code></pre>
 
 <h3>Source code</h3>
 
-<p class="code-block"><code><?php echo $plugin['source_code']; ?></code></p>
+<pre class="code-block"><code><?php echo $plugin['source_code']; ?></code></pre>
 
 <h3>Download</h3>
 
