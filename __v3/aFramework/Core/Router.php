@@ -17,7 +17,7 @@
 
 			# Load all routes
 			foreach($sites as $site) {
-				$routesFile = ROOT_DIR .$site .'/Routes.php';
+				$routesFile = DOCROOT .$site .'/Routes.php';
 
 				if(file_exists($routesFile)) {
 					self::$routes = array_merge((array)self::$routes, include $routesFile);
