@@ -61,6 +61,8 @@
 
 			preg_match_all('/@(.*?):([^@]*)/is', $matches[1], $secondMatches);
 
+			$pluginArr['name'] = $plugin;
+
 			foreach($secondMatches[1] as $property) {
 				$pluginArr[$property] = trim($secondMatches[2][$i++]);
 			}
@@ -69,13 +71,14 @@
 		}
 
 		private static function makeNice($row) {
+			$row['name']				= htmlentities($row['name']);
 			$row['title']				= htmlentities($row['title']);
 			$row['version']				= htmlentities($row['version']);
 			$row['author']				= htmlentities($row['author']);
 			$row['date']				= htmlentities($row['date']);
 			$row['pub_date']			= htmlentities($row['date']);
 			$row['real_url']			= htmlentities($row['url']);
-			$row['url_str']				= strtolower(ccFix($row['title'], '-'));
+			$row['url_str']				= strtolower(ccFix($row['name'], '-'));
 			$row['url']					= Router::urlFor('JqueryPlugin', array('url_str' => $row['url_str']));
 			$row['license']				= htmlentities($row['license']);
 			$row['copyright']			= htmlentities($row['copyright']);
