@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jQuery
 
 @does:
-This plug-in makes clicking dts show or hide the dds beneath it.
+Makes clicking dts show or hide the dds beneath it.
 
 @usage:
 jQuery('#faq dl').togglableDL();

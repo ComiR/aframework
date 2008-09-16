@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jQuery
 
 @does:
-This plug-in adds valid/invalid icons next to required form-controls in a given form.
+Adds valid/invalid icons next to required form-controls in a given form.
 
 @usage:
 jQuery('#contact form').liveValidation();

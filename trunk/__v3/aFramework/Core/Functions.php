@@ -72,7 +72,7 @@
 
 	# Fixes camelCase to camel-case (or whatever $separator user wants)
 	function ccFix($str, $separator = '-') {
-		$str = preg_replace('/([A-Z0-9])/', "$separator\\1", $str);
+		$str = preg_replace('/([A-Z0-9]+)/', "$separator\\1", $str);
 		if(substr($str, 0, 1) == $separator) {
 			return substr($str, 1);
 		}

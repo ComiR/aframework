@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jQuery
 
 @does:
-This plug-in adds a live-search container beneath selected inputs and fill them with content onkeyup.
+Adds a live-search container beneath selected inputs and fill them with content onkeyup.
 
 @usage:
 jQuery('#q').liveSearch({url: '/ajax/search.php?q='}); would add the live-search container to the input#q element.

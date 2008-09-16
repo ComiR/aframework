@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jQuery
 
 @does:
-This plug-in refreshes so called CAPTCHA-images when you click them - provided your CAPTHA-script generates a random image every time it is called.
+Refreshes so called CAPTCHA-images when you click them - provided your CAPTHA-script generates a random image every time it is called.
 
 @usage:
 jQuery(document.body).captchaRefresh('/captcha.png'); Would make all links with '/captcha.png' as their src-attribute inside the document.body-element clickable.

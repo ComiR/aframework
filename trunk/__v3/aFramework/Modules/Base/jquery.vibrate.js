@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jQuery
 
 @does:
-This plug-in makes an element vibrate.
+Makes an element vibrate.
 
 @usage:
 jQuery('#ad-area').vibrate();
