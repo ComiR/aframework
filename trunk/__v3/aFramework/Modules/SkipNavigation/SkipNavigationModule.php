@@ -40,7 +40,7 @@
 			$sites = explode(' ', SITE_HIERARCHY);
 
 			foreach($sites as $site) {
-				$path = ROOT_DIR .$site .'/Controllers/' .$controller .'.xml';
+				$path = DOCROOT .$site .'/Controllers/' .$controller .'.xml';
 				if(file_exists($path)) {
 					return $path;
 				}

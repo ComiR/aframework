@@ -46,11 +46,11 @@
 
 			# Find the controller-XML-file
 			foreach($sites as $site) {
-				$path = ROOT_DIR .$site .'/Controllers/' .$controller .'.xml';
+				$path = DOCROOT .$site .'/Controllers/' .$controller .'.xml';
 				if(file_exists($path)) {
 					$foundController = true;
 
-					aFramework_DebugModule::$tplVars['controller']['path'] = ROOT_DIR .$site .'/Controllers/' .$controller .'.xml';
+					aFramework_DebugModule::$tplVars['controller']['path'] = DOCROOT .$site .'/Controllers/' .$controller .'.xml';
 					aFramework_DebugModule::$tplVars['controller']['site'] = $site;
 
 					break;
@@ -165,7 +165,7 @@
 
 			# Find the first Module-class and run it
 			foreach($sites as $site) {
-				$modPath = ROOT_DIR .$site .'/Modules/' .$module .'/' .$module .'Module.php';
+				$modPath = DOCROOT .$site .'/Modules/' .$module .'/' .$module .'Module.php';
 				$modName = $site .'_' .$module .'Module';
 
 				if(file_exists($modPath)) {
@@ -219,7 +219,7 @@
 			# Find the first module-class and store the template-filename
 			# to be fetched as well as the template variables
 			foreach($sites as $site) {
-				$modPath = ROOT_DIR .$site .'/Modules/' .$module .'/' .$module .'Module.php';
+				$modPath = DOCROOT .$site .'/Modules/' .$module .'/' .$module .'Module.php';
 				$modName = $site .'_' .$module .'Module';
 
 				if(file_exists($modPath)) {
@@ -242,9 +242,9 @@
 			# Now that we have the template-file, go through all sites 
 			# and get Before, Middle and After-templates
 			foreach($sites as $site) {
-				$beforePath	= (ADMIN and file_exists(ROOT_DIR .$site .'/Modules/' .$module .'/Before' .$tplFile .'Admin.tpl.php')) ? ROOT_DIR .$site .'/Modules/' .$module .'/Before' .$tplFile .'Admin.tpl.php' : ROOT_DIR .$site .'/Modules/' .$module .'/Before' .$tplFile .'.tpl.php';
-				$middlePath	= (ADMIN and file_exists(ROOT_DIR .$site .'/Modules/' .$module .'/' .$tplFile .'Admin.tpl.php')) ? ROOT_DIR .$site .'/Modules/' .$module .'/' .$tplFile .'Admin.tpl.php' : ROOT_DIR .$site .'/Modules/' .$module .'/' .$tplFile .'.tpl.php';
-				$afterPath	= (ADMIN and file_exists(ROOT_DIR .$site .'/Modules/' .$module .'/After' .$tplFile .'Admin.tpl.php')) ? ROOT_DIR .$site .'/Modules/' .$module .'/After' .$tplFile .'Admin.tpl.php' : ROOT_DIR .$site .'/Modules/' .$module .'/After' .$tplFile .'.tpl.php';
+				$beforePath	= (ADMIN and file_exists(DOCROOT .$site .'/Modules/' .$module .'/Before' .$tplFile .'Admin.tpl.php')) ? DOCROOT .$site .'/Modules/' .$module .'/Before' .$tplFile .'Admin.tpl.php' : DOCROOT .$site .'/Modules/' .$module .'/Before' .$tplFile .'.tpl.php';
+				$middlePath	= (ADMIN and file_exists(DOCROOT .$site .'/Modules/' .$module .'/' .$tplFile .'Admin.tpl.php')) ? DOCROOT .$site .'/Modules/' .$module .'/' .$tplFile .'Admin.tpl.php' : DOCROOT .$site .'/Modules/' .$module .'/' .$tplFile .'.tpl.php';
+				$afterPath	= (ADMIN and file_exists(DOCROOT .$site .'/Modules/' .$module .'/After' .$tplFile .'Admin.tpl.php')) ? DOCROOT .$site .'/Modules/' .$module .'/After' .$tplFile .'Admin.tpl.php' : DOCROOT .$site .'/Modules/' .$module .'/After' .$tplFile .'.tpl.php';
 
 				# Before
 				if($before == '' and file_exists($beforePath)) {
