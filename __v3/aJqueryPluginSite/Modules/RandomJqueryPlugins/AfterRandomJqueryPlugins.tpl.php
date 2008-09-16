@@ -1,0 +1,1 @@
+<p><a href="<?php echo Router::urlFor('JqueryPluginListing'); ?>">More plug-ins</a></p>
