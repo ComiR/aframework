@@ -1,14 +1,75 @@
-/**
- * @title:		Live Validation
- * @version:	2.0
- * @author:		Andreas Lagerkvist
- * @date:		2008-08-31
- * @url:		http://andreaslagerkvist.com/jquery/live-validation/
- * @license:	http://creativecommons.org/licenses/by/3.0/
- * @copyright:	2008 Andreas Lagerkvist (andreaslagerkvist.com)
- * @requires:	jQuery
- * @usage:		jQuery('#contact form').liveValidation(); Adds live-validation to all required fields in the #contact form.
- **/
+/***
+@title:
+Live Validation
+
+@version:
+2.0
+
+@author:
+Andreas Lagerkvist
+
+@date:
+2008-08-31
+
+@url:
+http://andreaslagerkvist.com/jquery/live-validation/
+
+@license:
+http://creativecommons.org/licenses/by/3.0/
+
+@copyright:
+2008 Andreas Lagerkvist (andreaslagerkvist.com)
+
+@requires:
+jQuery
+
+@does:
+This plug-in adds valid/invalid icons next to required form-controls in a given form.
+
+@usage:
+jQuery('#contact form').liveValidation();
+
+@exampleHTML:
+<form method="post" action="">
+
+	<p>
+		<label>
+			Name<br />
+			<input type="text" name="name" />
+		</label>
+	</p>
+
+	<p>
+		<label>
+			Email<br />
+			<input type="text" name="email" />
+		</label>
+	</p>
+
+	<p>
+		<label>
+			Foo<br />
+			<input type="text" name="foo" />
+		</label>
+	</p>
+
+	<p>
+		<label>
+			Bar<br />
+			<input type="text" name="bar" />
+		</label>
+	</p>
+
+</form>
+
+@exampleJS:
+jQuery('#jquery-live-validation-example form').liveValidation({
+	validIco: '/aFramework/Styles/__common/gfx/form-control-valid.png', 
+	invalidIco: '/aFramework/Styles/__common/gfx/form-control-valid.png'
+}, {
+	foo: /^\w+$/
+});
+***/
 jQuery.fn.liveValidation = function(conf, addedFields) {
 	var config = jQuery.extend({
 		formControls:	'input[type="text"], textarea',						// form-controls to be validated
