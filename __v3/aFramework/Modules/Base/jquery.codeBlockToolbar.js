@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jQuery
 
 @does:
-This plug-in adds some nifty buttons to code-blocks.
+Adds some nifty buttons to code-blocks.
 
 @usage:
 jQuery('p.code-block').codeBlockToolbar(); Would add the toolbar to every paragraph with a class of 'code-block'.

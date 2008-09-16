@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jQuery
 
 @does:
-This plug-in makes links pointing to images open in the "Image Zoom". The image-zoom animates from the small image/link's size to the target-image's size.
+Makes links pointing to images open in the "Image Zoom". The image-zoom animates from the small image/link's size to the target-image's size.
 
 @usage:
 jQuery(document.body).imgZoom(); Would make every link pointing to an image in the document open in the zoom.

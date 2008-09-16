@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jQuery, jquery.colourPicker.css
 
 @does:
-This plug-in turns a drop-down (select-element) full of colours into a colour-picker-dialogue.
+Turns a drop-down (select-element) full of colours into a colour-picker-dialogue.
 
 @usage:
 jQuery('select[name="colour"]').colourPicker({ico: 'my-icon.gif', title: 'Select a colour from the list'}); Would replace the select with 'my-icon.gif' which, when clicked, would open a dialogue with the title 'Select a colour from the list'.

@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jQuery
 
 @does:
-This plug-in gives form-controls with a 'maxlength-XXX'-class a max-length and prohibits user from entering more than set amount. It also displays number of characters user has left next to the control.
+Gives form-controls with a 'maxlength-XXX'-class a max-length and prohibits user from entering more than set amount. It also displays number of characters user has left next to the control.
 
 @usage:
 jQuery(document.body).maxLengthFormControls();

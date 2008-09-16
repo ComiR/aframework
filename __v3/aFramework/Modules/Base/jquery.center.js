@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jQuery
 
 @does:
-This plug-in centers an element on the screen using position: fixed;
+Centers an element on the screen using position: fixed;
 
 @usage:
 jQuery('#my-element').center(); would center the element with ID 'my-element'.

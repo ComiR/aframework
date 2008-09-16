@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jQuery, Dimensions
 
 @does:
-This plug-in makes any navigation built from the HTML-element ul, li and a take up the full width of the ul provided it's styled a certain way.
+Makes any navigation built from the HTML-element ul, li and a take up the full width of the ul provided it's styled a certain way.
 
 The plug-in accepts positive or negative margin-right on the li and any padding/broder on the li and a. Any other margin, padding or border will screw up the calculations.
 
