@@ -1,14 +1,45 @@
-/**
- * @title:		Togglable DL
- * @version:	1.0
- * @author:		Andreas Lagerkvist
- * @date:		2008-09-16
- * @url:		http://andreaslagerkvist.com/jquery/togglable-dl/
- * @license:	http://creativecommons.org/licenses/by/3.0/
- * @copyright:	2008 Andreas Lagerkvist (andreaslagerkvist.com)
- * @requires:	jQuery
- * @usage:		jQuery('#faq dl').togglableDL(); adds links to all dt:s in #faq dl and when you click them hides/shows the dd:s connected to the dt.
- **/
+/***
+@title:
+Togglable DL
+
+@version:
+2.0
+
+@author:
+Andreas Lagerkvist
+
+@date:
+2008-08-31
+
+@url:
+http://andreaslagerkvist.com/jquery/togglable-dl/
+
+@license:
+http://creativecommons.org/licenses/by/3.0/
+
+@copyright:
+2008 Andreas Lagerkvist (andreaslagerkvist.com)
+
+@requires:
+jQuery
+
+@does:
+This plug-in makes clicking dts show or hide the dds beneath it.
+
+@usage:
+jQuery('#faq dl').togglableDL();
+
+@exampleHTML:
+<dl>
+	<dt>Who are you?</dt>
+	<dd>Me</dd>
+	<dt>Where do you live?</dt>
+	<dd>Here</dd>
+</dl>
+
+@exampleJS:
+jQuery('#jquery-togglable-dl-example dl').togglableDL();
+***/
 jQuery.fn.togglableDL = function(conf) {
 	var config = jQuery.extend({
 		speed: 	100
