@@ -1,14 +1,9 @@
-<pre>
-<?php
-	var_dump($__all);
-?>
-</pre>
 <ul>
-	<?php for($i = 0; $i < 3; $i++) { ?>
+	<?php foreach($plugins as $plugin) { ?>
 		<li>
-			<h3><a href="#">jQuery plugin <?php echo $i; ?></a></h3>
+			<h3><a href="<?php echo $plugin['url']; ?>"><?php echo $plugin['title']; ?></a></h3>
 
-			<p><img src="#" alt="" /> Lorem ipsum dolorus consequetuer ipsum. Consiquitus fredrolia samus. Lorem ipsum dolorus consequetuer ipsum. Consiquitus fredrolia samus.</p>
+			<?php echo $plugin['does']; ?>
 		</li>
 	<?php } ?>
 </ul>
