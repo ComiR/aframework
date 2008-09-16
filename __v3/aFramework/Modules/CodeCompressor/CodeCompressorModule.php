@@ -69,18 +69,18 @@
 			$dirs = array();
 
 			foreach($sites as $site) {
-				$dirs[] = ROOT_DIR .$site .'/Styles/__common/';
-				$dirs[] = ROOT_DIR .$site .'/Styles/' .$style .'/';
-				$dirs[] = ROOT_DIR .$site .'/Styles/' .$style .'/controllers/';
-				$dirs[] = ROOT_DIR .$site .'/Styles/' .$style .'/modules/';
+				$dirs[] = DOCROOT .$site .'/Styles/__common/';
+				$dirs[] = DOCROOT .$site .'/Styles/' .$style .'/';
+				$dirs[] = DOCROOT .$site .'/Styles/' .$style .'/controllers/';
+				$dirs[] = DOCROOT .$site .'/Styles/' .$style .'/modules/';
 
 				# Only JS in module-dirs, no CSS
-				if(self::$type == 'js' and is_dir(ROOT_DIR .$site .'/Modules/')) {
-					$dh = opendir(ROOT_DIR .$site .'/Modules/');
+				if(self::$type == 'js' and is_dir(DOCROOT .$site .'/Modules/')) {
+					$dh = opendir(DOCROOT .$site .'/Modules/');
 
 					while($f = readdir($dh)) {
-						if('.' != $f and '..' != $f and is_dir(ROOT_DIR .$site .'/Modules/' .$f .'/')) {
-							$dirs[] = ROOT_DIR .$site .'/Modules/' .$f .'/';
+						if('.' != $f and '..' != $f and is_dir(DOCROOT .$site .'/Modules/' .$f .'/')) {
+							$dirs[] = DOCROOT .$site .'/Modules/' .$f .'/';
 						}
 					}
 				}
@@ -125,25 +125,25 @@
 			foreach($sites as $site) {
 				# CSS-dirs (there may be JS in them as well)
 				# Controllers-dir
-				$path = ROOT_DIR .$site .'/Styles/' .$style .'/controllers/';
+				$path = DOCROOT .$site .'/Styles/' .$style .'/controllers/';
 				if(is_dir($path)) {
 					$code = self::getCodeInDir($path, '-page') .$code;
 				}
 
 				# Modules-dir
-				$path = ROOT_DIR .$site .'/Styles/' .$style .'/modules/';
+				$path = DOCROOT .$site .'/Styles/' .$style .'/modules/';
 				if(is_dir($path)) {
 					$code = self::getCodeInDir(array($path), '') .$code;
 				}
 
 				# "Root"-dir
-				$path = ROOT_DIR .$site .'/Styles/' .$style .'/';
+				$path = DOCROOT .$site .'/Styles/' .$style .'/';
 				if(is_dir($path)) {
 					$code = self::getCodeInDirs(array($path)) .$code;
 				}
 
 				# Common-dir
-				$path = ROOT_DIR .$site .'/Styles/__common/';
+				$path = DOCROOT .$site .'/Styles/__common/';
 				if(is_dir($path)) {
 					$code = self::getCodeInDirs(array($path)) .$code;
 				}
@@ -152,9 +152,9 @@
 				if(self::$type == 'js') {
 					# Real modules-dir
 					$dirs = array();
-					$path = ROOT_DIR .$site .'/Modules/';
+					$path = DOCROOT .$site .'/Modules/';
 
-					if(is_dir(ROOT_DIR .$site .'/Modules/')) {
+					if(is_dir(DOCROOT .$site .'/Modules/')) {
 						$dh = opendir($path);
 
 						while($f = readdir($dh)) {

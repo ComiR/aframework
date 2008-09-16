@@ -2,7 +2,7 @@
 
 <div id="debug-inner">
 
-	<p><?php echo str_replace(ROOT_DIR, '', $controller['path']); ?></p>
+	<p><?php echo str_replace(DOCROOT, '', $controller['path']); ?></p>
 <!--
 	<?php if(isset($__old)) { ?>
 		<p><strong>This controller was forced by module <?php echo $__old['controller']['forced_by']; ?> in old controller <?php echo $__old['controller']['name']; ?></strong></p>
@@ -75,7 +75,7 @@
 			<li title="<?php echo $mod['html_id']; ?>">
 				<h4><?php echo $mod['class_name'] ? $mod['class_name'] : '[NoClass]' .'_' .$mod['name']; ?></h4>
 
-				<p><?php echo isset($mod['path']) ? str_replace(ROOT_DIR, '', $mod['path']) : '[no module-class]'; ?></p>
+				<p><?php echo isset($mod['path']) ? str_replace(DOCROOT, '', $mod['path']) : '[no module-class]'; ?></p>
 
 				<dl>
 					<dt>Run time</dt>
@@ -94,7 +94,7 @@
 							<dl>
 								<?php foreach($mod['tpl_paths'] as $k => $v) { ?>
 									<dt><?php echo ucfirst($k); ?></dt>
-									<dd><?php echo $v != '' ? str_replace(ROOT_DIR, '', $v) : '[empty]'; ?></dd>
+									<dd><?php echo $v != '' ? str_replace(DOCROOT, '', $v) : '[empty]'; ?></dd>
 								<?php } ?>
 							</dl>
 						<?php } else { ?>

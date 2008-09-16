@@ -28,7 +28,7 @@
 			self::$tplFile = true;
 			self::$forceController = false;
 
-			if(!ADMIN) {
+			if(ADMIN) {
 				self::$tplFile = false;
 				return false;
 			}
@@ -73,7 +73,7 @@
 			$modulesInController = self::getModulesInController($controller);
 
 			foreach($sites as $site) {
-				$modulesDir = ROOT_DIR .$site .'/Modules/';
+				$modulesDir = DOCROOT .$site .'/Modules/';
 
 				if(is_dir($modulesDir)) {
 					$dh = opendir($modulesDir);
@@ -151,7 +151,7 @@
 			$path = false;
 
 			foreach($sites as $site) {
-				$path = ROOT_DIR .$site .'/Controllers/' .$controller .'.xml';
+				$path = DOCROOT .$site .'/Controllers/' .$controller .'.xml';
 
 				if(file_exists($path)) {
 					return $path;
