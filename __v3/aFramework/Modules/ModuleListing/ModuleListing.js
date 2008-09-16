@@ -1,7 +1,7 @@
 aFramework.modules.ModuleListing = {
 	run: function() {
 		// Only run if admin
-		if(!$('body.admin').length) {
+		if($('body.admin').length) {
 			this.makeModulesDraggable();
 			this.addRemoveButtonsToUsedModulesAndMakeDroppable();
 		}

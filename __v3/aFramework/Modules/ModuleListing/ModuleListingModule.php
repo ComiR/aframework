@@ -28,7 +28,7 @@
 			self::$tplFile = true;
 			self::$forceController = false;
 
-			if(ADMIN) {
+			if(!ADMIN) {
 				self::$tplFile = false;
 				return false;
 			}
