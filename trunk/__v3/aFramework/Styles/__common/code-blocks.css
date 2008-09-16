@@ -1,0 +1,47 @@
+/* HighlightString() */
+.code-block {
+	max-height: 400px;
+	background: #fff;
+	overflow: auto;
+	border: 1px solid #000;
+	padding: 10px;
+}
+
+	.code-block .comment {
+		color: #FF8000;
+	}
+
+	.code-block .keyword {
+		color: #007700;
+	}
+
+	.code-block .var {
+		color: #0000BB;
+	}
+
+	.code-block .string {
+		color: #DD0000;
+	}
+
+/* Textmate Sunburst */
+.code-block {
+	background-color: #000;
+	font-family: Monaco;
+	color: #f8f8f8;
+}
+
+	.code-block .comment {
+		color: #aeaeae;
+	}
+
+	.code-block .keyword {
+		color: #e28964;
+	}
+
+	.code-block .var {
+		color: #3e87e3;
+	}
+
+	.code-block .string {
+		color: #65b042;
+	}
