@@ -33,9 +33,10 @@
 		public static function getByUrlStr($urlStr) {
 			$bits	= explode('-', $urlStr);
 			$plugin	= '';
+			$i		= 0;
 
 			foreach($bits as $bit) {
-				$plugin .= ucfirst($bit);
+				$plugin .= $i++ > 0 ? ucfirst($bit) : $bit;
 			}
 
 			if(file_exists(DOCROOT .'aFramework/Modules/Base/jquery.' .$plugin .'.js')) {
@@ -61,7 +62,9 @@
 
 			preg_match_all('/@(.*?):([^@]*)/is', $matches[1], $secondMatches);
 
-			$pluginArr['name'] = $plugin;
+			$pluginArr['name']		= $plugin;
+			$pluginArr['file_name']	= "jquery.$plugin.js";
+			$pluginArr['source']	= isset($matches[2]) ? $matches[2] : '';
 
 			foreach($secondMatches[1] as $property) {
 				$pluginArr[$property] = trim($secondMatches[2][$i++]);
@@ -72,6 +75,9 @@
 
 		private static function makeNice($row) {
 			$row['name']				= htmlentities($row['name']);
+			$row['file_name']			= htmlentities($row['file_name']);
+			$row['source_code']			= htmlentities($row['source']); // TODO: Should syntax highlight (use nice string?)
+			$row['source_url']			= WEBROOT .'aFramework/Modules/Base/' .$row['file_name'];
 			$row['title']				= htmlentities($row['title']);
 			$row['version']				= htmlentities($row['version']);
 			$row['author']				= htmlentities($row['author']);
@@ -86,9 +92,9 @@
 			$row['does']				= htmlentities($row['does']); // TODO: should be nice-string:ed
 			$row['usage']				= htmlentities($row['usage']); // TODO: should be nice-string:ed
 			$row['example_html']		= '<div id="jquery-' .$row['url_str'] .'-example">' .$row['exampleHTML'] .'</div>';
-			$row['example_html_code']	= htmlentities($row['example_html']);
+			$row['example_html_code']	= htmlentities($row['exampleHTML']); // TODO: Should syntax highlight (use nice string?)
 			$row['example_js']			= "<script type=\"text/javascript\">window.addEventListener('load', function() {\n" .$row['exampleJS'] ."\n}, false);</script>";
-			$row['example_js_code']		= htmlentities($row['example_js']);
+			$row['example_js_code']		= htmlentities($row['exampleJS']); // TODO: Should syntax highlight (use nice string?)
 
 			return $row;
 		}
