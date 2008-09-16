@@ -76,11 +76,15 @@
 
 				# Only JS in module-dirs, no CSS
 				if(self::$type == 'js' and is_dir(DOCROOT .$site .'/Modules/')) {
-					$dh = opendir(DOCROOT .$site .'/Modules/');
+					$path = DOCROOT .$site .'/Modules/';
 
-					while($f = readdir($dh)) {
-						if('.' != $f and '..' != $f and is_dir(DOCROOT .$site .'/Modules/' .$f .'/')) {
-							$dirs[] = DOCROOT .$site .'/Modules/' .$f .'/';
+					if(is_dir($path)) {
+						$dh = opendir($path);
+
+						while($f = readdir($dh)) {
+							if('.' != $f and '..' != $f and is_dir(DOCROOT .$site .'/Modules/' .$f .'/')) {
+								$dirs[] = DOCROOT .$site .'/Modules/' .$f .'/';
+							}
 						}
 					}
 				}
@@ -154,11 +158,11 @@
 					$dirs = array();
 					$path = DOCROOT .$site .'/Modules/';
 
-					if(is_dir(DOCROOT .$site .'/Modules/')) {
+					if(is_dir($path)) {
 						$dh = opendir($path);
 
 						while($f = readdir($dh)) {
-							if('.' != $f and '..' != $f and is_dir($path .$f .'/')) {
+							if('.' != $f and '..' != $f and is_dir($path .$f)) {
 								$dirs[] = $path .$f .'/';
 							}
 						}
@@ -186,7 +190,7 @@
 				if($dh) {
 					while($f = readdir($dh)) {
 						if(self::$type == end(explode('.', $f)) and !in_array($f, self::$exclude)) {
-							$files["$dir$f"] = $f;
+							$files["$dir$f"] = strtolower($dir .$f);
 						}
 					}
 				}
@@ -195,6 +199,8 @@
 			asort($files);
 
 			foreach($files as $path => $name) {
+				$code .= "\n\n/* ==== [ $name ] ==== */\n";
+
 				$contents = file_get_contents($path);
 
 				if(self::$type == 'css' and $prefixSelectorsWithFilename !== false) {
@@ -203,7 +209,7 @@
 					$code .= CSSSelectorPrefixer::prefixSelectors($contents, '#' .$fileNameNoExt .$prefixSelectorsWithFilename);
 				}
 				else {
-					$code .= $contents;
+					$code .= $contents ."\n";
 				}
 			}
 

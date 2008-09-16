@@ -1,34 +1,36 @@
-Debug = {
+aFramework.modules.Debug = {
 	run: function() {
-		this.addLinks('h2', function(a) {
-			var debug = document.getElementById('debug');
-			if(debug.className == 'hide') {
-				debug.className = '';
-			}
-			else {
-				debug.className = 'hide';
-			}
-		});
+		if($('body.debug').length) {
+			this.addLinks('h2', function(a) {
+				var debug = document.getElementById('debug');
+				if(debug.className == 'hide') {
+					debug.className = '';
+				}
+				else {
+					debug.className = 'hide';
+				}
+			});
 
-		this.addLinks('h3', function(a) {
-			if(a.parentNode.className == 'hide') {
-				a.parentNode.className = '';
-			}
-			else {
-				a.parentNode.className = 'hide';
-			}
-		});
+			this.addLinks('h3', function(a) {
+				if(a.parentNode.className == 'hide') {
+					a.parentNode.className = '';
+				}
+				else {
+					a.parentNode.className = 'hide';
+				}
+			});
 
-		this.addLinks('h4', function(a) {
-			if(a.parentNode.parentNode.className == 'hide') {
-				a.parentNode.parentNode.className = '';
-			}
-			else {
-				a.parentNode.parentNode.className = 'hide';
-			}
-		});
+			this.addLinks('h4', function(a) {
+				if(a.parentNode.parentNode.className == 'hide') {
+					a.parentNode.parentNode.className = '';
+				}
+				else {
+					a.parentNode.parentNode.className = 'hide';
+				}
+			});
 
-		this.addModuleHighlighting();
+			this.addModuleHighlighting();
+		}
 	}, 
 
 	addLinks: function(el, oc) {
@@ -65,7 +67,3 @@ Debug = {
 		}
 	}
 };
-
-if($('body.debug').length) {
-	Debug.run();
-}

@@ -1,5 +1,5 @@
-var ModuleListing = {
-	init: function() {
+aFramework.modules.ModuleListing = {
+	run: function() {
 		// Only run if admin
 		if(!$('body.admin').length) {
 			this.makeModulesDraggable();
@@ -154,5 +154,3 @@ var ModuleListing = {
 		$('#module-listing form').remove();
 	}
 };
-
-ModuleListing.init();
