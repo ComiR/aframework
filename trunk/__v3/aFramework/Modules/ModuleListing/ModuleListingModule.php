@@ -28,6 +28,11 @@
 			self::$tplFile = true;
 			self::$forceController = false;
 
+			if(!ADMIN) {
+				self::$tplFile = false;
+				return false;
+			}
+
 			$controller = isset($_GET['controller']) ? $_GET['controller'] : 'Home';
 
 			# Get all available modules for this site

@@ -3,15 +3,16 @@ var aFramework = {
 	//	$.imgzoom();
 	//	$.codeBlocks();
 	//	$.maxLengthInputs();
-	//	$.formHints();
+		$.formHints();
 	//	$.captchaRefresh('/captha.png');
 	}, 
 
 	runModules: function() {
 		// Run through all modules
 		for(var module in aFrameWork.modules) {
-			// Work our the HTML-ID based on the module-name (RecentArticles == recent-articles)
+			// Work out the HTML-ID based on the module-name (RecentArticles == recent-articles)
 			var id = module.replace(/([A-Z])/g, '-$1').toLowerCase();
+
 			if(id.substring(0, 1) == '-') {
 				id = id.substring(1);
 			}
@@ -58,5 +59,8 @@ var aFramework = {
 	modules: []
 };
 
-// aFramework.run();
-// aFramework.runModules();
+$(function() {
+	aFramework.run();
+	// aFramework.runModules();
+	// aFramework.ajaxRun();
+});

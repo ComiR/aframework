@@ -1,17 +1,14 @@
 /**
- * LiveValidation 2.0
- *
- * Adds OK/Not Ok-icons next to 'formControls'
- * that indicates whether said control's value is valid
- *
- * Usage: jQuery('form').liveValidation({validIco: 'valid.gif', invalidIco: 'invalid.gif'});
- *
- * @class liveValidation
- * @param {Object} conf, custom config-object
- *
- * Copyright (c) 2008 Andreas Lagerkvist (andreaslagerkvist.com)
- * Released under a GNU General Public License v3 (http://creativecommons.org/licenses/by/3.0/)
- */
+ * @title:		Live Validation
+ * @version:	2.0
+ * @author:		Andreas Lagerkvist
+ * @date:		2008-08-31
+ * @url:		http://andreaslagerkvist.com/jquery/live-validation/
+ * @usage:		jQuery('#contact form').liveValidation(); Adds live-validation to all required fields in the #contact form.
+ * @license:	http://creativecommons.org/licenses/by/3.0/
+ * @copyright:	2008 Andreas Lagerkvist (andreaslagerkvist.com)
+ * @requires:	jQuery
+ **/
 jQuery.fn.liveValidation = function(conf, addedFields) {
 	var config = jQuery.extend({
 		formControls:	'input[type="text"], textarea',						// form-controls to be validated
