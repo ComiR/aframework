@@ -38,7 +38,7 @@
 
 		<noscript>
 
-			<p>You're really missing out coming here with <abbr title="JavaScript">JS</abbr> disabled.</p>
+			<p>You're really missing out coming here with <abbr title="JavaScript">JS</abbr> disabled. Everything still works but it's so much nicer with JS enabled.</p>
 
 		</noscript>
 

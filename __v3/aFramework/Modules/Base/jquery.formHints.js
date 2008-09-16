@@ -1,16 +1,14 @@
 /**
- * FormHints 1.0
- *
- * Allows form controls to have default "hints" that disappears onclick.
- * Affects all form-controls with title-attributes (<input title="A hint" />
- *
- * Usage: jQuery.formHints();
- *
- * @class formHints
- *
- * Copyright (c) 2008 Andreas Lagerkvist (andreaslagerkvist.com)
- * Released under a GNU General Public License v3 (http://creativecommons.org/licenses/by/3.0/)
- */
+ * @title:		Form Hints
+ * @version:	1.0
+ * @author:		Andreas Lagerkvist
+ * @date:		2008-09-15
+ * @url:		http://andreaslagerkvist.com/jquery/form-hints/
+ * @usage:		jQuery.formHints(); Gives all form-controls with a title-attribute a default-value that disappears onclick
+ * @license:	http://creativecommons.org/licenses/by/3.0/
+ * @copyright:	2008 Andreas Lagerkvist (andreaslagerkvist.com)
+ * @requires:	jQuery
+ **/
 jQuery.formHints = function(conf) {
 	var config = jQuery.extend({
 		formControls: 'input[title], textarea[title]', 
