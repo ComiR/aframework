@@ -15,7 +15,6 @@
 		 **/
 		public static function run() {
 			if(isset($_GET['module'])) {
-				if(XHR) sleep(1);
 				echo self::runSingleModule(removeDots($_GET['module']));
 			}
 			elseif(isset($_GET['controller'])) {
