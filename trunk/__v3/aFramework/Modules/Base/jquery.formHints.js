@@ -15,7 +15,7 @@ jQuery.formHints = function(conf) {
 		className: 'default-value'
 	}, conf);
 
-	$(config.formControls).each(function() {
+	jQuery(config.formControls).each(function() {
 		var t = $(this);
 
 		if(t.val() === '' || t.val() == t.attr('title')) {
@@ -35,5 +35,9 @@ jQuery.formHints = function(conf) {
 		if(t.val() === '' || t.val() == t.attr('title')) {
 			t.addClass(config.className).val(t.attr('title'));
 		}
+	});
+
+	jQuery('form').submit(function() {
+		jQuery('.default-value', this).val('');
 	});
 };
