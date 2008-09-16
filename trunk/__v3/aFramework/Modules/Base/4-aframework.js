@@ -1,10 +1,10 @@
 var aFramework = {
 	run: function() {
-	//	$.imgzoom();
-	//	$.codeBlocks();
-	//	$.maxLengthInputs();
-		$.formHints();
-	//	$.captchaRefresh('/captha.png');
+	//	$(document.body).imgzoom();
+	//	$('p.code-block').codeBlocks();
+	//	$(document.body).maxLengthFormControls();
+		$(document.body).formHints();
+	//	$(document.body).captchaRefresh('/captha.png');
 	}, 
 
 	runModules: function() {
