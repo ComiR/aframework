@@ -1,6 +1,6 @@
 /***
 @title:
-Favicons
+TODO: Favicons
 
 @version:
 2.0
