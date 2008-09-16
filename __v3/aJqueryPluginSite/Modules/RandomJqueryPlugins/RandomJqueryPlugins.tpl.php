@@ -1,3 +1,8 @@
+<pre>
+<?php
+	var_dump($__all);
+?>
+</pre>
 <ul>
 	<?php for($i = 0; $i < 3; $i++) { ?>
 		<li>
