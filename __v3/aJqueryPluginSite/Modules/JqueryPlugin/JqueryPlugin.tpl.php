@@ -8,7 +8,7 @@
 
 <h3>How to use</h3>
 
-<?php echo $plugin['usage']; ?>
+<?php echo $plugin['howto']; ?>
 
 <h3>Example</h3>
 
@@ -20,15 +20,15 @@
 
 <h5><abbr title="HyperText Markup Language">HTML</abbr></h5>
 
-<pre class="code-block"><code><?php echo $plugin['example_html_code']; ?></code></pre>
+<?php echo $plugin['example_html_code']; ?>
 
 <h5><abbr title="Javascript">JS</abbr></h5>
 
-<pre class="code-block"><code><?php echo $plugin['example_js_code']; ?></code></pre>
+<?php echo $plugin['example_js_code']; ?>
 
 <h3>Source code</h3>
 
-<pre class="code-block"><code><?php echo $plugin['source_code']; ?></code></pre>
+<?php echo $plugin['source_code']; ?>
 
 <h3>Download</h3>
 
