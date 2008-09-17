@@ -6,3 +6,9 @@ input.default-value {
 form img {
 	vertical-align: top;
 }
+
+a[href^="http://"] + img {
+	width: 16px;
+	margin-left: 5px;
+	vertical-align: middle;
+}

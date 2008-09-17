@@ -29,6 +29,8 @@ Appends or prepends favicons to external links.
 @howto:
 jQuery(document.body).favicons({insert: 'prependTo'}); would prepend favicons to every external link in the document.
 
+You wanna run the plug-in on a parent-element of the external links. Unless you want certain external links _not_ to have a favicon there's no reason not to run the plug-in on document.body.
+
 @exampleHTML:
 <ul>
 	<li><a href="http://www.codinghorror.com/blog/">Coding Horror</a></li>
@@ -39,7 +41,8 @@ jQuery(document.body).favicons({insert: 'prependTo'}); would prepend favicons to
 </ul>
 
 @exampleJS:
-jQuery('#jquery-favicons-example').favicons({insert: 'insertBefore', defaultIco: '/aFramework/Styles/__common/gfx/jquery.favicons.png'});
+// I don't run it because my site already uses favicons
+// jQuery('#jquery-favicons-example').favicons({insert: 'insertBefore', defaultIco: '/aFramework/Styles/__common/gfx/jquery.favicons.png'});
 ***/
 jQuery.fn.favicons = function(conf) {
 	var config = jQuery.extend({

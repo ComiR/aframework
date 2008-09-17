@@ -1,10 +1,11 @@
 var aFramework = {
 	run: function() {
-	//	jQuery(document.body).imgZoom();
-	//	jQuery('p.code-block').codeBlockToolbar();
+	//	jQuery(document.body).imageZoom();
+		jQuery(document.body).favicons({insert: 'insertAfter', defaultIco: '/aFramework/Styles/__common/gfx/jquery.favicons.png'});
 	//	jQuery(document.body).maxLengthFormControls();
 		jQuery(document.body).formHints();
 	//	jQuery(document.body).captchaRefresh('/captha.png');
+	//	jQuery('p.code-block').codeBlockToolbar();
 	}, 
 
 	runModules: function() {
