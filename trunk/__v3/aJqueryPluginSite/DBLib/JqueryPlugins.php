@@ -94,7 +94,7 @@
 			$row['license']				= htmlentities($row['license']);
 			$row['copyright']			= htmlentities($row['copyright']);
 
-			$row['requires']			= htmlentities($row['requires']); // TODO: should include links to all required files
+			$row['files']				= self::getPluginFiles($row['name'] .', ' .$row['requires']);
 
 			$row['does']				= NiceString::makeNice($row['does'], 4);
 			$row['howto']				= NiceString::makeNice($row['howto'], 4);
@@ -106,6 +106,57 @@
 			$row['example_js_code']		= NiceString::makeNice('[code]' .$row['exampleJS'] .'[/code]');
 
 			return $row;
+		}
+
+		private static function getPluginFiles($requirements) {
+			$reqs				= explode(',', $requirements);
+			$pluginFiles		= array();
+			$requirementFiles	= array();
+
+			$requirementFiles[] = array(
+				'name'	=> 'jQuery', 
+				'url'	=> 'http://jquery.com'
+			);
+
+			foreach($reqs as $req) {
+				$req = trim($req);
+				$ext = end(explode('.', $req));
+
+				if('css' == $ext and file_exists(DOCROOT .'aFramework/Styles/__common/' .$req)) {
+					$pluginFiles[] = array(
+						'name'	=> $req, 
+						'url'	=> WEBROOT .'aFramework/Styles/__common/' .$req
+					);
+				}
+				elseif(in_array($ext, array('png', 'gif', 'jpg')) and file_exists(DOCROOT .'aFramework/Styles/__common/gfx/' .$req)) {
+					$pluginFiles[] = array(
+						'name'	=> $req, 
+						'url'	=> WEBROOT .'aFramework/Styles/__common/gfx/' .$req
+					);
+				}
+				elseif(file_exists(DOCROOT .'aFramework/Modules/Base/jquery.' .$req .'.js')) {
+					if(in_array($req, self::$notMyPlugins)) {
+						$requirementFiles[] = array(
+							'name'	=> 'jquery.' .$req .'.js', 
+							'url'	=> WEBROOT .'aFramework/Modules/Base/jquery.' .$req .'.js'
+						);
+					}
+					else {
+						$pluginFiles[] = array(
+							'name'	=> 'jquery.' .$req .'.js', 
+							'url'	=> WEBROOT .'aFramework/Modules/Base/jquery.' .$req .'.js'
+						);
+					}
+				}
+				elseif('jquery' != strtolower($req)) {
+					$requirementFiles[] = array(
+						'name'	=> $req, 
+						'url'	=> false
+					);
+				}
+			}
+
+			return array('plugin' => $pluginFiles, 'requirements' => $requirementFiles);
 		}
 	}
 ?>
