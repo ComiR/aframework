@@ -26,7 +26,7 @@ jQuery
 @does:
 Makes an element vibrate.
 
-@usage:
+@howto:
 jQuery('#ad-area').vibrate();
 
 @exampleHTML:

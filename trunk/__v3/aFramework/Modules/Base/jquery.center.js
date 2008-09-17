@@ -26,7 +26,7 @@ jQuery
 @does:
 Centers an element on the screen using position: fixed;
 
-@usage:
+@howto:
 jQuery('#my-element').center(); would center the element with ID 'my-element'.
 
 @exampleHTML:

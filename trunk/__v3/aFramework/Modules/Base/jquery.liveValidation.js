@@ -26,7 +26,7 @@ jQuery
 @does:
 Adds valid/invalid icons next to required form-controls in a given form.
 
-@usage:
+@howto:
 jQuery('#contact form').liveValidation();
 
 @exampleHTML:

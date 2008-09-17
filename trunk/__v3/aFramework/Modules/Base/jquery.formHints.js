@@ -26,7 +26,7 @@ jQuery
 @does:
 Gives form-controls with a title-attribute a default-value that toggles visiblity onclick.
 
-@usage:
+@howto:
 jQuery(document.body).formHints(); would give every form-control with a title-attribute a hint.
 
 @exampleHTML:

@@ -28,7 +28,7 @@ Makes any navigation built from the HTML-element ul, li and a take up the full w
 
 The plug-in accepts positive or negative margin-right on the li and any padding/broder on the li and a. Any other margin, padding or border will screw up the calculations.
 
-@usage:
+@howto:
 jQuery('#navigation ul').fullWidthNavigation(); Would make the li's in the #navigation ul take up all the ul's width.
 
 @exampleHTML:

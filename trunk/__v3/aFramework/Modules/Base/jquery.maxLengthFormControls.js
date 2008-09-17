@@ -26,7 +26,7 @@ jQuery
 @does:
 Gives form-controls with a 'maxlength-XXX'-class a max-length and prohibits user from entering more than set amount. It also displays number of characters user has left next to the control.
 
-@usage:
+@howto:
 jQuery(document.body).maxLengthFormControls();
 
 @exampleHTML:

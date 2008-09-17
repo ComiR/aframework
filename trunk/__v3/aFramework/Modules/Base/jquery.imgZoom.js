@@ -26,7 +26,7 @@ jQuery
 @does:
 Makes links pointing to images open in the "Image Zoom". The image-zoom animates from the small image/link's size to the target-image's size.
 
-@usage:
+@howto:
 jQuery(document.body).imgZoom(); Would make every link pointing to an image in the document open in the zoom.
 
 @exampleHTML:
