@@ -64,7 +64,16 @@ jQuery.fn.togglableDL = function(conf) {
 				});
 			}, 
 			function() {
-				dds.slideUp(100);
+				var isDT = false;
+
+				dt.nextAll().each(function() {
+					if(isDT || $(this).is('dt')) {
+						isDT = true;
+						return;
+					}
+
+					$(this).slideUp(config.speed);
+				});
 			});
 		});
 	});
