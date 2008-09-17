@@ -21,7 +21,7 @@ http://creativecommons.org/licenses/by/3.0/
 2008 Andreas Lagerkvist (andreaslagerkvist.com)
 
 @requires:
-jQuery, Dimensions
+jquery, dimensions
 
 @does:
 Centers an element on the screen using position: fixed;

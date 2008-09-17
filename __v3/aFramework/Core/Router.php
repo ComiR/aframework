@@ -57,7 +57,7 @@
 				}
 			}
 
-			return $url ? WEBROOT_INDEX .$url : '#';
+			return $url ? str_replace('//', '/', WEBROOT_INDEX .$url) : '#';
 		}
 
 		/**

@@ -21,7 +21,7 @@ http://creativecommons.org/licenses/by/3.0/
 2008 Andreas Lagerkvist (andreaslagerkvist.com)
 
 @requires:
-jQuery, Dimensions
+jquery, dimensions
 
 @does:
 Makes any navigation built from the HTML-element ul, li and a take up the full width of the ul provided it's styled a certain way.

@@ -21,7 +21,7 @@ http://creativecommons.org/licenses/by/3.0/
 2008 Andreas Lagerkvist (andreaslagerkvist.com)
 
 @requires:
-jQuery
+jquery
 
 @does:
 Makes links pointing to images open in the "Image Zoom". The image-zoom animates from the small image/link's size to the target-image's size.
