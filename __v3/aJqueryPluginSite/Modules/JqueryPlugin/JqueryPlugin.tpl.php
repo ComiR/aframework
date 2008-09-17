@@ -35,11 +35,15 @@
 <h4>Plug-in</h4>
 
 <ul>
-	<li><a href="<?php echo $plugin['source_url']; ?>">jquery.<?php echo $plugin['name']; ?>.js</a></li>
+	<?php foreach($plugin['files']['plugin'] as $file) { ?>
+		<li><a href="<?php echo $file['url']; ?>"><?php echo $file['name']; ?></a></li>
+	<?php } ?>
 </ul>
 
-<h4>Requirements</h4>
+<h4>Requires</h4>
 
 <ul>
-	<li><a href="http://jquery.com">jQuery</a></li>
+	<?php foreach($plugin['files']['requirements'] as $file) { ?>
+		<li><a href="<?php echo $file['url']; ?>"><?php echo $file['name']; ?></a></li>
+	<?php } ?>
 </ul>
