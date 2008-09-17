@@ -99,7 +99,7 @@
 			$row['does']				= NiceString::makeNice($row['does'], 4);
 			$row['howto']				= NiceString::makeNice($row['howto'], 4);
 
-			$row['example_html']		= '<div id="jquery-' .$row['url_str'] ."-example\">\n" .$row['exampleHTML'] ."\n</div>";
+			$row['example_html']		= '<div id="jquery-' .$row['url_str'] ."-example\">\n\n\t" .str_replace("\n", "\n\t", $row['exampleHTML']) ."\n\n</div>";
 			$row['example_html_code']	= NiceString::makeNice('[code]' .$row['example_html'] .'[/code]');
 
 			$row['example_js']			= "<script type=\"text/javascript\">window.addEventListener('load', function() {\n" .$row['exampleJS'] ."\n}, false);</script>";
