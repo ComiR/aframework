@@ -60,12 +60,14 @@ jQuery('#contact form').liveValidation();
 		</label>
 	</p>
 
+	<p><input type="submit" value="Ok" /></p>
+
 </form>
 
 @exampleJS:
 jQuery('#jquery-live-validation-example form').liveValidation({
 	validIco: '/aFramework/Styles/__common/gfx/form-control-valid.png', 
-	invalidIco: '/aFramework/Styles/__common/gfx/form-control-valid.png'
+	invalidIco: '/aFramework/Styles/__common/gfx/form-control-invalid.png'
 }, {
 	foo: /^\w+$/
 });

@@ -31,14 +31,15 @@ jQuery(document.body).favicons({insert: 'prependTo'}); would prepend favicons to
 
 @exampleHTML:
 <ul>
-	<li><a href="http://www.ap4a.co.uk/">David Anderson's Unfinished Symphony</a></li>
-	<li><a href="http://ian.hixie.ch/">ian.hixie.ch</a></li>
+	<li><a href="http://www.codinghorror.com/blog/">Coding Horror</a></li>
+	<li><a href="http://remysharp.com">remy sharp's b:log</a></li>
+	<li><a href="http://snook.ca/jonathan/">Snook.ca</a></li>
 	<li><a href="http://www.danwebb.net">DanWebb.net</a></li>
 	<li><a href="http://www.dustindiaz.com/">DustinDiaz.com</a></li>
 </ul>
 
 @exampleJS:
-jQuery('#jquery-favicons-example').favicons({insert: 'insertBefore'});
+jQuery('#jquery-favicons-example').favicons({insert: 'insertBefore', defaultIco: '/aFramework/Styles/__common/gfx/jquery.favicons.png'});
 ***/
 jQuery.fn.favicons = function(conf) {
 	var config = jQuery.extend({
