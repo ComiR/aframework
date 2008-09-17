@@ -38,7 +38,7 @@
 			$style = removeDots($style);
 
 			if(is_dir(CURRENT_SITE_DIR .'Styles/' .$style .'/')) {
-				setcookie('style', $style, time() + 31536000, WEBROOT .'/');
+				setcookie('style', $style, time() + 31536000, WEBROOT);
 
 				if(!XHR) {
 					redirect('?changed_style');

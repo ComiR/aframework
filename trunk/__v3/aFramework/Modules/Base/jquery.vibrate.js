@@ -21,7 +21,7 @@ http://creativecommons.org/licenses/by/3.0/
 2008 Andreas Lagerkvist (andreaslagerkvist.com)
 
 @requires:
-jQuery
+jquery
 
 @does:
 Makes an element vibrate.

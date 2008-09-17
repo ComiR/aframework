@@ -9,9 +9,8 @@
 
 	# Directory paths
 	define('DOCROOT',				realpath(dirname( __FILE__ ) .'/../..') .'/');
-	define('WEBROOT',				substr($_SERVER['SCRIPT_NAME'], 0, -10)); # minus "/index.php"
-	define('WEBROOT_INDEX',			USE_MOD_REWRITE ? WEBROOT : $_SERVER['SCRIPT_NAME']); # wiv index.php if no mod_rew
-	define('CACHE_DIR',				DOCROOT .'aFramework/Cache/');
+	define('WEBROOT',				substr($_SERVER['SCRIPT_NAME'], 0, -9)); # minus "index.php"
+	define('WEBROOT_INDEX',			USE_MOD_REWRITE ? WEBROOT : $_SERVER['SCRIPT_NAME'] .'/'); # wiv index.php if no mod_rew
 	define('CURRENT_SITE_DIR',		DOCROOT .CURRENT_SITE .'/');
 
 	# Misc

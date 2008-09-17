@@ -21,7 +21,7 @@ http://creativecommons.org/licenses/by/3.0/
 2008 Andreas Lagerkvist (andreaslagerkvist.com)
 
 @requires:
-jQuery
+jquery
 
 @does:
 Refreshes so called CAPTCHA-images when you click them - provided your CAPTHA-script generates a random image every time it is called.

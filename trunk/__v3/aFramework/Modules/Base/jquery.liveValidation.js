@@ -21,7 +21,7 @@ http://creativecommons.org/licenses/by/3.0/
 2008 Andreas Lagerkvist (andreaslagerkvist.com)
 
 @requires:
-jQuery
+jquery
 
 @does:
 Adds valid/invalid icons next to required form-controls in a given form.

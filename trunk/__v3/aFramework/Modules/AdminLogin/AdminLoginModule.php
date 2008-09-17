@@ -13,7 +13,7 @@
 			if(isset($_REQUEST['login'])) {
 				if(isset($_REQUEST['username']) and $_REQUEST['username'] == ADMIN_USER and isset($_REQUEST['password']) and $_REQUEST['password'] == ADMIN_PASS) {
 					if(isset($_REQUEST['remember_login'])) {
-						setcookie(ADMIN_SESSION, true, time()+60*60*24*365, WEBROOT .'/');
+						setcookie(ADMIN_SESSION, true, time()+60*60*24*365, WEBROOT);
 					}
 					else {
 						$_SESSION[ADMIN_SESSION] = true;

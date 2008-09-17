@@ -21,7 +21,7 @@ http://creativecommons.org/licenses/by/3.0/
 2008 Andreas Lagerkvist (andreaslagerkvist.com)
 
 @requires:
-jQuery
+jquery
 
 @does:
 Makes links pointing to images open in the "Image Box". The Image Box centers on screen and displays all the other images in the same scope beneath the currently displayed image.

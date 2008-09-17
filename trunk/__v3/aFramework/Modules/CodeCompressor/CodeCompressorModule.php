@@ -31,7 +31,7 @@
 			$fileLastModified = self::getLastModifiedFile($style);
 
 			# See if any cache of this script exists and that it's not older than any file
-			$cachePath = CACHE_DIR .CURRENT_SITE .'_' .$style .'.' .self::$type;
+			$cachePath = DOCROOT .'aFramework/Cache/' .CURRENT_SITE .'_' .$style .'.' .self::$type;
 			if(file_exists($cachePath) and filemtime($cachePath) >= $fileLastModified) {
 				self::$tplVars[self::$type] = file_get_contents($cachePath);
 			}
