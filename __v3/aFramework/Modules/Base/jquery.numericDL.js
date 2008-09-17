@@ -24,9 +24,9 @@ http://creativecommons.org/licenses/by/3.0/
 jQuery
 
 @does:
-Numbers definitions in a definition-list if there is more than one definition for a term.
+Numbers definitions in a definition-list if there is more than one for a term.
 
-@usage:
+@howto:
 jQuery('#glossary dl').numericDL();
 
 @exampleHTML:

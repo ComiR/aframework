@@ -26,7 +26,7 @@ jQuery
 @does:
 Makes elements equal height by adjusting their min-height properties (unless IE6 in which case height is used).
 
-@usage:
+@howto:
 jQuery('#content, #secondary-content').equalHeight(); would make the elements with IDs 'content' and 'secondary-content' equal height.
 
 @exampleHTML:

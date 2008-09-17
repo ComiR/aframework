@@ -26,7 +26,7 @@ jQuery
 @does:
 Makes clicking dts show or hide the dds beneath it.
 
-@usage:
+@howto:
 jQuery('#faq dl').togglableDL();
 
 @exampleHTML:

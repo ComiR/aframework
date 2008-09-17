@@ -26,7 +26,7 @@ jQuery
 @does:
 Adds some nifty buttons to code-blocks.
 
-@usage:
+@howto:
 jQuery('p.code-block').codeBlockToolbar(); Would add the toolbar to every paragraph with a class of 'code-block'.
 
 @exampleHTML:

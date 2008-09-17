@@ -26,7 +26,7 @@ jQuery
 @does:
 Makes links pointing to images open in the "Image Box". The Image Box centers on screen and displays all the other images in the same scope beneath the currently displayed image.
 
-@usage:
+@howto:
 jQuery('#holiday-photos, #flickr-images').imgBox(); would create Image Box-albums from the two elements #holiday-photos and #flickr-images
 
 @exampleHTML:
