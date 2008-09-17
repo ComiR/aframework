@@ -1,0 +1,36 @@
+$jquery-example-box {
+	background: #fff;
+
+	margin: 0;
+	padding: 5px 10px;
+
+	color: #000;
+
+	border: 1px solid #000;
+}
+
+/*
+	=== Center ===
+*/
+#jquery-center-example p = $jquery-example-box;
+
+/*
+	=== Vibrate===
+*/
+#jquery-vibrate-example = $jquery-example-box;
+
+/*
+	=== Equal Height ===
+*/
+#jquery-equal-height-example = $self-clear;
+
+	#jquery-equal-height-example p = $jquery-example-box;
+
+	#jquery-equal-height-example p {
+		float: left;
+		margin-right: 5px;
+	}
+
+	#jquery-equal-height-example p:last-child {
+		border-width: 5px;
+	}
