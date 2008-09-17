@@ -76,25 +76,34 @@
 		private static function makeNice($row) {
 			$row['name']				= htmlentities($row['name']);
 			$row['file_name']			= htmlentities($row['file_name']);
-			$row['source_code']			= htmlentities($row['source']); // TODO: Should syntax highlight (use nice string?)
+			$row['source_code']			= NiceString::makeNice('[code]' .$row['source'] .'[/code]');
 			$row['source_url']			= WEBROOT .'aFramework/Modules/Base/' .$row['file_name'];
+
 			$row['title']				= htmlentities($row['title']);
 			$row['version']				= htmlentities($row['version']);
+
 			$row['author']				= htmlentities($row['author']);
+
 			$row['date']				= htmlentities($row['date']);
 			$row['pub_date']			= htmlentities($row['date']);
+
 			$row['real_url']			= htmlentities($row['url']);
 			$row['url_str']				= strtolower(ccFix($row['name'], '-'));
 			$row['url']					= Router::urlFor('JqueryPlugin', array('url_str' => $row['url_str']));
+
 			$row['license']				= htmlentities($row['license']);
 			$row['copyright']			= htmlentities($row['copyright']);
+
 			$row['requires']			= htmlentities($row['requires']); // TODO: should include links to all required files
-			$row['does']				= htmlentities($row['does']); // TODO: should be nice-string:ed
-			$row['usage']				= htmlentities($row['usage']); // TODO: should be nice-string:ed
-			$row['example_html']		= '<div id="jquery-' .$row['url_str'] .'-example">' .$row['exampleHTML'] .'</div>';
-			$row['example_html_code']	= htmlentities($row['exampleHTML']); // TODO: Should syntax highlight (use nice string?)
+
+			$row['does']				= NiceString::makeNice($row['does'], 4);
+			$row['howto']				= NiceString::makeNice($row['howto'], 4);
+
+			$row['example_html']		= '<div id="jquery-' .$row['url_str'] ."-example\">\n" .$row['exampleHTML'] ."\n</div>";
+			$row['example_html_code']	= NiceString::makeNice('[code]' .$row['example_html'] .'[/code]');
+
 			$row['example_js']			= "<script type=\"text/javascript\">window.addEventListener('load', function() {\n" .$row['exampleJS'] ."\n}, false);</script>";
-			$row['example_js_code']		= htmlentities($row['exampleJS']); // TODO: Should syntax highlight (use nice string?)
+			$row['example_js_code']		= NiceString::makeNice('[code]' .$row['exampleJS'] .'[/code]');
 
 			return $row;
 		}
