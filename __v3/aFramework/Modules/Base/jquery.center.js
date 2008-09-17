@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery, dimensions
 
 @does:
-Centers an element on the screen using position: fixed;
+Centers an element on the screen using either position: fixed or absolute.
 
 @howto:
 jQuery('#my-element').center(); would center the element with ID 'my-element' using fixed position.

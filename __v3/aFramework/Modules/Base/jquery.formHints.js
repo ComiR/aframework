@@ -30,12 +30,18 @@ Gives form-controls with a title-attribute a default-value that toggles visiblit
 jQuery(document.body).formHints(); would give every form-control with a title-attribute a hint.
 
 @exampleHTML:
-<p>
-	<label>
-		Dummy<br />
-		<input type="text" name="dummy" title="E.G. Dummy" />
-	</label>
-</p>
+<form method="post" action="">
+
+	<p>
+		<label>
+			Dummy<br />
+			<input type="text" name="dummy" title="E.G. Dummy" />
+		</label>
+	</p>
+
+	<p><input type="submit" value="Ok" /></p>
+
+</form>
 
 @exampleJS:
 // I'm not actually running it because my site already uses formHints
