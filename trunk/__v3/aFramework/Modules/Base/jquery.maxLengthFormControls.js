@@ -1,6 +1,6 @@
 /***
 @title:
-TODO: Max Length Form Controls
+Max Length Form Controls
 
 @version:
 2.0
@@ -33,10 +33,35 @@ jQuery(document.body).maxLengthFormControls();
 <p>
 	<label>
 		Dummy<br />
-		<input type="text" name="dummy" class="maxlength-100" />
+		<input type="text" name="dummy" class="maxlength-8" />
 	</label>
 </p>
 
 @exampleJS:
 jQuery('#jquery-max-length-form-controls-example').maxLengthFormControls();
 ***/
+jQuery.fn.maxLengthFormControls = function(conf) {
+	var config = jQuery.extend({
+		remainingStr: 'remaining', 
+		className: 'characters-remaining'
+	}, conf);
+
+	return this.each(function() {
+		jQuery('*[class^="maxlength"]', this).each(function() {
+			var t			= $(this);
+			var maxLength	= t.attr('class').substring(10);
+			var left		= maxLength - t.val().length;
+			var charLeft	= jQuery('<span class="characters-left">' +left +' ' +config.remainingStr +'</span>').insertAfter(t);
+
+			t.keyup(function() {
+				if(t.val().length > maxLength) {
+					t.val(t.val().substring(0, maxLength));
+				}
+
+				var left = maxLength - t.val().length;
+
+				charLeft.text(left +' ' +config.remainingStr);
+			});
+		});
+	});
+};

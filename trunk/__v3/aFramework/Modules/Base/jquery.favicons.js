@@ -41,12 +41,11 @@ You wanna run the plug-in on a parent-element of the external links. Unless you 
 </ul>
 
 @exampleJS:
-// I don't run it because my site already uses favicons
-// jQuery('#jquery-favicons-example').favicons({insert: 'insertBefore', defaultIco: '/aFramework/Styles/__common/gfx/jquery.favicons.png'});
+jQuery('#jquery-favicons-example').favicons({insert: 'insertBefore', defaultIco: '/aFramework/Styles/__common/gfx/jquery.favicons.png'});
 ***/
 jQuery.fn.favicons = function(conf) {
 	var config = jQuery.extend({
-		insert:		'appendTO', 
+		insert:		'appendTo', 
 		defaultIco: 'favicon.png'
 	}, conf);
 

@@ -29,6 +29,8 @@ Gives form-controls with a title-attribute a default-value that toggles visiblit
 @howto:
 jQuery(document.body).formHints(); would give every form-control with a title-attribute a hint.
 
+Run the plug-in on a parent-element of the form-controls you want to affect. If you run it on document.body every form-control with a title-attribute will get a hint.
+
 @exampleHTML:
 <form method="post" action="">
 
@@ -49,39 +51,34 @@ jQuery(document.body).formHints(); would give every form-control with a title-at
 ***/
 jQuery.fn.formHints = function(conf) {
 	var config = jQuery.extend({
-		formControls: 'input[title], textarea[title]', 	// Form-controls that should be affected by plug-in
-		className: 'default-value'						// Class when form has its hint
+		formControls:	'input[title], textarea[title]',
+		className:		'default-value'
 	}, conf);
-	
-	// Remove hints on form submission
-	jQuery('form').submit(function() {
-		jQuery('.' +config.className, this).val('');
-	});
 
-	// For every element
 	return this.each(function() {
-		// Find form-controls
 		jQuery(config.formControls, this).each(function() {
 			var t = jQuery(this);
 
 			if(t.val() === '' || t.val() == t.attr('title')) {
 				t.addClass(config.className).val(t.attr('title'));
 			}
-		})
-		.focus(function() {
+		}).focus(function() {
 			var t = jQuery(this);
 
 			if(t.val() == t.attr('title')) {
 				t.val('').removeClass(config.className);
 			}
-		})
-		.blur(function() {
+		}).blur(function() {
 			var t = jQuery(this);
 
 			if(t.val() === '' || t.val() == t.attr('title')) {
 				t.addClass(config.className).val(t.attr('title'));
 			}
 		});
-		
+
+		// Remove hints on form submission
+		jQuery('form', this).submit(function() {
+			jQuery('.' +config.className, this).val('');
+		});
 	});
 };
