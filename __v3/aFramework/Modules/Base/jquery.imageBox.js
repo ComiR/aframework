@@ -21,13 +21,13 @@ http://creativecommons.org/licenses/by/3.0/
 2008 Andreas Lagerkvist (andreaslagerkvist.com)
 
 @requires:
-jquery
+jquery, center
 
 @does:
 Makes links pointing to images open in the "Image Box". The Image Box centers on screen and displays all the other images in the same scope beneath the currently displayed image.
 
 @howto:
-jQuery('#holiday-photos, #flickr-images').imgBox(); would create Image Box-albums from the two elements #holiday-photos and #flickr-images
+jQuery('#holiday-photos, #flickr-images').imageBox(); would create Image Box-albums from the two elements #holiday-photos and #flickr-images
 
 @exampleHTML:
 <ul>
@@ -43,5 +43,5 @@ jQuery('#holiday-photos, #flickr-images').imgBox(); would create Image Box-album
 </ul>
 
 @exampleJS:
-jQuery('#jquery-full-image-box-example ul:first-child, #jquery-full-image-box-example ul:last-child').imgBox();
+jQuery('#jquery-full-image-box-example ul:first-child, #jquery-full-image-box-example ul:last-child').imageBox();
 ***/

@@ -1,9 +1,12 @@
 var aFramework = {
 	run: function() {
 	//	jQuery(document.body).imageZoom();
-		jQuery(document.body).favicons({insert: 'insertAfter', defaultIco: '/aFramework/Styles/__common/gfx/jquery.favicons.png'});
-	//	jQuery(document.body).maxLengthFormControls();
+		jQuery(document.body).maxLengthFormControls();
 		jQuery(document.body).formHints();
+		jQuery(document.body).liveValidation({
+			validIco:	'/aFramework/Styles/__common/gfx/form-control-valid.png', 
+			invalidIco:	'/aFramework/Styles/__common/gfx/form-control-invalid.png'
+		});
 	//	jQuery(document.body).captchaRefresh('/captha.png');
 	//	jQuery('p.code-block').codeBlockToolbar();
 	}, 

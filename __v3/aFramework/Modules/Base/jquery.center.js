@@ -49,7 +49,14 @@ jQuery.fn.center = function(absolute) {
 			zIndex:		'99'
 		}).css({
 			marginLeft:	'-' +(t.outerWidth() / 2) +'px', 
-			marginTOp:	'-' +(t.outerHeight() / 2) +'px'
+			marginTop:	'-' +(t.outerHeight() / 2) +'px'
 		});
+
+		if(absolute) {
+			t.css({
+				marginTop:	parseInt(t.css('marginTop'), 10) + jQuery(window).scrollTop(), 
+				marginLeft:	parseInt(t.css('marginLeft'), 10) + jQuery(window).scrollLeft()
+			});
+		}
 	});
 };

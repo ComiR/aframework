@@ -27,7 +27,7 @@ jquery
 Makes links pointing to images open in the "Image Zoom". The image-zoom animates from the small image/link's size to the target-image's size.
 
 @howto:
-jQuery(document.body).imgZoom(); Would make every link pointing to an image in the document open in the zoom.
+jQuery(document.body).imageZoom(); Would make every link pointing to an image in the document open in the zoom.
 
 @exampleHTML:
 <ul>
@@ -44,5 +44,5 @@ jQuery(document.body).imgZoom(); Would make every link pointing to an image in t
 
 @exampleJS:
 // I don't run it because my site already uses imgZoom
-// jQuery(document.body).imgZoom();
+// jQuery(document.body).imageZoom();
 ***/

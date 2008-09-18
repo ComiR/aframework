@@ -24,10 +24,12 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-Adds valid/invalid icons next to required form-controls in a given form.
+Adds valid/invalid icons next to required form-controls.
+
+Run the plug-in on a parent-element of the form-controls you want to affect. If you run it on document.body every form-control in the document will get live validation.
 
 @howto:
-jQuery('#contact form').liveValidation();
+jQuery(document.body).liveValidation();
 
 @exampleHTML:
 <form method="post" action="">
@@ -65,12 +67,13 @@ jQuery('#contact form').liveValidation();
 </form>
 
 @exampleJS:
-jQuery('#jquery-live-validation-example form').liveValidation({
-	validIco: '/aFramework/Styles/__common/gfx/form-control-valid.png', 
-	invalidIco: '/aFramework/Styles/__common/gfx/form-control-invalid.png'
-}, {
-	foo: /^\w+$/
-});
+// I dont actually run it cus my site already uses liveValidation
+//	jQuery(document.body).liveValidation({
+//		validIco: '/aFramework/Styles/__common/gfx/form-control-valid.png', 
+//		invalidIco: '/aFramework/Styles/__common/gfx/form-control-invalid.png'
+//	}, {
+//		foo: /^\w+$/
+//	});
 ***/
 jQuery.fn.liveValidation = function(conf, addedFields) {
 	var config = jQuery.extend({
@@ -95,10 +98,7 @@ jQuery.fn.liveValidation = function(conf, addedFields) {
 	}, addedFields);
 
 	return this.each(function() {
-		var form = jQuery(this);
-
-		// For every form-control in the form
-		jQuery(config.formControls, form).each(function() {
+		jQuery(config.formControls, this).each(function() {
 			var t = jQuery(this);
 
 			// Don't do anything if this field isn't required
@@ -142,8 +142,8 @@ jQuery.fn.liveValidation = function(conf, addedFields) {
 		});
 
 		// If form contains any invalid icon on submission, return false
-		form.submit(function() {
-			if(form.find('img[src="' +config.invalidIco +'"]').length) {
+		jQuery('form', this).submit(function() {
+			if(jQuery(this).find('img[src="' +config.invalidIco +'"]').length) {
 				return false;
 			}
 		});

@@ -46,33 +46,33 @@ jQuery.fn.togglableDL = function(conf) {
 	}, conf);
 
 	return this.each(function() {
-		var dds = $('dd', this).slideUp(config.speed);
+		var dds = jQuery('dd', this).slideUp(config.speed);
 
-		$('dt', this).each(function() {
-			var dt = $(this);
+		jQuery('dt', this).each(function() {
+			var dt = jQuery(this);
 
 			dt.html('<a href="#">' +dt.html() +'</a>').find('a').toggle(function() {
 				var isDT = false;
 
 				dt.nextAll().each(function() {
-					if(isDT || $(this).is('dt')) {
+					if(isDT || jQuery(this).is('dt')) {
 						isDT = true;
 						return;
 					}
 
-					$(this).slideDown(config.speed);
+					jQuery(this).slideDown(config.speed);
 				});
 			}, 
 			function() {
 				var isDT = false;
 
 				dt.nextAll().each(function() {
-					if(isDT || $(this).is('dt')) {
+					if(isDT || jQuery(this).is('dt')) {
 						isDT = true;
 						return;
 					}
 
-					$(this).slideUp(config.speed);
+					jQuery(this).slideUp(config.speed);
 				});
 			});
 		});
