@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-Appends or prepends favicons to external links.
+Adds favicons to external links.
 
 @howto:
 jQuery(document.body).favicons({insert: 'prependTo'}); would prepend favicons to every external link in the document.

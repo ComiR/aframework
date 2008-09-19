@@ -29,6 +29,8 @@ Gives form-controls with a 'maxlength-XXX'-class a max-length and prohibits user
 @howto:
 jQuery(document.body).maxLengthFormControls();
 
+Run the plug-in on a parent-element of the form-controls.
+
 @exampleHTML:
 <p>
 	<label>
@@ -38,7 +40,8 @@ jQuery(document.body).maxLengthFormControls();
 </p>
 
 @exampleJS:
-jQuery('#jquery-max-length-form-controls-example').maxLengthFormControls();
+// I already use it on my site...
+// jQuery(document.body).maxLengthFormControls();
 ***/
 jQuery.fn.maxLengthFormControls = function(conf) {
 	var config = jQuery.extend({
@@ -47,20 +50,18 @@ jQuery.fn.maxLengthFormControls = function(conf) {
 	}, conf);
 
 	return this.each(function() {
-		jQuery('*[class^="maxlength"]', this).each(function() {
-			var t			= $(this);
-			var maxLength	= t.attr('class').substring(10);
-			var left		= maxLength - t.val().length;
-			var charLeft	= jQuery('<span class="characters-left">' +left +' ' +config.remainingStr +'</span>').insertAfter(t);
+		jQuery('*[class^="maxlength-"]', this).each(function() {
+			var t				= $(this);
+			var maxLength		= t.attr('class').substring(10);
+			var remaining		= maxLength - t.val().length;
+			var charRemaining	= jQuery('<span class="' +config.className +'">' +remaining +' ' +config.remainingStr +'</span>').insertAfter(t);
 
 			t.keyup(function() {
 				if(t.val().length > maxLength) {
 					t.val(t.val().substring(0, maxLength));
 				}
 
-				var left = maxLength - t.val().length;
-
-				charLeft.text(left +' ' +config.remainingStr);
+				charRemaining.text((maxLength - t.val().length) +' ' +config.remainingStr);
 			});
 		});
 	});
