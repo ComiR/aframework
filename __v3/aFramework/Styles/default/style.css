@@ -34,6 +34,16 @@ body {
 	clear: both;
 }
 
+#skip-navigation ul = $pipe-menu;
+
+#navigation ul = $pipe-menu;
+
+#footer {
+	text-align: center;
+}
+
+	#footer ul = $pipe-menu;
+
 h1, h2, h3, h4, h5, h6 {
 	font: bold 200%/1.2 Helvetica, Arial, serif;
 	letter-spacing: -2px;
@@ -74,17 +84,3 @@ a = $underlined;
 a {
 	color: #369;
 }
-
-#skip-navigation {
-	text-align: center;
-}
-
-	#skip-navigation ul = $pipe-menu;
-
-#navigation ul = $pipe-menu;
-
-#footer {
-	text-align: center;
-}
-
-	#footer ul = $pipe-menu;
