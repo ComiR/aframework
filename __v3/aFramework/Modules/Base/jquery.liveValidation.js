@@ -26,10 +26,10 @@ jquery
 @does:
 Adds valid/invalid icons next to required form-controls.
 
-Run the plug-in on a parent-element of the form-controls you want to affect. If you run it on document.body every form-control in the document will get live validation.
-
 @howto:
 jQuery(document.body).liveValidation();
+
+Run the plug-in on a parent-element of the form-controls you want to affect. If you run it on document.body every form-control in the document will get live validation.
 
 @exampleHTML:
 <form method="post" action="">

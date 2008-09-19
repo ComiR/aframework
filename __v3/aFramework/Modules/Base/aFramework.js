@@ -1,13 +1,17 @@
 var aFramework = {
 	run: function() {
 	//	jQuery(document.body).imageZoom();
-		jQuery(document.body).maxLengthFormControls();
-		jQuery(document.body).formHints();
-		jQuery(document.body).liveValidation({
-			validIco:	'/aFramework/Styles/__common/gfx/form-control-valid.png', 
-			invalidIco:	'/aFramework/Styles/__common/gfx/form-control-invalid.png'
-		});
-	//	jQuery(document.body).captchaRefresh('/captha.png');
+		jQuery(document.body)
+			.maxLengthFormControls()
+			.formHints()
+			.captchaRefresh({
+				src: '/?module=Captcha'
+			})
+			.liveValidation({
+				validIco:	'/aFramework/Styles/__common/gfx/form-control-valid.png', 
+				invalidIco:	'/aFramework/Styles/__common/gfx/form-control-invalid.png'
+			});
+
 	//	jQuery('p.code-block').codeBlockToolbar();
 	}, 
 
@@ -15,7 +19,7 @@ var aFramework = {
 		// Run through all modules
 		for(var module in aFramework.modules) {
 			// Work out the HTML-ID based on the module-name (RecentArticles == recent-articles)
-			var id = module.replace(/([A-Z])/g, '-jQuery1').toLowerCase();
+			var id = module.replace(/([A-Z])/g, '-$1').toLowerCase();
 
 			if(id.substring(0, 1) == '-') {
 				id = id.substring(1);
@@ -52,7 +56,7 @@ var aFramework = {
 			jQuery(this).html('Loading ' +niceName +'...');
 
 			// Load the module with ajax
-			jQuery.get('/?module=' +moduleName +'/', function(data) {
+			jQuery.get('/?module=' +moduleName, function(data) {
 				t.html(data);
 
 				if(aFramework.modules[moduleName] && typeof(aFramework.modules[moduleName].run) == 'function') {
