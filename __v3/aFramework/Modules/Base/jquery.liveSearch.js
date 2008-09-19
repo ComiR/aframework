@@ -21,7 +21,7 @@ http://creativecommons.org/licenses/by/3.0/
 2008 Andreas Lagerkvist (andreaslagerkvist.com)
 
 @requires:
-jquery
+jquery, dimensions
 
 @does:
 Adds a live-search container beneath selected inputs and fill them with content onkeyup.
