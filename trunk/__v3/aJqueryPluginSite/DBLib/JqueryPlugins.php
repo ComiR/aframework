@@ -137,19 +137,21 @@
 					);
 				}
 				elseif(file_exists(DOCROOT .'aFramework/Modules/Base/jquery.' .$req .'.js')) {
+					#$jsp	= new JavaScriptPacker(file_get_contents(DOCROOT .'aFramework/Modules/Base/jquery.' .$req .'.js'));
+					$psize	= true;#strlen($jsp->pack());
+
+					$tmpPlugin = array(
+						'name'	=> 'jquery.' .$req .'.js', 
+						'url'	=> WEBROOT .'aFramework/Modules/Base/jquery.' .$req .'.js', 
+						'size'	=> filesize(DOCROOT .'aFramework/Modules/Base/jquery.' .$req .'.js'), 
+						'psize'	=> $psize
+					);
+
 					if(in_array($req, self::$notMyPlugins)) {
-						$requirementFiles[] = array(
-							'name'	=> 'jquery.' .$req .'.js', 
-							'url'	=> WEBROOT .'aFramework/Modules/Base/jquery.' .$req .'.js', 
-							'size'	=> filesize(DOCROOT .'aFramework/Modules/Base/jquery.' .$req .'.js')
-						);
+						$requirementFiles[] = $tmpPlugin;
 					}
 					else {
-						$pluginFiles[] = array(
-							'name'	=> 'jquery.' .$req .'.js', 
-							'url'	=> WEBROOT .'aFramework/Modules/Base/jquery.' .$req .'.js', 
-							'size'	=> filesize(DOCROOT .'aFramework/Modules/Base/jquery.' .$req .'.js')
-						);
+						$pluginFiles[] = $tmpPlugin;
 					}
 				}
 				elseif('jquery' != strtolower($req)) {

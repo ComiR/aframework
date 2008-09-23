@@ -36,7 +36,17 @@
 
 <ul>
 	<?php foreach($plugin['files']['plugin'] as $file) { ?>
-		<li><a href="<?php echo $file['url']; ?>"><?php echo $file['name']; ?></a><?php echo $file['size'] ? ' <small>(' .round($file['size'] / 1024, 2) .'kb unpacked)</small>' : ''; ?></li>
+		<li>
+			<a href="<?php echo $file['url']; ?>"><?php echo $file['name']; ?></a>
+			<?php if($file['size']) { ?>
+				 <small>
+					(<?php echo round($file['size'] / 1024, 2); ?> kb unpacked)
+					<?php if($file['psize']) { ?>
+						 (<!--<?php #echo round($file['psize'] / 1024, 2); ?> kb --><a href="<?php echo WEBROOT; ?>?module=JSPacker&amp;file=<?php echo $file['url']; ?>">packed version</a>)
+					<?php } ?>
+				</small>
+			<?php } ?>
+		</li>
 	<?php } ?>
 </ul>
 
@@ -44,6 +54,16 @@
 
 <ul>
 	<?php foreach($plugin['files']['requirements'] as $file) { ?>
-		<li><a href="<?php echo $file['url']; ?>"><?php echo $file['name']; ?></a><?php echo $file['size'] ? ' <small>(' .round($file['size'] / 1024, 2) .'kb unpacked)</small>' : ''; ?></li>
+		<li>
+			<a href="<?php echo $file['url']; ?>"><?php echo $file['name']; ?></a>
+			<?php if($file['size']) { ?>
+				 <small>
+					(<?php echo round($file['size'] / 1024, 2); ?> kb unpacked)
+					<?php if($file['psize']) { ?>
+						 (<!--<?php #echo round($file['psize'] / 1024, 2); ?> kb --><a href="<?php echo WEBROOT; ?>?module=JSPacker&amp;file=<?php echo $file['url']; ?>">packed version</a>)
+					<?php } ?>
+				</small>
+			<?php } ?>
+		</li>
 	<?php } ?>
 </ul>
