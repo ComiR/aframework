@@ -24,6 +24,7 @@
 
 		<script type="text/javascript">
 			document.body.className = document.body.className.replace('js-disabled', 'js-enabled');
+			WEBROOT = '<?php echo WEBROOT; ?>';
 		</script>
 
 		<!--[if IE]>
