@@ -1,0 +1,1 @@
+<h2>Search results for &quot;<?php echo @$_GET['q']; ?>&quot;</h2>
