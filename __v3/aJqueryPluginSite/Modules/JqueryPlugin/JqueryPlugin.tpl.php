@@ -19,9 +19,22 @@
 </div>
 
 <script type="text/javascript">
-	window.addEventListener('load', function() {
-		<?php echo $plugin['example_js']; ?>
-	}, false);
+	function addEvent(obj, type, fn) {
+		if(obj.addEventListener) {
+			obj.addEventListener(type, fn, false);
+		}
+		else if(obj.attachEvent) {
+			obj['e' +type +fn] = fn;
+			obj[type +fn] = function() {
+				obj['e' +type +fn](window.event);
+			};
+			obj.attachEvent('on' +type, obj[type +fn]);
+		}
+	}
+
+	addEvent(window, 'load', function() {
+		<?php echo "\n" .$plugin['example_js'] ."\n"; ?>
+	});
 </script>
 
 <h4>Example code</h4>
