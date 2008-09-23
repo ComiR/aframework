@@ -1,3 +1,6 @@
+/*
+	=== JS-related stuff ===
+*/
 input.default-value {
 	color: #999;
 	font-style: italic;
@@ -12,3 +15,28 @@ a[href^="http://"] + img {
 	margin-left: 5px;
 	vertical-align: middle;
 }
+
+/*
+	=== IE and JS "warnings" ===
+*/
+#ie-warning p, noscript p {
+	background: #FFFFE1 url(gfx/warning.gif) no-repeat 5px 50%;
+
+	margin: 0;
+	padding: 7px 10px 7px 30px;
+	border-bottom: 1px solid #767E85;
+
+	font: 12px/1 Arial;
+	color: #000;
+}
+
+	#ie-warning a {
+		color: blue;
+		text-decoration: underline;
+		border: 0;
+		background: transparent;
+	}
+
+	#ie-warning a:hover {
+		color: red;
+	}
