@@ -126,13 +126,13 @@
 				# Controllers-dir
 				$path = DOCROOT .$site .'/Styles/' .$style .'/controllers/';
 				if(is_dir($path)) {
-					$code = self::getCodeInDir($path, '-page') .$code;
+					$code = self::getCodeInDirs($path, '-page') .$code;
 				}
 
 				# Modules-dir
 				$path = DOCROOT .$site .'/Styles/' .$style .'/modules/';
 				if(is_dir($path)) {
-					$code = self::getCodeInDir(array($path), '') .$code;
+					$code = self::getCodeInDirs(array($path), '') .$code;
 				}
 
 				# "Root"-dir
@@ -195,11 +195,11 @@
 
 			foreach($files as $path => $name) {
 				$code .= "\n\n/* ==== [ $name ] ==== */\n";
-
 				$contents = file_get_contents($path);
+				$contents = str_replace('url(gfx/', 'url(/' .dirname(str_replace(DOCROOT, '', $path)) .'/gfx/', $contents);
 
 				if(self::$type == 'css' and $prefixSelectorsWithFilename !== false) {
-					$fileNameNoExt = substr($name, 0, -(strlen(end(explode('.', $name)))+1));
+					$fileNameNoExt = end(explode('/', substr($name, 0, -(strlen(end(explode('.', $name)))+1))));
 
 					$code .= CSSSelectorPrefixer::prefixSelectors($contents, '#' .$fileNameNoExt .$prefixSelectorsWithFilename);
 				}
