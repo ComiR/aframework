@@ -2,7 +2,6 @@
 	class aFramework_JSPackerModule {
 		public static $tplVars = array();
 		public static $tplFile = true;
-		public static $forceController = false;
 
 		public static function run() {
 			if(isset($_GET['file'])) {

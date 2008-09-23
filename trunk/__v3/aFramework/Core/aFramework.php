@@ -5,8 +5,8 @@
 	 * Runs either a single module or a controller of modules
 	 **/
 	final class aFramework {
-		private static $forceController = false;
-		private static $debugInfo = array();
+		public static $force404		= false;
+		private static $debugInfo	= array();
 
 		/**
 		 * run
@@ -72,16 +72,9 @@
 
 			# Now we need to check if any module wanted to force
 			# a different controller (like 404 or login or whatever)
-			if(self::$forceController) {
-				$_GET['controller']					= self::$forceController; # a lil uglöy hack...
-				self::$forceController				= false;
-				aFramework_DebugModule::$tplVars	= array('__old' => aFramework_DebugModule::$tplVars);
-
-				return self::runController($_GET['controller']);
-			}
-
-			if($_GET['controller'] == FOUR_O_FOUR_CONTROLLER) {
+			if(self::$force404) {
 				header('HTTP/1.1 404 Not Found');
+				die('404');
 			}
 
 			return $theSite;
@@ -177,17 +170,10 @@
 					$stop		= microtime(true);
 					$numQAfter	= dbQry(false, true);
 
-					if($modName::$forceController) {
-						self::$forceController = $modName::$forceController;
-
-						aFramework_DebugModule::$tplVars['controller']['forced_by'] = $modName;
-					}
-
 					aFramework_DebugModule::$tplVars['modules'][$module]['path']				= $modPath;
 					aFramework_DebugModule::$tplVars['modules'][$module]['site']				= $site;
 					aFramework_DebugModule::$tplVars['modules'][$module]['class_name']			= $modName;
 					aFramework_DebugModule::$tplVars['modules'][$module]['run_time']			= $stop - $start;
-					aFramework_DebugModule::$tplVars['modules'][$module]['force_controller']	= $modName::$forceController;
 					aFramework_DebugModule::$tplVars['modules'][$module]['tpl_file']			= $modName::$tplFile;
 					aFramework_DebugModule::$tplVars['modules'][$module]['tpl_vars']			= $modName::$tplVars;
 					aFramework_DebugModule::$tplVars['modules'][$module]['num_queries']			= $numQAfter['num_queries'] - $numQBefore['num_queries'];

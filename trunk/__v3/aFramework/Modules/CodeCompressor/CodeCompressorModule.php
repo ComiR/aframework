@@ -2,7 +2,6 @@
 	class aFramework_CodeCompressorModule {
 		public static $tplVars = array();
 		public static $tplFile = true;
-		public static $forceController = false;
 
 		protected static $type;
 		protected static $exclude = array();
@@ -13,10 +12,6 @@
 		);
 
 		public static function run() {
-			self::$tplVars = array();
-			self::$tplFile = true;
-			self::$forceController = false;
-
 			header('Content-type: ' .self::$mimeTypes[self::$type]);
 
 			$style = removeDots(@$_GET['s']);

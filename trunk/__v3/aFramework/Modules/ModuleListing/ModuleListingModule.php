@@ -2,7 +2,6 @@
 	class aFramework_ModuleListingModule {
 		public static $tplVars = array();
 		public static $tplFile = true;
-		public static $forceController = false;
 
 		private static $notModules = array(
 			'.', 
@@ -25,10 +24,6 @@
 		 *
 		 **/
 		public static function run() {
-			self::$tplVars = array();
-			self::$tplFile = true;
-			self::$forceController = false;
-
 			if(!ADMIN) {
 				self::$tplFile = false;
 				return false;
