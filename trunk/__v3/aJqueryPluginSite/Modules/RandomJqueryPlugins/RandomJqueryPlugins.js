@@ -7,9 +7,7 @@ aFramework.modules.RandomJqueryPlugins = {
 		jQuery('#random-jquery-plugins p a').click(function() {
 			jQuery(this).text('Loading...');
 
-			jQuery.get('/?module=RandomJqueryPlugins', function(data) {
-				jQuery('#random-jquery-plugins').html(data);
-
+			jQuery('#random-jquery-plugins').load(WEBROOT +'?module=RandomJqueryPlugins', function() {
 				aFramework.modules.RandomJqueryPlugins.run();
 			});
 
