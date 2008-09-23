@@ -24,12 +24,12 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-Refreshes so called CAPTCHA-images when you click them - provided your CAPTHA-script generates a random image every time it is called.
+Allows users to refresh so called CAPTCHA-images by clicking them - provided your CAPTHA-script generates a random image every time it is called.
 
 @howto:
-jQuery(document.body).captchaRefresh({src: '/captcha.png'}); Would make all images with '/captcha.png' as their src-attribute in the document clickable.
+jQuery(document.body).captchaRefresh({src: '/captcha.png'}); Would make all images with '/captcha.png' as their source in the document clickable.
 
-Run Captcha Refresh on a parent-element of the captcha image(s) (running it on document.body would affect every captcha-image in the document).
+Run Captcha Refresh on a parent-element of the captcha image(s). Running it on document.body affects every CAPTCHA-image in the document.
 
 @exampleHTML:
 <img src="/?module=Captcha" alt="" />
@@ -44,16 +44,18 @@ jQuery.fn.captchaRefresh = function(conf) {
 		title:	'Can\'t see what it says? Click me to get a new string.'
 	}, conf);
 
-	jQuery('img[src^="' +config.src +'"]').attr('title', config.title);
+	return this.each(function() {
+		jQuery('img[src^="' +config.src +'"]', this).attr('title', config.title);
 
-	return this.click(function(event) {
-		var clicked = jQuery(event.target);
+		jQuery(this).click(function(event) {
+			var clicked = jQuery(event.target);
 
-		if(clicked.is('img[src^="' +config.src +'"]')) {
-			var now			= new Date();
-			var separator	= config.src.indexOf('?') == -1 ? '?' : '&';
+			if(clicked.is('img[src^="' +config.src +'"]')) {
+				var now			= new Date();
+				var separator	= config.src.indexOf('?') == -1 ? '?' : '&';
 
-			clicked.attr('src', config.src +separator +now.getTime());
-		}
+				clicked.attr('src', config.src +separator +now.getTime());
+			}
+		});
 	});
 };

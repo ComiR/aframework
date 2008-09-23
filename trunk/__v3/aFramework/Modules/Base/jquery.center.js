@@ -21,16 +21,20 @@ http://creativecommons.org/licenses/by/3.0/
 2008 Andreas Lagerkvist (andreaslagerkvist.com)
 
 @requires:
-jquery, dimensions
+jquery
 
 @does:
 Centers an element on the screen using either position: fixed or absolute.
+
+Can be used to display messages, pop-up images etc.
 
 @howto:
 jQuery('#my-element').center(); would center the element with ID 'my-element' using fixed position.
 
 @exampleHTML:
 <p>I should be fixed centered</p>
+
+<p>The paragraph above and the paragraph beneath this one are centered. They should be in the middle of the viewport.</p>
 
 <p>I should be absolutely centered</p>
 

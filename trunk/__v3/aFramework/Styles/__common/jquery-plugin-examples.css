@@ -12,7 +12,9 @@ $jquery-example-box {
 /*
 	=== Center ===
 */
-#jquery-center-example p = $jquery-example-box;
+#jquery-center-example p:first-child = $jquery-example-box;
+
+#jquery-center-example p:last-child = $jquery-example-box;
 
 /*
 	=== Vibrate===
