@@ -1,5 +1,3 @@
-<h2>Search results for &quot;<?php echo @$_GET['q']; ?>&quot;</h2>
-
 <ol<?php echo @$_GET['start'] > 0 ? ' start="' .($_GET['start'] + 1) .'"' : '' ?>>
 <?php foreach($results as $sr) { ?>
 	<li>
