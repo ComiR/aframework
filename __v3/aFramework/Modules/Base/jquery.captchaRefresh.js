@@ -36,7 +36,7 @@ Run Captcha Refresh on a parent-element of the captcha image(s). Running it on d
 
 @exampleJS:
 // I'm not running it because I already use captchaRefresh on my site
-// jQuery(document.body).captchaRefresh({src: '/?module=Captcha'});
+// jQuery(document.body).captchaRefresh({src: WEBROOT +'?module=Captcha'});
 ***/
 jQuery.fn.captchaRefresh = function(conf) {
 	var config = jQuery.extend({

@@ -1,6 +1,6 @@
 aFramework.modules.Debug = {
 	run: function() {
-		if($('body.debug').length) {
+		if(jQuery('body.debug').length) {
 			this.addLinks('h2', function(a) {
 				var debug = document.getElementById('debug');
 				if(debug.className == 'hide') {
