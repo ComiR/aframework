@@ -43,5 +43,5 @@ jQuery('#holiday-photos, #flickr-images').imageBox(); would create Image Box-alb
 </ul>
 
 @exampleJS:
-jQuery('#jquery-full-image-box-example ul:first-child, #jquery-full-image-box-example ul:last-child').imageBox();
+jQuery('#jquery-image-box-example ul').imageBox();
 ***/

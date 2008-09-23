@@ -2,13 +2,8 @@
 	class aFramework_SkipNavigationModule {
 		public static $tplVars = array();
 		public static $tplFile = true;
-		public static $forceController = false;
 
 		public static function run() {
-			self::$tplVars = array();
-			self::$tplFile = true;
-			self::$forceController = false;
-
 			$path			= self::getControllerPath(isset($_GET['controller']) ? $_GET['controller'] : false);
 			$matches		= array();
 			$contents		= file_get_contents($path);
