@@ -6,7 +6,7 @@
 	 **/
 	# Removes ..\, ../ etc from str
 	function removeDots($str) {
-		return str_replace(array('..\\', '../', '\\', '/', '..'), '', $str);
+		return str_replace(array('..\\', '../'), '', $str);
 	}
 
 	# Includes and returns contents instead of echo:ing
