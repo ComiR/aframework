@@ -33,8 +33,6 @@
 				<p>Your browser is outdated and unsafe. For a richer browsing experience, please consider upgrading to <a href="http://www.getfirefox.com">a better, modern browser</a>. You would also <a href="http://www.savethedevelopers.org/">help save the developers</a> :)</p>
 
 			</div>
-
-			<hr />
 		<![endif]-->
 
 		<noscript>
