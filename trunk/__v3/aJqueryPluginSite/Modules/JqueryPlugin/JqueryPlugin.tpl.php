@@ -12,9 +12,17 @@
 
 <h3>Example</h3>
 
-<?php echo $plugin['example_html']; ?>
+<div id="jquery-<?php echo $plugin['url_str']; ?>-example">
 
-<?php echo $plugin['example_js']; ?>
+	<?php echo str_replace("\n", "\n\t", $plugin['example_html']); ?>
+
+</div>
+
+<script type="text/javascript">
+	window.addEventListener('load', function() {
+		<?php echo $plugin['example_js']; ?>
+	}, false);
+</script>
 
 <h4>Example code</h4>
 
