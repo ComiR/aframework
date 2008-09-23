@@ -1,7 +1,7 @@
 var aFramework = {
 	run: function() {
-	//	jQuery(document.body).imageZoom();
 		jQuery(document.body)
+			.imageZoom()
 			.maxLengthFormControls()
 			.formHints()
 			.captchaRefresh({
