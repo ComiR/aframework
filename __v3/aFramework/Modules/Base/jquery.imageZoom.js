@@ -21,10 +21,12 @@ http://creativecommons.org/licenses/by/3.0/
 2008 Andreas Lagerkvist (andreaslagerkvist.com)
 
 @requires:
-jquery, jquery.imageZoom.css, jquery.imageZoom-close.png
+jquery, jquery.imageZoom.css, jquery.imageZoom.png
 
 @does:
 Makes links pointing to images open in the "Image Zoom". The image-zoom animates from the small image/link's size to the target-image's size.
+
+Click anywhere on the image or the close-button to zoom the image back in.
 
 @howto:
 jQuery(document.body).imageZoom(); Would make every link pointing to an image in the document open in the zoom.
@@ -46,12 +48,13 @@ jQuery(document.body).imageZoom(); Would make every link pointing to an image in
 // I don't run it because my site already uses imgZoom
 // jQuery(document.body).imageZoom();
 ***/
-jQuery.imgzoom = function(conf) {
+jQuery.fn.imageZoom = function(conf) {
 	// Some config. If you set dontFadeIn: 0 and hideClicked: 0 imgzoom will act exactly like fancyzoom
 	var config = jQuery.extend({
 		speed:			200,	// Animation-speed of zoom
 		dontFadeIn:		1,		// 1 = Do not fade in, 0 = Do fade in
 		hideClicked:	1,		// Whether to hide the image that was clicked to bring up the imgzoom
+		imageMargin:	30,		// Margin from image-edge to window-edge if image is larger than screen
 		className:		'jquery-image-zoom', 
 		loading:		'Loading...'
 	}, conf);
@@ -122,14 +125,14 @@ jQuery.imgzoom = function(conf) {
 					height:	jQuery(window).height()
 				};
 				// Make sure imgzoom isn't wider than screen
-				if(imgzoomAfter.width > windowDim.width) {
-					var nWidth			= windowDim.width - 100;
+				if(imgzoomAfter.width > (windowDim.width - config.imageMargin * 2)) {
+					var nWidth			= windowDim.width - config.imageMargin * 2;
 					imgzoomAfter.height	= (nWidth / imgzoomAfter.width) * imgzoomAfter.height;
 					imgzoomAfter.width	= nWidth;
 				}
 				// Now make sure it isn't taller
-				if(imgzoomAfter.height > windowDim.height) {
-					var nHeight			= windowDim.height - 100;
+				if(imgzoomAfter.height > (windowDim.height - config.imageMargin * 2)) {
+					var nHeight			= windowDim.height - config.imageMargin * 2;
 					imgzoomAfter.width	= (nHeight / imgzoomAfter.height) * imgzoomAfter.width;
 					imgzoomAfter.height	= nHeight;
 				}

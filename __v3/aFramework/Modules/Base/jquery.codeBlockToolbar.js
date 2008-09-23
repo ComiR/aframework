@@ -61,11 +61,11 @@ jQuery.fn.codeBlockToolbar = function(conf) {
 		var textarea		= jQuery('<textarea rows="4" cols="60" class="' +config.className +'" style="height: ' +(cbHeight - 10) +'px;">' +cbText +'</textarea>').insertAfter(codeBlock).hide();
 
 		jQuery('<li><a href="#">' +config.increaseText +'</a></li>').appendTo(ul).find('a').click(function() {
-			codeBlock.css('font-size', parseInt(codeBlock.css('font-size'), 10) + 2);
+			codeBlock.css('font-size', parseFloat(codeBlock.css('font-size'), 10) * 1.2);
 			return false;
 		});
 		jQuery('<li><a href="#">' +config.decreaseText +'</a></li>').appendTo(ul).find('a').click(function() {
-			codeBlock.css('font-size', parseInt(codeBlock.css('font-size'), 10) - 2);
+			codeBlock.css('font-size', parseFloat(codeBlock.css('font-size'), 10) * .8);
 			return false;
 		});
 		jQuery('<li><a href="#">' +config.textareaText +'</a></li>').appendTo(ul).find('a').toggle(function() {

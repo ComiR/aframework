@@ -7,24 +7,24 @@ div.jquery-image-zoom {
 	border: 5px solid #fff;
 	margin: -5px;
 
-	-webkit-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-	-moz-box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	-webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 	div.jquery-image-zoom a {
-		background: url(gfx/jquery.imageZoom-close.png) no-repeat;
+		background: url(gfx/jquery.imageZoom.png) no-repeat;
 
 		display: block;
-		width: 44px;
-		height: 45px;
+		width: 25px;
+		height: 25px;
 
 		position: absolute;
-		left: -22px;
-		top: -22px;
+		left: -17px;
+		top: -17px;
 		/* IE-users are prolly used to close-link in right-hand corner */
 		*left: auto;
-		*right: -22px;
+		*right: -17px;
 
 		text-decoration: none;
 		text-indent: -100000px;
@@ -34,7 +34,7 @@ div.jquery-image-zoom {
 	}
 
 	div.jquery-image-zoom a:hover {
-		background-position: left -45px;
+		background-position: left -25px;
 	}
 
 	div.jquery-image-zoom img, 
