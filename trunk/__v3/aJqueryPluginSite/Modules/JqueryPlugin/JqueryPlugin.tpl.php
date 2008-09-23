@@ -36,7 +36,7 @@
 
 <ul>
 	<?php foreach($plugin['files']['plugin'] as $file) { ?>
-		<li><a href="<?php echo $file['url']; ?>"><?php echo $file['name']; ?></a></li>
+		<li><a href="<?php echo $file['url']; ?>"><?php echo $file['name']; ?></a><?php echo $file['size'] ? ' <small>(' .round($file['size'] / 1024, 2) .'kb unpacked)</small>' : ''; ?></li>
 	<?php } ?>
 </ul>
 
@@ -44,6 +44,6 @@
 
 <ul>
 	<?php foreach($plugin['files']['requirements'] as $file) { ?>
-		<li><a href="<?php echo $file['url']; ?>"><?php echo $file['name']; ?></a></li>
+		<li><a href="<?php echo $file['url']; ?>"><?php echo $file['name']; ?></a><?php echo $file['size'] ? ' <small>(' .round($file['size'] / 1024, 2) .'kb unpacked)</small>' : ''; ?></li>
 	<?php } ?>
 </ul>
