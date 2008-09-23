@@ -1,7 +1,7 @@
 aFramework.modules.ModuleListing = {
 	run: function() {
 		// Only run if admin
-		if($('body.admin').length) {
+		if(jQuery('body.admin').length) {
 			this.makeModulesDraggable();
 			this.addRemoveButtonsToUsedModulesAndMakeDroppable();
 		}
@@ -9,11 +9,11 @@ aFramework.modules.ModuleListing = {
 
 	// Makes modules in module-listing, as well as module-listing itself, draggable
 	makeModulesDraggable: function() {
-		$('#module-listing').draggable({
+		jQuery('#module-listing').draggable({
 			handle:			'h2'
 		});
 
-		$('#module-listing div').draggable({
+		jQuery('#module-listing div').draggable({
 			handle:			'h3',		
 			revert:			'invalid', 
 			revertDuration:	100, 
@@ -27,23 +27,23 @@ aFramework.modules.ModuleListing = {
 		// Add remove-button to all modules in use and remove the module when you click it
 		var addRemoveButton = function(module, moduleName, controllerInUse) {
 			var info	= 'Remove module ' +moduleName +' from controller ' +controllerInUse;
-			var remove	= $('<button title="' +info +'">X</button>').appendTo(module);
+			var remove	= jQuery('<button title="' +info +'">X</button>').appendTo(module);
 
 			// When you click the remove-button
 			remove.click(function() {
 				// Remove the in-use class from the module in the module-list so user can re-add it
-				$('#mod-' +module.attr('id')).removeClass('in-use');
+				jQuery('#mod-' +module.attr('id')).removeClass('in-use');
 
 				// See if module contained any children (look for remove-buttons), if so re-add them to list as-well
 				module.find('div button[title^="Remove module "]').each(function() {
-					$('#mod-' +$(this).parents('div').eq(0).attr('id')).removeClass('in-use');
+					jQuery('#mod-' +jQuery(this).parents('div').eq(0).attr('id')).removeClass('in-use');
 				});
 
 				// Remove the module-div from the page
 				module.remove();
 
 				// Ajax the change of the controller
-				$.post('/?module=ModuleListing', {
+				jQuery.post(WEBROOT +'?module=ModuleListing', {
 					module_listing_remove_module:	1,
 					module_to_remove:				moduleName, 
 					controller_in_use:				controllerInUse
@@ -63,8 +63,8 @@ aFramework.modules.ModuleListing = {
 				// When a module is dragged over another
 				mouseover: function(ev, ui) {
 					// Remove any existing markers
-					$('.' +beforeClass).removeClass(beforeClass);
-					$('.' +appendClass).removeClass(appendClass);
+					jQuery('.' +beforeClass).removeClass(beforeClass);
+					jQuery('.' +appendClass).removeClass(appendClass);
 
 					// Get the position of the module
 					var targetOffset = ui.element.offset();
@@ -81,8 +81,8 @@ aFramework.modules.ModuleListing = {
 				// When dragging out
 				mouseout: function() {
 					// Remove any existing markers
-					$('.' +beforeClass).removeClass(beforeClass);
-					$('.' +appendClass).removeClass(appendClass);
+					jQuery('.' +beforeClass).removeClass(beforeClass);
+					jQuery('.' +appendClass).removeClass(appendClass);
 				}, 
 				// When dropping module
 				drop: function(ev, ui) {
@@ -93,21 +93,21 @@ aFramework.modules.ModuleListing = {
 					// Ajax the change of the controller
 					var ajaxPostData = {
 						module_listing_add_module:	1, 
-						add_type:					$('.' +beforeClass).length ? 'before' : 'append', 
+						add_type:					jQuery('.' +beforeClass).length ? 'before' : 'append', 
 						target:						moduleName, 
 						module_to_add:				moduleToAdd, 
 						controller_in_use:			controllerInUse
 					};
 
 					// Remove any existing markers
-					$('.' +beforeClass).removeClass(beforeClass);
-					$('.' +appendClass).removeClass(appendClass);
+					jQuery('.' +beforeClass).removeClass(beforeClass);
+					jQuery('.' +appendClass).removeClass(appendClass);
 
 					// Hide the newly added module from the module-list
 					ui.draggable.addClass('in-use').css({left: 0, top: 0});
 
 					// Use the ghost-div for the new module
-					var newMod = $('<div id="' +moduleToAddID +'"><p>Loading...</p></div>');
+					var newMod = jQuery('<div id="' +moduleToAddID +'"><p>Loading...</p></div>');
 
 					if(ajaxPostData.add_type == 'before') {
 						newMod.insertBefore(module);
@@ -117,7 +117,7 @@ aFramework.modules.ModuleListing = {
 					}
 
 					// Now fill the div with the module's stuff
-					$.get('/?module=' +moduleToAdd, function(data) {
+					jQuery.get(WEBROOT +'?module=' +moduleToAdd, function(data) {
 						newMod.html(data).addClass('module-listing-used-module');
 
 						if(aFramework.modules[ajaxPostData.module_to_add] && typeof(aFramework.modules[ajaxPostData.module_to_add].run) == 'function') {
@@ -128,19 +128,19 @@ aFramework.modules.ModuleListing = {
 						makeDroppable(newMod, moduleToAdd, controllerInUse);
 					});
 
-					$.post('/?module=ModuleListing', ajaxPostData);
+					jQuery.post(WEBROOT +'?module=ModuleListing', ajaxPostData);
 				}
 			});
 		};
 
 		// We need to know the name of the controller for the ajax-calls
-		var controllerInUse = $('#module-listing input[name="controller_in_use"]').val();
+		var controllerInUse = jQuery('#module-listing input[name="controller_in_use"]').val();
 
 		// Go through every module that is used in this controller
-		$('#module-listing select[name="target"]').eq(0).find('option').each(function() {
-			var moduleID	= $(this).attr('class');
-			var module		= moduleID == 'base' ? $(document.body) : $('#' +moduleID);
-			var moduleName	= $(this).val();
+		jQuery('#module-listing select[name="target"]').eq(0).find('option').each(function() {
+			var moduleID	= jQuery(this).attr('class');
+			var module		= moduleID == 'base' ? jQuery(document.body) : jQuery('#' +moduleID);
+			var moduleName	= jQuery(this).val();
 
 			if(moduleName != 'Base' && moduleName.indexOf('Wrapper:') === -1) {
 				addRemoveButton(module, moduleName, controllerInUse);
@@ -151,6 +151,6 @@ aFramework.modules.ModuleListing = {
 			}
 		});
 
-		$('#module-listing form').remove();
+		jQuery('#module-listing form').remove();
 	}
 };

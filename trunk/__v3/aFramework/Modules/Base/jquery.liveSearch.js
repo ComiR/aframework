@@ -42,7 +42,7 @@ jQuery('#q').liveSearch({url: '/ajax/search.php?q='}); would add the live-search
 </form>
 
 @exampleJS:
-jQuery('#jquery-live-search-example input[name="q"]').liveSearch({url: '/?module=SearchResults&amp;q='});
+jQuery('#jquery-live-search-example input[name="q"]').liveSearch({url: WEBROOT +'?module=SearchResults&amp;q='});
 ***/
 jQuery(document.body).click(function(e) {
 	var target		= jQuery(e.target);
