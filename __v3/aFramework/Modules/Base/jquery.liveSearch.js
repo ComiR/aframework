@@ -21,10 +21,10 @@ http://creativecommons.org/licenses/by/3.0/
 2008 Andreas Lagerkvist (andreaslagerkvist.com)
 
 @requires:
-jquery, dimensions
+jquery
 
 @does:
-Adds a live-search container beneath selected inputs and fill them with content onkeyup.
+Turns a normal form-input into a live ajax search widget.
 
 @howto:
 jQuery('#q').liveSearch({url: '/ajax/search.php?q='}); would add the live-search container next to the input#q element and fill it with the contents of /ajax/search.php?q=THE-INPUTS-VALUE onkeyup of the input.

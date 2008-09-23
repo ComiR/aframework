@@ -21,7 +21,7 @@ http://creativecommons.org/licenses/by/3.0/
 2008 Andreas Lagerkvist (andreaslagerkvist.com)
 
 @requires:
-jquery
+jquery, form-control-valid.png, form-control-invalid.png
 
 @does:
 Adds valid/invalid icons next to required form-controls.
@@ -85,12 +85,12 @@ jQuery.fn.liveValidation = function(conf, addedFields) {
 	}, conf);
 
 	var commonFields = jQuery.extend({
-		name: 			/^\w+$/,											// name (atleast one character)
-		title: 			/^\w+$/,											// title (atleast one character)
-		author: 		/^\w+$/,											// author (atleast one character)
-		message: 		/^\w+$/,											// message (atleast one character)
-		comment: 		/^\w+$/,											// comment (atleast one character)
-		description:	/^\w+$/,											// description (atleast one character)
+		name: 			/^\S.*$/,											// name (atleast one character)
+		title: 			/^\S.*$/,											// title (atleast one character)
+		author: 		/^\S.*$/,											// author (atleast one character)
+		message: 		/^\S.*$/,											// message (atleast one character)
+		comment: 		/^\S.*$/,											// comment (atleast one character)
+		description:	/^\S.*$/,											// description (atleast one character)
 		dimensions:		/^\d+x\d+$/,										// dimensions (DIGITxDIGIT)
 		price:			/^\d+$/,											// price (atleast one digit)
 		url: 			/^(http:\/\/)?(www)?([^ |\.]*?)\.([^ ]){2,5}$/,		// url

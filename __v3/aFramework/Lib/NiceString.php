@@ -60,12 +60,6 @@
 				$str .= '[/code]';
 			}
 
-			$pattern = '/\[code\](.+?)\[\/code\]/is';
-
-			preg_match_all($pattern, $str, $codeBlocks);
-
-			$str = preg_replace($pattern, "\n\n[EXCODEBLOCK]\n\n", $str);
-
 			$inlineStyles = array(
 				'<span style="color: #000000">', 
 				'<span style="color: #FF8000">', 
@@ -89,27 +83,29 @@
 				'?&gt;'
 			);
 
+			$pattern = '/\[code\](.+?)\[\/code\]/is';
+
+			preg_match_all($pattern, $str, $codeBlocks);
+
+			$str = preg_replace($pattern, "\n\n[EXCODEBLOCK]\n\n", $str);
+
 			for($i = 0, $j = count($codeBlocks[1]); $i < $j; $i++) {
 				$hasPHPTags = true;
 
-				if(substr($codeBlocks[1][$i], 0, 1) == "\n") {
-					$codeBlocks[1][$i] = substr($codeBlocks[1][$i], 1);
-				}
-				if(substr($codeBlocks[1][$i], -1, 1) == "\n") {
-					$codeBlocks[1][$i] = substr($codeBlocks[1][$i], 0, -1);
-				}
+				$codeBlocks[1][$i] = trim($codeBlocks[1][$i]);
 
 				if(!stristr($codeBlocks[1][$i], '<?php')) {
 					$hasPHPTags = false;
 					$codeBlocks[1][$i] = "<?php\n" .$codeBlocks[1][$i] ."\n?>";
 				}
 
-				$codeBlocks[1][$i] = "<p class=\"code-block\">\n\n" .highlight_string($codeBlocks[1][$i], true) ."\n\n</p>";
-
+				$codeBlocks[1][$i] = "<p class=\"code-block\">" .highlight_string($codeBlocks[1][$i], true) ."</p>";
 				$codeBlocks[1][$i] = str_replace($inlineStyles, $semanticClasses, $codeBlocks[1][$i]);
+				$codeBlocks[1][$i] = str_replace("\n", '', $codeBlocks[1][$i]);
 
 				if(!$hasPHPTags) {
 					$codeBlocks[1][$i] = str_replace($phpTags, '', $codeBlocks[1][$i]);
+					$codeBlocks[1][$i] = str_replace(array('<code><span><span class="var"><br />', '<br /></span></span></code>'), array('<code><span><span class="var">', '</span></span></code>'), $codeBlocks[1][$i]);
 				}
 			}
 
