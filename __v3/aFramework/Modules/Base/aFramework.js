@@ -12,7 +12,7 @@ var aFramework = {
 				invalidIco:	WEBROOT +'aFramework/Styles/__common/gfx/form-control-invalid.png'
 			});
 
-	//	jQuery('p.code-block').codeBlockToolbar();
+		jQuery('p.code-block').codeBlockToolbar();
 	}, 
 
 	runModules: function() {

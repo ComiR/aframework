@@ -1,3 +1,41 @@
+/*
+	=== Code Block Toolbar ===
+*/
+textarea.jquery-code-block-toolbar {
+	width: 100%;
+}
+
+ul.jquery-code-block-toolbar {
+	margin-left: 0;
+	padding-left: 0;
+
+	list-style: none;
+
+	_height: 1%;
+	*display: inline-block;
+	_display: block;
+}
+
+ul.jquery-code-block-toolbar:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+	ul.jquery-code-block-toolbar li {
+		float: left;
+		margin: 0 10px 0 0;
+	}
+
+		ul.jquery-code-block-toolbar li a {
+			display: block;
+		}
+
+/*
+	=== Code Block Styling ===
+*/
 /* HighlightString() */
 .code-block {
 	max-height: 400px;
