@@ -36,7 +36,7 @@
 			$i		= 0;
 
 			foreach($bits as $bit) {
-				$plugin .= $i++ > 0 ? ucfirst($bit) : $bit;
+				$plugin .= $i++ > 0 ? (in_array($bit, array('dl')) ? strtoupper($bit) : ucfirst($bit)) : $bit;
 			}
 
 			if(file_exists(DOCROOT .'aFramework/Modules/Base/jquery.' .$plugin .'.js')) {
@@ -64,7 +64,7 @@
 
 			$pluginArr['name']		= $plugin;
 			$pluginArr['file_name']	= "jquery.$plugin.js";
-			$pluginArr['source']	= isset($matches[2]) ? $matches[2] : '';
+			$pluginArr['source']	= isset($matches[2]) ? trim($matches[2]) : '';
 
 			foreach($secondMatches[1] as $property) {
 				$pluginArr[$property] = trim($secondMatches[2][$i++]);
@@ -115,7 +115,8 @@
 
 			$requirementFiles[] = array(
 				'name'	=> 'jQuery', 
-				'url'	=> 'http://jquery.com'
+				'url'	=> 'http://jquery.com', 
+				'size'	=> false
 			);
 
 			foreach($reqs as $req) {
@@ -125,7 +126,8 @@
 				if('css' == $ext and file_exists(DOCROOT .'aFramework/Styles/__common/' .$req)) {
 					$pluginFiles[] = array(
 						'name'	=> $req, 
-						'url'	=> WEBROOT .'aFramework/Styles/__common/' .$req
+						'url'	=> WEBROOT .'aFramework/Styles/__common/' .$req, 
+						'size'	=> filesize(DOCROOT .'aFramework/Styles/__common/' .$req)
 					);
 				}
 				elseif(in_array($ext, array('png', 'gif', 'jpg')) and file_exists(DOCROOT .'aFramework/Styles/__common/gfx/' .$req)) {
@@ -138,20 +140,23 @@
 					if(in_array($req, self::$notMyPlugins)) {
 						$requirementFiles[] = array(
 							'name'	=> 'jquery.' .$req .'.js', 
-							'url'	=> WEBROOT .'aFramework/Modules/Base/jquery.' .$req .'.js'
+							'url'	=> WEBROOT .'aFramework/Modules/Base/jquery.' .$req .'.js', 
+							'size'	=> filesize(DOCROOT .'aFramework/Modules/Base/jquery.' .$req .'.js')
 						);
 					}
 					else {
 						$pluginFiles[] = array(
 							'name'	=> 'jquery.' .$req .'.js', 
-							'url'	=> WEBROOT .'aFramework/Modules/Base/jquery.' .$req .'.js'
+							'url'	=> WEBROOT .'aFramework/Modules/Base/jquery.' .$req .'.js', 
+							'size'	=> filesize(DOCROOT .'aFramework/Modules/Base/jquery.' .$req .'.js')
 						);
 					}
 				}
 				elseif('jquery' != strtolower($req)) {
 					$requirementFiles[] = array(
 						'name'	=> $req, 
-						'url'	=> false
+						'url'	=> false, 
+						'size'	=> false
 					);
 				}
 			}
