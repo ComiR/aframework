@@ -5,9 +5,10 @@
 
 		public static function run() {
 			if(isset($_GET['file'])) {
-				$path = str_replace('//', '/', $_SERVER['DOCUMENT_ROOT'] .'/' .$_GET['file']);
+				$path = removeDots($_GET['file']);
+				$path = str_replace(array('///', '//'), '/', $_SERVER['DOCUMENT_ROOT'] .'/' .$path);
 
-				if(file_exists($path)) {
+				if(file_exists($path) and 'js' == end(explode('.', $path))) {
 					$jsp = new JavaScriptPacker(file_get_contents($path));
 
 					header('Content-type: application/x-javascript');
