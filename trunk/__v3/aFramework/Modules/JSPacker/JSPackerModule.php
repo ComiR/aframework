@@ -9,7 +9,7 @@
 				$path = str_replace(array('///', '//'), '/', $_SERVER['DOCUMENT_ROOT'] .'/' .$path);
 
 				if(file_exists($path) and 'js' == end(explode('.', $path))) {
-					$jsp = new JavaScriptPacker(file_get_contents($path));
+					$jsp = new JavaScriptPacker(file_get_contents($path), 0);
 
 					header('Content-type: application/x-javascript');
 
