@@ -8,8 +8,8 @@ var aFramework = {
 				src: WEBROOT +'?module=Captcha'
 			})
 			.liveValidation({
-				validIco:	WEBROOT +'aFramework/Styles/__common/gfx/form-control-valid.png', 
-				invalidIco:	WEBROOT +'aFramework/Styles/__common/gfx/form-control-invalid.png'
+				validIco:	WEBROOT +'aFramework/Styles/__common/gfx/jquery.liveValidation-valid.png', 
+				invalidIco:	WEBROOT +'aFramework/Styles/__common/gfx/jquery.liveValidation-invalid.png'
 			});
 
 		jQuery('p.code-block').codeBlockToolbar();
