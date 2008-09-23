@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-Makes an element vibrate ever now and then... highly annoying!
+Makes an element vibrate every now and then... highly annoying!
 
 @howto:
 jQuery('#ad-area').vibrate();
