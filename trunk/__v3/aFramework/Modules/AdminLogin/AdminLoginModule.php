@@ -5,9 +5,9 @@
 
 		public static function run() {
 			# User is trying to log in
-			if(isset($_REQUEST['login'])) {
-				if(isset($_REQUEST['username']) and $_REQUEST['username'] == ADMIN_USER and isset($_REQUEST['password']) and $_REQUEST['password'] == ADMIN_PASS) {
-					if(isset($_REQUEST['remember_login'])) {
+			if(isset($_POST['admin_login_submit'])) {
+				if(isset($_POST['username']) and $_POST['username'] == ADMIN_USER and isset($_POST['password']) and $_POST['password'] == ADMIN_PASS) {
+					if(isset($_POST['remember_login'])) {
 						setcookie(ADMIN_SESSION, true, time()+60*60*24*365, WEBROOT);
 					}
 					else {
@@ -21,7 +21,7 @@
 				}
 			}
 			# User is trying to log out
-			if(isset($_REQUEST['logout'])) {
+			if(isset($_GET['logout'])) {
 				unset($_SESSION[ADMIN_SESSION]);
 				setcookie(ADMIN_SESSION, false, 0, WEBROOT .'/');
 

@@ -4,7 +4,7 @@
 	<p><strong>Wrong user name or password. Please try again.</strong></p>
 <?php } ?>
 
-<form method="post" action="<?php echo Router::urlFor('Admin'); ?>">
+<form method="post" action="">
 
 	<p>
 		<label>
@@ -28,7 +28,7 @@
 	</p>
 
 	<p>
-		<input type="hidden" name="login" value="1" />
+		<input type="hidden" name="admin_login_submit" value="1" />
 		<input type="submit" value="Login" />
 	</p>
 
