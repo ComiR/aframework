@@ -25,8 +25,8 @@ var aFramework = {
 				id = id.substring(1);
 			}
 
-			// Ajax-run-modules are run after they are fetched
-			if(!jQuery('#' +id).is('.ajax-run')) {
+			// Only run modules that are used and don't run ajax-run-modules
+			if(jQuery('#' +id).length && !jQuery('#' +id).is('.ajax-run')) {
 				if(typeof(aFramework.modules[module].run) == 'function') {
 					aFramework.modules[module].run();
 				}

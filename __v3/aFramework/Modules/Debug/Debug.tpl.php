@@ -4,10 +4,6 @@
 
 	<p><?php echo str_replace(DOCROOT, '', $controller['path']); ?></p>
 <!--
-	<?php if(isset($__old)) { ?>
-		<p><strong>This controller was forced by module <?php echo $__old['controller']['forced_by']; ?> in old controller <?php echo $__old['controller']['name']; ?></strong></p>
-	<?php } ?>
-
 	<dl>
 		<dt>Run time</dt>
 		<dd><?php echo $controller['run_time']; ?> sec(s)</dd>
@@ -109,14 +105,14 @@
 									<dt><?php echo $k; ?></dt>
 									<dd>
 										<?php 
-											if(is_array($v)) {
-												echo '<pre>';
-												var_dump($v);
-												echo '</pre>';
-											}
-											else {
-												echo $v != '' ? $v : '[empty]';
-											}
+										#	if(is_array($v)) {
+										#		echo '<pre>';
+										#		var_dump($v);
+										#		echo '</pre>';
+										#	}
+										#	else {
+												echo htmlentities($v) != '' ? htmlentities($v) : '[empty]';
+										#	}
 										?>
 									</dd>
 								<?php } ?>

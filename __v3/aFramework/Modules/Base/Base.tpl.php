@@ -20,7 +20,7 @@
 
 	</head>
 
-	<body id="<?php echo $body_id; ?>-page" class="js-disabled <?php echo $time_body_class; ?> <?php echo $weather_body_class; ?> <?php echo ADMIN ? 'admin' : 'not-admin'; ?>">
+	<body id="<?php echo $body_id; ?>-page" class="js-disabled <?php echo $time_body_class; ?> <?php echo $weather_body_class; ?> <?php echo ADMIN ? 'admin' : 'not-admin'; ?> <?php echo DEBUG ? 'debug' : 'not-debug'; ?>">
 
 		<script type="text/javascript">
 			document.body.className = document.body.className.replace('js-disabled', 'js-enabled');

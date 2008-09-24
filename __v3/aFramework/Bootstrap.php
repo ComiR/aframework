@@ -4,16 +4,16 @@
 	 *
 	 * This file includes all necessary files and initiates the framework
 	 **/
-	# Include Config-files
-	require_once dirname(__FILE__) .'/Core/Config.php';
-	require_once CURRENT_SITE_DIR .'/Config.php';
-
 	# Connect to DB
 #	mysql_connect(DB_HOST, DB_USER, DB_PASS);
 #	mysql_select_db(DB_NAME);
 
 	# Start sessions
 	session_start();
+
+	# Include Config-files
+	require_once dirname(__FILE__) .'/Core/Config.php';
+	require_once CURRENT_SITE_DIR .'/Config.php';
 
 	# Include Core-files
 	require_once 'Core/Functions.php';
