@@ -14,6 +14,21 @@
 		}
 
 		private static function getSearchResults($q, $start = 0) {
+			return array(
+				'results' => array(
+					array(
+						'title' => 'Lorem ipsum', 
+						'url' => '/lorem/', 
+						'content' => 'Lorem ipsum dolor sit amet. Consequeteur lipsimus dolor.'
+					), 
+					array(
+						'title' => 'Ipsum dolor', 
+						'url' => '/ipsum/', 
+						'content' => 'Ipsum lorum sit dolor amet. Consequeteur dolor lisams.'
+					)
+				)
+			);
+
 			$return = array();
 			$url	= 'http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=' .urlencode($q) .'%20site:exscale.se&rsz=large&start=' .$start;
 			$ch		= curl_init();
