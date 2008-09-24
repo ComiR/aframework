@@ -72,6 +72,8 @@ jQuery.fn.codeBlockToolbar = function(conf) {
 			jQuery(this).text(config.textareaText2);
 			codeBlock.hide();
 			textarea.show();
+			textarea[0].focus();
+			textarea[0].select();
 		}, function() {
 			jQuery(this).text(config.textareaText);
 			textarea.hide();
