@@ -1,20 +1,24 @@
-<h2>aFramework Debug <span>- Debugging <?php echo $controller['site'] .'_' .$controller['name']; ?></span></h2>
+<?php
+	$tplVars = aFramework::$debugInfo;
+	$tplVars['routes'] = Router::getRoutes();
+?>
+<h2>aFramework Debug <span>- Debugging <?php echo $tplVars['controller']['site'] .'_' .$tplVars['controller']['name']; ?></span></h2>
 
 <div id="debug-inner">
 
-	<p><?php echo str_replace(DOCROOT, '', $controller['path']); ?></p>
+	<p><?php echo str_replace(DOCROOT, '', $tplVars['controller']['path']); ?></p>
 <!--
 	<dl>
 		<dt>Run time</dt>
-		<dd><?php echo $controller['run_time']; ?> sec(s)</dd>
+		<dd><?php echo $tplVars['controller']['run_time']; ?> sec(s)</dd>
 		<dt>Num queries</dt>
-		<dd><?php echo $controller['num_queries']; ?></dd>
+		<dd><?php echo $tplVars['controller']['num_queries']; ?></dd>
 	</dl>
 -->
 	<h3>Routes</h3>
 
 	<dl>
-		<?php foreach($routes as $k => $v) { ?>
+		<?php foreach($tplVars['routes'] as $k => $v) { ?>
 			<dt><?php echo $k; ?></dt>
 			<dd><?php echo $v != '' ? $v : '[empty]'; ?></dd>
 		<?php } ?>
@@ -67,7 +71,7 @@
 	<h3>Modules</h3>
 
 	<ul>
-		<?php foreach($modules as $mod) { ?>
+		<?php foreach($tplVars['modules'] as $mod) { ?>
 			<li title="<?php echo $mod['html_id']; ?>">
 				<h4><?php echo $mod['class_name'] ? $mod['class_name'] : '[NoClass]' .'_' .$mod['name']; ?></h4>
 

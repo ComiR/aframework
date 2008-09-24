@@ -12,9 +12,11 @@
 		<meta name="description" content="<?php echo $meta_description; ?>" />
 		<meta name="robots" content="all" />
 
-		<link rel="alternate" type="application/rss+xml" title="<?php echo SITE_TITLE; ?> Articles" href="/?mod=ArticleListing&amp;rss=1" />
-		<link rel="shortcut icon" type="image/ico" href="/favicon.ico" />
-		<link rel="stylesheet" type="text/css" media="screen,projection" href="/?module=CSSCompressor&amp;s=<?php echo $style; ?>" />
+		<link rel="alternate" type="application/rss+xml" title="<?php echo SITE_TITLE; ?> Articles" href="<?php echo WEBROOT; ?>?mod=ArticleListing&amp;rss=1" />
+		<link rel="shortcut icon" type="image/ico" href="<?php echo WEBROOT; ?>favicon.ico" />
+		<?php if(!NAKED_DAY) { ?>
+			<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo WEBROOT; ?>?module=CSSCompressor&amp;s=<?php echo $style; ?>" />
+		<?php } ?>
 
 		<title><?php echo $html_title; ?> - <?php echo SITE_TITLE; ?></title>
 
@@ -37,13 +39,25 @@
 
 		<noscript>
 
-			<p>You're really missing out coming here with <abbr title="JavaScript">JS</abbr> disabled. Everything still works but it's so much nicer with JS enabled.</p>
+			<p>You're really missing out coming here with <abbr title="JavaScript">JS</abbr> disabled. Everything still works but it's so much nicer with JS enabled. If you <em>had</em> JS enabled and also "ajax-mode" enabled, <a href="?ajax_mode=0">click here to disable it</a>.</p>
 
 		</noscript>
 
+		<?php if(NAKED_DAY) { ?>
+			<div id="naked-day-info">
+
+				<p>Today it's CSS naked day, that's why I'm all naked. I've also taken the liberty of disabling JavaScript - I believe it's equally important to do accessible JS.</p>
+
+				<p>To learn more about naked day visit the <a href="http://naked.dustindiaz.com" title="Web Standards Naked Day Host Website">Annual CSS Naked Day</a> website.</p>
+
+			</div>
+		<?php } ?>
+
 		<?php echo $child_modules; ?>
 
-		<script type="text/javascript" src="/?module=JSCompressor&amp;s=<?php echo $style; ?>"></script>
+		<?php if(!NAKED_DAY) { ?>
+			<script type="text/javascript" src="<?php echo WEBROOT; ?>?module=JSCompressor&amp;s=<?php echo $style; ?>"></script>
+		<?php } ?>
 
 		<?php if(GA_ID) { ?>
 			<script type="text/javascript">

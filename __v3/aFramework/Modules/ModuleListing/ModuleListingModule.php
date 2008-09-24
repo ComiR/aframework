@@ -9,6 +9,8 @@
 			'.svn', 
 			'Base', 
 			'Debug',
+			'Captcha', 
+			'WeatherInfo', 
 			'CodeCompressor', 
 			'CSSCompressor', 
 			'JSCompressor',  

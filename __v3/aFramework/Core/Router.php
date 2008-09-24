@@ -57,7 +57,9 @@
 				}
 			}
 
-			return $url ? str_replace('//', '/', WEBROOT_INDEX .$url) : '#';
+			$webroot = USE_MOD_REWRITE ? WEBROOT : WEBROOT .'index.php/';
+
+			return $url ? str_replace('//', '/', $webroot .$url) : '#';
 		}
 
 		/**
@@ -143,7 +145,7 @@
 
 			# We COULDN'T FIND a valid route
 			if(!$isValid) {
-				$params['controller'] = FOUR_O_FOUR_CONTROLLER;
+				$params['controller'] = false;
 			}
 
 			return $params;
