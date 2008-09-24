@@ -43,7 +43,6 @@
 
 					h2 {
 						font-size: 120%;
-						border: 0;
 					}
 
 					h3 {
