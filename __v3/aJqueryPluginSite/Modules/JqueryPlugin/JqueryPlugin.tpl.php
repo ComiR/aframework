@@ -63,7 +63,7 @@
 				 <small>
 					(<?php echo round($file['size'] / 1024, 2); ?> kb unpacked)
 					<?php if($file['psize']) { ?>
-						 (<!--<?php #echo round($file['psize'] / 1024, 2); ?> kb --><a href="<?php echo WEBROOT; ?>?module=JSPacker&amp;file=<?php echo $file['url']; ?>">packed version</a>)
+						 (<!--<?php #echo round($file['psize'] / 1024, 2); ?> kb --><a href="<?php echo WEBROOT; ?>?module=JSPacker&amp;file=<?php echo $file['url']; ?>">minified</a>)
 					<?php } ?>
 				</small>
 			<?php } ?>
@@ -81,7 +81,7 @@
 				 <small>
 					(<?php echo round($file['size'] / 1024, 2); ?> kb unpacked)
 					<?php if($file['psize']) { ?>
-						 (<!--<?php #echo round($file['psize'] / 1024, 2); ?> kb --><a href="<?php echo WEBROOT; ?>?module=JSPacker&amp;file=<?php echo $file['url']; ?>">packed version</a>)
+						 (<!--<?php #echo round($file['psize'] / 1024, 2); ?> kb --><a href="<?php echo WEBROOT; ?>?module=JSPacker&amp;file=<?php echo $file['url']; ?>">minified</a>)
 					<?php } ?>
 				</small>
 			<?php } ?>
