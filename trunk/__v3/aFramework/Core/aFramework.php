@@ -6,7 +6,7 @@
 	 **/
 	final class aFramework {
 		public static $force404		= false;
-		private static $debugInfo	= array();
+		public static $debugInfo	= array();
 
 		/**
 		 * run
@@ -18,8 +18,23 @@
 				echo self::runSingleModule(removeDots($_GET['module']));
 			}
 			elseif(isset($_GET['controller'])) {
-				echo self::runController(removeDots($_GET['controller']));
+				if($_GET['controller'] == false) {
+					self::run404();
+				}
+				else {
+					echo self::runController(removeDots($_GET['controller']));
+				}
 			}
+		}
+
+		/**
+		 * run404
+		 *
+		 * In case a 404 occurrs
+		 **/
+		private static function run404() {
+			header('HTTP/1.1 404 Not Found');
+			die('404');
 		}
 
 		/**
@@ -38,7 +53,7 @@
 		 * Runs and fetches all modules in a controller
 		 **/
 		private static function runController($controller) {
-			aFramework_DebugModule::$tplVars['controller']['name'] = $controller;
+			self::$debugInfo['controller']['name'] = $controller;
 
 			$foundController = false;
 			$sites = explode(' ', SITE_HIERARCHY);
@@ -49,8 +64,8 @@
 				if(file_exists($path)) {
 					$foundController = true;
 
-					aFramework_DebugModule::$tplVars['controller']['path'] = DOCROOT .$site .'/Controllers/' .$controller .'.xml';
-					aFramework_DebugModule::$tplVars['controller']['site'] = $site;
+					self::$debugInfo['controller']['path'] = DOCROOT .$site .'/Controllers/' .$controller .'.xml';
+					self::$debugInfo['controller']['site'] = $site;
 
 					break;
 				}
@@ -70,11 +85,9 @@
 			self::runModules($base);
 			$theSite = self::fetchModules($base);
 
-			# Now we need to check if any module wanted to force
-			# a different controller (like 404 or login or whatever)
+			# Now we need to check if any module wanted to force a 404-page
 			if(self::$force404) {
-				header('HTTP/1.1 404 Not Found');
-				die('404');
+				self::run404();
 			}
 
 			return $theSite;
@@ -120,7 +133,7 @@
 					$moduleTpl = self::fetchModule($module->nodeName, array('child_modules' => $childModules));
 					$id = (strtolower($module->nodeName) == 'wrapper') ? strtolower(ccFix($module->getAttribute('name'))) : strtolower(ccFix($module->nodeName));
 
-					aFramework_DebugModule::$tplVars['modules'][$module->nodeName]['html_id'] = $id;
+					self::$debugInfo['modules'][$module->nodeName]['html_id'] = $id;
 
 					if($moduleTpl or $childModules) {
 						if(AUTO_HR and $i > 0) {
@@ -170,13 +183,13 @@
 					$stop		= microtime(true);
 					$numQAfter	= dbQry(false, true);
 
-					aFramework_DebugModule::$tplVars['modules'][$module]['path']				= $modPath;
-					aFramework_DebugModule::$tplVars['modules'][$module]['site']				= $site;
-					aFramework_DebugModule::$tplVars['modules'][$module]['class_name']			= $modName;
-					aFramework_DebugModule::$tplVars['modules'][$module]['run_time']			= $stop - $start;
-					aFramework_DebugModule::$tplVars['modules'][$module]['tpl_file']			= $modName::$tplFile;
-					aFramework_DebugModule::$tplVars['modules'][$module]['tpl_vars']			= $modName::$tplVars;
-					aFramework_DebugModule::$tplVars['modules'][$module]['num_queries']			= $numQAfter['num_queries'] - $numQBefore['num_queries'];
+					self::$debugInfo['modules'][$module]['path']				= $modPath;
+					self::$debugInfo['modules'][$module]['site']				= $site;
+					self::$debugInfo['modules'][$module]['class_name']			= $modName;
+					self::$debugInfo['modules'][$module]['run_time']			= $stop - $start;
+					self::$debugInfo['modules'][$module]['tpl_file']			= $modName::$tplFile;
+					self::$debugInfo['modules'][$module]['tpl_vars']			= $modName::$tplVars;
+					self::$debugInfo['modules'][$module]['num_queries']			= $numQAfter['num_queries'] - $numQBefore['num_queries'];
 
 					return true;
 				}
@@ -192,7 +205,7 @@
 		 * Also fetches Before or After-templates
 		 **/
 		private static function fetchModule($module, $tplVarsAdd = array()) {
-			aFramework_DebugModule::$tplVars['modules'][$module]['name'] = $module;
+			self::$debugInfo['modules'][$module]['name'] = $module;
 
 			$sites		= explode(' ', SITE_HIERARCHY);
 			$tplFile	= null;
@@ -233,21 +246,21 @@
 
 				# Before
 				if($before == '' and file_exists($beforePath)) {
-					aFramework_DebugModule::$tplVars['modules'][$module]['tpl_paths']['before'] = $beforePath;
+					self::$debugInfo['modules'][$module]['tpl_paths']['before'] = $beforePath;
 
 					$before = self::fetchTpl($beforePath, $tplVars);
 				}
 
 				# Middle
 				if($middle == '' and file_exists($middlePath)) {
-					aFramework_DebugModule::$tplVars['modules'][$module]['tpl_paths']['middle'] = $middlePath;
+					self::$debugInfo['modules'][$module]['tpl_paths']['middle'] = $middlePath;
 
 					$middle = self::fetchTpl($middlePath, $tplVars);
 				}
 
 				# After
 				if($after == '' and file_exists($afterPath)) {
-					aFramework_DebugModule::$tplVars['modules'][$module]['tpl_paths']['after'] = $afterPath;
+					self::$debugInfo['modules'][$module]['tpl_paths']['after'] = $afterPath;
 
 					$after = self::fetchTpl($afterPath, $tplVars);
 				}

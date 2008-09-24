@@ -4,7 +4,21 @@
 	 *
 	 * Random handy functions
 	 **/
-	# Removes ..\, ../ etc from str
+	# Determines whether it's naked day
+	function is_naked_day($d) {
+		$start	= date('U', mktime(-12, 0, 0, 04, $d, date('Y')));
+		$end	= date('U', mktime(36, 0, 0, 04, $d, date('Y')));
+		$z		= date('Z') * -1;
+		$now	= time() + $z;
+
+		if($now >= $start && $now <= $end) {
+			return true;
+		}
+
+		return false;
+	}
+
+	# Removes ..\, ../ from str
 	function removeDots($str) {
 		return str_replace(array('..\\', '../'), '', $str);
 	}

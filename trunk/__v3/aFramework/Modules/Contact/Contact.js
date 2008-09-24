@@ -4,9 +4,12 @@ aFramework.modules.Contact = {
 	}, 
 
 	hijaxForm: function() {
-		jQuery('#contact form').ajaxForm(function(data) {
-			$('#contact').html(data);
-			aFramework.modules.Contact.run();
+		jQuery('#contact form').ajaxForm({
+			url:		WEBROOT +'?module=Contact', 
+			success:	function(data) {
+							jQuery('#contact').html(data);
+							aFramework.modules.Contact.run();
+						}
 		});
 	}
 };

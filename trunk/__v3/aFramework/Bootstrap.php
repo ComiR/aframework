@@ -11,18 +11,19 @@
 	# Start sessions
 	session_start();
 
-	# Include Config-files
+	# Include Core and Config-files
+	require_once 'Core/Functions.php';
+
 	require_once dirname(__FILE__) .'/Core/Config.php';
 	require_once CURRENT_SITE_DIR .'/Config.php';
 
-	# Include Core-files
-	require_once 'Core/Functions.php';
 	require_once 'Core/AutoLoader.php';
 	require_once 'Core/Router.php';
 	require_once 'Core/StyleSwitcher.php';
 	require_once 'Core/VisitorData.php';
 	require_once 'Core/aFramework.php';
 
+	# Register autoloader
 	spl_autoload_register('AutoLoader::load');
 
 	# The Router uses the current site's Routes.php-file to

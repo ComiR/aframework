@@ -7,7 +7,6 @@
 			if(isset($_POST['contact_submit'])) {
 				self::sendEmail();
 			}
-
 			if(isset($_GET['msg_sent'])) {
 				self::$tplFile = 'MsgSent';
 			}
@@ -17,14 +16,14 @@
 		}
 
 		private static function sendEmail() {
-			if(isset($_POST['message']) and isset($_POST['name']) and isset($_POST['email']) and FormValidator::validate($_POST)) {
-				if(!isSpam(array(
-					'comment_content'		=> $_POST['message'], 
-					'comment_author'		=> $_POST['name'], 
-					'comment_author_email'	=> $_POST['email']
-				))) {
-					mail(CONTACT_EMAIL, 'From Website', $_POST['message'], 'From: ' .$_POST['name'] .' <' .$_POST['email'] .">\r\n");
-				}
+			if(
+				isset($_POST['message']) and 
+				isset($_POST['name']) and 
+				isset($_POST['email']) and 
+				FormValidator::validate($_POST) and 
+				!SpamChecker::isSpam($_POST)
+			) {
+				mail(CONTACT_EMAIL, 'From Website', $_POST['message'], 'From: ' .$_POST['name'] .' <' .$_POST['email'] .">\r\n");
 
 				if(!XHR) {
 					redirect('?msg_sent');

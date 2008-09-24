@@ -14,10 +14,10 @@
 	define('CURRENT_SITE_DIR',		DOCROOT .CURRENT_SITE .'/');
 
 	# Misc
+	define('NAKED_DAY',				is_naked_day(9));
 	define('XHR',					isset($_SERVER['HTTP_X_REQUESTED_WITH']));
 	define('ADMIN_SESSION',			'admin');
 	define('ADMIN',					isset($_COOKIE[ADMIN_SESSION]) or isset($_SESSION[ADMIN_SESSION]));
-	define('DEBUG',					isset($_GET['debug'])/* and ADMIN*/);
-	define('FOUR_O_FOUR_CONTROLLER','FourOFour');
+	define('DEBUG',					isset($_GET['debug']) and ADMIN);
 	define('AUTO_HR',				false);
 ?>
