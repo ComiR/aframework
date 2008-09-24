@@ -9,7 +9,7 @@
 
 		<style type="text/css">
 			html {
-				background: #d9d9d9;
+				background: #d4d0c8;
 
 				margin: 0;
 				padding: 0;

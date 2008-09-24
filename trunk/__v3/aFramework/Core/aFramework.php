@@ -144,11 +144,6 @@
 			self::runModules($base);
 			$theSite = self::fetchModules($base);
 
-			# Now we need to check if any module wanted to force a 404-page
-			if(self::$force404) {
-				self::run404();
-			}
-
 			return $theSite;
 		}
 
@@ -163,6 +158,11 @@
 			foreach($modules as $module) {
 				if(!in_array(strtolower($module->nodeName), $notElements)) {
 					self::runModule($module->nodeName);
+
+					# Now we need to check if any module wanted to force a 404-page
+					if(self::$force404) {
+						self::run404();
+					}
 
 					if($module->hasChildNodes()) {
 						self::runModules($module->childNodes);
