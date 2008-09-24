@@ -14,7 +14,11 @@
 		public static function run() {
 			header('Content-type: ' .self::$mimeTypes[self::$type]);
 
-			$style = removeDots(@$_GET['s']);
+			$cacheTime		= ADMIN ? 0 : 3600;
+			$style			= removeDots(@$_GET['s']);
+			$cachePath		= DOCROOT .'aFramework/Cache/' .CURRENT_SITE .'_' .$style .'.' .self::$type;
+			$cacheExists	= file_exists($cachePath);
+			$cacheModified	= $cacheExists ? filemtime($cachePath) : 0;
 
 			# If the requested style exists in the current site's Style-dir
 			# it's considered a valid style.
@@ -22,15 +26,20 @@
 				return false;
 			}
 
-			# Get the highest last modified date of all the files in all the dirs
+			# If the cache is younger than $cacheTime just load it directly and return
+			if((time() - $cacheModified) < $cacheTime) {
+				self::$tplVars[self::$type] = file_get_contents($cachePath);
+
+				return true;
+			}
+
+			# Get the highest last modified date of all the files in all the dirs and see if cache is younger than all of them
 			$fileLastModified = self::getLastModifiedFile($style);
 
-			# See if any cache of this script exists and that it's not older than any file
-			$cachePath = DOCROOT .'aFramework/Cache/' .CURRENT_SITE .'_' .$style .'.' .self::$type;
-			if(file_exists($cachePath) and filemtime($cachePath) >= $fileLastModified) {
+			if($cacheModified >= $fileLastModified) {
 				self::$tplVars[self::$type] = file_get_contents($cachePath);
 			}
-			# No cache or old, generate code
+			# No cache or old, generate new
 			else {
 				# Get all the code in all the dirs of all the sites
 				$code = self::getAllCodeInAllDirsOfAllSites($style);
