@@ -19,22 +19,26 @@
 </div>
 
 <script type="text/javascript">
-	function addEvent(obj, type, fn) {
-		if(obj.addEventListener) {
-			obj.addEventListener(type, fn, false);
+	<?php if(NAKED_DAY) { ?>
+		alert('It\'s naked day today and jQuery isn\'t included on my site so the example will not work. You can still check out the source-code and download the plug-in of course.');
+	<?php } else { ?>
+		function addEvent(obj, type, fn) {
+			if(obj.addEventListener) {
+				obj.addEventListener(type, fn, false);
+			}
+			else if(obj.attachEvent) {
+				obj['e' +type +fn] = fn;
+				obj[type +fn] = function() {
+					obj['e' +type +fn](window.event);
+				};
+				obj.attachEvent('on' +type, obj[type +fn]);
+			}
 		}
-		else if(obj.attachEvent) {
-			obj['e' +type +fn] = fn;
-			obj[type +fn] = function() {
-				obj['e' +type +fn](window.event);
-			};
-			obj.attachEvent('on' +type, obj[type +fn]);
-		}
-	}
 
-	addEvent(window, 'load', function() {
-		<?php echo "\n" .$plugin['example_js'] ."\n"; ?>
-	});
+		addEvent(window, 'load', function() {
+			<?php echo "\n" .$plugin['example_js'] ."\n"; ?>
+		});
+	<?php } ?>
 </script>
 
 <h4>Example code</h4>
