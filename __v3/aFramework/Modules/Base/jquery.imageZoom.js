@@ -1,6 +1,6 @@
 /***
 @title:
-TODO: Image Zoom
+Image Zoom
 
 @version:
 2.0
