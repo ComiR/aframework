@@ -15,6 +15,8 @@
 	define('SITE_TITLE',		'A jQuery Plug-in Site');
 	define('SITE_TAGLINE',		'List of jQuery Plug-ins');
 
+	define('CONTACT_EMAIL',		'you@yourdomain.com');
+
 	define('ADMIN_USER',		'admin');
 	define('ADMIN_PASS',		'nimda');
 

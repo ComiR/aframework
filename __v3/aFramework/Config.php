@@ -15,6 +15,8 @@
 	define('SITE_TITLE',		'aFramework');
 	define('SITE_TAGLINE',		'You shouldn\'t be running just aFramework');
 
+	define('CONTACT_EMAIL',		'you@yourdomain.com');
+
 	define('ADMIN_USER',		'admin');
 	define('ADMIN_PASS',		'nimda');
 

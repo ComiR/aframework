@@ -15,6 +15,8 @@
 	define('SITE_TITLE',		'Some Company');
 	define('SITE_TAGLINE',		'Some Company Slogan');
 
+	define('CONTACT_EMAIL',		'you@yourdomain.com');
+
 	define('ADMIN_USER',		'admin');
 	define('ADMIN_PASS',		'nimda');
 
