@@ -82,20 +82,10 @@
 
 					form {
 						margin: 0 0 10px;
-						border-bottom: 1px solid #ccc;
+						padding: 10px 0 0;
+						border-top: 1px solid #ccc;
 					}
 
-						form fieldset {
-							margin: 0;
-							padding: 0;
-							border: 0;
-						}
-
-							form fieldset legend {
-								margin: 0 0 5px;
-								padding: 0;
-								font-weight: bold;
-							}
 		</style>
 
 		<title>Error: 404 - Page Not Found - <?php echo SITE_TITLE; ?></title>
@@ -105,17 +95,3 @@
 	<body>
 
 		<h1>Error: 404 - Page Not Found</h1>
-
-		<form method="get" action="<?php echo Router::urlFor('SearchResults'); ?>">
-
-			<fieldset>
-
-				<legend>Try a search</legend>
-
-				<p>
-					<label for="q">Search terms</label> <input type="text" name="q" id="q" /> <input type="submit" value="Find" />
-				</p>
-
-			</fieldset>
-
-		</form>
