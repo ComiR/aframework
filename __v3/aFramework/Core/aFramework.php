@@ -89,7 +89,7 @@
 			}
 
 			self::runModule('SearchResults');
-			echo self::fetchModule('SearchResults');
+			echo str_replace('</h2>', ' on ' .SITE_TITLE .'</h2>', self::fetchModule('SearchResults'));
 
 			include DOCROOT .'aFramework/Files/404-stuff/foot.php';
 
