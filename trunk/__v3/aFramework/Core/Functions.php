@@ -8,7 +8,7 @@
 	function is_naked_day($d) {
 		$start	= date('U', mktime(-12, 0, 0, 04, $d, date('Y')));
 		$end	= date('U', mktime(36, 0, 0, 04, $d, date('Y')));
-		$z		= date('Z') * -1;
+		$z	= date('Z') * -1;
 		$now	= time() + $z;
 
 		if($now >= $start && $now <= $end) {

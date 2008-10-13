@@ -35,10 +35,10 @@
 		private static function run404() {
 			header('HTTP/1.1 404 Not Found');
 
-			$referrer		= isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : false;
+			$referrer	= isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : false;
 			$referrerSite	= false;
 			$internalRef	= stristr($referrer, $_SERVER['SERVER_NAME']);
-			$searchRef		= (
+			$searchRef	= (
 				stristr($referrer, 'looksmart.co') or 
 				stristr($referrer, 'ifind.freeserve.co') or 
 				stristr($referrer, 'ask.co') or 
@@ -54,7 +54,7 @@
 			}
 
 			# For the search-results-module
-			$_GET['q']		= trim(str_replace(array('index.php', '/', '-'), ' ', $_SERVER['REQUEST_URI']));
+			$_GET['q'] = trim(str_replace(array('index.php', '/', '-'), ' ', $_SERVER['REQUEST_URI']));
 
 			include DOCROOT .'aFramework/Files/404-stuff/head.php';
 
@@ -236,8 +236,8 @@
 					$start		= microtime(true);
 					$numQBefore	= dbQry(false, true);
 
-					$modName::run();
-					#call_user_func("$modName::run()");
+					#$modName::run();
+					call_user_func("$modName::run()");
 
 					$stop		= microtime(true);
 					$numQAfter	= dbQry(false, true);
