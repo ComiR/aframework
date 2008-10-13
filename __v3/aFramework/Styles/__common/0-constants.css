@@ -93,6 +93,7 @@ $dash-menu {
 
 /**
  * Pagination
+ * Turns a UL into < prev | 1 | 2 | 3 | next >
  */
 $pagination {
 	margin-left: 0;
@@ -169,7 +170,7 @@ $previous-next-menu {
 
 /**
  * Arrow-list
- * 
+ * Prepends an arrow to every list-item
  */
 $arrow-list {
 	margin-left: 0;
@@ -188,7 +189,7 @@ $arrow-list {
 
 /**
  * Dash-list
- * 
+ * Prepends a dash to every list-item
  */
 $dash-list {
 	margin-left: 0;
@@ -207,12 +208,22 @@ $dash-list {
 
 /**
  * Plain list
- * 
+ * A list without margin, padding or bullets
  */
 $plain-list {
 	margin-left: 0;
 	padding-left: 0;
 	list-style: none;
+}
+
+/**
+ * A11y hide
+ * Hides and element in an accessible way
+ */
+$a11y-hide {
+	position: absolute;
+	left: -10000px;
+	top: -10000px;
 }
 
 /**

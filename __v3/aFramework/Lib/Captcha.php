@@ -3,11 +3,11 @@
 		public static function show($len = 4, $font = '') {
 			header('Content-type: image/png');
 
-			$str					= self::genStr($len); 
+			$str			= self::genStr($len); 
 			$_SESSION['captcha']	= md5($str);
-			$image					= imagecreate(60, 30);
-			$backgroundColor		= imagecolorallocate($im, 255, 255, 255);
-			$fontColor				= imagecolorallocate($im, 33, 66, 99);
+			$image			= imagecreate(60, 30);
+			$backgroundColor	= imagecolorallocate($im, 255, 255, 255);
+			$fontColor		= imagecolorallocate($im, 33, 66, 99);
 
 			imagettftext($image, 20, 0, 5, 20, $color, $font, $str);
 			imagepng($image);

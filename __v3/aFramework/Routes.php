@@ -1,8 +1,8 @@
 <?php
 	return array(
-		'/'				=> 'Home', 
+		'/'		=> 'Home', 
 		'/admin-login/'	=> 'AdminLogin', 
-		'/contact/'		=> 'Contact', 
-		'/search/'		=> 'SearchResults'
+		'/contact/'	=> 'Contact', 
+		'/search/'	=> 'SearchResults'
 	);
 ?>

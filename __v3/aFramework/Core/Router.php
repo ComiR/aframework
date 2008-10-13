@@ -33,6 +33,24 @@
 		}
 
 		/**
+		 * urlForModule
+		 * 
+		 **/
+		public static function urlForModule($mod) {
+			return WEBROOT .'?module=' .$mod;
+		}
+
+		/**
+		 * urlForFile
+		 * 
+		 **/
+		public static function urlForFile($path, $site = false) {
+			$site = $site ? $site : CURRENT_SITE;
+
+			return str_replace('//', '/', WEBROOT .$site .'/Files/' .$path);
+		}
+
+		/**
 		 * urlFor
 		 * 
 		 * Uses the $routes and $attrs passed by user to construct
@@ -70,7 +88,7 @@
 		 **/
 		private static function getParamsFromURI() {
 			$requested		= isset($_SERVER['PATH_INFO']) ? explode('/', $_SERVER['PATH_INFO']) : explode('/', '/');
-			$countRequested	= count($requested);
+			$countRequested		= count($requested);
 			$params			= array();
 			$isValid		= false;
 
