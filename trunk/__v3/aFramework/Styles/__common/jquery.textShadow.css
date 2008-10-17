@@ -1,0 +1,15 @@
+.jquery-text-shadow-text {
+	position: relative;
+	z-index: 10;
+}
+
+.jquery-text-shadow {
+	position: absolute;
+	left: 1px;
+	top: 1px;
+	color: #aaa;
+	opacity: .6;
+	filter:alpha(opacity=60);
+	speak: none;
+	z-index: 9;
+}
