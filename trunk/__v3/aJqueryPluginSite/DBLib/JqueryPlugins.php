@@ -4,6 +4,7 @@
 			'dimensions', 
 			'easing', 
 			'form', 
+			'scrollTo', 
 			'ui-core', 
 			'ui-draggable', 
 			'ui-droppable', 
@@ -12,7 +13,7 @@
 
 		public static function get() {
 			$path		= DOCROOT .'aFramework/Modules/Base/';
-			$dh			= opendir($path);
+			$dh		= opendir($path);
 			$plugins	= array();
 
 			while($f = readdir($dh)) {
@@ -33,7 +34,7 @@
 		public static function getByUrlStr($urlStr) {
 			$bits	= explode('-', $urlStr);
 			$plugin	= '';
-			$i		= 0;
+			$i	= 0;
 
 			foreach($bits as $bit) {
 				$plugin .= $i++ > 0 ? (in_array($bit, array('dl')) ? strtoupper($bit) : ucfirst($bit)) : $bit;
@@ -47,12 +48,12 @@
 		}
 
 		private static function pluginAsArray($plugin) {
-			$path			= DOCROOT .'aFramework/Modules/Base/jquery.' .$plugin .'.js';
-			$contents		= file_get_contents($path);
-			$matches		= array();
+			$path		= DOCROOT .'aFramework/Modules/Base/jquery.' .$plugin .'.js';
+			$contents	= file_get_contents($path);
+			$matches	= array();
 			$secondMatches	= array();
-			$pluginArr		= array();
-			$i				= 0;
+			$pluginArr	= array();
+			$i		= 0;
 
 			preg_match('/\/\*\*\*(.*?)\*\*\*\/(.*)?/is', $contents, $matches);
 
@@ -62,7 +63,7 @@
 
 			preg_match_all('/@(.*?):([^@]*)/is', $matches[1], $secondMatches);
 
-			$pluginArr['name']		= $plugin;
+			$pluginArr['name']	= $plugin;
 			$pluginArr['file_name']	= "jquery.$plugin.js";
 			$pluginArr['source']	= isset($matches[2]) ? trim($matches[2]) : '';
 
@@ -74,42 +75,42 @@
 		}
 
 		private static function makeNice($row) {
-			$row['name']				= htmlentities($row['name']);
-			$row['file_name']			= htmlentities($row['file_name']);
-			$row['source_code']			= NiceString::makeNice('[code]' .$row['source'] .'[/code]');
-			$row['source_url']			= WEBROOT .'aFramework/Modules/Base/' .$row['file_name'];
+			$row['name']			= htmlentities($row['name']);
+			$row['file_name']		= htmlentities($row['file_name']);
+			$row['source_code']		= NiceString::makeNice('[code]' .$row['source'] .'[/code]');
+			$row['source_url']		= WEBROOT .'aFramework/Modules/Base/' .$row['file_name'];
 
-			$row['title']				= htmlentities($row['title']);
-			$row['version']				= htmlentities($row['version']);
+			$row['title']			= htmlentities($row['title']);
+			$row['version']			= htmlentities($row['version']);
 
-			$row['author']				= htmlentities($row['author']);
+			$row['author']			= htmlentities($row['author']);
 
-			$row['date']				= htmlentities($row['date']);
-			$row['pub_date']			= htmlentities($row['date']);
+			$row['date']			= htmlentities($row['date']);
+			$row['pub_date']		= htmlentities($row['date']);
 
-			$row['real_url']			= htmlentities($row['url']);
-			$row['url_str']				= strtolower(ccFix($row['name'], '-'));
-			$row['url']					= Router::urlFor('JqueryPlugin', array('url_str' => $row['url_str']));
+			$row['real_url']		= htmlentities($row['url']);
+			$row['url_str']			= strtolower(ccFix($row['name'], '-'));
+			$row['url']			= Router::urlFor('JqueryPlugin', array('url_str' => $row['url_str']));
 
-			$row['license']				= htmlentities($row['license']);
-			$row['copyright']			= htmlentities($row['copyright']);
+			$row['license']			= htmlentities($row['license']);
+			$row['copyright']		= htmlentities($row['copyright']);
 
-			$row['files']				= self::getPluginFiles($row['name'] .', ' .$row['requires']);
+			$row['files']			= self::getPluginFiles($row['name'] .', ' .$row['requires']);
 
-			$row['does']				= NiceString::makeNice($row['does'], 4);
-			$row['howto']				= NiceString::makeNice($row['howto'], 4);
+			$row['does']			= NiceString::makeNice($row['does'], 4);
+			$row['howto']			= NiceString::makeNice($row['howto'], 4);
 
 			$row['example_html']		= $row['exampleHTML'];
 			$row['example_html_code']	= NiceString::makeNice('[code]' .$row['example_html'] .'[/code]');
 
-			$row['example_js']			= $row['exampleJS'];
+			$row['example_js']		= $row['exampleJS'];
 			$row['example_js_code']		= NiceString::makeNice('[code]' .$row['exampleJS'] .'[/code]');
 
 			return $row;
 		}
 
 		private static function getPluginFiles($requirements) {
-			$reqs				= explode(',', $requirements);
+			$reqs			= explode(',', $requirements);
 			$pluginFiles		= array();
 			$requirementFiles	= array();
 

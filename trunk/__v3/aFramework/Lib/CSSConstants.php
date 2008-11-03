@@ -19,8 +19,31 @@
 			self::compress();
 			self::extractConstantSelectors();
 			self::replaceConstantDefinitions();
+			self::removeUnusedConstants();
 
 			return self::$code;
+		}
+
+		/**
+		 * Removes unused constants
+		 *
+		 * @method removeUnusedConstants
+		 */
+		private static function removeUnusedConstants() {
+			$matches	= array();
+			$keep		= array();
+
+			preg_match_all('/.*?{.*?}/', self::$code, $matches);
+
+			foreach($matches[0] as $block) {
+				$block = trim($block);
+
+				if('{' != substr($block, 0, 1) and !strstr('{}', $block)) {
+					$keep[] = $block;
+				}
+			}
+
+			self::$code = implode('', $keep);
 		}
 
 		/**

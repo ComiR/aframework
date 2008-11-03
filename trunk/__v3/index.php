@@ -3,8 +3,8 @@
 	error_reporting(E_ALL);
 	ini_set('display_errors', true);
 
-	# The site you wanna run
-	define('CURRENT_SITE', 'aFramework');
+	# The site(s) you wanna run
+	define('SITE_HIERARCHY', 'AndreasLagerkvist aBlog aJqueryPluginSite aCMS aFramework');
 
 	# Include the framework
 	require_once 'aFramework/Bootstrap.php';
