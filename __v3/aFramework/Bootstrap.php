@@ -4,6 +4,8 @@
 	 *
 	 * This file includes all necessary files and initiates the framework
 	 **/
+	define('AFRAMEWORK_VERSION',	'aFramework v3');
+
 	# Connect to DB
 #	mysql_connect(DB_HOST, DB_USER, DB_PASS);
 #	mysql_select_db(DB_NAME);
@@ -11,13 +13,42 @@
 	# Start sessions
 	session_start();
 
-	# Include Core and Config-files
+	# Include Functions and Config-class
+	require_once 'Core/Config.php';
 	require_once 'Core/Functions.php';
 
-	require_once dirname(__FILE__) .'/Core/Config.php';
-	require_once CURRENT_SITE_DIR .'/Config.php';
+	# Directory paths
+	define('DOCROOT',				realpath(dirname( __FILE__ ) .'/..') .'/');
+	define('WEBROOT',				substr($_SERVER['SCRIPT_NAME'], 0, -9)); # minus "index.php"
 
+	list($currentSite) = explode(' ', SITE_HIERARCHY);
+
+	define('CURRENT_SITE',			$currentSite);
+	define('CURRENT_SITE_DIR',		DOCROOT .CURRENT_SITE .'/');
+
+	# Misc
+	define('NAKED_DAY',				is_naked_day(9));
+	define('XHR',					isset($_SERVER['HTTP_X_REQUESTED_WITH']));
+	define('ADMIN_SESSION',			'admin');
+	define('ADMIN',					isset($_COOKIE[ADMIN_SESSION]) or isset($_SESSION[ADMIN_SESSION]));
+	define('DEBUG',					isset($_GET['debug']) and ADMIN);
+	define('AUTO_HR',				false);
+	define('USE_MOD_REWRITE',		true);
+
+	# Include config-files
+	$sites = explode(' ', SITE_HIERARCHY);
+
+	foreach($sites as $site) {
+		$path = DOCROOT .$site .'/Config.php';
+
+		if(file_exists($path)) {
+			require_once $path;
+		}
+	}
+
+	# Core classes
 	require_once 'Core/AutoLoader.php';
+	require_once 'Core/FourOFour.php';
 	require_once 'Core/Router.php';
 	require_once 'Core/StyleSwitcher.php';
 	require_once 'Core/VisitorData.php';

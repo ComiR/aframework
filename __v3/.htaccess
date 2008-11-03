@@ -1,7 +1,7 @@
 #################################################################
 # A little rewriting
 # If you don't have access to mod_rewrite change 
-# the USE_MOD_REWRITE-setting in aFramework/Core/Config.php
+# the USE_MOD_REWRITE-setting in aFramework/Bootstrap.php
 #################################################################
 
 <IfModule mod_rewrite.c>
@@ -24,6 +24,12 @@
 
 	# Run images suffixed wiv _small through Thumb-generator
 	# RewriteRule ^(.*)_small\.(jp(e)?g|png|gif)$ /?mod=Img&img=$1.$2&%{QUERY_STRING} [L,NC]
+
+	# Redirect /index.php to /
+	# Hm..
+
+	# Redirect /index.php/a_url/ to /a_url/
+	# Hmm.. (same as above?)
 
 	# Run everything else but real files through index.php
 	RewriteCond %{REQUEST_FILENAME} !-d

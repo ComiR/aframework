@@ -1,22 +1,23 @@
 <?php
-	/**
-	 * Config
-	 *
-	 * Some configuration-constants
-	 **/
-	define('AFRAMEWORK_VERSION',	'aFramework v3');
-	define('USE_MOD_REWRITE',	true);
+	class Config {
+		private static $config = array();
 
-	# Directory paths
-	define('DOCROOT',		realpath(dirname( __FILE__ ) .'/../..') .'/');
-	define('WEBROOT',		substr($_SERVER['SCRIPT_NAME'], 0, -9)); # minus "index.php"
-	define('CURRENT_SITE_DIR',	DOCROOT .CURRENT_SITE .'/');
+		public static function set($k, $v) {
+			$levels	= explode('.', $k);
+			$tmp	= &self::$config;
 
-	# Misc
-	define('NAKED_DAY',		is_naked_day(9));
-	define('XHR',			isset($_SERVER['HTTP_X_REQUESTED_WITH']));
-	define('ADMIN_SESSION',		'admin');
-	define('ADMIN',			isset($_COOKIE[ADMIN_SESSION]) or isset($_SESSION[ADMIN_SESSION]));
-	define('DEBUG',			isset($_GET['debug']) and ADMIN);
-	define('AUTO_HR',		false);
+			foreach($levels as $l) {
+				$tmp = &$tmp[$l];
+			}
+
+			self::$config[$k]['value'] = $v;
+		}
+
+		public static function get($k) {
+			return array(
+				'key'		=> $k, 
+				'value'		=> self::$config[$k]['value'] 
+			);
+		}
+	}
 ?>

@@ -1,26 +1,19 @@
 <?php
-	/**
-	 * Site specific config
-	 **/
-	define('DB_USER',			'root');
-	define('DB_PASS',			'');
-	define('DB_HOST',			'localhost');
-	define('DB_NAME',			'afv3');
-	define('DB_TABLE_PREFIX',	'');
+	Config::set('db.user',						'root');
+	Config::set('db.pass',						'');
+	Config::set('db.host',						'localhost');
+	Config::set('db.name',						'afv3');
+	Config::set('db.table_prefix',				'');
 
-	define('ALLOW_STYLES',		true);
-	define('DEFAULT_STYLE',		'default');
+	Config::set('aframework.allow_styles',		true);
+	Config::set('aframework.default_styles',	'default');
 
-	define('SITE_AUTHOR',		'Andreas Lagerkvist');
-	define('SITE_TITLE',		'aFramework');
-	define('SITE_TAGLINE',		'You shouldn\'t be running just aFramework');
+	Config::set('aframework.site_author',		'Andreas Lagerkvist');
+	Config::set('aframework.site_title',		'aFramework 3');
+	Config::set('aframework.site_tagline',		'You shouldn\'t be running just aFramework.');
+	Config::set('aframework.contact_email',		'you@yourdomain.com');
+	Config::set('aframework.ga_id',				false);
 
-	define('CONTACT_EMAIL',		'you@yourdomain.com');
-
-	define('ADMIN_USER',		'admin');
-	define('ADMIN_PASS',		'nimda');
-
-	define('SITE_HIERARCHY',	CURRENT_SITE);
-
-	define('GA_ID',				false); # Google analytics ID
+	Config::set('admin.user',					'admin');
+	Config::set('admin.pass',					'1234');
 ?>

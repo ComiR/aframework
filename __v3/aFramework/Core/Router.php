@@ -22,6 +22,9 @@
 				if(file_exists($routesFile)) {
 					self::$routes = array_merge((array)self::$routes, include $routesFile);
 				}
+				else {
+					echo $routesFile ."<br />";
+				}
 			}
 
 			# Merge params with GET-vars
@@ -88,7 +91,7 @@
 		 **/
 		private static function getParamsFromURI() {
 			$requested		= isset($_SERVER['PATH_INFO']) ? explode('/', $_SERVER['PATH_INFO']) : explode('/', '/');
-			$countRequested		= count($requested);
+			$countRequested	= count($requested);
 			$params			= array();
 			$isValid		= false;
 

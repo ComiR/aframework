@@ -7,7 +7,7 @@
 			$page = Pages::getPageByUrlStr(isset($_GET['url_str']) ? $_GET['url_str'] : 'home');
 
 			if(!$page) {
-				aFramework::$force404 = true;
+				FourOFour::run();
 			}
 			else {
 				self::$tplVars = $page;
