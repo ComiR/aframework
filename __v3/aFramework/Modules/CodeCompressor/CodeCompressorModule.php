@@ -12,6 +12,8 @@
 		);
 
 		public static function run() {
+			self::$type		= isset($_GET['t']) and array_key_exists($_GET['t'], self::$mimeTypes) ? $_GET['t'] : 'css';
+
 			header('Content-type: ' .self::$mimeTypes[self::$type]);
 
 			$cacheTime		= ADMIN ? 0 : 3600;
@@ -28,7 +30,7 @@
 
 			# If the cache is younger than $cacheTime just load it directly and return
 			if((time() - $cacheModified) < $cacheTime) {
-				self::$tplVars[self::$type] = file_get_contents($cachePath);
+				self::$tplVars['code'] = file_get_contents($cachePath);
 
 				return true;
 			}

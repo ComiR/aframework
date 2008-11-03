@@ -12,8 +12,6 @@
 			'Captcha', 
 			'WeatherInfo', 
 			'CodeCompressor', 
-			'CSSCompressor', 
-			'JSCompressor',  
 			'JSPacker', 
 			'ModuleListing', 
 			'#text', 
