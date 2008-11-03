@@ -36,7 +36,7 @@
 	define('USE_MOD_REWRITE',		true);
 
 	# Include config-files
-	$sites = explode(' ', SITE_HIERARCHY);
+	$sites = array_reverse(explode(' ', SITE_HIERARCHY));
 
 	foreach($sites as $site) {
 		$path = DOCROOT .$site .'/Config.php';

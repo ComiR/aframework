@@ -6,7 +6,7 @@
 	Config::set('db.table_prefix',				'');
 
 	Config::set('aframework.allow_styles',		true);
-	Config::set('aframework.default_styles',	'default');
+	Config::set('aframework.default_style',		'default');
 
 	Config::set('aframework.site_author',		'Andreas Lagerkvist');
 	Config::set('aframework.site_title',		'aFramework 3');
