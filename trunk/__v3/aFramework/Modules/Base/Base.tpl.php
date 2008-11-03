@@ -15,7 +15,7 @@
 		<link rel="alternate" type="application/rss+xml" title="<?php echo SITE_TITLE; ?> Articles" href="<?php echo WEBROOT; ?>?mod=ArticleListing&amp;rss=1" />
 		<link rel="shortcut icon" type="image/ico" href="<?php echo WEBROOT; ?>favicon.ico" />
 		<?php if(!NAKED_DAY) { ?>
-			<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo WEBROOT; ?>?module=CSSCompressor&amp;s=<?php echo $style; ?>" />
+			<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo WEBROOT; ?>?module=CodeCompressor&amp;s=<?php echo $style; ?>&amp;t=css" />
 		<?php } ?>
 
 		<title><?php echo $html_title; ?> - <?php echo SITE_TITLE; ?></title>
@@ -56,7 +56,7 @@
 		<?php echo $child_modules; ?>
 
 		<?php if(!NAKED_DAY) { ?>
-			<script type="text/javascript" src="<?php echo WEBROOT; ?>?module=JSCompressor&amp;s=<?php echo $style; ?>"></script>
+			<script type="text/javascript" src="<?php echo WEBROOT; ?>?module=CodeCompressor&amp;s=<?php echo $style; ?>&amp;t=js"></script>
 		<?php } ?>
 
 		<?php if(GA_ID) { ?>
