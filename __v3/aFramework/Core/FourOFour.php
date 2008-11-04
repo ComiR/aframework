@@ -56,8 +56,8 @@
 				include DOCROOT .'aFramework/Files/404-stuff/other-referrer.php';
 			}
 
-			self::runModule('SearchResults');
-			echo str_replace('</h2>', ' on ' .SITE_TITLE .'</h2>', self::fetchModule('SearchResults'));
+			aFramework::runModule('SearchResults');
+			echo str_replace('</h2>', ' on ' .SITE_TITLE .'</h2>', aFramework::fetchModule('SearchResults'));
 
 			include DOCROOT .'aFramework/Files/404-stuff/foot.php';
 
