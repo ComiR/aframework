@@ -22,13 +22,47 @@
 				if(file_exists($routesFile)) {
 					self::$routes = array_merge((array)self::$routes, include $routesFile);
 				}
-				else {
-					echo $routesFile ."<br />";
-				}
 			}
+
+			self::$routes = array_filter(self::$routes);
+
+			self::sortRoutes();
 
 			# Merge params with GET-vars
 			$_GET = array_merge($_GET, self::getParamsFromURI()); # Could switch places so ?controller= overrides /controller/ but that allows URL-trickery that can be potentially bad for SEO
+		}
+
+		private static function sortRoutes() {
+			$hardCoded	= array();
+			$variable	= array();
+
+			foreach(self::$routes as $uri => $controller) {
+				if(false === strpos($uri, ':')) {
+					$hardCoded[$uri] = $controller;
+				}
+				else {
+					$variable[$controller] = $uri;
+				}
+			}
+
+			uasort($variable, array('self', 'routeSortingCallback'));
+
+			self::$routes = array_merge($hardCoded, array_flip($variable));
+		}
+
+		private static function routeSortingCallback($a, $b) {
+			$aLen	= strlen($a);
+			$bLen	= strlen($b);
+
+			if($aLen == $bLen) {
+				return 0;
+			}
+			elseif($aLen > $bLen) {
+				return 1;
+			}
+			else {
+				return -1;
+			}
 		}
 
 		public static function getRoutes() {
