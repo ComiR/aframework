@@ -1,0 +1,46 @@
+#aframework-install-prev-next-buttons {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+
+	width: 1040px;
+
+	margin: -40px 0 0 -520px;
+
+	opacity: 0;
+}
+
+	#aframework-install-prev-next-buttons a {
+		background: url(gfx/prev-next-buttons.png) no-repeat;
+
+		display: block;
+		position: absolute;
+		top: 0;
+
+		width: 80px;
+		height: 80px;
+
+		text-indent: -100000px;
+		text-decoration: none;
+		outline: 0;
+
+		opacity: .6;
+	}
+
+	#aframework-install-prev-next-buttons a:hover {
+		opacity: 1;
+	}
+
+	#aframework-install-prev-next-buttons a.disabled {
+		opacity: .1;
+		cursor: default;
+	}
+
+	#aframework-install-prev-next-buttons a:first-child {
+		background-position: left -80px;
+		left: 0;
+	}
+
+	#aframework-install-prev-next-buttons a:last-child {
+		right: 0;
+	}

@@ -1,0 +1,120 @@
+/* With JS on */
+body.js-enabled #aframework-install {
+	overflow: hidden;
+}
+
+	body.js-enabled #aframework-install form = $self-clear;
+	body.js-enabled #aframework-install form {	
+		width: 800000px;
+	}
+
+		body.js-enabled #aframework-install form fieldset {
+			float: left;
+
+			width: 800px;
+		}
+
+	body.js-enabled #aframework-install form > p {
+		display: none;
+	}
+
+/* With and without JS */
+#aframework-install {
+}
+
+	#aframework-install h2 {
+		display: none;
+	}
+
+	/* Form */
+	#aframework-install form {
+		padding: 0;
+	}
+
+		/* For some reason you don't actually need to self-clear fieldsets, i do it anyway though just in case... */
+		#aframework-install form fieldset = $self-clear;
+		#aframework-install form fieldset {	
+			margin: 0;
+			padding: 40px 0;
+
+			border: 0;
+		}
+
+			#aframework-install form fieldset h3 {
+				margin: 0;
+
+				font: 24px/1.2 Helvetica, Arial, sans-serif;
+				color: #666;
+			}
+
+			#aframework-install form label {
+				font-weight: bold;
+				color: #333;
+			}
+
+				#aframework-install form label input[type="text"], 
+				#aframework-install form label input[type="password"], 
+				#aframework-install form label select {
+					width: 75%;
+					font-weight: normal;
+				}
+
+			#aframework-install form p {
+				width: 50%;
+				float: left;
+			}
+
+			#aframework-install form h3 + p {
+				float: none;
+				width: 75%;
+			}
+
+			/* Sites */
+			#aframework-install form ul = $floated-list;
+			#aframework-install form ul {
+				margin: 0;
+			}
+
+				#aframework-install form ul li {
+					width: 33%;
+					margin: 10px 0 0;
+					text-align: center;
+				}
+
+					#aframework-install form ul li img {
+						height: 100px;
+					}
+
+			/* Styles */
+			#aframework-install form dl {
+				margin: 0;
+			}
+
+				#aframework-install form dl dt {
+					font-weight: bold;
+				}
+
+				#aframework-install form dl dd {
+					margin: 0 0 10px;
+				}
+
+					#aframework-install form dl dd ul {
+						margin: 0;
+						list-style: none;
+					}
+
+						#aframework-install form dl dd ul li {
+							margin: 10px 0 0;
+							width: 25%;
+						}
+
+							#aframework-install form dl dd ul li img {
+								height: 100px;
+							}
+
+		/* Submit */
+		#aframework-install form > p {
+			text-align: center;
+			float: none;
+			width: auto;
+		}

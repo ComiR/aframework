@@ -1,0 +1,114 @@
+/*
+	=== Body ===
+*/
+html, body {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+}
+
+#wrapper-a {
+	display: table;
+	width: 100%;
+	height: 100%;
+}
+
+#wrapper-b {
+	display: table-row;
+}
+
+body.js-enabled {
+	background: #000 url(gfx/body-loading.gif) no-repeat 50% 50%;
+}
+
+	body.js-enabled #wrapper-c {
+		opacity: 0;
+	}
+
+/*
+	=== Wrapper ===
+*/
+#wrapper-c {
+	background: #fff;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+/*
+	=== Header ===
+*/
+#header {
+	background: url(gfx/gradient-top.png) repeat-x left bottom;
+	padding: 40px 0 20px;
+}
+
+	#header h1 {
+		width: 800px;
+		margin: 0 auto;
+	}
+
+		#header h1 a {
+			background: url(gfx/logo.png) no-repeat;
+
+			display: block;
+
+			margin: 0 0 0 -34px; /* -34 for the logo to line up */
+
+			width: 211px;
+			height: 28px;
+
+			text-indent: -10000px;
+			text-decoration: none;
+			outline: 0;
+		}
+
+	#header p {
+		display: none;
+	}
+
+/*
+	=== Content ===
+*/
+#content {
+	background: #222 url(gfx/content-bg.gif) repeat-x left 50%;
+
+	border-top: 1px solid #aaa;
+	border-bottom: 1px solid #fff;
+}
+
+	#content > div {
+		width: 800px;
+		margin: 0 auto;
+	}
+
+/*
+	=== Footer ===
+*/
+#footer {
+	background: url(gfx/gradient-bottom.png) repeat-x;
+	padding: 5px 0 82px;
+	color: #999;
+	font-size: 8px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+#footer:hover, 
+#footer:hover a {
+	color: #333;
+}
+
+	#footer a {
+		color: #999;
+		text-decoration: none;
+		border-bottom: 1px dotted #999;
+	}
+
+	#footer a:hover {
+		border-bottom-style: solid;
+	}
+
+	#footer p {
+		width: 800px;
+		margin: 0 auto;
+	}
