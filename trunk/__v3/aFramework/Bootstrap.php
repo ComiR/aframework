@@ -4,6 +4,9 @@
 	 *
 	 * This file includes all necessary files and initiates the framework
 	 **/
+	require_once 'Core/Timer.php';
+	Timer::start();
+
 	define('AFRAMEWORK_VERSION',	'aFramework v3');
 
 	# Connect to DB
