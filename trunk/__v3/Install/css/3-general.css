@@ -1,0 +1,113 @@
+body {
+	font: 12px/1.2 Verdana, sans-serif;
+	color: #666;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	margin: 10px 0 5px;
+
+	font: 28px/1.2 Helvetica, Arial, sans-serif;
+}
+
+h2 {
+	font-size: 24px;
+}
+
+h3 {
+	font-size: 20px;
+}
+
+h4 {
+	font-size: 16px;
+}
+
+h5 {
+	font-size: 14px;
+}
+
+h6 {
+	font-size: 12px;
+}
+
+p {
+	margin: 0 0 10px;
+	line-height: 1.4;
+}
+
+ul, 
+ol {
+	margin: 0 0 10px 30px;
+	padding: 0;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+label {
+	cursor: pointer;
+}
+
+input, 
+select {
+	vertical-align: middle;
+}
+
+input[type="text"], 
+textarea, 
+input[type="password"] {
+	background: #fdfdfd url(gfx/input-bg.gif) repeat-x;
+
+	margin: 5px 0 0 0;
+	padding: 10px;
+	max-height: 400px;
+
+	color: #333;
+
+	border: 1px solid #fff;
+}
+
+input[type="text"]:focus, 
+textarea:focus, 
+input[type="password"]:focus {
+	border-color: #f90;
+}
+
+input[type="submit"] {
+	cursor: pointer;
+	text-transform: uppercase;
+}
+
+a = $underlined;
+
+a {
+	color: #1158b4;
+}
+
+a:visited {
+	color: purple;
+}
+
+	a img {
+		border: 0;
+	}
+
+img {
+	vertical-align: middle;
+}
+
+small {
+	font-size: 11px;
+	color: #999;
+}
+
+input.default-value {
+	color: #666;
+	font-style: italic;
+}
