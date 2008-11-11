@@ -26,6 +26,6 @@
 					}
 				}
 			}
-		?>.
+		?>. <?php echo Timer::end(); ?> second(s) | <?php echo dbQry(false, true); ?> queries.
 	</small>
 </p>
