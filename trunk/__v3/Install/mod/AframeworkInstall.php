@@ -191,14 +191,14 @@
 
 					<p><?php echo $config['info']['description']; ?></p>
 
-					<?php foreach($config['items'] as $item) { ?>
+					<?php foreach($config['items'] as $item) { if('aframework.default_style' != $item['key'] and 'aframework.allow_styles' != $item['key']) { ?>
 						<p>
 							<label>
 								<?php echo $item['title']; ?><br />
 								<input type="text" name="config[<?php echo $item['key']; ?>]" title="<?php echo $item['default_value']; ?>" />
 							</label>
 						</p>
-					<?php } ?>
+					<?php } } ?>
 
 				</fieldset>
 			<?php } } ?>
@@ -225,6 +225,8 @@
 													<input type="checkbox" name="styles[]" value="<?php echo $st['name']; ?>" checked="checked" /> 
 													<?php echo $st['title']; ?>
 												</label> 
+													<input type="radio" name="default_style" /> Make default
+												</label>
 											</li>
 										<?php } ?>
 									</ul>
