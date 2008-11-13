@@ -1,6 +1,6 @@
 body {
 	font: 12px/1.2 Verdana, sans-serif;
-	color: #666;
+	color: #999;
 }
 
 h1, 
@@ -15,23 +15,23 @@ h6 {
 }
 
 h2 {
-	font-size: 24px;
+	font-size: 28px;
 }
 
 h3 {
-	font-size: 20px;
+	font-size: 24px;
 }
 
 h4 {
-	font-size: 16px;
+	font-size: 20px;
 }
 
 h5 {
-	font-size: 14px;
+	font-size: 16px;
 }
 
 h6 {
-	font-size: 12px;
+	font-size: 14px;
 }
 
 p {
@@ -76,7 +76,7 @@ input[type="password"] {
 input[type="text"]:focus, 
 textarea:focus, 
 input[type="password"]:focus {
-	border-color: #f90;
+	border-color: #06c;
 }
 
 input[type="submit"] {
@@ -87,7 +87,7 @@ input[type="submit"] {
 a = $underlined;
 
 a {
-	color: #1158b4;
+	color: #06c;
 }
 
 a:visited {

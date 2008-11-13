@@ -16,18 +16,18 @@
 	$dh		= opendir($docRoot);
 
 	while($f = readdir($dh)) {
-		if(!in_array($f, $notSites) and is_dir($docRoot .$f) and '__' != substr($f, 0, 2)) {
+		if(!in_array($f, $notSites) and is_dir($docRoot .$f) and '##' != substr($f, 0, 2)) {
 			$sDir	= $docRoot .$f .'/Styles/';
 			$styles	= array();
 			$sDH	= @opendir($sDir);
 
 			while($sF = @readdir($sDH)) {
-				if(!in_array($sF, $notSites) and is_dir($sDir .$sF) and '__' != substr($sF, 0, 2) and file_exists($sDir .$sF .'/style.css')) {
+				if(!in_array($sF, $notSites) and is_dir($sDir .$sF) and '##' != substr($sF, 0, 2) and file_exists($sDir .$sF .'/style.css')) {
 					$styles[] = array(
 						'name'		=> $sF, 
 						'title'		=> htmlentities($sF), 
-						'thumb_url'	=> $webRoot .$f .'/Styles/' .$sF .'/thumb.png', 
-						'img_url'	=> $webRoot .$f .'/Styles/' .$sF .'/thumb.png'
+						'thumb_url'	=> $webRoot .$f .'/Styles/' .$sF .'/thumb.jpg', 
+						'img_url'	=> $webRoot .$f .'/Styles/' .$sF .'/thumb.jpg'
 					);
 				}
 			}
@@ -174,7 +174,7 @@
 					<?php } } ?>
 					<li>
 						<label>
-							<img src="#" alt="" /><br />
+							<img src="<?php echo $webRoot; ?>aFramework/thumb.png" alt="" /><br />
 							<input type="checkbox" name="site_hierarchy[]" value="aFramework" checked="checked" disabled="disabled" />
 							<input type="hidden" name="site_hierarchy[]" value="aFramework" />
 							aFramework
@@ -211,28 +211,25 @@
 					<p>Select the style(s) you want your site to have. If you want to enable user style switching select more than one style, if not select only one style.<br />Please note that styles may not necessarily be created for more than one particular site and may not suite all your selected sites.</p>
 
 					<dl>
-						<?php foreach($sites as $s) { if(in_array($s['name'], $site_hierarchy_sites)) { ?>
+						<?php foreach($sites as $s) { if(in_array($s['name'], $site_hierarchy_sites) and count($s['styles'])) { ?>
 							<dt><?php echo $s['title']; ?></dt>
 							<dd>
-								<?php if(count($s['styles'])) { ?>
-									<ul>
-										<?php foreach($s['styles'] as $st) { ?>
-											<li>
-												<a href="<?php echo $st['img_url']; ?>">
-													<img src="<?php echo $st['thumb_url']; ?>" alt="" />
-												</a><br />
-												<label>
-													<input type="checkbox" name="styles[]" value="<?php echo $st['name']; ?>" checked="checked" /> 
-													<?php echo $st['title']; ?>
-												</label> 
-													<input type="radio" name="default_style" /> Make default
-												</label>
-											</li>
-										<?php } ?>
-									</ul>
-								<?php } else { ?>
-									No styles
-								<?php } ?>
+								<ul>
+									<?php foreach($s['styles'] as $st) { ?>
+										<li>
+											<a href="<?php echo $st['img_url']; ?>">
+												<img src="<?php echo $st['thumb_url']; ?>" alt="" />
+											</a><br />
+											<label>
+												<input type="checkbox" name="styles[]" value="<?php echo $st['name']; ?>" checked="checked" /> 
+												<?php echo $st['title']; ?>
+											</label><br />
+											<label>
+												<input type="radio" name="default_style" /> Make default
+											</label>
+										</li>
+									<?php } ?>
+								</ul>
 							</dd>
 						<?php } } ?>
 					</dl>
