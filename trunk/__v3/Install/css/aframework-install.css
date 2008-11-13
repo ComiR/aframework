@@ -78,10 +78,32 @@ body.js-enabled #aframework-install {
 					text-align: center;
 				}
 
-					#aframework-install form ul li img {
-						height: 64px;
-						margin: 0 0 5px;
+					#aframework-install form fieldset > ul li label {
+						display: block;
+						width: 80px;
+
+						margin: 0 auto;
+						padding: 10px;
+
+						border: 1px solid transparent;
+						-moz-border-radius: 10px;
+						-webkit-border-radius: 10px;
+						border-radius: 10px;
 					}
+
+					#aframework-install form fieldset > ul li label.checked {
+						background: url(gfx/1x1-000-op60.png);
+						border-color: #06c;
+					}
+
+						#aframework-install form fieldset > ul li label img {
+							height: 64px;
+							margin: 0 0 5px;
+						}
+
+						#aframework-install form fieldset > ul li label input {
+							display: none;
+						}
 
 			/* Styles */
 			#aframework-install form dl {
