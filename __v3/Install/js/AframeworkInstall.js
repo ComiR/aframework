@@ -1,6 +1,12 @@
 aFramework.modules.AframeworkInstall = {
 	run: function() {
 		this.addPrevNextButtons();
+		$('#aframework-install').checkedCheckboxParent();
+	}, 
+
+	ajaxifyStylesSelection: function() {
+		// Allow user to single click style-name to select that style
+		// Allow user to double-click to select that style as the default
 	}, 
 
 	addPrevNextButtons: function() {
@@ -16,27 +22,14 @@ aFramework.modules.AframeworkInstall = {
 		};
 
 		var gotoStep = function(nStep, cStep) {
-		//	alert('scrolling from ' +cStep +' to ' +nStep);
 			var allSteps = container.find('fieldset');
 
 			if(nStep >= 0 && nStep < allSteps.length) {
-			//	var currStepHeight = allSteps.eq(cStep).outerHeight();
 				var nextStepHeight = allSteps.eq(nStep).outerHeight();
 
-			//	if(currStepHeight > nextStepHeight) {
-			//		alert('scrolling 1');
-			//		container.scrollTo(allSteps.eq(nStep), $.extend(scrollOpts, {onAfter: function() {
-			//			alert('animating 1');
-			//			container.animate({height: nextStepHeight +'px'}, 500);
-			//		}}));
-			//	}
-			//	else {
-			//		alert('animating 2');
-					container.animate({height: nextStepHeight +'px'}, 500, function() {
-			//			alert('scrolling 2');
-						container.scrollTo(allSteps.eq(nStep), scrollOpts);
-					});
-			//	}
+				container.animate({height: nextStepHeight +'px'}, 500, function() {
+					container.scrollTo(allSteps.eq(nStep), scrollOpts);
+				});
 
 				return true;
 			}
@@ -44,8 +37,8 @@ aFramework.modules.AframeworkInstall = {
 			return false;
 		};
 
+		container.find('form > p').remove();
 		container.css('height', 0);
-
 		$('#wrapper-c').css('opacity', 1);
 
 		setTimeout(function() {
@@ -67,13 +60,11 @@ aFramework.modules.AframeworkInstall = {
 			if(currStep == 1) {
 				var formData = container.find('form').formToArray();
 
-				// We pop because we never actually wanna submit the form for installation on the second step
-				// (the last element in the form is the hidden input telling aFramework to install)
-				if(container.find('input[name="aframework_install_submit"]').length) {
-					formData.pop();
-				}
 				$.post('mod/AframeworkInstall.php', formData, function(data) {
-					container.html($(data).html()).formHints();
+					var newData = $(data).find('fieldset').get().splice(2);
+
+					$(newData).appendTo(container.find('form')).formHints();
+					aFramework.modules.AframeworkInstall.ajaxifyStylesSelection();
 
 					if(gotoStep(currStep + 1, currStep)) {
 						currStep++;
@@ -82,19 +73,33 @@ aFramework.modules.AframeworkInstall = {
 			}
 			// Last step
 			else if(currStep == container.find('fieldset').length - 1) {
-				$.post('mod/AframeworkInstall.php', container.find('form').formToArray(), function(data) {
-					container.find('form').html(container.find('form').html() +'<fieldset>' +$(data).html() +'</fieldset>').scrollTo(0, {axis: 'xy'});
+				var formData = container.find('form').formToArray();
 
-					if(gotoStep(currStep + 1, currStep)) {
-						currStep++;
+				formData[formData.length] = {name: 'aframework_install_submit', value: '1'};
+
+				$.post('mod/AframeworkInstall.php', 
+					formData, 
+					function(data) {
+						container
+							.find('form')
+							.html(
+								container
+									.find('form')
+									.html() +'<fieldset>' +$(data).html() +'</fieldset>'
+							)
+							.scrollTo(0, {axis: 'xy'});
+
+						if(gotoStep(currStep + 1, currStep)) {
+							currStep++;
+						}
+
+						setTimeout(function() {
+							buttons.animate({opacity: 0}, 500, function() {
+								container.animate({height: 0}, 500);
+							});
+						}, 5000);
 					}
-
-					setTimeout(function() {
-						buttons.animate({opacity: 0}, 500, function() {
-							container.animate({height: 0}, 500);
-						});
-					}, 3000);
-				});
+				);
 			}
 			// The other steps
 			else if(gotoStep(currStep + 1, currStep)) {

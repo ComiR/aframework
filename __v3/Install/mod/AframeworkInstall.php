@@ -9,6 +9,7 @@
 		'.svn', 
 		'Install', 
 		'aJqueryPluginSite', 
+		'aSimplePortfolio', 
 		'aDynAdmin', 
 		'AndreasLagerkvist'
 	);
@@ -172,15 +173,9 @@
 							</label> 
 						</li>
 					<?php } } ?>
-					<li>
-						<label>
-							<img src="<?php echo $webRoot; ?>aFramework/thumb.png" alt="" /><br />
-							<input type="checkbox" name="site_hierarchy[]" value="aFramework" checked="checked" disabled="disabled" />
-							<input type="hidden" name="site_hierarchy[]" value="aFramework" />
-							aFramework
-						</label>
-					</li>
 				</ul>
+
+				<input type="hidden" name="site_hierarchy[]" value="aFramework" />
 
 			</fieldset>
 
