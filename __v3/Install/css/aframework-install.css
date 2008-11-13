@@ -42,14 +42,11 @@ body.js-enabled #aframework-install {
 
 			#aframework-install form fieldset h3 {
 				margin: 0;
-
-				font: 24px/1.2 Helvetica, Arial, sans-serif;
-				color: #666;
 			}
 
 			#aframework-install form label {
 				font-weight: bold;
-				color: #333;
+				color: #666;
 			}
 
 				#aframework-install form label input[type="text"], 
@@ -82,7 +79,8 @@ body.js-enabled #aframework-install {
 				}
 
 					#aframework-install form ul li img {
-						height: 100px;
+						height: 64px;
+						margin: 0 0 5px;
 					}
 
 			/* Styles */
