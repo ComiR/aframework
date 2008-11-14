@@ -15,7 +15,7 @@
 				}
 			}
 			else {
-				aFramework::$force404 = true;
+				FourOFour::run();
 			}
 		}
 	}
