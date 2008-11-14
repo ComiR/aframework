@@ -23,7 +23,7 @@
 				FormValidator::validate($_POST) and 
 				!SpamChecker::isSpam($_POST)
 			) {
-				mail(CONTACT_EMAIL, 'From Website', $_POST['message'], 'From: ' .$_POST['name'] .' <' .$_POST['email'] .">\r\n");
+				mail(Config::get('general.contact_email'), 'From Website', $_POST['message'], 'From: ' .$_POST['name'] .' <' .$_POST['email'] .">\r\n");
 
 				if(!XHR) {
 					redirect('?msg_sent');

@@ -13,11 +13,11 @@
 		public static function run() {
 			# Make sure user-selected style exists
 			if(isset($_COOKIE['style']) and !is_dir(CURRENT_SITE_DIR .'Styles/' .$_COOKIE['style'] .'/')) {
-				self::setStyle(DEFAULT_STYLE);
+				self::setStyle(Config::get('general.default_style'));
 			}
 
 			# Don't do nothing if current site doesn't allow styles
-			if(!ALLOW_STYLES) {
+			if(!Config::get('general.allow_styles')) {
 				return false;
 			}
 

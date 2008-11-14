@@ -1,9 +1,9 @@
 <?php
 	class aFramework_ModuleListingModule {
-		public static $tplVars = array();
-		public static $tplFile = true;
+		public static $tplVars		= array();
+		public static $tplFile		= true;
 
-		private static $notModules = array(
+		private static $notModules	= array(
 			'.', 
 			'..', 
 			'.svn', 
@@ -25,8 +25,7 @@
 		 **/
 		public static function run() {
 			if(!ADMIN) {
-				self::$tplFile = false;
-				return false;
+				return self::$tplFile = false;
 			}
 
 			$controller = isset($_GET['controller']) ? $_GET['controller'] : 'Home';
@@ -63,10 +62,10 @@
 		 * Gets all available modules for this site (to be listed in module-listing)
 		 **/
 		private static function getAvailableModules($controller) {
-			$sites = explode(' ', SITE_HIERARCHY);
-			$availableModules = array();
-			$usedModules = array();
-			$modulesInController = self::getModulesInController($controller);
+			$sites					= explode(' ', SITE_HIERARCHY);
+			$availableModules		= array();
+			$usedModules			= array();
+			$modulesInController	= self::getModulesInController($controller);
 
 			foreach($sites as $site) {
 				$modulesDir = DOCROOT .$site .'/Modules/';
@@ -77,14 +76,14 @@
 					while($f = readdir($dh)) {
 						if(!in_array($f, self::$notModules) and is_dir($modulesDir .$f)) {
 							if(array_key_exists($f, $modulesInController)) {
-								$availableModules[$f]['name'] = $f;
-								$availableModules[$f]['in_use'] = true;
-								$availableModules[$f]['html_id'] = strtolower(ccFix($f));
+								$availableModules[$f]['name']		= $f;
+								$availableModules[$f]['in_use']		= true;
+								$availableModules[$f]['html_id']	= strtolower(ccFix($f));
 							}
 							else {
-								$usedModules[$f]['name'] = $f;
-								$usedModules[$f]['in_use'] = false;
-								$usedModules[$f]['html_id'] = strtolower(ccFix($f));
+								$usedModules[$f]['name']			= $f;
+								$usedModules[$f]['in_use']			= false;
+								$usedModules[$f]['html_id']			= strtolower(ccFix($f));
 							}
 						}
 					}
@@ -125,8 +124,8 @@
 				if(!in_array($mod->nodeName, self::$notModules)) {
 					$modName = $mod->nodeName == 'Wrapper' ? $mod->nodeName .':' .$mod->getAttribute('name') : $mod->nodeName;
 					$mods[$modName] = array(
-						'name' => $modName, 
-						'html_id' => $mod->nodeName == 'Wrapper' ? $mod->getAttribute('name') : strtolower(ccFix($mod->nodeName))
+						'name'		=> $modName, 
+						'html_id'	=> $mod->nodeName == 'Wrapper' ? $mod->getAttribute('name') : strtolower(ccFix($mod->nodeName))
 					);
 				}
 
@@ -161,9 +160,9 @@
 		 **/
 		private static function addModuleToController($module, $target, $insertBefore = false, $controller) {
 			# Load the controller
-			$path = self::getControllerPath($controller);
+			$path	= self::getControllerPath($controller);
+			$doc	= new DOMDocument();
 
-			$doc = new DOMDocument();
 			$doc->load($path);
 
 			# Create the new node
@@ -173,9 +172,9 @@
 			$wrapperName = false;
 
 			if('Wrapper' == substr($target, 0, 7)) {
-				$wrapperInfo = explode(':', $target);
-				$wrapperName = $wrapperInfo[1];
-				$target = $wrapperInfo[0];
+				$wrapperInfo	= explode(':', $target);
+				$wrapperName	= $wrapperInfo[1];
+				$target			= $wrapperInfo[0];
 			}
 
 			$targetModules = $doc->getElementsByTagName($target);

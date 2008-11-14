@@ -5,22 +5,31 @@
 <form method="post" action="">
 
 	<p>
-		<label for="contact-name"><strong>*</strong> Your Name</label><br />
-		<input type="text" name="name" id="contact-name" value="<?php echo $visitor['name']; ?>" />
+		<label>
+			<strong>*</strong> Your Name<br />
+			<input type="text" name="name" value="<?php echo $visitor['name']; ?>" />
+		</label>
 	</p>
 
 	<p>
-		<label for="contact-email"><strong>*</strong> Your E-mail</label><br />
-		<input type="text" name="email" id="contact-email" value="<?php echo $visitor['email']; ?>" />
+		<label>
+			<strong>*</strong> Your E-mail<br />
+			<input type="text" name="email" value="<?php echo $visitor['email']; ?>" />
+		</label>
 	</p>
 
 	<p>
-		<label for="contact-message"><strong>*</strong> Message</label><br />
-		<textarea name="message" id="contact-message" rows="6" cols="40"></textarea>
+		<label>
+			<strong>*</strong> Message<br />
+			<textarea name="message" rows="6" cols="40"></textarea>
+		</label>
 	</p>
 
 	<p>
-		<input type="checkbox" name="remember" id="contact-remember"<?php echo($visitor['remembered']) ? 'checked="checked"' : ''; ?> /> <label for="contact-remember">Remember Me</label>
+		<label>
+			<input type="checkbox" name="remember"<?php echo($visitor['remembered']) ? 'checked="checked"' : ''; ?> /> 
+			Remember Me
+		</label>
 	</p>
 
 	<p>
