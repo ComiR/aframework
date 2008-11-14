@@ -13,7 +13,7 @@
 
 		public static function get() {
 			$path		= DOCROOT .'aFramework/Modules/Base/';
-			$dh		= opendir($path);
+			$dh			= opendir($path);
 			$plugins	= array();
 
 			while($f = readdir($dh)) {
@@ -63,7 +63,7 @@
 
 			preg_match_all('/@(.*?):([^@]*)/is', $matches[1], $secondMatches);
 
-			$pluginArr['name']	= $plugin;
+			$pluginArr['name']		= $plugin;
 			$pluginArr['file_name']	= "jquery.$plugin.js";
 			$pluginArr['source']	= isset($matches[2]) ? trim($matches[2]) : '';
 
@@ -90,7 +90,7 @@
 
 			$row['real_url']		= htmlentities($row['url']);
 			$row['url_str']			= strtolower(ccFix($row['name'], '-'));
-			$row['url']			= Router::urlFor('JqueryPlugin', array('url_str' => $row['url_str']));
+			$row['url']				= Router::urlFor('JqueryPlugin', array('url_str' => $row['url_str']));
 
 			$row['license']			= htmlentities($row['license']);
 			$row['copyright']		= htmlentities($row['copyright']);
