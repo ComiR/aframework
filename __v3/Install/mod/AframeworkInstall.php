@@ -142,95 +142,102 @@
 	<?php } else { ?>
 		<form method="post" action="">
 
-			<fieldset>
+			<ol>
+				<li>
+					<fieldset>
 
-				<h3>First thing's first</h3>
+						<legend>First thing's first</legend>
 
-				<p>Let's start off simple, please provide a short name without spaces for your site. This name will be used for your site's directory, you can rename your site to whatever you want later on.</p>
+						<p>Let's start off simple, please provide a short name without spaces for your site. This name will be used for your site's directory, you can name your site whatever you want later on.</p>
 
-				<p>
-					<label>
-						Site name<br />
-						<input type="text" name="site_name" title="E.g. MyAwesomeSite" value="<?php echo @$_POST['site_name']; ?>" />
-					</label>
-				</p>
-
-			</fieldset>
-
-			<fieldset>
-
-				<h3>Site features</h3>
-
-				<p>Your site may inherit features from any number of other aFramework-sites, please select which sites you wish your site to inherit features from. If you want to create a site completely from scratch don't select anything.</p>
-
-				<ul>
-					<?php foreach($sites as $s) { if($s['name'] != 'aFramework') { ?>
-						<li>
-							<label>
-								<img src="<?php echo $s['thumb_url']; ?>" alt="" /><br />
-								<input type="checkbox" name="site_hierarchy[]" value="<?php echo $s['name']; ?>"<?php if(isset($site_hierarchy_sites) and in_array($s['name'], $site_hierarchy_sites)) { ?> checked="checked"<?php } ?> /> 
-								<?php echo $s['title']; ?>
-							</label> 
-						</li>
-					<?php } } ?>
-				</ul>
-
-				<input type="hidden" name="site_hierarchy[]" value="aFramework" />
-
-			</fieldset>
-
-			<?php if(isset($site_hierarchy_config)) { foreach($site_hierarchy_config as $config) { ?>
-				<fieldset>
-
-					<h3><?php echo $config['info']['title']; ?> Settings</h3>
-
-					<p><?php echo $config['info']['description']; ?></p>
-
-					<?php foreach($config['items'] as $item) { if('aframework.default_style' != $item['key'] and 'aframework.allow_styles' != $item['key']) { ?>
 						<p>
 							<label>
-								<?php echo $item['title']; ?><br />
-								<input type="text" name="config[<?php echo $item['key']; ?>]" title="<?php echo $item['default_value']; ?>" />
+								Site name<br />
+								<input type="text" name="site_name" title="E.g. MyAwesomeSite" value="<?php echo @$_POST['site_name']; ?>" />
 							</label>
 						</p>
-					<?php } } ?>
 
-				</fieldset>
-			<?php } } ?>
+					</fieldset>
+				</li>
+				<li>
+					<fieldset>
 
-			<?php if(isset($site_hierarchy_sites)) { ?>
-				<fieldset>
+						<legend>Site features</legend>
 
-					<h3>Styles</h3>
+						<p>Your site may inherit features from any number of other aFramework-sites, please select which sites you wish your site to inherit features from. If you want to create a site completely from scratch don't select anything.</p>
 
-					<p>Select the style(s) you want your site to have. If you want to enable user style switching select more than one style, if not select only one style.<br />Please note that styles may not necessarily be created for more than one particular site and may not suite all your selected sites.</p>
+						<ul>
+							<?php foreach($sites as $s) { if($s['name'] != 'aFramework') { ?>
+								<li>
+									<label>
+										<img src="<?php echo $s['thumb_url']; ?>" alt="" /><br />
+										<input type="checkbox" name="site_hierarchy[]" value="<?php echo $s['name']; ?>"<?php if(isset($site_hierarchy_sites) and in_array($s['name'], $site_hierarchy_sites)) { ?> checked="checked"<?php } ?> /> 
+										<?php echo $s['title']; ?>
+									</label> 
+								</li>
+							<?php } } ?>
+						</ul>
 
-					<dl>
-						<?php foreach($sites as $s) { if(in_array($s['name'], $site_hierarchy_sites) and count($s['styles'])) { ?>
-							<dt><?php echo $s['title']; ?></dt>
-							<dd>
-								<ul>
-									<?php foreach($s['styles'] as $st) { ?>
-										<li>
-											<a href="<?php echo $st['img_url']; ?>">
-												<img src="<?php echo $st['thumb_url']; ?>" alt="" />
-											</a><br />
-											<label>
-												<input type="checkbox" name="styles[]" value="<?php echo $st['name']; ?>" checked="checked" /> 
-												<?php echo $st['title']; ?>
-											</label><br />
-											<label>
-												<input type="radio" name="default_style" /> Make default
-											</label>
-										</li>
-									<?php } ?>
-								</ul>
-							</dd>
-						<?php } } ?>
-					</dl>
+						<input type="hidden" name="site_hierarchy[]" value="aFramework" />
 
-				</fieldset>
-			<?php } ?>
+					</fieldset>
+				</li>
+				<?php if(isset($site_hierarchy_config)) { foreach($site_hierarchy_config as $config) { ?>
+					<li>
+						<fieldset>
+
+							<legend><?php echo $config['info']['title']; ?> Settings</legend>
+
+							<p><?php echo $config['info']['description']; ?></p>
+
+							<?php foreach($config['items'] as $item) { if('aframework.default_style' != $item['key'] and 'aframework.allow_styles' != $item['key']) { ?>
+								<p>
+									<label>
+										<?php echo $item['title']; ?><br />
+										<input type="text" name="config[<?php echo $item['key']; ?>]" title="<?php echo $item['description']; ?>" />
+									</label>
+								</p>
+							<?php } } ?>
+
+						</fieldset>
+					</li>
+				<?php } } ?>
+				<?php if(isset($site_hierarchy_sites)) { ?>
+					<li>
+						<fieldset>
+
+							<legend>Styles</legend>
+
+							<p>Select the style(s) you want your site to have. If you want to enable user style switching select more than one style, if not select only one style.<br />Please note that styles may not necessarily be created for more than one particular site and may not suite all your selected sites.</p>
+
+							<dl>
+								<?php $i = 0; foreach($sites as $s) { if(in_array($s['name'], $site_hierarchy_sites) and count($s['styles'])) { $i++; ?>
+									<dt><?php echo $s['title']; ?></dt>
+									<dd>
+										<ul>
+											<?php foreach($s['styles'] as $st) { ?>
+												<li>
+													<a href="<?php echo $st['img_url']; ?>">
+														<img src="<?php echo $st['thumb_url']; ?>" alt="" />
+													</a><br />
+													<label>
+														<input type="checkbox" name="styles[]" value="<?php echo $st['name']; ?>" checked="checked" /> 
+														<?php echo $st['title']; ?>
+													</label><br />
+													<label>
+														<input type="radio" name="default_style"<?php if($i == 1) { ?> checked="checked"<?php } ?> /> Make default
+													</label>
+												</li>
+											<?php } ?>
+										</ul>
+									</dd>
+								<?php } } ?>
+							</dl>
+
+						</fieldset>
+					</li>
+				<?php } ?>
+			</ol>
 
 			<p>
 				<?php if(isset($submit)) { ?>

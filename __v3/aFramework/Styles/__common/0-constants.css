@@ -32,18 +32,18 @@ $data-definition {
 	padding-left: 0;
 }
 
-	$data-definition dt {
+	$data-definition > dt {
 		float: left;
 		clear: left;
 		font-weight: bold;
 		margin: 0 5px 5px 0;
 	}
 
-	$data-definition dt:after {
+	$data-definition > dt:after {
 		content: ": ";
 	}
 
-	$data-definition dd {
+	$data-definition > dd {
 		margin: 0 0 5px;
 	}
 
@@ -57,15 +57,15 @@ $pipe-menu {
 	list-style-type: none;
 }
 
-	$pipe-menu li {
+	$pipe-menu > li {
 		display: inline;
 	}
 
-	$pipe-menu li:after {
+	$pipe-menu > li:after {
 		content: " | ";
 	}
 
-	$pipe-menu li:last-child:after {
+	$pipe-menu > li:last-child:after {
 		content: "";
 	}	
 
@@ -79,15 +79,15 @@ $dash-menu {
 	list-style-type: none;
 }
 
-	$dash-menu li {
+	$dash-menu > li {
 		display: inline;
 	}
 
-	$dash-menu li:after {
+	$dash-menu > li:after {
 		content: " - ";
 	}
 
-	$dash-menu li:last-child:after {
+	$dash-menu > li:last-child:after {
 		content: "";
 	}
 
@@ -102,23 +102,23 @@ $pagination {
 	text-align: center;
 }
 
-	$pagination li {
+	$pagination > li {
 		display: inline;
 	}
 
-	$pagination li:after {
+	$pagination > li:after {
 		content: " | ";
 	}
 
-	$pagination li:last-child:after {
+	$pagination > li:last-child:after {
 		content: "";
 	}
 
-		$pagination li:first-child a:before {
+		$pagination > li:first-child a:before {
 			content: "< ";
 		}
 
-		$pagination li:last-child a:after {
+		$pagination > li:last-child a:after {
 			content: " >";
 		}
 
@@ -148,23 +148,23 @@ $previous-next-menu {
 	list-style-type: none;
 }
 
-	$previous-next-menu li {
+	$previous-next-menu > li {
 		float: right;
 	}
 
-	$previous-next-menu li:first-child {
+	$previous-next-menu > li:first-child {
 		float: left;
 	}
 
-		$previous-next-menu li a:after {
+		$previous-next-menu > li > a:after {
 			content: " >";
 		}
 
-		$previous-next-menu li:first-child a:after {
+		$previous-next-menu > li:first-child > a:after {
 			content: "";
 		}
 
-		$previous-next-menu li:first-child a:before {
+		$previous-next-menu > li:first-child > a:before {
 			content: "< ";
 		}
 
@@ -178,11 +178,11 @@ $arrow-list {
 	list-style: none;
 }
 
-	$arrow-list li {
+	$arrow-list > li {
 		margin-bottom: 5px;
 	}
 
-	$arrow-list li:before {
+	$arrow-list > li:before {
 		content: "> ";
 		font-size: 8px;
 	}
@@ -197,11 +197,11 @@ $dash-list {
 	list-style: none;
 }
 
-	$dash-list li {
+	$dash-list > li {
 		margin-bottom: 5px;
 	}
 
-	$dash-list li:before {
+	$dash-list > li:before {
 		content: "- ";
 		font-size: 8px;
 	}
@@ -215,6 +215,33 @@ $plain-list {
 	padding-left: 0;
 	list-style: none;
 }
+
+/**
+ * Floated list
+ * A self-cleared, floated list
+ */
+$floated-list {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+
+	_height: 1%;
+	*display: inline-block;
+	_display: block;
+}
+
+$floated-list:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+	$floated-list > li {
+		float: left;
+	}
+
 
 /**
  * A11y hide

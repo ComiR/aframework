@@ -11,7 +11,7 @@ aFramework.modules.AframeworkInstall = {
 
 	addPrevNextButtons: function() {
 		var container	= $('#aframework-install').scrollTo(0, {axis: 'xy'});
-		var buttons		= $('<div id="aframework-install-prev-next-buttons"><a href="#">Previous</a><a href="#">Next</a></div>').prependTo(document.body);
+		var buttons		= $('<div id="aframework-install-prev-next-buttons"><div><a href="#">Previous</a></div><div><a href="#">Next</a></div></div>').prependTo(document.body);
 		var prev		= buttons.find('a').eq(0);
 		var next		= buttons.find('a').eq(1);
 		var currStep	= 0;
@@ -22,7 +22,7 @@ aFramework.modules.AframeworkInstall = {
 		};
 
 		var gotoStep = function(nStep, cStep) {
-			var allSteps = container.find('fieldset');
+			var allSteps = container.find('form > ol > li');
 
 			if(nStep >= 0 && nStep < allSteps.length) {
 				var nextStepHeight = allSteps.eq(nStep).outerHeight();
@@ -42,7 +42,7 @@ aFramework.modules.AframeworkInstall = {
 		$('#wrapper-c').css('opacity', 1);
 
 		setTimeout(function() {
-			container.animate({height: container.find('fieldset').eq(0).outerHeight() +'px'}, 500, function() {
+			container.animate({height: container.find('form > ol > li').eq(0).outerHeight() +'px'}, 500, function() {
 				buttons.animate({opacity: 1}, 500);
 			})
 		}, 2000);
@@ -61,9 +61,9 @@ aFramework.modules.AframeworkInstall = {
 				var formData = container.find('form').formToArray();
 
 				$.post('mod/AframeworkInstall.php', formData, function(data) {
-					var newData = $(data).find('fieldset').get().splice(2);
+					var newData = $(data).find('form > ol > li').get().splice(2);
 
-					$(newData).appendTo(container.find('form')).formHints();
+					$(newData).appendTo(container.find('form ol')).formHints();
 					aFramework.modules.AframeworkInstall.ajaxifyStylesSelection();
 
 					if(gotoStep(currStep + 1, currStep)) {
@@ -72,7 +72,7 @@ aFramework.modules.AframeworkInstall = {
 				});
 			}
 			// Last step
-			else if(currStep == container.find('fieldset').length - 1) {
+			else if(currStep == container.find('form > ol > li').length - 1) {
 				var formData = container.find('form').formToArray();
 
 				formData[formData.length] = {name: 'aframework_install_submit', value: '1'};
@@ -81,11 +81,11 @@ aFramework.modules.AframeworkInstall = {
 					formData, 
 					function(data) {
 						container
-							.find('form')
+							.find('form ol')
 							.html(
 								container
-									.find('form')
-									.html() +'<fieldset>' +$(data).html() +'</fieldset>'
+									.find('form ol')
+									.html() +'<li>' +$(data).html() +'</li>'
 							)
 							.scrollTo(0, {axis: 'xy'});
 

@@ -10,37 +10,43 @@
 	opacity: 0;
 }
 
-	#aframework-install-prev-next-buttons a {
-		background: url(gfx/prev-next-buttons.png) no-repeat;
+	#aframework-install-prev-next-buttons div {
+		background: url(gfx/1x1-000-op60.png);
 
-		display: block;
 		position: absolute;
 		top: 0;
 
-		width: 80px;
-		height: 80px;
+		width: 78px;
 
-		text-indent: -100000px;
-		text-decoration: none;
-		outline: 0;
-
-		opacity: .6;
+		border: 1px solid transparent;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		border-radius: 10px;
 	}
 
-	#aframework-install-prev-next-buttons a:hover {
-		opacity: 1;
+		#aframework-install-prev-next-buttons div a {
+			background: url(gfx/prev-next-arrows.png) no-repeat;
+
+			display: block;
+			height: 78px;
+
+			text-indent: -100000px;
+			text-decoration: none;
+			outline: 0;
+		}
+
+	#aframework-install-prev-next-buttons div:hover {
+		border-color: #06c;
 	}
 
-	#aframework-install-prev-next-buttons a.disabled {
-		opacity: .1;
-		cursor: default;
-	}
-
-	#aframework-install-prev-next-buttons a:first-child {
-		background-position: left -80px;
+	#aframework-install-prev-next-buttons div:first-child {
 		left: 0;
 	}
 
-	#aframework-install-prev-next-buttons a:last-child {
+		#aframework-install-prev-next-buttons div:first-child a {
+			background-position: left -78px;
+		}
+
+	#aframework-install-prev-next-buttons div:last-child {
 		right: 0;
 	}
