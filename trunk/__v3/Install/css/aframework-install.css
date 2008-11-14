@@ -3,14 +3,13 @@ body.js-enabled #aframework-install {
 	overflow: hidden;
 }
 
-	body.js-enabled #aframework-install form = $self-clear;
-	body.js-enabled #aframework-install form {	
+	body.js-enabled #aframework-install form > ol = $floated-list;
+	body.js-enabled #aframework-install form > ol {
+		margin: 0;
 		width: 800000px;
 	}
 
-		body.js-enabled #aframework-install form fieldset {
-			float: left;
-
+		body.js-enabled #aframework-install form > ol > li {
 			width: 800px;
 		}
 
@@ -31,110 +30,117 @@ body.js-enabled #aframework-install {
 		padding: 0;
 	}
 
-		/* For some reason you don't actually need to self-clear fieldsets, i do it anyway though just in case... */
-		#aframework-install form fieldset = $self-clear;
-		#aframework-install form fieldset {	
-			margin: 0;
-			padding: 40px 0;
+		#aframework-install form > ol = $plain-list;
 
-			border: 0;
-		}
-
-			#aframework-install form fieldset h3 {
-				margin: 0;
+			#aframework-install form > ol > li {
+				padding: 40px 0;
 			}
 
-			#aframework-install form label {
-				font-weight: bold;
-				color: #666;
-			}
+				#aframework-install fieldset {	
+					margin: 0;
+					padding: 0;
 
-				#aframework-install form label input[type="text"], 
-				#aframework-install form label input[type="password"], 
-				#aframework-install form label select {
-					width: 75%;
-					font-weight: normal;
+					border: 0;
 				}
 
-			#aframework-install form p {
-				width: 50%;
-				float: left;
-			}
-
-			#aframework-install form h3 + p {
-				float: none;
-				width: 75%;
-			}
-
-			/* Sites */
-			#aframework-install form ul = $floated-list;
-			#aframework-install form ul {
-				margin: 0;
-			}
-
-				#aframework-install form ul li {
-					width: 33%;
-					margin: 10px 0 0;
-					text-align: center;
-				}
-
-					#aframework-install form fieldset > ul li label {
-						display: block;
-						width: 80px;
-
-						margin: 0 auto;
-						padding: 10px;
-
-						border: 1px solid transparent;
-						-moz-border-radius: 10px;
-						-webkit-border-radius: 10px;
-						border-radius: 10px;
-					}
-
-					#aframework-install form fieldset > ul li label.checked {
-						background: url(gfx/1x1-000-op60.png);
-						border-color: #06c;
-					}
-
-						#aframework-install form fieldset > ul li label img {
-							height: 64px;
-							margin: 0 0 5px;
-						}
-
-						#aframework-install form fieldset > ul li label input {
-							display: none;
-						}
-
-			/* Styles */
-			#aframework-install form dl {
-				margin: 0;
-			}
-
-				#aframework-install form dl dt {
-					font-weight: bold;
-				}
-
-				#aframework-install form dl dd {
-					margin: 0 0 10px;
-				}
-
-					#aframework-install form dl dd ul {
+					#aframework-install legend, 
+					#aframework-install h3 {
 						margin: 0;
-						list-style: none;
+						font: 28px/1.2 Helvetica, Arial, sans-serif;
 					}
 
-						#aframework-install form dl dd ul li {
-							margin: 10px 0 0;
-							width: 25%;
+					#aframework-install label {
+						font-weight: bold;
+						color: #666;
+					}
+
+						#aframework-install input[type="text"], 
+						#aframework-install input[type="password"], 
+						#aframework-install select {
+							width: 75%;
+							font-weight: normal;
 						}
 
-							#aframework-install form dl dd ul li img {
-								height: 100px;
+					#aframework-install p {
+						width: 50%;
+						float: left;
+					}
+
+					#aframework-install legend + p, 
+					#aframework-install h3 + p {
+						float: none;
+						width: 75%;
+					}
+
+					/* Sites */
+					#aframework-install fieldset > ul = $floated-list;
+					#aframework-install fieldset > ul {
+						margin: 0;
+					}
+
+						#aframework-install fieldset > ul li {
+							width: 120px;
+							margin: 10px 0 0;
+							text-align: center;
+						}
+
+							#aframework-install fieldset > ul label {
+								display: block;
+								width: 80px;
+
+								margin: 0 auto;
+								padding: 10px;
+
+								border: 1px solid transparent;
+								-moz-border-radius: 10px;
+								-webkit-border-radius: 10px;
+								border-radius: 10px;
 							}
 
-		/* Submit */
-		#aframework-install form > p {
-			text-align: center;
-			float: none;
-			width: auto;
-		}
+							#aframework-install fieldset > ul label.checked {
+								background: url(gfx/1x1-000-op60.png);
+								border-color: #06c;
+							}
+
+								#aframework-install fieldset > ul img {
+									height: 64px;
+									margin: 0 0 5px;
+								}
+
+								body.js-enabled #aframework-install fieldset > ul input {
+									display: none;
+								}
+
+					/* Styles */
+					#aframework-install dl {
+						margin: 0;
+					}
+
+						#aframework-install dt {
+							font-weight: bold;
+						}
+
+						#aframework-install dd {
+							margin: 0 0 10px;
+						}
+
+							#aframework-install dd ul = $floated-list;
+							#aframework-install dd ul {
+								margin: 0;
+							}
+
+								#aframework-install dd li {
+									margin: 10px 0 0;
+									width: 25%;
+								}
+
+									#aframework-install dd img {
+										height: 100px;
+									}
+
+				/* Submit */
+				#aframework-install form > p {
+					text-align: center;
+					float: none;
+					width: auto;
+				}

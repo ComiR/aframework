@@ -21,7 +21,7 @@
 													'value'			=> 'afv3'
 												));
 	Config::set('db.table_prefix',				array(
-													'title'			=> 'Database table prefix', 
+													'title'			=> 'Database table prefix (if unsure leave empty)', 
 													'value'			=> ''
 												));
 
@@ -30,26 +30,23 @@
 													'title'			=> 'General', 
 													'description'	=> 'General settings used by various modules in aFramework.'
 												));
-	Config::set('aframework.allow_styles',		array(
-													'title'			=> 'Allow user style switching (1/0)', 
-													'value'			=> true
-												));
+	Config::set('aframework.allow_styles',		true);
 	Config::set('aframework.default_style',		'default');
 	Config::set('aframework.site_author',		array(
 													'value'			=> 'Andreas Lagerkvist', 
-													'default_value'	=> 'You'
+													'description'	=> 'You'
 												));
 	Config::set('aframework.site_title',		array(
 													'value'			=> 'aFramework', 
-													'default_value'	=> 'My Awesome Site'
+													'description'	=> 'My Awesome Site'
 												));
 	Config::set('aframework.site_tagline',		array(
 													'value'			=> 'You shouldn\'t be running just aFramework', 
-													'default_value'	=> 'My space on the web'
+													'description'	=> 'My space on the web'
 												));
 	Config::set('aframework.contact_email',		'you@yourdomain.com');
 	Config::set('aframework.ga_id',				array(
-													'title'			=> 'Google analytics ID (if any)', 
+													'title'			=> 'Google analytics ID (if you use Google Analytics)', 
 													'value'			=> false
 												));
 

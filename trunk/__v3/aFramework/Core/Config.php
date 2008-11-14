@@ -25,7 +25,7 @@
 				'key'			=> $k, 
 				'highest_key'	=> $l, 
 				'title'			=> (is_array($v) and isset($v['title'])) ? htmlentities($v['title']) : htmlentities(ucfirst(str_replace('_', ' ', $l))), 
-				'default_value'	=> (is_array($v) and isset($v['default_value'])) ? htmlentities($v['default_value']) : (is_array($v) ? htmlentities($v['value']) : htmlentities($v))
+				'description'	=> (is_array($v) and isset($v['description'])) ? htmlentities($v['description']) : (is_array($v) ? htmlentities($v['value']) : htmlentities($v))
 			);
 		}
 
