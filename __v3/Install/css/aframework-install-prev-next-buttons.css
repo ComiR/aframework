@@ -16,9 +16,8 @@
 		position: absolute;
 		top: 0;
 
-		width: 78px;
+		width: 80px;
 
-		border: 1px solid transparent;
 		-moz-border-radius: 10px;
 		-webkit-border-radius: 10px;
 		border-radius: 10px;
@@ -33,11 +32,25 @@
 			text-indent: -100000px;
 			text-decoration: none;
 			outline: 0;
+
+			border: 1px solid transparent;
+			-moz-border-radius: 10px;
+			-webkit-border-radius: 10px;
+			border-radius: 10px;
 		}
 
-	#aframework-install-prev-next-buttons div:hover {
-		border-color: #06c;
-	}
+			#aframework-install-prev-next-buttons div a:hover {
+				border-color: #06c;
+			}
+
+			#aframework-install-prev-next-buttons div a.disabled {
+				opacity: .2;
+			}
+
+			#aframework-install-prev-next-buttons div a.disabled:hover {
+				cursor: default;
+				border-color: transparent;
+			}
 
 	#aframework-install-prev-next-buttons div:first-child {
 		left: 0;
