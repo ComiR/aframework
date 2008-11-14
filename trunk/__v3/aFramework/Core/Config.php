@@ -4,6 +4,7 @@
 
 		public static function set($k, $v) {
 			if(false === strpos($k, '.')) {
+				self::$config[$k] = isset(self::$config[$k]) ? self::$config[$k] : array('__info' => array());
 				self::$config[$k]['__info'] = array_merge((array)self::$config[$k]['__info'], array(
 					'name'			=> $k, 
 					'title'			=> (is_array($v) and isset($v['title'])) ? htmlentities($v['title']) : htmlentities(ucfirst(str_replace('_', ' ', $v))), 
