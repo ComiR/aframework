@@ -6,7 +6,6 @@
 		<Breadcrumbs/>
 		<Wrapper name="content">
 			<ArticlesByDate/>
-			<PostComment/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<Search ajax-run="true"/>

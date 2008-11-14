@@ -6,7 +6,7 @@
 		public static function run() {
 			# User is trying to log in
 			if(isset($_POST['admin_login_submit'])) {
-				if(isset($_POST['username']) and $_POST['username'] == ADMIN_USER and isset($_POST['password']) and $_POST['password'] == ADMIN_PASS) {
+				if(isset($_POST['username']) and $_POST['username'] == Config::get('admin.user') and isset($_POST['password']) and $_POST['password'] == Config::get('admin.pass')) {
 					if(isset($_POST['remember_login'])) {
 						setcookie(ADMIN_SESSION, true, time()+60*60*24*365, WEBROOT);
 					}

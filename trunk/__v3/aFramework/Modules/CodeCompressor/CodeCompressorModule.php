@@ -7,8 +7,8 @@
 		protected static $exclude = array();
 
 		private static $mimeTypes = array(
-			'css' => 'text/css', 
-			'js' => 'application/x-javascript'
+			'css'	=> 'text/css', 
+			'js'	=> 'application/x-javascript'
 		);
 
 		public static function run() {

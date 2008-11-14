@@ -13,7 +13,7 @@
 
 		private static function getBreadcrumbs() {
 			$cols		= array();
-			$cols[0]	= array('title' => SITE_TITLE, 'url' => Router::urlFor('Home'));
+			$cols[0]	= array('title' => Config::get('general.site_title'), 'url' => Router::urlFor('Home'));
 			$dirs		= explode('/', $_SERVER['REQUEST_URI']);
 			$validDirs	= array();
 			$i			= 1;

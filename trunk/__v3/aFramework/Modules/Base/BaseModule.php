@@ -8,7 +8,7 @@
 			self::$tplVars['html_title']		= ccFix($_GET['controller'], ' ');
 			self::$tplVars['meta_description']	= '';
 			self::$tplVars['meta_keywords']		= '';
-			self::$tplVars['style']				= (isset($_COOKIE['style'])) ? $_COOKIE['style'] : DEFAULT_STYLE;
+			self::$tplVars['style']				= (isset($_COOKIE['style'])) ? $_COOKIE['style'] : Config::get('general.default_style');
 		}
 	}
 ?>
