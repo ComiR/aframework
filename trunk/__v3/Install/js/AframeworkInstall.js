@@ -10,6 +10,7 @@ aFramework.modules.AframeworkInstall = {
 	}, 
 
 	addPrevNextButtons: function() {
+		var isInstalled	= false;
 		var container	= $('#aframework-install').scrollTo(0, {axis: 'xy'});
 		var buttons		= $('<div id="aframework-install-prev-next-buttons"><div><a href="#">Previous</a></div><div><a href="#">Next</a></div></div>').prependTo(document.body);
 		var prev		= buttons.find('a').eq(0);
@@ -73,6 +74,12 @@ aFramework.modules.AframeworkInstall = {
 			}
 			// Last step
 			else if(currStep == container.find('form > ol > li').length - 1) {
+				if(isInstalled) {
+					return false;
+				}
+
+				isInstalled = true;
+
 				var formData = container.find('form').formToArray();
 
 				formData[formData.length] = {name: 'aframework_install_submit', value: '1'};

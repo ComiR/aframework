@@ -97,7 +97,12 @@ body.js-enabled #aframework-install {
 								border-radius: 10px;
 							}
 
-							#aframework-install fieldset > ul label.checked {
+							#aframework-install fieldset > ul label:hover {
+								border-color: #06c;
+							}
+
+							#aframework-install fieldset > ul label.checked, 
+							#aframework-install fieldset > ul label.checked:hover {
 								background: url(gfx/1x1-000-op60.png);
 								border-color: #06c;
 							}
