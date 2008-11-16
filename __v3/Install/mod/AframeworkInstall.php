@@ -194,7 +194,7 @@
 								<p>
 									<label>
 										<?php echo $item['title']; ?><br />
-										<input type="text" name="config[<?php echo $item['key']; ?>]" title="<?php echo $item['description']; ?>" />
+										<input type="text" name="config[<?php echo $item['key']; ?>]"<?php echo $item['description'] != '' ? ' title="E.g. ' .$item['description'] .'"' : ''; ?>" />
 									</label>
 								</p>
 							<?php } } ?>
