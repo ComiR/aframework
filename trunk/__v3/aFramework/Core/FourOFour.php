@@ -57,6 +57,7 @@
 			}
 
 			aFramework::runModule('SearchResults');
+
 			echo str_replace('</h2>', ' on ' .Config::get('general.site_title') .'</h2>', aFramework::fetchModule('SearchResults'));
 
 			include DOCROOT .'aFramework/Files/404-stuff/foot.php';

@@ -112,7 +112,7 @@
 				}
 			}
 
-			$webroot = USE_MOD_REWRITE ? WEBROOT : ($requestedController = 'Home' ? WEBROOT : WEBROOT .'index.php/');
+			$webroot = USE_MOD_REWRITE ? WEBROOT : ($requestedController == 'Home' ? WEBROOT : WEBROOT .'index.php/');
 
 			return $url ? str_replace('//', '/', $webroot .$url) : '#';
 		}

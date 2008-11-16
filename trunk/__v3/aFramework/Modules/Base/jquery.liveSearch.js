@@ -62,7 +62,7 @@ jQuery.fn.liveSearch = function(conf) {
 	}, conf);
 
 	return this.each(function() {
-		var input		= jQuery(this);
+		var input		= jQuery(this).attr('autocomplete', 'off');
 		var tmpOffset	= input.offset();
 		var inputDim	= {
 			left:	tmpOffset.left, 

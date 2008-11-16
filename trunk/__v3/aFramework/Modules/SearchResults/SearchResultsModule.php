@@ -17,7 +17,7 @@
 		}
 
 		private static function getSearchResults($q, $start = 0) {
-			return array(
+		/*	return array(
 				'results' => array(
 					array(
 						'title' => 'Lorem ipsum', 
@@ -31,14 +31,15 @@
 					)
 				)
 			);
-
+		*/
 			$return = array();
-			$url	= 'http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=' .urlencode($q) .'%20site:' .$_SERVER['SERVER_NAME'] .'&rsz=large&start=' .$start;
+			$site	= 'http://exscale.se'; # $_SERVER['SERVER_NAME'];
+			$url	= 'http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=' .urlencode($q) .'%20site:' .$site .'&rsz=large&start=' .$start;
 			$ch		= curl_init();
 
 			curl_setopt($ch, CURLOPT_URL, $url);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_REFERER, 'http://' .$_SERVER['SERVER_NAME']);
+			curl_setopt($ch, CURLOPT_REFERER, 'http://' .'http://exscale.se'); # $_SERVER['SERVER_NAME']);
 
 			$body	= curl_exec($ch);
 

@@ -205,7 +205,7 @@
 
 				if(file_exists($modPath)) {
 					$tplFile = $modName::$tplFile === true ? $module : $modName::$tplFile;
-					$tplVars = array_merge($modName::$tplVars, $tplVars);
+					$tplVars = array_merge((array)$modName::$tplVars, $tplVars);
 
 					break;
 				}
