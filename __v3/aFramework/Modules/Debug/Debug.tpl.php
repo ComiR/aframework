@@ -2,7 +2,7 @@
 	$tplVars = aFramework::$debugInfo;
 	$tplVars['routes'] = Router::getRoutes();
 ?>
-<h2>aFramework Debug <span>- Debugging <?php echo $tplVars['controller']['site'] .'_' .$tplVars['controller']['name']; ?></span></h2>
+<h2>aFramework Debug <span>- Debugging <?php echo $tplVars['controller']['site'] .'_' .$tplVars['controller']['name']; ?></span> - <?php echo round(Timer::stop(), 2); ?> second(s) | <?php $qryInfo = dbQry(false, true); echo $qryInfo['num_queries']; ?> queries.</h2>
 
 <div id="debug-inner">
 

@@ -86,9 +86,36 @@
 						border-top: 1px solid #ccc;
 					}
 
+					h2 + ol + ul {
+						margin-left: 0;
+						padding-left: 0;
+						list-style: none;
+						text-align: center;
+					}
+
+						h2 + ol + ul > li {
+							display: inline;
+						}
+
+						h2 + ol + ul > li:after {
+							content: " | ";
+						}
+
+						h2 + ol + ul > li:last-child:after {
+							content: "";
+						}
+
+							h2 + ol + ul > li:first-child a:before {
+								content: "< ";
+							}
+
+							h2 + ol + ul > li:last-child a:after {
+								content: " >";
+							}
+
 		</style>
 
-		<title>Error: 404 - Page Not Found - <?php echo SITE_TITLE; ?></title>
+		<title>Error: 404 - Page Not Found - <?php echo Config::get('general.site_title'); ?></title>
 
 	</head>
 
