@@ -4,7 +4,7 @@
 	ini_set('display_errors', true);
 
 	# The site(s) you wanna run
-	define('SITE_HIERARCHY', 'aFramework');
+	define('SITE_HIERARCHY', 'aJqueryPluginSite aFramework');
 
 	# Include the framework
 	require_once 'aFramework/Bootstrap.php';

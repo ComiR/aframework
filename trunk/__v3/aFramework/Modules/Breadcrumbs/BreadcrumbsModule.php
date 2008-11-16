@@ -29,7 +29,7 @@
 			$numDirs	= count($dirs);
 
 			foreach($dirs as $dir) {
-				$url		= $i == $numDirs ? false : "$prevUrl/$dir/";
+				$url		= str_replace('//', '/', ($i == $numDirs ? false : (USE_MOD_REWRITE ? WEBROOT : WEBROOT .'index.php/') ."$prevUrl/$dir/"));
 				$cols[$i++]	= array('title' => ucwords(str_replace('-', ' ', $dir)), 'url' => $url);
 				$prevUrl	= "$prevUrl/$dir";
 			}

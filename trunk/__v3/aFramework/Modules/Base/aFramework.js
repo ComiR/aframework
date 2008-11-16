@@ -1,3 +1,19 @@
+try {
+    console.assert(1);
+} catch(e) {
+    if (typeof loadFirebugConsole == 'function') {
+         loadFirebugConsole();
+    }  else {
+        console = {
+            log: function() {},
+            debug: function() {},
+            info: function() {},
+            warn: function() {},
+            assert: function() {}
+        }
+    }
+}
+
 var urlForModule = function(module) {
 	return WEBROOT +'?module=' +module;
 };

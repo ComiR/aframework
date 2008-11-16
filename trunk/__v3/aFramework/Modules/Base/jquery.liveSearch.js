@@ -42,7 +42,7 @@ jQuery('#q').liveSearch({url: '/ajax/search.php?q='}); would add the live-search
 </form>
 
 @exampleJS:
-jQuery('#jquery-live-search-example input[name="q"]').liveSearch({url: WEBROOT +'?module=SearchResults&amp;q='});
+jQuery('#jquery-live-search-example input[name="q"]').liveSearch({url: WEBROOT +'?module=SearchResults&q='});
 ***/
 jQuery(document.body).click(function(e) {
 	var target		= jQuery(e.target);
@@ -54,7 +54,7 @@ jQuery(document.body).click(function(e) {
 });
 jQuery.fn.liveSearch = function(conf) {
 	var config = jQuery.extend({
-		ajaxURL:		'/?module=SearchResults&q=', 
+		url:			'/?module=SearchResults&q=', 
 		className:		'live-search-results', 
 		speed:			400, 
 		typeDelay:		200,
@@ -94,7 +94,7 @@ jQuery.fn.liveSearch = function(conf) {
 				}
 
 				this.timer = setTimeout(function() {
-					jQuery.get(config.ajaxURL +q, function(data) {
+					jQuery.get(config.url +q, function(data) {
 						input.removeClass(config.loadingClass);
 
 						if(data.length && q.length) {

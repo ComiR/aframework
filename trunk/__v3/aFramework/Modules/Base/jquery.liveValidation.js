@@ -21,7 +21,7 @@ http://creativecommons.org/licenses/by/3.0/
 2008 Andreas Lagerkvist (andreaslagerkvist.com)
 
 @requires:
-jquery, form-control-valid.png, form-control-invalid.png
+jquery, jquery.liveValidation-valid.png, jquery.liveValidation-invalid.png
 
 @does:
 Adds valid/invalid icons next to required form-controls.
