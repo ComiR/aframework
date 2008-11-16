@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Base cache-time="60">
+	<Wrapper name="wrapper">
+		<SkipNavigation/>
+		<Header/>
+		<Navigation/>
+		<Search/>
+		<Breadcrumbs/>
+		<Wrapper name="content">
+			<ArticlesByDate/>
+		</Wrapper>
+		<Wrapper name="secondary-content">
+			<RandomJqueryPlugins/>
+		</Wrapper>
+		<Wrapper name="tertiary-content">
+			<RecentComments/>
+			<BlogRoll/>
+			<TagCloud/>
+		</Wrapper>
+		<Footer/>
+	</Wrapper>
+	<ModuleListing/>
+	<Debug/>
+</Base>
