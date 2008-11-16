@@ -3,12 +3,22 @@
 	<Wrapper name="wrapper">
 		<SkipNavigation/>
 		<Header/>
+		<Navigation/>
+		<Search/>
 		<Breadcrumbs/>
 		<Wrapper name="content">
-			<JqueryPlugin/>
+			<Article/>
+			<ArticleTags/>
+			<ArticleBookmarking/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
-			<Search/>
+			<CommentListing/>
+			<PostComment/>
+		</Wrapper>
+		<Wrapper name="tertiary-content">
+			<RecentComments/>
+			<BlogRoll/>
+			<TagCloud/>
 		</Wrapper>
 		<Footer/>
 	</Wrapper>
