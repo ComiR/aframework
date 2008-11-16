@@ -15,4 +15,6 @@
 													'value'			=> 5, 
 													'title'			=> 'Minutes users need to wait between comments'
 												));
+
+	Config::set('general.site_title',			'aBlog');
 ?>

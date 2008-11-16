@@ -5,7 +5,7 @@
 	 * Runs either a single module or a controller of modules
 	 **/
 	final class aFramework {
-		public static $debugInfo	= array();
+		public static $debugInfo = array();
 
 		/**
 		 * run
@@ -258,9 +258,9 @@
 			# If $child_modules is set and $all doesn't contain
 			# it that means none of the module's template echo:ed
 			# $child_modules, append them autoamtically
-			if(isset($tplVarsAdd['child_modules']) and !empty($tplVarsAdd['child_modules']) and false === strpos($all, $tplVarsAdd['child_modules'])) {
-				$all .= $tplVarsAdd['child_modules'];
-			}
+		#	if(isset($tplVarsAdd['child_modules']) and !empty($tplVarsAdd['child_modules']) and false === strpos($all, $tplVarsAdd['child_modules'])) {
+		#		$all .= $tplVarsAdd['child_modules'];
+		#	}
 
 			return $all == '' ? false : $all;
 		}

@@ -7,4 +7,6 @@
 																'title' 		=> 'Number of recents jQuery plug-ins', 
 																'value'			=> 3
 															));
+
+	Config::set('general.site_title',						'aJqueryPluginSite');
 ?>

@@ -12,8 +12,7 @@
 		);
 
 		public static function run() {
-			self::$type		= isset($_GET['t']) and array_key_exists($_GET['t'], self::$mimeTypes) ? $_GET['t'] : 'css';
-
+			self::$type		= (isset($_GET['t']) and array_key_exists($_GET['t'], self::$mimeTypes)) ? $_GET['t'] : 'css';
 			header('Content-type: ' .self::$mimeTypes[self::$type]);
 
 			$cacheTime		= ADMIN ? 0 : 3600;
