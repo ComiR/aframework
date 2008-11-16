@@ -1,4 +1,4 @@
-aFrameWork.modules.Live = {
+aFramework.modules.Live = {
 	run: function() {
 		this.doToggleLink();
 	}, 
