@@ -1,6 +1,6 @@
 <?php
-	$docRoot = str_replace('//', '/', realpath(dirname( __FILE__ ) .'/../..') .'/');
-	$webRoot = str_replace('//', '/', '/' .substr($docRoot, strlen($_SERVER['DOCUMENT_ROOT'])));
+	$docRoot = str_replace(array('\\', '//'), '/', realpath(dirname( __FILE__ ) .'/../..') .'/');
+	$webRoot = str_replace(array('\\', '//'), '/', '/' .substr($docRoot, strlen($_SERVER['DOCUMENT_ROOT'])));
 
 	# Store all available sites, their styles and their config in array
 	$notSites	= array(
