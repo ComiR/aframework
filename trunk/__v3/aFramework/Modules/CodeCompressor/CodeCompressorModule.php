@@ -38,7 +38,7 @@
 			$fileLastModified = self::getLastModifiedFile($style);
 
 			if($cacheModified >= $fileLastModified) {
-				self::$tplVars[self::$type] = file_get_contents($cachePath);
+				self::$tplVars['code'] = file_get_contents($cachePath);
 			}
 			# No cache or old, generate new
 			else {
@@ -56,7 +56,7 @@
 				}
 
 				# Assign code to template
-				self::$tplVars[self::$type] = $code;
+				self::$tplVars['code'] = $code;
 
 				# Also create a cache
 				file_put_contents($cachePath, $code);

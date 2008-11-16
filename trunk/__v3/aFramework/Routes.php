@@ -1,7 +1,7 @@
 <?php
 	return array(
 		'/'				=> 'Home', 
-		'/admin-login/'	=> 'AdminLogin', 
+		'/admin/'		=> 'AdminLogin', 
 		'/contact/'		=> 'Contact', 
 		'/search/'		=> 'SearchResults'
 	);
