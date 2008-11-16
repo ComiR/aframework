@@ -9,10 +9,6 @@
 
 	define('AFRAMEWORK_VERSION',	'aFramework v3');
 
-	# Connect to DB
-#	mysql_connect(DB_HOST, DB_USER, DB_PASS);
-#	mysql_select_db(DB_NAME);
-
 	# Start sessions
 	session_start();
 
@@ -48,6 +44,10 @@
 			require_once $path;
 		}
 	}
+
+	# Connect to DB
+	mysql_connect(Config::get('db.host'), Config::get('db.user'), Config::get('db.pass'));
+	mysql_select_db(Config::get('db.name'));
 
 	# Core classes
 	require_once 'Core/AutoLoader.php';
