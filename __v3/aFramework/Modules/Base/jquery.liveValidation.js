@@ -101,6 +101,13 @@ jQuery.fn.liveValidation = function(conf, addedFields) {
 		jQuery(config.formControls, this).each(function() {
 			var t = jQuery(this);
 
+			if(t.is('.jquery-live-validation-on')) {
+				return;
+			}
+			else {
+				t.addClass('jquery-live-validation-on');
+			}
+
 			// Don't do anything if this field isn't required
 			if(typeof(commonFields[t.attr('name')]) === 'undefined') {
 				return;

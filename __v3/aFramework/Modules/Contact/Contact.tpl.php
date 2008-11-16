@@ -1,4 +1,4 @@
-<?php if($contact['error']) { ?>
+<?php if($error) { ?>
 	<p><strong>The form contains error(s), please make sure you've filled out all the mandatory fields correctly.</strong></p>
 <?php } ?>
 
@@ -27,8 +27,7 @@
 
 	<p>
 		<label>
-			<input type="checkbox" name="remember"<?php echo($visitor['remembered']) ? 'checked="checked"' : ''; ?> /> 
-			Remember Me
+			<input type="checkbox" name="remember"<?php echo($visitor['remembered']) ? 'checked="checked"' : ''; ?> />Remember Me
 		</label>
 	</p>
 

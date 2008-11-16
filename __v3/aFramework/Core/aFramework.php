@@ -31,7 +31,7 @@
 		 *
 		 * Runs and fetches a module
 		 **/
-		private static function runSingleModule($module) {
+		public static function runSingleModule($module) {
 			self::runModule($module);
 			return self::fetchModule($module);
 		}
@@ -41,7 +41,7 @@
 		 *
 		 * Runs and fetches all modules in a controller
 		 **/
-		private static function runController($controller) {
+		public static function runController($controller) {
 			self::$debugInfo['controller']['name'] = $controller;
 
 			$foundController = false;
@@ -82,7 +82,7 @@
 		 *
 		 * Runs all modules in a contrller starting with the oldest parent
 		 **/
-		private static function runModules($modules) {
+		public static function runModules($modules) {
 			$notElements = array('#text', '#comment', '#cdata-section');
 
 			foreach($modules as $module) {
@@ -101,7 +101,7 @@
 		 *
 		 * Fetches all module-tpls in a contrlller starting with the youngest child
 		 **/
-		private static function fetchModules($modules) {
+		public static function fetchModules($modules) {
 			$notElements = array('#text', '#comment', '#cdata-section');
 			$page = '';
 			$i = 0;
@@ -149,7 +149,7 @@
 		 *
 		 * Runs a module based on the SITE_HIERARCHY unless it's cached
 		 **/
-		private static function runModule($module) {
+		public static function runModule($module) {
 			$sites = explode(' ', SITE_HIERARCHY);
 
 			# Find the first Module-class and run it
@@ -187,7 +187,7 @@
 		 * Fetches a module based on the SITE_HIERARCHY or module's cache
 		 * Also fetches Before or After-templates
 		 **/
-		private static function fetchModule($module, $tplVarsAdd = array()) {
+		public static function fetchModule($module, $tplVarsAdd = array()) {
 			self::$debugInfo['modules'][$module]['name'] = $module;
 
 			$sites		= explode(' ', SITE_HIERARCHY);
