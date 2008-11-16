@@ -22,8 +22,7 @@
 		public static function getPagesInNavigation() {
 			$res = dbQry('
 				SELECT
-					title, 
-					url_str
+					*
 				FROM
 					' .Config::get('db.table_prefix') .'pages
 				WHERE
@@ -47,7 +46,20 @@
 		}
 
 		private static function makeNice($row) {
-			$row['url']	= Router::urlFor('Page', $row);
+			$row['url']						= Router::urlFor('Page', $row);
+
+			$row['content']					= NiceString::makeNice($row['content'], 2, false, false, true);
+			$row['content_plain']			= $row['content'];
+
+			$row['title']					= htmlentities($row['title']);
+			$row['title_plain']				= $row['content'];
+
+			$row['meta_keywords']			= htmlentities($row['meta_keywords']);
+			$row['meta_keywords_plain']		= $row['meta_keywords'];
+
+			$row['meta_description']		= htmlentities($row['meta_description']);
+			$row['meta_description_plain']	= $row['meta_description'];
+
 			return $row;
 		}
 	}
