@@ -10,7 +10,7 @@
 </ul>
 
 <p>
-	Copyright &copy; <?php echo date('Y'); ?> <?php echo SITE_AUTHOR; ?>. <a href="http://creativecommons.org/licenses/by/3.0/" title="All articles, content, scripts, images, etc are released under a CCv3">Some Rights Reserved</a>.<br />
+	Copyright &copy; <?php echo date('Y'); ?> <?php echo Config::get('general.site_author'); ?>. <a href="http://creativecommons.org/licenses/by/3.0/" title="All articles, content, scripts, images, etc are released under a CCv3">Some Rights Reserved</a>.<br />
 	<small>
 		<?php echo Config::get('general.site_title'); ?> is powered by 
 		<?php
@@ -28,6 +28,6 @@
 					}
 				}
 			}
-		?>. <?php echo Timer::end(); ?> second(s) | <?php echo dbQry(false, true); ?> queries.
+		?>. <?php echo Timer::stop(); ?> second(s) | <?php echo dbQry(false, true); ?> queries.
 	</small>
 </p>
