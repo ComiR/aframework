@@ -8,7 +8,6 @@
 		'..', 
 		'.svn', 
 		'Install', 
-		'aJqueryPluginSite', 
 		'aSimplePortfolio', 
 		'aDynAdmin', 
 		'AndreasLagerkvist'
