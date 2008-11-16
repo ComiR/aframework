@@ -18,6 +18,6 @@
 					}
 				}
 			}
-		?>. <?php echo round(Timer::stop(), 2); ?> second(s), <?php $qryInfo = dbQry(false, true); echo $qryInfo['num_queries']; ?> querie(s).
+		?>. <?php echo round(Timer::stop(), 2); ?> second(s), <?php $qryInfo = dbQry(false, true); echo $qryInfo['num_queries']; ?> query(ies).
 	</small>
 </p>
