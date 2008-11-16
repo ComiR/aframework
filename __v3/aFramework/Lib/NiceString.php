@@ -2,7 +2,7 @@
 	require_once 'Markdown.php';
 
 	class NiceString {
-		public static function makeNice($str, $markdownHeadingLevel = false, $cutMore = false, $subStr = false, $allowHTMLBlocks = false, $foo = false) {
+		public static function makeNice($str, $markdownHeadingLevel = false, $cutMore = false, $subStr = false, $allowHTMLBlocks = false) {
 			$htmlBlocks = array();
 			$codeBlocks = array();
 
