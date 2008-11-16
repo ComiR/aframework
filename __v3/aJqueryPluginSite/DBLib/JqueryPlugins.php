@@ -90,7 +90,7 @@
 
 			$row['real_url']			= htmlentities($row['url']);
 			$row['url_str']				= strtolower(ccFix($row['name'], '-'));
-			$row['url']					= Router::urlFor('JqueryPlugin', $row);
+			$row['url']					= Router::urlFor('JqueryPlugin', array('url_str' => $row['url_str']));
 
 			$row['license']				= htmlentities($row['license']);
 			$row['copyright']			= htmlentities($row['copyright']);
@@ -127,6 +127,7 @@
 				if('css' == $ext and file_exists(DOCROOT .'aFramework/Styles/__common/' .$req)) {
 					$pluginFiles[] = array(
 						'name'	=> $req, 
+						'ext'	=> $ext, 
 						'url'	=> WEBROOT .'aFramework/Styles/__common/' .$req, 
 						'size'	=> filesize(DOCROOT .'aFramework/Styles/__common/' .$req)
 					);
@@ -134,6 +135,8 @@
 				elseif(in_array($ext, array('png', 'gif', 'jpg')) and file_exists(DOCROOT .'aFramework/Styles/__common/gfx/' .$req)) {
 					$pluginFiles[] = array(
 						'name'	=> $req, 
+						'ext'	=> $ext, 
+						'img'	=> true, 
 						'url'	=> WEBROOT .'aFramework/Styles/__common/gfx/' .$req
 					);
 				}
@@ -143,6 +146,7 @@
 
 					$tmpPlugin = array(
 						'name'	=> 'jquery.' .$req .'.js', 
+						'ext'	=> 'js', 
 						'url'	=> WEBROOT .'aFramework/Modules/Base/jquery.' .$req .'.js', 
 						'size'	=> filesize(DOCROOT .'aFramework/Modules/Base/jquery.' .$req .'.js'), 
 						'psize'	=> $psize
@@ -158,6 +162,7 @@
 				elseif('jquery' != strtolower($req)) {
 					$requirementFiles[] = array(
 						'name'	=> $req, 
+						'ext'	=> $ext, 
 						'url'	=> false, 
 						'size'	=> false
 					);

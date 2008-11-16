@@ -19,6 +19,7 @@
 </div>
 
 <script type="text/javascript">
+	//<![CDATA[
 	<?php if(NAKED_DAY) { ?>
 		alert('It\'s naked day today and jQuery isn\'t included on my site so the example will not work. You can still check out the source-code and download the plug-in of course.');
 	<?php } else { ?>
@@ -39,6 +40,7 @@
 			<?php echo "\n" .$plugin['example_js'] ."\n"; ?>
 		});
 	<?php } ?>
+	//]]>
 </script>
 
 <h4>Example code</h4>
@@ -71,6 +73,9 @@
 					<?php } ?>
 				</small>
 			<?php } ?>
+			<?php if($file['img']) { ?>
+				 <img src="<?php echo $file['url']; ?>" alt="" />
+			<?php } ?>
 		</li>
 	<?php } ?>
 </ul>
@@ -82,7 +87,7 @@
 		<li>
 			<a href="<?php echo $file['url']; ?>"><?php echo $file['name']; ?></a>
 			<?php if($file['size']) { ?>
-				 <small>
+				<small>
 					(<?php echo round($file['size'] / 1024, 2); ?> kb unpacked)
 					<?php if($file['psize']) { ?>
 						 (<!--<?php #echo round($file['psize'] / 1024, 2); ?> kb --><a href="<?php echo WEBROOT; ?>?module=JSPacker&amp;file=<?php echo $file['url']; ?>">minified</a>)

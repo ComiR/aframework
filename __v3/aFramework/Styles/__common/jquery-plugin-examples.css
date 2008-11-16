@@ -17,9 +17,17 @@ $jquery-example-box {
 #jquery-center-example p:last-child = $jquery-example-box;
 
 /*
-	=== Vibrate===
+	=== Vibrate ===
 */
 #jquery-vibrate-example = $jquery-example-box;
+
+/*
+	=== Checked checkbox parent ===
+*/
+#jquery-checked-checkbox-parent-example label.checked {
+	background: #369;
+	color: #fff;
+}
 
 /*
 	=== Equal Height ===
