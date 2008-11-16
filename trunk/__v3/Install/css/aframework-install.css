@@ -46,6 +46,7 @@ body.js-enabled #aframework-install {
 					#aframework-install legend, 
 					#aframework-install h3 {
 						margin: 0;
+						padding: 0;
 						font: 28px/1.2 Helvetica, Arial, sans-serif;
 					}
 

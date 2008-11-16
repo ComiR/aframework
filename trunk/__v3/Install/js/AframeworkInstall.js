@@ -22,6 +22,29 @@ aFramework.modules.AframeworkInstall = {
 			easing:		'easeOutQuad'
 		};
 
+		// If user clicks tab or enter in form
+		var hijaxTabAndEnter = function() {
+			$('#aframework-install :input').keypress(function(e) {
+				var fieldset			= $(this).parents('fieldset').eq(0);
+				var allInputsInFieldset	= fieldset.find(':input');
+				var thisIndex			= allInputsInFieldset.index(this);
+				var nextFieldset		= fieldset.parents('li').eq(0).nextAll('li').eq(0).find('fieldset');
+
+				if(e.keyCode == 13 || e.keyCode == 9) {
+					if(thisIndex == (allInputsInFieldset.length - 1)) {
+						gotoNext(function() {
+							nextFieldset.find(':input').eq(0).focus();
+						});
+
+						return false;
+					}
+					if(e.keyCode == 13) {
+						return false;
+					}
+				}
+			});
+		};
+
 		// Animates content-height and scroll content from cStep to nStep, is run when user clicks prv/next-buttons
 		var gotoStep = function(nStep, cStep) {
 			// Get all steps
@@ -44,39 +67,10 @@ aFramework.modules.AframeworkInstall = {
 			return false;
 		};
 
-		// Disable previous-button, remove submit-button, set container's height to 0 and fade in wrapper
-		prev.addClass('disabled');
-		container.find('form > p').remove();
-		container.css('height', 0);
-		$('#wrapper-c').css('opacity', 1);
+		// Goes to next step
+		var gotoNext = function(cb) {
+			var callback = typeof(cb) == 'function' ? cb : function() {};
 
-		// After 2 secs, animate container to the first step's height and then fade in the buttons
-		setTimeout(function() {
-			container.animate({height: container.find('form > ol > li').eq(0).outerHeight() +'px'}, 500, function() {
-				buttons.animate({opacity: 1}, 500);
-			})
-		}, 2000);
-
-		// When user clicks the previous-button
-		prev.click(function() {
-			// Either enable or disable it
-			if((currStep - 1) > 0) {
-				prev.removeClass('disabled');
-			}
-			else {
-				prev.addClass('disabled');
-			}
-
-			// And try to go to previous step
-			if(gotoStep(currStep - 1, currStep)) {
-				currStep--; // Only adjust currentStep if success
-			}
-
-			return false;
-		});
-
-		// When user clicks next-button
-		next.click(function() {
 			// Enable previous button
 			if((currStep + 1) > 0) {
 				prev.removeClass('disabled');
@@ -92,6 +86,8 @@ aFramework.modules.AframeworkInstall = {
 					container.html($(data).checkedCheckboxParent().html()).formHints();
 
 					aFramework.modules.AframeworkInstall.ajaxifyStylesSelection();
+					hijaxTabAndEnter();
+					callback();
 
 					if(gotoStep(currStep + 1, currStep)) {
 						currStep++;
@@ -141,8 +137,49 @@ aFramework.modules.AframeworkInstall = {
 			// The other steps, just go to next
 			else if(gotoStep(currStep + 1, currStep)) {
 				currStep++;
+				callback();
+			}
+		};
+
+		// Goes to previous ste
+		var gotoPrevious = function() {
+			// Either enable or disable previous-button
+			if((currStep - 1) > 0) {
+				prev.removeClass('disabled');
+			}
+			else {
+				prev.addClass('disabled');
 			}
 
+			// And try to go to previous step
+			if(gotoStep(currStep - 1, currStep)) {
+				currStep--; // Only adjust currentStep if success
+			}
+		};
+
+		// Disable previous-button, remove submit-button, set container's height to 0 and fade in wrapper
+		prev.addClass('disabled');
+		container.find('form > p').remove();
+		container.css('height', 0);
+		$('#wrapper-c').css('opacity', 1);
+		hijaxTabAndEnter();
+
+		// After 2 secs, animate container to the first step's height and then fade in the buttons
+		setTimeout(function() {
+			container.animate({height: container.find('form > ol > li').eq(0).outerHeight() +'px'}, 500, function() {
+				buttons.animate({opacity: 1}, 500);
+			})
+		}, 2000);
+
+		// When user clicks the previous-button
+		prev.click(function() {
+			gotoPrevious();
+			return false;
+		});
+
+		// When user clicks next-button
+		next.click(function() {
+			gotoNext();
 			return false;
 		});
 	}
