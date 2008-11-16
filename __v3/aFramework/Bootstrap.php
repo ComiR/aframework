@@ -46,8 +46,8 @@
 	}
 
 	# Connect to DB
-	mysql_connect(Config::get('db.host'), Config::get('db.user'), Config::get('db.pass'));
-	mysql_select_db(Config::get('db.name'));
+	mysql_connect(Config::get('db.host'), Config::get('db.user'), Config::get('db.pass')) or die('Unable to connect to MySQL');
+	mysql_select_db(Config::get('db.name')) or die('Unable to select DB');
 
 	# Core classes
 	require_once 'Core/AutoLoader.php';
