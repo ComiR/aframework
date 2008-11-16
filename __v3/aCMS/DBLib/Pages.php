@@ -1,13 +1,11 @@
 <?php
 	class Pages {
 		public static function getPageByUrlStr($urlStr) {
-			return false;
-
 			$res = dbQry('
 				SELECT
 					*
 				FROM
-					pages
+					' .Config::get('db.table_prefix') .'pages
 				WHERE
 					url_str = "' .escape($urlStr) .'"
 				LIMIT 1
@@ -22,14 +20,12 @@
 		}
 
 		public static function getPagesInNavigation() {
-			return false;
-
 			$res = dbQry('
 				SELECT
 					title, 
 					url_str
 				FROM
-					pages
+					' .Config::get('db.table_prefix') .'pages
 				WHERE
 					in_navigation = 1
 				ORDER BY
@@ -51,6 +47,7 @@
 		}
 
 		private static function makeNice($row) {
+			$row['url']	= Router::urlFor('Page', $row);
 			return $row;
 		}
 	}

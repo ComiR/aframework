@@ -10,7 +10,7 @@
 												));
 	Config::set('db.pass',						array(
 													'title'			=> 'Password', 
-													'value'			=> ''
+													'value'			=> 'root'
 												));
 	Config::set('db.host',						array(
 													'title'			=> 'Host', 
