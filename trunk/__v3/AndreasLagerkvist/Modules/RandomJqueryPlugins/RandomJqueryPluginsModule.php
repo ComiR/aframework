@@ -8,7 +8,7 @@
 
 			shuffle(self::$tplVars['plugins']);
 
-			self::$tplVars['plugins'] = array_slice(self::$tplVars['plugins'], 0, 3);
+			self::$tplVars['plugins'] = array_slice(self::$tplVars['plugins'], 0, Config::get('alcom.num_random_plugins'));
 		}
 	}
 ?>
