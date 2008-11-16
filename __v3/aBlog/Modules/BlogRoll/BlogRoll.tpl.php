@@ -1,5 +1,5 @@
 <ul>
-	<?php for($i = 0; $i < 4; $i++) { ?>
-		<li><a href="{$br.url}">{$br.title}</a><br />{$br.description}</li>
+	<?php foreach($links as $l) { ?>
+		<li><a href="<?php echo $l['url']; ?>"><?php echo $l['title']; ?></a><br /><?php echo $l['description']; ?></li>
 	<?php } ?>
 </ul>

@@ -32,13 +32,13 @@
 			');
 
 			if(mysql_num_rows($res)) {
-				$pages = array();
+				$rows = array();
 				
 				while($row = mysql_fetch_assoc($res)) {
-					$pages[] = self::makeNice($row);
+					$rows[] = self::makeNice($row);
 				}
 
-				return $pages;
+				return $rows;
 			}
 			else {
 				return false;
@@ -52,7 +52,7 @@
 			$row['content_plain']			= $row['content'];
 
 			$row['title']					= htmlentities($row['title']);
-			$row['title_plain']				= $row['content'];
+			$row['title_plain']				= $row['title'];
 
 			$row['meta_keywords']			= htmlentities($row['meta_keywords']);
 			$row['meta_keywords_plain']		= $row['meta_keywords'];
