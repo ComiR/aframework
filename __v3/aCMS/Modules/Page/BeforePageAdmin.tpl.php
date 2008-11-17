@@ -1,0 +1,1 @@
+<h2><?php echo $pages_id ? 'Edit' : 'Add'; ?> page</h2>

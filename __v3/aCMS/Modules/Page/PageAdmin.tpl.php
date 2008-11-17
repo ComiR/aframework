@@ -1,8 +1,12 @@
+<?php if($errors) { ?>
+	<p><strong>The form contains errors. Please make sure you have filled out everything correctly.</strong></p>
+<?php } ?>
+
 <form method="post" action="">
 
 	<p>
 		<label>
-			URL String<br />
+			<strong>*</strong> URL String<br />
 			<input type="text" name="url_str" value="<?php echo htmlentities($url_str); ?>" />
 		</label>
 	</p>
@@ -23,7 +27,7 @@
 
 	<p>
 		<label>
-			Page title<br />
+			<strong>*</strong> Page title<br />
 			<input type="text" name="title" value="<?php echo htmlentities($title_plain); ?>" />
 		</label>
 	</p>
@@ -44,7 +48,7 @@
 
 	<p>
 		<label>
-			Content<br />
+			<strong>*</strong> Content<br />
 			<textarea name="content" rows="20" cols="60"><?php echo htmlentities($content_plain); ?></textarea>
 		</label>
 	</p>
@@ -52,7 +56,7 @@
 	
 	<p>
 		<input type="hidden" name="pages_id" value="<?php echo $pages_id; ?>" />
-		<input type="hidden" name="add_page_submit" value="true" />
+		<input type="hidden" name="page_submit" value="true" />
 		<input type="submit" value="<?php echo $pages_id ? 'Save' : 'Add'; ?>" />
 	</p>
 

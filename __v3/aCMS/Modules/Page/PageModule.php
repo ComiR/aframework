@@ -9,6 +9,9 @@
 			if(isset($_POST['page_submit']) and ADMIN) {
 				self::updatePage($_POST);
 			}
+			if(isset($_POST['page_delete_submit']) and ADMIN) {
+				self::deletePage($_POST['page_delete_submit']);
+			}
 		}
 
 		private static function showThePage() {
@@ -33,8 +36,38 @@
 			}
 		}
 
+		private static function deletePage($id) {
+			Pages::delete($id);
+		}
+
 		private static function updatePage($row) {
-			
+			# If a page ID is set, update
+			if(!empty($_POST['pages_id']) and is_numeric($_POST['pages_id'])) {
+				Pages::update($_POST);
+
+				if(!XHR) {
+					redirect('?updated_page');
+				}
+			}
+			# Not set, insert
+			else {
+				# Make sure mandatory fields are filled out
+				if(
+					isset($_POST['title']) and !empty($_POST['title']) and 
+					isset($_POST['content']) and !empty($_POST['content']) and 
+					isset($_POST['url_str']) and !empty($_POST['url_str'])
+				) {
+					Pages::insert($_POST);
+
+					if(!XHR) {
+						redirect(Router::urlFor('Page', array('url_str' => $_POST['url_str'])));
+					}
+				}
+				# Errors in form
+				else {
+					self::$tplVars['errors'] = true;
+				}
+			}
 		}
 	}
 ?>
