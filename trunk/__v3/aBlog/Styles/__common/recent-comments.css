@@ -1,0 +1,87 @@
+#recent-comments li {
+	margin-bottom: 5px;
+	padding: 0 0 0 35px;
+	position: relative;
+}
+
+	#recent-comments img {
+		position: absolute;
+		left: 0;
+		top: 4px;
+
+		width: 25px;
+		height: 25px;
+
+		border: 2px solid #dd8;
+	}
+
+	#recent-comments img:hover {
+		width: 61px;
+		height: 61px;
+
+		left: -18px;
+		top: -22px;
+	}
+
+body.admin #recent-comments ol li {
+	padding-right: 25px;
+}
+
+	body.admin #recent-comments ol li a:last-child {
+		background: url(/__files/misc/file-uploader/rubbish-bin.gif) no-repeat;
+
+		display: block;
+		width: 16px;
+		height: 18px;
+
+		text-decoration: none;
+		text-indent: -10000px;
+		outline: 0;
+
+		position: absolute;
+		right: 0;
+		top: 0;
+	}
+
+#recent-comments ul, 
+#sub-content #recent-comments ul {
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+}
+
+#recent-comments ul:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+	#recent-comments ul li:before, 
+	#recent-comments ul li:after, 
+	#sub-content #recent-comments ul li:before, 
+	#sub-content #recent-comments ul li:after {
+		content: "";
+	}
+
+	#recent-comments ul li {
+		float: right;
+		padding: 0;
+	}
+	
+	#recent-comments ul li:first-child {
+		float: left;
+	}
+
+		#recent-comments ul li a:after {
+			content: " >"; /*»*/
+		}
+	
+		#recent-comments ul li:first-child a:before {
+			content: "< "; /*«*/
+		}
+	
+		#recent-comments ul li:first-child a:after {
+			content: "";
+		}

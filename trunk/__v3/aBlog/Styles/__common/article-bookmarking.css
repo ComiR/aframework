@@ -1,0 +1,14 @@
+#article-bookmarking ul {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+	#article-bookmarking ul li {
+		display: inline;
+		margin-right: 5px;
+	}
+
+		#article-bookmarking ul li img {
+			border: 0;
+		}
