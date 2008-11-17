@@ -18,7 +18,7 @@
 
 			if(ADMIN) {
 				self::$tplVars['nav_items'][] = array(
-					'title'	=> 'Add page', 
+					'title'	=> 'Add page +', 
 					'url' => Router::urlFor('AddPage')
 				);
 			}
