@@ -46,7 +46,26 @@
 		}
 
 		public static function insert($row) {
-			
+			$pubDate	= isset($row['pub_date']) ? $row['pub_date'] : time();
+			$inNav		= $row['in_navigation'] ? true : false;
+
+			dbQry('
+				INSERT INTO
+					pages
+				VALUES (
+					"", 
+					"' .esc($row['url_str']) .'", 
+					"' .esc($pubDate) .'", 
+					"' .esc($inNav) .'", 
+					"' .esc($row['priority']) .'", 
+					"' .esc($row['title']) .'", 
+					"' .esc($row['meta_keywords']) .'", 
+					"' .esc($row['meta_description']) .'", 
+					"' .esc($row['content']) .'"
+				)
+			');
+
+			return mysql_insert_id();
 		}
 
 		private static function makeNice($row) {
