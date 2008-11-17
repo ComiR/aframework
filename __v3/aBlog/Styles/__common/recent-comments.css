@@ -1,46 +1,52 @@
-#recent-comments ol li {
-	margin-bottom: 5px;
-	padding: 0 0 0 35px;
-	position: relative;
+#recent-comments ol {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
 }
 
-body.admin #recent-comments ol li {
-	padding-right: 25px;
-}
-
-	body.admin #recent-comments ol li a:last-child {
-		background: url(/__files/misc/file-uploader/rubbish-bin.gif) no-repeat;
-
-		display: block;
-		width: 16px;
-		height: 18px;
-
-		text-decoration: none;
-		text-indent: -10000px;
-		outline: 0;
-
-		position: absolute;
-		right: 0;
-		top: 0;
+	#recent-comments ol li {
+		margin-bottom: 5px;
+		padding: 0 0 0 35px;
+		position: relative;
 	}
 
-	#recent-comments ol li img {
-		position: absolute;
-		left: 0;
-		top: 4px;
-
-		width: 25px;
-		height: 25px;
-
-		border: 2px solid #dd8;
+	body.admin #recent-comments ol li {
+		padding-right: 25px;
 	}
 
-	#recent-comments ol li img:hover {
-		width: 61px;
-		height: 61px;
+		body.admin #recent-comments ol li a:last-child {
+			background: url(/__files/misc/file-uploader/rubbish-bin.gif) no-repeat;
 
-		left: -18px;
-		top: -22px;
-	}
+			display: block;
+			width: 16px;
+			height: 18px;
+
+			text-decoration: none;
+			text-indent: -10000px;
+			outline: 0;
+
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+		#recent-comments ol li img {
+			position: absolute;
+			left: 0;
+			top: 4px;
+
+			width: 25px;
+			height: 25px;
+
+			border: 2px solid #dd8;
+		}
+
+		#recent-comments ol li img:hover {
+			width: 61px;
+			height: 61px;
+
+			left: -18px;
+			top: -22px;
+		}
 
 #recent-comments ul = $previous-next-menu;
