@@ -7,7 +7,7 @@
 				FROM
 					' .Config::get('db.table_prefix') .'pages
 				WHERE
-					url_str = "' .escape($urlStr) .'"
+					url_str = "' .esc($urlStr) .'"
 				LIMIT 1
 			');
 
@@ -46,26 +46,42 @@
 		}
 
 		public static function insert($row) {
-			$pubDate	= isset($row['pub_date']) ? $row['pub_date'] : time();
-			$inNav		= $row['in_navigation'] ? true : false;
+			$pubDate	= isset($row['pub_date']) ? $row['pub_date'] : date('Y-m-d H:i:s');
+			$priority	= (isset($row['priority']) and is_numeric($row['priority'])) ? $row['priority'] : 0;
+			$inNav		= $row['in_navigation'] ? 1 : 0;
 
 			dbQry('
-				INSERT INTO
-					pages
-				VALUES (
-					"", 
-					"' .esc($row['url_str']) .'", 
-					"' .esc($pubDate) .'", 
-					"' .esc($inNav) .'", 
-					"' .esc($row['priority']) .'", 
-					"' .esc($row['title']) .'", 
-					"' .esc($row['meta_keywords']) .'", 
-					"' .esc($row['meta_description']) .'", 
-					"' .esc($row['content']) .'"
+				INSERT INTO pages (
+					url_str, 
+					pub_date, 
+					in_navigation, 
+					priority, 
+					title, 
+					meta_keywords, 
+					meta_description, 
+					content
 				)
+				VALUES (
+					\'' .esc($row['url_str']) .'\', 
+					\'' .esc($pubDate) .'\', 
+					' .esc($inNav) .', 
+					\'' .esc($priority) .'\', 
+					\'' .esc($row['title']) .'\', 
+					\'' .esc($row['meta_keywords']) .'\', 
+					\'' .esc($row['meta_description']) .'\', 
+					\'' .esc($row['content']) .'\'
+					)
 			');
 
 			return mysql_insert_id();
+		}
+
+		public static function update($row) {
+
+		}
+
+		public static function delete($id) {
+
 		}
 
 		private static function makeNice($row) {
