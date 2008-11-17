@@ -94,7 +94,7 @@
 	}
 
 	# Like mysql_real_escape_string
-	function escape($str) {
+	function esc($str) {
 		return mysql_real_escape_string(stripslashes($str));
 	//	return (get_magic_quotes_gpc()) ? $str : mysql_real_escape_string($str); // this caused problems somewhere...
 	}
