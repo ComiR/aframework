@@ -1,0 +1,16 @@
+#blog-roll ul {
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+}
+
+	#blog-roll ul li {
+		position: relative;
+		padding: 0 0 0 20px;
+	}
+
+		#blog-roll ul li img {
+			position: absolute;
+			left: 0;
+			top: 3px;
+		}
