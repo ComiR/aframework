@@ -1,5 +1,5 @@
 <ol>
-	<?php for($i = 0; $i < 3; $i++) { ?>
+	<?php for($i = 0; $i < Config::get('ablog.num_recent_stuff'); $i++) { ?>
 		<li>
 			<h3><a href="#">Older article <?php echo $i; ?></a></h3>
 
