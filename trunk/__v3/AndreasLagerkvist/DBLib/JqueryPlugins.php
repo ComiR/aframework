@@ -101,7 +101,7 @@
 			$row['howto']				= NiceString::makeNice($row['howto'], 4);
 
 			$row['example_html']		= $row['exampleHTML'];
-			$row['example_html_code']	= NiceString::makeNice('[code]' .$row['example_html'] .'[/code]');
+			$row['example_html_code']	= NiceString::makeNice('[code]<div id="jquery-' .$row['url_str'] ."-example\">\n" .$row['example_html'] ."\n</div>[/code]");
 
 			$row['example_js']			= $row['exampleJS'];
 			$row['example_js_code']		= NiceString::makeNice('[code]' .$row['exampleJS'] .'[/code]');
