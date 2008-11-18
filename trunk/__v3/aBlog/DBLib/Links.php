@@ -24,15 +24,40 @@
 			}
 		}
 
+		public static function insert($row) {
+			dbQry('
+				INSERT INTO ' .Config::get('db.table_prefix') .'links (
+					title, 
+					description, 
+					url
+				)
+				VALUES (
+					\'' .esc($row['title']) .'\', 
+					\'' .esc($row['description']) .'\', 
+					\'' .esc($row['url']) .'\'
+				)
+			');
+
+			return mysql_insert_id();
+		}
+
+		public static function update($row) {
+
+		}
+
+		public static function delete($id) {
+			dbQry('DELETE FROM links WHERE links_id = ' .esc($id));
+		}
+
 		private static function makeNice($row) {
-			$row['title']				= htmlentities($row['title']);
 			$row['title_plain']			= $row['title'];
+			$row['title']				= htmlentities($row['title']);
 
-			$row['description']			= htmlentities($row['description']);
 			$row['description_plain']	= $row['description'];
+			$row['description']			= htmlentities($row['description']);
 
-			$row['url']					= htmlentities($row['url']);
 			$row['url_plain']			= $row['url'];
+			$row['url']					= htmlentities($row['url']);
 
 			return $row;
 		}
