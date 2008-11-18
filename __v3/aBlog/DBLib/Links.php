@@ -1,13 +1,15 @@
 <?php
-	class Links{
-		public static function getLinks() {
+	class Links {
+		public static function getLinks($sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000) {
 			$res = dbQry('
 				SELECT
 					*
 				FROM
 					' .Config::get('db.table_prefix') .'links
 				ORDER BY
-					title ASC
+					' .esc($sort) .' ' .esc($order) .'
+				LIMIT
+					' .esc($start) .', ' .esc($limit) .'
 			');
 
 			if(mysql_num_rows($res)) {

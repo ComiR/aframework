@@ -4,14 +4,14 @@
 		public static $tplFile = true;
 
 		public static function run() {
-			self::showThePage();
-
 			if(isset($_POST['page_submit']) and ADMIN) {
 				self::updatePage($_POST);
 			}
 			if(isset($_POST['page_delete_submit']) and ADMIN) {
 				self::deletePage($_POST['page_delete_submit']);
 			}
+
+			self::showThePage();
 		}
 
 		private static function showThePage() {
@@ -42,7 +42,7 @@
 
 		private static function updatePage($row) {
 			# If a page ID is set, update
-			if(!empty($_POST['pages_id']) and is_numeric($_POST['pages_id'])) {
+			if(!empty($row['pages_id']) and is_numeric($row['pages_id'])) {
 				Pages::update($_POST);
 
 				if(!XHR) {
@@ -53,14 +53,14 @@
 			else {
 				# Make sure mandatory fields are filled out
 				if(
-					isset($_POST['title']) and !empty($_POST['title']) and 
-					isset($_POST['content']) and !empty($_POST['content']) and 
-					isset($_POST['url_str']) and !empty($_POST['url_str'])
+					isset($row['title']) and !empty($row['title']) and 
+					isset($row['content']) and !empty($row['content']) and 
+					isset($row['url_str']) and !empty($row['url_str'])
 				) {
-					Pages::insert($_POST);
+					Pages::insert($row);
 
 					if(!XHR) {
-						redirect(Router::urlFor('Page', array('url_str' => $_POST['url_str'])));
+						redirect(Router::urlFor('Page', array('url_str' => $row['url_str'])));
 					}
 				}
 				# Errors in form
