@@ -15,7 +15,7 @@
 			self::$type		= (isset($_GET['t']) and array_key_exists($_GET['t'], self::$mimeTypes)) ? $_GET['t'] : 'css';
 			header('Content-type: ' .self::$mimeTypes[self::$type]);
 
-			$cacheTime		= ADMIN ? 0 : 3600;
+			$cacheTime		= ADMIN ? 0 : 0; # 3600
 			$style			= removeDots(@$_GET['s']);
 			$cachePath		= DOCROOT .'aFramework/Cache/' .CURRENT_SITE .'_' .$style .'.' .self::$type;
 			$cacheExists	= file_exists($cachePath);

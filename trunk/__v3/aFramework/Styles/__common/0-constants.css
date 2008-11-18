@@ -224,7 +224,7 @@ $floated-list {
 	margin-left: 0;
 	padding-left: 0;
 	list-style: none;
-
+	
 	_height: 1%;
 	*display: inline-block;
 	_display: block;
@@ -241,7 +241,6 @@ $floated-list:after {
 	$floated-list > li {
 		float: left;
 	}
-
 
 /**
  * A11y hide
