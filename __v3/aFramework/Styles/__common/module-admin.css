@@ -1,10 +1,10 @@
 /* Modules that are used and rendered on the page 
    (fucks up design a bit but is pretty much required for drag-n-drop to work properlings) */
-div.module-listing-used-module {
+div.module-admin-used-module {
 	position: relative;
 }
 
-	div.module-listing-used-module button[title^="Remove module "] {
+	div.module-admin-used-module button[title^="Remove module "] {
 		position: absolute;
 		left: 0;
 		top: 0;
@@ -13,23 +13,23 @@ div.module-listing-used-module {
 		cursor: pointer;
 	}
 
-	div.module-listing-used-module button[title^="Remove module "]:hover {
+	div.module-admin-used-module button[title^="Remove module "]:hover {
 		opacity: 1;
 	}
 
 /* When a module is to be inserted before this module */
-div.module-listing-insert-module-before {
+div.module-admin-insert-module-before {
 	border-top: 5px dotted #f90;
 	padding-top: 5px;
 }
 
 /* When a module is to be inserted into this module */
-div.module-listing-append-module-to {
+div.module-admin-append-module-to {
 	outline: 5px dotted #f90;
 }
 
-/* The module-listing */
-#module-listing {
+/* The module-admin */
+#module-admin {
 	background: #fff;
 
 	min-width: 100px;
@@ -50,11 +50,11 @@ div.module-listing-append-module-to {
 	border: 1px solid #369;
 }
 
-#module-listing:hover {
+#module-admin:hover {
 	opacity: 1;
 }
 
-body.js-disabled #module-listing {
+body.js-disabled #module-admin {
 	position: fixed;
 	right: 0;
 	top: 0;
@@ -67,7 +67,7 @@ body.js-disabled #module-listing {
 	overflow-x: hidden;
 }
 
-	#module-listing h2 {
+	#module-admin h2 {
 		background: #369;
 
 		margin: 0 -5px 5px -5px;
@@ -77,12 +77,12 @@ body.js-disabled #module-listing {
 		color: #fff;
 	}
 
-	body.js-enabled #module-listing h2, 
-	body.js-enabled #module-listing h3 {
+	body.js-enabled #module-admin h2, 
+	body.js-enabled #module-admin h3 {
 		cursor: move;
 	}
 
-	#module-listing div {
+	#module-admin div {
 		background: #fff;
 
 		margin: 0 0 5px;
@@ -91,11 +91,11 @@ body.js-disabled #module-listing {
 		border: 1px solid #369;
 	}
 
-	body.js-enabled #module-listing div.in-use {
+	body.js-enabled #module-admin div.in-use {
 		display: none;
 	}
 
-		#module-listing div h3 {
+		#module-admin div h3 {
 			background: #369;
 
 			margin: -5px -5px 5px -5px;
@@ -105,6 +105,6 @@ body.js-disabled #module-listing {
 			color: #fff;
 		}
 
-		#module-listing div.in-use h3 {
+		#module-admin div.in-use h3 {
 			color: yellow;
 		}

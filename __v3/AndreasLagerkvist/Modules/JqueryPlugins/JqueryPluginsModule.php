@@ -1,5 +1,5 @@
 <?php
-	class AndreasLagerkvist_JqueryPluginListingModule {
+	class AndreasLagerkvist_JqueryPluginsModule {
 		public static $tplVars = array();
 		public static $tplFile = true;
 
