@@ -1,6 +1,6 @@
 <?php
 	return array(
-		'/jquery/'			=> 'JqueryPluginListing', 
+		'/jquery/'			=> 'JqueryPlugins', 
 		'/jquery/:url_str/'	=> 'JqueryPlugin'
 	);
 ?>
