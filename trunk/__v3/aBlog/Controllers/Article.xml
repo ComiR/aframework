@@ -18,6 +18,6 @@
 		</Wrapper>
 		<Footer/>
 	</Wrapper>
-	<Modules/>
+	<ModuleAdmin/>
 	<Debug/>
 </Base>
