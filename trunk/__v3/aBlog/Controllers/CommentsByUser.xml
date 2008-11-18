@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Base cache-time="60">
+	<Wrapper name="wrapper">
+		<SkipNavigation/>
+		<Header/>
+		<Breadcrumbs/>
+		<Wrapper name="content">
+			<Comments/>
+		</Wrapper>
+		<Wrapper name="secondary-content">
+			<Search ajax-run="true"/>
+			<TagCloud ajax-run="true"/>
+			<RecentArticles ajax-run="true"/>
+			<RecentComments ajax-run="true"/>
+		</Wrapper>
+		<Footer/>
+	</Wrapper>
+	<Modules/>
+	<Debug/>
+</Base>
