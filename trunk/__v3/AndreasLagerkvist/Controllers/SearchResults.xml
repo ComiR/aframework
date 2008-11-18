@@ -19,6 +19,6 @@
 		</Wrapper>
 		<Footer/>
 	</Wrapper>
-	<ModuleListing/>
+	<Modules/>
 	<Debug/>
 </Base>

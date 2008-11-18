@@ -5,7 +5,7 @@
 		<Header/>
 		<Breadcrumbs/>
 		<Wrapper name="content">
-			<ArticleListing/>
+			<Articles/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<Search ajax-run="true"/>
@@ -15,6 +15,6 @@
 		</Wrapper>
 		<Footer/>
 	</Wrapper>
-	<ModuleListing/>
+	<Modules/>
 	<Debug/>
 </Base>
