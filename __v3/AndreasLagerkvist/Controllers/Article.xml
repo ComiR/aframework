@@ -6,20 +6,15 @@
 		<Navigation/>
 		<Search/>
 		<Breadcrumbs/>
-		<Wrapper name="content">
-			<Article/>
-			<ArticleTags/>
-			<ArticleBookmarking/>
-		</Wrapper>
-		<Wrapper name="secondary-content">
-			<Comments/>
-			<PostComment/>
-		</Wrapper>
-		<Wrapper name="tertiary-content">
-			<RecentComments/>
-			<BlogRoll/>
-			<TagCloud/>
-		</Wrapper>
+		<Article/>
+		<ArticleTags/>
+		<ArticleBookmarking/>
+		<Comments/>
+		<PostComment/>
+		<RandomJqueryPlugins/>
+		<BlogRoll/>
+		<RecentComments/>
+		<TagCloud/>
 		<Footer/>
 	</Wrapper>
 	<ModuleAdmin/>

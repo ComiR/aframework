@@ -23,7 +23,7 @@
 			# User is trying to log out
 			if(isset($_GET['logout'])) {
 				unset($_SESSION[ADMIN_SESSION]);
-				setcookie(ADMIN_SESSION, false, 0, WEBROOT .'/');
+				setcookie(ADMIN_SESSION, false, 0, WEBROOT);
 
 				redirect('?logged_out');
 			}
