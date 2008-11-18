@@ -6,19 +6,19 @@
 	<head>
 
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-		<meta name="author" content="<?php echo SITE_AUTHOR; ?>" />
-		<meta name="copyright" content="Copyright (c) <?php echo date('Y') .' ' .SITE_AUTHOR; ?>" />
+		<meta name="author" content="<?php echo Config::get('general.site_author'); ?>" />
+		<meta name="copyright" content="Copyright (c) <?php echo date('Y') .' ' .Config::get('general.site_author'); ?>" />
 		<meta name="keywords" content="<?php echo $meta_keywords; ?>" />
 		<meta name="description" content="<?php echo $meta_description; ?>" />
 		<meta name="robots" content="all" />
 
-		<link rel="alternate" type="application/rss+xml" title="<?php echo SITE_TITLE; ?> Articles" href="<?php echo WEBROOT; ?>?mod=ArticleListing&amp;rss=1" />
+		<link rel="alternate" type="application/rss+xml" title="<?php echo Config::get('general.site_title'); ?> Articles" href="<?php echo WEBROOT; ?>?mod=ArticleListing&amp;rss=1" />
 		<link rel="shortcut icon" type="image/ico" href="<?php echo WEBROOT; ?>favicon.ico" />
 		<?php if(!NAKED_DAY) { ?>
 			<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo WEBROOT; ?>?module=CodeCompressor&amp;s=<?php echo $style; ?>&amp;t=css" />
 		<?php } ?>
 
-		<title><?php echo $html_title; ?> - <?php echo SITE_TITLE; ?></title>
+		<title><?php echo $html_title; ?> - <?php echo Config::get('general.site_title'); ?></title>
 
 	</head>
 
@@ -59,13 +59,13 @@
 			<script type="text/javascript" src="<?php echo WEBROOT; ?>?module=CodeCompressor&amp;s=<?php echo $style; ?>&amp;t=js"></script>
 		<?php } ?>
 
-		<?php if(GA_ID) { ?>
+		<?php if(Config::get('general.ga_id')) { ?>
 			<script type="text/javascript">
 				var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 				document.write(unescape("%3Cscript src='" +gaJsHost +"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 			</script>
 			<script type="text/javascript">
-				var pageTracker = _gat._getTracker("<?php echo GA_ID ?>");
+				var pageTracker = _gat._getTracker("<?php echo Config::get('general.ga_id'); ?>");
 				pageTracker._initData();
 				pageTracker._trackPageview();
 			</script>
