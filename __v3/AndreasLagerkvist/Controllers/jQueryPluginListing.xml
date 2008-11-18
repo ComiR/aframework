@@ -7,7 +7,7 @@
 		<Search/>
 		<Breadcrumbs/>
 		<Wrapper name="content">
-			<JqueryPluginListing/>
+			<JqueryPlugins/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<RandomJqueryPlugins/>
@@ -19,6 +19,6 @@
 		</Wrapper>
 		<Footer/>
 	</Wrapper>
-	<ModuleListing/>
+	<Modules/>
 	<Debug/>
 </Base>

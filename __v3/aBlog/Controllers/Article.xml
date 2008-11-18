@@ -7,7 +7,7 @@
 		<Wrapper name="content">
 			<Article/>
 			<ArticleTags/>
-			<CommentListing/>
+			<Comments/>
 			<PostComment/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
@@ -18,6 +18,6 @@
 		</Wrapper>
 		<Footer/>
 	</Wrapper>
-	<ModuleListing/>
+	<Modules/>
 	<Debug/>
 </Base>
