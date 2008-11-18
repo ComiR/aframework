@@ -1,4 +1,4 @@
-aFramework.modules.ModuleListing = {
+aFramework.modules.ModuleAdmin = {
 	run: function() {
 		// Only run if admin
 		if(jQuery('body.admin').length) {
@@ -7,13 +7,13 @@ aFramework.modules.ModuleListing = {
 		}
 	}, 
 
-	// Makes modules in module-listing, as well as module-listing itself, draggable
+	// Makes modules in module-admin, as well as module-admin itself, draggable
 	makeModulesDraggable: function() {
-		jQuery('#module-listing').draggable({
+		jQuery('#module-admin').draggable({
 			handle:			'h2'
 		});
 
-		jQuery('#module-listing div').draggable({
+		jQuery('#module-admin div').draggable({
 			handle:			'h3',		
 			revert:			'invalid', 
 			revertDuration:	100, 
@@ -43,8 +43,8 @@ aFramework.modules.ModuleListing = {
 				module.remove();
 
 				// Ajax the change of the controller
-				jQuery.post(WEBROOT +'?module=ModuleListing', {
-					module_listing_remove_module:	1,
+				jQuery.post(WEBROOT +'?module=ModuleAdmin', {
+					module_admin_remove_module:	1,
 					module_to_remove:				moduleName, 
 					controller_in_use:				controllerInUse
 				});
@@ -53,11 +53,11 @@ aFramework.modules.ModuleListing = {
 
 		// Make every module droppable so you can drag modules from the list into other modules
 		var makeDroppable = function(module, moduleName, controllerInUse) {
-			var beforeClass = 'module-listing-insert-module-before';
-			var appendClass = 'module-listing-append-module-to';
+			var beforeClass = 'module-admin-insert-module-before';
+			var appendClass = 'module-admin-append-module-to';
 
 			module.droppable({
-				accept:		'div[id]:not(#module-listing)', 
+				accept:		'div[id]:not(#module-admin)', 
 				tolerance:	'intersect', 
 				greedy:		true, 
 				// When a module is dragged over another
@@ -92,7 +92,7 @@ aFramework.modules.ModuleListing = {
 
 					// Ajax the change of the controller
 					var ajaxPostData = {
-						module_listing_add_module:	1, 
+						module_admin_add_module:	1, 
 						add_type:					jQuery('.' +beforeClass).length ? 'before' : 'append', 
 						target:						moduleName, 
 						module_to_add:				moduleToAdd, 
@@ -118,7 +118,7 @@ aFramework.modules.ModuleListing = {
 
 					// Now fill the div with the module's stuff
 					jQuery.get(WEBROOT +'?module=' +moduleToAdd, function(data) {
-						newMod.html(data).addClass('module-listing-used-module');
+						newMod.html(data).addClass('module-admin-used-module');
 
 						if(aFramework.modules[ajaxPostData.module_to_add] && typeof(aFramework.modules[ajaxPostData.module_to_add].run) == 'function') {
 							aFramework.modules[ajaxPostData.module_to_add].run();
@@ -128,16 +128,16 @@ aFramework.modules.ModuleListing = {
 						makeDroppable(newMod, moduleToAdd, controllerInUse);
 					});
 
-					jQuery.post(WEBROOT +'?module=ModuleListing', ajaxPostData);
+					jQuery.post(WEBROOT +'?module=ModuleAdmin', ajaxPostData);
 				}
 			});
 		};
 
 		// We need to know the name of the controller for the ajax-calls
-		var controllerInUse = jQuery('#module-listing input[name="controller_in_use"]').val();
+		var controllerInUse = jQuery('#module-admin input[name="controller_in_use"]').val();
 
 		// Go through every module that is used in this controller
-		jQuery('#module-listing select[name="target"]').eq(0).find('option').each(function() {
+		jQuery('#module-admin select[name="target"]').eq(0).find('option').each(function() {
 			var moduleID	= jQuery(this).attr('class');
 			var module		= moduleID == 'base' ? jQuery(document.body) : jQuery('#' +moduleID);
 			var moduleName	= jQuery(this).val();
@@ -147,10 +147,10 @@ aFramework.modules.ModuleListing = {
 			}
 			if(moduleName != 'Base') { // tmp...
 				makeDroppable(module, moduleName, controllerInUse);
-				module.addClass('module-listing-used-module');
+				module.addClass('module-admin-used-module');
 			}
 		});
 
-		jQuery('#module-listing form').remove();
+		jQuery('#module-admin form').remove();
 	}
 };

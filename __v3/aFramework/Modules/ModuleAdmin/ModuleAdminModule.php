@@ -1,5 +1,5 @@
 <?php
-	class aFramework_ModuleListingModule {
+	class aFramework_ModuleAdminModule {
 		public static $tplVars		= array();
 		public static $tplFile		= true;
 
@@ -13,7 +13,7 @@
 			'WeatherInfo', 
 			'CodeCompressor', 
 			'JSPacker', 
-			'ModuleListing', 
+			'ModuleAdmin', 
 			'#text', 
 			'#comment', 
 			'#cdata-section'
@@ -34,7 +34,7 @@
 			self::$tplVars = self::getAvailableModules($controller);
 
 			# Someone wants to add a module to the controller
-			if(isset($_POST['module_listing_add_module'])) {
+			if(isset($_POST['module_admin_add_module'])) {
 				$insertBefore = $_POST['add_type'] == 'before' ? true : false;
 
 				if(!('Base' == $_POST['target'] and $insertBefore)) {
@@ -47,7 +47,7 @@
 			}
 
 			# Someone wants to remove a module from the controller
-			if(isset($_POST['module_listing_remove_module'])) {
+			if(isset($_POST['module_admin_remove_module'])) {
 				self::removeModuleFromController($_POST['module_to_remove'], $_POST['controller_in_use']);
 
 				if(!XHR) {
