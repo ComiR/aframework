@@ -4,7 +4,7 @@
 	Config::set('db.host',						'localhost');
 	Config::set('db.name',						'afv3');
 
-	Config::set('general.default_style',		'default');
+	Config::set('general.default_style',		'darker');
 	Config::set('general.site_author',			'Andreas Lagerkvist');
 	Config::set('general.site_title',			'AndreasLagerkvist.com');
 	Config::set('general.site_tagline',			'jQuery plug-ins and other web-related stuff');

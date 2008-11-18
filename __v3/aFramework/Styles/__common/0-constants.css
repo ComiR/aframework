@@ -90,6 +90,27 @@ $dash-menu {
 	$dash-menu > li:last-child:after {
 		content: "";
 	}
+/**
+ * Comma list
+ * Turns a UL into foo, bar, zaz
+ */
+$comma-list {
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+}
+
+	$comma-list > li {
+		display: inline;
+	}
+
+	$comma-list > li:after {
+		content: ", ";
+	}
+
+	$comma-list > li:last-child:after {
+		content: "";
+	}
 
 /**
  * Pagination
