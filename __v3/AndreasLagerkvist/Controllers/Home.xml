@@ -7,11 +7,11 @@
 		<Search/>
 		<Breadcrumbs/>
 		<LatestArticle/>
-		<ArticleTags/>
 		<OlderArticles/>
 		<RandomJqueryPlugins/>
 		<BlogRoll/>
 		<RecentComments/>
+		<PostIt/>
 		<TagCloud/>
 		<Footer/>
 	</Wrapper>

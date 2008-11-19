@@ -5,7 +5,17 @@
 
 			<p>Lorem ipsum dolorus consequetuer ipsum. Consiquitus fredrolia samus. Lorem ipsum dolorus consequetuer ipsum. Consiquitus fredrolia samus.</p>
 
-			<p>Tagged with <a href="#">jquery</a>, <a href="#">news</a> | <a href="#">12 comments</a></p>
+			<dl>
+				<dt>Tags</dt>
+				<dd>
+					<ul>
+						<li><a href="#">jquery</a></li>
+						<li><a href="#">news</a></li>
+					</ul>
+				</dd>
+				<dt>Comments</dt>
+				<dd><a href="#">12 comments</a></dd>
+			</dl>
 		</li>
 	<?php } ?>
 </ol>
