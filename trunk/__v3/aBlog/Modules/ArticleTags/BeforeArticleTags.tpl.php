@@ -1,1 +1,0 @@
-<h3>Tagged with</h3>

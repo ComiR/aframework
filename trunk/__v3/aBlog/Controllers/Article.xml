@@ -6,12 +6,12 @@
 		<Breadcrumbs/>
 		<Wrapper name="content">
 			<Article/>
-			<ArticleTags/>
 			<Comments/>
 			<PostComment/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<Search ajax-run="true"/>
+			<PostIt ajax-run="true"/>
 			<TagCloud ajax-run="true"/>
 			<RecentArticles ajax-run="true"/>
 			<RecentComments ajax-run="true"/>

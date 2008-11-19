@@ -7,13 +7,13 @@
 		<Search/>
 		<Breadcrumbs/>
 		<Article/>
-		<ArticleTags/>
 		<ArticleBookmarking/>
 		<Comments/>
 		<PostComment/>
 		<RandomJqueryPlugins/>
 		<BlogRoll/>
 		<RecentComments/>
+		<PostIt/>
 		<TagCloud/>
 		<Footer/>
 	</Wrapper>
