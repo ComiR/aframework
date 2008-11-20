@@ -6,6 +6,7 @@
 		<Navigation/>
 		<Search/>
 		<Breadcrumbs/>
+		<QuickAbout/>
 		<Contact/>
 		<RandomJqueryPlugins/>
 		<BlogRoll/>
