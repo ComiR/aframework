@@ -6,7 +6,6 @@
 		<Navigation/>
 		<Search/>
 		<Breadcrumbs/>
-		<QuickAbout/>
 		<Article/>
 		<ArticleBookmarking/>
 		<Comments/>
@@ -14,7 +13,6 @@
 		<RandomJqueryPlugins/>
 		<BlogRoll/>
 		<RecentComments/>
-		<PostIt/>
 		<TagCloud/>
 		<Footer/>
 	</Wrapper>
