@@ -1,4 +1,4 @@
-<h2><a href="#">New design, domain, bla di bla lorem ipsum</a></h2>
+<h2><a href="#">New domain, design, front-end and back-end</a></h2>
 
 <p><small>Published Monday, September 22nd, 2008</small></p>
 

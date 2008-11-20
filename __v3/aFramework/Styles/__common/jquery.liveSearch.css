@@ -1,4 +1,4 @@
-div.live-search-results {
+#jquery-live-search {
 	background: #fff;
 
 	height: 400px;
@@ -16,15 +16,15 @@ div.live-search-results {
 	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.5);
 }
 
-	div.live-search-results h2 {
+	#jquery-live-search h2 {
 		font: 14px/1.2 Trebuchet MS, sans-serif;
 	}
 
-	div.live-search-results h3 {
+	#jquery-live-search h3 {
 		font: 12px/1.2 Trebuchet MS, sans-serif;
 	}
 
-	div.live-search-results ol {
+	#jquery-live-search ol {
 		margin-left: 0;
 		padding-left: 0;
 		list-style: none;
