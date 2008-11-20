@@ -6,12 +6,10 @@
 		<Navigation/>
 		<Search/>
 		<Breadcrumbs/>
-		<QuickAbout/>
 		<JqueryPlugin/>
 		<RandomJqueryPlugins/>
 		<BlogRoll/>
 		<RecentComments/>
-		<PostIt/>
 		<TagCloud/>
 		<Footer/>
 	</Wrapper>

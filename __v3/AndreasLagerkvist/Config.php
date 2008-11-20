@@ -14,5 +14,6 @@
 	Config::set('admin.user',					'admin');
 	Config::set('admin.pass',					'1234');
 
-	Config::set('alcom.num_random_plugins',		4);
+	Config::set('alcom.num_random_plugins',		3);
+	Config::set('ablog.num_recent_stuff',		3);
 ?>
