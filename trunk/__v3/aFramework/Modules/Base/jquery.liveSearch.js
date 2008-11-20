@@ -44,44 +44,33 @@ jQuery('#q').liveSearch({url: '/ajax/search.php?q='}); would add the live-search
 @exampleJS:
 jQuery('#jquery-live-search-example input[name="q"]').liveSearch({url: WEBROOT +'?module=SearchResults&q='});
 ***/
-jQuery(document.body).click(function(e) {
-	var target		= jQuery(e.target);
-	var className	= 'live-search-results';
-
-	if(!target.is('div.' +className) && !target.parents('.' +className).length) {
-		jQuery('div.' +className).slideUp(400);
-	}
-});
 jQuery.fn.liveSearch = function(conf) {
 	var config = jQuery.extend({
 		url:			'/?module=SearchResults&q=', 
-		className:		'live-search-results', 
-		speed:			400, 
+		id:				'jquery-live-search', 
+		duration:		400, 
 		typeDelay:		200,
-		loadingClass:	'ajax-loading'
+		loadingClass:	'loading', 
+		onSlideUp:		function() {}
 	}, conf);
+
+	var liveSearch = jQuery('#' +config.id);
+
+	if(!liveSearch.length) {
+		liveSearch = jQuery('<div id="' +config.id +'"></div>').appendTo(document.body).hide().slideUp(0);
+
+		jQuery(document.body).click(function(event) {
+			if(!(jQuery(event.target).is('#' +config.id) || jQuery(event.target).parents('#' +config.id).length)) {
+				liveSearch.slideUp(config.duration, function() {
+					config.onSlideUp();
+				});
+			}
+		});
+	}
 
 	return this.each(function() {
 		var input		= jQuery(this).attr('autocomplete', 'off');
-		var tmpOffset	= input.offset();
-		var inputDim	= {
-			left:	tmpOffset.left, 
-			top:	tmpOffset.top, 
-			width:	input.outerWidth(), 
-			height:	input.outerHeight()
-		};
-		var liveSearch		= jQuery('<div class="' +config.className +'"></div>').appendTo(document.body).hide().slideUp(0);
-		var resultsShit		= parseInt(liveSearch.css('paddingLeft'), 10) + parseInt(liveSearch.css('paddingRight'), 10) + parseInt(liveSearch.css('borderLeftWidth'), 10) + parseInt(liveSearch.css('borderRightWidth'), 10);
-
-		inputDim.topNHeight	= inputDim.top + inputDim.height;
-		inputDim.widthNShit	= inputDim.width - resultsShit;
-
-		liveSearch.css({
-			position:	'absolute', 
-			left:		inputDim.left +'px', 
-			top:		inputDim.topNHeight +'px',
-			width:		inputDim.widthNShit +'px'
-		});
+		var resultsShit	= parseInt(liveSearch.css('paddingLeft'), 10) + parseInt(liveSearch.css('paddingRight'), 10) + parseInt(liveSearch.css('borderLeftWidth'), 10) + parseInt(liveSearch.css('borderRightWidth'), 10);
 
 		input.keyup(function() {
 			if(this.value != this.lastValue) {
@@ -98,10 +87,30 @@ jQuery.fn.liveSearch = function(conf) {
 						input.removeClass(config.loadingClass);
 
 						if(data.length && q.length) {
-							liveSearch.html(data).slideDown(config.speed);
+							var tmpOffset	= input.offset();
+							var inputDim	= {
+								left:		tmpOffset.left, 
+								top:		tmpOffset.top, 
+								width:		input.outerWidth(), 
+								height:		input.outerHeight()
+							};
+
+							inputDim.topNHeight	= inputDim.top + inputDim.height;
+							inputDim.widthNShit	= inputDim.width - resultsShit;
+
+							liveSearch.css({
+								position:	'absolute', 
+								left:		inputDim.left +'px', 
+								top:		inputDim.topNHeight +'px',
+								width:		inputDim.widthNShit +'px'
+							});
+
+							liveSearch.html(data).slideDown(config.duration);
 						}
 						else {
-							liveSearch.slideUp(config.speed);
+							liveSearch.slideUp(config.duration, function() {
+								config.onSlideUp();
+							});
 						}
 					});
 				}, config.typeDelay);
