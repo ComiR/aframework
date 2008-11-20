@@ -238,6 +238,20 @@ $plain-list {
 }
 
 /**
+ * Inline list
+ * A list without margin, padding or bullets displayed inline
+ */
+$inline-list {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+	$inline-list li {
+		display: inline;
+	}
+
+/**
  * Floated list
  * A self-cleared, floated list
  */

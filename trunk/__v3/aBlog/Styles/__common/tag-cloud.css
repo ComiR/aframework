@@ -2,4 +2,13 @@
 	
 }
 
-	#tag-cloud ul = $comma-list;
+	#tag-cloud ul = $inline-list;
+	#tag-cloud ul {
+		text-align: center;
+	}
+
+		#tag-cloud ul li {
+			margin: 0 5px;
+		}
+
+			body.js-enabled #tag-cloud ul li strong = $a11y-hide;
