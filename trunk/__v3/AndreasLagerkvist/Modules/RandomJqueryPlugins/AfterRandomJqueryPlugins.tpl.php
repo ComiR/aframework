@@ -1,1 +1,1 @@
-<p><a href="<?php echo Router::urlFor('JqueryPluginListing'); ?>">More plug-ins</a></p>
+<p><a href="<?php echo Router::urlFor('JqueryPlugins'); ?>">More plug-ins</a></p>
