@@ -18,6 +18,8 @@
 			);
 
 			self::$tplVars['nav_items'] = array_merge($navItems, self::$tplVars['nav_items']);
+
+			self::setSelectedNavigationItem();
 		}
 	}
 ?>

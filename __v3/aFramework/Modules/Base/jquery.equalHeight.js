@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-Makes elements equal height by adjusting their min-height properties (unless IE6 in which case height is used).
+This plug-in makes HTML-elements equal in height by adjusting their min-height CSS properties. Of course IE6 has no clue what min-height means so the plug-in uses height for that crappy old dinosaur.
 
 @howto:
 jQuery('#content, #secondary-content').equalHeight(); would make the elements with IDs 'content' and 'secondary-content' equal height.

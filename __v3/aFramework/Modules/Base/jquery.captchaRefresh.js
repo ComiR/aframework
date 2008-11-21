@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-Allows users to refresh so called CAPTCHA-images by clicking them - provided your CAPTHA-script generates a random image every time it is called.
+If you use a so called CAPTCHA-image on your site then you can use this plug-in to allow users to click your CAPTCHA's in order to generate a new random string - provided your CAPTHA-script generates a random image every time it is called..
 
 @howto:
 jQuery(document.body).captchaRefresh({src: '/captcha.png'}); Would make all images with '/captcha.png' as their source in the document clickable.

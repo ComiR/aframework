@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery, center
 
 @does:
-Makes links pointing to images open in the "Image Box". The Image Box centers on screen and displays all the other images in the same scope beneath the currently displayed image.
+Makes links pointing to images open in the "Image Box". The Image Box centers on screen and displays all the other images in the same scope beneath the currently displayed image. Lorem ipsum dolor sit amet.
 
 @howto:
 jQuery('#holiday-photos, #flickr-images').imageBox(); would create Image Box-albums from the two elements #holiday-photos and #flickr-images
