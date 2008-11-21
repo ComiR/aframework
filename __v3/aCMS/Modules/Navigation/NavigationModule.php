@@ -37,7 +37,7 @@
 			);
 		}
 
-		protected static function getAdminNavigation() {
+		protected static function getAdminLinks() {
 			self::$tplVars['nav_items'][] = array(
 				'title'	=> 'Add page +', 
 				'url' => Router::urlFor('AddPage')
