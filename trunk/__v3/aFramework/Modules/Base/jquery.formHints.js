@@ -24,7 +24,8 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-Gives form-controls with a title-attribute a default-value that toggles visiblity onclick.
+Using this plug-in you can add a descriptive hint to any form-control you may have on your site.  
+Add a hint by giving the form-control a title-attribute. The hint will disappear and reappear as the user clicks the control.
 
 @howto:
 jQuery(document.body).formHints(); would give every form-control with a title-attribute a hint.

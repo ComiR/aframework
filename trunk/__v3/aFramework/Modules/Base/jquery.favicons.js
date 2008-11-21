@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-Adds favicons to external links.
+This little plug-in will insert favicons to all external links found on your site. The plug-in scans the URL the link is pointing to for a favicon and, if it can't find one, displays any generic favicon-image you like instead.
 
 @howto:
 jQuery(document.body).favicons({insert: 'prependTo'}); would prepend favicons to every external link in the document.

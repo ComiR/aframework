@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-Adds and removes a 'checked'-class to input[type=checkbox]'s parents.
+This tiny plug-in adds and removes a 'checked'-class to input[type=checkbox]'s parents. Very useful if you want to style the entire wrapping <label>-element when its child-checkbox is checked.
 
 @howto:
 jQuery('form').checkedCheckboxParent(); would apply the plug-in to every checkbox in 'form'.
