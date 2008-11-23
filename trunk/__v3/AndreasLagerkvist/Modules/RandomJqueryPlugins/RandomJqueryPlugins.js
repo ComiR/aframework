@@ -4,7 +4,7 @@ aFramework.modules.RandomJqueryPlugins = {
 	}, 
 
 	hijaxMoreLink: function() {
-		jQuery('#random-jquery-plugins p a').click(function() {
+		jQuery('#random-jquery-plugins > p a').click(function() {
 			jQuery(this).text('Loading...');
 
 			jQuery('#random-jquery-plugins').load(WEBROOT +'?module=RandomJqueryPlugins', function() {
