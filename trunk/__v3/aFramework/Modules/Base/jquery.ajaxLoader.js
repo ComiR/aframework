@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery, jquery.ajaxLoader.css, jquery.ajaxLoader.gif
 
 @does:
-Use this plug-in when you want to inform your visitoros that a certain part of your page is currently loading. The plug-ins adds a faded loading-div on top of the selected element(s). The div is of course completely stylable.
+Use this plug-in when you want to inform your visitors that a certain part of your page is currently loading. The plug-ins adds a faded loading-div on top of the selected element(s). The div is of course completely stylable.
 
 @howto:
 jQuery('#contact').ajaxLoader(); would add the overlay on top of the #contact-element.
