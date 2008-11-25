@@ -10,7 +10,7 @@
 		<meta name="copyright" content="Copyright (c) <?php echo date('Y') .' ' .Config::get('general.site_author'); ?>" />
 		<meta name="keywords" content="<?php echo $meta_keywords; ?>" />
 		<meta name="description" content="<?php echo $meta_description; ?>" />
-		<meta name="robots" content="all" />
+		<meta name="robots" content="<?php echo $noindex ? 'noindex' : 'all'; ?>" />
 
 		<link rel="alternate" type="application/rss+xml" title="<?php echo Config::get('general.site_title'); ?> Articles" href="<?php echo WEBROOT; ?>?mod=ArticleListing&amp;rss=1" />
 		<link rel="shortcut icon" type="image/ico" href="<?php echo WEBROOT; ?>favicon.ico" />

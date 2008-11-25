@@ -9,6 +9,7 @@
 			self::$tplVars['meta_description']	= '';
 			self::$tplVars['meta_keywords']		= '';
 			self::$tplVars['style']				= (isset($_COOKIE['style'])) ? $_COOKIE['style'] : Config::get('general.default_style');
+			self::$tplVars['noindex']			= !empty($_SERVER['QUERY_STRING']);
 		}
 	}
 ?>
