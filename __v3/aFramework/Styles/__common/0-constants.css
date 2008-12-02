@@ -190,6 +190,20 @@ $previous-next-menu {
 		}
 
 /**
+ * Inline menu
+ * A ul without margin, padding or bullets displayed inline
+ */
+$inline-menu {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+	$inline-menu li {
+		display: inline;
+	}
+
+/**
  * Arrow-list
  * Prepends an arrow to every list-item
  */
@@ -236,20 +250,6 @@ $plain-list {
 	padding-left: 0;
 	list-style: none;
 }
-
-/**
- * Inline list
- * A list without margin, padding or bullets displayed inline
- */
-$inline-list {
-	margin-left: 0;
-	padding-left: 0;
-	list-style: none;
-}
-
-	$inline-list li {
-		display: inline;
-	}
 
 /**
  * Floated list

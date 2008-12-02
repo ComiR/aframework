@@ -6,6 +6,7 @@
 		<Breadcrumbs/>
 		<Wrapper name="content">
 			<Article/>
+			<SocialBookmarks/>
 			<Comments/>
 			<PostComment/>
 		</Wrapper>

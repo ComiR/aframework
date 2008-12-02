@@ -69,6 +69,10 @@
 			return self::$routes;
 		}
 
+		public static function urlize($str) {
+			return strtolower(preg_replace('/[^A-Za-z0-9_-]/', '', $str));
+		}
+
 		/**
 		 * urlForModule
 		 * 
