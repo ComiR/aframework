@@ -2,7 +2,7 @@
 	
 }
 
-	#tag-cloud ul = $inline-list;
+	#tag-cloud ul = $inline-menu;
 	#tag-cloud ul {
 		text-align: center;
 	}
