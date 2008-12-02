@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery, jquery.liveValidation-valid.png, jquery.liveValidation-invalid.png
 
 @does:
-Adds valid/invalid icons next to required form-controls.
+Use this plug-in to add live validation to any form on your page. The plug-in indicates whether a form control is valid or not by switching between any icons of you choosing as the user types.
 
 @howto:
 jQuery(document.body).liveValidation();
