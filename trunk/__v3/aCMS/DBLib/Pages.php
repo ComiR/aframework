@@ -86,7 +86,7 @@
 			parent::delete(Config::get('db.table_prefix') .'pages', $id);
 		}
 
-		private static function makeNice($row) {
+		public static function makeNice($row) {
 			$row['url']						= Router::urlFor('Page', $row);
 
 			$row['content_plain']			= $row['content'];

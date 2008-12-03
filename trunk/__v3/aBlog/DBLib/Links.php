@@ -1,5 +1,5 @@
 <?php
-	class Links {
+	class Links extends DBRow {
 		public static function getLinks($sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000) {
 			return parent::get(Config::get('db.table_prefix') .'links', $sort, $order, $start, $limit);
 		}
@@ -35,7 +35,7 @@
 			return parent::delete(Config::get('db.table_prefix') .'links', $id);
 		}
 
-		private static function makeNice($row) {
+		public static function makeNice($row) {
 			$row['title_plain']			= $row['title'];
 			$row['title']				= htmlentities($row['title']);
 

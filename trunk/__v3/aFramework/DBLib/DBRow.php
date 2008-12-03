@@ -16,7 +16,8 @@
 				$rows = array();
 
 				while($row = mysql_fetch_assoc($res)) {
-					$rows[] = self::makeNice($row);
+					$className = ucfirst($tableName);
+					$rows[] = $className::makeNice($row);
 				}
 
 				return $rows;
