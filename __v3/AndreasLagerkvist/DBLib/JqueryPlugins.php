@@ -90,7 +90,7 @@
 
 			$row['real_url']			= htmlentities($row['url']);
 			$row['url_str']				= strtolower(ccFix($row['name'], '-'));
-			$row['url']					= Router::urlFor('JqueryPlugin', array('url_str' => $row['url_str']));
+			$row['url']					= Router::urlFor('JqueryPlugin', array('url_str' => $row['url_str'])); # should pass entire $row
 
 			$row['license']				= htmlentities($row['license']);
 			$row['copyright']			= htmlentities($row['copyright']);
