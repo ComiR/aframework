@@ -1,54 +1,38 @@
 <?php
 	class Links {
 		public static function getLinks($sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000) {
-			$res = dbQry('
-				SELECT
-					*
-				FROM
-					' .Config::get('db.table_prefix') .'links
-				ORDER BY
-					' .esc($sort) .' ' .esc($order) .'
-				LIMIT
-					' .esc($start) .', ' .esc($limit) .'
-			');
-
-			if(mysql_num_rows($res)) {
-				$rows = array();
-				
-				while($row = mysql_fetch_assoc($res)) {
-					$rows[] = self::makeNice($row);
-				}
-
-				return $rows;
-			}
-			else {
-				return false;
-			}
+			return parent::get(Config::get('db.table_prefix') .'links', $sort, $order, $start, $limit);
 		}
 
 		public static function insert($row) {
-			dbQry('
-				INSERT INTO ' .Config::get('db.table_prefix') .'links (
-					title, 
-					description, 
-					url
-				)
-				VALUES (
-					\'' .esc($row['title']) .'\', 
-					\'' .esc($row['description']) .'\', 
-					\'' .esc($row['url']) .'\'
-				)
-			');
+			$fields	= array(
+				'title'			=> $row['title'], 
+				'description'	=> $row['description'], 
+				'url'			=> $row['url']
+			);
 
-			return mysql_insert_id();
+			return parent::insert(Config::get('db.table_prefix') .'links', $fields);
 		}
 
-		public static function update($row) {
+		public static function update($id, $row) {
+			$validFields = array(
+				'title', 
+				'description', 
+				'url'
+			);
+			$fields = array();
 
+			foreach($row as $col => $val) {
+				if(in_array($col, $validFields)) {
+					$fields[$col] = $val;
+				}
+			}
+
+			return parent::update(Config::get('db.table_prefix') .'links', $id, $fields);
 		}
 
 		public static function delete($id) {
-			dbQry('DELETE FROM links WHERE links_id = ' .esc($id));
+			return parent::delete(Config::get('db.table_prefix') .'links', $id);
 		}
 
 		private static function makeNice($row) {

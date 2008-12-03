@@ -1,5 +1,31 @@
 <?php
 	class DBRow {
+		public static function get($tableName, $sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000) {
+			$res = dbQry('
+				SELECT
+					*
+				FROM
+					' .$tableName .'
+				ORDER BY
+					' .esc($sort) .' ' .esc($order) .'
+				LIMIT
+					' .esc($start) .', ' .esc($limit) .'
+			');
+
+			if(mysql_num_rows($res)) {
+				$rows = array();
+
+				while($row = mysql_fetch_assoc($res)) {
+					$rows[] = self::makeNice($row);
+				}
+
+				return $rows;
+			}
+			else {
+				return false;
+			}
+		}
+
 		public static function insert($tableName, $fields) {
 			$insertVals = '';
 			$insertCols = '';
