@@ -32,7 +32,7 @@
 	define('ADMIN',					isset($_COOKIE[ADMIN_SESSION]) or isset($_SESSION[ADMIN_SESSION]));
 	define('DEBUG',					isset($_GET['debug']) and ADMIN);
 	define('AUTO_HR',				false);
-	define('USE_MOD_REWRITE',		false);
+	define('USE_MOD_REWRITE',		true);
 
 	# Include config-files
 	$sites = array_reverse(explode(' ', SITE_HIERARCHY));
