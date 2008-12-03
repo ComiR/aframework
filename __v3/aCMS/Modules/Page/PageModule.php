@@ -4,11 +4,11 @@
 		public static $tplFile = true;
 
 		public static function run() {
+			if(isset($_POST['page_delete_submit']) and ADMIN) {
+				self::deletePage($_POST['pages_id']);
+			}
 			if(isset($_POST['page_submit']) and ADMIN) {
 				self::updatePage($_POST);
-			}
-			if(isset($_POST['page_delete_submit']) and ADMIN) {
-				self::deletePage($_POST['page_delete_submit']);
 			}
 
 			self::showThePage();
@@ -38,15 +38,19 @@
 
 		private static function deletePage($id) {
 			Pages::delete($id);
+
+			if(!XHR) {
+				redirect(Router::urlFor('AddPage') .'?deleted_page');
+			}
 		}
 
 		private static function updatePage($row) {
 			# If a page ID is set, update
 			if(!empty($row['pages_id']) and is_numeric($row['pages_id'])) {
-				Pages::update($_POST);
+				Pages::update($row['pages_id'], $_POST);
 
 				if(!XHR) {
-					redirect('?updated_page');
+					redirect(Router::urlFor('Page', array('url_str' => $row['url_str'])) .'?updated_page');
 				}
 			}
 			# Not set, insert
@@ -60,7 +64,7 @@
 					Pages::insert($row);
 
 					if(!XHR) {
-						redirect(Router::urlFor('Page', array('url_str' => $row['url_str'])));
+						redirect(Router::urlFor('Page', array('url_str' => $row['url_str'])) .'?inserted_page');
 					}
 				}
 				# Errors in form
