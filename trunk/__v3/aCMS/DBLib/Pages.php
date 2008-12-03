@@ -1,5 +1,5 @@
 <?php
-	class Pages {
+	class Pages extends DBRow {
 		public static function getPageByUrlStr($urlStr) {
 			$res = dbQry('
 				SELECT
@@ -46,42 +46,44 @@
 		}
 
 		public static function insert($row) {
-			$pubDate	= isset($row['pub_date']) ? $row['pub_date'] : date('Y-m-d H:i:s');
-			$priority	= (isset($row['priority']) and is_numeric($row['priority'])) ? $row['priority'] : 0;
-			$inNav		= $row['in_navigation'] ? 1 : 0;
+			$fields		= array(
+				'url_str'			=> $row['url_str'], 
+				'pub_date'			=> isset($row['pub_date']) ? $row['pub_date'] : date('Y-m-d H:i:s'), 
+				'in_navigation'		=> $row['in_navigation'] ? 1 : 0, 
+				'priority'			=> (isset($row['priority']) and is_numeric($row['priority'])) ? $row['priority'] : 0, 
+				'title'				=> $row['title'], 
+				'meta_keywords'		=> $row['meta_keywords'], 
+				'meta_description'	=> $row['meta_description'], 
+				'content'			=> $row['content']
+			);
 
-			dbQry('
-				INSERT INTO ' .Config::get('db.table_prefix') .'pages (
-					url_str, 
-					pub_date, 
-					in_navigation, 
-					priority, 
-					title, 
-					meta_keywords, 
-					meta_description, 
-					content
-				)
-				VALUES (
-					\'' .esc($row['url_str']) .'\', 
-					\'' .esc($pubDate) .'\', 
-					' .esc($inNav) .', 
-					\'' .esc($priority) .'\', 
-					\'' .esc($row['title']) .'\', 
-					\'' .esc($row['meta_keywords']) .'\', 
-					\'' .esc($row['meta_description']) .'\', 
-					\'' .esc($row['content']) .'\'
-				)
-			');
-
-			return mysql_insert_id();
+			return parent::insert(Config::get('db.table_prefix') .'pages', $fields);
 		}
 
-		public static function update($row) {
+		public static function update($id, $row) {
+			$validFields = array(
+				'url_str', 
+				'pub_date', 
+				'in_navigation', 
+				'priority', 
+				'title', 
+				'meta_keywords', 
+				'meta_description', 
+				'content'
+			);
+			$fields = array();
 
+			foreach($row as $col => $val) {
+				if(in_array($col, $validFields)) {
+					$fields[$col] = $val;
+				}
+			}
+
+			parent::update(Config::get('db.table_prefix') .'pages', $id, $fields);
 		}
 
 		public static function delete($id) {
-			dbQry('DELETE FROM pages WHERE pages_id = ' .esc($id));
+			parent::delete(Config::get('db.table_prefix') .'pages', $id);
 		}
 
 		private static function makeNice($row) {
