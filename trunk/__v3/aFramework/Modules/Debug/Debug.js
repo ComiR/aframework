@@ -58,10 +58,10 @@ aFramework.modules.Debug = {
 		for(var i = 0; lis[i]; i++) {
 			if(document.getElementById(lis[i].title)) {
 				lis[i].onmouseover = function() {
-					document.getElementById(this.title).style.opacity = .2;
+					document.getElementById(this.title).className = 'debug-module-highlight';
 				};
 				lis[i].onmouseout = function() {						
-					document.getElementById(this.title).style.opacity = 1;
+					document.getElementById(this.title).className = '';
 				};
 			}
 		}
