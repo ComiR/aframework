@@ -12,26 +12,11 @@
 				}
 			}
 			else {
-				self::$tplFile = false;
+				self::$tplFile = 'NoQuery';
 			}
 		}
 
 		private static function getSearchResults($q, $start = 0) {
-		/*	return array(
-				'results' => array(
-					array(
-						'title' => 'Lorem ipsum', 
-						'url' => '/lorem/', 
-						'content' => 'Lorem ipsum dolor sit amet. Consequeteur lipsimus dolor.'
-					), 
-					array(
-						'title' => 'Ipsum dolor', 
-						'url' => '/ipsum/', 
-						'content' => 'Ipsum lorum sit dolor amet. Consequeteur dolor lisams.'
-					)
-				)
-			);
-		*/
 			$return = array();
 			$site	= 'http://exscale.se'; # $_SERVER['SERVER_NAME'];
 			$url	= 'http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=' .urlencode($q) .'%20site:' .$site .'&rsz=large&start=' .$start;
@@ -39,7 +24,7 @@
 
 			curl_setopt($ch, CURLOPT_URL, $url);
 			curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-			curl_setopt($ch, CURLOPT_REFERER, 'http://' .'http://exscale.se'); # $_SERVER['SERVER_NAME']);
+			curl_setopt($ch, CURLOPT_REFERER, 'http://' .$site);
 
 			$body	= curl_exec($ch);
 

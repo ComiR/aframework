@@ -57,7 +57,7 @@
 	<p>
 		<input type="hidden" name="pages_id" value="<?php echo $pages_id; ?>" />
 		<input type="hidden" name="page_submit" value="true" />
-		<input type="submit" name="insert" value="<?php echo $pages_id ? 'Save changes' : 'Add page'; ?>" /><?php if($pages_id) { ?> or <input type="submit" name="page_delete_submit" value="Delete this page" /><?php } ?>
+		<input type="submit" name="insert" value="<?php echo $pages_id ? 'Save changes' : 'Add page'; ?>" /><?php if($pages_id) { ?> or <input type="submit" name="page_delete" value="Delete this page" /><?php } ?>
 	</p>
 
 </form>

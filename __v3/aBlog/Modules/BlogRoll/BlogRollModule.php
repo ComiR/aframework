@@ -4,7 +4,10 @@
 		public static $tplFile = true;
 
 		public static function run() {
-			if(isset($_POST['blog_roll_submit']) and ADMIN) {
+			if(isset($_GET['blog_roll_delete']) and ADMIN) {
+				self::deleteLink($_GET['blog_roll_delete']);
+			}
+			elseif(isset($_POST['blog_roll_submit']) and ADMIN) {
 				self::insertLink($_POST);
 			}
 
@@ -36,6 +39,14 @@
 			# Errors in form
 			else {
 				self::$tplVars['errors'] = true;
+			}
+		}
+
+		private static function deleteLink($id) {
+			Links::delete($id);
+
+			if(!XHR) {
+				redirect('?deleted_link');
 			}
 		}
 	}
