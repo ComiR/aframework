@@ -14,5 +14,4 @@
 		<Footer/>
 	</Wrapper>
 	<ModuleAdmin/>
-	<Debug/>
 </Base>
