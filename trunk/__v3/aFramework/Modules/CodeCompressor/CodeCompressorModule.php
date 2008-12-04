@@ -207,6 +207,7 @@
 				$code .= "\n\n/* ==== [ $name ] ==== */\n";
 				$contents = file_get_contents($path);
 				$contents = str_replace('url(gfx/', 'url(' .WEBROOT .dirname(str_replace(DOCROOT, '', $path)) .'/gfx/', $contents);
+				$contents = str_replace('url(common_gfx/', 'url(' .WEBROOT .'aFramework/Styles/__common/gfx/', $contents);
 
 				if(self::$type == 'css' and $prefixSelectorsWithFilename !== false) {
 					$fileNameNoExt = end(explode('/', substr($name, 0, -(strlen(end(explode('.', $name)))+1))));

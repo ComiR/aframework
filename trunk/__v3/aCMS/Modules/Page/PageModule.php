@@ -4,10 +4,10 @@
 		public static $tplFile = true;
 
 		public static function run() {
-			if(isset($_POST['page_delete_submit']) and ADMIN) {
+			if(isset($_POST['page_delete']) and ADMIN) {
 				self::deletePage($_POST['pages_id']);
 			}
-			if(isset($_POST['page_submit']) and ADMIN) {
+			elseif(isset($_POST['page_submit']) and ADMIN) {
 				self::updatePage($_POST);
 			}
 
