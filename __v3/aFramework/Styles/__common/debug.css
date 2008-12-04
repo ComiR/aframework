@@ -1,3 +1,7 @@
+div.debug-module-highlight {
+	outline: 5px dotted red;
+}
+
 #debug {
 	background: #fff;
 
