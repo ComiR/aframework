@@ -73,6 +73,7 @@
 			# Run and fetch all modules
 			self::runModules($base);
 			$theSite = self::fetchModules($base);
+			$theSite = DEBUG ? str_replace('</body>', fetch(DOCROOT .'aFramework/Files/debug.tpl.php') .'</body>', $theSite) : $theSite;
 
 			return $theSite;
 		}

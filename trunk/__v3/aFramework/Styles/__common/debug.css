@@ -15,6 +15,9 @@ div.debug-module-highlight {
 
 	opacity: 1;
 
+	font: 12px/1.2 Verdana;
+	color: #333;
+
 	border: 1px solid #333;
 }
 
@@ -49,19 +52,29 @@ div.debug-module-highlight {
 
 		margin: 0;
 
+		font: bold 18px/1.2 Arial;
+		letter-spacing: 0;
 		color: #fff;
 
 		border-top: 1px solid #666;
 		border-top: 1px solid #000;
 	}
 
+	#debug h2:after, 
+	#debug h3:after, 
+	#debug h4:after {
+		content: "";
+	}
+
 	#debug h3 {
+		font-size: 16px;
 		background: #26a;
 		border-top: 1px solid #999;
 		border-top: 1px solid #333;
 	}
 
 	#debug h4 {
+		font-size: 14px;
 		background: #69c;
 		border-top: 1px solid #ccc;
 		border-top: 1px solid #666;
@@ -103,7 +116,6 @@ div.debug-module-highlight {
 		}
 
 		#debug.hide #debug-inner, 
-		#debug.hide h2 span, 
 		#debug h3.hide + dl, 
 		#debug h3.hide + ul, 
 		#debug li.hide > * {
