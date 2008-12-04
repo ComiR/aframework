@@ -76,6 +76,26 @@
 		die;
 	}
 
+	function htmlentitiesDebug($foo) {
+		$bar = array_map_r('__htmlentitiesDebug', $foo);
+
+		var_dump($bar);
+	}
+
+	function __htmlentitiesDebug($foo) {
+		return htmlentities($foo);
+	}
+
+	function array_map_r($func, $arr) {
+		$newArr = array();
+
+		foreach($arr as $key => $value) {
+			$newArr[$key] = (is_array($value) ? array_map_r($func, $value) : (is_array($func) ? call_user_func_array($func, $value) : $func($value)));
+		}
+
+		return $newArr;
+	}
+
 	# Replaces _first_ occurance of needle
 	function str_replace_once($needle, $replace, $haystack) {
 		if($pos = strpos($haystack, $needle)) {

@@ -1,22 +1,24 @@
 <?php
+	ini_set('display_errors', false);
 	$tplVars = aFramework::$debugInfo;
 	$tplVars['routes'] = Router::getRoutes();
 ?>
+
 <div id="debug">
 
-	<h2>aFramework Debug <span>- Debugging <?php echo $tplVars['controller']['site'] .'_' .$tplVars['controller']['name']; ?></span> - <?php echo round(Timer::stop(), 2); ?> second(s) | <?php $qryInfo = dbQry(false, true); echo $qryInfo['num_queries']; ?> queries.</h2>
+	<h2>aFramework Debug</h2>
 
 	<div id="debug-inner">
 
 		<p><?php echo str_replace(DOCROOT, '', $tplVars['controller']['path']); ?></p>
-	<!--
+
 		<dl>
 			<dt>Run time</dt>
-			<dd><?php echo $tplVars['controller']['run_time']; ?> sec(s)</dd>
+			<dd><?php echo round(Timer::stop(), 2); ?> sec(s)</dd>
 			<dt>Num queries</dt>
-			<dd><?php echo $tplVars['controller']['num_queries']; ?></dd>
+			<dd><?php $qryInfo = dbQry(false, true); echo $qryInfo['num_queries']; ?></dd>
 		</dl>
-	-->
+
 		<h3>Routes</h3>
 
 		<dl>
@@ -111,14 +113,14 @@
 										<dt><?php echo $k; ?></dt>
 										<dd>
 											<?php 
-											#	if(is_array($v)) {
-											#		echo '<pre>';
-											#		var_dump($v);
-											#		echo '</pre>';
-											#	}
-											#	else {
+												if(is_array($v)) {
+													echo '<pre>';
+													htmlentitiesDebug($v);
+													echo '</pre>';
+												}
+												else {
 													echo htmlentities($v) != '' ? htmlentities($v) : '[empty]';
-											#	}
+												}
 											?>
 										</dd>
 									<?php } ?>
@@ -139,7 +141,7 @@
 <script type="text/javascript">
 	var Debug = {
 		run: function() {
-			if(jQuery('body.debug').length) {
+			if(document.body.className.indexOf('not-debug') === -1) {
 				this.addLinks('h2', function(a) {
 					var debug = document.getElementById('debug');
 					if(debug.className == 'hide') {
@@ -197,10 +199,10 @@
 			for(var i = 0; lis[i]; i++) {
 				if(document.getElementById(lis[i].title)) {
 					lis[i].onmouseover = function() {
-						document.getElementById(this.title).style.opacity = .2;
+						document.getElementById(this.title).className = 'debug-module-highlight';
 					};
 					lis[i].onmouseout = function() {						
-						document.getElementById(this.title).style.opacity = 1;
+						document.getElementById(this.title).className = '';
 					};
 				}
 			}
@@ -209,3 +211,7 @@
 
 	Debug.run();
 </script>
+
+<?php
+	ini_set('display_errors', false);
+?>
