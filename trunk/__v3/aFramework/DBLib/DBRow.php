@@ -12,7 +12,12 @@
 					' .esc($start) .', ' .esc($limit) .'
 			');
 
-			if(mysql_num_rows($res)) {
+			if(mysql_num_rows($res) === 1) {
+				$className = ucfirst($tableName);
+
+				return $className::makeNice(mysql_fetch_assoc($res));
+			}
+			elseif(mysql_num_rows($res) > 1) {
 				$rows = array();
 
 				while($row = mysql_fetch_assoc($res)) {
