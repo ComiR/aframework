@@ -1,8 +1,8 @@
 <h2><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h2>
 
-<p><small>Published Monday, September 22nd, 2008</small></p>
+<p><small>Published <?php echo $pub_date; ?></small></p>
 
-<?php echo $content; ?>
+<?php echo $content_more_cut; ?>
 
 <dl>
 	<dt>Tags</dt>

@@ -1,13 +1,13 @@
 <ol>
-	<?php for($i = 0; $i < Config::get('ablog.num_recent_stuff'); $i++) { ?>
+	<?php foreach($articles as $a) { ?>
 		<li>
-			<h3><a href="#">Older article <?php echo $i; ?></a></h3>
+			<h3><a href="<?php echo $a['url']; ?>"><?php echo $a['title']; ?></a></h3>
 
-			<p><small>Published Monday, September 22nd, 2008</small></p>
+			<p><small>Published <?php echo $a['pub_date']; ?></small></p>
 
-			<p>Lorem ipsum dolorus consequetuer ipsum. Consiquitus fredrolia samus. Lorem ipsum dolorus consequetuer ipsum. Consiquitus fredrolia samus.</p>
+			<?php echo $a['excerpt']; ?>
 
-			<p><a href="<?php echo Router::urlFor('Article', $article); ?>">Continue reading</a></p>
+			<p><a href="<?php echo $a['url']; ?>">Continue reading</a></p>
 
 			<!--
 			<dl>

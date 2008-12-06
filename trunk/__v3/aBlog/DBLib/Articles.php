@@ -30,7 +30,7 @@
 		}
 
 		public static function insert($row) {
-			$fields		= array(
+			$fields	 = array(
 				'url_str'			=> $row['url_str'], 
 				'formatting'		=> $row['formatting'], 
 				'title'				=> $row['title'], 
@@ -78,9 +78,9 @@
 			$row['url']						= Router::urlFor('Article', $row);
 
 			$row['content_plain']			= $row['content'];
-			$row['content']					= NiceString::makeNice($row['content'], self::$mhl, false, false, true);
-			$row['content_more_cut']		= NiceString::makeNice($row['content'], self::$mhl, true, false, true);
-			$row['content_excerpt']			= NiceString::makeNice($row['content'], self::$mhl, false, Config::get('general.excerpt_length'), true);
+			$row['content']					= NiceString::makeNice($row['content_plain'], self::$mhl, false, false, true);
+			$row['content_more_cut']		= NiceString::makeNice($row['content_plain'], self::$mhl, true, false, true);
+			$row['content_excerpt']			= NiceString::makeNice($row['content_plain'], self::$mhl, false, Config::get('general.excerpt_length'), true);
 
 			$row['title_plain']				= $row['title'];
 			$row['title']					= htmlentities($row['title']);
