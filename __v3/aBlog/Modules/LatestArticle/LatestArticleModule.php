@@ -8,10 +8,6 @@
 				self::insertArticle($_POST);
 			}
 
-			self::showTheArticle();
-		}
-
-		private static function showTheArticle() {
 			if(!(self::$tplVars = Articles::get('pub_date', 'DESC', 0, 1))) {
 				self::$tplFile = 'NoArticles';
 			}

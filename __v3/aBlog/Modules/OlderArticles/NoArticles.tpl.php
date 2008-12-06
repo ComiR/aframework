@@ -1,0 +1,1 @@
+<p>There are no older articles in the database. Why don't you <a href="<?php echo Router::urlFor('AdminLogin'); ?>">log in and add some</a>?</p>
