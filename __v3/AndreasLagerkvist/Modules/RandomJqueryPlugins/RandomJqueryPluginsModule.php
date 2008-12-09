@@ -4,7 +4,7 @@
 		public static $tplFile = true;
 
 		public static function run() {
-			if(!(self::$tplVars['plugins'] = JqueryPlugins::get()) {
+			if(!(self::$tplVars['plugins'] = JqueryPlugins::get())) {
 				self::$tplFile = false;
 			}
 			else {
