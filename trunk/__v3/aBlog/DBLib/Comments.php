@@ -1,62 +1,37 @@
 <?php
-	class Articles extends DBRow {
+	class Comments extends DBRow {
 		private static $mhl;
-
-		public static function getArticleByUrlStr($urlStr, $mhl = 3) {
-			self::$mhl = $mhl;
-
-			$res = dbQry('
-				SELECT
-					*
-				FROM
-					' .Config::get('db.table_prefix') .'articles
-				WHERE
-					url_str = "' .esc($urlStr) .'"
-				LIMIT 1
-			');
-
-			if(mysql_num_rows($res)) {
-				return self::makeNice(mysql_fetch_assoc($res));
-			}
-			else {
-				return false;
-			}
-		}
 
 		public static function get($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000, $mhl = 3) {
 			self::$mhl = $mhl;
 
-			return parent::get(Config::get('db.table_prefix') .'articles', $sort, $order, $start, $limit);
+			return parent::get(Config::get('db.table_prefix') .'comments', $sort, $order, $start, $limit);
 		}
 
 		public static function insert($row) {
 			$fields	 = array(
-				'url_str'			=> $row['url_str'], 
-				'title'				=> $row['title'], 
+				'articles_id'		=> $row['articles_id'], 
+				'spam'				=> SpamChecker::isSpam($row), 
+				'ip'				=> $_SERVER['REMOTE_ADDRESS'], 
+				'author'			=> $row['author'], 
+				'email'				=> $row['email'], 
+				'website'			=> $row['website'], 
 				'content'			=> $row['content'], 
-				'pub_date'			=> isset($row['pub_date']) ? $row['pub_date'] : date('Y-m-d H:i:s'), 
-				'allow_comments'	=> $row['content'], 
-				'allow_rating'		=> $row['content'], 
-				'meta_keywords'		=> $row['meta_keywords'], 
-				'meta_description'	=> $row['meta_description'], 
-				'num_hits'			=> $row['num_hits']
+				'pub_date'			=> isset($row['pub_date']) ? $row['pub_date'] : date('Y-m-d H:i:s')
 			);
 
-			return parent::insert(Config::get('db.table_prefix') .'articles', $fields);
+			return parent::insert(Config::get('db.table_prefix') .'comments', $fields);
 		}
 
 		public static function update($id, $row) {
 			$validFields = array(
-				'url_str', 
-				'formatting', 
-				'title', 
+				'articles_id', 
+				'spam', 
+				'author', 
+				'email', 
+				'website', 
 				'content', 
-				'pub_date', 
-				'allow_comments', 
-				'allow_rating', 
-				'meta_keywords', 
-				'meta_description', 
-				'num_hits'
+				'pub_date'
 			);
 			$fields = array();
 
@@ -66,11 +41,11 @@
 				}
 			}
 
-			parent::update(Config::get('db.table_prefix') .'articles', $id, $fields);
+			parent::update(Config::get('db.table_prefix') .'comments', $id, $fields);
 		}
 
 		public static function delete($id) {
-			parent::delete(Config::get('db.table_prefix') .'articles', $id);
+			parent::delete(Config::get('db.table_prefix') .'comments', $id);
 		}
 
 		public static function makeNice($row) {
