@@ -1,1 +1,0 @@
-<h2>No Older Articles</h2>

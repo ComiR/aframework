@@ -11,15 +11,8 @@
 				self::insertLink($_POST);
 			}
 
-			self::getSomeRandomLinks();
-		}
-
-		private static function getSomeRandomLinks() {
-			# Get some random links
-			self::$tplVars['links'] = Links::getLinks('RAND()', 'ASC', 0, Config::get('ablog.num_recent_stuff') * 2);
-
-			if(!self::$tplVars['links']) {
-				self::$tplFile = 'NoLinks';
+			if(!(self::$tplVars['links'] = Links::getLinks('RAND()', 'ASC', 0, Config::get('ablog.num_recent_stuff') * 2))) {
+				self::$tplFile = false;
 			}
 		}
 

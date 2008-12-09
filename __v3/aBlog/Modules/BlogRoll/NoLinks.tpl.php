@@ -1,1 +1,0 @@
-<p><strong>No links were found.</p></strong>
