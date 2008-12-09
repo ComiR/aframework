@@ -49,7 +49,7 @@
 		}
 
 		public static function makeNice($row) {
-			$row['url']						= Router::urlFor('Article', $row);
+			$row['url']						= Router::urlFor('Article', $row) .'#comment-' .$row['comments_id'];
 
 			$row['content_plain']			= $row['content'];
 			$row['content']					= NiceString::makeNice($row['content_plain'], self::$mhl, false, false, true);

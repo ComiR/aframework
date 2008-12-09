@@ -5,7 +5,7 @@
 
 		public static function run() {
 			if(!(self::$tplVars['articles'] = Articles::get('pub_date', 'DESC', 1, 3))) {
-				self::$tplFile = 'NoArticles';
+				self::$tplFile = false;
 			}
 		}
 	}
