@@ -49,21 +49,13 @@
 		}
 
 		public static function makeNice($row) {
-			$row['url']						= Router::urlFor('Article', $row) .'#comment-' .$row['comments_id'];
+			$row['article_url']				= Router::urlFor('Article', $row); # should be articleRow fffs this wont work at all!
+			$row['url']						= $row['article_url'] .'#comment-' .$row['comments_id'];
 
 			$row['content_plain']			= $row['content'];
 			$row['content']					= NiceString::makeNice($row['content_plain'], self::$mhl, false, false, true);
 			$row['content_more_cut']		= NiceString::makeNice($row['content_plain'], self::$mhl, true, false, true);
 			$row['content_excerpt']			= NiceString::makeNice($row['content_plain'], self::$mhl, false, Config::get('general.excerpt_length'), true);
-
-			$row['title_plain']				= $row['title'];
-			$row['title']					= htmlentities($row['title']);
-
-			$row['meta_keywords_plain']		= $row['meta_keywords'];
-			$row['meta_keywords']			= htmlentities($row['meta_keywords']);
-
-			$row['meta_description_plain']	= $row['meta_description'];
-			$row['meta_description']		= htmlentities($row['meta_description']);
 
 			return $row;
 		}
