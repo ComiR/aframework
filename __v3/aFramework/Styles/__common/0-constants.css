@@ -1,3 +1,34 @@
+/*
+	=== General ===
+*/
+/**
+ * A11y hide
+ * Hides and element in an accessible way
+ */
+$a11y-hide {
+	position: absolute;
+	left: -10000px;
+	top: -10000px;
+}
+
+/**
+ * Self Clear
+ * Classic self-clear
+ */
+$self-clear {
+	_height: 1%;
+	*display: inline-block;
+	_display: block;
+}
+
+$self-clear:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
 /**
  * Underlined
  * Makes element underlined and removes on :hover
@@ -22,6 +53,9 @@ $not-underlined:hover {
 	text-decoration: underline;
 }
 
+/*
+	=== Definition Lists ===
+*/
 /**
  * Data Definition List
  * Used on DLs to turn them into Key: Val
@@ -30,6 +64,18 @@ $not-underlined:hover {
 $data-definition {
 	margin-left: 0;
 	padding-left: 0;
+
+	_height: 1%;
+	*display: inline-block;
+	_display: block;
+}
+
+$data-definition:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
 }
 
 	$data-definition > dt {
@@ -47,6 +93,27 @@ $data-definition {
 		margin: 0 0 5px;
 	}
 
+/**
+ * Inline definition
+ * Turns a DL into foo bar   zaz baz
+ */
+$inline-definition {
+	
+}
+
+	$inline-definition > dt {
+		display: inline;
+		margin: 0 0 0 10px;
+	}
+
+	$inline-definition > dd {
+		display: inline;
+		margin: 0;
+	}
+
+/*
+	=== Horizontal Lists ===
+*/
 /**
  * Pipe Menu
  * Turns a UL into foo | bar | zaz
@@ -90,6 +157,7 @@ $dash-menu {
 	$dash-menu > li:last-child:after {
 		content: "";
 	}
+
 /**
  * Comma list
  * Turns a UL into foo, bar, zaz
@@ -204,6 +272,35 @@ $inline-menu {
 	}
 
 /**
+ * Floated list
+ * A self-cleared, floated list
+ */
+$floated-list {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+	
+	_height: 1%;
+	*display: inline-block;
+	_display: block;
+}
+
+$floated-list:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+	$floated-list > li {
+		float: left;
+	}
+
+/*
+	=== Vertical Lists ===
+*/
+/**
  * Arrow-list
  * Prepends an arrow to every list-item
  */
@@ -249,58 +346,4 @@ $plain-list {
 	margin-left: 0;
 	padding-left: 0;
 	list-style: none;
-}
-
-/**
- * Floated list
- * A self-cleared, floated list
- */
-$floated-list {
-	margin-left: 0;
-	padding-left: 0;
-	list-style: none;
-	
-	_height: 1%;
-	*display: inline-block;
-	_display: block;
-}
-
-$floated-list:after {
-	content: ".";
-	display: block;
-	height: 0;
-	visibility: hidden;
-	clear: both;
-}
-
-	$floated-list > li {
-		float: left;
-	}
-
-/**
- * A11y hide
- * Hides and element in an accessible way
- */
-$a11y-hide {
-	position: absolute;
-	left: -10000px;
-	top: -10000px;
-}
-
-/**
- * Self Clear
- * Classic self-clear
- */
-$self-clear {
-	_height: 1%;
-	*display: inline-block;
-	_display: block;
-}
-
-$self-clear:after {
-	content: ".";
-	display: block;
-	height: 0;
-	visibility: hidden;
-	clear: both;
 }

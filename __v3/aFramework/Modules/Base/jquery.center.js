@@ -26,7 +26,7 @@ jquery
 @does:
 Centers an element on the screen using either position: fixed or absolute.
 
-Can be used to display messages, pop-up images etc.
+Can be used to display messages, pop up images etc.
 
 @howto:
 jQuery('#my-element').center(); would center the element with ID 'my-element' using fixed position.
