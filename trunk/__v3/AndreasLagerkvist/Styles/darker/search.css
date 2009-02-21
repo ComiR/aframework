@@ -1,0 +1,21 @@
+#search {
+	position: absolute;
+	right: 0;
+	top: 10px;
+}
+
+	#search h2 = $a11y-hide;
+	body.js-enabled #search label = $a11y-hide;
+	body.js-enabled #search input[type="submit"] = $a11y-hide;
+
+	body.js-enabled #search br {
+		display: none;
+	}
+
+	#search #q {
+		width: 145px;
+	}
+
+	/* body.js-disabled */#search #q:focus {
+		width: 290px;
+	}

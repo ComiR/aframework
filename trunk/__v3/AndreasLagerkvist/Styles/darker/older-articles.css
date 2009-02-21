@@ -1,0 +1,17 @@
+#older-articles {
+	
+}
+
+	#older-articles ol {
+		
+	}
+
+		#older-articles ol li {
+			
+		}
+
+			#older-articles ol li h3 + p small = $icon;
+			#older-articles ol li h3 + p small = $icon-pub-date;
+
+			#older-articles ol li p:last-child a = $icon;
+			#older-articles ol li p:last-child a = $icon-next;

@@ -1,0 +1,10 @@
+#recent-comments ul li a:after, 
+#recent-comments ul li a:before, 
+#recent-comments ul li:after, 
+#recent-comments ul li:before {
+	content: "" !important; /* override default style for this module */
+}
+
+	#recent-comments ul li a = $icon;
+	#recent-comments ul li:first-child a = $icon-previous;
+	#recent-comments ul li:last-child a = $icon-next-right;
