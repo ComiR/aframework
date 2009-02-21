@@ -1,0 +1,32 @@
+#jquery-plugins {
+	
+}
+
+	/* First article paragraph */
+	#jquery-plugins h2 + p = $first-p;
+
+	#jquery-plugins ul {
+		margin: 40px -330px 0 -10px;
+		clear: right;
+		overflow: hidden;
+		list-style: none;
+	}
+
+			#jquery-plugins ul li {
+				background: url(gfx/box.png) no-repeat;
+
+				width: 380px;
+				min-height: 190px;
+
+				float: left;
+
+				padding: 30px 50px 30px 30px;
+				margin: 0 10px 20px;
+			}
+
+				#jquery-plugins ul li h3 {
+					margin-top: 0;
+				}
+
+				#jquery-plugins ul li p:last-child a = $icon;
+				#jquery-plugins ul li p:last-child a = $icon-next;

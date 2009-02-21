@@ -1,0 +1,305 @@
+/*
+	=== General stuff ===
+*/
+html {
+	background: #111 url(gfx/body-bg.png) repeat-x;
+
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	background: url(gfx/footer-bg.jpg) repeat-x left bottom;
+
+	margin: 0;
+	padding: 0;
+
+	font: 14px/1.2 Verdana, sans-serif;
+	color: #A5A5A5;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	margin: 20px 0 10px;
+
+	font: bold 30px/.8 Arial, sans-serif;
+	letter-spacing: -.08em;
+	color: #fff;
+}
+
+	h1 a, 
+	h2 a, 
+	h3 a, 
+	h4 a, 
+	h5 a, 
+	h6 a {
+		color: #fff;
+		text-decoration: none;
+	}
+
+	h1 a:hover, 
+	h2 a:hover, 
+	h3 a:hover, 
+	h4 a:hover, 
+	h5 a:hover, 
+	h6 a:hover {
+		color: #fc3;
+	}
+
+h2 {
+	font-size: 48px;
+}
+
+h3 {
+	font-size: 24px;
+}
+
+h4 {
+	font-size: 18px;
+}
+
+h5 {
+	font-size: 14px;
+}
+
+h6 {
+	font-size: 12px;
+}
+
+p {
+	margin: 0 0 10px;
+	line-height: 1.5;
+}
+
+ul, 
+ol {
+	margin: 0 0 10px 30px;
+	padding: 0;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+label {
+	cursor: pointer;
+}
+
+input, 
+select {
+	vertical-align: middle;
+}
+
+input[type="text"], 
+textarea, 
+input[type="password"] {
+	background: #f5f5f5;
+
+	margin: 5px 0 0 0;
+	padding: 4px;
+	max-height: 400px;
+
+	color: #333;
+
+	border: 1px solid #fff;
+	border-top-color: #000;
+	border-left-color: #000;
+	border-right-color: #999;
+	border-bottom-color: #999;
+}
+
+input[type="text"]:focus, 
+textarea:focus, 
+input[type="password"]:focus {
+	
+}
+
+input[type="submit"] {
+	cursor: pointer;
+}
+
+a {
+	color: #fc3;
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+}
+/*
+a:visited {
+	color: purple;
+}
+
+a:active {
+	color: red;
+}
+
+a:focus {
+	font-weight: bold;
+	text-decoration: overline underline;
+}
+*/
+	a img {
+		border: 1px solid #fc3;
+		padding: 2px;
+	}
+
+img {
+	vertical-align: middle;
+}
+
+small {
+	font-size: 10px;
+	color: #444;
+	text-transform: uppercase;
+}
+
+	small a {
+		color: #444;
+	}
+
+/* The Grid */
+#wrapper {
+	width: 960px;
+	margin: 0 auto;
+	position: relative;
+}
+
+	#wrapper > div {
+		padding: 10px;
+	}
+
+/* Main Content Modules, 2/3 to left*/
+#latest-article, 
+#jquery-plugin, 
+#jquery-plugins, 
+#contact, 
+#article, 
+#post-comment, 
+#comments, 
+#page, 
+#admin-login, 
+#articles, 
+#articles-by-date, 
+#search-results {
+	width: 620px;
+}
+
+#random-jquery-plugins, 
+#older-articles {
+	clear: both;
+}
+
+/* Secondary content 3/3 */
+#random-jquery-plugins > ul, 
+#older-articles > ol {
+	margin-left: -10px;
+	margin-right: -10px;
+	overflow: hidden;
+	list-style: none;
+}
+
+	#random-jquery-plugins > ul > li, 
+	#older-articles > ol > li, 
+
+#blog-roll, 
+#recent-comments, 
+#tag-cloud, 
+#post-it {
+		width: 300px;
+		float: left;
+		padding: 0 10px;
+	}
+
+#blog-roll, 
+#recent-comments, 
+#tag-cloud, 
+#quick-about, 
+#search, 
+#navigation, 
+#older-articles, 
+#random-jquery-plugins {
+	font-size: 12px;
+}
+
+	h2:after, 
+	#older-articles h3:after, 
+	#random-jquery-plugins h3:after {
+		content: ".";
+		color: #fc3;
+	}
+	
+	#older-articles h2:after, 
+	#random-jquery-plugins h2:after {
+		content: "";
+	}
+
+	#blog-roll h2, 
+	#recent-comments h2, 
+	#tag-cloud h2, 
+	#quick-about h2, 
+	#search h2, 
+	#navigation h2 {
+		font-size: 24px;
+	}
+
+	#quick-about h2 {
+		margin-top: 38px;
+	}
+
+#footer {
+	clear: both;
+	font-size: 10px;
+}
+
+/*
+#blog-roll, 
+#recent-comments, 
+#tag-cloud {
+	background: url(gfx/gradient-border.png) no-repeat left top;
+}
+
+
+#recent-comments {
+	background-position: 50% top;
+}
+
+#tag-cloud {
+	background-position: right top;
+}
+*/
+$3-col-listing {
+	
+}
+
+	$3-col-listing h2 {
+		font-size: 18px;
+		color: #333;
+		letter-spacing: -.05em;
+	}
+
+	$3-col-listing > ul {
+		background: url(gfx/gradient-border.png) no-repeat left top;
+		padding: 10px 0;
+		min-height: 180px;
+	}
+
+	$3-col-listing > ol {
+		background: url(gfx/gradient-border.png) no-repeat left top;
+		padding: 10px 0;
+		min-height: 200px;
+	}
+
+#random-jquery-plugins = $3-col-listing;
+#older-articles = $3-col-listing;
+
+$first-p {
+	font-size: 18px;
+	font-style: italic;
+}

@@ -1,0 +1,61 @@
+#latest-article {
+	
+}
+
+	/* Pub data */
+	#latest-article h2 + p small = $icon;
+	#latest-article h2 + p small = $icon-pub-date;
+
+	/* First article paragraph */
+	#latest-article h2 + p + p = $first-p;
+
+	/* Tags and comments */
+	#latest-article > dl:last-child {
+		font-size: 10px;
+		color: #444;
+		text-transform: uppercase;
+
+		margin-top: 10px;
+		padding-top: 10px;
+
+		border-top: 1px dotted #333;
+	}
+
+		#latest-article > dl:last-child dt = $icon;
+		#latest-article > dl:last-child dt = $icon-comment;
+		#latest-article > dl:last-child dt {
+			display: inline;
+			margin: 0 0 0 20px;
+		}
+
+		#latest-article > dl:last-child dt:first-child = $icon-tag;
+		#latest-article > dl:last-child dt:first-child {
+			margin-left: 0;
+		}
+
+		#latest-article > dl:last-child dt:after {
+			content: ":";
+		}
+
+		#latest-article > dl:last-child dd {
+			display: inline;
+			margin: 0;
+		}
+
+			#latest-article > dl:last-child dd ul {
+				display: inline;
+				margin: 0;
+				list-style: none;
+			}
+
+				#latest-article > dl:last-child dd ul li {
+					display: inline;
+				}
+
+				#latest-article > dl:last-child dd ul li:after {
+					content: ", ";
+				}
+
+				#latest-article > dl:last-child dd ul li:last-child:after {
+					content: "";
+				}

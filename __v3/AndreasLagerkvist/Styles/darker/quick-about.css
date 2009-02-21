@@ -1,0 +1,18 @@
+#quick-about = $self-clear;
+#quick-about {
+	width: 300px;
+	float: right;
+}
+
+	#quick-about h2 {
+		margin-top: 37px;
+	}
+
+	#quick-about a img {
+		width: 100px;
+		float: right;
+		margin: 0 0 10px 10px;
+	}
+
+	#quick-about p:last-child a = $icon;
+	#quick-about p:last-child a = $icon-next;
