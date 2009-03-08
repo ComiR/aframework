@@ -1,35 +1,29 @@
 <?php
-	class Articles extends DBRow {
-		private static $mhl;
-
-		public static function getArticleByUrlStr($urlStr, $mhl = 3) {
-			self::$mhl = $mhl;
-
+	class Articles {
+		public static function getArticleByUrlStr ( $urlStr ) {
 			$res = dbQry('
 				SELECT
 					*
 				FROM
-					' .Config::get('db.table_prefix') .'articles
+					' . Config::get('db.table_prefix') . 'articles
 				WHERE
-					url_str = "' .esc($urlStr) .'"
+					url_str = "' . esc($urlStr) . '"
 				LIMIT 1
 			');
 
-			if(mysql_num_rows($res)) {
-				return self::makeNice(mysql_fetch_assoc($res));
+			if ( mysql_num_rows($res) ) {
+				return mysql_fetch_assoc($res);
 			}
 			else {
 				return false;
 			}
 		}
 
-		public static function get($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000, $mhl = 3) {
-			self::$mhl = $mhl;
-
-			return parent::get(Config::get('db.table_prefix') .'articles', $sort, $order, $start, $limit);
+		public static function get ( $sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000 ) {
+			return DBRow::get(Config::get('db.table_prefix') . 'articles', $sort, $order, $start, $limit);
 		}
 
-		public static function insert($row) {
+		public static function insert ( $row ) {
 			$fields	 = array(
 				'url_str'			=> $row['url_str'], 
 				'title'				=> $row['title'], 
@@ -42,10 +36,10 @@
 				'num_hits'			=> $row['num_hits']
 			);
 
-			return parent::insert(Config::get('db.table_prefix') .'articles', $fields);
+			return DBRow::insert(Config::get('db.table_prefix') .'articles', $fields);
 		}
 
-		public static function update($id, $row) {
+		public static function update ( $id, $row ) {
 			$validFields = array(
 				'url_str', 
 				'formatting', 
@@ -60,37 +54,17 @@
 			);
 			$fields = array();
 
-			foreach($row as $col => $val) {
-				if(in_array($col, $validFields)) {
+			foreach ( $row as $col => $val ) {
+				if ( in_array($col, $validFields) ) {
 					$fields[$col] = $val;
 				}
 			}
 
-			parent::update(Config::get('db.table_prefix') .'articles', $id, $fields);
+			DBRow::update(Config::get('db.table_prefix') .'articles', $id, $fields);
 		}
 
-		public static function delete($id) {
-			parent::delete(Config::get('db.table_prefix') .'articles', $id);
-		}
-
-		public static function makeNice($row) {
-			$row['url']						= Router::urlFor('Article', $row);
-
-			$row['content_plain']			= $row['content'];
-			$row['content']					= NiceString::makeNice($row['content_plain'], self::$mhl, false, false, true);
-			$row['content_more_cut']		= NiceString::makeNice($row['content_plain'], self::$mhl, true, false, true);
-			$row['content_excerpt']			= NiceString::makeNice($row['content_plain'], self::$mhl, false, Config::get('general.excerpt_length'), true);
-
-			$row['title_plain']				= $row['title'];
-			$row['title']					= htmlentities($row['title']);
-
-			$row['meta_keywords_plain']		= $row['meta_keywords'];
-			$row['meta_keywords']			= htmlentities($row['meta_keywords']);
-
-			$row['meta_description_plain']	= $row['meta_description'];
-			$row['meta_description']		= htmlentities($row['meta_description']);
-
-			return $row;
+		public static function delete ( $id ) {
+			DBRow::delete(Config::get('db.table_prefix') .'articles', $id);
 		}
 	}
 ?>
