@@ -1,28 +1,25 @@
 <?php
 	class DBRow {
-		public static function get($tableName, $sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000) {
+		public static function get ( $tableName, $sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000 ) {
 			$res = dbQry('
 				SELECT
 					*
 				FROM
-					' .$tableName .'
+					' . $tableName . '
 				ORDER BY
-					' .esc($sort) .' ' .esc($order) .'
+					' . esc($sort) . ' ' . esc($order) . '
 				LIMIT
-					' .esc($start) .', ' .esc($limit) .'
-			');
+					' . esc($start) . ', ' . esc($limit)
+			);
 
-			if(mysql_num_rows($res) === 1) {
-				$className = ucfirst($tableName);
-
-				return $className::makeNice(mysql_fetch_assoc($res));
+			if ( mysql_num_rows($res) === 1 ) {
+				return mysql_fetch_assoc($res);
 			}
-			elseif(mysql_num_rows($res) > 1) {
+			elseif ( mysql_num_rows($res) > 1 ) {
 				$rows = array();
 
-				while($row = mysql_fetch_assoc($res)) {
-					$className = ucfirst($tableName);
-					$rows[] = $className::makeNice($row);
+				while ( $row = mysql_fetch_assoc($res) ) {
+					$rows[] = $row;
 				}
 
 				return $rows;
@@ -32,11 +29,11 @@
 			}
 		}
 
-		public static function insert($tableName, $fields) {
+		public static function insert ( $tableName, $fields ) {
 			$insertVals = '';
 			$insertCols = '';
 
-			foreach($fields as $col => $val) {
+			foreach ( $fields as $col => $val ) {
 				$insertVals .= '\'' .esc($val) .'\',';
 				$insertCols .= $col .',';
 			}
@@ -57,10 +54,10 @@
 			return mysql_insert_id();
 		}
 
-		public static function update($tableName, $id, $fields) {
+		public static function update ( $tableName, $id, $fields ) {
 			$updateStr = '';
 
-			foreach($fields as $col => $val) {
+			foreach ( $fields as $col => $val ) {
 				$updateStr .= "$col = '" .esc($val) ."',";
 			}
 
@@ -72,19 +69,19 @@
 				SET
 					$updateStr
 				WHERE
-					{$tableName}_id = " .esc($id) ."
+					{$tableName}_id = " . esc($id) . "
 				LIMIT 1
 			");
 
 			return true;
 		}
 		
-		public static function delete($tableName, $id) {
+		public static function delete ( $tableName, $id ) {
 			dbQry("
 				DELETE FROM
 					$tableName
 				WHERE
-					{$tableName}_id = " .esc($id) ."
+					{$tableName}_id = " . esc($id) . "
 				LIMIT 1
 			");
 

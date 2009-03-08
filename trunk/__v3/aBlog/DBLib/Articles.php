@@ -35,8 +35,8 @@
 				'title'				=> $row['title'], 
 				'content'			=> $row['content'], 
 				'pub_date'			=> isset($row['pub_date']) ? $row['pub_date'] : date('Y-m-d H:i:s'), 
-				'allow_comments'	=> $row['content'], 
-				'allow_rating'		=> $row['content'], 
+				'allow_comments'	=> $row['allow_comments'], 
+				'allow_rating'		=> $row['allow_rating'], 
 				'meta_keywords'		=> $row['meta_keywords'], 
 				'meta_description'	=> $row['meta_description'], 
 				'num_hits'			=> $row['num_hits']
