@@ -1,1 +1,1 @@
-<h2>Slightly older articles</h2>
+<h2><?php echo Lang::get('slightly_older_articles'); ?></h2>

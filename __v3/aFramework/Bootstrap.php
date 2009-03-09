@@ -7,7 +7,7 @@
 	require_once 'Core/Timer.php';
 	Timer::start();
 
-	define('AFRAMEWORK_VERSION',	'aFramework v3');
+	define('AFRAMEWORK_VERSION', 'aFramework v3');
 
 	# Start sessions
 	session_start();
@@ -17,13 +17,13 @@
 	require_once 'Core/Functions.php';
 
 	# Directory paths
-	define('DOCROOT',				realpath(dirname( __FILE__ ) .'/..') .'/');
+	define('DOCROOT',				realpath(dirname( __FILE__ ) . '/..') . '/');
 	define('WEBROOT',				substr($_SERVER['SCRIPT_NAME'], 0, -9)); # minus "index.php"
 
 	list($currentSite) = explode(' ', SITE_HIERARCHY);
 
 	define('CURRENT_SITE',			$currentSite);
-	define('CURRENT_SITE_DIR',		DOCROOT .CURRENT_SITE .'/');
+	define('CURRENT_SITE_DIR',		DOCROOT . CURRENT_SITE . '/');
 
 	# Misc
 	define('NAKED_DAY',				is_naked_day(9));
@@ -37,17 +37,17 @@
 	# Include config-files
 	$sites = array_reverse(explode(' ', SITE_HIERARCHY));
 
-	foreach($sites as $site) {
-		$path = DOCROOT .$site .'/Config.php';
+	foreach ( $sites as $site ) {
+		$path = DOCROOT . $site . '/Config.php';
 
-		if(file_exists($path)) {
+		if ( file_exists($path) ) {
 			require_once $path;
 		}
 	}
 
 	# Connect to DB
-	mysql_connect(Config::get('db.host'), Config::get('db.user'), Config::get('db.pass')) or die('Unable to connect to MySQL');
-	mysql_select_db(Config::get('db.name')) or die('Unable to select DB');
+	mysql_connect(Config::get('db.host'), Config::get('db.user'), Config::get('db.pass')) or die('aFramework Error: Unable to connect to MySQL - Please check your config files');
+	mysql_select_db(Config::get('db.name')) or die('aFramework Error: Unable to select DB - Please check your config files');
 
 	# Core classes
 	require_once 'Core/AutoLoader.php';
@@ -55,6 +55,7 @@
 	require_once 'Core/Router.php';
 	require_once 'Core/StyleSwitcher.php';
 	require_once 'Core/VisitorData.php';
+	require_once 'Core/Lang.php';
 	require_once 'Core/aFramework.php';
 
 	# Register autoloader

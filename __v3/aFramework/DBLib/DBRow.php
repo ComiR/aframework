@@ -13,7 +13,7 @@
 			);
 
 			if ( mysql_num_rows($res) === 1 ) {
-				return mysql_fetch_assoc($res);
+				return $limit === 1 ? mysql_fetch_assoc($res) : array(mysql_fetch_assoc($res));
 			}
 			elseif ( mysql_num_rows($res) > 1 ) {
 				$rows = array();

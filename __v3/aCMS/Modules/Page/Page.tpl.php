@@ -1,1 +1,1 @@
-<?php echo $content; ?>
+<?php echo NiceString::makeNice($page['content'], 2); ?>

@@ -11,18 +11,18 @@
 			'ui-droppable-1'
 		);
 
-		public static function get() {
-			$path		= DOCROOT .'aFramework/Modules/Base/';
+		public static function get (  ) {
+			$path		= DOCROOT . 'aFramework/Modules/Base/';
 			$dh			= opendir($path);
 			$plugins	= array();
 
-			while($f = readdir($dh)) {
+			while ( $f = readdir($dh) ) {
 				$matches = array();
 
-				if(preg_match('/^jquery\.(.*?)\.js$/i', $f, $matches) and !in_array($matches[1], self::$notMyPlugins)) {
+				if ( preg_match('/^jquery\.(.*?)\.js$/i', $f, $matches) and !in_array($matches[1], self::$notMyPlugins) ) {
 					$plugin = self::pluginAsArray($matches[1]);
 
-					if($plugin) {
+					if ( $plugin ) {
 						$plugins[] = $plugin;
 					}
 				}
@@ -31,24 +31,24 @@
 			return $plugins;
 		}
 
-		public static function getByUrlStr($urlStr) {
+		public static function getByUrlStr ( $urlStr ) {
 			$bits	= explode('-', $urlStr);
 			$plugin	= '';
-			$i	= 0;
+			$i		= 0;
 
-			foreach($bits as $bit) {
+			foreach ( $bits as $bit ) {
 				$plugin .= $i++ > 0 ? (in_array($bit, array('dl')) ? strtoupper($bit) : ucfirst($bit)) : $bit;
 			}
 
-			if(file_exists(DOCROOT .'aFramework/Modules/Base/jquery.' .$plugin .'.js')) {
+			if ( file_exists(DOCROOT .'aFramework/Modules/Base/jquery.' . $plugin . '.js') ) {
 				return self::pluginAsArray($plugin);
 			}
 
 			return false;
 		}
 
-		private static function pluginAsArray($plugin) {
-			$path			= DOCROOT .'aFramework/Modules/Base/jquery.' .$plugin .'.js';
+		private static function pluginAsArray ( $plugin ) {
+			$path			= DOCROOT . 'aFramework/Modules/Base/jquery.' . $plugin . '.js';
 			$contents		= file_get_contents($path);
 			$matches		= array();
 			$secondMatches	= array();
@@ -57,7 +57,7 @@
 
 			preg_match('/\/\*\*\*(.*?)\*\*\*\/(.*)?/is', $contents, $matches);
 
-			if(!isset($matches[1])) {
+			if ( !isset($matches[1]) ) {
 				return false;
 			}
 
@@ -67,14 +67,14 @@
 			$pluginArr['file_name']	= "jquery.$plugin.js";
 			$pluginArr['source']	= isset($matches[2]) ? trim($matches[2]) : '';
 
-			foreach($secondMatches[1] as $property) {
+			foreach ( $secondMatches[1] as $property ) {
 				$pluginArr[$property] = trim($secondMatches[2][$i++]);
 			}
 
 			return self::makeNice($pluginArr);
 		}
 
-		private static function makeNice($row) {
+		private static function makeNice ( $row ) {
 			$row['name']				= htmlentities($row['name']);
 			$row['file_name']			= htmlentities($row['file_name']);
 			$row['source_code']			= NiceString::makeNice('[code]' .$row['source'] .'[/code]');
@@ -109,8 +109,8 @@
 			return $row;
 		}
 
-		private static function getPluginFiles($requirements) {
-			$reqs			= explode(',', $requirements);
+		private static function getPluginFiles ( $requirements ) {
+			$reqs				= explode(',', $requirements);
 			$pluginFiles		= array();
 			$requirementFiles	= array();
 
@@ -120,19 +120,19 @@
 				'size'	=> false
 			);
 
-			foreach($reqs as $req) {
+			foreach ( $reqs as $req ) {
 				$req = trim($req);
 				$ext = end(explode('.', $req));
 
-				if('css' == $ext and file_exists(DOCROOT .'aFramework/Styles/__common/' .$req)) {
+				if ( 'css' == $ext and file_exists(DOCROOT . 'aFramework/Styles/__common/' . $req) ) {
 					$pluginFiles[] = array(
 						'name'	=> $req, 
 						'ext'	=> $ext, 
-						'url'	=> WEBROOT .'aFramework/Styles/__common/' .$req, 
-						'size'	=> filesize(DOCROOT .'aFramework/Styles/__common/' .$req)
+						'url'	=> WEBROOT . 'aFramework/Styles/__common/' . $req, 
+						'size'	=> filesize(DOCROOT .'aFramework/Styles/__common/' . $req)
 					);
 				}
-				elseif(in_array($ext, array('png', 'gif', 'jpg')) and file_exists(DOCROOT .'aFramework/Styles/__common/gfx/' .$req)) {
+				elseif ( in_array($ext, array('png', 'gif', 'jpg')) and file_exists(DOCROOT . 'aFramework/Styles/__common/gfx/' . $req) ) {
 					$pluginFiles[] = array(
 						'name'	=> $req, 
 						'ext'	=> $ext, 
@@ -140,26 +140,26 @@
 						'url'	=> WEBROOT .'aFramework/Styles/__common/gfx/' .$req
 					);
 				}
-				elseif(file_exists(DOCROOT .'aFramework/Modules/Base/jquery.' .$req .'.js')) {
-					#$jsp	= new JavaScriptPacker(file_get_contents(DOCROOT .'aFramework/Modules/Base/jquery.' .$req .'.js'));
-					$psize	= true;#strlen($jsp->pack());
+				elseif ( file_exists(DOCROOT .'aFramework/Modules/Base/jquery.' . $req . '.js')) {
+					#$jsp	= new JavaScriptPacker(file_get_contents(DOCROOT . 'aFramework/Modules/Base/jquery.' . $req . '.js'));
+					$psize	= true; # strlen($jsp->pack());
 
 					$tmpPlugin = array(
-						'name'	=> 'jquery.' .$req .'.js', 
+						'name'	=> 'jquery.' . $req . '.js', 
 						'ext'	=> 'js', 
-						'url'	=> WEBROOT .'aFramework/Modules/Base/jquery.' .$req .'.js', 
-						'size'	=> filesize(DOCROOT .'aFramework/Modules/Base/jquery.' .$req .'.js'), 
+						'url'	=> WEBROOT . 'aFramework/Modules/Base/jquery.' . $req . '.js', 
+						'size'	=> filesize(DOCROOT . 'aFramework/Modules/Base/jquery.' . $req . '.js'), 
 						'psize'	=> $psize
 					);
 
-					if(in_array($req, self::$notMyPlugins)) {
+					if ( in_array($req, self::$notMyPlugins) ) {
 						$requirementFiles[] = $tmpPlugin;
 					}
 					else {
 						$pluginFiles[] = $tmpPlugin;
 					}
 				}
-				elseif('jquery' != strtolower($req)) {
+				elseif ( 'jquery' != strtolower($req) ) {
 					$requirementFiles[] = array(
 						'name'	=> $req, 
 						'ext'	=> $ext, 

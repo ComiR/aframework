@@ -4,7 +4,7 @@
 		public static $tplFile = true;
 
 		public static function run() {
-			if(!(self::$tplVars['comments'] = Comments::get('pub_date', 'DESC', 0, Config::get('ablog.num_recent_stuff')))) {
+			if ( !(self::$tplVars['comments'] = Comments::get('pub_date', 'DESC', 0, Config::get('ablog.num_recent_stuff'))) ) {
 				self::$tplFile = false;
 			}
 			else {

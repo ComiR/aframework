@@ -1,1 +1,1 @@
-<h2>Recent Comments</h2>
+<h2><?php echo Lang::get('recent_comments'); ?></h2>

@@ -1,6 +1,18 @@
-<h2><?php echo $plugin['title']; ?> <?php echo $plugin['version']; ?></h2>
+<h2>
+	<?php echo $plugin['title']; ?> 
+	<?php echo $plugin['version']; ?>
+</h2>
 
-<p><small>Created <?php echo $plugin['pub_date']; ?> by <?php echo $plugin['author']; ?><br /><a href="<?php echo $plugin['license']; ?>">Copyright &copy; <?php echo $plugin['copyright']; ?></a></small></p>
+<p>
+	<small>
+		Created 
+		<?php echo $plugin['pub_date']; ?> by 
+		<?php echo $plugin['author']; ?><br />
+		<a href="<?php echo $plugin['license']; ?>">
+			Copyright &copy; <?php echo $plugin['copyright']; ?>
+		</a>
+	</small>
+</p>
 
 <h3>What it does</h3>
 
@@ -20,16 +32,16 @@
 
 <script type="text/javascript">
 	//<![CDATA[
-	<?php if(NAKED_DAY) { ?>
+	<?php if ( NAKED_DAY ) { ?>
 		alert('It\'s naked day today and jQuery isn\'t included on my site so the example will not work. You can still check out the source-code and download the plug-in of course.');
 	<?php } else { ?>
-		function addEvent(obj, type, fn) {
-			if(obj.addEventListener) {
+		function addEvent ( obj, type, fn ) {
+			if ( obj.addEventListener ) {
 				obj.addEventListener(type, fn, false);
 			}
-			else if(obj.attachEvent) {
+			else if ( obj.attachEvent ) {
 				obj['e' +type +fn] = fn;
-				obj[type +fn] = function() {
+				obj[type +fn] = function (  ) {
 					obj['e' +type +fn](window.event);
 				};
 				obj.attachEvent('on' +type, obj[type +fn]);
@@ -37,7 +49,7 @@
 		}
 
 		addEvent(window, 'load', function() {
-			<?php echo "\n" .$plugin['example_js'] ."\n"; ?>
+			<?php echo "\n" . $plugin['example_js'] . "\n"; ?>
 		});
 	<?php } ?>
 	//]]>
@@ -62,18 +74,26 @@
 <h4>Plug-in</h4>
 
 <ul>
-	<?php foreach($plugin['files']['plugin'] as $file) { ?>
+	<?php foreach ( $plugin['files']['plugin'] as $file ) { ?>
 		<li>
-			<a href="<?php echo $file['url']; ?>"><?php echo $file['name']; ?></a>
-			<?php if($file['size']) { ?>
+			<a href="<?php echo $file['url']; ?>">
+				<?php echo $file['name']; ?>
+			</a>
+
+			<?php if ( $file['size'] ) { ?>
 				 <small>
 					(<?php echo round($file['size'] / 1024, 2); ?> kb unpacked)
-					<?php if($file['psize']) { ?>
-						 (<!--<?php #echo round($file['psize'] / 1024, 2); ?> kb --><a href="<?php echo WEBROOT; ?>?module=JSPacker&amp;file=<?php echo $file['url']; ?>">minified</a>)
+
+					<?php if ( $file['psize'] ) { ?>
+						 (<!--<?php #echo round($file['psize'] / 1024, 2); ?> kb -->
+						<a href="<?php echo WEBROOT; ?>?module=JSPacker&amp;file=<?php echo $file['url']; ?>">
+							minified
+						</a>)
 					<?php } ?>
 				</small>
 			<?php } ?>
-			<?php if($file['img']) { ?>
+
+			<?php if ( $file['img'] ) { ?>
 				 <img src="<?php echo $file['url']; ?>" alt="" />
 			<?php } ?>
 		</li>
@@ -83,14 +103,20 @@
 <h4>Requires</h4>
 
 <ul>
-	<?php foreach($plugin['files']['requirements'] as $file) { ?>
+	<?php foreach ( $plugin['files']['requirements'] as $file ) { ?>
 		<li>
-			<a href="<?php echo $file['url']; ?>"><?php echo $file['name']; ?></a>
+			<a href="<?php echo $file['url']; ?>">
+				<?php echo $file['name']; ?>
+			</a>
+
 			<?php if($file['size']) { ?>
 				<small>
 					(<?php echo round($file['size'] / 1024, 2); ?> kb unpacked)
 					<?php if($file['psize']) { ?>
-						 (<!--<?php #echo round($file['psize'] / 1024, 2); ?> kb --><a href="<?php echo WEBROOT; ?>?module=JSPacker&amp;file=<?php echo $file['url']; ?>">minified</a>)
+						 (<!--<?php #echo round($file['psize'] / 1024, 2); ?> kb -->
+						<a href="<?php echo WEBROOT; ?>?module=JSPacker&amp;file=<?php echo $file['url']; ?>">
+							minified
+						</a>)
 					<?php } ?>
 				</small>
 			<?php } ?>

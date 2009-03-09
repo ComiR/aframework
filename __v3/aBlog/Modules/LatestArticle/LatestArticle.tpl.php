@@ -1,17 +1,26 @@
-<h2><a href="<?php echo $url; ?>"><?php echo $title; ?></a></h2>
+<h2>
+	<a href="<?php echo Router::urlFor('Article', $article); ?>">
+		<?php echo htmlentities($article['title']); ?>
+	</a>
+</h2>
 
-<p><small>Published <?php echo $pub_date; ?></small></p>
+<p>
+	<small>
+		<?php echo Lang::get('published'); ?> 
+		<?php echo date(Config::get('general.date_format'), $article['pub_date']); ?>
+	</small>
+</p>
 
-<?php echo $content_more_cut; ?>
+<?php echo NiceString::makeNice($article['content'], 3, true); ?>
 
 <dl>
-	<dt>Tags</dt>
+	<dt><?php echo Lang::get('tags'); ?></dt>
 	<dd>
 		<ul>
 			<li><a href="#">jquery</a></li>
 			<li><a href="#">news</a></li>
 		</ul>
 	</dd>
-	<dt>Comments</dt>
+	<dt><?php echo Lang::get('comments'); ?></dt>
 	<dd><a href="#">12 comments</a></dd>
 </dl>

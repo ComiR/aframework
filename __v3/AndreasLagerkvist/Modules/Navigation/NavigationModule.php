@@ -1,6 +1,6 @@
 <?php
 	class AndreasLagerkvist_NavigationModule extends aCMS_NavigationModule {
-		public static function run() {
+		public static function run (  ) {
 			parent::run();
 
 			$navItems = array();
@@ -9,11 +9,11 @@
 			unset(self::$tplVars['nav_items'][0]);
 
 			$navItems[] = array(
-				'title'	=> 'Archives', 
+				'title'	=> Lang::get('archives'), 
 				'url'	=> Router::urlFor('Archives')
 			);
 			$navItems[] = array(
-				'title'	=> 'jQuery', 
+				'title'	=> Lang::get('jquery'), 
 				'url'	=> Router::urlFor('JqueryPlugins')
 			);
 

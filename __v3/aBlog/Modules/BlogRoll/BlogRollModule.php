@@ -3,20 +3,20 @@
 		public static $tplVars = array();
 		public static $tplFile = true;
 
-		public static function run() {
-			if(isset($_GET['blog_roll_delete']) and ADMIN) {
-				self::deleteLink($_GET['blog_roll_delete']);
+		public static function run (  ) {
+			if ( isset($_POST['blog_roll_delete']) and ADMIN ) {
+				self::deleteLink($_POST['links_id']);
 			}
-			elseif(isset($_POST['blog_roll_submit']) and ADMIN) {
+			elseif ( isset($_POST['blog_roll_add']) and ADMIN ) {
 				self::insertLink($_POST);
 			}
 
-			if(!(self::$tplVars['links'] = Links::getLinks('RAND()', 'ASC', 0, Config::get('ablog.num_recent_stuff') * 2))) {
+			if ( !(self::$tplVars['links'] = Links::get('RAND()', 'ASC', 0, Config::get('ablog.num_recent_stuff') * 2)) ) {
 				self::$tplFile = false;
 			}
 		}
 
-		private static function insertLink($row) {
+		private static function insertLink ( $row ) {
 			# Make sure mandatory fields are filled out
 			if(
 				isset($row['title']) and !empty($row['title']) and 
@@ -25,7 +25,7 @@
 			) {
 				Links::insert($row);
 
-				if(!XHR) {
+				if ( !XHR ) {
 					redirect('?added_link');
 				}
 			}
@@ -38,7 +38,7 @@
 		private static function deleteLink($id) {
 			Links::delete($id);
 
-			if(!XHR) {
+			if ( !XHR ) {
 				redirect('?deleted_link');
 			}
 		}

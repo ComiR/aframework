@@ -32,7 +32,7 @@
 		}
 
 		private static function convertLinebreaks($str) {
-			return str_replace(array("\n\r","\r\n","\r"), "\n", $str);
+			return str_replace(array("\n\r", "\r\n", "\r"), "\n", $str);
 		}
 
 		private static function subStrCut($str, $len) {

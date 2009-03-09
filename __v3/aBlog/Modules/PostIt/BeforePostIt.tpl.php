@@ -1,3 +1,10 @@
-<h2>Post It</h2>
+<h2><?php echo Lang::get('post_it'); ?></h2>
 
-<p><strong>From <?php echo $first_date; ?> to <?php echo $last_date; ?>.</strong></p>
+<p>
+	<strong>
+		<?php echo Lang::get('from'); ?> 
+		<?php echo $first_date; ?> 
+		<?php echo Lang::get('to'); ?> 
+		<?php echo $last_date; ?>.
+	</strong>
+</p>

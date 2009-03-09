@@ -16,7 +16,7 @@
 			# It's a Lib or DBLib-class
 			else {
 				$sites = explode(' ', SITE_HIERARCHY);
-			
+
 				foreach($sites as $site) {					
 					if(file_exists(DOCROOT .$site .'/Lib/' .$class .'.php')) {
 						require_once DOCROOT .$site .'/Lib/' .$class .'.php';
