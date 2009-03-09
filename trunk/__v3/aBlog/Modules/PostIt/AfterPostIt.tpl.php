@@ -1,16 +1,30 @@
 <ul>
-	<li><?php if($prev === false) { ?>Newer<?php } else { ?><a href="?post_it_start=<?php echo $prev; ?>">Newer</a><?php } ?></li>
-	<li><?php if($next === false) { ?>Older<?php } else { ?><a href="?post_it_start=<?php echo $next; ?>">Older</a><?php } ?></li>
+	<li>
+		<?php if ( $prev === false ) {
+			echo Lang::get('newer')
+		} else { ?>
+			<a href="?post_it_start=<?php echo $prev; ?>">
+				<?php echo Lang::get('newer'); ?>
+			</a>
+		<?php } ?>
+	</li>
+	<li>
+		<?php if($next === false) {
+			<?php echo Lang::get('older'); ?>
+		} else { ?>
+			<a href="?post_it_start=<?php echo $next; ?>"><?php echo Lang::get('older'); ?></a>
+		<?php } ?>
+	</li>
 </ul>
 
-<?php if(ADMIN) { ?>
+<?php if ( ADMIN ) { ?>
 	<form method="post" action="">
 
 		<p>
 			<label>
-				Say this<br />
+				<?php echo Lang::get('say_this'); ?><br />
 				<input type="text" name="post_it_text" size="25" />
-			</label> <input type="submit" value="Post It!" />
+			</label> <input type="submit" value="<?php echo Lang::get('post_it'); ?>" />
 		</p>
 	
 	</form>

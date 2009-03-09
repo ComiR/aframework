@@ -49,6 +49,10 @@
 													'title'			=> 'Google analytics ID (if you use Google Analytics)', 
 													'value'			=> false
 												));
+	Config::set('general.date_format',			array(
+													'title'			=> 'Date format used throughout aFramework-sites', 
+													'value'			=> 'Y-m-d H:i:s'
+												));
 
 	# Admin
 	Config::set('admin',						array(

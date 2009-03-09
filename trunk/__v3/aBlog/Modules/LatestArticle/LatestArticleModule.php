@@ -4,16 +4,16 @@
 		public static $tplFile = true;
 
 		public static function run() {
-			if(isset($_POST['latest_article_submit']) and ADMIN) {
+			if ( isset($_POST['latest_article_submit']) and ADMIN ) {
 				self::insertArticle($_POST);
 			}
 
-			if(!(self::$tplVars = Articles::get('pub_date', 'DESC', 0, 1))) {
+			if ( !(self::$tplVars['article'] = Articles::get('pub_date', 'DESC', 0, 1)) ) {
 				self::$tplFile = false;
 			}
 		}
 
-		private static function insertArticle($row) {
+		private static function insertArticle ( $row ) {
 			# Make sure mandatory fields are filled out
 			if(
 				isset($row['title']) and !empty($row['title']) and 
@@ -22,7 +22,7 @@
 			) {
 				Articles::insert($row);
 
-				if(!XHR) {
+				if ( !XHR ) {
 					redirect(Router::urlFor('Article', $row) .'?inserted_page');
 				}
 			}

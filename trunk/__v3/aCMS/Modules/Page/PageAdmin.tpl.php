@@ -1,63 +1,77 @@
-<?php if($errors) { ?>
-	<p><strong>The form contains errors. Please make sure you have filled out everything correctly.</strong></p>
+<?php if ( $errors ) { ?>
+	<p>
+		<strong>
+			<?php echo Lang::get('the_form_contains_errors'); ?> 
+			<?php echo Lang::get('please_make_sure_you_have_filled_out_everything_correctly'); ?>
+		</strong>
+	</p>
 <?php } ?>
 
 <form method="post" action="">
 
 	<p>
 		<label>
-			<strong>*</strong> URL String<br />
-			<input type="text" name="url_str" value="<?php echo htmlentities($url_str); ?>" />
+			<strong>*</strong> <?php echo Lang::get('url_string'); ?><br />
+			<input type="text" name="url_str" value="<?php echo htmlentities($page['url_str']); ?>" />
 		</label>
 	</p>
 
 	<p>
-		Show in navigation<br />
-		<label><input type="radio" name="in_navigation" value="1"<?php if($priority) { ?> checked="checked"<?php } ?> /> Yes</label> 
-		<label><input type="radio" name="in_navigation" value="0"<?php if(!$priority) { ?> checked="checked"<?php } ?> /> No</label>
-	</p>
-
-	<p>
+		<?php echo Lang::get('show_in_navigation'); ?><br />
 		<label>
-			Priority (a lower nr places page early in list)<br />
-			<input type="text" name="priority" value="<?php echo htmlentities($priority); ?>" />
-		</label>
-	</p>
-
-
-	<p>
+			<input type="radio" name="in_navigation" value="1"<?php if ( $page['priority'] ) { ?> checked="checked"<?php } ?> /> 
+			<?php echo Lang::get('yes'); ?>
+		</label> 
 		<label>
-			<strong>*</strong> Page title<br />
-			<input type="text" name="title" value="<?php echo htmlentities($title_plain); ?>" />
+			<input type="radio" name="in_navigation" value="0"<?php if ( !$page['priority'] ) { ?> checked="checked"<?php } ?> /> 
+			<?php echo Lang::get('no'); ?>
 		</label>
 	</p>
 
 	<p>
 		<label>
-			Meta description<br />
-			<textarea name="meta_description" rows="3" cols="60"><?php echo htmlentities($meta_description_plain); ?></textarea>
+			<?php echo Lang::get('priority'); ?> (<?php echo Lang::get('a_lower_number_places_page_early_in_the_list'); ?>)<br />
+			<input type="text" name="priority" value="<?php echo htmlentities($page['priority']); ?>" />
 		</label>
 	</p>
 
 	<p>
 		<label>
-			Meta keywords<br />
-			<input type="text" name="meta_keywords" value="<?php echo htmlentities($meta_keywords_plain); ?>" />
+			<strong>*</strong> <?php echo Lang::get('page_title'); ?><br />
+			<input type="text" name="title" value="<?php echo htmlentities($page['title']); ?>" />
 		</label>
 	</p>
 
 	<p>
 		<label>
-			<strong>*</strong> Content<br />
-			<textarea name="content" rows="20" cols="60"><?php echo htmlentities($content_plain); ?></textarea>
+			<?php echo Lang::get('meta_description'); ?><br />
+			<textarea name="meta_description" rows="3" cols="60"><?php echo htmlentities($page['meta_description']); ?></textarea>
+		</label>
+	</p>
+
+	<p>
+		<label>
+			<?php echo Lang::get('meta_keywords'); ?><br />
+			<input type="text" name="meta_keywords" value="<?php echo htmlentities($page['meta_keywords']); ?>" />
+		</label>
+	</p>
+
+	<p>
+		<label>
+			<strong>*</strong> <?php echo Lang::get('page_content'); ?><br />
+			<textarea name="content" rows="20" cols="60"><?php echo htmlentities($page['content']); ?></textarea>
 		</label>
 	</p>
 
 	
 	<p>
-		<input type="hidden" name="pages_id" value="<?php echo $pages_id; ?>" />
-		<input type="hidden" name="page_submit" value="true" />
-		<input type="submit" name="insert" value="<?php echo $pages_id ? 'Save changes' : 'Add page'; ?>" /><?php if($pages_id) { ?> or <input type="submit" name="page_delete" value="Delete this page" /><?php } ?>
+		<input type="hidden" name="pages_id" value="<?php echo $page['pages_id']; ?>" />
+		<input type="hidden" name="page_submit" value="1" />
+		<input type="submit" name="insert" value="<?php echo $page['pages_id'] ? Lang::get('save_changes') : Lang::get('add_page'); ?>" />
+		<?php if ( $page['pages_id'] ) { ?>
+			 <?php echo Lang::get('or'); ?> 
+			<input type="submit" name="page_delete" value="<?php echo Lang::get('delete_this_page'); ?>" />
+		<?php } ?>
 	</p>
 
 </form>

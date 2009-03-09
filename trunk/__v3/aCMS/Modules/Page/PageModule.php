@@ -3,32 +3,32 @@
 		public static $tplVars = array();
 		public static $tplFile = true;
 
-		public static function run() {
-			if(isset($_POST['page_delete']) and ADMIN) {
+		public static function run (  ) {
+			if ( isset($_POST['page_delete']) and ADMIN ) {
 				self::deletePage($_POST['pages_id']);
 			}
-			elseif(isset($_POST['page_submit']) and ADMIN) {
+			elseif ( isset($_POST['page_submit']) and ADMIN ) {
 				self::updatePage($_POST);
 			}
 
 			self::showThePage();
 		}
 
-		private static function showThePage() {
+		private static function showThePage (  ) {
 			# Try to get $get.url_str, else get home-page
 			$page = Pages::getPageByUrlStr(isset($_GET['url_str']) ? $_GET['url_str'] : 'home');
 
 			# If page didn't exist, no url_str is set and we're admin
-			if(!$page and !isset($_GET['url_str']) and ADMIN) {
+			if ( !$page and !isset($_GET['url_str']) and ADMIN ) {
 				aFramework_BaseModule::$tplVars['html_title'] = 'Add a page';
 			}
 			# No page exists
-			elseif(!$page) {
+			elseif ( !$page ) {
 				FourOFour::run();
 			}
 			# We found a page
 			else {
-				self::$tplVars = $page;
+				self::$tplVars['page'] = $page;
 
 				aFramework_BaseModule::$tplVars['html_title']		= $page['title'];
 				aFramework_BaseModule::$tplVars['meta_description']	= $page['meta_description'];
@@ -36,20 +36,20 @@
 			}
 		}
 
-		private static function deletePage($id) {
+		private static function deletePage ( $id ) {
 			Pages::delete($id);
 
-			if(!XHR) {
+			if ( !XHR ) {
 				redirect(Router::urlFor('AddPage') .'?deleted_page');
 			}
 		}
 
-		private static function updatePage($row) {
+		private static function updatePage ( $row ) {
 			# If a page ID is set, update
-			if(!empty($row['pages_id']) and is_numeric($row['pages_id'])) {
+			if ( !empty($row['pages_id']) and is_numeric($row['pages_id']) ) {
 				Pages::update($row['pages_id'], $_POST);
 
-				if(!XHR) {
+				if ( !XHR ) {
 					redirect(Router::urlFor('Page', array('url_str' => $row['url_str'])) .'?updated_page');
 				}
 			}
@@ -63,7 +63,7 @@
 				) {
 					Pages::insert($row);
 
-					if(!XHR) {
+					if ( !XHR ) {
 						redirect(Router::urlFor('Page', array('url_str' => $row['url_str'])) .'?inserted_page');
 					}
 				}

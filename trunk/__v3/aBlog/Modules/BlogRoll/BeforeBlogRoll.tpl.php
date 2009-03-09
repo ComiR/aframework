@@ -1,1 +1,1 @@
-<h2>Blog Roll</h2>
+<h2><?php echo Lang::get('blog_roll'); ?></h2>

@@ -1,27 +1,26 @@
 <ol>
-	<?php foreach($articles as $a) { ?>
+	<?php foreach ( $articles as $a ) { ?>
 		<li>
-			<h3><a href="<?php echo $a['url']; ?>"><?php echo $a['title']; ?></a></h3>
+			<h3>
+				<a href="<?php echo Router::urlFor('Article', $a); ?>">
+					<?php echo htmlentities($a['title']); ?>
+				</a>
+			</h3>
 
-			<p><small>Published <?php echo $a['pub_date']; ?></small></p>
+			<p>
+				<small>
+					<?php echo Lang::get('published'); ?> 
+					<?php echo date(Config::get('general.date_format'), $a['pub_date']); ?>
+				</small>
+			</p>
 
-			<?php echo $a['excerpt']; ?>
+			<?php echo NiceString::makeNice($a['content'], 3, false, 150); ?>
 
-			<p><a href="<?php echo $a['url']; ?>">Continue reading</a></p>
-
-			<!--
-			<dl>
-				<dt>Tags</dt>
-				<dd>
-					<ul>
-						<li><a href="#">jquery</a></li>
-						<li><a href="#">news</a></li>
-					</ul>
-				</dd>
-				<dt>Comments</dt>
-				<dd><a href="#">12 comments</a></dd>
-			</dl>
-			-->
+			<p>
+				<a href="<?php echo Router::urlFor('Article', $a); ?>">
+					<?php echo Lang::get('continue_reading'); ?>
+				</a>
+			</p>
 		</li>
 	<?php } ?>
 </ol>

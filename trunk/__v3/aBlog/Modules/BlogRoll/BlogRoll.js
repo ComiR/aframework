@@ -7,7 +7,7 @@ aFramework.modules.BlogRoll = {
 	addFavicons: function() {
 		jQuery('#blog-roll').favicons({
 			insert:		'insertAfter', 
-			defaultIco:	WEBROOT +'aFramework/Styles/__common/gfx/jquery.favicons.png'
+			defaultIco:	WEBROOT + 'aFramework/Styles/__common/gfx/jquery.favicons.png'
 		});
 	}, 
 
@@ -15,7 +15,7 @@ aFramework.modules.BlogRoll = {
 		jQuery('<p><a href="#">Get some new links</a></p>').appendTo('#blog-roll').find('a').click(function() {
 			jQuery(this).text('Loading...');
 
-			jQuery('#blog-roll').load(WEBROOT +'?module=BlogRoll', function() {
+			jQuery('#blog-roll').load(WEBROOT + '?module=BlogRoll', function() {
 				aFramework.modules.BlogRoll.run();
 			});
 
