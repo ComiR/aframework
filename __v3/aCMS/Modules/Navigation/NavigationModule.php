@@ -6,9 +6,11 @@
 		public static function run (  ) {
 			self::getHomePage();
 			self::getPagesInNavigation();
+
 			if ( ADMIN ) {
 				self::getAdminLinks();
 			}
+
 			self::setSelectedNavigationItem();
 		}
 

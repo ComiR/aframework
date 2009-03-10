@@ -3,7 +3,7 @@
 		public static $tplVars = array();
 		public static $tplFile = true;
 
-		public static function run() {
+		public static function run (  ) {
 			if ( isset($_POST['latest_article_submit']) and ADMIN ) {
 				self::insertArticle($_POST);
 			}
@@ -23,7 +23,7 @@
 				Articles::insert($row);
 
 				if ( !XHR ) {
-					redirect(Router::urlFor('Article', $row) .'?inserted_page');
+					redirect(Router::urlFor('Article', $row) . '?inserted_page');
 				}
 			}
 			# Errors in form

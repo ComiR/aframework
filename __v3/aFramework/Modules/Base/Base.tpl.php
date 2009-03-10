@@ -8,15 +8,15 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
 		<meta name="author" content="<?php echo Config::get('general.site_author'); ?>" />
-		<meta name="copyright" content="Copyright (c) <?php echo date('Y') .' ' .Config::get('general.site_author'); ?>" />
+		<meta name="copyright" content="Copyright (c) <?php echo date('Y') . ' ' . Config::get('general.site_author'); ?>" />
 		<meta name="keywords" content="<?php echo $meta_keywords; ?>" />
 		<meta name="description" content="<?php echo $meta_description; ?>" />
 		<meta name="robots" content="<?php echo $noindex ? 'noindex' : 'all'; ?>" />
 
 		<link rel="alternate" type="application/rss+xml" title="<?php echo Config::get('general.site_title'); ?> Articles" href="<?php echo WEBROOT; ?>?module=Articles&amp;rss=1" />
 		<link rel="shortcut icon" type="image/ico" href="<?php echo WEBROOT; ?>favicon.ico" />
-		<?php if(!NAKED_DAY) { ?>
-			<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo WEBROOT; echo USE_MOD_REWRITE ? $style .'.css' : '?module=CodeCompressor&amp;s=' .$style .'&amp;t=css'; ?>" />
+		<?php if ( !NAKED_DAY ) { ?>
+			<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo WEBROOT; echo USE_MOD_REWRITE ? $style . '.css' : '?module=CodeCompressor&amp;s=' . $style . '&amp;t=css'; ?>" />
 		<?php } ?>
 
 		<title><?php echo $html_title; ?> - <?php echo Config::get('general.site_title'); ?></title>
@@ -44,7 +44,7 @@
 
 		</noscript>
 
-		<?php if(NAKED_DAY) { ?>
+		<?php if ( NAKED_DAY ) { ?>
 			<div id="naked-day-info">
 
 				<p>Today it's CSS naked day, that's why I'm all naked. I've also taken the liberty of disabling JavaScript - I believe it's equally important to do accessible JS.</p>
@@ -56,11 +56,11 @@
 
 		<?php echo $child_modules; ?>
 
-		<?php if(!NAKED_DAY) { ?>
+		<?php if ( !NAKED_DAY ) { ?>
 			<script type="text/javascript" src="<?php echo WEBROOT; echo USE_MOD_REWRITE ? $style .'.js' : '?module=CodeCompressor&amp;s=' .$style .'&amp;t=js'; ?>"></script>
 		<?php } ?>
 
-		<?php if(Config::get('general.ga_id')) { ?>
+		<?php if ( Config::get('general.ga_id') ) { ?>
 			<script type="text/javascript">
 				var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 				document.write(unescape("%3Cscript src='" +gaJsHost +"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));

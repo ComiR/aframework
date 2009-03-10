@@ -44,6 +44,9 @@
 				return false;
 			}
 		}
+		public static function get ( $sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000 ) {
+			return DBRow::get(Config::get('db.table_prefix') . 'pages', $sort, $order, $start, $limit);
+		}
 
 		public static function insert ( $row ) {
 			$fields	= array(
@@ -79,11 +82,11 @@
 				}
 			}
 
-			DBRow::update(Config::get('db.table_prefix') .'pages', $id, $fields);
+			return DBRow::update(Config::get('db.table_prefix') .'pages', $id, $fields);
 		}
 
 		public static function delete ( $id ) {
-			DBRow::delete(Config::get('db.table_prefix') .'pages', $id);
+			return DBRow::delete(Config::get('db.table_prefix') .'pages', $id);
 		}
 	}
 ?>

@@ -36,7 +36,7 @@
 				'num_hits'			=> $row['num_hits']
 			);
 
-			return DBRow::insert(Config::get('db.table_prefix') .'articles', $fields);
+			return DBRow::insert(Config::get('db.table_prefix') . 'articles', $fields);
 		}
 
 		public static function update ( $id, $row ) {
@@ -60,11 +60,11 @@
 				}
 			}
 
-			DBRow::update(Config::get('db.table_prefix') .'articles', $id, $fields);
+			return DBRow::update(Config::get('db.table_prefix') . 'articles', $id, $fields);
 		}
 
 		public static function delete ( $id ) {
-			DBRow::delete(Config::get('db.table_prefix') .'articles', $id);
+			return DBRow::delete(Config::get('db.table_prefix') . 'articles', $id);
 		}
 	}
 ?>

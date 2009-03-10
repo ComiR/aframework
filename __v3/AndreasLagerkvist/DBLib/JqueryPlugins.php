@@ -40,7 +40,7 @@
 				$plugin .= $i++ > 0 ? (in_array($bit, array('dl')) ? strtoupper($bit) : ucfirst($bit)) : $bit;
 			}
 
-			if ( file_exists(DOCROOT .'aFramework/Modules/Base/jquery.' . $plugin . '.js') ) {
+			if ( file_exists(DOCROOT . 'aFramework/Modules/Base/jquery.' . $plugin . '.js') ) {
 				return self::pluginAsArray($plugin);
 			}
 
@@ -77,8 +77,8 @@
 		private static function makeNice ( $row ) {
 			$row['name']				= htmlentities($row['name']);
 			$row['file_name']			= htmlentities($row['file_name']);
-			$row['source_code']			= NiceString::makeNice('[code]' .$row['source'] .'[/code]');
-			$row['source_url']			= WEBROOT .'aFramework/Modules/Base/' .$row['file_name'];
+			$row['source_code']			= NiceString::makeNice('[code]' . $row['source'] . '[/code]');
+			$row['source_url']			= WEBROOT . 'aFramework/Modules/Base/' . $row['file_name'];
 
 			$row['title']				= htmlentities($row['title']);
 			$row['version']				= htmlentities($row['version']);
@@ -101,10 +101,10 @@
 			$row['howto']				= NiceString::makeNice($row['howto'], 4);
 
 			$row['example_html']		= $row['exampleHTML'];
-			$row['example_html_code']	= NiceString::makeNice('[code]<div id="jquery-' .$row['url_str'] ."-example\">\n" .$row['example_html'] ."\n</div>[/code]");
+			$row['example_html_code']	= NiceString::makeNice('[code]<div id="jquery-' .$row['url_str'] . "-example\">\n" .$row['example_html'] . "\n</div>[/code]");
 
 			$row['example_js']			= $row['exampleJS'];
-			$row['example_js_code']		= NiceString::makeNice('[code]' .$row['exampleJS'] .'[/code]');
+			$row['example_js_code']		= NiceString::makeNice('[code]' . $row['exampleJS'] . '[/code]');
 
 			return $row;
 		}
@@ -137,7 +137,7 @@
 						'name'	=> $req, 
 						'ext'	=> $ext, 
 						'img'	=> true, 
-						'url'	=> WEBROOT .'aFramework/Styles/__common/gfx/' .$req
+						'url'	=> WEBROOT .'aFramework/Styles/__common/gfx/' . $req
 					);
 				}
 				elseif ( file_exists(DOCROOT .'aFramework/Modules/Base/jquery.' . $req . '.js')) {
