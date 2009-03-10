@@ -1,7 +1,7 @@
 <?php
 	class Comments {
 		public static function get ( $sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000 ) {
-			return DBRow::get(Config::get('db.table_prefix') .'comments', $sort, $order, $start, $limit);
+			return DBRow::get(Config::get('db.table_prefix') . 'comments', $sort, $order, $start, $limit);
 		}
 
 		public static function insert ( $row ) {
@@ -16,7 +16,7 @@
 				'pub_date'			=> isset($row['pub_date']) ? $row['pub_date'] : date('Y-m-d H:i:s')
 			);
 
-			return DBRow::insert(Config::get('db.table_prefix') .'comments', $fields);
+			return DBRow::insert(Config::get('db.table_prefix') . 'comments', $fields);
 		}
 
 		public static function update ( $id, $row ) {
@@ -37,11 +37,11 @@
 				}
 			}
 
-			DBRow::update(Config::get('db.table_prefix') .'comments', $id, $fields);
+			return DBRow::update(Config::get('db.table_prefix') . 'comments', $id, $fields);
 		}
 
 		public static function delete ( $id ) {
-			DBRow::delete(Config::get('db.table_prefix') .'comments', $id);
+			return DBRow::delete(Config::get('db.table_prefix') . 'comments', $id);
 		}
 	}
 ?>

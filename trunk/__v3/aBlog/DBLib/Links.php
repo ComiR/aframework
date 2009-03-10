@@ -1,7 +1,7 @@
 <?php
 	class Links {
 		public static function get ( $sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000 ) {
-			return DBRow::get(Config::get('db.table_prefix') .'links', $sort, $order, $start, $limit);
+			return DBRow::get(Config::get('db.table_prefix') . 'links', $sort, $order, $start, $limit);
 		}
 
 		public static function insert ( $row ) {
@@ -11,7 +11,7 @@
 				'url'			=> $row['url']
 			);
 
-			return DBRow::insert(Config::get('db.table_prefix') .'links', $fields);
+			return DBRow::insert(Config::get('db.table_prefix') . 'links', $fields);
 		}
 
 		public static function update ( $id, $row ) {
@@ -28,11 +28,11 @@
 				}
 			}
 
-			return DBRow::update(Config::get('db.table_prefix') .'links', $id, $fields);
+			return DBRow::update(Config::get('db.table_prefix') . 'links', $id, $fields);
 		}
 
 		public static function delete ( $id ) {
-			return DBRow::delete(Config::get('db.table_prefix') .'links', $id);
+			return DBRow::delete(Config::get('db.table_prefix') . 'links', $id);
 		}
 	}
 ?>

@@ -34,6 +34,15 @@
 	define('AUTO_HR',				false);
 	define('USE_MOD_REWRITE',		true);
 
+	# Core classes
+	require_once 'Core/AutoLoader.php';
+	require_once 'Core/FourOFour.php';
+	require_once 'Core/Router.php';
+	require_once 'Core/StyleSwitcher.php';
+	require_once 'Core/VisitorData.php';
+	require_once 'Core/Lang.php';
+	require_once 'Core/aFramework.php';
+
 	# Include config-files
 	$sites = array_reverse(explode(' ', SITE_HIERARCHY));
 
@@ -48,15 +57,6 @@
 	# Connect to DB
 	mysql_connect(Config::get('db.host'), Config::get('db.user'), Config::get('db.pass')) or die('aFramework Error: Unable to connect to MySQL - Please check your config files');
 	mysql_select_db(Config::get('db.name')) or die('aFramework Error: Unable to select DB - Please check your config files');
-
-	# Core classes
-	require_once 'Core/AutoLoader.php';
-	require_once 'Core/FourOFour.php';
-	require_once 'Core/Router.php';
-	require_once 'Core/StyleSwitcher.php';
-	require_once 'Core/VisitorData.php';
-	require_once 'Core/Lang.php';
-	require_once 'Core/aFramework.php';
 
 	# Register autoloader
 	spl_autoload_register('AutoLoader::load');

@@ -9,7 +9,7 @@
 		<?php } ?>
 	</li>
 	<li>
-		<?php if($next === false) {
+		<?php if( $next === false ) {
 			<?php echo Lang::get('older'); ?>
 		} else { ?>
 			<a href="?post_it_start=<?php echo $next; ?>"><?php echo Lang::get('older'); ?></a>
