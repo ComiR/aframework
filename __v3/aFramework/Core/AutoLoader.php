@@ -17,13 +17,16 @@
 			else {
 				$sites = explode(' ', SITE_HIERARCHY);
 
-				foreach ( $sites as $site ) {					
-					if ( file_exists(DOCROOT . $site . '/Lib/' . $class . '.php') ) {
-						require_once DOCROOT . $site . '/Lib/' . $class . '.php';
+				foreach ( $sites as $site ) {
+					$libPath	= DOCROOT . $site . '/Lib/' . $class . '.php';
+					$dbLibPath	= DOCROOT . $site . '/DBLib/' . $class . '.php';
+
+					if ( file_exists($libPath) ) {
+						require_once $libPath;
 						break;
 					}
-					elseif ( file_exists(DOCROOT . $site . '/DBLib/' . $class . '.php')) {
-						require_once DOCROOT . $site . '/DBLib/' . $class . '.php';
+					elseif ( file_exists($dbLibPath)) {
+						require_once $dbLibPath;
 						break;
 					}
 				}
