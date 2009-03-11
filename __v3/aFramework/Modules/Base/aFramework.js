@@ -3,7 +3,7 @@ var urlForModule = function ( module ) {
 };
 
 var aFramework = {
-	run: function (  ) {
+	run: function () {
 		jQuery(document.body)
 			.imageZoom()
 			.maxLengthFormControls()
@@ -19,7 +19,7 @@ var aFramework = {
 		jQuery('p.code-block').codeBlockToolbar();
 	}, 
 
-	runModules: function (  ) {
+	runModules: function () {
 		// Run through all modules
 		for ( var module in aFramework.modules ) {
 			// Work out the HTML-ID based on the module-name (RecentArticles == recent-articles)
@@ -38,9 +38,9 @@ var aFramework = {
 		}
 	}, 
 
-	ajaxRun: function (  ) {
+	ajaxRun: function () {
 		// Now pull all the ajaxrun-modules in using XHR and then run them
-		jQuery('div.ajax-run').each(function() {
+		jQuery('div.ajax-run').each(function () {
 			var t				= jQuery(this);
 			var moduleChunks	= t.attr('id').split('-');
 			var moduleName		= '';
@@ -73,7 +73,7 @@ var aFramework = {
 	modules: []
 };
 
-jQuery(function() {
+jQuery(function () {
 	aFramework.run();
 	aFramework.runModules();
 	// aFramework.ajaxRun();

@@ -40,22 +40,22 @@ jQuery('#faq dl').togglableDL();
 @exampleJS:
 jQuery('#jquery-togglable-dl-example dl').togglableDL();
 ***/
-jQuery.fn.togglableDL = function(conf) {
+jQuery.fn.togglableDL = function ( conf ) {
 	var config = jQuery.extend({
 		speed: 	100
 	}, conf);
 
-	return this.each(function() {
+	return this.each(function () {
 		var dds = jQuery('dd', this).slideUp(config.speed);
 
-		jQuery('dt', this).each(function() {
+		jQuery('dt', this).each(function () {
 			var dt = jQuery(this);
 
-			dt.html('<a href="#">' +dt.html() +'</a>').find('a').toggle(function() {
+			dt.html('<a href="#">' + dt.html() + '</a>').find('a').toggle(function () {
 				var isDT = false;
 
-				dt.nextAll().each(function() {
-					if(isDT || jQuery(this).is('dt')) {
+				dt.nextAll().each(function () {
+					if ( isDT || jQuery(this).is('dt') ) {
 						isDT = true;
 						return;
 					}
@@ -63,11 +63,11 @@ jQuery.fn.togglableDL = function(conf) {
 					jQuery(this).slideDown(config.speed);
 				});
 			}, 
-			function() {
+			function () {
 				var isDT = false;
 
-				dt.nextAll().each(function() {
-					if(isDT || jQuery(this).is('dt')) {
+				dt.nextAll().each(function () {
+					if ( isDT || jQuery(this).is('dt') ) {
 						isDT = true;
 						return;
 					}

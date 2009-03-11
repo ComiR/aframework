@@ -50,36 +50,36 @@ Run the plug-in on a parent-element of the form-controls you want to affect. If 
 // I'm not actually running it because my site already uses formHints
 // jQuery('#jquery-form-hints-example').formHints();
 ***/
-jQuery.fn.formHints = function(conf) {
+jQuery.fn.formHints = function ( conf ) {
 	var config = jQuery.extend({
 		formControls:	'input[title], textarea[title]',
 		className:		'default-value'
 	}, conf);
 
-	return this.each(function() {
-		jQuery(config.formControls, this).each(function() {
+	return this.each(function () {
+		jQuery(config.formControls, this).each(function () {
 			var t = jQuery(this);
 
-			if(t.val() === '' || t.val() == t.attr('title')) {
+			if ( t.val() === '' || t.val() == t.attr('title') ) {
 				t.addClass(config.className).val(t.attr('title'));
 			}
-		}).focus(function() {
+		}).focus(function () {
 			var t = jQuery(this);
 
-			if(t.val() == t.attr('title')) {
+			if ( t.val() == t.attr('title') ) {
 				t.val('').removeClass(config.className);
 			}
-		}).blur(function() {
+		}).blur(function () {
 			var t = jQuery(this);
 
-			if(t.val() === '' || t.val() == t.attr('title')) {
+			if ( t.val() === '' || t.val() == t.attr('title') ) {
 				t.addClass(config.className).val(t.attr('title'));
 			}
 		});
 
 		// Remove hints on form submission
-		jQuery('form', this).submit(function() {
-			jQuery('.' +config.className, this).val('');
+		jQuery('form', this).submit(function () {
+			jQuery('.' + config.className, this).val('');
 		});
 	});
 };

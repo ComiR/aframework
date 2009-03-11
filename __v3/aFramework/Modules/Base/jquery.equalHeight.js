@@ -37,18 +37,18 @@ jQuery('#content, #secondary-content').equalHeight(); would make the elements wi
 @exampleJS:
 jQuery('#jquery-equal-height-example p').equalHeight();
 ***/
-jQuery.fn.equalHeight = function() {
+jQuery.fn.equalHeight = function () {
 	var height		= 0;
 	var maxHeight	= 0;
 
 	// Store the tallest element's height
-	this.each(function() {
+	this.each(function () {
 		height		= jQuery(this).outerHeight();
 		maxHeight	= (height > maxHeight) ? height : maxHeight;
 	});
 
 	// Set element's min-height to tallest element's height
-	return this.each(function() {
+	return this.each(function () {
 		var t			= jQuery(this);
 		var innerHeight	= t.innerHeight();
 		var outerHeight	= t.outerHeight();
@@ -56,6 +56,6 @@ jQuery.fn.equalHeight = function() {
 		var minHeight	= maxHeight - notHeight;
 		var property	= jQuery.browser.msie && jQuery.browser.version < 7 ? 'height' : 'min-height';
 
-		t.css(property, minHeight +'px');
+		t.css(property, minHeight + 'px');
 	});
 };

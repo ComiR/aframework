@@ -39,12 +39,13 @@ jQuery('form').checkedCheckboxParent(); would apply the plug-in to every checkbo
 @exampleJS:
 jQuery('#jquery-checked-checkbox-parent-example').checkedCheckboxParent();
 ***/
-jQuery.fn.checkedCheckboxParent = function() {
-	return this.each(function() {
-		jQuery(':checkbox', this).each(function() {
+jQuery.fn.checkedCheckboxParent = function () {
+	return this.each(function () {
+		jQuery(':checkbox', this).each(function () {
 			var check = $(this);
-			var checkParent = function() {
-				if(check.is(':checked')) {
+
+			var checkParent = function () {
+				if ( check.is(':checked') ) {
 					check.parent().addClass('checked');
 				}
 				else {

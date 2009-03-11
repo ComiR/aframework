@@ -42,8 +42,8 @@ jQuery('#my-element').center(); would center the element with ID 'my-element' us
 jQuery('#jquery-center-example p:first-child').center();
 jQuery('#jquery-center-example p:last-child').center(true);
 ***/
-jQuery.fn.center = function(absolute) {
-	return this.each(function() {
+jQuery.fn.center = function ( absolute ) {
+	return this.each(function () {
 		var t = jQuery(this);
 
 		t.css({
@@ -52,11 +52,11 @@ jQuery.fn.center = function(absolute) {
 			top:		'50%', 
 			zIndex:		'99'
 		}).css({
-			marginLeft:	'-' +(t.outerWidth() / 2) +'px', 
-			marginTop:	'-' +(t.outerHeight() / 2) +'px'
+			marginLeft:	'-' + (t.outerWidth() / 2) + 'px', 
+			marginTop:	'-' + (t.outerHeight() / 2) + 'px'
 		});
 
-		if(absolute) {
+		if ( absolute ) {
 			t.css({
 				marginTop:	parseInt(t.css('marginTop'), 10) + jQuery(window).scrollTop(), 
 				marginLeft:	parseInt(t.css('marginLeft'), 10) + jQuery(window).scrollLeft()

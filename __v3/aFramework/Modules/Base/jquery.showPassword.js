@@ -37,14 +37,14 @@ jQuery('#jquery-show-password-example').showPassword();
 ***/
 jQuery.fn.showPassword = function(conf) {
 	var config = $.extend({
-		str:	'Show password', 
-		cls:	'password-toggler'
+		str:		'Show password', 
+		className:	'password-toggler'
 	}, conf);
 
-	return this.each(function() {
-		jQuery('input[type=password]', this).each(function() {
+	return this.each(function () {
+		jQuery('input[type=password]', this).each(function () {
 			var field		= jQuery(this);
-			var check		= jQuery('<label class="' + config.cls + '"><input type="checkbox" /> ' + config.str + '</label>');
+			var check		= jQuery('<label class="' + config.className + '"><input type="checkbox" /> ' + config.str + '</label>');
 			var parentLabel	= field.parents('label');
 
 			if ( parentLabel.length ) {
@@ -54,7 +54,7 @@ jQuery.fn.showPassword = function(conf) {
 				check.insertAfter(field);
 			}
 
-			check.find('input').click(function() {
+			check.find('input').click(function () {
 				if ( jQuery(this).is(':checked') ) {
 				//	field.attr('type', 'text'); // strange, this threw errors
 					field[0].type = 'text';

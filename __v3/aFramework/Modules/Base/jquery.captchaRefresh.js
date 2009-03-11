@@ -38,23 +38,23 @@ Run Captcha Refresh on a parent-element of the captcha image(s). Running it on d
 // I'm not running it because I already use captchaRefresh on my site
 // jQuery(document.body).captchaRefresh({src: WEBROOT +'?module=Captcha'});
 ***/
-jQuery.fn.captchaRefresh = function(conf) {
+jQuery.fn.captchaRefresh = function ( conf ) {
 	var config = jQuery.extend({
 		src:	'/captcha.png', 
 		title:	'Can\'t see what it says? Click me to get a new string.'
 	}, conf);
 
-	return this.each(function() {
-		jQuery('img[src^="' +config.src +'"]', this).attr('title', config.title);
+	return this.each(function () {
+		jQuery('img[src^="' + config.src + '"]', this).attr('title', config.title);
 
 		jQuery(this).click(function(event) {
 			var clicked = jQuery(event.target);
 
-			if(clicked.is('img[src^="' +config.src +'"]')) {
+			if ( clicked.is('img[src^="' + config.src + '"]') ) {
 				var now			= new Date();
 				var separator	= config.src.indexOf('?') == -1 ? '?' : '&';
 
-				clicked.attr('src', config.src +separator +now.getTime());
+				clicked.attr('src', config.src + separator + now.getTime());
 			}
 		});
 	});
