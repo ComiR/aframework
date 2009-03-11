@@ -97,8 +97,8 @@ jQuery.fn.liveValidation = function ( conf, addedFields ) {
 		email: 			/^.+?@.+?\..{2,4}$/									// email
 	}, addedFields);
 
-	return this.each(function() {
-		jQuery(config.formControls, this).each(function() {
+	return this.each(function () {
+		jQuery(config.formControls, this).each(function () {
 			var t = jQuery(this);
 
 			if ( t.is('.jquery-live-validation-on') ) {
@@ -117,7 +117,7 @@ jQuery.fn.liveValidation = function ( conf, addedFields ) {
 			var validator = jQuery('<img src="' + config.invalidIco + '" alt="' + config.invalid + '" />').insertAfter(t);
 
 			// This function is run now and on key up
-			var validate = function() {
+			var validate = function () {
 				var key = t.attr('name');
 				var val = t.val();
 				var tit = t.attr('title');
@@ -149,7 +149,7 @@ jQuery.fn.liveValidation = function ( conf, addedFields ) {
 		});
 
 		// If form contains any invalid icon on submission, return false
-		jQuery('form', this).submit(function() {
+		jQuery('form', this).submit(function () {
 			if ( jQuery(this).find('img[alt="' + config.invalid + '"]').length ) {
 				return false;
 			}

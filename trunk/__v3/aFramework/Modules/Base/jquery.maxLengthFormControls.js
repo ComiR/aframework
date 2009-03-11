@@ -43,21 +43,21 @@ Run the plug-in on a parent-element of the form-controls.
 // I already use it on my site...
 // jQuery(document.body).maxLengthFormControls();
 ***/
-jQuery.fn.maxLengthFormControls = function(conf) {
+jQuery.fn.maxLengthFormControls = function ( conf ) {
 	var config = jQuery.extend({
-		remainingStr: 'remaining', 
-		className: 'characters-remaining'
+		remainingStr:	'remaining', 
+		className:		'characters-remaining'
 	}, conf);
 
-	return this.each(function() {
-		jQuery('*[class^="maxlength-"]', this).each(function() {
+	return this.each(function () {
+		jQuery('*[class^="maxlength-"]', this).each(function () {
 			var t				= $(this);
 			var maxLength		= t.attr('class').substring(10);
 			var remaining		= maxLength - t.val().length;
-			var charRemaining	= jQuery('<span class="' +config.className +'">' +remaining +' ' +config.remainingStr +'</span>').insertAfter(t);
+			var charRemaining	= jQuery('<span class="' + config.className + '">' + remaining + ' ' + config.remainingStr + '</span>').insertAfter(t);
 
-			t.keyup(function() {
-				if(t.val().length > maxLength) {
+			t.keyup(function () {
+				if ( t.val().length > maxLength ) {
 					t.val(t.val().substring(0, maxLength));
 				}
 

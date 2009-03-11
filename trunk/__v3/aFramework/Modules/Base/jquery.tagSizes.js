@@ -39,8 +39,8 @@ jQuery('#tags').tagSizes();
 @exampleJS:
 jQuery('#jquery-tag-sizes-example').tagSizes();
 ***/
-jQuery.fn.tagSizes = function(maxSize, minSize) {
-	return this.each(function() {
+jQuery.fn.tagSizes = function ( maxSize, minSize ) {
+	return this.each(function () {
 		var maxSize		= maxSize || 24;
 		var minSize		= minSize || parseInt(jQuery('li', this).css('font-size'), 10);
 		var max			= 0;
@@ -48,7 +48,7 @@ jQuery.fn.tagSizes = function(maxSize, minSize) {
 		var slope;
 		var middle;
 
-		jQuery(this).find('li').each(function() {
+		jQuery(this).find('li').each(function () {
 			var weight		= parseInt(jQuery(this).text().replace(/[^0-9]*/g, ''), 10);
 			var logWeight	= Math.log(weight);
 
@@ -57,39 +57,39 @@ jQuery.fn.tagSizes = function(maxSize, minSize) {
 				weight:		weight
 			});
 
-			if(logWeight < min) {
+			if ( logWeight < min ) {
 				min = logWeight;
 			}
-			if(logWeight > max) {
+			if ( logWeight > max ) {
 				max = logWeight;
 			}
 		});
 
-		if(max > min) {
+		if ( max > min ) {
 			slope = (maxSize - minSize) / (max - min);
 		}
 
 		middle = (minSize + maxSize) / 2;
 
-		jQuery(this).find('li').each(function() {
+		jQuery(this).find('li').each(function () {
 			var li		= jQuery(this);
 			var data	= jQuery.data(this, 'tagsizes');
 
-			if(max <= min) {
-				li.css('font-size', middle +'px');
+			if ( max <= min ) {
+				li.css('font-size', middle + 'px');
 			}
 			else {
 				var distance	= data.logWeight - min;
 				var result		= slope * distance + minSize;
 
-				if(result < minSize) {
+				if ( result < minSize ) {
 					result = minSize;
 				}
-				if(result > maxSize) {
+				if ( result > maxSize ) {
 					result = maxSize;
 				}
 
-				li.css('font-size', result +'px');
+				li.css('font-size', result + 'px');
 			}
 		});
 	});

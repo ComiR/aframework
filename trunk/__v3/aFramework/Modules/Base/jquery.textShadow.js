@@ -35,10 +35,11 @@ jQuery('h2').textShadow();
 @exampleJS:
 jQuery('#jquery-text-shadow-example p').textShadow();
 ***/
-jQuery.fn.textShadow = function() {
-	return this.each(function() {
+jQuery.fn.textShadow = function () {
+	return this.each(function () {
 		var el = $(this);
-		el.html('<span class="jquery-text-shadow-text">' +el.html() +'</span>').css('position', 'relative');
-		jQuery('<span class="jquery-text-shadow">' +el.text() +'</span>').appendTo(el);
+
+		el.html('<span class="jquery-text-shadow-text">' + el.html() + '</span>').css('position', 'relative');
+		jQuery('<span class="jquery-text-shadow">' + el.text() + '</span>').appendTo(el);
 	});
 };

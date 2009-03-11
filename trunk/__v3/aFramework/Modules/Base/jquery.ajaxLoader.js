@@ -35,22 +35,22 @@ When you want to remove the loader simply run jQuery('#contact').ajaxLoaderRemov
 I should start loading after a couple of seconds, then load for a couple more and then stop loading only to start again after a couple of seconds. And so on.
 
 @exampleJS:
-setInterval(function() {
+setInterval(function () {
 	jQuery('#jquery-ajax-loader-example').ajaxLoader();
-	setTimeout(function() {
+	setTimeout(function () {
 		jQuery('#jquery-ajax-loader-example').ajaxLoaderRemove();
 	}, 2000);
 }, 4000);
 ***/
-jQuery.fn.ajaxLoader = function(conf) {
+jQuery.fn.ajaxLoader = function ( conf ) {
 	var config = jQuery.extend({
 		className:	'jquery-ajax-loader'
 	}, conf);
 
-	return this.each(function() {
+	return this.each(function () {
 		var t = jQuery(this);
 
-		if(!this.ajaxLoader) {
+		if ( !this.ajaxLoader ) {
 			var offset = t.offset();
 			var dim = {
 				left:	offset.left, 
@@ -59,12 +59,12 @@ jQuery.fn.ajaxLoader = function(conf) {
 				height:	t.outerHeight()
 			};
 
-			this.ajaxLoader = jQuery('<div class="' +config.className +'"></div>').css({
+			this.ajaxLoader = jQuery('<div class="' + config.className + '"></div>').css({
 				position:	'absolute', 
-				left:		dim.left +'px', 
-				top:		dim.top +'px',
-				width:		dim.width +'px',
-				height:		dim.height +'px'
+				left:		dim.left + 'px', 
+				top:		dim.top + 'px',
+				width:		dim.width + 'px',
+				height:		dim.height + 'px'
 			}).appendTo(document.body).hide();
 		}
 
@@ -72,9 +72,9 @@ jQuery.fn.ajaxLoader = function(conf) {
 	});
 };
 
-jQuery.fn.ajaxLoaderRemove = function() {
-	return this.each(function() {
-		if(this.ajaxLoader) {
+jQuery.fn.ajaxLoaderRemove = function () {
+	return this.each(function () {
+		if ( this.ajaxLoader ) {
 			this.ajaxLoader.fadeOut(500);
 		}
 	});

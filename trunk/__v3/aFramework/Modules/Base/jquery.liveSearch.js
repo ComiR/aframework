@@ -44,49 +44,49 @@ jQuery('#q').liveSearch({url: '/ajax/search.php?q='}); would add the live-search
 @exampleJS:
 jQuery('#jquery-live-search-example input[name="q"]').liveSearch({url: WEBROOT +'?module=SearchResults&q='});
 ***/
-jQuery.fn.liveSearch = function(conf) {
+jQuery.fn.liveSearch = function ( conf ) {
 	var config = jQuery.extend({
 		url:			'/?module=SearchResults&q=', 
 		id:				'jquery-live-search', 
 		duration:		400, 
 		typeDelay:		200,
 		loadingClass:	'loading', 
-		onSlideUp:		function() {}
+		onSlideUp:		function () {}
 	}, conf);
 
-	var liveSearch = jQuery('#' +config.id);
+	var liveSearch = jQuery('#' + config.id);
 
-	if(!liveSearch.length) {
-		liveSearch = jQuery('<div id="' +config.id +'"></div>').appendTo(document.body).hide().slideUp(0);
+	if ( !liveSearch.length ) {
+		liveSearch = jQuery('<div id="' + config.id + '"></div>').appendTo(document.body).hide().slideUp(0);
 
 		jQuery(document.body).click(function(event) {
-			if(!(jQuery(event.target).is('#' +config.id) || jQuery(event.target).parents('#' +config.id).length)) {
-				liveSearch.slideUp(config.duration, function() {
+			if ( !(jQuery(event.target).is('#' +config.id) || jQuery(event.target).parents('#' +config.id).length) ) {
+				liveSearch.slideUp(config.duration, function () {
 					config.onSlideUp();
 				});
 			}
 		});
 	}
 
-	return this.each(function() {
+	return this.each(function () {
 		var input		= jQuery(this).attr('autocomplete', 'off');
 		var resultsShit	= parseInt(liveSearch.css('paddingLeft'), 10) + parseInt(liveSearch.css('paddingRight'), 10) + parseInt(liveSearch.css('borderLeftWidth'), 10) + parseInt(liveSearch.css('borderRightWidth'), 10);
 
-		input.keyup(function() {
-			if(this.value != this.lastValue) {
+		input.keyup(function () {
+			if ( this.value != this.lastValue ) {
 				input.addClass(config.loadingClass);
 
 				var q = this.value;
 
-				if(this.timer) {
+				if ( this.timer ) {
 					clearTimeout(this.timer);
 				}
 
-				this.timer = setTimeout(function() {
+				this.timer = setTimeout(function () {
 					jQuery.get(config.url +q, function(data) {
 						input.removeClass(config.loadingClass);
 
-						if(data.length && q.length) {
+						if ( data.length && q.length ) {
 							var tmpOffset	= input.offset();
 							var inputDim	= {
 								left:		tmpOffset.left, 
@@ -100,15 +100,15 @@ jQuery.fn.liveSearch = function(conf) {
 
 							liveSearch.css({
 								position:	'absolute', 
-								left:		inputDim.left +'px', 
-								top:		inputDim.topNHeight +'px',
-								width:		inputDim.widthNShit +'px'
+								left:		inputDim.left + 'px', 
+								top:		inputDim.topNHeight + 'px',
+								width:		inputDim.widthNShit + 'px'
 							});
 
 							liveSearch.html(data).slideDown(config.duration);
 						}
 						else {
-							liveSearch.slideUp(config.duration, function() {
+							liveSearch.slideUp(config.duration, function () {
 								config.onSlideUp();
 							});
 						}
