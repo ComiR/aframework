@@ -1,1 +1,13 @@
 #contact h2 + p = $first-p;
+
+#contact input[name="name"] {
+	width: 200px;
+}
+
+#contact input[name="email"] {
+	width: 350px;
+}
+
+#contact textarea {
+	width: 500px;
+}

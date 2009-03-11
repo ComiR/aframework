@@ -2,6 +2,16 @@
 	=== General ===
 */
 /**
+ * Img replace
+ * Hides text so that bg image shows
+ */
+$img-replace {
+	text-indent: -10000px;
+	text-decoration: none;
+	outline: 0;
+}
+
+/**
  * A11y hide
  * Hides and element in an accessible way
  */
