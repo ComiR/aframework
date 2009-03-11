@@ -75,7 +75,7 @@ Run the plug-in on a parent-element of the form-controls you want to affect. If 
 //		foo: /^\w+$/
 //	});
 ***/
-jQuery.fn.liveValidation = function(conf, addedFields) {
+jQuery.fn.liveValidation = function ( conf, addedFields ) {
 	var config = jQuery.extend({
 		formControls:	'input[type="text"], textarea',						// form-controls to be validated
 		validIco:		'',													// src to valid icon
@@ -101,7 +101,7 @@ jQuery.fn.liveValidation = function(conf, addedFields) {
 		jQuery(config.formControls, this).each(function() {
 			var t = jQuery(this);
 
-			if(t.is('.jquery-live-validation-on')) {
+			if ( t.is('.jquery-live-validation-on') ) {
 				return;
 			}
 			else {
@@ -109,12 +109,12 @@ jQuery.fn.liveValidation = function(conf, addedFields) {
 			}
 
 			// Don't do anything if this field isn't required
-			if(typeof(commonFields[t.attr('name')]) === 'undefined') {
+			if ( typeof(commonFields[t.attr('name')]) === 'undefined' ) {
 				return;
 			}
 
 			// Add invalid icon
-			var validator = jQuery('<img src="' +config.invalidIco +'" alt="' +config.invalid +'" />').insertAfter(t);
+			var validator = jQuery('<img src="' + config.invalidIco + '" alt="' + config.invalid + '" />').insertAfter(t);
 
 			// This function is run now and on key up
 			var validate = function() {
@@ -150,7 +150,7 @@ jQuery.fn.liveValidation = function(conf, addedFields) {
 
 		// If form contains any invalid icon on submission, return false
 		jQuery('form', this).submit(function() {
-			if(jQuery(this).find('img[src="' +config.invalidIco +'"]').length) {
+			if ( jQuery(this).find('img[alt="' + config.invalid + '"]').length ) {
 				return false;
 			}
 		});

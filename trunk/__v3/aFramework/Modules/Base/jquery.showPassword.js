@@ -37,14 +37,14 @@ jQuery('#jquery-show-password-example').showPassword();
 ***/
 jQuery.fn.showPassword = function(conf) {
 	var config = $.extend({
-		show_password:	'Show password', 
-		class:			'password-toggler'
+		str:	'Show password', 
+		cls:	'password-toggler'
 	}, conf);
 
 	return this.each(function() {
 		jQuery('input[type=password]', this).each(function() {
 			var field		= jQuery(this);
-			var check		= jQuery('<label class="' + config.class + '"><input type="checkbox" /> ' + config.show_password + '</label>');
+			var check		= jQuery('<label class="' + config.cls + '"><input type="checkbox" /> ' + config.str + '</label>');
 			var parentLabel	= field.parents('label');
 
 			if ( parentLabel.length ) {
