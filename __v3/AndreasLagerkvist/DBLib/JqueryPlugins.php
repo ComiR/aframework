@@ -11,7 +11,7 @@
 			'ui-droppable-1'
 		);
 
-		public static function get (  ) {
+		public static function get () {
 			$path		= DOCROOT . 'aFramework/Modules/Base/';
 			$dh			= opendir($path);
 			$plugins	= array();
@@ -129,7 +129,7 @@
 						'name'	=> $req, 
 						'ext'	=> $ext, 
 						'url'	=> WEBROOT . 'aFramework/Styles/__common/' . $req, 
-						'size'	=> filesize(DOCROOT .'aFramework/Styles/__common/' . $req)
+						'size'	=> filesize(DOCROOT . 'aFramework/Styles/__common/' . $req)
 					);
 				}
 				elseif ( in_array($ext, array('png', 'gif', 'jpg')) and file_exists(DOCROOT . 'aFramework/Styles/__common/gfx/' . $req) ) {
@@ -137,10 +137,10 @@
 						'name'	=> $req, 
 						'ext'	=> $ext, 
 						'img'	=> true, 
-						'url'	=> WEBROOT .'aFramework/Styles/__common/gfx/' . $req
+						'url'	=> WEBROOT . 'aFramework/Styles/__common/gfx/' . $req
 					);
 				}
-				elseif ( file_exists(DOCROOT .'aFramework/Modules/Base/jquery.' . $req . '.js')) {
+				elseif ( file_exists(DOCROOT .'aFramework/Modules/Base/jquery.' . $req . '.js') ) {
 					#$jsp	= new JavaScriptPacker(file_get_contents(DOCROOT . 'aFramework/Modules/Base/jquery.' . $req . '.js'));
 					$psize	= true; # strlen($jsp->pack());
 
