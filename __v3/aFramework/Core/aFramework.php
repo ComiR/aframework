@@ -21,7 +21,7 @@
 					FourOFour::run();
 				}
 				else {
-					echo str_replace(array("\n\r", "\r\n" ,"\r" , "\t"), "", self::runController(removeDots($_GET['controller'])));
+					echo str_replace(array("\n", "\n\r", "\r\n" ,"\r" , "\t"), "", self::runController(removeDots($_GET['controller'])));
 				}
 			}
 		}

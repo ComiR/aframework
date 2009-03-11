@@ -9,6 +9,7 @@
 	Config::set('general.site_title',			'AndreasLagerkvist.com');
 	Config::set('general.site_tagline',			'jQuery plug-ins and other web-related stuff');
 	Config::set('general.contact_email',		'youwish@gmail.com');
+	Config::set('general.date_format',			'l jS \of F Y');
 	Config::set('general.ga_id',				false);
 
 	Config::set('admin.user',					'admin');
