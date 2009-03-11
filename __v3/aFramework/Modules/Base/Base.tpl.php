@@ -72,6 +72,12 @@
 			</script>
 		<?php } ?>
 
+		<?php if ( $scripts ) { ?>
+			<script type="text/javascript">
+				<?php echo $scripts; ?>
+			</script>
+		<?php } ?>
+
 	</body>
 
 </html>
