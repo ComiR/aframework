@@ -61,7 +61,7 @@ aFramework.modules.ModuleAdmin = {
 				tolerance:	'intersect', 
 				greedy:		true, 
 				// When a module is dragged over another
-				mouseover: function(ev, ui) {
+				over: function(ev, ui) {
 					// Remove any existing markers
 					jQuery('.' +beforeClass).removeClass(beforeClass);
 					jQuery('.' +appendClass).removeClass(appendClass);
@@ -79,7 +79,7 @@ aFramework.modules.ModuleAdmin = {
 					}
 				}, 
 				// When dragging out
-				mouseout: function() {
+				out: function() {
 					// Remove any existing markers
 					jQuery('.' +beforeClass).removeClass(beforeClass);
 					jQuery('.' +appendClass).removeClass(appendClass);
