@@ -30,30 +30,11 @@
 
 </div>
 
-<script type="text/javascript">
-	//<![CDATA[
-	<?php if ( NAKED_DAY ) { ?>
+<?php if ( NAKED_DAY ) { ?>
+	<script type="text/javascript">
 		alert('It\'s naked day today and jQuery isn\'t included on my site so the example will not work. You can still check out the source-code and download the plug-in of course.');
-	<?php } else { ?>
-		function addEvent ( obj, type, fn ) {
-			if ( obj.addEventListener ) {
-				obj.addEventListener(type, fn, false);
-			}
-			else if ( obj.attachEvent ) {
-				obj['e' +type +fn] = fn;
-				obj[type +fn] = function (  ) {
-					obj['e' +type +fn](window.event);
-				};
-				obj.attachEvent('on' +type, obj[type +fn]);
-			}
-		}
-
-		addEvent(window, 'load', function() {
-			<?php echo "\n" . $plugin['example_js'] . "\n"; ?>
-		});
-	<?php } ?>
-	//]]>
-</script>
+	</script>
+<?php } ?>
 
 <h4>Example code</h4>
 

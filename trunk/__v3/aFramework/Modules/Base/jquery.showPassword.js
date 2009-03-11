@@ -1,13 +1,50 @@
+/***
+@title:
+Show Password
+
+@version:
+1.0
+
+@author:
+Andreas Lagerkvist
+
+@date:
+2009-03-11
+
+@url:
+http://andreaslagerkvist.com/jquery/show-password/
+
+@license:
+http://creativecommons.org/licenses/by/3.0/
+
+@copyright:
+2008 Andreas Lagerkvist (andreaslagerkvist.com)
+
+@requires:
+jquery
+
+@does:
+This little plug inserts a "View password"-checkbox next to inputs of type password that allows the user to toggle the password's visibility. When the checkbox is checked the password is displayed in plain text.
+
+@howto:
+jQuery('#my-form').showPassword(); would insert "password togglers" in every input[type=password] within #my-form.
+
+@exampleHTML:
+<input type="password" value="oioioi"/>
+
+@exampleJS:
+jQuery('#jquery-show-password-example').showPassword();
+***/
 jQuery.fn.showPassword = function(conf) {
 	var config = $.extend({
-		view_password:	'View password', 
+		show_password:	'Show password', 
 		class:			'password-toggler'
 	}, conf);
 
 	return this.each(function() {
 		jQuery('input[type=password]', this).each(function() {
 			var field		= jQuery(this);
-			var check		= jQuery('<label class="' + config.class + '"><input type="checkbox" /> ' + config.view_password + '</label>');
+			var check		= jQuery('<label class="' + config.class + '"><input type="checkbox" /> ' + config.show_password + '</label>');
 			var parentLabel	= field.parents('label');
 
 			if ( parentLabel.length ) {
