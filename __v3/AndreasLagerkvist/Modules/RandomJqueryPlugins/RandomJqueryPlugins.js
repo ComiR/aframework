@@ -1,9 +1,9 @@
 aFramework.modules.RandomJqueryPlugins = {
-	run: function() {
+	run: function () {
 		this.hijaxMoreLink();
 	}, 
 
-	hijaxMoreLink: function() {
+	hijaxMoreLink: function () {
 		jQuery('#random-jquery-plugins > p a').click(function() {
 			jQuery(this).text(Lang.get('loading') + '...');
 

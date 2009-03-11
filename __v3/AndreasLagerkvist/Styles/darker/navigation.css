@@ -45,7 +45,8 @@ div#navigation {
 				border-color: #666;
 			}
 
-			#navigation ul li strong a {
+			#navigation ul li strong a, 
+			#navigation ul li strong a:hover {
 				border-color: #eee;
 				font-weight: normal;
 			}
