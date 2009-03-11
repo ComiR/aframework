@@ -7,7 +7,7 @@
 <p>
 	<small>
 		<?php echo Lang::get('published'); ?> 
-		<?php echo date(Config::get('general.date_format'), $article['pub_date']); ?>
+		<?php echo date(Config::get('general.date_format'), strtotime($article['pub_date'])); ?>
 	</small>
 </p>
 
