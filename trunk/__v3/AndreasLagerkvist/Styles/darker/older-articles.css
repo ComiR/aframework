@@ -10,8 +10,21 @@
 			
 		}
 
-			#older-articles ol li h3 + p small = $icon;
-			#older-articles ol li h3 + p small = $icon-pub-date;
+			#older-articles ol li h3 + p {
+				
+			}
 
-			#older-articles ol li p:last-child a = $icon;
-			#older-articles ol li p:last-child a = $icon-next;
+				#older-articles ol li h3 + p small = $icon;
+				#older-articles ol li h3 + p small = $icon-pub-date;
+
+				#older-articles ol li p img = $img-small;
+				#older-articles ol li p img {
+					width: 100px;
+				}
+
+			#older-articles ol li p:last-child {
+				clear: right;
+			}
+
+				#older-articles ol li p:last-child a = $icon;
+				#older-articles ol li p:last-child a = $icon-next;

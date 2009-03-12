@@ -10,21 +10,10 @@
 	#latest-article h2 + p + p = $first-p;
 
 		/* Image in first article paragraph (big) */
-		#latest-article h2 + p + p img {
-			display: block;
-			float: none;
-
-			margin: 10px 0;
-			width: 600px; /* calc(100% - 20px) */
-
-			border: 10px solid #fff;
-		}
+		#latest-article p img = $img-large;
 
 		/* Image elsewhere (small, floated) */
-		#latest-article h2 p img {
-			margin: 0 0 15px 15px;
-			float: right;
-		}
+		#latest-article h2 + p + p img = $img-small;
 
 	/* Tags and comments */
 	#latest-article > dl:last-child {
