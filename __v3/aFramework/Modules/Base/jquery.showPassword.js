@@ -44,6 +44,7 @@ jQuery.fn.showPassword = function(conf) {
 	return this.each(function () {
 		jQuery('input[type=password]', this).each(function () {
 			var field		= jQuery(this);
+			var fakeField	= jQuery('<input type="text" class="' + config.className + '" value="' + field.val() + '" />').insertAfter(field).hide(); // only IE really needs this
 			var check		= jQuery('<label class="' + config.className + '"><input type="checkbox" /> ' + config.str + '</label>');
 			var parentLabel	= field.parents('label');
 
@@ -51,18 +52,26 @@ jQuery.fn.showPassword = function(conf) {
 				check.insertAfter(parentLabel);
 			}
 			else {
-				check.insertAfter(field);
+				check.insertAfter(fakeField); // field
 			}
 
-			check.find('input').click(function () {
+			check.find('input').click(function() {
 				if ( jQuery(this).is(':checked') ) {
 				//	field.attr('type', 'text'); // strange, this threw errors
-					field[0].type = 'text';
+				//	field[0].type = 'text'; // and this doesn't work in IE
+					field.hide();
+					fakeField.val(field.val()).show();
 				}
 				else {
 				//	field.attr('type', 'password');
-					field[0].type = 'password';
+				//	field[0].type = 'password';
+					field.show();
+					fakeField.hide();
 				}
+			});
+
+			fakeField.change(function() {
+				field.val(fakeField.val());
 			});
 		});
 	});
