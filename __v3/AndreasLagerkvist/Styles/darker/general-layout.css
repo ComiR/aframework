@@ -75,6 +75,24 @@ p {
 	line-height: 1.5;
 }
 
+$error {
+	background-color: #fee;
+
+	display: block;
+	padding: 10px;
+
+	color: #600;
+	border: 1px solid red;
+}
+
+	p strong:only-child = $error;
+	p strong:only-child = $icon;
+	p strong:only-child = $icon-warning;
+	p strong:only-child {
+		background-position: 5px -770px;
+		padding-left: 40px;
+	}
+
 ul, 
 ol {
 	margin: 0 0 10px 30px;
@@ -179,7 +197,9 @@ small {
 		color: #fc3;
 	}
 
-/* The Grid */
+/*
+	=== The Grid ===
+*/
 #wrapper {
 	width: 960px;
 	margin: 0 auto;
