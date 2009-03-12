@@ -5,7 +5,7 @@
 
 			<?php echo $plugin['does']; ?>
 
-			<p><a href="<?php echo $plugin['url']; ?>">Details</a></p>
+			<p><a href="<?php echo $plugin['url']; ?>"><?php echo Lang::get('details'); ?></a></p>
 		</li>
 	<?php } ?>
 </ul>

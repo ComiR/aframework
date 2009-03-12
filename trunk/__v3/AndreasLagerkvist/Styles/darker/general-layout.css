@@ -175,6 +175,10 @@ small {
 		color: #444;
 	}
 
+	small:hover a {
+		color: #fc3;
+	}
+
 /* The Grid */
 #wrapper {
 	width: 960px;

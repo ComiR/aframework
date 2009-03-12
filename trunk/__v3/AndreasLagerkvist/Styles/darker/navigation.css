@@ -10,6 +10,9 @@ div#navigation {
 }
 
 	#navigation h2 = $a11y-hide;
+	#navigation h2 {
+		display: none; /* unfortunately needed by safari (possibly more) */
+	}
 
 	#navigation ul {
 		display: table-row;
