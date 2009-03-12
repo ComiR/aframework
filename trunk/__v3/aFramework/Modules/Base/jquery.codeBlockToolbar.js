@@ -66,19 +66,19 @@ jQuery.fn.codeBlockToolbar = function ( conf ) {
 								+ cbText 
 								+ '</textarea>').insertAfter(codeBlock).hide();
 
-		jQuery('<li><a href="#">' + config.increaseText + '</a></li>').appendTo(ul).find('a').click(function () {
+		jQuery('<li class="increase"><a href="#">' + config.increaseText + '</a></li>').appendTo(ul).find('a').click(function () {
 			codeBlock.css('font-size', parseFloat(codeBlock.css('font-size'), 10) * 1.2);
 
 			return false;
 		});
 
-		jQuery('<li><a href="#">' + config.decreaseText + '</a></li>').appendTo(ul).find('a').click(function () {
+		jQuery('<li class="decrease"><a href="#">' + config.decreaseText + '</a></li>').appendTo(ul).find('a').click(function () {
 			codeBlock.css('font-size', parseFloat(codeBlock.css('font-size'), 10) * .8);
 
 			return false;
 		});
 
-		jQuery('<li><a href="#">' + config.textareaText + '</a></li>').appendTo(ul).find('a').toggle(function () {
+		jQuery('<li class="textarea"><a href="#">' + config.textareaText + '</a></li>').appendTo(ul).find('a').toggle(function () {
 			jQuery(this).text(config.textareaText2);
 			codeBlock.hide();
 			textarea.show();
@@ -95,7 +95,7 @@ jQuery.fn.codeBlockToolbar = function ( conf ) {
 		});
 
 		if ( cbHeight > cbMaxHeight ) {
-			jQuery('<li><a href="#">' + config.expandText + '</a></li>').appendTo(ul).find('a').click(function () {
+			jQuery('<li class="expand"><a href="#">' + config.expandText + '</a></li>').appendTo(ul).find('a').click(function () {
 				codeBlock.css('max-height', 'none');
 				jQuery(this).parent().remove();
 
