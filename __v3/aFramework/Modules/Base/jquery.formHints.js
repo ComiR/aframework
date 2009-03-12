@@ -60,21 +60,24 @@ jQuery.fn.formHints = function ( conf ) {
 		jQuery(config.formControls, this).each(function () {
 			var t = jQuery(this);
 
-			if ( t.val() === '' || t.val() == t.attr('title') ) {
-				t.addClass(config.className).val(t.attr('title'));
-			}
-		}).focus(function () {
-			var t = jQuery(this);
+			t.formHint = t.attr('title');
+			t.attr('title', '');
 
-			if ( t.val() == t.attr('title') ) {
-				t.val('').removeClass(config.className);
+			if ( t.val() === '' || t.val() == t.formHint ) {
+				t.addClass(config.className).val(t.formHint);
 			}
-		}).blur(function () {
-			var t = jQuery(this);
 
-			if ( t.val() === '' || t.val() == t.attr('title') ) {
-				t.addClass(config.className).val(t.attr('title'));
-			}
+			t.focus(function () {
+				if ( t.val() == t.formHint ) {
+					t.val('').removeClass(config.className);
+				}
+			});
+			
+			t.blur(function () {
+				if ( t.val() === '' || t.val() == t.formHint ) {
+					t.addClass(config.className).val(t.formHint);
+				}
+			});
 		});
 
 		// Remove hints on form submission

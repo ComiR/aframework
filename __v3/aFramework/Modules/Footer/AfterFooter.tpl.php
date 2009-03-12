@@ -1,4 +1,3 @@
-
 <p>
 	Copyright &copy; <?php echo date('Y'); ?> <?php echo Config::get('general.site_author'); ?>. <a href="http://creativecommons.org/licenses/by/3.0/" title="All articles, content, scripts, images, etc are released under a CCv3">Some Rights Reserved</a>.<br />
 	<small>
