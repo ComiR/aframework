@@ -338,3 +338,23 @@ $first-p {
 	font-size: 18px;
 	font-style: italic;
 }
+
+$img-large {
+	display: block;
+	float: none;
+
+	margin: 10px 0;
+	width: 600px; /* calc(100% - 20px) */
+
+	border: 10px solid #fff;
+}
+
+$img-small {
+	display: block;
+	float: right;
+
+	margin: 0 0 10px 10px;
+	width: 200px;
+
+	border: 0 solid #fff;
+}

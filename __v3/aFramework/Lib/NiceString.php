@@ -36,8 +36,11 @@
 		}
 
 		private static function subStrCut($str, $len) {
-			if($len and strlen($str) > ($len + 3)) {
-				return substr($str, 0, $len) .'...';
+			$tmpStr = preg_replace('/!?\[(.*?)\]\(.*?\)/', '$1', $str);
+			$tmpLen = strlen($str) - strlen($tmpStr) + $len;
+
+			if($len and strlen($tmpStr) > ($len + 3)) {
+				return substr($str, 0, $tmpLen) .'...';
 			}
 
 			return $str;
