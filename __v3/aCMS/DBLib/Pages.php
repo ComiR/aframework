@@ -1,6 +1,6 @@
 <?php
 	class Pages {
-		public static function getPageByUrlStr ( $urlStr ) {
+		public static function getPageByUrlStr ($urlStr) {
 			$res = dbQry('
 				SELECT
 					*
@@ -11,7 +11,7 @@
 				LIMIT 1
 			');
 
-			if ( mysql_num_rows($res) ) {
+			if (mysql_num_rows($res)) {
 				return mysql_fetch_assoc($res);
 			}
 			else {
@@ -19,7 +19,7 @@
 			}
 		}
 
-		public static function getPagesInNavigation (  ) {
+		public static function getPagesInNavigation () {
 			$res = dbQry('
 				SELECT
 					*
@@ -31,10 +31,10 @@
 					priority ASC
 			');
 
-			if ( mysql_num_rows($res) ) {
+			if (mysql_num_rows($res)) {
 				$rows = array();
 				
-				while ( $row = mysql_fetch_assoc($res) ) {
+				while ($row = mysql_fetch_assoc($res)) {
 					$rows[] = $row;
 				}
 
@@ -44,11 +44,12 @@
 				return false;
 			}
 		}
-		public static function get ( $sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000 ) {
+
+		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000) {
 			return DBRow::get(Config::get('db.table_prefix') . 'pages', $sort, $order, $start, $limit);
 		}
 
-		public static function insert ( $row ) {
+		public static function insert ($row) {
 			$fields	= array(
 				'url_str'			=> $row['url_str'], 
 				'pub_date'			=> isset($row['pub_date']) ? $row['pub_date'] : date('Y-m-d H:i:s'), 
@@ -60,10 +61,10 @@
 				'content'			=> $row['content']
 			);
 
-			return DBRow::insert(Config::get('db.table_prefix') .'pages', $fields);
+			return DBRow::insert(Config::get('db.table_prefix') . 'pages', $fields);
 		}
 
-		public static function update ( $id, $row ) {
+		public static function update ($id, $row) {
 			$validFields = array(
 				'url_str', 
 				'pub_date', 
@@ -76,17 +77,17 @@
 			);
 			$fields = array();
 
-			foreach ( $row as $col => $val ) {
-				if ( in_array($col, $validFields) ) {
+			foreach ($row as $col => $val) {
+				if (in_array($col, $validFields)) {
 					$fields[$col] = $val;
 				}
 			}
 
-			return DBRow::update(Config::get('db.table_prefix') .'pages', $id, $fields);
+			return DBRow::update(Config::get('db.table_prefix') . 'pages', $id, $fields);
 		}
 
-		public static function delete ( $id ) {
-			return DBRow::delete(Config::get('db.table_prefix') .'pages', $id);
+		public static function delete ($id) {
+			return DBRow::delete(Config::get('db.table_prefix') . 'pages', $id);
 		}
 	}
 ?>

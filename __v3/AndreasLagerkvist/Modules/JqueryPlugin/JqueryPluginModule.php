@@ -4,10 +4,10 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			if ( isset($_GET['url_str']) ) {
+			if (isset($_GET['url_str'])) {
 				self::$tplVars['plugin'] = JqueryPlugins::getByUrlStr($_GET['url_str']);
 
-				if ( !self::$tplVars['plugin'] ) {
+				if (!self::$tplVars['plugin']) {
 					FourOFour::run();
 				}
 				else {

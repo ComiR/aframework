@@ -3,7 +3,7 @@
 		public static $tplVars = array();
 		public static $tplFile = true;
 
-		public static function run() {
+		public static function run () {
 			
 		}
 	}

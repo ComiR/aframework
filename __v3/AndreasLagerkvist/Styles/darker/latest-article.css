@@ -40,7 +40,7 @@
 		}
 
 		#latest-article > dl:last-child dt:after {
-			content: ":";
+			content: ": ";
 		}
 
 		#latest-article > dl:last-child dd {

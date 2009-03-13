@@ -1,6 +1,6 @@
 <?php
 	class Articles {
-		public static function getArticleByUrlStr ( $urlStr ) {
+		public static function getArticleByUrlStr ($urlStr) {
 			$res = dbQry('
 				SELECT
 					*
@@ -11,7 +11,7 @@
 				LIMIT 1
 			');
 
-			if ( mysql_num_rows($res) ) {
+			if (mysql_num_rows($res)) {
 				return mysql_fetch_assoc($res);
 			}
 			else {
@@ -19,11 +19,11 @@
 			}
 		}
 
-		public static function get ( $sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000 ) {
+		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000) {
 			return DBRow::get(Config::get('db.table_prefix') . 'articles', $sort, $order, $start, $limit);
 		}
 
-		public static function insert ( $row ) {
+		public static function insert ($row) {
 			$fields	 = array(
 				'url_str'			=> $row['url_str'], 
 				'title'				=> $row['title'], 
@@ -39,7 +39,7 @@
 			return DBRow::insert(Config::get('db.table_prefix') . 'articles', $fields);
 		}
 
-		public static function update ( $id, $row ) {
+		public static function update ($id, $row) {
 			$validFields = array(
 				'url_str', 
 				'formatting', 
@@ -54,8 +54,8 @@
 			);
 			$fields = array();
 
-			foreach ( $row as $col => $val ) {
-				if ( in_array($col, $validFields) ) {
+			foreach ($row as $col => $val) {
+				if (in_array($col, $validFields)) {
 					$fields[$col] = $val;
 				}
 			}
@@ -63,7 +63,7 @@
 			return DBRow::update(Config::get('db.table_prefix') . 'articles', $id, $fields);
 		}
 
-		public static function delete ( $id ) {
+		public static function delete ($id) {
 			return DBRow::delete(Config::get('db.table_prefix') . 'articles', $id);
 		}
 	}
