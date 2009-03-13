@@ -12,12 +12,12 @@
 		 *
 		 * Runs either a single module or a controller of modules
 		 **/
-		public static function run (  ) {
-			if ( isset($_GET['module']) ) {
+		public static function run () {
+			if (isset($_GET['module'])) {
 				echo self::runSingleModule(removeDots($_GET['module']));
 			}
-			elseif ( isset($_GET['controller']) ) {
-				if ( $_GET['controller'] == false ) {
+			elseif (isset($_GET['controller'])) {
+				if ($_GET['controller'] == false) {
 					FourOFour::run();
 				}
 				else {
@@ -31,7 +31,7 @@
 		 *
 		 * Runs and fetches a module
 		 **/
-		public static function runSingleModule ( $module ) {
+		public static function runSingleModule ($module) {
 			self::runModule($module);
 			return self::fetchModule($module);
 		}
@@ -41,17 +41,17 @@
 		 *
 		 * Runs and fetches all modules in a controller
 		 **/
-		public static function runController ( $controller ) {
+		public static function runController ($controller) {
 			self::$debugInfo['controller']['name'] = $controller;
 
 			$foundController = false;
 			$sites = explode(' ', SITE_HIERARCHY);
 
 			# Find the controller-XML-file
-			foreach ( $sites as $site ) {
+			foreach ($sites as $site) {
 				$path = DOCROOT . $site . '/Controllers/' . $controller . '.xml';
 
-				if ( file_exists($path) ) {
+				if (file_exists($path)) {
 					$foundController = true;
 
 					self::$debugInfo['controller']['path'] = $path;
@@ -62,7 +62,7 @@
 			}
 
 			# Make sure a controller by that name exists
-			if ( !$foundController ) {
+			if (!$foundController) {
 				die('No controller named ' . $controller);
 			}
 
@@ -74,7 +74,7 @@
 			# Run and fetch all modules
 			self::runModules($base);
 			$theSite = self::fetchModules($base);
-			$theSite = DEBUG ? str_replace('</body>', fetch(DOCROOT .'aFramework/Files/debug.tpl.php') .'</body>', $theSite) : $theSite;
+			$theSite = DEBUG ? str_replace('</body>', fetch(DOCROOT . 'aFramework/Files/debug.tpl.php') . '</body>', $theSite) : $theSite;
 
 			return $theSite;
 		}
@@ -84,14 +84,14 @@
 		 *
 		 * Runs all modules in a contrller starting with the oldest parent
 		 **/
-		public static function runModules ( $modules ) {
+		public static function runModules ($modules) {
 			$notElements = array('#text', '#comment', '#cdata-section');
 
-			foreach ( $modules as $module ) {
-				if ( !in_array(strtolower($module->nodeName), $notElements) ) {
+			foreach ($modules as $module) {
+				if (!in_array(strtolower($module->nodeName), $notElements)) {
 					self::runModule($module->nodeName);
 
-					if ( $module->hasChildNodes() ) {
+					if ($module->hasChildNodes()) {
 						self::runModules($module->childNodes);
 					}
 				}
@@ -103,16 +103,16 @@
 		 *
 		 * Fetches all module-tpls in a contrlller starting with the youngest child
 		 **/
-		public static function fetchModules ( $modules ) {
+		public static function fetchModules ($modules) {
 			$notElements = array('#text', '#comment', '#cdata-section');
 			$page = '';
 			$i = 0;
 
-			foreach ( $modules as $module ) {
-				if ( !in_array(strtolower($module->nodeName), $notElements) ) {
+			foreach ($modules as $module) {
+				if (!in_array(strtolower($module->nodeName), $notElements)) {
 					$childModules = false;
 
-					if ( $module->hasChildNodes() ) {
+					if ($module->hasChildNodes()) {
 						$childModules = self::fetchModules($module->childNodes);
 					}
 
@@ -121,20 +121,20 @@
 
 					self::$debugInfo['modules'][$module->nodeName]['html_id'] = $id;
 
-					if ( $moduleTpl or $childModules ) {
-						if ( AUTO_HR and $i > 0 ) {
+					if ($moduleTpl or $childModules) {
+						if (AUTO_HR and $i > 0) {
 							$page .= "\n\n<hr />"; # :)
 						}
-						if ( $module->nodeName != 'Base' ) {
+						if ($module->nodeName != 'Base') {
 							$page .= "\n\n<div id=\"$id\">\n\n";
 						}
-						if ( strtolower($module->nodeName) == 'wrapper' ) {
+						if (strtolower($module->nodeName) == 'wrapper') {
 							$page .= $childModules;
 						}
 						else {
 							$page .= $moduleTpl;
 						}
-						if ( $module->nodeName != 'Base' ) {
+						if ($module->nodeName != 'Base') {
 							$page .= "\n\n</div>";
 						}
 
@@ -151,15 +151,15 @@
 		 *
 		 * Runs a module based on the SITE_HIERARCHY unless it's cached
 		 **/
-		public static function runModule ( $module ) {
+		public static function runModule ($module) {
 			$sites = explode(' ', SITE_HIERARCHY);
 
 			# Find the first Module-class and run it
-			foreach ( $sites as $site ) {
+			foreach ($sites as $site) {
 				$modPath = DOCROOT . $site . '/Modules/' . $module . '/' . $module . 'Module.php';
 				$modName = $site . '_' . $module . 'Module';
 
-				if ( file_exists($modPath) ) {
+				if (file_exists($modPath)) {
 					$start		= microtime(true);
 					$numQBefore	= dbQry(false, true);
 
@@ -189,7 +189,7 @@
 		 * Fetches a module based on the SITE_HIERARCHY or module's cache
 		 * Also fetches Before or After-templates
 		 **/
-		public static function fetchModule ( $module, $tplVarsAdd = array() ) {
+		public static function fetchModule ($module, $tplVarsAdd = array()) {
 			self::$debugInfo['modules'][$module]['name'] = $module;
 
 			$sites		= explode(' ', SITE_HIERARCHY);
@@ -201,11 +201,11 @@
 
 			# Find the first module-class and store the template-filename
 			# to be fetched as well as the template variables
-			foreach ( $sites as $site ) {
+			foreach ($sites as $site) {
 				$modPath = DOCROOT . $site . '/Modules/' . $module . '/' . $module . 'Module.php';
 				$modName = $site . '_' . $module . 'Module';
 
-				if ( file_exists($modPath) ) {
+				if (file_exists($modPath)) {
 					$tplFile = $modName::$tplFile === true ? $module : $modName::$tplFile;
 					$tplVars = array_merge((array)$modName::$tplVars, $tplVars);
 
@@ -214,43 +214,43 @@
 			}
 
 			# If tplFile is false that means the module doesn't want to display any template
-			if ( $tplFile === false ) {
+			if ($tplFile === false) {
 				return false;
 			}
 			# If it's still null (since declaration) no module-class existed and tpl-name is assumed to be module-name
-			else if ( $tplFile === null ) {
+			else if ($tplFile === null) {
 				$tplFile = $module;
 			}
 
 			# Now that we have the template-file, go through all sites 
 			# and get Before, Middle and After-templates
-			foreach ( $sites as $site ) {
+			foreach ($sites as $site) {
 				$beforePath	= (ADMIN and file_exists(DOCROOT . $site . '/Modules/' . $module . '/Before' . $tplFile . 'Admin.tpl.php')) ? DOCROOT . $site . '/Modules/' . $module . '/Before' . $tplFile . 'Admin.tpl.php' : DOCROOT . $site . '/Modules/' . $module . '/Before' . $tplFile . '.tpl.php';
 				$middlePath	= (ADMIN and file_exists(DOCROOT . $site . '/Modules/' . $module . '/' . $tplFile . 'Admin.tpl.php')) ? DOCROOT . $site . '/Modules/' . $module . '/' . $tplFile . 'Admin.tpl.php' : DOCROOT . $site . '/Modules/' . $module . '/' . $tplFile . '.tpl.php';
 				$afterPath	= (ADMIN and file_exists(DOCROOT . $site . '/Modules/' . $module . '/After' . $tplFile . 'Admin.tpl.php')) ? DOCROOT . $site . '/Modules/' . $module . '/After' . $tplFile . 'Admin.tpl.php' : DOCROOT . $site . '/Modules/' . $module . '/After' . $tplFile . '.tpl.php';
 
 				# Before
-				if ( $before == '' and file_exists($beforePath) ) {
+				if ($before == '' and file_exists($beforePath)) {
 					self::$debugInfo['modules'][$module]['tpl_paths']['before'] = $beforePath;
 
 					$before = self::fetchTpl($beforePath, $tplVars);
 				}
 
 				# Middle
-				if ( $middle == '' and file_exists($middlePath) ) {
+				if ($middle == '' and file_exists($middlePath)) {
 					self::$debugInfo['modules'][$module]['tpl_paths']['middle'] = $middlePath;
 
 					$middle = self::fetchTpl($middlePath, $tplVars);
 				}
 
 				# After
-				if ( $after == '' and file_exists($afterPath) ) {
+				if ($after == '' and file_exists($afterPath)) {
 					self::$debugInfo['modules'][$module]['tpl_paths']['after'] = $afterPath;
 
 					$after = self::fetchTpl($afterPath, $tplVars);
 				}
 
-				if ( $before != '' and $middle != '' and $after != '' ) {
+				if ($before != '' and $middle != '' and $after != '') {
 					break;
 				}
 			}
@@ -260,7 +260,7 @@
 			# If $child_modules is set and $all doesn't contain
 			# it that means none of the module's template echo:ed
 			# $child_modules, append them autoamtically
-			if ( isset($tplVarsAdd['child_modules']) and !empty($tplVarsAdd['child_modules']) and false === strpos($all, $tplVarsAdd['child_modules']) ) {
+			if (isset($tplVarsAdd['child_modules']) and !empty($tplVarsAdd['child_modules']) and false === strpos($all, $tplVarsAdd['child_modules'])) {
 				$all .= $tplVarsAdd['child_modules'];
 			}
 
@@ -272,8 +272,8 @@
 		 *
 		 * Extracts tpl-vars into function-scope, turns off errors, includes and returns template
 		 **/
-		private static function fetchTpl ( $tpl, $vars ) {
-		#	if ( !DEBUG ) {
+		private static function fetchTpl ($tpl, $vars) {
+		#	if (!DEBUG) {
 				ini_set('display_errors', false);
 		#	}
 
@@ -284,7 +284,7 @@
 			$contents = ob_get_contents();
 			ob_end_clean();
 
-		#	if ( !DEBUG ) {
+		#	if (!DEBUG) {
 				ini_set('display_errors', true);
 		#	}
 

@@ -2,8 +2,8 @@
 	class Config {
 		private static $config = array();
 
-		public static function set ( $k, $v ) {
-			if ( false === strpos($k, '.') ) {
+		public static function set ($k, $v) {
+			if (false === strpos($k, '.')) {
 				self::$config[$k] = isset(self::$config[$k]) ? self::$config[$k] : array('__info' => array());
 				self::$config[$k]['__info'] = array_merge((array)self::$config[$k]['__info'], array(
 					'name'			=> $k, 
@@ -16,7 +16,7 @@
 			$levels	= explode('.', $k);
 			$tmp	= &self::$config;
 
-			foreach ( $levels as $l ) {
+			foreach ($levels as $l) {
 				$tmp = &$tmp[$l];
 			}
 
@@ -30,23 +30,23 @@
 			);
 		}
 
-		public static function get ( $k ) {
+		public static function get ($k) {
 			$levels	= explode('.', $k);
 			$tmp	= &self::$config;
 
-			foreach ( $levels as $l ) {
+			foreach ($levels as $l) {
 				$tmp = &$tmp[$l];
 			}
 
 			return $tmp['value'];
 		}
 
-		public static function asArray (  ) {
+		public static function asArray () {
 			$items		= array();
 			$configs	= array();
 
-			foreach ( self::$config as $k => $v ) {
-				foreach ( self::$config[$k] as $ik => $iv ) {
+			foreach (self::$config as $k => $v) {
+				foreach (self::$config[$k] as $ik => $iv) {
 					if('__info' != $ik) {
 						$items[$ik] = self::$config[$k][$ik];
 					}

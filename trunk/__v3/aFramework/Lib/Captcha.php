@@ -1,6 +1,6 @@
 <?php
 	class Captcha {
-		public static function show($len = 4, $font = '') {
+		public static function show ($len = 4, $font = '') {
 			header('Content-type: image/png');
 
 			$str					= self::genStr($len); 
@@ -14,11 +14,11 @@
 			imagedestroy($image);
 		}
 
-		private static function genStr($len = 4) {
+		private static function genStr ($len = 4) {
 			$chars	= 'abcdefghijklmnopqrstuvwxyz';
 			$word	= '';
 
-			for($i = 0; $i < $len; $i++) {
+			for ($i = 0; $i < $len; $i++) {
 				$word .= substr($chars, rand(0, strlen($chars) -1), 1);
 			}
 

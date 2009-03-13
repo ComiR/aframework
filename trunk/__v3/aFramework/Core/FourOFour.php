@@ -1,6 +1,6 @@
 <?php
 	class FourOFour {
-		public static function run (  ) {
+		public static function run () {
 			header('HTTP/1.1 404 Not Found');
 
 			$referrer		= isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : false;
@@ -16,7 +16,7 @@
 				stristr($referrer, 'yahoo.co')
 			);
 
-			if ( $referrer ) {
+			if ($referrer) {
 				$referrerSite = explode('/', $referrer);
 				$referrerSite = $referrerSite[2];
 			}
@@ -26,13 +26,13 @@
 
 			include DOCROOT .'aFramework/Files/404-stuff/head.php';
 
-			if ( !$referrer ) {
+			if (!$referrer) {
 				include DOCROOT . 'aFramework/Files/404-stuff/no-referrer.php';
 			}
-			elseif ( $internalRef ) {
+			elseif ($internalRef) {
 				include DOCROOT . 'aFramework/Files/404-stuff/internal-referrer.php';
 			}
-			elseif ( $searchRef ) {
+			elseif ($searchRef) {
 				$qryStrings = array(
 					'q', 
 					'p', 
@@ -42,10 +42,10 @@
 				$params = explode('?', $referrer);
 				$params = explode('&', $params[1]);
 
-				foreach ( $params as $p ) {
+				foreach ($params as $p) {
 					$ps = explode('=', $p);
 
-					if ( in_array($ps[0], $qryStrings) ) {
+					if (in_array($ps[0], $qryStrings)) {
 						$_GET['q'] = str_replace('+', ' ', $ps[1]);
 					}
 				}
