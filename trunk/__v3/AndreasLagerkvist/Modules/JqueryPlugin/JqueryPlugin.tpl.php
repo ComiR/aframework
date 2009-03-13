@@ -29,7 +29,7 @@
 
 </div>
 
-<?php if ( NAKED_DAY ) { ?>
+<?php if (NAKED_DAY) { ?>
 	<script type="text/javascript">
 		alert('It\'s naked day today and jQuery isn\'t included on my site so the example will not work. You can still check out the source-code and download the plug-in of course.');
 	</script>
@@ -54,17 +54,17 @@
 <h4><?php echo Lang::get('plug_in'); ?></h4>
 
 <ul>
-	<?php foreach ( $plugin['files']['plugin'] as $file ) { ?>
+	<?php foreach ($plugin['files']['plugin'] as $file) { ?>
 		<li>
 			<a href="<?php echo $file['url']; ?>">
 				<?php echo $file['name']; ?>
 			</a>
 
-			<?php if ( $file['size'] ) { ?>
+			<?php if ($file['size']) { ?>
 				 <small>
 					(<?php echo round($file['size'] / 1024, 2); ?> kb <?php echo Lang::get('unpacked'); ?>)
 
-					<?php if ( $file['psize'] ) { ?>
+					<?php if ($file['psize']) { ?>
 						 (<!--<?php #echo round($file['psize'] / 1024, 2); ?> kb -->
 						<a href="<?php echo WEBROOT; ?>?module=JSPacker&amp;file=<?php echo $file['url']; ?>">
 							<?php echo Lang::get('minified'); ?>
@@ -73,7 +73,7 @@
 				</small>
 			<?php } ?>
 
-			<?php if ( $file['img'] ) { ?>
+			<?php if ($file['img']) { ?>
 				 <img src="<?php echo $file['url']; ?>" alt="" />
 			<?php } ?>
 		</li>
@@ -83,7 +83,7 @@
 <h4><?php echo Lang::get('requires'); ?></h4>
 
 <ul>
-	<?php foreach ( $plugin['files']['requirements'] as $file ) { ?>
+	<?php foreach ($plugin['files']['requirements'] as $file) { ?>
 		<li>
 			<a href="<?php echo $file['url']; ?>">
 				<?php echo $file['name']; ?>

@@ -1,5 +1,5 @@
 aFramework.modules.TagCloud = {
-	run: function (  ) {
+	run: function () {
 		$('#tag-cloud').tagSizes();
 	}
 };

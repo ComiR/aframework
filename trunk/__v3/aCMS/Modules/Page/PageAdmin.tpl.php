@@ -1,4 +1,4 @@
-<?php if ( $errors ) { ?>
+<?php if ($errors) { ?>
 	<p>
 		<strong>
 			<?php echo Lang::get('the_form_contains_errors'); ?> 
@@ -19,11 +19,11 @@
 	<p>
 		<?php echo Lang::get('show_in_navigation'); ?><br />
 		<label>
-			<input type="radio" name="in_navigation" value="1"<?php if ( $page['priority'] ) { ?> checked="checked"<?php } ?> /> 
+			<input type="radio" name="in_navigation" value="1"<?php if ($page['priority']) { ?> checked="checked"<?php } ?> /> 
 			<?php echo Lang::get('yes'); ?>
 		</label> 
 		<label>
-			<input type="radio" name="in_navigation" value="0"<?php if ( !$page['priority'] ) { ?> checked="checked"<?php } ?> /> 
+			<input type="radio" name="in_navigation" value="0"<?php if (!$page['priority']) { ?> checked="checked"<?php } ?> /> 
 			<?php echo Lang::get('no'); ?>
 		</label>
 	</p>

@@ -1,6 +1,6 @@
 <?php
 	return array(
-		'/add-page/' => 'AddPage', 
-		'/:url_str/' => 'Page'
+		'/' . Lang::get('url.add_page') . '/'	=> 'AddPage', 
+		'/:url_str/'							=> 'Page'
 	);
 ?>

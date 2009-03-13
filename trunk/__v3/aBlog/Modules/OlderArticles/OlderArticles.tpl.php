@@ -1,5 +1,5 @@
 <ol>
-	<?php foreach ( $articles as $a ) { ?>
+	<?php foreach ($articles as $a) { ?>
 		<li>
 			<h3>
 				<a href="<?php echo Router::urlFor('Article', $a); ?>">

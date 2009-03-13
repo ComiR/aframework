@@ -35,21 +35,21 @@
 	define('USE_MOD_REWRITE',		true);
 
 	# Core classes
+	require_once 'Core/Lang.php';
 	require_once 'Core/AutoLoader.php';
 	require_once 'Core/FourOFour.php';
 	require_once 'Core/Router.php';
 	require_once 'Core/StyleSwitcher.php';
 	require_once 'Core/VisitorData.php';
-	require_once 'Core/Lang.php';
 	require_once 'Core/aFramework.php';
 
 	# Include config-files
 	$sites = array_reverse(explode(' ', SITE_HIERARCHY));
 
-	foreach ( $sites as $site ) {
+	foreach ($sites as $site) {
 		$path = DOCROOT . $site . '/Config.php';
 
-		if ( file_exists($path) ) {
+		if (file_exists($path)) {
 			require_once $path;
 		}
 	}

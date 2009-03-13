@@ -1,5 +1,5 @@
 <ul>
-	<?php foreach($plugins as $plugin) { ?>
+	<?php foreach ($plugins as $plugin) { ?>
 		<li>
 			<h3><a href="<?php echo $plugin['url']; ?>"><?php echo $plugin['title']; ?></a></h3>
 

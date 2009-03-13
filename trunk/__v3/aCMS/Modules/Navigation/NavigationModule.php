@@ -3,26 +3,26 @@
 		public static $tplVars = array();
 		public static $tplFile = true;
 
-		public static function run (  ) {
+		public static function run () {
 			self::getHomePage();
 			self::getPagesInNavigation();
 
-			if ( ADMIN ) {
+			if (ADMIN) {
 				self::getAdminLinks();
 			}
 
 			self::setSelectedNavigationItem();
 		}
 
-		protected function setSelectedNavigationItem (  ) {
+		protected function setSelectedNavigationItem () {
 			$url			= $_SERVER['REQUEST_URI'];
 			$tmpSelected	= array('url' => '', 'selected' => false);
 			$numItems		= count(self::$tplVars['nav_items']);
 
-			for ( $i = 0; $i < $numItems; $i++ ) {
+			for ($i = 0; $i < $numItems; $i++) {
 				self::$tplVars['nav_items'][$i]['selected'] = false;
 
-				if ( strpos($url, self::$tplVars['nav_items'][$i]['url']) === 0 and strlen($tmpSelected['url']) < strlen(self::$tplVars['nav_items'][$i]['url']) ) {
+				if (strpos($url, self::$tplVars['nav_items'][$i]['url']) === 0 and strlen($tmpSelected['url']) < strlen(self::$tplVars['nav_items'][$i]['url'])) {
 					$tmpSelected['selected'] = false;
 
 					self::$tplVars['nav_items'][$i]['selected'] = true;
@@ -32,25 +32,25 @@
 			}
 		}
 
-		protected static function getHomePage (  ) {
+		protected static function getHomePage () {
 			self::$tplVars['nav_items'][] = array(
 				'title'	=> Lang::get('home'), 
 				'url'	=> Router::urlFor('Home')
 			);
 		}
 
-		protected static function getAdminLinks (  ) {
+		protected static function getAdminLinks () {
 			self::$tplVars['nav_items'][] = array(
 				'title'	=> Lang::get('add_page'), 
 				'url'	=> Router::urlFor('AddPage')
 			);
 		}
 
-		protected static function getPagesInNavigation (  ) {
+		protected static function getPagesInNavigation () {
 			$pages = Pages::getPagesInNavigation();
 
-			if ( $pages ) {
-				foreach ( $pages as $k => $p ) {
+			if ($pages) {
+				foreach ($pages as $k => $p) {
 					$pages[$k]['url'] = Router::urlFor('Page', $p);
 				}
 

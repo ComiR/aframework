@@ -1,6 +1,6 @@
 <ul>
 	<li>
-		<?php if ( $prev === false ) {
+		<?php if ($prev === false) {
 			echo Lang::get('newer')
 		} else { ?>
 			<a href="?post_it_start=<?php echo $prev; ?>">
@@ -9,7 +9,7 @@
 		<?php } ?>
 	</li>
 	<li>
-		<?php if( $next === false ) {
+		<?php if($next === false) {
 			<?php echo Lang::get('older'); ?>
 		} else { ?>
 			<a href="?post_it_start=<?php echo $next; ?>"><?php echo Lang::get('older'); ?></a>
@@ -17,7 +17,7 @@
 	</li>
 </ul>
 
-<?php if ( ADMIN ) { ?>
+<?php if (ADMIN) { ?>
 	<form method="post" action="">
 
 		<p>

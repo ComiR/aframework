@@ -1,5 +1,5 @@
-<ol<?php if ( $start > 1 ) { ?> start="<?php $start; ?>"<?php } ?>>
-	<?php foreach ( $comments as $c ) { ?>
+<ol<?php if ($start > 1) { ?> start="<?php $start; ?>"<?php } ?>>
+	<?php foreach ($comments as $c) { ?>
 		<li>
 			<h3>
 				<img src="http://www.gravatar.com/avatar.php?gravatar_id=<?php echo $c['gravatar_id']; ?>" alt="" /> 
@@ -13,7 +13,7 @@
 
 			<?php echo NiceString::makeNice($c['content'], 4, 100); ?>
 
-			<?php if ( ADMIN ) { ?>
+			<?php if (ADMIN) { ?>
 				<form method="post" action="">
 					<p>
 						<input type="hidden" name="recent_comments_delete" value="1" />

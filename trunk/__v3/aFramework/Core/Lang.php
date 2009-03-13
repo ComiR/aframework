@@ -14,7 +14,7 @@
 			return self::$lang;
 		}
 
-		private static function loadLang (  ) {
+		private static function loadLang () {
 			$sites = explode(' ', SITE_HIERARCHY);
 
 			foreach ( $sites as $site ) {

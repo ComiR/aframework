@@ -1,12 +1,12 @@
 <ul>
-	<?php foreach ( $links as $l ) { ?>
+	<?php foreach ($links as $l) { ?>
 		<li>
 			<a href="<?php echo htmlentities($l['url']); ?>">
 				<?php echo htmlentities($l['title']); ?>
 			</a><br />
 			<?php echo htmlentities($l['description']); ?>
 
-			<?php if ( ADMIN ) { ?>
+			<?php if (ADMIN) { ?>
 				<form method="post" action="">
 					<p>
 						<input type="hidden" name="blog_roll_delete" value="1" />
