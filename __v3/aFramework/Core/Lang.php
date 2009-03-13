@@ -2,8 +2,8 @@
 	Class Lang {
 		private static $lang = false;
 
-		public static function get ( $str, $l = 'en' ) {
-			if ( self::$lang === false ) {
+		public static function get ($str, $l = 'en') {
+			if (self::$lang === false) {
 				self::$lang = self::loadLang();
 			}
 
@@ -17,15 +17,15 @@
 		private static function loadLang () {
 			$sites = explode(' ', SITE_HIERARCHY);
 
-			foreach ( $sites as $site ) {
+			foreach ($sites as $site) {
 				$path = DOCROOT . $site . '/Lang/';
 
-				if ( is_dir($path) ) {
+				if (is_dir($path)) {
 					$dh		= opendir($path);
 					$lang	= array();
 
-					while ( $f = readdir($dh) ) {
-						if ( 'php' == end(explode('.', $f)) ) {
+					while ($f = readdir($dh)) {
+						if ('php' == end(explode('.', $f))) {
 							$lang[substr($f, 0, -4)] = include $path . $f;
 						}
 					}

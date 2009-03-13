@@ -1,6 +1,6 @@
 <?php
 	class DBRow {
-		public static function get ( $tableName, $sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000 ) {
+		public static function get ($tableName, $sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000) {
 			$res = dbQry('
 				SELECT
 					*
@@ -12,13 +12,13 @@
 					' . esc($start) . ', ' . esc($limit)
 			);
 
-			if ( mysql_num_rows($res) === 1 ) {
+			if (mysql_num_rows($res) === 1) {
 				return $limit === 1 ? mysql_fetch_assoc($res) : array(mysql_fetch_assoc($res));
 			}
-			elseif ( mysql_num_rows($res) > 1 ) {
+			elseif (mysql_num_rows($res) > 1) {
 				$rows = array();
 
-				while ( $row = mysql_fetch_assoc($res) ) {
+				while ($row = mysql_fetch_assoc($res)) {
 					$rows[] = $row;
 				}
 
@@ -29,11 +29,11 @@
 			}
 		}
 
-		public static function insert ( $tableName, $fields ) {
+		public static function insert ($tableName, $fields) {
 			$insertVals = '';
 			$insertCols = '';
 
-			foreach ( $fields as $col => $val ) {
+			foreach ($fields as $col => $val) {
 				$insertVals .= '\'' .esc($val) .'\',';
 				$insertCols .= $col .',';
 			}
@@ -54,10 +54,10 @@
 			return mysql_insert_id();
 		}
 
-		public static function update ( $tableName, $id, $fields ) {
+		public static function update ($tableName, $id, $fields) {
 			$updateStr = '';
 
-			foreach ( $fields as $col => $val ) {
+			foreach ($fields as $col => $val) {
 				$updateStr .= "$col = '" .esc($val) ."',";
 			}
 
@@ -76,7 +76,7 @@
 			return true;
 		}
 		
-		public static function delete ( $tableName, $id ) {
+		public static function delete ($tableName, $id) {
 			dbQry("
 				DELETE FROM
 					$tableName
