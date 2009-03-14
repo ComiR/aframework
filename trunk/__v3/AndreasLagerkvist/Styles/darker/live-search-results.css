@@ -1,0 +1,20 @@
+#jquery-live-search {
+	margin: -10px 0 0 -10px; /* Compensation for HTML's border */
+	color: #000;
+}
+
+	#jquery-live-search h2 {
+		font-size: 22px;
+		color: #000;
+	}
+
+	#jquery-live-search h3 {
+		font-size: 18px;
+		color: #000;
+	}
+
+		#jquery-live-search h3 a {
+			color: #000;
+		}
+
+	#jquery-live-search ul = $pagination;
