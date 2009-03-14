@@ -3,7 +3,7 @@
 		public static $tplVars = array();
 		public static $tplFile = true;
 
-		public static function run() {
+		public static function run () {
 			$pageTitle	= isset(aFramework_BaseModule::$tplVars['html_title']) ? aFramework_BaseModule::$tplVars['html_title'] : Config::get('general.site_title');
 			$pageTitle	= urlencode($pageTitle);
 			$pageURL	= false;

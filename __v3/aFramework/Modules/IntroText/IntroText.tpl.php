@@ -1,3 +1,3 @@
-<h2><?php echo $heading; ?></h2>
+<h2><?php echo htmlentities($heading); ?></h2>
 
-<?php echo $content; ?>
+<?php echo NiceString::makeNice($content, 3); ?>

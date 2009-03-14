@@ -1,3 +1,3 @@
-<h2>Bookmark this URL</h2>
+<h2><?php echo Lang::get('bookmark_this_url'); ?></h2>
 
-<p>Add this URL to your favourite bookmarking service.</p>
+<p><?php echo Lang::get('add_this_url_to_your_favourite_bookmarking_service'); ?></p>

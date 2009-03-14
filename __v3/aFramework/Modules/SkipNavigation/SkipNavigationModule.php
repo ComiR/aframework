@@ -3,40 +3,40 @@
 		public static $tplVars = array();
 		public static $tplFile = true;
 
-		public static function run() {
+		public static function run () {
 			$path			= self::getControllerPath(isset($_GET['controller']) ? $_GET['controller'] : false);
 			$matches		= array();
 			$contents		= file_get_contents($path);
 
 			preg_match_all('/<wrapper name="(.*?)">/im', $contents, $matches);
 
-			if(stristr($contents, '<Navigation')) {
+			if (stristr($contents, '<Navigation')) {
 				self::$tplVars['links'][] = array(
-					'title'	=> 'navigation', 
+					'title'	=> Lang::get('navigation'), 
 					'url'	=> '#navigation'
 				);
 			}
 
-			foreach($matches[1] as $wrapper) {
-				if($wrapper != 'wrapper') {
+			foreach ($matches[1] as $wrapper) {
+				if ($wrapper != 'wrapper') {
 					self::$tplVars['links'][] = array(
-						'title'	=> str_replace('-', ' ', $wrapper), 
-						'url'	=> '#' .$wrapper
+						'title'	=> Lang::get(str_replace('-', ' ', $wrapper)), 
+						'url'	=> '#' . $wrapper
 					);
 				}
 			}
 
-			if(!isset(self::$tplVars['links'])) {
+			if (!isset(self::$tplVars['links'])) {
 				self::$tplFile = false;
 			}
 		}
 
-		private static function getControllerPath($controller) {
+		private static function getControllerPath ($controller) {
 			$sites = explode(' ', SITE_HIERARCHY);
 
-			foreach($sites as $site) {
-				$path = DOCROOT .$site .'/Controllers/' .$controller .'.xml';
-				if(file_exists($path)) {
+			foreach ($sites as $site) {
+				$path = DOCROOT . $site . '/Controllers/' . $controller . '.xml';
+				if (file_exists($path)) {
 					return $path;
 				}
 			}

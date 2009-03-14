@@ -1,7 +1,7 @@
 aFramework.modules.Search = {
-	run: function() {
+	run: function () {
 		jQuery('#q').liveSearch({
-			url: WEBROOT +'?module=SearchResults&q='
+			url: WEBROOT + '?module=SearchResults&q='
 		});
 	}
 };
