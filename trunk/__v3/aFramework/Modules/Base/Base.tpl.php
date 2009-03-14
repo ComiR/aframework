@@ -15,8 +15,8 @@
 
 		<link rel="alternate" type="application/rss+xml" title="<?php echo Config::get('general.site_title'); ?> Articles" href="<?php echo WEBROOT; ?>?module=Articles&amp;rss=1" />
 		<link rel="shortcut icon" type="image/ico" href="<?php echo WEBROOT; ?>favicon.ico" />
-		<?php if ( !NAKED_DAY ) { ?>
-			<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo WEBROOT; echo USE_MOD_REWRITE ? $style . '.css' : '?module=CodeCompressor&amp;s=' . $style . '&amp;t=css'; ?>" />
+		<?php if (!NAKED_DAY) { ?>
+			<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo WEBROOT; echo USE_MOD_REWRITE ? CURRENT_SITE . '/' . $style . '.css' : '?module=CodeCompressor&amp;s=' . $style . '&amp;t=css'; ?>" />
 		<?php } ?>
 
 		<title><?php echo $html_title; ?> - <?php echo Config::get('general.site_title'); ?></title>
@@ -57,7 +57,7 @@
 		<?php echo $child_modules; ?>
 
 		<?php if (!NAKED_DAY) { ?>
-			<script type="text/javascript" src="<?php echo WEBROOT; echo USE_MOD_REWRITE ? $style . '.js' : '?module=CodeCompressor&amp;s=' . $style . '&amp;t=js'; ?>"></script>
+			<script type="text/javascript" src="<?php echo WEBROOT; echo USE_MOD_REWRITE ? CURRENT_SITE . '/' . $style . '.js' : '?module=CodeCompressor&amp;s=' . $style . '&amp;t=js'; ?>"></script>
 		<?php } ?>
 
 		<?php if (Config::get('general.ga_id')) { ?>
