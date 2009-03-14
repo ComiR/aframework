@@ -33,6 +33,6 @@
 'add_a_page' => 'Add a page', 
 
 # Routes.php
-'url.add_page' => 'Url.add page'
+'url.add_page' => 'add-page'
 
 ); ?>

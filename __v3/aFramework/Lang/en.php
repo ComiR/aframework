@@ -106,8 +106,8 @@
 'add_this_url_to_your_favourite_bookmarking_service' => 'Add this url to your favourite bookmarking service', 
 
 # Routes.php
-'url.admin' => 'Url.admin', 
-'url.contact' => 'Url.contact', 
-'url.search' => 'Url.search'
+'url.admin' => 'admin', 
+'url.contact' => 'contact', 
+'url.search' => 'search'
 
 ); ?>

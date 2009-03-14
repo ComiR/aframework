@@ -28,12 +28,12 @@
 					$lang	= array();
 
 					while ($f = readdir($dh)) {
+						$lc = substr($f, 0, -4);
+
 						if ('php' == end(explode('.', $f))) {
-							$lang[substr($f, 0, -4)] = include $path . $f;
+							self::$lang[$lc] = array_merge((array)include $path . $f, (array)self::$lang[$lc]);
 						}
 					}
-
-					self::$lang = array_merge((array)$lang, (array)self::$lang);
 				}
 			}
 		}
