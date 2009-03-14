@@ -124,20 +124,20 @@
 				$req = trim($req);
 				$ext = end(explode('.', $req));
 
-				if ('css' == $ext and file_exists(DOCROOT . 'aFramework/Styles/__common/' . $req)) {
+				if ('css' == $ext and file_exists(DOCROOT . 'aFramework/Modules/Base/' . $req)) {
 					$pluginFiles[] = array(
 						'name'	=> $req, 
 						'ext'	=> $ext, 
-						'url'	=> WEBROOT . 'aFramework/Styles/__common/' . $req, 
-						'size'	=> filesize(DOCROOT . 'aFramework/Styles/__common/' . $req)
+						'url'	=> WEBROOT . 'aFramework/Modules/Base/' . $req, 
+						'size'	=> filesize(DOCROOT . 'aFramework/Modules/Base/' . $req)
 					);
 				}
-				elseif (in_array($ext, array('png', 'gif', 'jpg')) and file_exists(DOCROOT . 'aFramework/Styles/__common/gfx/' . $req)) {
+				elseif (in_array($ext, array('png', 'gif', 'jpg')) and file_exists(DOCROOT . 'aFramework/Styles/gfx/' . $req)) {
 					$pluginFiles[] = array(
 						'name'	=> $req, 
 						'ext'	=> $ext, 
 						'img'	=> true, 
-						'url'	=> WEBROOT . 'aFramework/Styles/__common/gfx/' . $req
+						'url'	=> WEBROOT . 'aFramework/Styles/gfx/' . $req
 					);
 				}
 				elseif (file_exists(DOCROOT .'aFramework/Modules/Base/jquery.' . $req . '.js')) {
