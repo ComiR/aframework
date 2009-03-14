@@ -1,0 +1,17 @@
+#jquery-live-search {
+	background: url(gfx/jquery-live-search-bg.png) repeat-x;
+	
+	margin: -10px 0 0 -10px; /* Compensation for HTML's border */
+
+	font-size: 12px;
+
+	border: 1px solid #222;
+}
+
+	#jquery-live-search h2 {
+		font-size: 32px;
+	}	
+
+	#jquery-live-search ol = $plain-list;
+
+	#jquery-live-search ul = $pagination;
