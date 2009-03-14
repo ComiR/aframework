@@ -13,7 +13,7 @@ div.jquery-image-zoom {
 }
 
 	div.jquery-image-zoom a {
-		background: url(gfx/jquery.imageZoom.png) no-repeat;
+		background: url(common_gfx/jquery.imageZoom.png) no-repeat;
 
 		display: block;
 		width: 25px;

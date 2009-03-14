@@ -30,7 +30,7 @@ ul.jquery-code-block-toolbar:after {
 	}
 
 		ul.jquery-code-block-toolbar li a {
-			background: red url(gfx/jquery.codeBlockToolbar.png) no-repeat;
+			background: red url(common_gfx/jquery.codeBlockToolbar.png) no-repeat;
 			
 			display: block;
 			width: 18px;

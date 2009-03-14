@@ -76,13 +76,12 @@
 			$dirs = array();
 
 			foreach ($sites as $site) {
-				$dirs[] = DOCROOT . $site . '/Styles/__common/';
 				$dirs[] = DOCROOT . $site . '/Styles/' . $style . '/';
 				$dirs[] = DOCROOT . $site . '/Styles/' . $style . '/controllers/';
 				$dirs[] = DOCROOT . $site . '/Styles/' . $style . '/modules/';
 
 				# Only JS in module-dirs, no CSS
-				if (self::$type == 'js' and is_dir(DOCROOT . $site . '/Modules/')) {
+				if (is_dir(DOCROOT . $site . '/Modules/')) {
 					$path = DOCROOT . $site . '/Modules/';
 
 					if (is_dir($path)) {
@@ -137,25 +136,25 @@
 				# CSS-"Controllers"-dir
 				$path = DOCROOT . $site . '/Styles/' . $style . '/controllers/';
 				if (is_dir($path)) {
-					$code = self::getCodeInDirs($path, '-page') . $code;
+					$code = self::getCodeInDirs($path, '-page', $site, $style) . $code;
 				}
 
 				# CSS-"Modules"-dir
 				$path = DOCROOT . $site . '/Styles/' . $style . '/modules/';
 				if (is_dir($path)) {
-					$code = self::getCodeInDirs(array($path), '') . $code;
+					$code = self::getCodeInDirs(array($path), '', $site, $style) . $code;
 				}
 
 				# CSS-"Root"-dir
 				$path = DOCROOT . $site . '/Styles/' . $style . '/';
 				if (is_dir($path)) {
-					$code = self::getCodeInDirs(array($path)) . $code;
+					$code = self::getCodeInDirs(array($path), false, $site, $style) . $code;
 				}
 
 				# Common-dir
 				$path = DOCROOT . $site . '/Styles/__common/';
 				if (is_dir($path)) {
-					$code = self::getCodeInDirs(array($path)) . $code;
+					$code = self::getCodeInDirs(array($path), false, $site, $style) . $code;
 				}
 
 				# Module dirs
@@ -172,7 +171,7 @@
 					}
 				}
 
-				$code = self::getCodeInDirs($dirs) . $code;
+				$code = self::getCodeInDirs($dirs, false, $site, $style) . $code;
 			}
 
 			return $code;
@@ -183,7 +182,7 @@
 		 *
 		 * Gets all code in a particular directory. Sorts on filename
 		 */
-		private static function getCodeInDirs ($dirs, $prefixSelectorsWithFilename = false) {
+		private static function getCodeInDirs ($dirs, $prefixSelectorsWithFilename = false, $site, $style) {
 			$code	= '';
 			$files	= array();
 
@@ -204,8 +203,8 @@
 			foreach ($files as $path => $name) {
 				$code .= "\n\n/* ==== [ $name ] ==== */\n";
 				$contents = file_get_contents($path);
-				$contents = str_replace('url(gfx/', 'url(' . WEBROOT . dirname(str_replace(DOCROOT, '', $path)) . '/gfx/', $contents);
-				$contents = str_replace('url(common_gfx/', 'url(' . WEBROOT . 'aFramework/Styles/__common/gfx/', $contents);
+				$contents = str_replace('url(gfx/', 'url(' . WEBROOT . $site . '/Styles/' . $style . '/gfx/', $contents);
+				$contents = str_replace('url(common_gfx/', 'url(' . WEBROOT . 'aFramework/Styles/gfx/', $contents);
 
 				if (self::$type == 'css' and $prefixSelectorsWithFilename !== false) {
 					$fileNameNoExt = end(explode('/', substr($name, 0, -(strlen(end(explode('.', $name)))+1))));
