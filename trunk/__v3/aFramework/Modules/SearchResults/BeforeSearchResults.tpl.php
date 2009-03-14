@@ -1,1 +1,1 @@
-<h2>Search results for &quot;<?php echo @$_GET['q']; ?>&quot;</h2>
+<h2><?php echo Lang::get('search_results_for'); ?> &quot;<?php echo @$_GET['q']; ?>&quot;</h2>

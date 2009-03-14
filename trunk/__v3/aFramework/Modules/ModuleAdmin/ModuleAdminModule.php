@@ -23,8 +23,8 @@
 		 * run
 		 *
 		 **/
-		public static function run() {
-			if(!ADMIN) {
+		public static function run () {
+			if (!ADMIN) {
 				return self::$tplFile = false;
 			}
 
@@ -34,23 +34,23 @@
 			self::$tplVars = self::getAvailableModules($controller);
 
 			# Someone wants to add a module to the controller
-			if(isset($_POST['module_admin_add_module'])) {
+			if (isset($_POST['module_admin_add_module'])) {
 				$insertBefore = $_POST['add_type'] == 'before' ? true : false;
 
-				if(!('Base' == $_POST['target'] and $insertBefore)) {
+				if (!('Base' == $_POST['target'] and $insertBefore)) {
 					self::addModuleToController($_POST['module_to_add'], $_POST['target'], $insertBefore, $_POST['controller_in_use']);
 				}
 
-				if(!XHR) {
+				if (!XHR) {
 					redirect('?added_module');
 				}
 			}
 
 			# Someone wants to remove a module from the controller
-			if(isset($_POST['module_admin_remove_module'])) {
+			if (isset($_POST['module_admin_remove_module'])) {
 				self::removeModuleFromController($_POST['module_to_remove'], $_POST['controller_in_use']);
 
-				if(!XHR) {
+				if (!XHR) {
 					redirect('?removed_module');
 				}
 			}
@@ -67,15 +67,15 @@
 			$usedModules			= array();
 			$modulesInController	= self::getModulesInController($controller);
 
-			foreach($sites as $site) {
-				$modulesDir = DOCROOT .$site .'/Modules/';
+			foreach ($sites as $site) {
+				$modulesDir = DOCROOT . $site . '/Modules/';
 
-				if(is_dir($modulesDir)) {
+				if (is_dir($modulesDir)) {
 					$dh = opendir($modulesDir);
 
-					while($f = readdir($dh)) {
-						if(!in_array($f, self::$notModules) and is_dir($modulesDir .$f)) {
-							if(array_key_exists($f, $modulesInController)) {
+					while ($f = readdir($dh)) {
+						if (!in_array($f, self::$notModules) and is_dir($modulesDir . $f)) {
+							if (array_key_exists($f, $modulesInController)) {
 								$availableModules[$f]['name']		= $f;
 								$availableModules[$f]['in_use']		= true;
 								$availableModules[$f]['html_id']	= strtolower(ccFix($f));
@@ -104,7 +104,7 @@
 		 * Gets all modules in the currently used controller (so we can differentiate between used and unused modules)
 		 * These also include 
 		 **/
-		private static function getModulesInController($controller) {
+		private static function getModulesInController ($controller) {
 			$path = self::getControllerPath($controller);
 
 			$doc = new DOMDocument();
@@ -117,19 +117,19 @@
 		 * __getModulesInController
 		 *
 		 **/
-		private static function __getModulesInController($modules) {
+		private static function __getModulesInController ($modules) {
 			$mods = array();
 
-			foreach($modules as $mod) {
-				if(!in_array($mod->nodeName, self::$notModules)) {
-					$modName = $mod->nodeName == 'Wrapper' ? $mod->nodeName .':' .$mod->getAttribute('name') : $mod->nodeName;
+			foreach ($modules as $mod) {
+				if (!in_array($mod->nodeName, self::$notModules)) {
+					$modName = $mod->nodeName == 'Wrapper' ? $mod->nodeName . ':' . $mod->getAttribute('name') : $mod->nodeName;
 					$mods[$modName] = array(
 						'name'		=> $modName, 
 						'html_id'	=> $mod->nodeName == 'Wrapper' ? $mod->getAttribute('name') : strtolower(ccFix($mod->nodeName))
 					);
 				}
 
-				if($mod->hasChildNodes()) {
+				if ($mod->hasChildNodes()) {
 					$mods = array_merge($mods, self::__getModulesInController($mod->childNodes));
 				}
 			}
@@ -141,14 +141,14 @@
 		 * getControllerPath
 		 *
 		 **/
-		private static function getControllerPath($controller) {
+		private static function getControllerPath ($controller) {
 			$sites = explode(' ', SITE_HIERARCHY);
 			$path = false;
 
-			foreach($sites as $site) {
-				$path = DOCROOT .$site .'/Controllers/' .$controller .'.xml';
+			foreach ($sites as $site) {
+				$path = DOCROOT . $site . '/Controllers/' . $controller . '.xml';
 
-				if(file_exists($path)) {
+				if (file_exists($path)) {
 					return $path;
 				}
 			}
@@ -158,7 +158,7 @@
 		 * addModuleToController
 		 *
 		 **/
-		private static function addModuleToController($module, $target, $insertBefore = false, $controller) {
+		private static function addModuleToController ($module, $target, $insertBefore = false, $controller) {
 			# Load the controller
 			$path	= self::getControllerPath($controller);
 			$doc	= new DOMDocument();
@@ -171,7 +171,7 @@
 			# If target it's a wrapper-node, get name-attr
 			$wrapperName = false;
 
-			if('Wrapper' == substr($target, 0, 7)) {
+			if ('Wrapper' == substr($target, 0, 7)) {
 				$wrapperInfo	= explode(':', $target);
 				$wrapperName	= $wrapperInfo[1];
 				$target			= $wrapperInfo[0];
@@ -179,11 +179,11 @@
 
 			$targetModules = $doc->getElementsByTagName($target);
 
-			foreach($targetModules as $mod) {
+			foreach ($targetModules as $mod) {
 				# If target is a wrapper, check that the name is correct
-				if($wrapperName) {
-					if($wrapperName == $mod->getAttribute('name')) {
-						if($insertBefore) {
+				if ($wrapperName) {
+					if ($wrapperName == $mod->getAttribute('name')) {
+						if ($insertBefore) {
 							$mod->parentNode->insertBefore($newModule, $mod); 
 						}
 						else {
@@ -194,7 +194,7 @@
 				}
 				# Otherwise just add at first occurence
 				else {
-					if($insertBefore) {
+					if ($insertBefore) {
 						$mod->parentNode->insertBefore($newModule, $mod); 
 					}
 					else {
@@ -213,7 +213,7 @@
 		 * removeModuleFromController
 		 *
 		 **/
-		private static function removeModuleFromController($module, $controller) {
+		private static function removeModuleFromController ($module, $controller) {
 			$path = self::getControllerPath($controller);
 
 			$doc = new DOMDocument();
@@ -222,7 +222,7 @@
 			$modules = $doc->getElementsByTagName($module);
 			$mod = false;
 
-			foreach($modules as $m) {
+			foreach ($modules as $m) {
 				$mod = $m;
 				break;
 			}

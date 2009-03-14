@@ -1,1 +1,1 @@
-<h2>Search</h2>
+<h2><?php echo Lang::get('search'); ?></h2>

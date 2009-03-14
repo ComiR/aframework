@@ -4,11 +4,11 @@ aFramework.modules.Live = {
 	}, 
 
 	doToggleLink: function() {
-		var show = 'Show live cam';
-		var hide = 'Hide live cam';
-		var live = $('#live object');
+		var show = Lang::get('show_live_cam');
+		var hide = Lang::get('hide_live_cam');
+		var live = jQuery('#live object');
 
-		$('<p><a href="#" id="live-toggler">' +show +'</a></p>').insertAfter('#live h2');
+		jQuery('<p><a href="#" id="live-toggler">' +show +'</a></p>').insertAfter('#live h2');
 		live.hide();
 
 		$('#live-toggler').toggle(function() {
