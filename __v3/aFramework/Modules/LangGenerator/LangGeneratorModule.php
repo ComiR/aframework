@@ -1,16 +1,12 @@
 <?php
-	error_reporting(E_ALL);
-	ini_set('display_errors', true);
+	class aFramework_LangGeneratorModule {
+		public static $tplVars = array();
+		public static $tplFile = true;
 
-	define('DOCROOT', realpath(dirname( __FILE__ ) . '/../..') . '/');
-
-	class LangGenerator {
-		public static function run ($site = 'aFramework') {
-			$path = DOCROOT . str_replace(array('..', '.', '/', '\\'), '', $site);
-
-			$langs = self::getLangsInDir($path);
-
-			return $langs;
+		public static function run () {
+			$site					= isset($_GET['site']) ? $_GET['site'] : 'aFramework';
+			$path					= DOCROOT . str_replace(array('..', '.', '/', '\\'), '', $site);
+			self::$tplVars['langs']	= self::getLangsInDir($path);
 		}
 
 		private static function getLangsInDir ($dir) {
@@ -47,17 +43,4 @@
 			return false;
 		}
 	}
-
-	$langs	= LangGenerator::run(isset($_GET['site']) ? $_GET['site'] : 'aFramework');
-	$code	= "<?php return array(\n";
-
-	foreach ($langs as $site => $ls) {
-		$code .= "\n# $site\n";
-
-		foreach ($ls as $k => $v) {
-			$code .= "'$k' => '$v', \n";
-		}
-	}
-
-	echo substr($code, 0, -3) . "\n\n); ?>"; 
 ?>
