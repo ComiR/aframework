@@ -44,7 +44,7 @@
 
 		</noscript>
 
-		<?php if ( NAKED_DAY ) { ?>
+		<?php if (NAKED_DAY) { ?>
 			<div id="naked-day-info">
 
 				<p>Today it's CSS naked day, that's why I'm all naked. I've also taken the liberty of disabling JavaScript - I believe it's equally important to do accessible JS.</p>
@@ -56,14 +56,14 @@
 
 		<?php echo $child_modules; ?>
 
-		<?php if ( !NAKED_DAY ) { ?>
-			<script type="text/javascript" src="<?php echo WEBROOT; echo USE_MOD_REWRITE ? $style .'.js' : '?module=CodeCompressor&amp;s=' .$style .'&amp;t=js'; ?>"></script>
+		<?php if (!NAKED_DAY) { ?>
+			<script type="text/javascript" src="<?php echo WEBROOT; echo USE_MOD_REWRITE ? $style . '.js' : '?module=CodeCompressor&amp;s=' . $style . '&amp;t=js'; ?>"></script>
 		<?php } ?>
 
-		<?php if ( Config::get('general.ga_id') ) { ?>
+		<?php if (Config::get('general.ga_id')) { ?>
 			<script type="text/javascript">
 				var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-				document.write(unescape("%3Cscript src='" +gaJsHost +"google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+				document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
 			</script>
 			<script type="text/javascript">
 				var pageTracker = _gat._getTracker("<?php echo Config::get('general.ga_id'); ?>");
@@ -72,7 +72,7 @@
 			</script>
 		<?php } ?>
 
-		<?php if ( $scripts ) { ?>
+		<?php if ($scripts) { ?>
 			<script type="text/javascript">
 				<?php echo $scripts; ?>
 			</script>

@@ -4,7 +4,7 @@
 
 		public static function get ($str, $l = 'en') {
 			if (self::$lang === false) {
-				self::$lang = self::loadLang();
+				self::loadLang();
 			}
 
 			return isset(self::$lang[$l][$str]) ? self::$lang[$l][$str] : "[$str]";
