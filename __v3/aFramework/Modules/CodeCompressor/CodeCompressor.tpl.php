@@ -1,3 +1,1 @@
-<?php
-	echo $code;
-?>
+<?php echo $code; ?>

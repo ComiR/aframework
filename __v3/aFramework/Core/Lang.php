@@ -2,7 +2,10 @@
 	Class Lang {
 		private static $lang = false;
 
-		public static function get ($str, $l = 'en') {
+		public static function get ($str, $l = false) {
+			if ($l === false) {
+				$l = Config::get('general.lang');
+			}
 			if (self::$lang === false) {
 				self::loadLang();
 			}
