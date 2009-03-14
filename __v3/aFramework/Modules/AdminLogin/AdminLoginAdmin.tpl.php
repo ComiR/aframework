@@ -1,8 +1,8 @@
-<h2>You're logged in</h2>
+<h2><?php echo Lang::get('you_are_logged_in'); ?></h2>
 
-<p>What would you like to do?</p>
+<p><?php echo Lang::get('what_would_you_like_to_do'); ?></p>
 
 <ul>
-	<li><a href="?logout">Log out</a></li>
-	<li><a href="<?php echo Router::urlFor('Home'); ?>">Go to the home-page</a></li>
+	<li><a href="?logout"><?php echo Lang::get('log_out'); ?></a></li>
+	<li><a href="<?php echo Router::urlFor('Home'); ?>"><?php echo Lang::get('go_to_home_page'); ?></a></li>
 </ul>

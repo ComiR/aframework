@@ -13,12 +13,12 @@
 			'email'			=> '/^.+?@.+?\..{2,4}$/'								// email
 		);
 
-		public static function validate($fields, $addedFields = array()) {
+		public static function validate ($fields, $addedFields = array()) {
 			$vFields = array_merge(self::$commonFields, (array)$addedFields);
 
-			foreach($fields as $name => $v) {
-				if(isset($vFields[$name])) {
-					if(!preg_match($vFields[$name], $v)) {
+			foreach ($fields as $name => $v) {
+				if (isset($vFields[$name])) {
+					if (!preg_match($vFields[$name], $v)) {
 						return false;
 					}
 				}
