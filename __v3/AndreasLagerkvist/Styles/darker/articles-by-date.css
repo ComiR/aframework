@@ -14,8 +14,7 @@
 		}
 
 			#articles-by-date > ul > li h3 {
-				margin-top: 10px;
-				margin-bottom: 5px;
+				margin: 10px 0 0;
 			}
 
 				#articles-by-date > ul > li h3 a = $icon;
@@ -30,17 +29,20 @@
 
 			#articles-by-date ul li ul = $plain-list;
 			#articles-by-date ul li ul {
-
+				padding: 5px 10px;
 			}
 
 			#articles-by-date ul li ul = $floated-list;
 			#articles-by-date ul li ul {
-				
+				background: #fafafa;
+
+				color: #111;
+
+				border-bottom: 1px dotted #333;
 			}
 
 				#articles-by-date ul li ul li {
-					width: 300px;
-					padding: 0 10px 0 0;
+					width: 290px;
 					clear: left;
 				}
 
@@ -49,18 +51,12 @@
 				#articles-by-date ul li ul li:first-child + li + li + li + li + li, 
 				#articles-by-date ul li ul li:first-child + li + li + li + li + li + li + li, 
 				#articles-by-date ul li ul li:first-child + li + li + li + li + li + li + li + li + li {
-					padding: 0 0 0 10px;
 					float: right;
 					clear: none;
 				}
 
-				#articles-by-date ul li ul li {
-					margin: 0 0 20px;
-				}
-
-					#articles-by-date ul li ul li h4 {
-						margin-top: 0;
-						padding-top: 10px;
+					#articles-by-date ul li ul li h4 a:not(:hover) {
+						color: #111;
 					}
 
 					#articles-by-date ul li ul li p img {
