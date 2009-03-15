@@ -2,12 +2,12 @@
 	<?php foreach ($comments as $c) { ?>
 		<li>
 			<h3>
-				<img src="http://www.gravatar.com/avatar.php?gravatar_id=<?php echo $c['gravatar_id']; ?>" alt="" /> 
-				<a href="<?php echo Router::urlFor('Article', $c['article']); ?>#comment-<?php echo $c['comments_id']; ?>">
+				<img src="http://www.gravatar.com/avatar.php?gravatar_id=<?php echo $c['email_md5']; ?>" alt="" /> 
+				<a href="<?php echo Router::urlFor('Article', $c); ?>#comment-<?php echo $c['comments_id']; ?>">
 					<?php echo htmlentities($c['author']); ?>
 				</a> <?php echo Lang::get('on'); ?> 
-				<a href="<?php echo Router::urlFor('Article', $c['article']); ?>">
-					<?php echo htmlentities($c['article']['title']); ?>
+				<a href="<?php echo Router::urlFor('Article', $c); ?>">
+					<?php echo htmlentities($c['article_title']); ?>
 				</a>
 			</h3>
 
@@ -25,20 +25,3 @@
 		</li>
 	<?php } ?>
 </ol>
-
-<ul>
-	<li>
-		<?php if ( $prev === false ) { ?>
-			<?php echo Lang::get('newer'); ?>
-		<?php } else { ?>
-			<a href="?recent_comments_start=<?php echo $prev; ?>"><?php echo Lang::get('newer'); ?></a>
-		<?php } ?>
-	</li>
-	<li>
-		<?php if ( $next === false ) { ?>
-			<?php echo Lang::get('older'); ?>
-		<?php } else { ?>
-			<a href="?recent_comments_start=<?php echo $next; ?>"><?php echo Lang::get('older'); ?></a>
-		<?php } ?>
-	</li>
-</ul>

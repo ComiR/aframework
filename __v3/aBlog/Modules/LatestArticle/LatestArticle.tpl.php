@@ -32,7 +32,7 @@
 	</dd>
 	<dt><?php echo Lang::get('comments'); ?></dt>
 	<dd>
-		<a href="<?php echo Router::urlFor('Article', $article); ?>">
+		<a href="<?php echo Router::urlFor('Article', $article); ?>#post-comment">
 			<?php echo $article['num_comments'] ? $article['num_comments'] . ' ' . Lang::get('comments') : Lang::get('no_comments'); ?>
 		</a>
 	</dd>

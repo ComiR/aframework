@@ -29,7 +29,37 @@
 		}
 
 		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000) {
-			return DBRow::get(Config::get('db.table_prefix') . 'tags', $sort, $order, $start, $limit);
+			$res = dbQry('
+				SELECT
+					' . Config::get('db.table_prefix') . 'tags.*, 
+					COUNT(articles_id) as num_articles
+				FROM
+					' . Config::get('db.table_prefix') . 'tags
+				LEFT JOIN
+					' . Config::get('db.table_prefix') . 'article_tags USING(tags_id)
+				GROUP BY
+					' . Config::get('db.table_prefix') . 'tags.tags_id
+				ORDER BY
+					' . Config::get('db.table_prefix') . 'tags.' . esc($sort) . ' ' . esc($order) . '
+				LIMIT
+					' . esc($start) . ', ' . esc($limit)
+			);
+
+			if (mysql_num_rows($res) === 1) {
+				return $limit === 1 ? mysql_fetch_assoc($res) : array(mysql_fetch_assoc($res));
+			}
+			elseif (mysql_num_rows($res) > 1) {
+				$rows = array();
+
+				while ($row = mysql_fetch_assoc($res)) {
+					$rows[] = $row;
+				}
+
+				return $rows;
+			}
+			else {
+				return false;
+			}
 		}
 
 		public static function insert ($row) {

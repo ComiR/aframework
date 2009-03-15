@@ -7,13 +7,17 @@
 <p>
 	<a href="<?php echo Router::urlForFile('me.jpg', CURRENT_SITE); ?>">
 		<img src="<?php echo Router::urlForFile('me.jpg', CURRENT_SITE); ?>" alt="" />
-	</a> Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet. Consequeteur ipsumus lorimus. Lorem ipsum dolor sit amet. Consequeteur ipsumus lorimus. Consequeteur ipsumus lorimus.
+	</a> I'm a 28 year old, swedish web developer, spare-time php-developer, wanna-be designer and ex-3D-hobbyist. This is my website where I write about stuff that interests me.
 </p>
 
-<p>Lorem ipsum dolor sit amet. Consequeteur ipsumus lorimus. Lorem ipsum dolor sit amet. Consequeteur ipsumus lorimus. Consequeteur ipsumus lorimus.</p>
+<p>
+	Check out the <a href="#latest-article">latest article</a> and post a comment, 
+	dig through <a href="<?php echo Router::urlFor('Archives'); ?>">the archives</a> for more to read or 
+	check out the <a href="<?php echo Router::urlFor('JqueryPlugins'); ?>">jQuery section</a> for plenty of JS-fun.
+</p>
 
 <p>
 	<a href="<?php echo Router::urlFor('Page', array('url_str' => 'about')); ?>">
-		<?php echo Lang::get('continue_reading'); ?>
+		<?php echo Lang::get('read_more_about_me_and_the_site'); ?>
 	</a>
 </p>

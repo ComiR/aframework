@@ -46,7 +46,7 @@
 				HAVING
 					' . Config::get('db.table_prefix') . 'articles.pub_date <= CURDATE()
 				ORDER BY
-					' . esc($sort) . ' ' . esc($order) . '
+					' . Config::get('db.table_prefix') . 'articles.' . esc($sort) . ' ' . esc($order) . '
 				LIMIT
 					' . esc($start) . ', ' . esc($limit)
 			);

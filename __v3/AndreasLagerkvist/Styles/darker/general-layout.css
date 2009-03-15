@@ -10,14 +10,18 @@ html {
 	border: 10px solid #fff;
 }
 
+$base-font {
+	font: 14px/1.2 Verdana, sans-serif;
+	color: #A5A5A5;
+}
+
+body = $base-font;
+
 body {
 	background: url(gfx/footer-bg.jpg) repeat-x left bottom;
 
 	margin: 0;
 	padding: 0;
-
-	font: 14px/1.2 Verdana, sans-serif;
-	color: #A5A5A5;
 }
 
 h1, 
@@ -152,28 +156,31 @@ form {
 		cursor: pointer;
 	}
 
-a {
+$link-font {
 	color: #fc3;
 	text-decoration: underline;
 }
 
-a:hover {
+$link-font:hover {
 	text-decoration: none;
 }
 /*
-a:visited {
+$link-font:visited {
 	color: purple;
 }
 
-a:active {
+$link-font:active {
 	color: red;
 }
 
-a:focus {
+$link-font:focus {
 	font-weight: bold;
 	text-decoration: overline underline;
 }
 */
+
+a = $link-font;
+
 	a img {
 		border: 2px solid #fff;
 		padding: 2px;

@@ -17,9 +17,14 @@
 				#older-articles ol li h3 + p small = $icon;
 				#older-articles ol li h3 + p small = $icon-pub-date;
 
+				#older-articles ol li p img {
+					display: none;
+				}
+
 				#older-articles ol li h3 + p + p img = $img-small;
 				#older-articles ol li h3 + p + p img {
 					width: 100px;
+					display: block;
 				}
 
 			#older-articles ol li p:last-child {
