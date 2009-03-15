@@ -1,0 +1,47 @@
+#articles-by-date {
+	
+}
+
+	#articles-by-date h2 + p = $first-p;
+
+	#articles-by-date > ul = $floated-list;
+	#articles-by-date > ul {
+		
+	}
+
+		#articles-by-date > ul > li {
+			width: 300px;
+			padding: 0 10px 0 0;
+		}
+
+		#articles-by-date > ul > li:first-child + li, 
+		#articles-by-date > ul > li:first-child + li + li + li, 
+		#articles-by-date > ul > li:first-child + li + li + li + li + li, 
+		#articles-by-date > ul > li:first-child + li + li + li + li + li + li + li, 
+		#articles-by-date > ul > li:first-child + li + li + li + li + li + li + li + li + li {
+			padding: 0 0 0 10px;
+		}
+
+			#articles-by-date > ul > li h3 = $icon;
+			#articles-by-date > ul > li h3 = $icon-pub-date;
+			#articles-by-date > ul > li h3 {
+				background-position: -7px -520px;
+				padding-bottom: 0;
+				margin-top: 0;
+			}
+
+			#articles-by-date ul li ul = $plain-list;
+			#articles-by-date ul li ul {
+				
+			}
+
+				#articles-by-date ul li ul li {
+					margin: 0 0 40px;
+				}
+
+					#articles-by-date ul li ul li p img {
+						display: none;
+					}
+
+						#articles-by-date ul li ul li p:last-child a = $icon;
+						#articles-by-date ul li ul li p:last-child a = $icon-next;

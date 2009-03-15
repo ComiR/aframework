@@ -1,18 +1,28 @@
-<h2>Articles by Date</h2>
-
 <ul>
-	<?php for($i = 0; $i < 6; $i++) { ?>
+	<?php foreach ($dates as $d) { ?>
 		<li>
-			<h3><a href="{$dl_date.url}" title="View all articles from {$dl_date.my}">{$dl_date.my}</a></h3>
+			<h3>
+				<a href="<?php echo Router::urlFor('ArticlesByMonth', $d); ?>">
+					<?php echo $d['month_year']; ?>
+				</a>
+			</h3>
 
 			<ul>
-				<?php for($j = 0; $j < 6; $j++) { ?>
+				<?php foreach ($d['articles'] as $a) { ?>
 					<li>
-						<h4><a href="{$dl_date_article.url}" title="Permanent link to ''{$dl_date_article.title}''">{$dl_date_article.title}</a></h4>
+						<h4>
+							<a href="<?php echo Router::urlFor('Article', $a); ?>">
+								<?php echo htmlentities($a['title']); ?>
+							</a>
+						</h4>
 
-						{$dl_date_article.excerpt}
+						<?php echo NiceString::makeNice($a['content'], 3, false, 250); ?>
 
-						<p><a href="<?php echo Router::urlFor('Article', $article); ?>">Continue reading</a></p>
+						<p>
+							<a href="<?php echo Router::urlFor('Article', $a); ?>">
+								<?php echo Lang::get('continue_reading'); ?>
+							</a>
+						</p>
 					</li>
 				<?php } ?>
 			</ul>

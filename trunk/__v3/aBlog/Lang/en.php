@@ -1,5 +1,9 @@
 <?php return array(
 
+# ArticlesByDate.tpl.php
+'articles_by_date' => 'Articles by Date', 
+'continue_reading' => 'Continue reading', 
+
 # AfterBlogRollAdmin.tpl.php
 'add_a_link' => 'Add a link', 
 'the_form_contains_errors' => 'The form contains errors', 
