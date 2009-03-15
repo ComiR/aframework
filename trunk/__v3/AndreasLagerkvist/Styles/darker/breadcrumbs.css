@@ -16,5 +16,7 @@ div#breadcrumbs {
 		}
 
 		#breadcrumbs strong {
+			background: transparent;
+			color: inherit;
 			font-weight: normal;
 		}
