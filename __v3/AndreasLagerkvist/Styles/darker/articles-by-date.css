@@ -4,35 +4,28 @@
 
 	#articles-by-date h2 + p = $first-p;
 
-	#articles-by-date > ul = $floated-list;
+	#articles-by-date > ul = $plain-list;
 	#articles-by-date > ul {
-		
+		margin: 30px 0 0;
 	}
 
 		#articles-by-date > ul > li {
-			width: 300px;
-			padding: 0 10px 0 0;
-			clear: left;
-		}
-
-		#articles-by-date > ul > li:first-child + li, 
-		#articles-by-date > ul > li:first-child + li + li + li, 
-		#articles-by-date > ul > li:first-child + li + li + li + li + li, 
-		#articles-by-date > ul > li:first-child + li + li + li + li + li + li + li, 
-		#articles-by-date > ul > li:first-child + li + li + li + li + li + li + li + li + li {
-			padding: 0 0 0 10px;
-			float: right;
-			clear: none;
+			margin: 0 0 20px;
 		}
 
 			#articles-by-date > ul > li h3 {
 				margin-top: 10px;
+				margin-bottom: 5px;
 			}
 
 				#articles-by-date > ul > li h3 a = $icon;
 				#articles-by-date > ul > li h3 a = $icon-pub-date;
 				#articles-by-date > ul > li h3 a {
-					background-position: -7px -516px;
+					background-position: right -529px;
+					display: block;
+					outline: 0;
+					padding: 0 25px 5px 0;
+					border-bottom: 1px dotted #333;
 				}
 
 			#articles-by-date ul li ul = $plain-list;
@@ -40,13 +33,34 @@
 
 			}
 
+			#articles-by-date ul li ul = $floated-list;
+			#articles-by-date ul li ul {
+				
+			}
+
 				#articles-by-date ul li ul li {
-					margin: 0 0 40px;
+					width: 300px;
+					padding: 0 10px 0 0;
+					clear: left;
+				}
+
+				#articles-by-date ul li ul li:first-child + li, 
+				#articles-by-date ul li ul li:first-child + li + li + li, 
+				#articles-by-date ul li ul li:first-child + li + li + li + li + li, 
+				#articles-by-date ul li ul li:first-child + li + li + li + li + li + li + li, 
+				#articles-by-date ul li ul li:first-child + li + li + li + li + li + li + li + li + li {
+					padding: 0 0 0 10px;
+					float: right;
+					clear: none;
+				}
+
+				#articles-by-date ul li ul li {
+					margin: 0 0 20px;
 				}
 
 					#articles-by-date ul li ul li h4 {
 						margin-top: 0;
-						padding-top: 20px;
+						padding-top: 10px;
 					}
 
 					#articles-by-date ul li ul li p img {
