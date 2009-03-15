@@ -32,7 +32,7 @@ h5,
 h6 {
 	margin: 20px 0 10px;
 
-	font: bold 30px/.8 Arial, sans-serif;
+	font: bold 72px/.8 Arial, sans-serif;
 	letter-spacing: -.08em;
 	color: #fff;
 }
@@ -58,22 +58,27 @@ h6 {
 
 h2 {
 	font-size: 48px;
+	letter-spacing: -.08em;
 }
 
 h3 {
 	font-size: 24px;
+	letter-spacing: -.05em;
 }
 
 h4 {
 	font-size: 18px;
+	letter-spacing: -.03em;
 }
 
 h5 {
 	font-size: 14px;
+	letter-spacing: -.02em;
 }
 
 h6 {
 	font-size: 12px;
+	letter-spacing: -.01em;
 }
 
 p {
@@ -198,19 +203,29 @@ strong {
 	color: #111;
 }
 
-small {
+$small {
 	font-size: 10px;
 	color: #444;
 	text-transform: uppercase;
 }
 
-	small a {
+	$small a {
 		color: #444;
 	}
 
-	small:hover a {
+$small:hover {
+	color: #999;
+}
+
+	$small:hover small {
+		color: #999;
+	}
+
+	$small:hover a {
 		color: #fc3;
 	}
+
+small = $small;
 
 /*
 	=== The Grid ===
@@ -294,12 +309,14 @@ small {
 	#recent-comments h2, 
 	#tag-cloud h2, 
 	#quick-about h2, 
+	#google-ads h2, 
 	#search h2, 
 	#navigation h2 {
 		font-size: 24px;
 	}
 
-	#quick-about h2 {
+	#quick-about h2, 
+	#google-ads h2 {
 		margin-top: 38px;
 	}
 

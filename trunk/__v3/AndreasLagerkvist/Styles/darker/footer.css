@@ -1,13 +1,8 @@
+#footer = $small;
 #footer {
 	text-align: center;
-	font-size: 10px; /* propval(small); */
-	color: #444; /* propval(small); */
 	text-transform: uppercase;
 }
-
-	#footer:not(:hover) a {
-		color: #444;
-	}
 
 	#footer ul = $pipe-menu;
 	#footer ul, 

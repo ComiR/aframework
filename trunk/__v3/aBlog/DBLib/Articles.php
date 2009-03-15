@@ -1,6 +1,41 @@
 <?php
 	class Articles {
-		public static function getArticleByUrlStr ($urlStr) {
+		public static function getArticlesByTagURLStr ($urlStr) {
+			$res = dbQry('
+				SELECT
+					' . Config::get('db.table_prefix') . 'articles.*, 
+					' . Config::get('db.table_prefix') . 'article_tags.tags_id, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day
+				FROM
+					' . Config::get('db.table_prefix') . 'article_tags
+				LEFT JOIN
+					' . Config::get('db.table_prefix') . 'articles USING(articles_id)
+				LEFT JOIN
+					' . Config::get('db.table_prefix') . 'tags USING(tags_id)
+				WHERE
+					' . Config::get('db.table_prefix') . 'articles.pub_date <= CURDATE() AND 
+					' . Config::get('db.table_prefix') . 'tags.url_str = "' . esc($urlStr) . '"
+				ORDER BY
+					articles.pub_date DESC
+			');
+
+			if (mysql_num_rows($res)) {
+				$rows = array();
+
+				while ($row = mysql_fetch_assoc($res)) {
+					$rows[] = $row;
+				}
+
+				return $rows;
+			}
+			else {
+				return false;
+			}
+		}
+
+		public static function getArticleByURLStr ($urlStr) {
 			$res = dbQry('
 				SELECT
 					' . Config::get('db.table_prefix') . 'articles.*, 
@@ -14,9 +49,8 @@
 					' . Config::get('db.table_prefix') . 'comments USING(articles_id)
 				GROUP BY
 					' . Config::get('db.table_prefix') . 'articles.articles_id
-				HAVING
-					' . Config::get('db.table_prefix') . 'articles.pub_date <= CURDATE()
 				WHERE
+					' . Config::get('db.table_prefix') . 'articles.pub_date <= CURDATE() AND 
 					' . Config::get('db.table_prefix') . 'articles.url_str = "' . esc($urlStr) . '"
 				LIMIT 1
 			');

@@ -1,0 +1,12 @@
+#google-ads {
+	width: 300px;
+	float: right;
+}
+
+	#google-ads h2 {
+		font-size: 24px;
+	}
+
+	#google-ads h2:after {
+		content: ":";
+	}

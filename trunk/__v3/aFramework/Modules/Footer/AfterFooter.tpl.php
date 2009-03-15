@@ -26,7 +26,8 @@
 		?>. 
 		<?php echo round(Timer::stop(), 2); ?> 
 		<?php echo Lang::get('seconds'); ?>, 
-		<?php $qryInfo = dbQry(false, true); echo $qryInfo['num_queries']; ?> 
-		<?php echo Lang::get('queries'); ?>.
+		<?php $qryInfo = dbQry(false, true); echo count($qryInfo['cached_queries']); ?>  
+		<?php echo Lang::get('queries'); ?> 
+		(<?php echo (count($qryInfo['cached_queries']) - $qryInfo['num_queries']); ?> <?php echo Lang::get('cached'); ?>).
 	</small>
 </p>
