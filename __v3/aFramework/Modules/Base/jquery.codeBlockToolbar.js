@@ -21,7 +21,7 @@ http://creativecommons.org/licenses/by/3.0/
 2008 Andreas Lagerkvist (andreaslagerkvist.com)
 
 @requires:
-jquery, jquery.codeBlockToolbar.css
+jquery, jquery.codeBlockToolbar.css, jquery.codeBlockToolbar.png
 
 @does:
 If you post code-examples on your site you can use this plug-in to add some nifty buttons below each code-example that allows the user to, for example, switch to plain text or increase the font-size.
