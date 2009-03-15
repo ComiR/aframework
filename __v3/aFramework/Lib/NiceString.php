@@ -36,18 +36,29 @@
 		}
 
 		private static function subStrCut ($str, $len) {
-			$tmpStr = preg_replace('/!?\[(.*?)\]\(.*?\)/', '$1', $str);
-			$tmpLen = strlen($str) - strlen($tmpStr) + $len;
+			if ($len) {
+				$pattern	= '/(!)?\[(!\[(.*?)\]\((.*?)\))?(.*?)\]\((.*?)(\)|$)/';
+				$matches	= array();
+				$match		= false;
 
-			if ($len and strlen($tmpStr) > ($len + 3)) {
-				return substr($str, 0, $tmpLen) . '...';
+				if (($match = preg_match_all($pattern, $str, $matches))) {
+					$str = preg_replace($pattern, '[{[IMG]}]', $str);
+				}
+
+				if (strlen($str) > ($len + 3)) {
+					$str = substr($str, 0, $len) . '...';
+				}
+
+				foreach ($matches[0] as $markdown) {
+					$str = self::strReplaceOnce('[{[IMG]}]', $markdown, $str);
+				}
 			}
 
 			return $str;
 		}
 
 		private static function extractHTMLBlocks ($str, &$htmlBlocks) {
-			if(substr_count($str, '/[xhtml]/') != substr_count($str, '/[\/xhtml]/')) {
+			if (substr_count($str, '/[xhtml]/') != substr_count($str, '/[\/xhtml]/')) {
 				$str .= '[/xhtml]';
 			}
 
