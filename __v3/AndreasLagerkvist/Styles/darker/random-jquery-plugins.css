@@ -2,9 +2,13 @@
 	
 }
 
-	#random-jquery-plugins ul li p:last-child a = $icon;
-	#random-jquery-plugins ul li p:last-child a = $icon-next;
+	#random-jquery-plugins ul li {
 
-	#random-jquery-plugins > p:last-child a = $icon;
-	body.js-disabled #random-jquery-plugins > p:last-child a = $icon-next;
-	body.js-enabled #random-jquery-plugins > p:last-child a = $icon-refresh2;
+	}
+
+		#random-jquery-plugins ul li p:last-child a = $icon;
+		#random-jquery-plugins ul li p:last-child a = $icon-next;
+
+		#random-jquery-plugins > p:last-child a = $icon;
+		body.js-disabled #random-jquery-plugins > p:last-child a = $icon-next;
+		body.js-enabled #random-jquery-plugins > p:last-child a = $icon-refresh2;

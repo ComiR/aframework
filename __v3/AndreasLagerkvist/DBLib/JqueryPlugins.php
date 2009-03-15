@@ -96,6 +96,13 @@
 			$row['copyright']			= htmlentities($row['copyright']);
 
 			$row['files']				= self::getPluginFiles($row['name'] .', ' .$row['requires']);
+			$row['files']['csv_names']	= array();
+
+			foreach ($row['files']['plugin'] as $f) {
+				$row['files']['csv_names'][] = substr($f['url'], strlen(WEBROOT));
+			}
+
+			$row['files']['csv_names']	= implode(',', $row['files']['csv_names']);
 
 			$row['does']				= NiceString::makeNice($row['does'], 4);
 			$row['howto']				= NiceString::makeNice($row['howto'], 4);

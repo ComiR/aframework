@@ -6,6 +6,7 @@
  * Hides text so that bg image shows
  */
 $img-replace {
+	display: block;
 	text-indent: -10000px;
 	text-decoration: none;
 	outline: 0;
@@ -119,6 +120,24 @@ $inline-definition {
 	$inline-definition > dd {
 		display: inline;
 		margin: 0;
+	}
+
+/**
+ * Plain definition
+ * No margin or padding or nothin
+ */
+$plain-definition {
+	
+}
+
+	$plain-definition > dt {
+		margin: 0;
+		padding: 0;
+	}
+
+	$plain-definition > dd {
+		margin: 0;
+		padding: 0;
 	}
 
 /*

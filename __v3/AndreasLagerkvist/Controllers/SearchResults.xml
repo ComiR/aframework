@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Base cache-time="60">
+<Base cache-time="60" noindex="true">
 	<Wrapper name="wrapper">
 		<SkipNavigation/>
 		<Header/>

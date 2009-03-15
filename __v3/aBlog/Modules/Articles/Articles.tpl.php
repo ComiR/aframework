@@ -17,7 +17,13 @@
 			<?php echo NiceString::makeNice($a['content'], 4, false); ?>
 
 			<p>
-				<?php echo Lang::get('feel_free_to'); ?> 
+				<?php if ($a['num_comments']) { ?>
+					<?php echo Lang::get('join'); ?> 
+					<?php echo $a['num_comments']; ?> 
+					<?php echo Lang::get('others_and'); ?> 
+				<?php } else { ?>
+					<?php echo Lang::get('be_the_first_to'); ?> 
+				<?php } ?>
 				<a href="<?php echo Router::urlFor('Article', $a); ?>#post-comment">
 					<?php echo Lang::get('post_a_comment'); ?>
 				</a>
