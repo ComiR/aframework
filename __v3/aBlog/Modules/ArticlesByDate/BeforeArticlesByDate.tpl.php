@@ -1,0 +1,1 @@
+<h2><?php echo Lang::get('articles_by_date'); ?></h2>

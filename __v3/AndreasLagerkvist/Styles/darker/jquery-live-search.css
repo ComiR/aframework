@@ -1,7 +1,7 @@
 #jquery-live-search {
 	background: url(gfx/jquery-live-search-bg.png) repeat-x;
 	
-	margin: -10px 0 0 -10px; /* Compensation for HTML's border */
+/*	margin: -10px 0 0 -10px; */ /* Compensation for HTML's border, hmm only FF suffers... */
 
 	font-size: 12px;
 
@@ -10,7 +10,11 @@
 
 	#jquery-live-search h2 {
 		font-size: 32px;
-	}	
+	}
+
+	#jquery-live-search h2:after {
+		content: ": ";
+	}
 
 	#jquery-live-search ol = $plain-list;
 
