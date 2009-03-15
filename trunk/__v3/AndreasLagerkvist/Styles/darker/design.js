@@ -1,12 +1,23 @@
-/*
 DarkerStyle = {
 	run: function() {
-		$('#header a').html('Andreas<br />Lagerkvist.com');
+		this.collapsableArticleByDateMonths();
+	}, 
+
+	collapsableArticleByDateMonths: function() {
+		jQuery('#articles-by-date h3').each(function () {
+			var t	= jQuery(this);
+			var a	= t.find('a');
+			var ul	= t.nextAll('ul').eq(0).slideUp(0);
+
+			a.click(function() {
+				ul.slideToggle(500);
+				return false;
+			});
+		});
 	}
 };
 
 DarkerStyle.run();
-*/
 
 /* We want some animation in search so we have to override the original search-module
 aFramework.modules.Search = {
