@@ -27,12 +27,12 @@
 			#articles-by-date > ul > li h3 {
 				background-position: -7px -520px;
 				padding-bottom: 0;
-				margin-top: 0;
+				margin-top: 10px;
 			}
 
 			#articles-by-date ul li ul = $plain-list;
 			#articles-by-date ul li ul {
-				
+
 			}
 
 				#articles-by-date ul li ul li {
