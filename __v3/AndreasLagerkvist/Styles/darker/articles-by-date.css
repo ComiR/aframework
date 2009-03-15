@@ -12,6 +12,7 @@
 		#articles-by-date > ul > li {
 			width: 300px;
 			padding: 0 10px 0 0;
+			clear: left;
 		}
 
 		#articles-by-date > ul > li:first-child + li, 
@@ -20,6 +21,8 @@
 		#articles-by-date > ul > li:first-child + li + li + li + li + li + li + li, 
 		#articles-by-date > ul > li:first-child + li + li + li + li + li + li + li + li + li {
 			padding: 0 0 0 10px;
+			float: right;
+			clear: none;
 		}
 
 			#articles-by-date > ul > li h3 = $icon;
@@ -38,6 +41,11 @@
 				#articles-by-date ul li ul li {
 					margin: 0 0 40px;
 				}
+
+					#articles-by-date ul li ul li h4 {
+						margin-top: 0;
+						padding-top: 20px;
+					}
 
 					#articles-by-date ul li ul li p img {
 						display: none;
