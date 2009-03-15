@@ -1,13 +1,10 @@
 <ul>
-	<?php
-			$words = array('accessibility', 'internet', 'google', 'portfolio', 'freelancing', 'food', 'life', 'jquery', 'news', 'css', 'web standards', 'aframework', 'javascript', 'ajax', 'design', 'hijax', 'work', 'bored', 'funny');
-			sort($words);
-			foreach ( $words as $word ) { ?>
+	<?php foreach ($tags as $t) { ?>
 		<li>
-			<a href="#">
-				<?php echo str_replace(' ', '&nbsp;', $word); ?>
+			<a href="<?php echo Router::urlFor('ArticlesByTag', $t); ?>">
+				<?php echo htmlentities($t['title']); ?>
 			</a>
-			<strong>(<?php echo rand(7, 34); ?>)</strong>
+			<strong>(<?php echo $t['num_articles']; ?>)</strong>
 		</li>
 	<?php } ?>
 </ul>

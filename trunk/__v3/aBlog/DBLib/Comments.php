@@ -1,7 +1,40 @@
 <?php
 	class Comments {
 		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000) {
-			return DBRow::get(Config::get('db.table_prefix') . 'comments', $sort, $order, $start, $limit);
+			$res = dbQry('
+				SELECT
+					' . Config::get('db.table_prefix') . 'comments.*, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
+					articles.url_str, 
+					articles.title AS article_title, 
+					MD5(comments.email) AS email_md5
+				FROM
+					' . Config::get('db.table_prefix') . 'comments
+				LEFT JOIN
+					' . Config::get('db.table_prefix') . 'articles USING(articles_id)
+				ORDER BY
+					' . Config::get('db.table_prefix') . 'comments.' . esc($sort) . ' ' . esc($order) . '
+				LIMIT
+					' . esc($start) . ', ' . esc($limit)
+			);
+
+			if (mysql_num_rows($res) === 1) {
+				return $limit === 1 ? mysql_fetch_assoc($res) : array(mysql_fetch_assoc($res));
+			}
+			elseif (mysql_num_rows($res) > 1) {
+				$rows = array();
+
+				while ($row = mysql_fetch_assoc($res)) {
+					$rows[] = $row;
+				}
+
+				return $rows;
+			}
+			else {
+				return false;
+			}
 		}
 
 		public static function insert ($row) {
