@@ -16,7 +16,7 @@
 							</a>
 						</h4>
 
-						<?php echo NiceString::makeNice($a['content'], 5, false, 250); ?>
+						<?php echo NiceString::makeNice($a['content'], 5, false, 150); ?>
 
 						<p>
 							<a href="<?php echo Router::urlFor('Article', $a); ?>">
