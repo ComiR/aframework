@@ -10,6 +10,8 @@
 
 			if (!(self::$tplVars['article'] = Articles::get('pub_date', 'DESC', 0, 1))) {
 				self::$tplFile = false;
+			} else {
+				self::$tplVars['article']['tags'] = Tags::getTagsByArticlesID(self::$tplVars['article']['articles_id']);
 			}
 		}
 
