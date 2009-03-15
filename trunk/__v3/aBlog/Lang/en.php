@@ -1,8 +1,25 @@
 <?php return array(
 
+# Articles.tpl.php
+'published' => 'Published', 
+'join' => 'Join', 
+'others_and' => 'Others and', 
+'be_the_first_to' => 'Be the first to', 
+'post_a_comment' => 'Post a comment', 
+
+# ArticlesModule.php
+'articles_tagged_with' => 'Articles tagged with', 
+'you_are_currently_browsing' => 'You are currently browsing', 
+'archives_for' => 'Archives for', 
+'articles_posted_in' => 'Articles posted in', 
+'articles_posted_on' => 'Articles posted on', 
+'the_latest_articles' => 'The latest articles', 
+
 # ArticlesByDate.tpl.php
-'articles_by_date' => 'Articles by Date', 
 'continue_reading' => 'Continue reading', 
+
+# BeforeArticlesByDate.tpl.php
+'articles_by_date' => 'Articles by date', 
 
 # AfterBlogRollAdmin.tpl.php
 'add_a_link' => 'Add a link', 
@@ -26,7 +43,9 @@
 # LatestArticle.tpl.php
 'published' => 'Published', 
 'tags' => 'Tags', 
+'no_tags' => 'No tags', 
 'comments' => 'Comments', 
+'no_comments' => 'No comments', 
 
 # BeforeOlderArticles.tpl.php
 'older_articles' => 'Older articles', 
@@ -49,14 +68,19 @@
 # PostIt.tpl.php
 'delete' => 'Delete', 
 
+# AfterRecentComments.tpl.php
+'newer' => 'Newer', 
+'older' => 'Older', 
+
 # BeforeRecentComments.tpl.php
 'recent_comments' => 'Recent comments', 
+
+# RecentComments.js
+'loading' => 'Loading', 
 
 # RecentComments.tpl.php
 'on' => 'On', 
 'delete' => 'Delete', 
-'newer' => 'Newer', 
-'older' => 'Older', 
 
 # BeforeSocialBookmarks.tpl.php
 'bookmark_this_article' => 'Bookmark this article', 

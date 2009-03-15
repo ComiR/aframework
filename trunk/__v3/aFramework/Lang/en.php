@@ -1,5 +1,13 @@
 <?php return array(
 
+# AndreasLagerkvist_darker.js
+'valid' => 'Valid', 
+'invalid' => 'Invalid', 
+'show_live_cam' => 'Show live cam', 
+'hide_live_cam' => 'Hide live cam', 
+'get_some_new_links' => 'Get some new links', 
+'loading' => 'Loading', 
+
 # AdminLogin.tpl.php
 'please_sign_in' => 'Please sign in', 
 'wrong_username_or_password' => 'Wrong username or password', 
@@ -14,6 +22,10 @@
 'what_would_you_like_to_do' => 'What would you like to do', 
 'log_out' => 'Log out', 
 'go_to_home_page' => 'Go to home page', 
+
+# aFramework.js
+'valid' => 'Valid', 
+'invalid' => 'Invalid', 
 
 # BeforeContact.tpl.php
 'contact' => 'Contact', 
@@ -41,6 +53,7 @@
 'and' => 'And', 
 'seconds' => 'Seconds', 
 'queries' => 'Queries', 
+'cached' => 'Cached', 
 
 # Footer.tpl.php
 'top_of_page' => 'Top of page', 

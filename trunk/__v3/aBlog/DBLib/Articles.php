@@ -1,5 +1,65 @@
 <?php
 	class Articles {
+		public static function getArticlesByPubDate ($pubDate) {
+			if (!is_numeric($pubDate)) {
+				return false;
+			}
+
+			if (strlen($pubDate) == 4) {
+				$dateFormatA	= '%Y';
+				$dateFormatB	= '%Y';
+				$date			= date('Y', mktime(0, 0, 0, 1, 1, $pubDate));
+			}
+			elseif (strlen($pubDate) == 6) {
+				$dateFormatA	= '%Y%m';
+				$dateFormatB	= '%M %Y';
+				$date			= date('F Y', mktime(0, 0, 0, substr($pubDate, 4, 2), 1, substr($pubDate, 0, 4)));
+			}
+			elseif (strlen($pubDate) == 8) {
+				$dateFormatA	= '%Y%m%d';
+				$dateFormatB	= '%W, %M %D, %Y';
+				$date			= date('l, F jS, Y', mktime(0, 0, 0, substr($pubDate, 4, 2), substr($pubDate, 6, 2), substr($pubDate, 0, 4)));
+			}
+			else {
+				return false;
+			}
+
+			$res = dbQry('
+				SELECT
+					' . Config::get('db.table_prefix') . 'articles.*, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "' . $dateFormatA . '") AS compare_date, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "' . $dateFormatB . '") AS show_date,
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
+					COUNT(comments_id) as num_comments
+				FROM 
+					' . Config::get('db.table_prefix') . 'articles 
+				LEFT JOIN
+					' . Config::get('db.table_prefix') . 'comments USING(articles_id)
+				GROUP BY
+					' . Config::get('db.table_prefix') . 'articles.articles_id
+				HAVING
+					' . Config::get('db.table_prefix') . 'articles.pub_date <= CURDATE() AND 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "' . $dateFormatA . '") = ' . $pubDate . '
+				ORDER BY 
+					' . Config::get('db.table_prefix') . 'articles.pub_date DESC
+			');
+
+			if (mysql_num_rows($res)) {
+				$rows = array();
+
+				while ($row = mysql_fetch_assoc($res)) {
+					$rows[] = $row;
+				}
+
+				return $rows;
+			}
+			else {
+				return false;
+			}
+		}
+
 		public static function getArticlesByTagURLStr ($urlStr) {
 			$res = dbQry('
 				SELECT
