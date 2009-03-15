@@ -30,11 +30,11 @@ ul.jquery-code-block-toolbar:after {
 	}
 
 		ul.jquery-code-block-toolbar li a {
-			background: red url(common_gfx/jquery.codeBlockToolbar.png) no-repeat;
+			background: url(common_gfx/jquery.codeBlockToolbar.png) no-repeat;
 			
 			display: block;
-			width: 18px;
-			height: 18px;
+			width: 20px;
+			height: 20px;
 
 			text-indent: -10000px;
 			text-decoration: none;
@@ -42,35 +42,35 @@ ul.jquery-code-block-toolbar:after {
 		}
 
 		ul.jquery-code-block-toolbar li.increase a {
-			background-position: left top;
+			background-position: left -20px;
 		}
 
 		ul.jquery-code-block-toolbar li.increase a:hover {
-			background-position: left -18px;
+			background-position: left top;
 		}
 
 		ul.jquery-code-block-toolbar li.decrease a {
-			background-position: left -36px;
+			background-position: left -60px;
 		}
 
 		ul.jquery-code-block-toolbar li.decrease a:hover {
-			background-position: left -54px;
+			background-position: left -40px;
 		}
 
 		ul.jquery-code-block-toolbar li.textarea a {
-			background-position: left -72px;
+			background-position: left -100px;
 		}
 
 		ul.jquery-code-block-toolbar li.textarea a:hover {
-			background-position: left -90px;
+			background-position: left -80px;
 		}
 
 		ul.jquery-code-block-toolbar li.expand a {
-			background-position: left -108px;
+			background-position: left -140px;
 		}
 
 		ul.jquery-code-block-toolbar li.expand a:hover {
-			background-position: left -126px;
+			background-position: left -120px;
 		}
 
 /*

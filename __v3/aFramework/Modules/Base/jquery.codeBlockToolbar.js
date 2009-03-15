@@ -40,7 +40,7 @@ jQuery('p.code-block').codeBlockToolbar(); Would add the toolbar to every paragr
 @exampleJS:
 jQuery('#jquery-code-block-toolbar-example p.code').codeBlockToolbar();
 ***/
-jQuery.fn.codeBlockToolbar = function ( conf ) {
+jQuery.fn.codeBlockToolbar = function (conf) {
 	var config = jQuery.extend({
 		className:		'jquery-code-block-toolbar', 
 		increaseText:	'Increase code font-size', 
@@ -58,13 +58,13 @@ jQuery.fn.codeBlockToolbar = function ( conf ) {
 		var cbHTML			= codeBlock.html();
 		var cbText			= codeBlock.html().replace(/\n/ig, '').replace(/<br.*?>/ig, '\n').replace(/<.*?>/ig, '');
 		var ul				= jQuery('<ul class="' + config.className + '"></ul>').insertAfter(codeBlock);
-		var textarea		= jQuery('<textarea rows="4" cols="60" class="' 
+		var textarea		= jQuery('<p><textarea rows="4" cols="60" class="' 
 								+ config.className 
 								+ '" style="height: ' 
 								+ (cbHeight - 10) 
 								+ 'px;">' 
 								+ cbText 
-								+ '</textarea>').insertAfter(codeBlock).hide();
+								+ '</textarea></p>').insertAfter(codeBlock).hide();
 
 		jQuery('<li class="increase"><a href="#">' + config.increaseText + '</a></li>').appendTo(ul).find('a').click(function () {
 			codeBlock.css('font-size', parseFloat(codeBlock.css('font-size'), 10) * 1.2);
@@ -82,8 +82,8 @@ jQuery.fn.codeBlockToolbar = function ( conf ) {
 			jQuery(this).text(config.textareaText2);
 			codeBlock.hide();
 			textarea.show();
-			textarea[0].focus();
-			textarea[0].select();
+			textarea.find('textarea')[0].focus();
+			textarea.find('textarea')[0].select();
 
 			return false;
 		}, function () {
@@ -94,7 +94,7 @@ jQuery.fn.codeBlockToolbar = function ( conf ) {
 			return false;
 		});
 
-		if ( cbHeight > cbMaxHeight ) {
+		if (cbHeight > cbMaxHeight) {
 			jQuery('<li class="expand"><a href="#">' + config.expandText + '</a></li>').appendTo(ul).find('a').click(function () {
 				codeBlock.css('max-height', 'none');
 				jQuery(this).parent().remove();
