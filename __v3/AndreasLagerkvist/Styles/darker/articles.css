@@ -1,0 +1,22 @@
+#articles ul = $plain-list;
+
+	#articles ul li {
+		padding-bottom: 20px;
+		margin-bottom: 20px;
+		border-bottom: 1px dotted #333;
+	}
+
+	#articles ul li:last-child {
+		padding-bottom: 0;
+		margin-bottom: 0;
+		border-bottom: 0;
+	}
+
+		#articles ul li h3 + p small = $icon;
+		#articles ul li h3 + p small = $icon-pub-date;
+
+		#articles ul li h3 + p + p = $first-p;
+
+			#articles ul li p img = $img-large;
+
+			#articles ul li h3 + p + p img = $img-small;

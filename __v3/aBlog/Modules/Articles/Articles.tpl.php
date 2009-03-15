@@ -1,0 +1,27 @@
+<ul>
+	<?php foreach ($articles as $a) { ?>
+		<li>
+			<h3>
+				<a href="<?php echo Router::urlFor('Article', $a); ?>">
+					<?php echo htmlentities($a['title']); ?>
+				</a>
+			</h3>
+
+			<p>
+				<small>
+					<?php echo Lang::get('published'); ?> 
+					<?php echo date(Config::get('general.date_format'), strtotime($a['pub_date'])); ?>
+				</small>
+			</p>
+
+			<?php echo NiceString::makeNice($a['content'], 4, false); ?>
+
+			<p>
+				<?php echo Lang::get('feel_free_to'); ?> 
+				<a href="<?php echo Router::urlFor('Article', $a); ?>#post-comment">
+					<?php echo Lang::get('post_a_comment'); ?>
+				</a>
+			</p>
+		</li>
+	<?php } ?>
+</ul>

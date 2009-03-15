@@ -1,0 +1,1 @@
+<h2>Ads by Google</h2>
