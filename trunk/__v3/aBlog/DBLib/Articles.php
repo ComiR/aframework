@@ -109,7 +109,7 @@
 					' . Config::get('db.table_prefix') . 'comments USING(articles_id)
 				GROUP BY
 					' . Config::get('db.table_prefix') . 'articles.articles_id
-				WHERE
+				HAVING
 					' . Config::get('db.table_prefix') . 'articles.pub_date <= CURDATE() AND 
 					' . Config::get('db.table_prefix') . 'articles.url_str = "' . esc($urlStr) . '"
 				LIMIT 1

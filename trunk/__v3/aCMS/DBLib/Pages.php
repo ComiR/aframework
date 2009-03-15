@@ -1,6 +1,6 @@
 <?php
 	class Pages {
-		public static function getPageByUrlStr ($urlStr) {
+		public static function getPageByURLStr ($urlStr) {
 			$res = dbQry('
 				SELECT
 					*

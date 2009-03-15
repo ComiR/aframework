@@ -16,10 +16,10 @@
 
 		private static function showThePage () {
 			# Try to get $get.url_str, else get home-page
-			$page = Pages::getPageByUrlStr(isset($_GET['url_str']) ? $_GET['url_str'] : 'home');
+			$page = Pages::getPageByURLStr(isset($_GET['url_str']) ? $_GET['url_str'] : 'home');
 
-			# If page didn't exist, no url_str is set and we're admin
-			if (!$page and !isset($_GET['url_str']) and ADMIN) {
+			# If no url_str is set and we're admin
+			if (!isset($_GET['url_str']) and ADMIN) {
 				aFramework_BaseModule::$tplVars['html_title'] = Lang::get('add_a_page');
 			}
 			# No page exists
@@ -50,7 +50,7 @@
 				Pages::update($row['pages_id'], $_POST);
 
 				if (!XHR) {
-					redirect(Router::urlFor('Page', array('url_str' => $row['url_str'])) . '?updated_page');
+					redirect('?updated_page');
 				}
 			}
 			# Not set, insert

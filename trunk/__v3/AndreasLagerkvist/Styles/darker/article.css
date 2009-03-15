@@ -1,1 +1,60 @@
-#article h2 + p + p = $first-p;
+#article {
+	
+}
+
+	/* Pub data */
+	#article h2 + p small = $icon;
+	#article h2 + p small = $icon-pub-date;
+
+	#article h2 + p + p = $first-p;
+
+		#article p img = $img-large;
+
+		#article h2 + p + p img = $img-small;
+
+	#article > dl:last-child = $small;
+	#article > dl:last-child {
+		margin-top: 10px;
+		padding-top: 10px;
+
+		border-top: 1px dotted #333;
+	}
+
+		#article > dl:last-child dt = $icon;
+		#article > dl:last-child dt = $icon-comment;
+		#article > dl:last-child dt {
+			display: inline;
+			margin: 0 0 0 20px;
+		}
+
+		#article > dl:last-child dt:first-child = $icon-tag;
+		#article > dl:last-child dt:first-child {
+			margin-left: 0;
+		}
+
+		#article > dl:last-child dt:after {
+			content: ": ";
+		}
+
+		#article > dl:last-child dd {
+			display: inline;
+			margin: 0;
+		}
+
+			#article > dl:last-child dd ul {
+				display: inline;
+				margin: 0;
+				list-style: none;
+			}
+
+				#article > dl:last-child dd ul li {
+					display: inline;
+				}
+
+				#article > dl:last-child dd ul li:after {
+					content: ", ";
+				}
+
+				#article > dl:last-child dd ul li:last-child:after {
+					content: "";
+				}

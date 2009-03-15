@@ -1,0 +1,1 @@
+<h2><?php echo $article['articles_id'] ? Lang::get('edit_article') : Lang::get('add_article'); ?></h2>
