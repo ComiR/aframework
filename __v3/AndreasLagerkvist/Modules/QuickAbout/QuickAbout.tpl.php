@@ -18,6 +18,6 @@
 
 <p>
 	<a href="<?php echo Router::urlFor('Page', array('url_str' => 'about')); ?>">
-		<?php echo Lang::get('read_more_about_me_and_the_site'); ?>
+		Read more about me and the site
 	</a>
 </p>

@@ -36,7 +36,7 @@
 			foreach ($body->responseData->results as $r) {
 				$return['results'][$i]['title']		= preg_replace('/ - ' . Config::get('general.site_title') . '$/', '', $r->title);
 				$return['results'][$i]['url']		= $r->url;
-				$return['results'][$i]['content']	= $r->content;
+				$return['results'][$i]['content']	= str_replace(array('<b>...</b>', 'b>'), array('...', 'strong>'), $r->content);
 				$i++;
 			}
 

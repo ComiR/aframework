@@ -1,3 +1,7 @@
 #jquery-plugin {
 	
 }
+
+	#jquery-plugin h2 + p {
+		line-height: 1;
+	}
