@@ -10,6 +10,16 @@
 			self::$tplVars['meta_keywords']		= '';
 			self::$tplVars['style']				= (isset($_COOKIE['style'])) ? $_COOKIE['style'] : Config::get('general.default_style');
 			self::$tplVars['noindex']			= !empty($_SERVER['QUERY_STRING']);
+
+			$controllerPath = DOCROOT . CURRENT_SITE . '/Controllers/' . $_GET['controller'] . '.xml';
+
+			if (
+				!self::$tplVars['noindex'] and 
+				file_exists($controllerPath) and 
+				strpos(file_get_contents($controllerPath), 'noindex="true"') !== false
+			) {
+				self::$tplVars['noindex'] = true;
+			}
 		}
 	}
 ?>

@@ -10,7 +10,7 @@
 				self::loadLang();
 			}
 
-			return isset(self::$lang[$l][$str]) ? self::$lang[$l][$str] : "[$str]";
+			return isset(self::$lang[$l][$str]) ? self::$lang[$l][$str] : '[' . ucfirst(str_replace('_', ' ', $str)) . ']';
 		}
 
 		public static function getLang () {

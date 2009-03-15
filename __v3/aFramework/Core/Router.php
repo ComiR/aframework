@@ -45,7 +45,7 @@
 				}
 			}
 
-			uasort($variable, array('self', 'routeSortingCallback'));
+		#	uasort($variable, array('self', 'routeSortingCallback'));
 
 			self::$routes = array_merge($hardCoded, array_flip($variable));
 		}
