@@ -1,13 +1,13 @@
 <?php
-	class aBlog_BlogRollModule {
+	class aBlog_RandomLinksModule {
 		public static $tplVars = array();
 		public static $tplFile = true;
 
 		public static function run () {
-			if (isset($_POST['blog_roll_delete']) and ADMIN) {
+			if (isset($_POST['random_links_delete']) and ADMIN) {
 				self::deleteLink($_POST['links_id']);
 			}
-			elseif (isset($_POST['blog_roll_add']) and ADMIN) {
+			elseif (isset($_POST['random_links_submit']) and ADMIN) {
 				self::insertLink($_POST);
 			}
 

@@ -1,0 +1,1 @@
+<h2><?php echo Lang::get('random_links'); ?></h2>

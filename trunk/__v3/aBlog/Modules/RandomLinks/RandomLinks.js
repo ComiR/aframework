@@ -1,11 +1,11 @@
-aFramework.modules.BlogRoll = {
+aFramework.modules.RandomLinks = {
 	run: function () {
 		this.addFavicons();
 		this.addRefreshLink();
 	}, 
 
 	addFavicons: function () {
-		jQuery('#blog-roll').favicons({
+		jQuery('#random-links').favicons({
 			insert:		'insertAfter', 
 			defaultIco:	WEBROOT + 'aFramework/Styles/__common/gfx/jquery.favicons.png'
 		});
@@ -13,13 +13,13 @@ aFramework.modules.BlogRoll = {
 
 	addRefreshLink: function () {
 		jQuery('<p><a href="#">' + Lang.get('get_some_new_links') + '</a></p>')
-			.appendTo('#blog-roll')
+			.appendTo('#random-links')
 			.find('a')
 			.click(function () {
 				jQuery(this).text(Lang.get('loading') + '...');
 
-				jQuery('#blog-roll').load(WEBROOT + '?module=BlogRoll', function () {
-					aFramework.modules.BlogRoll.run();
+				jQuery('#random-links').load(WEBROOT + '?module=RandomLinks', function () {
+					aFramework.modules.RandomLinks.run();
 				});
 
 				return false;
