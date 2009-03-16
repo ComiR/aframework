@@ -1,0 +1,8 @@
+#random-links = $tertiary-content;
+
+	#random-links p a = $icon;
+	#random-links p a = $icon-refresh2;
+
+	#random-links ul li a {
+		font-weight: bold;
+	}

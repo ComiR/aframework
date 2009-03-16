@@ -11,7 +11,7 @@
 				</a>
 			</h3>
 
-			<?php echo NiceString::makeNice($c['content'], 4, 100); ?>
+			<?php echo NiceString::makeNice($c['content'], 4, false, 50); ?>
 
 			<?php if (ADMIN) { ?>
 				<form method="post" action="">

@@ -39,7 +39,7 @@ jQuery('#tags').tagSizes();
 @exampleJS:
 jQuery('#jquery-tag-sizes-example').tagSizes();
 ***/
-jQuery.fn.tagSizes = function (maxSize, minSize) {
+jQuery.fn.tagSizes = function (numberElement, maxSize, minSize) {
 	return this.each(function () {
 		var maxSize		= maxSize || 24;
 		var minSize		= minSize || parseInt(jQuery('li', this).css('font-size'), 10);
@@ -49,7 +49,8 @@ jQuery.fn.tagSizes = function (maxSize, minSize) {
 		var middle;
 
 		jQuery(this).find('li').each(function () {
-			var weight		= parseInt(jQuery(this).text().replace(/[^0-9]*/g, ''), 10) || 1;
+			var numEl		= numberElement ? jQuery(this).find(numberElement) : jQuery(this);
+			var weight		= parseInt(numEl.text().replace(/[^0-9]*/g, ''), 10) || 1;
 			var logWeight	= Math.log(weight);
 
 			jQuery.data(this, 'tagsizes', {

@@ -33,7 +33,7 @@
 	</p>
 
 	<p>
-		<input type="hidden" name="blog_roll_add" value="1" />
+		<input type="hidden" name="random_links_add" value="1" />
 		<input type="submit" value="<?php echo Lang::get('add'); ?>" />
 	</p>
 
