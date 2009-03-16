@@ -2,6 +2,7 @@
 	position: absolute;
 	right: 0;
 	top: 20px;
+	font-size: 12px;
 }
 
 	#search h2 = $a11y-hide;

@@ -1,7 +1,6 @@
 #quick-about = $self-clear;
+#quick-about = $secondary-content;
 #quick-about {
-	width: 300px;
-	float: right;
 }
 
 	#quick-about a img {

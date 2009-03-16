@@ -86,7 +86,7 @@
 			$row['author']				= htmlentities($row['author']);
 
 			$row['date']				= htmlentities($row['date']);
-			$row['pub_date']			= htmlentities($row['date']);
+			$row['pub_date']			= date(Config::get('general.date_format'), strtotime($row['date']));
 
 			$row['real_url']			= htmlentities($row['url']);
 			$row['url_str']				= strtolower(ccFix($row['name'], '-'));

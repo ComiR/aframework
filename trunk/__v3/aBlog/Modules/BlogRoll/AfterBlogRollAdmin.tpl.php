@@ -1,6 +1,6 @@
 <h3><?php echo Lang::get('add_a_link'); ?></h3>
 
-<?php if ( $errors ) { ?>
+<?php if ($errors) { ?>
 	<p>
 		<strong>
 			<?php echo Lang::get('the_form_contains_errors'); ?> 

@@ -1,5 +1,6 @@
 #footer = $small;
 #footer {
+	clear: both;
 	text-align: center;
 	text-transform: uppercase;
 }

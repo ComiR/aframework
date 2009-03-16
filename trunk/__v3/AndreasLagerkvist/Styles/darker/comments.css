@@ -1,0 +1,6 @@
+#comments = $primary-content;
+#comments {
+	float: left;
+}
+
+	#comments h3 = $main-heading;

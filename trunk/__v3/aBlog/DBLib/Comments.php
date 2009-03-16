@@ -1,5 +1,39 @@
 <?php
 	class Comments {
+		public static function getCommentsByArticleURLStr ($urlStr) {
+			$res = dbQry('
+				SELECT
+					' . Config::get('db.table_prefix') . 'comments.*, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
+					articles.url_str, 
+					articles.title AS article_title, 
+					MD5(comments.email) AS email_md5
+				FROM
+					' . Config::get('db.table_prefix') . 'comments
+				LEFT JOIN
+					' . Config::get('db.table_prefix') . 'articles USING(articles_id)
+				WHERE
+					url_str = "' . esc($urlStr) . '"
+				ORDER BY
+					' . Config::get('db.table_prefix') . 'comments.pub_date ASC
+			');
+
+			if (mysql_num_rows($res)) {
+				$rows = array();
+
+				while ($row = mysql_fetch_assoc($res)) {
+					$rows[] = $row;
+				}
+
+				return $rows;
+			}
+			else {
+				return false;
+			}
+		}
+
 		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000) {
 			$res = dbQry('
 				SELECT
@@ -40,8 +74,8 @@
 		public static function insert ($row) {
 			$fields	 = array(
 				'articles_id'		=> $row['articles_id'], 
-				'spam'				=> SpamChecker::isSpam($row), 
-				'ip'				=> $_SERVER['REMOTE_ADDRESS'], 
+				'spam'				=> SpamChecker::isSpam($row) ? 1 : 0, 
+				'ip'				=> $_SERVER['REMOTE_ADDR'], 
 				'author'			=> $row['author'], 
 				'email'				=> $row['email'], 
 				'website'			=> $row['website'], 

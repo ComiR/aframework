@@ -25,8 +25,9 @@
 					FourOFour::run();
 				}
 				else {
-					self::$tplVars['article']	= $article;
-					self::$tplVars['more_cut']	= true;
+					self::$tplVars['article']			= $article;
+					self::$tplVars['article']['tags']	= Tags::getTagsByArticlesID(self::$tplVars['article']['articles_id']);
+					self::$tplVars['more_cut']			= true;
 
 					if (isset($_GET['url_str'])) {
 						aFramework_BaseModule::$tplVars['html_title']		= $article['title'];
