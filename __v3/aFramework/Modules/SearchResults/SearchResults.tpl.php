@@ -1,4 +1,4 @@
-<ol<?php echo @$_GET['start'] > 0 ? ' start="' . ($_GET['start'] + 1) . '"' : '' ?>>
+<ol<?php echo $start > 0 ? ' start="' . ($start) . '"' : '' ?>>
 	<?php foreach ($results as $sr) { ?>
 		<li>
 			<h3>
@@ -7,8 +7,9 @@
 				</a>
 			</h3>
 
+			<p><?php echo $sr['content']; ?></p>
+
 			<p>
-				<?php echo $sr['content']; ?><br />
 				<a href="<?php echo $sr['url']; ?>">
 					<?php echo Lang::get('read_more'); ?>
 				</a>

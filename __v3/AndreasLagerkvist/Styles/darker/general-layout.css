@@ -107,13 +107,16 @@ $error {
 	border: 1px solid red;
 }
 
+/*	I thought text counted but apparently <p>foo <b>bar</b> baz<p>
+	the b-element is the only child of that paragraph...
+
 	p strong:only-child = $error;
 	p strong:only-child = $icon;
 	p strong:only-child = $icon-warning;
 	p strong:only-child {
 		background-position: 5px -770px;
 		padding-left: 40px;
-	}
+	} */
 
 ul, 
 ol {
