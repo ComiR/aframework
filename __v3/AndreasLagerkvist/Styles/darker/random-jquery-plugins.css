@@ -1,14 +1,29 @@
+#random-jquery-plugins = $3-col-listing;
 #random-jquery-plugins {
-	
+	clear: both;
 }
 
-	#random-jquery-plugins ul li {
-
+	#random-jquery-plugins h2:after {
+		content: "";
 	}
 
-		#random-jquery-plugins ul li p:last-child a = $icon;
-		#random-jquery-plugins ul li p:last-child a = $icon-next;
+	#random-jquery-plugins ul {
+		margin-left: -10px;
+		margin-right: -10px;
+		overflow: hidden;
+		list-style: none;
+	}
 
-		#random-jquery-plugins > p:last-child a = $icon;
-		body.js-disabled #random-jquery-plugins > p:last-child a = $icon-next;
-		body.js-enabled #random-jquery-plugins > p:last-child a = $icon-refresh2;
+		#random-jquery-plugins ul li = $tertiary-content;
+		#random-jquery-plugins ul li {
+
+		}
+
+			#random-jquery-plugins ul li h3 = $main-heading;
+
+			#random-jquery-plugins ul li p:last-child a = $icon;
+			#random-jquery-plugins ul li p:last-child a = $icon-next;
+
+			#random-jquery-plugins > p:last-child a = $icon;
+			body.js-disabled #random-jquery-plugins > p:last-child a = $icon-next;
+			body.js-enabled #random-jquery-plugins > p:last-child a = $icon-refresh2;

@@ -1,13 +1,15 @@
-#contact h2 + p = $first-p;
+#contact = $primary-content;
 
-#contact input[name="name"] {
-	width: 200px;
-}
+	#contact h2 + p = $first-p;
 
-#contact input[name="email"] {
-	width: 350px;
-}
+	#contact input[name="name"] {
+		width: 200px;
+	}
 
-#contact textarea {
-	width: 500px;
-}
+	#contact input[name="email"] {
+		width: 350px;
+	}
+
+	#contact textarea {
+		width: 500px;
+	}

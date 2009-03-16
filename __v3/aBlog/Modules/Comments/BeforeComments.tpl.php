@@ -1,0 +1,1 @@
+<h3><?php echo Lang::get('comments'); ?></h3>

@@ -1,14 +1,25 @@
+#older-articles = $3-col-listing;
 #older-articles {
-	
+	clear: both;
 }
 
-	#older-articles ol {
-		
+	#older-articles h2:after {
+		content: "";
 	}
 
+	#older-articles ol {
+		margin-left: -10px;
+		margin-right: -10px;
+		overflow: hidden;
+		list-style: none;
+	}
+
+		#older-articles ol li = $tertiary-content;
 		#older-articles ol li {
 			
 		}
+
+			#older-articles ol li h3 h3 = $primary-content;
 
 			#older-articles ol li h3 + p {
 				

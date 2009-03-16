@@ -1,6 +1,8 @@
-#blog-roll p a = $icon;
-#blog-roll p a = $icon-refresh2;
+#blog-roll = $tertiary-content;
 
-#blog-roll ul li a {
-	font-weight: bold;
-}
+	#blog-roll p a = $icon;
+	#blog-roll p a = $icon-refresh2;
+
+	#blog-roll ul li a {
+		font-weight: bold;
+	}

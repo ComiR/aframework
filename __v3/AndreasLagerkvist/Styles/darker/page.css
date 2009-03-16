@@ -1,1 +1,3 @@
-#page h2 + p = $first-p;
+#page = $primary-content;
+
+	#page h2 + p = $first-p;

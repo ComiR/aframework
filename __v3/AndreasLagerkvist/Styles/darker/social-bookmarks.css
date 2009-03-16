@@ -1,0 +1,9 @@
+#social-bookmarks {
+
+}
+
+	#social-bookmarks h3 = $main-heading;
+
+	#social-bookmarks li {
+		margin: 0 10px 0 0;
+	}
