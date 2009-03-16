@@ -24,7 +24,7 @@
 					background-position: right -529px;
 					display: block;
 					outline: 0;
-					padding: 0 25px 5px 0;
+					padding: 0 25px 10px 0;
 					border-bottom: 1px dotted #333;
 				}
 
@@ -35,11 +35,14 @@
 
 			#articles-by-date ul li ul = $floated-list;
 			#articles-by-date ul li ul {
-				background: #fafafa;
+				background: #090909;
 
-				color: #111;
+				border: 1px solid #000;
+				border-color: #000 #666 #666 #000;
+			}
 
-				border-bottom: 1px dotted #333;
+			body.js-enabled #articles-by-date ul li ul {
+				display: none;
 			}
 
 				#articles-by-date ul li ul li {
@@ -55,10 +58,6 @@
 					float: right;
 					clear: none;
 				}
-
-					#articles-by-date ul li ul li h4 a:not(:hover) {
-						color: #111;
-					}
 
 					#articles-by-date ul li ul li p img {
 						display: none;

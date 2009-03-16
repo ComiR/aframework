@@ -8,11 +8,16 @@
 				self::insertComment($_POST);
 			}
 
-			if (!isset(aBlog_ArticleModule::$tplVars['article']['articles_id'])) {
-				return self::$tplFile = false;
-			}
+			# We use the article-module's articles_id but on ajax-requests
+			# it won't be set so then we use the $post.articles_id from the form instead
+			$articlesID = isset($_POST['articles_id']) ? $_POST['articles_id'] : (isset(aBlog_ArticleModule::$tplVars['article']['articles_id']) ? aBlog_ArticleModule::$tplVars['article']['articles_id'] : false);
 
-			self::$tplVars['articles_id'] = aBlog_ArticleModule::$tplVars['article']['articles_id'];
+			if ($articlesID) {
+				self::$tplVars['articles_id'] = aBlog_ArticleModule::$tplVars['article']['articles_id'];
+			}
+			else {
+				self::$tplFile = false;
+			}
 		}
 
 		private static function insertComment ($row) {
