@@ -5,10 +5,13 @@
 
 		public static function run () {
 			if (isset($_GET['q'])) {
-				self::$tplVars = self::getSearchResults($_GET['q'], isset($_GET['start']) ? $_GET['start'] : 0);
+				$start = isset($_GET['start']) ? $_GET['start'] : 0;
 
-				if (self::$tplVars == false) {
+				if (!(self::$tplVars = self::getSearchResults($_GET['q'], $start))) {
 					self::$tplFile = 'NoResults';
+				}
+				else {
+					self::$tplVars['start']	= $start + 1;
 				}
 			}
 			else {
@@ -31,13 +34,13 @@
 			curl_close($ch);
 
 			$body	= json_decode($body);
-			$i		= 0;
 
 			foreach ($body->responseData->results as $r) {
-				$return['results'][$i]['title']		= preg_replace('/ - ' . Config::get('general.site_title') . '$/', '', $r->title);
-				$return['results'][$i]['url']		= $r->url;
-				$return['results'][$i]['content']	= str_replace(array('<b>...</b>', 'b>'), array('...', 'strong>'), $r->content);
-				$i++;
+				$return['results'][] = array(
+					'title'		=> preg_replace('/ - ' . Config::get('general.site_title') . '$/', '', str_replace(array('b>'), array('strong>'), $r->title)), 
+					'url'		=> $r->url, 
+					'content'	=> str_replace(array('<b>...</b>', '<b>....</b>', 'b>'), array('...', '...', 'strong>'), $r->content)
+				);
 			}
 
 			if (isset($body->responseData->cursor->pages)) {
@@ -46,7 +49,12 @@
 				}
 			}
 
-			return count($return) ? $return : false;
+			if (isset($return['results'])) {
+				 $return['num_results']			= count($return['results']);
+				 $return['total_num_results']	= $body->responseData->cursor->estimatedResultCount;
+			}
+
+			return isset($return['results']) ? $return : false;
 		}
 	}
 ?>
