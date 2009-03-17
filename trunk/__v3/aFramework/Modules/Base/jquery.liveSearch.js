@@ -76,54 +76,60 @@ jQuery.fn.liveSearch = function (conf) {
 		input
 			.focus(function () {
 				if (this.value !== '') {
-					liveSearch.slideDown(config.duration);
+					if (liveSearch.html() == '') {
+						this.lastValue = '';
+						input.keyup();
+					}
+					else {
+						liveSearch.slideDown(config.duration);
+					}
 				}
 			})
 			.keyup(function () {
-			if (this.value != this.lastValue) {
-				input.addClass(config.loadingClass);
+				if (this.value != this.lastValue) {
+					input.addClass(config.loadingClass);
 
-				var q = this.value;
+					var q = this.value;
 
-				if (this.timer) {
-					clearTimeout(this.timer);
+					if (this.timer) {
+						clearTimeout(this.timer);
+					}
+
+					this.timer = setTimeout(function () {
+						jQuery.get(config.url + q, function (data) {
+							input.removeClass(config.loadingClass);
+
+							if (data.length && q.length) {
+								var tmpOffset	= input.offset();
+								var inputDim	= {
+									left:		tmpOffset.left, 
+									top:		tmpOffset.top, 
+									width:		input.outerWidth(), 
+									height:		input.outerHeight()
+								};
+
+								inputDim.topNHeight	= inputDim.top + inputDim.height;
+								inputDim.widthNShit	= inputDim.width - resultsShit;
+
+								liveSearch.css({
+									position:	'absolute', 
+									left:		inputDim.left + 'px', 
+									top:		inputDim.topNHeight + 'px',
+									width:		inputDim.widthNShit + 'px'
+								});
+
+								liveSearch.html(data).slideDown(config.duration);
+							}
+							else {
+								liveSearch.slideUp(config.duration, function () {
+									config.onSlideUp();
+								});
+							}
+						});
+					}, config.typeDelay);
+
+					this.lastValue = this.value;
 				}
-
-				this.timer = setTimeout(function () {
-					jQuery.get(config.url + q, function (data) {
-						input.removeClass(config.loadingClass);
-
-						if (data.length && q.length) {
-							var tmpOffset	= input.offset();
-							var inputDim	= {
-								left:		tmpOffset.left, 
-								top:		tmpOffset.top, 
-								width:		input.outerWidth(), 
-								height:		input.outerHeight()
-							};
-
-							inputDim.topNHeight	= inputDim.top + inputDim.height;
-							inputDim.widthNShit	= inputDim.width - resultsShit;
-
-							liveSearch.css({
-								position:	'absolute', 
-								left:		inputDim.left + 'px', 
-								top:		inputDim.topNHeight + 'px',
-								width:		inputDim.widthNShit + 'px'
-							});
-
-							liveSearch.html(data).slideDown(config.duration);
-						}
-						else {
-							liveSearch.slideUp(config.duration, function () {
-								config.onSlideUp();
-							});
-						}
-					});
-				}, config.typeDelay);
-
-				this.lastValue = this.value;
-			}
-		});
+			});
 	});
 };

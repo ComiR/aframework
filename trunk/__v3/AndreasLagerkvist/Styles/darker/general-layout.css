@@ -124,6 +124,11 @@ ol {
 	padding: 0;
 }
 
+$pagination strong {
+	background: transparent;
+	color: inherit;
+}
+
 form {
 	margin: 0;
 	padding: 0;
