@@ -1,12 +1,21 @@
-div#breadcrumbs = $small;
-div#breadcrumbs {
+#breadcrumbs = $small;
+#breadcrumbs {
+	background: url(gfx/breadcrumbs.png) no-repeat 25px 10px;
+
+	padding-left: 90px !important;
+
 	position: absolute;
 	left: 0;
-	top: 130px;
+	top: 100px;
 }
 
 	#breadcrumbs p {
 		margin: 0;
+		visibility: hidden;
+	}
+
+	#breadcrumbs:hover p {
+		visibility: visible;
 	}
 
 		#breadcrumbs strong {

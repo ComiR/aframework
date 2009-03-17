@@ -1,6 +1,57 @@
 #search-results = $primary-content;
 
-	#search-results h2 + p = $first-p;
+#jquery-live-search {
+	background: url(gfx/jquery-live-search-bg.png) repeat-x;
+	
+/*	margin: -10px 0 0 -10px; */ /* Compensation for HTML's border, hmm only FF suffers... */
 
-	#search-results li p:last-child a = $icon;
-	#search-results li p:last-child a = $icon-next;
+	font-size: 12px;
+
+	border: 1px solid #222;
+}
+
+	#jquery-live-search h2 {
+		font-size: 32px;
+	}
+
+	#jquery-live-search h2:after {
+		content: ": ";
+	}
+
+	#search-results h2 + p = $first-p;
+	#jquery-live-search h2 + p = $first-p;
+	#jquery-live-search h2 + p {
+		font-size: 16px;
+		color: #eee;
+	}
+
+		#search-results h2 + p strong, 
+		#jquery-live-search h2 + p strong, 
+		#jquery-live-search > ul:last-child strong {
+			background: transparent;
+			color: inherit;
+		}
+
+	#search-results ol = $plain-list;
+	#jquery-live-search ol = $plain-list;
+	#search-results ol {
+		margin-top: 30px;
+	}
+
+		#search-results ol li, 
+		#jquery-live-search ol li {
+			padding-bottom: 10px;
+			border-bottom: 1px dotted #333;
+			margin-bottom: 10px;
+		}
+
+		#jquery-live-search ol li {
+			border-color: #369;
+		}
+
+			#search-results ol li p:last-child a = $icon;
+			#search-results ol li p:last-child a = $icon-next;
+			#jquery-live-search ol li p:last-child a = $icon;
+			#jquery-live-search ol li p:last-child a = $icon-next;
+
+	#jquery-live-search > ul:last-child = $pagination;

@@ -1,1 +1,1 @@
-#search-results ul = $pagination;
+#search-results > ul:last-child = $pagination;
