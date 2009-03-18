@@ -97,6 +97,30 @@ $first-p {
 	font-style: italic;
 }
 
+.code-block {
+	background-color: #090909;
+	border: 1px solid #000;
+	border-color: #000 #666 #666 #000;
+	font-family: Monaco;
+	color: #f8f8f8;
+}
+
+	.code-block .comment {
+		color: #aeaeae;
+	}
+
+	.code-block .keyword {
+		color: #e28964;
+	}
+
+	.code-block .var {
+		color: #3e87e3;
+	}
+
+	.code-block .string {
+		color: #65b042;
+	}
+
 $error {
 	background-color: #fee;
 
