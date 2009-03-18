@@ -9,6 +9,7 @@
 
 		#tag-cloud ul li {
 			margin: 0 5px;
+			vertical-align: middle;
 		}
 
 			body.js-enabled #tag-cloud ul li strong = $a11y-hide;
