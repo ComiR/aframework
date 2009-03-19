@@ -14,9 +14,9 @@
 	}
 
 	#search #q {
-		width: 145px;
+		width: 140px;
 	}
 
 	/* body.js-disabled */#search #q:focus {
-		width: 290px;
+		width: 280px;
 	}

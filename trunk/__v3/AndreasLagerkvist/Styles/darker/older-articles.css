@@ -19,12 +19,7 @@
 
 			#older-articles ol li h3 = $main-heading;
 
-			#older-articles ol li h3 + p {
-				
-			}
-
-				#older-articles ol li h3 + p small = $icon;
-				#older-articles ol li h3 + p small = $icon-pub-date;
+				#older-articles ol li h3 + p small = $pub-date;
 
 				#older-articles ol li p img {
 					display: none;
