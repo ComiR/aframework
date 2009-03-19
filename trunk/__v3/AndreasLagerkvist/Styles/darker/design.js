@@ -1,15 +1,22 @@
 DarkerStyle = {
-	run: function() {
+	run: function () {
 		this.collapsableArticleByDateMonths();
+	//	this.postCommentHints();
 	}, 
 
-	collapsableArticleByDateMonths: function() {
+	postCommentHints: function () {
+		jQuery('#post-comment label').each(function () {
+			jQuery(this).find('input').val(jQuery(this).text()).end().text('');
+		});
+	}, 
+
+	collapsableArticleByDateMonths: function () {
 		jQuery('#articles-by-date h3').each(function () {
 			var t	= jQuery(this);
 			var a	= t.find('a');
 			var ul	= t.nextAll('ul').eq(0).slideUp(0);
 
-			a.click(function() {
+			a.click(function () {
 				ul.slideToggle(500);
 				return false;
 			});
