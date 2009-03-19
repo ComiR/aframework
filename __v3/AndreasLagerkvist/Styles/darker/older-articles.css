@@ -8,8 +8,6 @@
 	}
 
 	#older-articles ol {
-		margin-left: -10px;
-		margin-right: -10px;
 		overflow: hidden;
 		list-style: none;
 	}
@@ -19,7 +17,7 @@
 			
 		}
 
-			#older-articles ol li h3 h3 = $primary-content;
+			#older-articles ol li h3 = $main-heading;
 
 			#older-articles ol li h3 + p {
 				
