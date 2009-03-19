@@ -7,7 +7,7 @@
 	#jquery-plugins h2 + p = $first-p;
 
 	#jquery-plugins ul {
-		margin: 40px -330px 0 -10px;
+		margin: 40px -335px 0 -15px;
 		clear: right;
 		overflow: hidden;
 		list-style: none;

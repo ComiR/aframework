@@ -3,6 +3,10 @@
 	#random-links p a = $icon;
 	#random-links p a = $icon-refresh2;
 
-	#random-links ul li a {
-		font-weight: bold;
+	#random-links ul li {
+		margin: 0 0 10px;
 	}
+
+		#random-links ul li a {
+			font-weight: bold;
+		}
