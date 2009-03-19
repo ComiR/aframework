@@ -3,9 +3,7 @@
 	
 }
 
-	/* Pub data */
-	#article h2 + p small = $icon;
-	#article h2 + p small = $icon-pub-date;
+	#article h2 + p small = $pub-date;
 
 	#article h2 + p + p = $first-p;
 
@@ -15,7 +13,7 @@
 
 	#article > dl:last-child = $small;
 	#article > dl:last-child {
-		margin-top: 10px;
+		margin-top: 20px;
 		padding-top: 10px;
 
 		border-top: 1px dotted #333;

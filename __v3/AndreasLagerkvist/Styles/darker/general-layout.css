@@ -97,6 +97,14 @@ $first-p {
 	font-style: italic;
 }
 
+$pub-date {
+	background: url(gfx/icons/all.png) no-repeat -7px -531px;
+	display: block;
+	padding: 0 0 0 27px;
+	width: 150px;
+	line-height: 1;
+}
+
 .code-block {
 	background-color: #090909;
 	border: 1px solid #000;

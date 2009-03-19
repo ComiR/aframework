@@ -1,12 +1,12 @@
 #breadcrumbs = $small;
 #breadcrumbs {
-	background: url(gfx/breadcrumbs.png) no-repeat 25px 10px;
+	background: url(gfx/breadcrumbs.png) no-repeat 30px 15px;
 
-	padding-left: 90px !important;
+	padding-left: 95px !important;
 
 	position: absolute;
 	left: 0;
-	top: 100px;
+	top: 95px;
 }
 
 	#breadcrumbs p {
