@@ -4,16 +4,22 @@ div.module-admin-used-module {
 	position: relative;
 }
 
-	div.module-admin-used-module button[title^="Remove module "] {
+	div.module-admin-used-module > button[title^="Remove module "] {
 		position: absolute;
 		left: 0;
 		top: 0;
+
+		display: none;
 
 		opacity: .5;
 		cursor: pointer;
 	}
 
-	div.module-admin-used-module button[title^="Remove module "]:hover {
+	div.module-admin-used-module:hover > button[title^="Remove module "] {
+		display: block;
+	}
+
+	div.module-admin-used-module > button[title^="Remove module "]:hover {
 		opacity: 1;
 	}
 
