@@ -13,7 +13,7 @@
 			$articlesID = isset($_POST['articles_id']) ? $_POST['articles_id'] : (isset(aBlog_ArticleModule::$tplVars['article']['articles_id']) ? aBlog_ArticleModule::$tplVars['article']['articles_id'] : false);
 
 			if ($articlesID) {
-				self::$tplVars['articles_id'] = aBlog_ArticleModule::$tplVars['article']['articles_id'];
+				self::$tplVars['articles_id'] = $articlesID;
 			}
 			else {
 				self::$tplFile = false;

@@ -1,6 +1,6 @@
 #article = $primary-content;
 #article {
-	
+	float: left;
 }
 
 	#article h2 + p small = $pub-date;

@@ -1,7 +1,10 @@
-#search {
+div#search {
 	position: absolute;
-	right: 0;
-	top: 20px;
+	right: 15px;
+	top: 25px;
+
+	padding: 0;
+
 	font-size: 12px;
 }
 

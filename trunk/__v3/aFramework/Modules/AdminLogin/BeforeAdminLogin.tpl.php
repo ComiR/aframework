@@ -1,1 +1,0 @@
-<h2><?php echo Lang::get('please_sign_in'); ?></h2>

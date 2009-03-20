@@ -1,5 +1,39 @@
 <?php
 	class Comments {
+		public static function getCommentsByArticleID ($id) {
+			$res = dbQry('
+				SELECT
+					' . Config::get('db.table_prefix') . 'comments.*, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
+					articles.url_str, 
+					articles.title AS article_title, 
+					MD5(comments.email) AS email_md5
+				FROM
+					' . Config::get('db.table_prefix') . 'comments
+				LEFT JOIN
+					' . Config::get('db.table_prefix') . 'articles USING(articles_id)
+				WHERE
+					articles_id = "' . esc($id) . '"
+				ORDER BY
+					' . Config::get('db.table_prefix') . 'comments.pub_date ASC
+			');
+
+			if (mysql_num_rows($res)) {
+				$rows = array();
+
+				while ($row = mysql_fetch_assoc($res)) {
+					$rows[] = $row;
+				}
+
+				return $rows;
+			}
+			else {
+				return false;
+			}
+		}
+
 		public static function getCommentsByArticleURLStr ($urlStr) {
 			$res = dbQry('
 				SELECT
