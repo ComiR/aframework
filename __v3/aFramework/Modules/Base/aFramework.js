@@ -3,16 +3,19 @@ var aFramework = {
 		jQuery(document.body)
 			.imageZoom()
 			.maxLengthFormControls()
-			.formHints()
-			.liveValidation({
-				valid:		Lang.get('valid'), 
-				invalid:	Lang.get('invalid'), 
-				validIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-valid.png', 
-				invalidIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-invalid.png'
-			});
+			.formHints();
 
 		jQuery('p.code-block').codeBlockToolbar();
+
+		this.jQueryLiveValidation = {
+			valid:		Lang.get('valid'), 
+			invalid:	Lang.get('invalid'), 
+			validIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-valid.png', 
+			invalidIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-invalid.png'
+		};
 	}, 
+
+	jQueryLiveValidation: {}, 
 
 	runModules: function () {
 		// Run through all modules
@@ -26,6 +29,7 @@ var aFramework = {
 			if ( 
 					jQuery('#' + id).length && 
 					!jQuery('#' + id).is('.ajax-run') && 
+					typeof(aFramework.modules[module]) != 'undefined' && 
 					typeof(aFramework.modules[module].run) == 'function' 
 			) {
 				aFramework.modules[module].run();

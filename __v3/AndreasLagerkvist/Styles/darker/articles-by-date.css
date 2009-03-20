@@ -28,33 +28,33 @@
 					border-bottom: 1px dotted #333;
 				}
 
-			#articles-by-date ul li ul = $plain-list;
-			#articles-by-date ul li ul {
+			#articles-by-date > ul > li > ul = $plain-list;
+			#articles-by-date > ul > li > ul {
 				padding: 5px 10px;
 			}
 
-			#articles-by-date ul li ul = $floated-list;
-			#articles-by-date ul li ul {
+			#articles-by-date > ul > li > ul = $floated-list;
+			#articles-by-date > ul > li > ul {
 				background: #090909;
 
 				border: 1px solid #000;
 				border-color: #000 #666 #666 #000;
 			}
 
-			body.js-enabled #articles-by-date ul li ul {
+			body.js-enabled #articles-by-date > ul > li > ul {
 				display: none;
 			}
 
-				#articles-by-date ul li ul li {
+				#articles-by-date > ul > li > ul > li {
 					width: 290px;
 					clear: left;
 				}
 
-				#articles-by-date ul li ul li:first-child + li, 
-				#articles-by-date ul li ul li:first-child + li + li + li, 
-				#articles-by-date ul li ul li:first-child + li + li + li + li + li, 
-				#articles-by-date ul li ul li:first-child + li + li + li + li + li + li + li, 
-				#articles-by-date ul li ul li:first-child + li + li + li + li + li + li + li + li + li {
+				#articles-by-date > ul > li > ul > li:first-child + li, 
+				#articles-by-date > ul > li > ul > li:first-child + li + li + li, 
+				#articles-by-date > ul > li > ul > li:first-child + li + li + li + li + li, 
+				#articles-by-date > ul > li > ul > li:first-child + li + li + li + li + li + li + li, 
+				#articles-by-date > ul > li > ul > li:first-child + li + li + li + li + li + li + li + li + li {
 					float: right;
 					clear: none;
 				}
