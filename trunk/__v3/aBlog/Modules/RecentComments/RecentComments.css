@@ -14,7 +14,7 @@
 		padding-right: 25px;
 	}
 
-		body.admin #recent-comments ol li a:last-child {
+		/* body.admin #recent-comments ol li a:last-child {
 			background: url(/__files/misc/file-uploader/rubbish-bin.gif) no-repeat;
 
 			display: block;
@@ -28,7 +28,7 @@
 			position: absolute;
 			right: 0;
 			top: 0;
-		}
+		} */
 
 		#recent-comments ol li img {
 			position: absolute;
