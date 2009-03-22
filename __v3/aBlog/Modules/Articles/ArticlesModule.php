@@ -5,7 +5,7 @@
 
 		public static function run () {
 			if (isset($_GET['url_str'])) {
-				self::showArticlesByURLStr($_GET['url_str']);
+				self::showArticlesByTagURLStr($_GET['url_str']);
 			}
 			elseif (isset($_GET['year'])) {
 				$date = $_GET['year'];
@@ -27,7 +27,7 @@
 			aFramework_BaseModule::$tplVars['html_title']	= self::$tplVars['title'];
 		}
 
-		private static function showArticlesByURLStr ($urlStr) {
+		private static function showArticlesByTagURLStr ($urlStr) {
 			if (!(self::$tplVars['articles'] = Articles::getArticlesByTagURLStr($urlStr))) {
 				FourOFour::run();
 			}
