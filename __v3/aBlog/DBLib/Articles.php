@@ -61,34 +61,10 @@
 		}
 
 		public static function getArticlesByTagURLStr ($urlStr) {
-			/*$res = dbQry('
-				SELECT
-					' . Config::get('db.table_prefix') . 'articles.*, 
-					' . Config::get('db.table_prefix') . 'tags.url_str AS tags_url_str, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
-					COUNT(comments_id) as num_comments
-				FROM
-					' . Config::get('db.table_prefix') . 'articles
-				LEFT JOIN
-					' . Config::get('db.table_prefix') . 'article_tags USING(articles_id)
-				LEFT JOIN
-					' . Config::get('db.table_prefix') . 'comments USING(articles_id)
-				LEFT JOIN
-					' . Config::get('db.table_prefix') . 'tags USING(tags_id)
-				GROUP BY
-					' . Config::get('db.table_prefix') . 'articles.articles_id
-				HAVING
-					' . Config::get('db.table_prefix') . 'articles.pub_date <= CURDATE() AND 
-					tags_url_str = "' . esc($urlStr) . '"
-				ORDER BY
-					articles.pub_date DESC
-			');*/
 			$res = dbQry('
 				SELECT
 					' . Config::get('db.table_prefix') . 'articles.*, 
-					' . Config::get('db.table_prefix') . 'tags.url_str, 
+					' . Config::get('db.table_prefix') . 'tags.url_str AS tags_url_str, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 

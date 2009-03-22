@@ -1,4 +1,4 @@
-<ol<?php echo $start > 0 ? ' start="' . ($start) . '"' : '' ?>>
+<ol<?php echo $start > 1 ? ' start="' . ($start) . '"' : '' ?>>
 	<?php foreach ($results as $sr) { ?>
 		<li>
 			<h3>

@@ -67,54 +67,60 @@ Run the plug-in on a parent-element of the form-controls you want to affect. If 
 </form>
 
 @exampleJS:
-// I dont actually run it cus my site already uses liveValidation
-//	jQuery(document.body).liveValidation({
-//		validIco:	WEBROOT +'aFramework/Styles/__common/gfx/jquery.liveValidation-valid.png', 
-//		invalidIco: WEBROOT +'aFramework/Styles/__common/gfx/jquery.liveValidation-invalid.png'
-//	}, {
-//		foo: /^\w+$/
-//	});
+jQuery('#jquery-live-validation-example').liveValidation({
+	validIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-valid.png', 
+	invalidIco: WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-invalid.png', 
+	required:	['name', 'email', 'foo'], 
+	fields:		{foo: /^\S.*$/}
+});
 ***/
-jQuery.fn.liveValidation = function ( conf, addedFields ) {
+jQuery.fn.liveValidation = function (conf, addedFields) {
 	var config = jQuery.extend({
-		formControls:	'input[type="text"], textarea',						// form-controls to be validated
 		validIco:		'',													// src to valid icon
 		invalidIco:		'',													// src to invalid ico
 		valid:			'Valid',											// alt for valid icon
-		invalid:		'Invalid'											// alt for invalid icon
+		invalid:		'Invalid',											// alt for invalid icon
+		validClass:		'valid',											// valid class
+		invalidClass:	'invalid',											// invalid class
+		required:		[],													// json/array of required fields
+		fields:			{}													// json of fields and regexps
 	}, conf);
 
-	var commonFields = jQuery.extend({
-		name: 			/^\S.*$/,											// name (atleast one character)
-		title: 			/^\S.*$/,											// title (atleast one character)
-		author: 		/^\S.*$/,											// author (atleast one character)
-		message: 		/^\S.*$/,											// message (atleast one character)
-		comment: 		/^\S.*$/,											// comment (atleast one character)
-		description:	/^\S.*$/,											// description (atleast one character)
+	var fields = jQuery.extend({
+		name: 			/^\S.*$/,											// name (at least one character)
+		title: 			/^\S.*$/,											// title (at least one character)
+		author: 		/^\S.*$/,											// author (at least one character)
+		message: 		/^\S.*$/,											// message (at least one character)
+		comment: 		/^\S.*$/,											// comment (at least one character)
+		content: 		/^\S.*$/,											// "content" (at least one character)
+		description:	/^\S.*$/,											// description (at least one character)
 		dimensions:		/^\d+x\d+$/,										// dimensions (DIGITxDIGIT)
-		price:			/^\d+$/,											// price (atleast one digit)
+		price:			/^\d+$/,											// price (at least one digit)
 		url: 			/^(http:\/\/)?(www)?([^ |\.]*?)\.([^ ]){2,5}$/,		// url
 		email: 			/^.+?@.+?\..{2,4}$/									// email
-	}, addedFields);
+	}, config.fields);
+
+	var formControls = config.required;
+
+	for (var i in formControls) {
+		formControls[i] = ':input[name=' + formControls[i] + ']';
+	}
+
+	formControls = formControls.join(',');
 
 	return this.each(function () {
-		jQuery(config.formControls, this).each(function () {
+		jQuery(formControls, this).each(function () {
 			var t = jQuery(this);
 
-			if ( t.is('.jquery-live-validation-on') ) {
+			if (t.is('.jquery-live-validation-on')) {
 				return;
 			}
 			else {
 				t.addClass('jquery-live-validation-on');
 			}
 
-			// Don't do anything if this field isn't required
-			if ( typeof(commonFields[t.attr('name')]) === 'undefined' ) {
-				return;
-			}
-
 			// Add invalid icon
-			var validator = jQuery('<img src="' + config.invalidIco + '" alt="' + config.invalid + '" />').insertAfter(t);
+			var validator = jQuery('<img src="' + config.invalidIco + '" alt="' + config.invalid + '" />').insertAfter(t.addClass(config.invalidClass));
 
 			// This function is run now and on key up
 			var validate = function () {
@@ -127,19 +133,21 @@ jQuery.fn.liveValidation = function ( conf, addedFields ) {
 				val = tit == val ? '' : val;
 
 				// Make sure the value matches
-				if(val.match(commonFields[key])) {
+				if (val.match(fields[key])) {
 					// If it's not already valid
-					if(validator.attr('alt') != config.valid) {
+					if (validator.attr('alt') != config.valid) {
 						validator.attr('src', config.validIco);
 						validator.attr('alt', config.valid);
+						t.removeClass(config.invalidClass).addClass(config.validClass);
 					}
 				}
 				// It didn't validate
 				else {
 					// If it's not already invalid 
-					if(validator.attr('alt') != config.invalid) {
+					if (validator.attr('alt') != config.invalid) {
 						validator.attr('src', config.invalidIco);
 						validator.attr('alt', config.invalid);
+						t.removeClass(config.validClass).addClass(config.invalidClass);
 					}
 				}
 			};
@@ -150,9 +158,7 @@ jQuery.fn.liveValidation = function ( conf, addedFields ) {
 
 		// If form contains any invalid icon on submission, return false
 		jQuery('form', this).submit(function () {
-			if ( jQuery(this).find('img[alt="' + config.invalid + '"]').length ) {
-				return false;
-			}
+			return !jQuery(this).find('img[alt="' + config.invalid + '"]').length;
 		});
 	});
 };
