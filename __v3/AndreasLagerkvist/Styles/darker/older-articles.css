@@ -7,13 +7,13 @@
 		content: "";
 	}
 
-	#older-articles ol {
+	#older-articles > ol {
 		overflow: hidden;
 		list-style: none;
 	}
 
-		#older-articles ol li = $tertiary-content;
-		#older-articles ol li {
+		#older-articles > ol > li = $tertiary-content;
+		#older-articles > ol > li {
 			
 		}
 
