@@ -7,7 +7,8 @@ aFramework.modules.Contact = {
 		jQuery('#contact form')
 			.liveValidation({
 				validIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-valid.png', 
-				invalidIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-invalid.png'
+				invalidIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-invalid.png', 
+				required:	['name', 'email']
 			})
 			.ajaxForm({
 				url:		WEBROOT + '?module=Contact', 

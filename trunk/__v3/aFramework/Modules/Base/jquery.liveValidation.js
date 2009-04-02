@@ -102,6 +102,10 @@ jQuery.fn.liveValidation = function (conf, addedFields) {
 
 	var formControls = config.required;
 
+	if (!formControls.length) {
+		return this;
+	}
+
 	for (var i in formControls) {
 		formControls[i] = ':input[name=' + formControls[i] + ']';
 	}
