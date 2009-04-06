@@ -44,3 +44,29 @@ $jquery-example-box {
 	#jquery-equal-height-example p:last-child {
 		border-width: 5px;
 	}
+
+/*
+	=== Drag to Select ===
+*/
+#jquery-drag-to-select-example = $jquery-example-box;
+#jquery-drag-to-select-example {
+	padding: 25px;
+	overflow: auto;
+	position: relative;
+}
+
+	#jquery-drag-to-select-example ul = $floated-list;
+
+		#jquery-drag-to-select-example ul li {
+			border: 2px solid #369;
+			width: 128px;
+			margin: 0 5px 5px 0;
+		}
+
+		#jquery-drag-to-select-example ul li.selected {
+			border-color: #f90;
+		}
+
+			#jquery-drag-to-select-example ul li img {
+				width: 100%;
+			}
