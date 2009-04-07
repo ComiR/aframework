@@ -71,26 +71,22 @@
 		 * Gets the last modified file
 		 */
 		private static function getLastModifiedFile ($style) {
-			$sites = explode(' ', SITE_HIERARCHY);
-			$fileLastModified = 0;
-			$dirs = array();
+			$sites				= explode(' ', SITE_HIERARCHY);
+			$fileLastModified	= 0;
+			$dirs				= array();
 
 			foreach ($sites as $site) {
 				$dirs[] = DOCROOT . $site . '/Styles/' . $style . '/';
 				$dirs[] = DOCROOT . $site . '/Styles/' . $style . '/controllers/';
 				$dirs[] = DOCROOT . $site . '/Styles/' . $style . '/modules/';
+				$path	= DOCROOT . $site . '/Modules/';
 
-				# Only JS in module-dirs, no CSS
-				if (is_dir(DOCROOT . $site . '/Modules/')) {
-					$path = DOCROOT . $site . '/Modules/';
+				if (is_dir($path)) {
+					$dh = opendir($path);
 
-					if (is_dir($path)) {
-						$dh = opendir($path);
-
-						while ($f = readdir($dh)) {
-							if ('.' != $f and '..' != $f and is_dir(DOCROOT . $site . '/Modules/' . $f . '/')) {
-								$dirs[] = DOCROOT . $site . '/Modules/' . $f . '/';
-							}
+					while ($f = readdir($dh)) {
+						if ('.' != $f and '..' != $f and is_dir(DOCROOT . $site . '/Modules/' . $f . '/')) {
+							$dirs[] = DOCROOT . $site . '/Modules/' . $f . '/';
 						}
 					}
 				}
@@ -191,7 +187,7 @@
 
 				if ($dh) {
 					while ($f = readdir($dh)) {
-						if (self::$type == end(explode('.', $f)) and !in_array($f, self::$exclude)) {
+						if (self::$type == end(explode('.', $f)) and !in_array($f, self::$exclude) and substr($f, 0, 2) != '__') {
 							$files["$dir$f"] = strtolower($dir . $f);
 						}
 					}
