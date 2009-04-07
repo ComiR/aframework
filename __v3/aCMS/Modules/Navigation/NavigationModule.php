@@ -30,6 +30,15 @@
 					$tmpSelected = &self::$tplVars['nav_items'][$i];
 				}
 			}
+
+			# If home is selected and we're not on the home-page, deselect it
+			$homeURL = Router::urlFor('Home');
+
+			for ($i = 0; $i < $numItems; $i++) {
+				if (self::$tplVars['nav_items'][$i]['selected'] and self::$tplVars['nav_items'][$i]['url'] == $homeURL and $url != $homeURL) {
+					self::$tplVars['nav_items'][$i]['selected'] = false;
+				}
+			}
 		}
 
 		protected static function getHomePage () {
