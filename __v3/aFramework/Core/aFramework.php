@@ -168,7 +168,7 @@
 					$start		= microtime(true);
 					$numQBefore	= dbQry(false, true);
 
-					$modName::run();
+					call_user_func($modName . '::run'); # $modName::run();
 
 					$stop		= microtime(true);
 					$numQAfter	= dbQry(false, true);
@@ -177,8 +177,8 @@
 					self::$debugInfo['modules'][$module]['site']		= $site;
 					self::$debugInfo['modules'][$module]['class_name']	= $modName;
 					self::$debugInfo['modules'][$module]['run_time']	= $stop - $start;
-					self::$debugInfo['modules'][$module]['tpl_file']	= $modName::$tplFile;
-					self::$debugInfo['modules'][$module]['tpl_vars']	= $modName::$tplVars;
+					self::$debugInfo['modules'][$module]['tpl_file']	= eval('$tmpTplFile = ' . $modName . '::$tplFile;'); $tmpTplFile; # $modName::$tplFile;
+					self::$debugInfo['modules'][$module]['tpl_vars']	= eval('$tmpTplVars = ' . $modName . '::$tplVars;'); $tmpTplVars; # $modName::$tplVars;
 					self::$debugInfo['modules'][$module]['num_queries']	= $numQAfter['num_queries'] - $numQBefore['num_queries'];
 
 					return true;
@@ -211,8 +211,14 @@
 				$modName = $site . '_' . $module . 'Module';
 
 				if (file_exists($modPath)) {
-					$tplFile = $modName::$tplFile === true ? $module : $modName::$tplFile;
-					$tplVars = array_merge((array)$modName::$tplVars, $tplVars);
+				#	$tplFile = $modName::$tplFile === true ? $module : $modName::$tplFile;
+				#	$tplVars = array_merge((array)$modName::$tplVars, $tplVars);
+
+					eval('$tmpTplFile = ' . $modName . '::$tplFile;');
+					eval('$tmpTplVars = ' . $modName . '::$tplVars;');
+
+					$tplFile = $tmpTplFile === true ? $module : $tmpTplFile;
+					$tplVars = array_merge((array)$tmpTplVars, $tplVars);
 
 					break;
 				}
