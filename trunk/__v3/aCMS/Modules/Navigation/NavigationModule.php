@@ -43,14 +43,14 @@
 
 		protected static function getHomePage () {
 			self::$tplVars['nav_items'][] = array(
-				'title'	=> Lang::get('home'), 
+				'title'	=> Lang::get('Home'), 
 				'url'	=> Router::urlFor('Home')
 			);
 		}
 
 		protected static function getAdminLinks () {
 			self::$tplVars['nav_items'][] = array(
-				'title'	=> Lang::get('add_page'), 
+				'title'	=> Lang::get('Add page'), 
 				'url'	=> Router::urlFor('AddPage')
 			);
 		}

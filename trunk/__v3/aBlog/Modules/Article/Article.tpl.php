@@ -6,7 +6,7 @@
 
 <p>
 	<small>
-		<?php echo Lang::get('published'); ?> 
+		<?php echo Lang::get('Published'); ?> 
 		<?php echo date(Config::get('general.date_format'), strtotime($article['pub_date'])); ?>
 	</small>
 </p>
@@ -14,7 +14,7 @@
 <?php echo NiceString::makeNice($article['content'], 3, $more_cut); ?>
 
 <dl>
-	<dt><?php echo Lang::get('tags'); ?></dt>
+	<dt><?php echo Lang::get('Tags'); ?></dt>
 	<dd>
 		<?php if ($article['tags']) { ?>
 			<ul>
@@ -27,13 +27,13 @@
 				<?php } ?>
 			</ul>
 		<?php } else { ?>
-			<?php echo Lang::get('no_tags'); ?>
+			<?php echo Lang::get('No tags'); ?>
 		<?php } ?>
 	</dd>
-	<dt><?php echo Lang::get('comments'); ?></dt>
+	<dt><?php echo Lang::get('Comments'); ?></dt>
 	<dd>
 		<a href="<?php echo Router::urlFor('Article', $article); ?>#post-comment">
-			<?php echo $article['num_comments'] ? $article['num_comments'] . ' ' . Lang::get('comments') : Lang::get('no_comments'); ?>
+			<?php echo $article['num_comments'] ? $article['num_comments'] . ' ' . Lang::get('Comments') : Lang::get('No comments'); ?>
 		</a>
 	</dd>
 </dl>

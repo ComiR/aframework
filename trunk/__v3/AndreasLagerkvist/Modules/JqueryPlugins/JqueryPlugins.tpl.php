@@ -10,17 +10,17 @@
 			<?php echo $plugin['does']; ?>
 
 			<dl>
-			<!--<dt><?php echo Lang::get('author'); ?></dt>
+			<!--<dt><?php echo Lang::get('Author'); ?></dt>
 				<dd><?php echo $plugin['author']; ?></dd>-->
-				<dt><?php echo Lang::get('version'); ?></dt>
+				<dt><?php echo Lang::get('Version'); ?></dt>
 				<dd><?php echo $plugin['version']; ?></dd>
-				<dt><?php echo Lang::get('download'); ?></dt>
-				<dd><a href="<?php echo WEBROOT . '?module=ZipIt&amp;files=' . $plugin['files']['csv_names']; ?>"><?php echo Lang::get('zip'); ?></a></dd>
+				<dt><?php echo Lang::get('Download'); ?></dt>
+				<dd><a href="<?php echo WEBROOT . '?module=ZipIt&amp;files=' . $plugin['files']['csv_names']; ?>"><?php echo Lang::get('Zip'); ?></a></dd>
 			</dl>
 
 			<p>
 				<a href="<?php echo $plugin['url']; ?>">
-					<?php echo Lang::get('details'); ?>
+					<?php echo Lang::get('Details'); ?>
 				</a>
 			</p>
 		</li>

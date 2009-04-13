@@ -1,1 +1,1 @@
-<p><?php echo Lang::get('sorry_there_were_no_results'); ?></p>
+<p><?php echo Lang::get('Sorry there were no results'); ?></p>

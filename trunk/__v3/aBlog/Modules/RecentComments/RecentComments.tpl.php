@@ -5,7 +5,7 @@
 				<img src="http://www.gravatar.com/avatar.php?gravatar_id=<?php echo $c['email_md5']; ?>" alt="" /> 
 				<a href="<?php echo Router::urlFor('Article', $c); ?>#comment-<?php echo $c['comments_id']; ?>">
 					<?php echo htmlentities($c['author']); ?>
-				</a> <?php echo Lang::get('on'); ?> 
+				</a> <?php echo Lang::get('On'); ?> 
 				<a href="<?php echo Router::urlFor('Article', $c); ?>">
 					<?php echo htmlentities($c['article_title']); ?>
 				</a>
@@ -18,7 +18,7 @@
 					<p>
 						<input type="hidden" name="recent_comments_delete" value="1" />
 						<input type="hidden" name="comments_id" value="<?php echo $c['comments_id']; ?>" />
-						<input type="submit" value="<?php echo Lang::get('delete'); ?>" />
+						<input type="submit" value="<?php echo Lang::get('Delete'); ?>" />
 					</p>
 				</form>
 			<?php } ?>

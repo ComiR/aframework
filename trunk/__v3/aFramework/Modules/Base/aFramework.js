@@ -8,8 +8,8 @@ var aFramework = {
 		jQuery('p.code-block').codeBlockToolbar();
 
 		this.jQueryLiveValidation = {
-			valid:		Lang.get('valid'), 
-			invalid:	Lang.get('invalid'), 
+			valid:		Lang.get('Valid'), 
+			invalid:	Lang.get('Invalid'), 
 			validIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-valid.png', 
 			invalidIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-invalid.png'
 		};

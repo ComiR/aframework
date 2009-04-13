@@ -9,7 +9,7 @@
 
 			<p>
 				<small>
-					<?php echo Lang::get('published'); ?> 
+					<?php echo Lang::get('Published'); ?> 
 					<?php echo date(Config::get('general.date_format'), strtotime($a['pub_date'])); ?>
 				</small>
 			</p>
@@ -18,14 +18,14 @@
 
 			<p>
 				<?php if ($a['num_comments']) { ?>
-					<?php echo Lang::get('join'); ?> 
+					<?php echo Lang::get('Join'); ?> 
 					<?php echo $a['num_comments']; ?> 
-					<?php echo Lang::get('others_and'); ?> 
+					<?php echo Lang::get('Others and'); ?> 
 				<?php } else { ?>
-					<?php echo Lang::get('be_the_first_to'); ?> 
+					<?php echo Lang::get('Be the first to'); ?> 
 				<?php } ?>
 				<a href="<?php echo Router::urlFor('Article', $a); ?>#post-comment">
-					<?php echo Lang::get('post_a_comment'); ?>
+					<?php echo Lang::get('Post a comment'); ?>
 				</a>
 			</p>
 		</li>

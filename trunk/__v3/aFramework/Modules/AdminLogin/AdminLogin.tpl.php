@@ -1,10 +1,10 @@
-<h2><?php echo Lang::get('please_sign_in'); ?></h2>
+<h2><?php echo Lang::get('Please sign in'); ?></h2>
 
 <?php if ($error) { ?>
 	<p>
 		<strong>
-			<?php echo Lang::get('wrong_username_or_password'); ?> 
-			<?php echo Lang::get('please_try_again'); ?>
+			<?php echo Lang::get('Wrong username or password'); ?> 
+			<?php echo Lang::get('Please try again'); ?>
 		</strong>
 	</p>
 <?php } ?>
@@ -13,14 +13,14 @@
 
 	<p>
 		<label>
-			<?php echo Lang::get('username'); ?>:<br />
+			<?php echo Lang::get('Username'); ?>:<br />
 			<input type="text" name="username" />
 		</label>
 	</p>
 
 	<p>
 		<label>
-			<?php echo Lang::get('password'); ?>:<br />
+			<?php echo Lang::get('Password'); ?>:<br />
 			<input type="password" name="password" />
 		</label>
 	</p>
@@ -28,13 +28,13 @@
 	<p>
 		<label>
 			<input type="checkbox" name="remember_login" /> 
-			<?php echo Lang::get('remember_me'); ?>
+			<?php echo Lang::get('Remember me'); ?>
 		</label>
 	</p>
 
 	<p>
 		<input type="hidden" name="admin_login_submit" value="1" />
-		<input type="submit" value="<?php echo Lang::get('login'); ?>" />
+		<input type="submit" value="<?php echo Lang::get('Login'); ?>" />
 	</p>
 
 </form>

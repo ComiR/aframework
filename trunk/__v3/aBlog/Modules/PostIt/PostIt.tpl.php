@@ -8,7 +8,7 @@
 					<p>
 						<input type="hidden" name="post_it_delete" value="1" />
 						<input type="hidden" name="post_its_id" value="<?php echo $post_it['post_its_id']; ?>" />
-						<input type="submit" value="<?php echo Lang::get('delete'); ?>" />
+						<input type="submit" value="<?php echo Lang::get('Delete'); ?>" />
 					</p>
 				</form>
 			<?php } ?>

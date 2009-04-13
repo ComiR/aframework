@@ -1,1 +1,1 @@
-<h2><?php echo Lang::get('random_jquery_plug_ins'); ?></h2>
+<h2><?php echo Lang::get('Random jquery plug ins'); ?></h2>

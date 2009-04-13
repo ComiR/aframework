@@ -20,7 +20,7 @@
 
 						<p>
 							<a href="<?php echo Router::urlFor('Article', $a); ?>">
-								<?php echo Lang::get('continue_reading'); ?>
+								<?php echo Lang::get('Continue reading'); ?>
 							</a>
 						</p>
 					</li>

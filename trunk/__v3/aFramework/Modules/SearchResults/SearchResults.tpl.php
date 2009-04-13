@@ -11,7 +11,7 @@
 
 			<p>
 				<a href="<?php echo $sr['url']; ?>">
-					<?php echo Lang::get('read_more'); ?>
+					<?php echo Lang::get('Read more'); ?>
 				</a>
 			</p>
 		</li>

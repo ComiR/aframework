@@ -1,4 +1,4 @@
-<h2><?php echo Lang::get('module_admin'); ?></h2>
+<h2><?php echo Lang::get('Module admin'); ?></h2>
 
 <?php foreach ($available_modules as $mod) { ?>
 	<div id="mod-<?php echo $mod['html_id']; ?>"<?php if($mod['in_use']) { ?> class="in-use"<?php } ?>>
@@ -12,7 +12,7 @@
 					<input type="hidden" name="module_admin_remove_module" value="1" />
 					<input type="hidden" name="controller_in_use" value="<?php echo $_GET['controller']; ?>" />
 					<input type="hidden" name="module_to_remove" value="<?php echo $mod['name']; ?>" />
-					<input type="submit" value="<?php echo Lang::get('remove_module_from_controller'); ?>" />
+					<input type="submit" value="<?php echo Lang::get('Remove module from controller'); ?>" />
 				</p>
 
 			</form>
@@ -22,12 +22,12 @@
 				<p>
 					<label>
 						<input type="radio" name="add_type" value="append" checked="checked" /> 
-						<?php echo Lang::get('add_to'); ?>
+						<?php echo Lang::get('Add to'); ?>
 					</label> 
-					<?php echo Lang::get('or'); ?> 
+					<?php echo Lang::get('Or'); ?> 
 					<label>
 						<input type="radio" name="add_type" value="before" /> 
-						<?php echo Lang::get('insert_before'); ?>
+						<?php echo Lang::get('Insert before'); ?>
 					</label>
 				</p>
 

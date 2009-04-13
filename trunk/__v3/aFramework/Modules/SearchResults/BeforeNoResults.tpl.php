@@ -1,18 +1,18 @@
 <h2>
-	<?php echo Lang::get('no_search_results_for'); ?> 
+	<?php echo Lang::get('No search results for'); ?> 
 	&quot;<?php echo htmlentities($_GET['q']); ?>&quot;
 </h2>
 
 <p>
-	<?php echo Lang::get('your_search'); ?> - 
+	<?php echo Lang::get('Your search'); ?> - 
 	&quot;<strong><?php echo @htmlentities($_GET['q']); ?></strong>&quot; - 
-	<?php echo Lang::get('did_not_match_any_documents'); ?>
+	<?php echo Lang::get('Did not match any documents'); ?>
 </p>
 
-<h3><?php echo Lang::get('suggestions'); ?></h3>
+<h3><?php echo Lang::get('Suggestions'); ?></h3>
 
 <ul>
-	<li><?php echo Lang::get('make_sure_all_your_words_are_spelled_correctly'); ?></li>
-	<li><?php echo Lang::get('try_different_keywords'); ?></li>
-	<li><?php echo Lang::get('try_more_general_keywords'); ?></li>
+	<li><?php echo Lang::get('Make sure all your words are spelled correctly'); ?></li>
+	<li><?php echo Lang::get('Try different keywords'); ?></li>
+	<li><?php echo Lang::get('Try more general keywords'); ?></li>
 </ul>

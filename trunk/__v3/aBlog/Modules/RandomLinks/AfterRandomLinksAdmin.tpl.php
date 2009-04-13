@@ -1,10 +1,10 @@
-<h3><?php echo Lang::get('add_a_link'); ?></h3>
+<h3><?php echo Lang::get('Add a link'); ?></h3>
 
 <?php if ($errors) { ?>
 	<p>
 		<strong>
-			<?php echo Lang::get('the_form_contains_errors'); ?> 
-			<?php echo Lang::get('please_make_sure_you_have_filled_out_everything_correctly'); ?>
+			<?php echo Lang::get('The form contains errors'); ?> 
+			<?php echo Lang::get('Please make sure you have filled out everything correctly'); ?>
 		</strong>
 	</p>
 <?php } ?>
@@ -13,28 +13,28 @@
 
 	<p>
 		<label>
-			<?php echo Lang::get('title'); ?><br />
+			<?php echo Lang::get('Title'); ?><br />
 			<input type="text" name="title" />
 		</label>
 	</p>
 
 	<p>
 		<label>
-			<?php echo Lang::get('description'); ?><br />
+			<?php echo Lang::get('Description'); ?><br />
 			<input type="text" name="description" />
 		</label>
 	</p>
 
 	<p>
 		<label>
-			<?php echo Lang::get('url'); ?><br />
+			<?php echo Lang::get('Url'); ?><br />
 			<input type="text" name="url" />
 		</label>
 	</p>
 
 	<p>
 		<input type="hidden" name="random_links_add" value="1" />
-		<input type="submit" value="<?php echo Lang::get('add'); ?>" />
+		<input type="submit" value="<?php echo Lang::get('Add'); ?>" />
 	</p>
 
 </form>

@@ -1,1 +1,1 @@
-<h2><?php echo Lang::get('no_query'); ?></h2>
+<h2><?php echo Lang::get('No query'); ?></h2>

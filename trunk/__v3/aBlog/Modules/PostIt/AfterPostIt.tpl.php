@@ -1,18 +1,18 @@
 <ul>
 	<li>
 		<?php if ($prev === false) {
-			echo Lang::get('newer')
+			echo Lang::get('Newer')
 		} else { ?>
 			<a href="?post_it_start=<?php echo $prev; ?>">
-				<?php echo Lang::get('newer'); ?>
+				<?php echo Lang::get('Newer'); ?>
 			</a>
 		<?php } ?>
 	</li>
 	<li>
 		<?php if($next === false) {
-			<?php echo Lang::get('older'); ?>
+			<?php echo Lang::get('Older'); ?>
 		} else { ?>
-			<a href="?post_it_start=<?php echo $next; ?>"><?php echo Lang::get('older'); ?></a>
+			<a href="?post_it_start=<?php echo $next; ?>"><?php echo Lang::get('Older'); ?></a>
 		<?php } ?>
 	</li>
 </ul>
@@ -22,9 +22,9 @@
 
 		<p>
 			<label>
-				<?php echo Lang::get('say_this'); ?><br />
+				<?php echo Lang::get('Say this'); ?><br />
 				<input type="text" name="post_it_text" size="25" />
-			</label> <input type="submit" value="<?php echo Lang::get('post_it'); ?>" />
+			</label> <input type="submit" value="<?php echo Lang::get('Post it'); ?>" />
 		</p>
 	
 	</form>

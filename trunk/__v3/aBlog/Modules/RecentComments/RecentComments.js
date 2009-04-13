@@ -8,7 +8,7 @@ aFramework.modules.RecentComments = {
 			var clicked = jQuery(this);
 			var oldText = clicked.text();
 
-			clicked.text(Lang.get('loading') + '...');
+			clicked.text(Lang.get('Loading') + '...');
 
 			jQuery.get(clicked.attr('href') + '&module=RecentComments', function (data) {
 				if (data == '') {

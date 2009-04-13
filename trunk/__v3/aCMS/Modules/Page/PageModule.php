@@ -20,7 +20,7 @@
 
 			# If no url_str is set and we're admin
 			if (!isset($_GET['url_str']) and ADMIN) {
-				aFramework_BaseModule::$tplVars['html_title'] = Lang::get('add_a_page');
+				aFramework_BaseModule::$tplVars['html_title'] = Lang::get('Add a page');
 			}
 			# No page exists
 			elseif (!$page) {
