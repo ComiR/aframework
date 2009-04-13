@@ -1,12 +1,17 @@
 DarkerStyle = {
 	run: function () {
 		this.collapsableArticleByDateMonths();
+		this.fadedFooter();
 	//	this.postCommentHints();
+	}, 
+
+	fadedFooter: function () {
+		jQuery('<div/>').attr('id', 'faded-footer').appendTo(document.body);
 	}, 
 
 	postCommentHints: function () {
 		jQuery('#post-comment label').each(function () {
-			jQuery(this).find('input').val(jQuery(this).text()).end().text('');
+			jQuery(this).find('input').attr('title', jQuery(this).text()).end().text('');
 		});
 	}, 
 
