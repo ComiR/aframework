@@ -32,8 +32,8 @@
 				FourOFour::run();
 			}
 			else {
-				self::$tplVars['title']			= Lang::get('articles_tagged_with') . ' "' . $urlStr . '"';
-				self::$tplVars['description']	= Lang::get('you_are_currently_browsing') . ' ' . count(self::$tplVars['articles']) . ' ' . Lang::get('articles_tagged_with') . ' "' . $urlStr . '"';
+				self::$tplVars['title']			= Lang::get('Articles tagged with') . ' "' . $urlStr . '"';
+				self::$tplVars['description']	= Lang::get('You are currently browsing') . ' ' . count(self::$tplVars['articles']) . ' ' . Lang::get('Articles tagged with') . ' "' . $urlStr . '"';
 			}
 		}
 
@@ -44,8 +44,8 @@
 			else {
 				$inon = (strlen($pubDate) == 8) ? 'on' : 'in';
 
-				self::$tplVars['title']			= Lang::get('archives_for') . ' ' . self::$tplVars['articles'][0]['show_date'];
-				self::$tplVars['description']	= Lang::get('you_are_currently_browsing') . ' ' . count(self::$tplVars['articles']) . ' ' . Lang::get('articles_posted_' . $inon) . ' ' . self::$tplVars['articles'][0]['show_date'];
+				self::$tplVars['title']			= Lang::get('Archives for') . ' ' . self::$tplVars['articles'][0]['show_date'];
+				self::$tplVars['description']	= Lang::get('You are currently browsing') . ' ' . count(self::$tplVars['articles']) . ' ' . Lang::get('Articles posted ' . $inon) . ' ' . self::$tplVars['articles'][0]['show_date'];
 			}
 		}
 
@@ -54,7 +54,7 @@
 				FourOFour::run();
 			}
 			else {
-				self::$tplVars['title']			= Lang::get('the_latest_articles');
+				self::$tplVars['title']			= Lang::get('The latest articles');
 				self::$tplVars['description']	= '';
 			}
 		}

@@ -1,1 +1,1 @@
-<p><?php echo Lang::get('please_enter_a_search_query'); ?></p>
+<p><?php echo Lang::get('Please enter a search query'); ?></p>

@@ -1,1 +1,1 @@
-<h3><?php echo Lang::get('comments'); ?></h3>
+<h3><?php echo Lang::get('Comments'); ?></h3>

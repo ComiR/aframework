@@ -1,92 +1,141 @@
 <?php return array(
 
+# Article.tpl.php
+'Published' => 'Published', 
+'Tags' => 'Tags', 
+'No tags' => 'No tags', 
+'Comments' => 'Comments', 
+'No comments' => 'No comments', 
+
+# ArticleAdmin.tpl.php
+'The form contains errors' => 'The form contains errors', 
+'Please make sure you have filled out everything correctly' => 'Please make sure you have filled out everything correctly', 
+'Url string' => 'Url string', 
+'Title' => 'Title', 
+'Publish date' => 'Publish date', 
+'Meta description' => 'Meta description', 
+'Meta keywords' => 'Meta keywords', 
+'Article content' => 'Article content', 
+'Allow comments' => 'Allow comments', 
+'Yes' => 'Yes', 
+'No' => 'No', 
+'Allow rating' => 'Allow rating', 
+'Save changes' => 'Save changes', 
+'Add page' => 'Add page', 
+'Or' => 'Or', 
+'Delete this article' => 'Delete this article', 
+
+# ArticleModule.php
+'Add an article' => 'Add an article', 
+
+# BeforeArticleAdmin.tpl.php
+'Edit article' => 'Edit article', 
+'Add article' => 'Add article', 
+
 # Articles.tpl.php
-'published' => 'Published', 
-'join' => 'Join', 
-'others_and' => 'Others and', 
-'be_the_first_to' => 'Be the first to', 
-'post_a_comment' => 'Post a comment', 
+'Published' => 'Published', 
+'Join' => 'Join', 
+'Others and' => 'Others and', 
+'Be the first to' => 'Be the first to', 
+'Post a comment' => 'Post a comment', 
 
 # ArticlesModule.php
-'articles_tagged_with' => 'Articles tagged with', 
-'you_are_currently_browsing' => 'You are currently browsing', 
-'archives_for' => 'Archives for', 
-'articles_posted_in' => 'Articles posted in', 
-'articles_posted_on' => 'Articles posted on', 
-'the_latest_articles' => 'The latest articles', 
+'Articles tagged with' => 'Articles tagged with', 
+'You are currently browsing' => 'You are currently browsing', 
+'Archives for' => 'Archives for', 
+'Articles posted ' => 'Articles posted ', 
+'The latest articles' => 'The latest articles', 
 
 # ArticlesByDate.tpl.php
-'continue_reading' => 'Continue reading', 
+'Continue reading' => 'Continue reading', 
 
 # BeforeArticlesByDate.tpl.php
-'articles_by_date' => 'Articles by date', 
+'Articles by date' => 'Articles by date', 
 
-# AfterBlogRollAdmin.tpl.php
-'add_a_link' => 'Add a link', 
-'the_form_contains_errors' => 'The form contains errors', 
-'please_make_sure_you_have_filled_out_everything_correctly' => 'Please make sure you have filled out everything correctly', 
-'title' => 'Title', 
-'description' => 'Description', 
-'url' => 'Url', 
-'add' => 'Add', 
+# BeforeComments.tpl.php
+'Comments' => 'Comments', 
 
-# BeforeBlogRoll.tpl.php
-'blog_roll' => 'Blog roll', 
-
-# BlogRoll.js
-'get_some_new_links' => 'Get some new links', 
-'loading' => 'Loading', 
-
-# BlogRoll.tpl.php
-'delete' => 'Delete', 
-
-# LatestArticle.tpl.php
-'published' => 'Published', 
-'tags' => 'Tags', 
-'no_tags' => 'No tags', 
-'comments' => 'Comments', 
-'no_comments' => 'No comments', 
+# Comments.tpl.php
+'No comments yet why not' => 'No comments yet why not', 
+'Be the first to post one' => 'Be the first to post one', 
 
 # BeforeOlderArticles.tpl.php
-'older_articles' => 'Older articles', 
+'Older articles' => 'Older articles', 
 
 # OlderArticles.tpl.php
-'published' => 'Published', 
-'continue_reading' => 'Continue reading', 
+'Published' => 'Published', 
+'Continue reading' => 'Continue reading', 
+
+# BeforePostComment.tpl.php
+'Post a comment' => 'Post a comment', 
+'The form contains errors' => 'The form contains errors', 
+'Please make sure you have filled out everything correctly' => 'Please make sure you have filled out everything correctly', 
+
+# PostComment.js
+'Posting' => 'Posting', 
+
+# PostComment.tpl.php
+'Your name' => 'Your name', 
+'Email' => 'Email', 
+'Website' => 'Website', 
+'Your comment' => 'Your comment', 
+'Post comment' => 'Post comment', 
 
 # AfterPostIt.tpl.php
-'newer' => 'Newer', 
-'older' => 'Older', 
-'say_this' => 'Say this', 
-'post_it' => 'Post it', 
+'Newer' => 'Newer', 
+'Older' => 'Older', 
+'Say this' => 'Say this', 
+'Post it' => 'Post it', 
 
 # BeforePostIt.tpl.php
-'post_it' => 'Post it', 
-'from' => 'From', 
-'to' => 'To', 
+'Post it' => 'Post it', 
+'From' => 'From', 
+'To' => 'To', 
 
 # PostIt.tpl.php
-'delete' => 'Delete', 
+'Delete' => 'Delete', 
+
+# AfterRandomLinksAdmin.tpl.php
+'Add a link' => 'Add a link', 
+'The form contains errors' => 'The form contains errors', 
+'Please make sure you have filled out everything correctly' => 'Please make sure you have filled out everything correctly', 
+'Title' => 'Title', 
+'Description' => 'Description', 
+'Url' => 'Url', 
+'Add' => 'Add', 
+
+# BeforeRandomLinks.tpl.php
+'Random links' => 'Random links', 
+
+# RandomLinks.js
+'Get some new links' => 'Get some new links', 
+'Loading' => 'Loading', 
+
+# RandomLinks.tpl.php
+'Delete' => 'Delete', 
 
 # AfterRecentComments.tpl.php
-'newer' => 'Newer', 
-'older' => 'Older', 
+'Newer' => 'Newer', 
+'Older' => 'Older', 
 
 # BeforeRecentComments.tpl.php
-'recent_comments' => 'Recent comments', 
+'Recent comments' => 'Recent comments', 
 
 # RecentComments.js
-'loading' => 'Loading', 
+'Loading' => 'Loading', 
 
 # RecentComments.tpl.php
-'on' => 'On', 
-'delete' => 'Delete', 
+'On' => 'On', 
+'Delete' => 'Delete', 
 
 # BeforeSocialBookmarks.tpl.php
-'bookmark_this_article' => 'Bookmark this article', 
+'Bookmark this article' => 'Bookmark this article', 
 
 # BeforeTagCloud.tpl.php
-'tag_cloud' => 'Tag cloud', 
+'Tag cloud' => 'Tag cloud', 
+
+# TagCloud.tpl.php
+'Delete' => 'Delete', 
 
 # Routes.php
 'url.archives' => 'archives'

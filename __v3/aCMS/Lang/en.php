@@ -1,38 +1,38 @@
 <?php return array(
 
 # BeforeNavigation.tpl.php
-'navigation' => 'Navigation', 
+'Navigation' => 'Navigation', 
 
 # NavigationModule.php
-'home' => 'Home', 
-'add_page' => 'Add page', 
+'Home' => 'Home', 
+'Add page' => 'Add page', 
 
 # BeforePageAdmin.tpl.php
-'edit_page' => 'Edit page', 
-'add_page' => 'Add page', 
+'Edit page' => 'Edit page', 
+'Add page' => 'Add page', 
 
 # PageAdmin.tpl.php
-'the_form_contains_errors' => 'The form contains errors', 
-'please_make_sure_you_have_filled_out_everything_correctly' => 'Please make sure you have filled out everything correctly', 
-'url_string' => 'Url string', 
-'show_in_navigation' => 'Show in navigation', 
-'yes' => 'Yes', 
-'no' => 'No', 
-'priority' => 'Priority', 
-'a_lower_number_places_page_early_in_the_list' => 'A lower number places page early in the list', 
-'page_title' => 'Page title', 
-'meta_description' => 'Meta description', 
-'meta_keywords' => 'Meta keywords', 
-'page_content' => 'Page content', 
-'save_changes' => 'Save changes', 
-'add_page' => 'Add page', 
-'or' => 'Or', 
-'delete_this_page' => 'Delete this page', 
+'The form contains errors' => 'The form contains errors', 
+'Please make sure you have filled out everything correctly' => 'Please make sure you have filled out everything correctly', 
+'Url string' => 'Url string', 
+'Show in navigation' => 'Show in navigation', 
+'Yes' => 'Yes', 
+'No' => 'No', 
+'Priority' => 'Priority', 
+'A lower number places page early in the list' => 'A lower number places page early in the list', 
+'Page title' => 'Page title', 
+'Meta description' => 'Meta description', 
+'Meta keywords' => 'Meta keywords', 
+'Page content' => 'Page content', 
+'Save changes' => 'Save changes', 
+'Add page' => 'Add page', 
+'Or' => 'Or', 
+'Delete this page' => 'Delete this page', 
 
 # PageModule.php
-'add_a_page' => 'Add a page', 
+'Add a page' => 'Add a page', 
 
 # Routes.php
-'url.add_page' => 'add-page'
+'url.add-page' => 'add-page'
 
 ); ?>

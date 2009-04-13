@@ -4,8 +4,8 @@ aFramework.modules.Live = {
 	}, 
 
 	doToggleLink: function() {
-		var show = Lang.get('show_live_cam');
-		var hide = Lang.get('hide_live_cam');
+		var show = Lang.get('Show live cam');
+		var hide = Lang.get('Hide live cam');
 		var live = jQuery('#live object');
 
 		jQuery('<p><a href="#" id="live-toggler">' +show +'</a></p>').insertAfter('#live h2');

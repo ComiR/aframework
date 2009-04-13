@@ -9,7 +9,7 @@
 
 			<p>
 				<small>
-					<?php echo Lang::get('published'); ?> 
+					<?php echo Lang::get('Published'); ?> 
 					<?php echo date(Config::get('general.date_format'), strtotime($a['pub_date'])); ?>
 				</small>
 			</p>
@@ -18,7 +18,7 @@
 
 			<p>
 				<a href="<?php echo Router::urlFor('Article', $a); ?>">
-					<?php echo Lang::get('continue_reading'); ?>
+					<?php echo Lang::get('Continue reading'); ?>
 				</a>
 			</p>
 		</li>

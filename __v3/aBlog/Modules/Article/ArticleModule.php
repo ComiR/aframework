@@ -16,7 +16,7 @@
 
 		private static function showTheArticle () {
 			if (!isset($_GET['url_str']) and ADMIN) {
-				aFramework_BaseModule::$tplVars['html_title'] = Lang::get('add_an_article');
+				aFramework_BaseModule::$tplVars['html_title'] = Lang::get('Add an article');
 			}
 			else {
 				$article = isset($_GET['url_str']) ? Articles::getArticleByURLStr($_GET['url_str']) : Articles::get('pub_date', 'DESC', 0, 1);

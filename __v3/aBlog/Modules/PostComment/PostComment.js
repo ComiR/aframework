@@ -17,7 +17,7 @@ aFramework.modules.PostComment = {
 			url: WEBROOT + '?module=PostComment', 
 			beforeSubmit: function () {
 				if (!postComment.find('img[alt=' + aFramework.jQueryLiveValidation.invalid + ']').length) {
-					postComment.find('input[type=submit]').val(Lang.get('posting') + '...');
+					postComment.find('input[type=submit]').val(Lang.get('Posting') + '...');
 
 					return true;
 				}

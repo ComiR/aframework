@@ -11,7 +11,7 @@
 
 			<p>
 				<a href="<?php echo $plugin['url']; ?>">
-					<?php echo Lang::get('details'); ?>
+					<?php echo Lang::get('Details'); ?>
 				</a>
 			</p>
 		</li>

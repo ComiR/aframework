@@ -1,1 +1,1 @@
-<h2><?php echo Lang::get('thanks'); ?></h2>
+<h2><?php echo Lang::get('Thanks'); ?></h2>

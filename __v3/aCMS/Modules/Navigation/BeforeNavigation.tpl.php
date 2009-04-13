@@ -1,1 +1,1 @@
-<h2><?php echo Lang::get('navigation'); ?></h2>
+<h2><?php echo Lang::get('Navigation'); ?></h2>

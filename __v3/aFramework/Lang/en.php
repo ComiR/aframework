@@ -1,122 +1,141 @@
 <?php return array(
 
 # AndreasLagerkvist_darker.js
-'valid' => 'Valid', 
-'invalid' => 'Invalid', 
-'show_live_cam' => 'Show live cam', 
-'hide_live_cam' => 'Hide live cam', 
-'get_some_new_links' => 'Get some new links', 
-'loading' => 'Loading', 
+'Valid' => 'Valid', 
+'Invalid' => 'Invalid', 
+'Show live cam' => 'Show live cam', 
+'Hide live cam' => 'Hide live cam', 
+'Posting' => 'Posting', 
+'Get some new links' => 'Get some new links', 
+'Loading' => 'Loading', 
+
+# AndreasLagerkvist_default.js
+'Valid' => 'Valid', 
+'Invalid' => 'Invalid', 
+'Show live cam' => 'Show live cam', 
+'Hide live cam' => 'Hide live cam', 
+'Posting' => 'Posting', 
+'Get some new links' => 'Get some new links', 
+'Loading' => 'Loading', 
 
 # AdminLogin.tpl.php
-'please_sign_in' => 'Please sign in', 
-'wrong_username_or_password' => 'Wrong username or password', 
-'please_try_again' => 'Please try again', 
-'username' => 'Username', 
-'password' => 'Password', 
-'remember_me' => 'Remember me', 
-'login' => 'Login', 
+'Please sign in' => 'Please sign in', 
+'Wrong username or password' => 'Wrong username or password', 
+'Please try again' => 'Please try again', 
+'Username' => 'Username', 
+'Password' => 'Password', 
+'Remember me' => 'Remember me', 
+'Login' => 'Login', 
 
 # AdminLoginAdmin.tpl.php
-'you_are_logged_in' => 'You are logged in', 
-'what_would_you_like_to_do' => 'What would you like to do', 
-'log_out' => 'Log out', 
-'go_to_home_page' => 'Go to home page', 
+'You are logged in' => 'You are logged in', 
+'What would you like to do' => 'What would you like to do', 
+'Log out' => 'Log out', 
+'Go to home page' => 'Go to home page', 
 
 # aFramework.js
-'valid' => 'Valid', 
-'invalid' => 'Invalid', 
+'Valid' => 'Valid', 
+'Invalid' => 'Invalid', 
 
 # BeforeContact.tpl.php
-'contact' => 'Contact', 
+'Contact' => 'Contact', 
 
 # BeforeMsgSent.tpl.php
-'thanks' => 'Thanks', 
+'Thanks' => 'Thanks', 
 
 # Contact.tpl.php
-'the_form_contains_errors' => 'The form contains errors', 
-'please_make_sure_you_have_filled_out_everything_correctly' => 'Please make sure you have filled out everything correctly', 
-'your_name' => 'Your name', 
-'your_email' => 'Your email', 
-'message' => 'Message', 
-'remember_me' => 'Remember me', 
-'send' => 'Send', 
+'The form contains errors' => 'The form contains errors', 
+'Please make sure you have filled out everything correctly' => 'Please make sure you have filled out everything correctly', 
+'Your name' => 'Your name', 
+'Your email' => 'Your email', 
+'Message' => 'Message', 
+'Remember me' => 'Remember me', 
+'Send' => 'Send', 
 
 # MsgSent.tpl.php
-'thank_you' => 'Thank you', 
+'Thank you' => 'Thank you', 
 
 # AfterFooter.tpl.php
-'copyright' => 'Copyright', 
-'all_contents_are_released_under_a_CCv3' => 'All contents are released under a CCv3', 
-'some_rights_reserved' => 'Some rights reserved', 
-'is_powered_by' => 'Is powered by', 
-'and' => 'And', 
-'seconds' => 'Seconds', 
-'queries' => 'Queries', 
-'cached' => 'Cached', 
+'Copyright' => 'Copyright', 
+'All contents are released under a CCv3' => 'All contents are released under a CCv3', 
+'Some rights reserved' => 'Some rights reserved', 
+'Is powered by' => 'Is powered by', 
+'And' => 'And', 
+'Seconds' => 'Seconds', 
+'Queries' => 'Queries', 
+'Cached' => 'Cached', 
 
 # Footer.tpl.php
-'top_of_page' => 'Top of page', 
-'top' => 'Top', 
-'contact_me' => 'Contact me', 
-'contact' => 'Contact', 
-'get' => 'Get', 
-'valid' => 'Valid', 
-'mostly' => 'Mostly', 
-'log_out' => 'Log out', 
+'Top of page' => 'Top of page', 
+'Top' => 'Top', 
+'Contact me' => 'Contact me', 
+'Contact' => 'Contact', 
+'Get' => 'Get', 
+'Valid' => 'Valid', 
+'Mostly' => 'Mostly', 
+'Log out' => 'Log out', 
 
 # Header.tpl.php
-'home_page' => 'Home page', 
+'Home page' => 'Home page', 
 
 # Live.js
-'show_live_cam' => 'Show live cam', 
-'hide_live_cam' => 'Hide live cam', 
+'Show live cam' => 'Show live cam', 
+'Hide live cam' => 'Hide live cam', 
 
 # ModuleAdmin.tpl.php
-'module_admin' => 'Module admin', 
-'remove_module_from_controller' => 'Remove module from controller', 
-'add_to' => 'Add to', 
-'or' => 'Or', 
-'insert_before' => 'Insert before', 
+'Module admin' => 'Module admin', 
+'Remove module from controller' => 'Remove module from controller', 
+'Add to' => 'Add to', 
+'Or' => 'Or', 
+'Insert before' => 'Insert before', 
 
 # BeforeSearch.tpl.php
-'search' => 'Search', 
+'Search' => 'Search', 
 
 # Search.tpl.php
-'search_terms' => 'Search terms', 
-'find' => 'Find', 
+'Search terms' => 'Search terms', 
+'Find' => 'Find', 
 
 # AfterSearchResults.tpl.php
-'previous' => 'Previous', 
-'next' => 'Next', 
+'Previous' => 'Previous', 
+'Next' => 'Next', 
 
 # BeforeNoQuery.tpl.php
-'no_query' => 'No query', 
+'No query' => 'No query', 
 
 # BeforeNoResults.tpl.php
-'no_search_results_for' => 'No search results for', 
+'No search results for' => 'No search results for', 
+'Your search' => 'Your search', 
+'Did not match any documents' => 'Did not match any documents', 
+'Suggestions' => 'Suggestions', 
+'Make sure all your words are spelled correctly' => 'Make sure all your words are spelled correctly', 
+'Try different keywords' => 'Try different keywords', 
+'Try more general keywords' => 'Try more general keywords', 
 
 # BeforeSearchResults.tpl.php
-'search_results_for' => 'Search results for', 
+'Search results for' => 'Search results for', 
+'Results' => 'Results', 
+'Of about' => 'Of about', 
+'For' => 'For', 
 
 # NoQuery.tpl.php
-'please_enter_a_search_query' => 'Please enter a search query', 
+'Please enter a search query' => 'Please enter a search query', 
 
 # NoResults.tpl.php
-'sorry_there_were_no_results' => 'Sorry there were no results', 
+'Sorry there were no results' => 'Sorry there were no results', 
 
 # SearchResults.tpl.php
-'read_more' => 'Read more', 
+'Read more' => 'Read more', 
 
 # SkipNavigation.tpl.php
-'skip_to' => 'Skip to', 
+'Skip to' => 'Skip to', 
 
 # SkipNavigationModule.php
-'navigation' => 'Navigation', 
+'Navigation' => 'Navigation', 
 
 # BeforeSocialBookmarks.tpl.php
-'bookmark_this_url' => 'Bookmark this url', 
-'add_this_url_to_your_favourite_bookmarking_service' => 'Add this url to your favourite bookmarking service', 
+'Bookmark this url' => 'Bookmark this url', 
+'Add this url to your favourite bookmarking service' => 'Add this url to your favourite bookmarking service', 
 
 # Routes.php
 'url.admin' => 'admin', 

@@ -5,7 +5,7 @@
 
 		public static function run () {
 			$site					= isset($_GET['site']) ? $_GET['site'] : 'aFramework';
-			$path					= DOCROOT . str_replace(array('..', '.', '/', '\\'), '', $site);
+			$path					= removeDots(DOCROOT . $site);
 			self::$tplVars['langs']	= self::getLangsInDir($path);
 		}
 
@@ -25,9 +25,11 @@
 							$ext = end(explode('.', $f));
 
 							if (in_array($ext, array('js', 'php'))) {
-								$matches = array();
+								$pattern	= '/Lang(::|\.)get\(\'(.*?)\'(.*?)\)/';
+								$matches	= array();
+								$contents	= file_get_contents($dir . '/' . $f);
 
-								if (preg_match_all('/Lang(::|\.)get\(\'(.*?)\'.*?\)/', file_get_contents($dir . '/' . $f), $matches)) {
+								if (preg_match_all($pattern, $contents, $matches)) {
 									foreach ($matches[2] as $key) {
 										$langs[$f][$key] = ucfirst(str_replace('_', ' ', $key));
 									}

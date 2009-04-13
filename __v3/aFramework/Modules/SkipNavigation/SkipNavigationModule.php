@@ -12,7 +12,7 @@
 
 			if (stristr($contents, '<Navigation')) {
 				self::$tplVars['links'][] = array(
-					'title'	=> Lang::get('navigation'), 
+					'title'	=> Lang::get('Navigation'), 
 					'url'	=> '#navigation'
 				);
 			}

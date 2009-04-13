@@ -9,11 +9,11 @@
 			unset(self::$tplVars['nav_items'][0]);
 
 			$navItems[] = array(
-				'title'	=> Lang::get('archives'), 
+				'title'	=> Lang::get('Archives'), 
 				'url'	=> Router::urlFor('Archives')
 			);
 			$navItems[] = array(
-				'title'	=> Lang::get('jquery'), 
+				'title'	=> Lang::get('Jquery'), 
 				'url'	=> Router::urlFor('JqueryPlugins')
 			);
 

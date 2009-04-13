@@ -12,11 +12,11 @@ aFramework.modules.RandomLinks = {
 	}, 
 
 	addRefreshLink: function () {
-		jQuery('<p><a href="#">' + Lang.get('get_some_new_links') + '</a></p>')
+		jQuery('<p><a href="#">' + Lang.get('Get some new links') + '</a></p>')
 			.appendTo('#random-links')
 			.find('a')
 			.click(function () {
-				jQuery(this).text(Lang.get('loading') + '...');
+				jQuery(this).text(Lang.get('Loading') + '...');
 
 				jQuery('#random-links').load(WEBROOT + '?module=RandomLinks', function () {
 					aFramework.modules.RandomLinks.run();
