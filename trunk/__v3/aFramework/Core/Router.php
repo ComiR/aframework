@@ -185,15 +185,19 @@
 								# Remove regexp
 								$m = preg_replace('/\(.*?\)/', '', $m);
 
+								$val = $requested[$i];
+
 								# Remove file-extension
-								if (strstr($m, '.')) {
-									$m = explode('.', $m);
-									$m = $m[0];
+								if(strstr($m, '.')) {
+									$tmpExt	= end(explode('.', $m));
+									$m		= substr($m, 0, -(strlen($tmpExt) + 1));
+
+									$tmpExt = end(explode('.', $requested[$i]));
+									$val	= substr($val, 0, -(strlen($tmpExt) + 1));
 								}
 
 								# Set params
-								$tmp = explode('.', $requested[$i]);
-								$params[$m] = $tmp[0];
+								$params[$m] = $val;
 							}
 
 							$i++;
