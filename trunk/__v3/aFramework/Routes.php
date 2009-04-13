@@ -1,8 +1,8 @@
 <?php
 	return array(
 		'/'										=> 'Home', 
-		'/' . Lang::get('Url.admin') . '/'		=> 'AdminLogin', 
-		'/' . Lang::get('Url.contact') . '/'	=> 'Contact', 
-		'/' . Lang::get('Url.search') . '/'		=> 'SearchResults'
+		'/' . Lang::get('url.admin') . '/'		=> 'AdminLogin', 
+		'/' . Lang::get('url.contact') . '/'	=> 'Contact', 
+		'/' . Lang::get('url.search') . '/'		=> 'SearchResults'
 	);
 ?>
