@@ -5,6 +5,7 @@
 			'easing', 
 			'form', 
 			'scrollTo', 
+			'disableTextSelect', 
 			'ui-core', 
 			'ui-draggable', 
 			'ui-droppable', 
