@@ -103,3 +103,11 @@
 		</li>
 	<?php } ?>
 </ul>
+
+<h4><?php echo Lang::get('Other Resources'); ?></h4>
+
+<ul>
+	<li><a href="http://www.jquery.com">jQuery.com</a></li>
+	<li><a href="http://plugins.jquery.com/project/<?php echo $plugin['name']; ?>">This plug-in on jQuery.com</a></li>
+	<li><a href="http://plugins.jquery.com/project/issues/<?php echo $plugin['name']; ?>?category=bug">File a bug!</a></li>
+</ul>
