@@ -304,14 +304,12 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 								.find('div.ui-slider')
 								.slider({
 									min:		parseInt(options[i].min, 10), 
-									max:		parseInt(options[i].max, 10)
+									max:		parseInt(options[i].max, 10), 
+									value:		parseInt(newFormItem.find(':input').val(), 10)
 								});
 /*
 {
-									min:		parseInt(options[i].min, 10), 
-									max:		parseInt(options[i].max, 10), 
 								//	stepping:	options[i].type == 'float' ? 0.1 : 1, 
-									value:		parseInt(newFormItem.find(':input').val(), 10), 
 									slide:		function (e, ui) {
 										ui.handle
 											.parents('p')
