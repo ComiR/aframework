@@ -1,6 +1,6 @@
 /***
 @title:
-TODO: Image Box
+TODO: Image Viewer
 
 @version:
 2.0
@@ -12,7 +12,7 @@ Andreas Lagerkvist
 2008-08-31
 
 @url:
-http://andreaslagerkvist.com/jquery/image-box/
+http://andreaslagerkvist.com/jquery/image-viewer/
 
 @license:
 http://creativecommons.org/licenses/by/3.0/
@@ -24,10 +24,10 @@ http://creativecommons.org/licenses/by/3.0/
 jquery, center
 
 @does:
-Makes links pointing to images open in the "Image Box". The Image Box centers on screen and displays all the other images in the same scope beneath the currently displayed image. Lorem ipsum dolor sit amet.
+Makes links pointing to images open in the "Image Viewer". The Image Viewer centers on screen and displays all the other images in the same scope beneath the currently displayed image. Lorem ipsum dolor sit amet.
 
 @howto:
-jQuery('#holiday-photos, #flickr-images').imageBox(); would create Image Box-albums from the two elements #holiday-photos and #flickr-images
+jQuery('#holiday-photos, #flickr-images').imageViewer(); would create Image Viewer-albums from the two elements #holiday-photos and #flickr-images
 
 @exampleHTML:
 <ul>
@@ -43,5 +43,5 @@ jQuery('#holiday-photos, #flickr-images').imageBox(); would create Image Box-alb
 </ul>
 
 @exampleJS:
-jQuery('#jquery-image-box-example ul').imageBox();
+jQuery('#jquery-image-viewer-example ul').imageViewer();
 ***/
