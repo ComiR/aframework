@@ -1,15 +1,10 @@
 <?php
 	class JqueryPlugins {
 		private static $notMyPlugins = array(
-			'dimensions', 
 			'easing', 
 			'form', 
 			'scrollTo', 
-			'disableTextSelect', 
-			'ui-core', 
-			'ui-draggable', 
-			'ui-droppable', 
-			'ui-droppable-1'
+			'disableTextSelect'
 		);
 
 		public static function get () {
