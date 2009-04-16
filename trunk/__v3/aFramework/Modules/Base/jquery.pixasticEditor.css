@@ -100,6 +100,8 @@ div.jquery-pixastic-editor {
 		=== The list of actions ===
 	*/
 	ul.jquery-pixastic-editor-toolbar {
+		margin: 0;
+		padding: 0;
 		list-style: none;
 		overflow: hidden; /* Self-clear */
 	}
