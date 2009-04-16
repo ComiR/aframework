@@ -302,7 +302,10 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 							jQuery('<div class="' + config.className + '-slider"><div class="ui-slider"><div class="ui-slider-handle"></div></div></div>')
 								.appendTo(newFormItem)
 								.find('div.ui-slider')
-								.slider();
+								.slider({
+									min:		parseInt(options[i].min, 10), 
+									max:		parseInt(options[i].max, 10)
+								});
 /*
 {
 									min:		parseInt(options[i].min, 10), 
