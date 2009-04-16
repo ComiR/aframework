@@ -10,12 +10,20 @@ form.jquery-pixastic-editor-form {
 	margin: 0 10px 0 0;
 }
 
+ul.jquery-pixastic-editor-toolbar {
+	margin: 0 5px 0 0;
+}
+
 /* vertical-toolbar, horizontal-form */
 div.jquery-pixastic-editor.horizontal-form:not(.horizontal-toolbar) img, 
 div.jquery-pixastic-editor.horizontal-form:not(.horizontal-toolbar) canvas, 
 div.jquery-pixastic-editor.horizontal-form:not(.horizontal-toolbar) ul.jquery-pixastic-editor-toolbar {
 	float: left;
 	margin: 0 10px 10px 0;
+}
+
+div.jquery-pixastic-editor.horizontal-form:not(.horizontal-toolbar) ul.jquery-pixastic-editor-toolbar {
+	margin: 0 5px 0 0;
 }
 
 div.jquery-pixastic-editor.horizontal-form:not(.horizontal-toolbar) form.jquery-pixastic-editor-form {
@@ -29,6 +37,10 @@ div.jquery-pixastic-editor.horizontal-form.horizontal-toolbar ul.jquery-pixastic
 div.jquery-pixastic-editor.horizontal-form.horizontal-toolbar form.jquery-pixastic-editor-form {
 	float: none;
 	margin: 0 0 10px;
+}
+
+div.jquery-pixastic-editor.horizontal-form.horizontal-toolbar ul.jquery-pixastic-editor-toolbar {
+	margin: 0 0 5px;
 }
 
 /* horizontal-toolbar, vertical-form (looks shit, don't use) */
@@ -100,8 +112,8 @@ div.jquery-pixastic-editor {
 		=== The list of actions ===
 	*/
 	ul.jquery-pixastic-editor-toolbar {
-		margin: 0;
-		padding: 0;
+		margin-left: 0;
+		padding-left: 0;
 		list-style: none;
 		overflow: hidden; /* Self-clear */
 	}
