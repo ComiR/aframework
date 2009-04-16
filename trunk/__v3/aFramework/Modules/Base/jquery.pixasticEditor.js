@@ -307,10 +307,9 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 									max:		parseInt(options[i].max, 10), 
 									value:		parseInt(newFormItem.find(':input').val(), 10), 
 									slide:		function (e, ui) {
-console.dir(ui.handle);
+
 console.dir(ui.handle.parents('p').eq(0));
 console.dir(ui.handle.parents('p').eq(0).find(':input'));
-console.dir(ui.handle.parents('p').eq(0).find(':input').val());
 										ui.handle
 											.parents('p')
 											.eq(0)
