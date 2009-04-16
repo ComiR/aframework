@@ -306,30 +306,24 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 									min:		parseInt(options[i].min, 10), 
 									max:		parseInt(options[i].max, 10), 
 									value:		parseInt(newFormItem.find(':input').val(), 10), 
+								//	stepping:	options[i].type == 'float' ? 0.1 : 1, 
 									slide:		function (e, ui) {
-console.dir(ui.handle);
-// console.log(ui.handle.parents('p').eq(0).length + ui.handle.parents('p').eq(0)[0].nodeName);
-// console.log(ui.handle.parents('p').eq(0).find(':input').length + ui.handle.parents('p').eq(0).find(':input')[0].nodeName);
-										ui.handle
+										jQuery(ui.handle)
 											.parents('p')
 											.eq(0)
 												.find(':input')
 													.val(ui.value);
-									}
-								});
-/*
-{
-								//	stepping:	options[i].type == 'float' ? 0.1 : 1, 
+									}, 
 									change:		function (e, ui) {
-										ui.handle
+										jQuery(ui.handle)
 											.parents('p')
 											.eq(0)
 												.find(':input')
 													.val(ui.value)
 													.change(); // Only trigger change when user stops sliding
 									}
-								}
-*/
+								});
+
 							// Update the slider when the input changes
 							newFormItem.find(':input').keyup(function () {
 								jQuery(this)
