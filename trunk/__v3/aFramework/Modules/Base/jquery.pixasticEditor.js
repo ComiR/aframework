@@ -307,11 +307,12 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 									max:		parseInt(options[i].max, 10), 
 									value:		parseInt(newFormItem.find(':input').val(), 10), 
 									slide:		function (e, ui) {
-										ui.handle
+										console.dir(ui);
+									/*	ui.handle
 											.parents('p')
 											.eq(0)
 												.find(':input')
-													.val(ui.value);
+													.val(ui.value); */
 									}
 								});
 /*
