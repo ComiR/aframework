@@ -110,7 +110,7 @@ div.jquery-pixastic-editor {
 		}
 
 			ul.jquery-pixastic-editor-toolbar li a {
-				background: url(common_gfx/jquery.pixasticEditor.png);
+				background: url(common_gfx/jquery.pixasticEditor.gif);
 
 				display: block;
 				width: 25px;
@@ -196,8 +196,6 @@ div.jquery-pixastic-editor {
 					width: 100px;
 				}
 
-				form.jquery-pixastic-editor-form fieldset p input.submit = $save-button;
-				form.jquery-pixastic-editor-form fieldset p input.reset = $cancel-button;
 				form.jquery-pixastic-editor-form fieldset p input.reset {
 					position: absolute;
 					right: 0;
