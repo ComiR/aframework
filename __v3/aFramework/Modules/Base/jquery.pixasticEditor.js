@@ -302,7 +302,9 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 							jQuery('<div class="' + config.className + '-slider"><div class="ui-slider"><div class="ui-slider-handle"></div></div></div>')
 								.appendTo(newFormItem)
 								.find('div.ui-slider')
-								.slider({
+								.slider();
+/*
+{
 									min:		parseInt(options[i].min, 10), 
 									max:		parseInt(options[i].max, 10), 
 								//	stepping:	options[i].type == 'float' ? 0.1 : 1, 
@@ -322,8 +324,8 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 													.val(ui.value)
 													.change(); // Only trigger change when user stops sliding
 									}
-								});
-
+								}
+*/
 							// Update the slider when the input changes
 							newFormItem.find(':input').keyup(function () {
 								jQuery(this)
