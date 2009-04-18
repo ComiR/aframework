@@ -70,3 +70,15 @@ $jquery-example-box {
 			#jquery-drag-to-select-example ul li img {
 				width: 100%;
 			}
+
+/*
+	=== Pixastic Editor ===
+*/
+#jquery-pixastic-editor-example {
+	overflow: auto;
+	position: relative;
+}
+
+	#jquery-pixastic-editor-example div.jquery-drag-to-select.fake-active {
+		display: block;
+	}

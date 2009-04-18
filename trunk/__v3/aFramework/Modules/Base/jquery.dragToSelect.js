@@ -3,7 +3,7 @@
 Drag to Select
 
 @version:
-1.0
+1.1
 
 @author:
 Andreas Lagerkvist
@@ -27,7 +27,7 @@ jquery, jquery.dragToSelect.css
 Use this plug-in to allow your users to select certain elements by dragging a "select box". Works very similar to how you can drag-n-select files and folders in most OS:es.
 
 @howto:
-$('#my-files li').dragToSelect(); would make every li in the #my-files-element selectable by dragging. The li:s will recieve a "selected"-class when they are within range of the select box when user drops.
+$('#my-files').dragToSelect(selectables: 'li'); would make every li in the #my-files-element selectable by dragging. The li:s will recieve a "selected"-class when they are within range of the select box when user drops.
 
 Make sure a parent-element of the selectables has position: relative as well as overflow: auto or scroll.
 
@@ -39,7 +39,8 @@ Make sure a parent-element of the selectables has position: relative as well as 
 </ul>
 
 @exampleJS:
-$('#jquery-drag-to-select-example li').dragToSelect({
+$('#jquery-drag-to-select-example').dragToSelect({
+	selectables: 'li', 
 	onHide: function () {
 		alert($('#jquery-drag-to-select-example li.selected').length + ' selected');
 	}
@@ -48,20 +49,19 @@ $('#jquery-drag-to-select-example li').dragToSelect({
 jQuery.fn.dragToSelect = function (conf) {
 	// Config
 	var config = jQuery.extend({
-		id:				'jquery-drag-to-select', 
+		className:		'jquery-drag-to-select', 
 		activeClass:	'active', 
 		selectedClass:	'selected', 
 		scrollTH:		10, 
+		selectables:	false, 
 		autoScroll:		false, 
 		selectOnMove:	false, 
-		onShow:			function () {}, 
-		onHide:			function () {}, 
-		onRefresh:		function () {}
+		onShow:			function () {return true;}, 
+		onHide:			function () {return true;}, 
+		onRefresh:		function () {return true;}
 	}, conf);
 
-	// Store the selectable and parent (first parent with offset)
-	var selectable	= $(this);
-	var parent		= selectable.parent();
+	var parent = jQuery(this);
 
 	do {
 		if (/auto|scroll/.test(parent.css('overflow'))) {
@@ -87,7 +87,7 @@ jQuery.fn.dragToSelect = function (conf) {
 	// Create select box
 	var selectBox = jQuery('<div/>')
 						.appendTo(parent)
-						.attr('id', config.id)
+						.attr('class', config.className)
 						.css('position', 'absolute');
 
 	// Shows the select box
@@ -140,15 +140,14 @@ jQuery.fn.dragToSelect = function (conf) {
 		config.onRefresh();
 	};
 
-	// Function to hide select box
+	// Hides the select box
 	var hideSelectBox = function (e) {
 		if (!selectBox.is('.' + config.activeClass)) {
 			return;
 		}
-
-		selectBox.removeClass(config.activeClass);
-
-		config.onHide();
+		if (config.onHide(selectBox) !== false) {
+			selectBox.removeClass(config.activeClass);
+		}
 	};
 
 	// Scrolls parent if needed
@@ -181,15 +180,16 @@ jQuery.fn.dragToSelect = function (conf) {
 			return;
 		}
 
-		var selectBoxOffset = selectBox.offset();
-		var selectBoxDim = {
+		var selectables		= parent.find(config.selectables);
+		var selectBoxOffset	= selectBox.offset();
+		var selectBoxDim	= {
 			left:	selectBoxOffset.left, 
 			top:	selectBoxOffset.top, 
 			width:	selectBox.width(), 
 			height:	selectBox.height()
 		};
 
-		selectable.each(function (i) {
+		selectables.each(function (i) {
 			var el			= $(this);
 			var elOffset	= el.offset();
 			var elDim		= {
@@ -218,17 +218,24 @@ jQuery.fn.dragToSelect = function (conf) {
 		.mousemove(function (e) {
 			refreshSelectBox(e);
 
-			if (config.selectOnMove) {			
+			if (config.selectables && config.selectOnMove) {			
 				selectElementsInRange();
 			}
 
 			if (config.autoScroll) {
 				scrollPerhaps(e);
 			}
+
+			e.preventDefault();
 		})
 		.mouseup(function(e) {
-			selectElementsInRange();
+			if (config.selectables) {			
+				selectElementsInRange();
+			}
+
 			hideSelectBox(e);
+
+			e.preventDefault();
 		});
 
 	if (jQuery.fn.disableTextSelect) {
@@ -236,21 +243,32 @@ jQuery.fn.dragToSelect = function (conf) {
 	}
 
 	parent
-		.mousedown(showSelectBox)
+		.mousedown(function (e) {
+			showSelectBox(e);
+
+			e.preventDefault();
+		})
 		.mousemove(function (e) {
 			refreshSelectBox(e);
 
-			if (config.selectOnMove) {			
+			if (config.selectables && config.selectOnMove) {			
 				selectElementsInRange();
 			}
 
 			if (config.autoScroll) {
 				scrollPerhaps(e);
 			}
+
+			e.preventDefault();
 		})
 		.mouseup(function (e) {
-			selectElementsInRange();
+			if (config.selectables) {			
+				selectElementsInRange();
+			}
+
 			hideSelectBox(e);
+
+			e.preventDefault();
 		});
 
 	// Be nice
