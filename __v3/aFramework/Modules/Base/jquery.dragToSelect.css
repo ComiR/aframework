@@ -1,4 +1,4 @@
-#jquery-drag-to-select {
+div.jquery-drag-to-select {
 	background: #def;
 
 	display: none;
@@ -9,6 +9,6 @@
 	border: 1px solid #369;
 }
 
-#jquery-drag-to-select.active {
+div.jquery-drag-to-select.active {
 	display: block;
 }
