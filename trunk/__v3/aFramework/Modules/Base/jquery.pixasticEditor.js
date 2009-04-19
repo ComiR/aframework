@@ -27,7 +27,7 @@ jquery, jquery.pixasticEditor.css, jquery.form.js, pixastic.custom.js
 This plug-in inserts a stylable toolbar next to any image in your document that allows the user to apply different Pixastic-effects to the image.
 
 @howto:
-$('#my-image').pixasticEditor(); would insert the editor in the #my-image-element and affect any img-element within #my-image. Since it's not possible to append a list or div or any other element directly to an image, the plug-in should be run on a parent-element (preferably div) of the image.
+$('#my-image').pixasticEditor(); would insert the editor in the #my-image-element and affect an img-element within #my-image. Since it's not possible to append a list or div or any other element directly to an image, the plug-in should be run on a parent-element (preferably div) of the img-element. If you have a list of images you could run it on each li of the list.
 
 @exampleHTML:
 <img src="/af/AndreasLagerkvist/Files/lamp-and-mates.jpg" alt="Lamp and Mates" />
@@ -73,9 +73,10 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 			var container	= jQuery(this).addClass(config.className);
 			var image		= jQuery(this).find('img').addClass(config.className + '-image')[0];
 
-			// Run DragToSelect on container - every effect can be applied to just a portion of the image
+			// Wrap the image in a container and run DragToSelect on it
+			// - every effect can be applied to just a portion of the image
 			if (jQuery.fn.dragToSelect) {
-				container.dragToSelect({
+				jQuery(image).wrap('<div/>').parent().addClass(config.className + '-drag-to-select').dragToSelect({
 					onHide: function (box) {
 						if (box.width() < 2) {
 							box.removeClass('fake-active');
@@ -161,13 +162,21 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 
 							// Applies the effect to the image
 							var doEffect = function (opts) {
+								var o = opts || null;
+
 								// Some effects take a while, add a loading-class
 								clicked.addClass(config.loadingClass);
 
+								// If drag to select is used, set the rect-option from its size
+								if (container.find('div.jquery-drag-to-select.fake-active').length) {
+									o.rect = self.getRectFromBox();
+								}
+
 								// Store the canvas for later use and run the effect on either previous canvas or image (first run)
-								self.canvas = Pixastic.process(self.canvas || self.image, effect, opts || null, function () {
-									// When done, remove loading-class
+								self.canvas = Pixastic.process(self.canvas || self.image, effect, o, function () {
+									// When done, remove loading-class and rect
 									clicked.removeClass(config.loadingClass);
+									container.find('div.jquery-drag-to-select.fake-active').removeClass('fake-active');
 								});
 							};
 
@@ -224,6 +233,22 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 					}
 
 					return options;
+				}, 
+
+				/**
+				 * Returns a rect-object based on a drag to select div's dimensions
+				 **/
+				getRectFromBox: function () {
+					var imageOffset	= container.find('div.jquery-pixastic-editor-drag-to-select').offset();
+					var box			= container.find('div.jquery-drag-to-select')
+					var boxOffset	= box.offset();
+
+					return {
+						left:	boxOffset.left - imageOffset.left, 
+						top:	boxOffset.top - imageOffset.top, 
+						width:	box.width(), 
+						height:	box.height()
+					};
 				}, 
 
 				/**

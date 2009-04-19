@@ -91,6 +91,23 @@ div.jquery-pixastic-editor {
 	overflow: hidden; /* Self-clear */
 }
 
+	/* Drag to select container */
+	div.jquery-pixastic-editor-drag-to-select {
+		overflow: hidden;
+		position: relative;
+	}
+
+		/* Hack to allow clicking canvas but don't use 
+		div.jquery-pixastic-editor div.jquery-drag-to-select {
+			margin-left: -5px;
+			margin-top: -5px;
+		}*/
+
+		/* So box doesn't disappear onmouseup */
+		div.jquery-pixastic-editor div.jquery-drag-to-select.fake-active {
+			display: block;
+		}
+
 	/*
 		=== The actual image being edited ===
 	*/
