@@ -64,7 +64,7 @@ jQuery.fn.dragToSelect = function (conf) {
 	var parent = jQuery(this);
 
 	do {
-		if (/auto|scroll/.test(parent.css('overflow'))) {
+		if (/auto|scroll|hidden/.test(parent.css('overflow'))) {
 			break;
 		}
 		parent = parent.parent();
