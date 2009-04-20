@@ -47,10 +47,13 @@ $('#jquery-drag-to-select-example').dragToSelect({
 });
 ***/
 jQuery.fn.dragToSelect = function (conf) {
+	var c = typeof(conf) == 'object' ? conf : {};
+
 	// Config
 	var config = jQuery.extend({
 		className:		'jquery-drag-to-select', 
 		activeClass:	'active', 
+		disabledClass:	'disabled', 
 		selectedClass:	'selected', 
 		scrollTH:		10, 
 		selectables:	false, 
@@ -59,7 +62,7 @@ jQuery.fn.dragToSelect = function (conf) {
 		onShow:			function () {return true;}, 
 		onHide:			function () {return true;}, 
 		onRefresh:		function () {return true;}
-	}, conf);
+	}, c);
 
 	var parent = jQuery(this);
 
@@ -69,6 +72,16 @@ jQuery.fn.dragToSelect = function (conf) {
 		}
 		parent = parent.parent();
 	} while (parent[0].parentNode);
+
+	// Does user want to disable dragToSelect
+	if (conf == 'disable') {
+		parent.addClass(config.disabledClass);
+		return this;
+	}
+	else if (conf == 'enable') {
+		parent.removeClass(config.disabledClass);
+		return this;
+	}
 
 	var parentOffset	= parent.offset();
 	var parentDim		= {
@@ -92,6 +105,10 @@ jQuery.fn.dragToSelect = function (conf) {
 
 	// Shows the select box
 	var showSelectBox = function (e) {
+		if (parent.is('.' + config.disabledClass)) {
+			return;
+		}
+
 		selectBoxOrigin.left	= e.pageX - parentDim.left + parent[0].scrollLeft;
 		selectBoxOrigin.top		= e.pageY - parentDim.top + parent[0].scrollTop;
 
@@ -108,7 +125,7 @@ jQuery.fn.dragToSelect = function (conf) {
 
 	// Refreshes the select box dimensions and possibly position
 	var refreshSelectBox = function (e) {
-		if (!selectBox.is('.' + config.activeClass)) {
+		if (!selectBox.is('.' + config.activeClass) || parent.is('.' + config.disabledClass)) {
 			return;
 		}
 
@@ -142,7 +159,7 @@ jQuery.fn.dragToSelect = function (conf) {
 
 	// Hides the select box
 	var hideSelectBox = function (e) {
-		if (!selectBox.is('.' + config.activeClass)) {
+		if (!selectBox.is('.' + config.activeClass) || parent.is('.' + config.disabledClass)) {
 			return;
 		}
 		if (config.onHide(selectBox) !== false) {
@@ -152,7 +169,7 @@ jQuery.fn.dragToSelect = function (conf) {
 
 	// Scrolls parent if needed
 	var scrollPerhaps = function (e) {
-		if (!selectBox.is('.' + config.activeClass)) {
+		if (!selectBox.is('.' + config.activeClass) || parent.is('.' + config.disabledClass)) {
 			return;
 		}
 
@@ -176,7 +193,7 @@ jQuery.fn.dragToSelect = function (conf) {
 
 	// Selects all the elements in the select box's range
 	var selectElementsInRange = function () {
-		if (!selectBox.is('.' + config.activeClass)) {
+		if (!selectBox.is('.' + config.activeClass) || parent.is('.' + config.disabledClass)) {
 			return;
 		}
 
