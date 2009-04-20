@@ -123,6 +123,12 @@ div.jquery-pixastic-editor {
 		cursor: pointer;
 	}
 
+		div.jquery-pixastic-editor div.jquery-pixastic-editor-drag-to-select img, 
+		div.jquery-pixastic-editor div.jquery-pixastic-editor-drag-to-select canvas {
+			float: none !important;
+			margin: 0 !important;
+		}
+
 	/* If user has fullPreview */
 	canvas.jquery-pixastic-editor-preview {
 		position: absolute;
