@@ -15,7 +15,7 @@
 		public static function run () {
 			if (isset($_GET['module'])) {
 				if (XHR) {
-					echo str_replace(array("\n", "\n\r", "\r\n" ,"\r" , "\t"), "", self::runSingleModule(removeDots($_GET['module'])));
+					echo HTMLPacker::pack(self::runSingleModule(removeDots($_GET['module'])));
 				}
 				else {
 					echo self::runSingleModule(removeDots($_GET['module']));
@@ -26,7 +26,7 @@
 					FourOFour::run();
 				}
 				else {
-					echo str_replace(array("\n", "\n\r", "\r\n" ,"\r" , "\t"), "", self::runController(removeDots($_GET['controller'])));
+					echo HTMLPacker::pack(self::runController(removeDots($_GET['controller'])));
 				}
 			}
 		}
