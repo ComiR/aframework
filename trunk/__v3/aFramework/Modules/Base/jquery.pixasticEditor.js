@@ -171,6 +171,9 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 								if (container.find('div.jquery-drag-to-select.fake-active').length) {
 									o.rect = self.getRectFromBox();
 								}
+								else {
+									o.rect = self.getRectFromImage();
+								}
 
 								// Store the canvas for later use and run the effect on either previous canvas or image (first run)
 								self.canvas = Pixastic.process(self.canvas || self.image, effect, o, function () {
@@ -239,7 +242,7 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 				 * Returns a rect-object based on a drag to select div's dimensions
 				 **/
 				getRectFromBox: function () {
-					var imageOffset	= container.find('div.jquery-pixastic-editor-drag-to-select').offset();
+					var imageOffset	= container.find('div.' + config.className + '-drag-to-select').offset();
 					var box			= container.find('div.jquery-drag-to-select')
 					var boxOffset	= box.offset();
 
@@ -248,6 +251,20 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 						top:	boxOffset.top - imageOffset.top, 
 						width:	box.width(), 
 						height:	box.height()
+					};
+				}, 
+
+				/**
+				 * Returns a rect-object based on the image's dimensions
+				 **/
+				getRectFromImage: function () {
+					var img	= container.find('.' + config.className + '-image').offset();
+
+					return {
+						left:	0, 
+						top:	0, 
+						width:	img.width(), 
+						height:	img.height()
 					};
 				}, 
 
