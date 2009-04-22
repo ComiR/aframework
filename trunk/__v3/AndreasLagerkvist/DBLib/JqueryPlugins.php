@@ -1,10 +1,11 @@
 <?php
 	class JqueryPlugins {
 		private static $notMyPlugins = array(
-			'easing', 
-			'form', 
-			'scrollTo', 
-			'disableTextSelect'
+			'jquery.easing.js', 
+			'jquery.form.js', 
+			'jquery.scrollTo.js', 
+			'jquery.disableTextSelect.js', 
+			'pixastic.custom.js'
 		);
 
 		public static function get () {
@@ -15,7 +16,7 @@
 			while ($f = readdir($dh)) {
 				$matches = array();
 
-				if (preg_match('/^jquery\.(.*?)\.js$/i', $f, $matches) and !in_array($matches[1], self::$notMyPlugins)) {
+				if (preg_match('/^jquery\.(.*?)\.js$/i', $f, $matches) and !in_array($matches[0], self::$notMyPlugins)) {
 					$plugin = self::pluginAsArray($matches[1]);
 
 					if ($plugin) {
@@ -91,7 +92,7 @@
 			$row['license']				= htmlentities($row['license']);
 			$row['copyright']			= htmlentities($row['copyright']);
 
-			$row['files']				= self::getPluginFiles($row['name'] .', ' .$row['requires']);
+			$row['files']				= self::getPluginFiles('jquery.' . $row['name'] .'.js, ' .$row['requires']);
 			$row['files']['csv_names']	= array();
 
 			foreach ($row['files']['plugin'] as $f) {
@@ -143,15 +144,15 @@
 						'url'	=> WEBROOT . 'aFramework/Styles/gfx/' . $req
 					);
 				}
-				elseif (file_exists(DOCROOT .'aFramework/Modules/Base/jquery.' . $req . '.js')) {
-					#$jsp	= new JavaScriptPacker(file_get_contents(DOCROOT . 'aFramework/Modules/Base/jquery.' . $req . '.js'));
+				elseif ('js' == $ext and file_exists(DOCROOT .'aFramework/Modules/Base/' . $req)) {
+					#$jsp	= new JavaScriptPacker(file_get_contents(DOCROOT . 'aFramework/Modules/Base/' . $req));
 					$psize	= true; # strlen($jsp->pack());
 
 					$tmpPlugin = array(
-						'name'	=> 'jquery.' . $req . '.js', 
+						'name'	=> $req, 
 						'ext'	=> 'js', 
-						'url'	=> WEBROOT . 'aFramework/Modules/Base/jquery.' . $req . '.js', 
-						'size'	=> filesize(DOCROOT . 'aFramework/Modules/Base/jquery.' . $req . '.js'), 
+						'url'	=> WEBROOT . 'aFramework/Modules/Base/' . $req, 
+						'size'	=> filesize(DOCROOT . 'aFramework/Modules/Base/' . $req), 
 						'psize'	=> $psize
 					);
 

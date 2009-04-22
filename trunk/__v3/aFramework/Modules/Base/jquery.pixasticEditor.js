@@ -258,7 +258,7 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 				 * Returns a rect-object based on the image's dimensions
 				 **/
 				getRectFromImage: function () {
-					var img	= container.find('.' + config.className + '-image').offset();
+					var img	= container.find('.' + config.className + '-image');
 
 					return {
 						left:	0, 

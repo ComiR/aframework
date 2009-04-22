@@ -90,7 +90,7 @@
 			</a>
 
 			<?php if($file['size']) { ?>
-				<small>
+				 <small>
 					(<?php echo round($file['size'] / 1024, 2); ?> kb <?php echo Lang::get('Unpacked'); ?>)
 					<?php if($file['psize']) { ?>
 						 (<!--<?php #echo round($file['psize'] / 1024, 2); ?> kb -->
@@ -108,6 +108,6 @@
 
 <ul>
 	<li><a href="http://www.jquery.com">jQuery.com</a></li>
-	<li><a href="http://plugins.jquery.com/project/<?php echo $plugin['name']; ?>">This plug-in on jQuery.com</a></li>
-	<li><a href="http://plugins.jquery.com/project/issues/<?php echo $plugin['name']; ?>?category=bug">File a bug!</a></li>
+	<li><a href="http://plugins.jquery.com/project/<?php echo $plugin['url_str']; ?>">This plug-in on jQuery.com</a></li>
+	<li><a href="http://plugins.jquery.com/project/issues/<?php echo $plugin['url_str']; ?>?category=bug">File a bug!</a></li>
 </ul>
