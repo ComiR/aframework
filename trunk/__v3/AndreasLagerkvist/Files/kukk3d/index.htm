@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+	<head>
+
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<link rel="stylesheet" type="text/css" media="screen,projection" href="css/all.php" />
+
+		<title>Kukk 3D Demo</title>
+
+	</head>
+
+	<body>
+
+		<h1>Kukk 3D Demo</h1>
+
+		<canvas id="kukk3d"></canvas>
+
+		<script type="text/javascript" src="kukk3d.js"></script>
+		<script type="text/javascript">
+			(function () {
+				var fillColor = {r: 0, g: 0, b: 0, a: 1};
+
+				Kukk3D.init('kukk3d');
+
+				// Create a cube
+				var myObject = Kukk3D.addObject({
+					position: {
+						x: 0, y: 0, z: 1000
+					}, 
+					rotation: {
+		
+					}, 
+					vectors: [
+						{x: -100,	y: -100,	z: 0}, 
+						{x: 100,	y: -100,	z: 0}, 
+						{x: 100,	y: 100,		z: 0}, 
+						{x: -100,	y: 100,		z: 0}, 
+						{x: -100,	y: -100,	z: 100}, 
+						{x: 100,	y: -100,	z: 100}, 
+						{x: 100,	y: 100,		z: 100}, 
+						{x: -100,	y: 100,		z: 100}
+					]
+				});
+
+				Kukk3D.render(fillColor);
+
+				setInterval(function () {
+					myObject.position.z -= 50;
+					myObject.position.z = myObject.position.z < 0 ? 1000 : myObject.position.z;
+
+					Kukk3D.render(fillColor);
+				}, 200);
+			})();
+		</script>
+
+	</body>
+
+</html>
