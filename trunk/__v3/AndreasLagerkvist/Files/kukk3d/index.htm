@@ -22,8 +22,10 @@
 		<script type="text/javascript" src="kukk3d.js"></script>
 		<script type="text/javascript">
 			(function () {
+				// BG for canvas
 				var fillColor = {r: 0, g: 0, b: 0, a: 1};
 
+				// Init 3D-engine and pass canvas ID
 				Kukk3D.init('kukk3d');
 
 				// Create a cube
@@ -32,7 +34,10 @@
 						x: 0, y: 0, z: 1000
 					}, 
 					rotation: {
-		
+						x: 0, y: 0, z: 0
+					}, 
+					size: {
+						x: 1, y: 1, z: 1
 					}, 
 					vectors: [
 						{x: -100,	y: -100,	z: 0}, 
@@ -46,12 +51,19 @@
 					]
 				});
 
+				// Render once now
 				Kukk3D.render(fillColor);
 
+				// And 5 times a second
 				setInterval(function () {
+					// Draw object closer to screen
 					myObject.position.z -= 50;
 					myObject.position.z = myObject.position.z < 0 ? 1000 : myObject.position.z;
 
+					// And rotate a bit
+					myObject.rotation.x += 36;
+
+					// Re-render scene
 					Kukk3D.render(fillColor);
 				}, 200);
 			})();

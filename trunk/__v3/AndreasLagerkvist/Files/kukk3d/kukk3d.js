@@ -8,6 +8,18 @@ var Kukk3D = {
 	context:	false,	// Canvas 2D Context
 	objects:	[],		// Objects currently in the scene
 	objectID:	0,		// Object ID tracker
+	camera:		{		// Kukk3D Camera
+		position: {
+			x: 0, 
+			y: 0, 
+			z: 0
+		}, 
+		rotation: {
+			x: 0, 
+			y: 0, 
+			z: 0
+		}
+	}, 
 
 	/**
 	 * init
@@ -16,7 +28,6 @@ var Kukk3D = {
 	init: function (el, width, height) {
 		if (!document.createElement('canvas').getContext) {
 			alert('Your browser does not support the canvas element');
-
 			return false;
 		}
 
@@ -35,10 +46,10 @@ var Kukk3D = {
 		var numVectors, i, j;
 
 		if (fillColor) {
-			this.fill(fillColor);
+			this.fillScene(fillColor);
 		}
 		else {
-			this.clear();
+			this.clearScene();
 		}
 
 		// Render every object
@@ -94,7 +105,7 @@ var Kukk3D = {
 		// The frame loop
 		setInterval(function () {
 			// Black BG
-			self.fill({r: 0, g: 0, b: 0, a: 1});
+			self.fillScene({r: 0, g: 0, b: 0, a: 1});
 
 			// Move and draw stars
 			for (i = 0; i < num; i++) {
@@ -114,6 +125,10 @@ var Kukk3D = {
 				});
 			}
 		}, 25);
+	}, 
+
+	calculateRotationMatrix: function (degrees, axis) {
+		
 	}, 
 
 	/**
@@ -145,20 +160,20 @@ var Kukk3D = {
 	}, 
 
 	/**
-	 * fill
+	 * fillScene
 	 *
 	 **/
-	fill: function (c) {
+	fillScene: function (c) {
 		this.context.fillStyle = 'rgba(' + c.r + ', ' + c.g + ', ' + c.b + ', ' + c.a + ')';
 
 		this.context.fillRect(0, 0, this.canvas.width, this.canvas.height);	
 	}, 
 
 	/**
-	 * clear
+	 * clearScene
 	 *
 	 **/
-	clear: function () {
+	clearScene: function () {
 		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);	
 	}, 
 
