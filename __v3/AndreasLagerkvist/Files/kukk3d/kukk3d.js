@@ -87,14 +87,21 @@ var Kukk3D = {
 	 *
 	 **/
 	transformVectorInObject: function (vector, object) {
-		// Create new vector with object and camera position and object scale
+		// Create new vector and scale it
 		var newVector = {
-			x: object.position.x + vector.x * object.scale.x - this.camera.position.x, 
-			y: object.position.y + vector.y * object.scale.y - this.camera.position.y, 
-			z: object.position.z + vector.z * object.scale.z - this.camera.position.z
+			x: vector.x * object.scale.x, 
+			y: vector.y * object.scale.y, 
+			z: vector.z * object.scale.z
 		};
 
-		// Object and camera rotation
+		// Rotate object around self
+
+		// Move vector to its 'real' positin
+		newVector.x += object.position.x - this.camera.position.x;
+		newVector.y += object.position.y - this.camera.position.y;
+		newVector.z += object.position.z - this.camera.position.z;
+
+		// Rotate object around camera
 
 		return newVector;
 	}, 
@@ -176,6 +183,42 @@ var Kukk3D = {
 
 		return false;
 	},
+
+	/**
+	 * multiplyMatrixNMatrix
+	 *
+	 **/
+	multiplyMatrixNMatrix: function (m1, m2) {
+		return [
+			{
+				x: m1[0].x * m2[0].x + m1[0].y * m2[1].x + m1[0].z * m2[2].x, 
+				y: m1[0].x * m2[0].y + m1[0].y * m2[1].y + m1[0].z * m2[2].y, 
+				z: m1[0].x * m2[0].z + m1[0].z * m2[1].z + m1[0].z * m2[2].z
+			}, 
+			{
+				x: m1[1].x * m2[0].x + m1[1].y * m2[1].x + m1[1].z * m2[2].x, 
+				y: m1[1].x * m2[0].y + m1[1].y * m2[1].y + m1[1].z * m2[2].y, 
+				z: m1[1].x * m2[0].z + m1[1].z * m2[1].z + m1[1].z * m2[2].z
+			}, 
+			{
+				x: m1[2].x * m2[0].x + m1[2].y * m2[1].x + m1[2].z * m2[2].x, 
+				y: m1[2].x * m2[0].y + m1[2].y * m2[1].y + m1[2].z * m2[2].y, 
+				z: m1[2].x * m2[0].z + m1[2].z * m2[1].z + m1[2].z * m2[2].z
+			}
+		];
+	}, 
+
+	/**
+	 * multiplyVectorNMatrix
+	 *
+	 **/
+	multiplyVectorNMatrix: function (v, m) {
+		return {
+			x: v.x * m[0].x + v.y * m[0].y + v.z * m[0].z, 
+			y: v.x * m[1].x + v.y * m[1].y + v.z * m[1].z, 
+			z: v.x * m[2].x + v.y * m[2].y + v.z * m[2].z
+		};
+	}, 
 
 	/**
 	 * starField
