@@ -1,9 +1,9 @@
 <?php
 	class HTMLPacker {
 		public static function pack ($html, $exceptIn = array(
-															'<script type="text/javascript">'	=> '</script>', 
-															'<pre>'								=> '</pre>', 
-															'<textarea>'						=> '</textarea>')) {
+															'<script.*?>'	=> '</script>', 
+															'<pre.*?>'		=> '</pre>', 
+															'<textarea.*?>'	=> '</textarea>')) {
 
 			$ignoredBlocks = array();
 
