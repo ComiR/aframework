@@ -40,7 +40,7 @@
 				GROUP BY
 					' . Config::get('db.table_prefix') . 'articles.articles_id
 				HAVING
-					' . Config::get('db.table_prefix') . 'articles.pub_date <= CURDATE() AND 
+					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "' . $dateFormatA . '") = ' . $pubDate . '
 				ORDER BY 
 					' . Config::get('db.table_prefix') . 'articles.pub_date DESC
@@ -78,7 +78,7 @@
 				LEFT JOIN
 					' . Config::get('db.table_prefix') . 'tags USING(tags_id)
 				WHERE
-					' . Config::get('db.table_prefix') . 'articles.pub_date <= CURDATE() AND 
+					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND 
 					tags.url_str = "' . esc($urlStr) . '"
 				GROUP BY
 					' . Config::get('db.table_prefix') . 'articles.articles_id
@@ -115,7 +115,7 @@
 				GROUP BY
 					' . Config::get('db.table_prefix') . 'articles.articles_id
 				HAVING
-					' . Config::get('db.table_prefix') . 'articles.pub_date <= CURDATE() AND 
+					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND 
 					' . Config::get('db.table_prefix') . 'articles.url_str = "' . esc($urlStr) . '"
 				LIMIT 1
 			');
@@ -143,7 +143,7 @@
 				GROUP BY
 					' . Config::get('db.table_prefix') . 'articles.articles_id
 				HAVING
-					' . Config::get('db.table_prefix') . 'articles.pub_date <= CURDATE()
+					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW()
 				ORDER BY
 					' . Config::get('db.table_prefix') . 'articles.' . esc($sort) . ' ' . esc($order) . '
 				LIMIT
@@ -172,7 +172,7 @@
 				'url_str'			=> $row['url_str'], 
 				'title'				=> $row['title'], 
 				'content'			=> $row['content'], 
-				'pub_date'			=> isset($row['pub_date']) ? $row['pub_date'] : date('Y-m-d H:i:s'), 
+				'pub_date'			=> (isset($row['pub_date']) and strlen($row['pub_date'])) ? $row['pub_date'] : date('Y-m-d H:i:s'), 
 				'allow_comments'	=> $row['allow_comments'] ? 1 : 0, 
 				'allow_rating'		=> $row['allow_rating'] ? 1 : 0, 
 				'meta_keywords'		=> $row['meta_keywords'], 
