@@ -4,11 +4,12 @@
  * Copyright (c) 2009 Andreas Lagerkvist
  **/
 var Kukk3D = {
-	canvas:		false,	// Kukk3D Canvas
-	context:	false,	// Canvas 2D Context
-	objects:	[],		// Objects currently in the scene
-	objectID:	0,		// Object ID tracker
-	camera:		{		// Kukk3D Camera
+	canvas:			false,	// Kukk3D Canvas
+	context:		false,	// Canvas 2D Context
+	objects:		[],		// Objects currently in the scene
+	objectID:		0,		// Object ID tracker
+	drawDistance:	2500,	// Draw distance (max z-index)
+	camera:			{		// Kukk3D Camera
 		position: {
 			x: 0, 
 			y: 0, 
@@ -43,7 +44,7 @@ var Kukk3D = {
 	 **/
 	render: function (fillColor) {
 		var numObjects = this.objects.length;
-		var numVectors, i, j;
+		var numVectors, i, j, transformedObject;
 
 		if (fillColor) {
 			this.fillScene(fillColor);
@@ -58,77 +59,44 @@ var Kukk3D = {
 
 			// Render every vector in every object
 			for (j = 0; j < numVectors; j++) {
-				// Unless it's behind the camera
-				if (this.objects[i].position.z + this.objects[i].vectors[j].z >= 0) {
-					this.objects[i].vectors[j].xy = this.xyz2xy({
-						x: this.objects[i].position.x + this.objects[i].vectors[j].x, 
-						y: this.objects[i].position.y + this.objects[i].vectors[j].y, 
-						z: this.objects[i].position.z + this.objects[i].vectors[j].z
+				transformedVector = this.transformVectorInObject(this.objects[i].vectors[j], this.objects[i]);
+
+				// Unless it's behind the viewport
+				if (transformedVector.z >= 0) {
+					// Turn X, Y and Z into just X and Y
+					transformedVector.xy = this.xyz2xy({
+						x: transformedVector.x, 
+						y: transformedVector.y, 
+						z: transformedVector.z
 					});
 
-					this.plot(this.objects[i].vectors[j].xy.x, this.objects[i].vectors[j].xy.y, {
+					// And plot the vector
+					this.plot(transformedVector.xy.x, transformedVector.xy.y, {
 						r: 255, 
 						g: 0, 
 						b: 0, 
-						a: 1 - this.objects[i].vectors[j].z / 2500
+						a: 1 - this.objects[i].vectors[j].z / this.drawDistance // Opacity based on distance
 					});
-
-				//	console.log('Rendering object:');
-				//	console.dir(this.objects[i]);
 				}
 			}
 		}
 	}, 
 
 	/**
-	 * starField
+	 * transformVectorInObject
 	 *
 	 **/
-	starField: function (numStars) {
-		var i;
-		var self	= this;
-		var num		= numStars || 500;
-		var stars	= [];
-		var rand	= function (min, max) {
-			return Math.floor(Math.random() * (max - min + 1)) + min;
+	transformVectorInObject: function (vector, object) {
+		// Create new vector with object and camera position and object scale
+		var newVector = {
+			x: object.position.x + vector.x * object.scale.x - this.camera.position.x, 
+			y: object.position.y + vector.y * object.scale.y - this.camera.position.y, 
+			z: object.position.z + vector.z * object.scale.z - this.camera.position.z
 		};
 
-		// Give all the stars random positions
-		for (i = 0; i < num; i++) {
-			stars[i] = {
-				x:		rand(-2500, 2500), 
-				y:		rand(-2500, 2500), 
-				z:		rand(0, 2500)
-			};
-		}
+		// Object and camera rotation
 
-		// The frame loop
-		setInterval(function () {
-			// Black BG
-			self.fillScene({r: 0, g: 0, b: 0, a: 1});
-
-			// Move and draw stars
-			for (i = 0; i < num; i++) {
-				if (stars[i].z < 0) {
-					stars[i].z = 2500;
-				}
-
-				stars[i].z -= 100;
-
-				stars[i].xy = self.xyz2xy(stars[i]);
-
-				self.plot(stars[i].xy.x, stars[i].xy.y, {
-					r: 255, 
-					g: 255, 
-					b: 255, 
-					a: 1 - stars[i].z / 2500
-				});
-			}
-		}, 25);
-	}, 
-
-	calculateRotationMatrix: function (degrees, axis) {
-		
+		return newVector;
 	}, 
 
 	/**
@@ -186,7 +154,8 @@ var Kukk3D = {
 			objectID:	++this.objectID, 
 			vectors:	object.vectors, 
 			position:	object.position, 
-			rotation:	object.rotation
+			rotation:	object.rotation, 
+			scale:		object.scale
 		})-1];
 	}, 
 
@@ -206,5 +175,52 @@ var Kukk3D = {
 		}
 
 		return false;
+	},
+
+	/**
+	 * starField
+	 *
+	 **/
+	starField: function (numStars) {
+		var i;
+		var self	= this;
+		var num		= numStars || 500;
+		var stars	= [];
+		var rand	= function (min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		};
+
+		// Give all the stars random positions
+		for (i = 0; i < num; i++) {
+			stars[i] = {
+				x:		rand(-2500, 2500), 
+				y:		rand(-2500, 2500), 
+				z:		rand(0, this.drawDistance)
+			};
+		}
+
+		// The frame loop
+		setInterval(function () {
+			// Black BG
+			self.fillScene({r: 0, g: 0, b: 0, a: 1});
+
+			// Move and draw stars
+			for (i = 0; i < num; i++) {
+				if (stars[i].z < 0) {
+					stars[i].z = self.drawDistance;
+				}
+
+				stars[i].z -= 100;
+
+				stars[i].xy = self.xyz2xy(stars[i]);
+
+				self.plot(stars[i].xy.x, stars[i].xy.y, {
+					r: 255, 
+					g: 255, 
+					b: 255, 
+					a: 1 - stars[i].z / this.drawDistance
+				});
+			}
+		}, 25);
 	}
 };
