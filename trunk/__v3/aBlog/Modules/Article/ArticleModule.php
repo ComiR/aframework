@@ -11,6 +11,9 @@
 				self::updateArticle($_POST);
 			}
 
+			self::$tplVars['inserted']	= isset($_GET['inserted_article']);
+			self::$tplVars['deleted']	= isset($_GET['deleted_article']);
+
 			self::showTheArticle();
 		}
 
