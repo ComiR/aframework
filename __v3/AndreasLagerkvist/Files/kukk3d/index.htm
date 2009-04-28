@@ -7,8 +7,6 @@
 
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 
-		<link rel="stylesheet" type="text/css" media="screen,projection" href="css/all.php" />
-
 		<title>Kukk 3D Demo</title>
 
 	</head>
@@ -36,7 +34,7 @@
 					rotation: {
 						x: 0, y: 0, z: 0
 					}, 
-					size: {
+					scale: {
 						x: 1, y: 1, z: 1
 					}, 
 					vectors: [
@@ -62,6 +60,13 @@
 
 					// And rotate a bit
 					myObject.rotation.x += 36;
+
+					// Also scale it slightly
+					myObject.scale.y = (Math.sin(new Date().getTime()) + 1) / 2;
+					myObject.scale.x = (Math.cos(new Date().getTime()) + 1) / 2;
+
+					// And slowly move the camera to the right
+					Kukk3D.camera.position.x += 1;
 
 					// Re-render scene
 					Kukk3D.render(fillColor);
