@@ -17,7 +17,7 @@
 			<?php echo Lang::get('The article was successfully deleted!'); ?>
 		</strong>
 	</p>
-<?php } else var_dump($_GET); ?>
+<?php } ?>
 
 <form method="post" action="">
 
