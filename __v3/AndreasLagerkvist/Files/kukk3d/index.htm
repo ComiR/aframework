@@ -30,10 +30,11 @@
 				var myObject		= Kukk3D.addObject(Kukk3D.objectSkeletons.cube());
 				var myOtherObject	= Kukk3D.addObject(Kukk3D.objectSkeletons.cube());
 
-				myObject.drawVectors		= true;
 				myObject.position.x			= -250;
+
 				myOtherObject.position.x	= 250;
-				myOtherObject.color.g		= 150;
+				myOtherObject.lColor.r		= 255;
+				myOtherObject.lColor.g		= 150;
 
 				// Render once now
 				Kukk3D.render();
@@ -42,7 +43,7 @@
 				setInterval(function () {
 					// Draw object closer to screen
 					myObject.position.z -= 5;
-					myObject.position.z = myObject.position.z < 0 ? 1000 : myObject.position.z;
+					myObject.position.z = myObject.position.z < 250 ? 1000 : myObject.position.z;
 
 					// And rotate a bit
 				//	myObject.rotation.x += 3;
