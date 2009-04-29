@@ -2,7 +2,7 @@
 	=== General stuff ===
 */
 html {
-	background: #111 url(gfx/body-bg.png) repeat-x;
+	background: #111; /* url(gfx/body-bg.png) repeat-x; */
 
 	margin: 0;
 	padding: 0;
@@ -18,7 +18,7 @@ $base-font {
 body = $base-font;
 
 body {
-	background: url(gfx/footer-bg.jpg) repeat-x left bottom;
+/*	background: url(gfx/footer-bg.jpg) repeat-x left bottom; */
 
 	margin: 0;
 	padding: 0 0 100px;
