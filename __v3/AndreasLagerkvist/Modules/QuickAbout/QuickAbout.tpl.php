@@ -6,18 +6,20 @@
 
 <p>
 	<a href="<?php echo Router::urlForFile('me.jpg', CURRENT_SITE); ?>">
-		<img src="<?php echo Router::urlForFile('me.jpg', CURRENT_SITE); ?>" alt="" />
-	</a> I'm a 28 year old, swedish web developer, spare-time php-developer, wanna-be designer and ex-3D-hobbyist. This is my website where I write about stuff that interests me.
+		<img src="<?php echo Router::urlForFile('me.jpg', CURRENT_SITE); ?>" alt="Andreas Lagerkvist" />
+	</a> Swedish <strong>web developer</strong>, spare-time <strong>php-developer</strong>, wanna-be <strong>designer</strong> and <strong>ex-3D-hobbyist</strong>. This is my website where I write about stuff that interests me.
 </p>
 
 <p>
-	Check out the <a href="#latest-article">latest article</a> and post a comment, 
-	dig through <a href="<?php echo Router::urlFor('Archives'); ?>">the archives</a> for more to read or 
-	check out the <a href="<?php echo Router::urlFor('JqueryPlugins'); ?>">jQuery section</a> for plenty of JS-fun.
+	Check out the <strong><a href="#latest-article">latest article</a></strong> and post a comment, 
+	dig through <strong><a href="<?php echo Router::urlFor('Archives'); ?>">the archives</a></strong> for more to read or 
+	check out the <strong><a href="<?php echo Router::urlFor('JqueryPlugins'); ?>">jQuery section</a></strong> for plenty of JS-fun.
 </p>
 
 <p>
-	<a href="<?php echo Router::urlFor('Page', array('url_str' => 'about')); ?>">
-		Read more about me and the site
-	</a>
+	<strong>
+		<a href="<?php echo Router::urlFor('Page', array('url_str' => 'about')); ?>">
+			Read more about me and the site
+		</a>
+	</strong>
 </p>
