@@ -32,7 +32,7 @@
 						r: 255, g: 0, b: 0, a: 1
 					}, 
 					position: {
-						x: 0, y: 0, z: 1000
+						x: 0, y: 0, z: 500
 					}, 
 					rotation: {
 						x: 0, y: 0, z: 0
@@ -59,7 +59,12 @@
 						{a: 4,	b: 5}, 
 						{a: 5,	b: 6}, 
 						{a: 6,	b: 7}, 
-						{a: 7,	b: 4}
+						{a: 7,	b: 4}, 
+
+						{a: 0,	b: 4}, 
+						{a: 1,	b: 5}, 
+						{a: 2,	b: 6}, 
+						{a: 3,	b: 7}
 					]
 				});
 
@@ -69,12 +74,12 @@
 				// And 5 times a second
 				setInterval(function () {
 					// Draw object closer to screen
-					myObject.position.z -= 50;
-					myObject.position.z = myObject.position.z < 0 ? 1000 : myObject.position.z;
+				//	myObject.position.z -= 50;
+				//	myObject.position.z = myObject.position.z < 0 ? 1000 : myObject.position.z;
 
 					// And rotate a bit
-				//	myObject.rotation.x += 36;
-					myObject.rotation.z += 18;
+					myObject.rotation.x += 36;
+				//	myObject.rotation.z += 18;
 
 					// Also scale it slightly
 				//	myObject.scale.y = (Math.sin(new Date().getTime()) + 1) / 2;
