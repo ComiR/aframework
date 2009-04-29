@@ -7,7 +7,7 @@ var Kukk3D = {
 	canvas:			false,	// Kukk3D Canvas
 	context:		false,	// Canvas 2D Context
 	objects:		[],		// Objects currently in the scene
-	objectID:		0,		// Object ID tracker
+	test:			[],
 	drawDistance:	2500,	// Draw distance (max z-index)
 	camera:			{		// Kukk3D Camera
 		position: {
@@ -70,43 +70,40 @@ var Kukk3D = {
 				});
 			}
 
+			// Solid (can also be wireframe)
+			if (this.objects[i].faces.length) {
+				
+			}
 			// Wireframe with lines
-			if (this.objects[i].lines.length) {
+			else if (this.objects[i].lines.length) {
 				var numLines = this.objects[i].lines.length;
 
 				for (j = 0; j < numLines; j++) {
-				/*	console.log(
-						'Drawing line from vector nr ' 
-							+ this.objects[i].lines[j].a 
-							+ ' (x: FOO, y: BAR) to vector nr ' 
-							+ this.objects[i].lines[j].b 
-							+ ' (x: FOO, y: BAR)'
-					); */
-
 					this.drawLine(
 						transformedVectors[ this.objects[i].lines[j].a ].xy.x, 
 						transformedVectors[ this.objects[i].lines[j].a ].xy.y, 
 						transformedVectors[ this.objects[i].lines[j].b ].xy.x, 
 						transformedVectors[ this.objects[i].lines[j].b ].xy.y, 
-						this.objects[i].color
+						{
+							r: this.objects[i].color.r, 
+							g: this.objects[i].color.g, 
+							b: this.objects[i].color.b, 
+							a: this.objects[i].color.a - this.objects[i].color.a * (transformedVectors[ this.objects[i].lines[j].a ].z / this.drawDistance)
+						}
 					);
 				}
 			}
-			// Solid (can also be wireframe)
-			else if (this.objects[i].faces.length) {
-				
-			}
 			// Dots (no lines or faces specified)
-		//	else {
+			if (!(this.objects[i].faces.length || this.objects[i].lines.length) || this.objects[i].drawVectors) {
 				for (j = 0; j < numVectors; j++) {
 					this.plot(transformedVectors[j].xy.x, transformedVectors[j].xy.y, {
-						r: 255, 
-						g: 0, 
-						b: 0, 
-						a: 1 - this.objects[i].vectors[j].z / this.drawDistance // Opacity based on distance
+						r: this.objects[i].color.r, 
+						g: this.objects[i].color.g, 
+						b: this.objects[i].color.b, 
+						a: this.objects[i].color.a - this.objects[i].color.a * (transformedVectors[j].z / this.drawDistance) // Opacity based on distance
 					});
 				}
-		//	}
+			}
 		}
 	}, 
 
@@ -173,7 +170,7 @@ var Kukk3D = {
 			return false;
 		}
 
-		this.context.fillStyle = 'rgba(' + c.r + ', ' + c.g + ', ' + c.b + ', ' + c.a + ')';
+		this.context.strokeStyle = 'rgba(' + c.r + ', ' + c.g + ', ' + c.b + ', ' + c.a + ')';
 
 		this.context.beginPath();
 		this.context.moveTo(x1, y1);
@@ -205,16 +202,39 @@ var Kukk3D = {
 	 *
 	 **/
 	addObject: function (object) {
-		return this.objects[this.objects.push({
-			objectID:	++this.objectID, 
-			color:		object.color || {r: 255, g: 0, b: 0, a: 1}, 
-			position:	object.position || {x: 0, y: 0, z: 0}, 
-			rotation:	object.rotation || {x: 0, y: 0, z: 0},
-			scale:		object.scale || {x: 0, y: 0, z: 0},
+		var numObjects = this.objects.length;
+
+		this.objects[numObjects] = {
+			color:		object.color	|| {r: 255, g: 0, b: 0, a: 1}, 
+			position:	object.position	|| {x: 0, y: 0, z: 0}, 
+			rotation:	object.rotation	|| {x: 0, y: 0, z: 0},
+			scale:		object.scale	|| {x: 0, y: 0, z: 0},
 			vectors:	object.vectors, 
-			lines:		object.lines || [], 
-			faces:		object.faces || []
-		})-1];
+			lines:		object.lines	|| [], 
+			faces:		object.faces	|| []
+		};
+
+		return this.objects[numObjects];
+	}, 
+
+	/**
+	 * addTest
+	 *
+	 **/
+	addTest: function (object) {
+		var numObjects = this.test.length;
+
+		this.test[numObjects] = {
+			color:		object.color	|| {r: 255, g: 0, b: 0, a: 1}, 
+			position:	object.position	|| {x: 0, y: 0, z: 0}, 
+			rotation:	object.rotation	|| {x: 0, y: 0, z: 0},
+			scale:		object.scale	|| {x: 0, y: 0, z: 0},
+			vectors:	object.vectors, 
+			lines:		object.lines	|| [], 
+			faces:		object.faces	|| []
+		};
+
+		return this.test[numObjects];
 	}, 
 
 	/**
@@ -222,17 +242,7 @@ var Kukk3D = {
 	 *
 	 **/
 	removeObject: function (id) {
-		var numObjects = this.objects.length;
-
-		for (var i = 0; i < numObjects; i++) {
-			if (this.objects[i].objectID == id) {
-				this.objects.splice(i, 1);
-
-				return true;
-			}
-		}
-
-		return false;
+		this.objects.splice(id, 1);
 	},
 
 	/**
@@ -359,5 +369,50 @@ var Kukk3D = {
 				});
 			}
 		}, 25);
+	}, 
+
+	objectSkeletons: {
+		cube: function () {
+			return {
+				color: {
+					r: 255, g: 0, b: 0, a: 1
+				}, 
+				position: {
+					x: 0, y: 0, z: 1000
+				}, 
+				rotation: {
+					x: 0, y: 0, z: 0
+				}, 
+				scale: {
+					x: 1, y: 1, z: 1
+				}, 
+				vectors: [
+					{x: -100,	y: -200,	z: -100}, 
+					{x: 100,	y: -200,	z: -100}, 
+					{x: 100,	y: 200,		z: -100}, 
+					{x: -100,	y: 200,		z: -100}, 
+					{x: -100,	y: -200,	z: 100}, 
+					{x: 100,	y: -200,	z: 100}, 
+					{x: 100,	y: 200,		z: 100}, 
+					{x: -100,	y: 200,		z: 100}
+				], 
+				lines: [
+					{a: 0,	b: 1}, 
+					{a: 1,	b: 2}, 
+					{a: 2,	b: 3},
+					{a: 3,	b: 0}, 
+
+					{a: 4,	b: 5}, 
+					{a: 5,	b: 6}, 
+					{a: 6,	b: 7}, 
+					{a: 7,	b: 4}, 
+
+					{a: 0,	b: 4}, 
+					{a: 1,	b: 5}, 
+					{a: 2,	b: 6}, 
+					{a: 3,	b: 7}
+				]
+			};
+		}
 	}
 };
