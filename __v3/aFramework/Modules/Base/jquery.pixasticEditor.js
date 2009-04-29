@@ -184,14 +184,14 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 							};
 
 							// Get the various options (if any) for this effect
-							var options = jQueryPixasticEditorOptions[effect];
+							var opts = jQueryPixasticEditorOptions[effect];
 
 							// Make sure options are required
 							// No, always generate a form with preview, 
 							// even if options aren't required
 							// so that user gets to confirm effect
 							if (true) { // (options.length) {
-								var form = self.generateForm(options, effect);
+								var form = self.generateForm(opts, effect);
 
 								self.insertLivePreview(form, effect);
 
@@ -225,17 +225,17 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 				 * into a valid pixastic options object
 				 **/
 				formArrayToOptions: function (formArray) {
-					var options = [];
+					var opts = [];
 
 					for (i = 0; formArray[i]; i++) {
-						options[formArray[i].name] = formArray[i].value;
+						opts[formArray[i].name] = formArray[i].value;
 
-						if (options[formArray[i].name] === '0' || options[formArray[i].name] === '1') {
-							options[formArray[i].name] = options[formArray[i].name] === '0' ? false : true;
+						if (opts[formArray[i].name] === '0' || opts[formArray[i].name] === '1') {
+							opts[formArray[i].name] = opts[formArray[i].name] === '0' ? false : true;
 						}
 					}
 
-					return options;
+					return opts;
 				}, 
 
 				/**
@@ -331,12 +331,12 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 				 * Generates a form (jQuery object with form-element)
 				 * based on different options, appends it to body and returns it
 				 **/
-				generateForm: function (options, effectName) {
+				generateForm: function (opts, effectName) {
 					// Remove old form
 					container.find('form.' + config.className + '-form').remove();
 
 					// Build new
-					var numOptions	= options.length;
+					var numOptions	= opts.length;
 					var formItem	= '';
 					var newFormItem	= false;
 					var form		= jQuery(
@@ -351,27 +351,27 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 
 					for (var i = 0; i < numOptions; i++) {
 						// Give bool-settings true/false radios
-						if (options[i].type == 'bool') {
+						if (opts[i].type == 'bool') {
 							formItem	= '<p>'
-										+ options[i].title
+										+ opts[i].title
 										+ '<br /><small>' 
-										+ options[i].description 
+										+ opts[i].description 
 										+ '</small><br /><label><input type="radio" name="' 
-										+ options[i].key 
+										+ opts[i].key 
 										+ '" value="1"';
 
 							// And preselect the correct one
-							if (!options[i].default || options[i].default == 'true') {
+							if (!opts[i].default || opts[i].default == 'true') {
 								formItem += ' checked="checked"';
 							}
 
 							formItem	+= ' /> ' 
 										+ config.boolTrueText 
 										+ '</label> <label><input type="radio" name="' 
-										+ options[i].key 
+										+ opts[i].key 
 										+ '" value="0"';
 
-							if (options[i].default && options[i].default != 'true') {
+							if (opts[i].default && opts[i].default != 'true') {
 								formItem += ' checked="checked"';
 							}
 
@@ -382,19 +382,19 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 						// Everything else gets text-fields
 						else {
 							formItem	= '<p><label>' 
-										+ options[i].title 
+										+ opts[i].title 
 										+ '<br /><small>' 
-										+ options[i].description 
+										+ opts[i].description 
 										+ '</small><br /><input type="text" name="' 
-										+ options[i].key 
+										+ opts[i].key 
 										+ '"'; 
 
 							// Set default value
-							if (options[i].default) {
-								formItem+= ' value="' + options[i].default + '"';
+							if (opts[i].default) {
+								formItem+= ' value="' + opts[i].default + '"';
 							}
-							else if (options[i].min) {
-								formItem += ' value="' + Math.round((parseInt(options[i].min, 10) + parseInt(options[i].max, 10)) / 2) + '"';
+							else if (opts[i].min) {
+								formItem += ' value="' + Math.round((parseInt(opts[i].min, 10) + parseInt(opts[i].max, 10)) / 2) + '"';
 							}
 
 							formItem	+= ' /></label></p>';
@@ -404,13 +404,13 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 
 						// If this option has a min/max-value and the
 						// user has UI slider installed, create a slider
-						if (options[i].min && jQuery.fn.slider) {
+						if (opts[i].min && jQuery.fn.slider) {
 							jQuery('<div class="' + config.className + '-slider"><div class="ui-slider"><div class="ui-slider-handle"></div></div></div>')
 								.appendTo(newFormItem)
 								.find('div.ui-slider')
 								.slider({
-									min:		parseInt(options[i].min, 10), 
-									max:		parseInt(options[i].max, 10), 
+									min:		parseInt(opts[i].min, 10), 
+									max:		parseInt(opts[i].max, 10), 
 									value:		parseInt(newFormItem.find(':input').val(), 10), 
 								//	stepping:	options[i].type == 'float' ? 0.1 : 1, 
 									slide:		function (e, ui) {
