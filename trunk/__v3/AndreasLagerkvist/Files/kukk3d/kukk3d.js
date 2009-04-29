@@ -75,13 +75,13 @@ var Kukk3D = {
 				var numLines = this.objects[i].lines.length;
 
 				for (j = 0; j < numLines; j++) {
-					console.log(
+				/*	console.log(
 						'Drawing line from vector nr ' 
 							+ this.objects[i].lines[j].a 
 							+ ' (x: FOO, y: BAR) to vector nr ' 
 							+ this.objects[i].lines[j].b 
 							+ ' (x: FOO, y: BAR)'
-					);
+					); */
 
 					this.drawLine(
 						transformedVectors[ this.objects[i].lines[j].a ].xy.x, 
