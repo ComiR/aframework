@@ -26,47 +26,14 @@
 				// Init 3D-engine and pass canvas ID
 				Kukk3D.init('kukk3d');
 		
-				// Create a cube
-				var myObject = Kukk3D.addObject({
-					color: {
-						r: 255, g: 0, b: 0, a: 1
-					}, 
-					position: {
-						x: 0, y: 0, z: 1000
-					}, 
-					rotation: {
-						x: 0, y: 0, z: 0
-					}, 
-					scale: {
-						x: 1, y: 1, z: 1
-					}, 
-					vectors: [
-						{x: -100,	y: -200,	z: -100}, 
-						{x: 100,	y: -200,	z: -100}, 
-						{x: 100,	y: 200,		z: -100}, 
-						{x: -100,	y: 200,		z: -100}, 
-						{x: -100,	y: -200,	z: 100}, 
-						{x: 100,	y: -200,	z: 100}, 
-						{x: 100,	y: 200,		z: 100}, 
-						{x: -100,	y: 200,		z: 100}
-					], 
-					lines: [
-						{a: 0,	b: 1}, 
-						{a: 1,	b: 2}, 
-						{a: 2,	b: 3},
-						{a: 3,	b: 0}, 
+				// Create a few of cubes
+				var myObject		= Kukk3D.addObject(Kukk3D.objectSkeletons.cube());
+				var myOtherObject	= Kukk3D.addObject(Kukk3D.objectSkeletons.cube());
 
-						{a: 4,	b: 5}, 
-						{a: 5,	b: 6}, 
-						{a: 6,	b: 7}, 
-						{a: 7,	b: 4}, 
-
-						{a: 0,	b: 4}, 
-						{a: 1,	b: 5}, 
-						{a: 2,	b: 6}, 
-						{a: 3,	b: 7}
-					]
-				});
+				myObject.drawVectors		= true;
+				myObject.position.x			= -250;
+				myOtherObject.position.x	= 250;
+				myOtherObject.color.g		= 150;
 
 				// Render once now
 				Kukk3D.render();
@@ -81,6 +48,8 @@
 				//	myObject.rotation.x += 3;
 					myObject.rotation.y += 2;
 					myObject.rotation.z += 1;
+
+					myOtherObject.rotation.y += 4;
 
 					// Also scale it slightly
 				//	myObject.scale.y = (Math.sin(new Date().getTime()) + 1) / 2;
