@@ -95,6 +95,7 @@ var Kukk3D = {
 		};
 
 		// Rotate object around self
+		newVector = this.multiplyVectorNMatrix(newVector, this.calculateRotationMatrix(object.rotation));
 
 		// Move vector to its 'real' positin
 		newVector.x += object.position.x - this.camera.position.x;
@@ -102,6 +103,7 @@ var Kukk3D = {
 		newVector.z += object.position.z - this.camera.position.z;
 
 		// Rotate object around camera
+		newVector = this.multiplyVectorNMatrix(newVector, this.calculateRotationMatrix(this.camera.rotation));
 
 		return newVector;
 	}, 
@@ -182,6 +184,51 @@ var Kukk3D = {
 		}
 
 		return false;
+	},
+
+	/**
+	 * calculateRotationMatrix
+	 *
+	 **/
+	calculateRotationMatrix: function (rotation) {
+		var rotX = this.calculateRotationMatrixForAxis(rotation.x, 'x');
+		var rotY = this.calculateRotationMatrixForAxis(rotation.y, 'y');
+		var rotZ = this.calculateRotationMatrixForAxis(rotation.z, 'z');
+
+		rotZ = this.multiplyMatrixNMatrix(rotZ, rotY);
+
+		return this.multiplyMatrixNMatrix(rotZ, rotX);
+	},
+
+	/**
+	 * calculateRotationMatrixForAxis
+	 *
+	 **/
+	calculateRotationMatrixForAxis: function (degrees, axis) {
+		var radians	= degrees * Math.PI / 180;
+		var sin		= Math.sin(radians);
+		var cos		= Math.cos(radians);
+
+		switch (axis.toLowerCase()) {
+			case 'y' : 
+				return [
+					{x: 1, y: 0, z: 0}, 
+					{x: 0, y: cos, z: -sin}, 
+					{x: 0, y: sin, z: cos}
+				];
+			case 'x' : 
+				return [
+					{x: cos, y: 0, z: sin}, 
+					{x: 0, y: 1, z: 0}, 
+					{x: -sin, y: 0, z: cos}
+				];
+			case 'z' : 
+				return [
+					{x: cos, y: -sin, z: 0}, 
+					{x: sin, y: cos, z: 0}, 
+					{x: 0, y: 0, z: 1}
+				];
+		}
 	},
 
 	/**

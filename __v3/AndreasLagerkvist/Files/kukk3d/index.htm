@@ -59,14 +59,16 @@
 					myObject.position.z = myObject.position.z < 0 ? 1000 : myObject.position.z;
 
 					// And rotate a bit
-					myObject.rotation.x += 36;
+				//	myObject.rotation.x += 36;
+					myObject.rotation.z += 18;
 
 					// Also scale it slightly
-					myObject.scale.y = (Math.sin(new Date().getTime()) + 1) / 2;
-					myObject.scale.x = (Math.cos(new Date().getTime()) + 1) / 2;
+				//	myObject.scale.y = (Math.sin(new Date().getTime()) + 1) / 2;
+				//	myObject.scale.x = (Math.cos(new Date().getTime()) + 1) / 2;
 
 					// And slowly move the camera to the right
-					Kukk3D.camera.position.x += 1;
+				//	Kukk3D.camera.position.x += 1;
+				//	Kukk3D.camera.rotation.z += 72;
 
 					// Re-render scene
 					Kukk3D.render(fillColor);
