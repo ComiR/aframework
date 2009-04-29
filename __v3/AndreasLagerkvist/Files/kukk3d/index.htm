@@ -32,7 +32,7 @@
 						r: 255, g: 0, b: 0, a: 1
 					}, 
 					position: {
-						x: 0, y: 0, z: 500
+						x: 0, y: 0, z: 1000
 					}, 
 					rotation: {
 						x: 0, y: 0, z: 0
@@ -41,14 +41,14 @@
 						x: 1, y: 1, z: 1
 					}, 
 					vectors: [
-						{x: -100,	y: -100,	z: -100}, 
-						{x: 100,	y: -100,	z: -100}, 
-						{x: 100,	y: 100,		z: -100}, 
-						{x: -100,	y: 100,		z: -100}, 
-						{x: -100,	y: -100,	z: 100}, 
-						{x: 100,	y: -100,	z: 100}, 
-						{x: 100,	y: 100,		z: 100}, 
-						{x: -100,	y: 100,		z: 100}
+						{x: -100,	y: -200,	z: -100}, 
+						{x: 100,	y: -200,	z: -100}, 
+						{x: 100,	y: 200,		z: -100}, 
+						{x: -100,	y: 200,		z: -100}, 
+						{x: -100,	y: -200,	z: 100}, 
+						{x: 100,	y: -200,	z: 100}, 
+						{x: 100,	y: 200,		z: 100}, 
+						{x: -100,	y: 200,		z: 100}
 					], 
 					lines: [
 						{a: 0,	b: 1}, 
@@ -71,27 +71,27 @@
 				// Render once now
 				Kukk3D.render();
 
-				// And 5 times a second
+				// And 20 times a second
 				setInterval(function () {
 					// Draw object closer to screen
-				//	myObject.position.z -= 50;
-				//	myObject.position.z = myObject.position.z < 0 ? 1000 : myObject.position.z;
+					myObject.position.z -= 5;
+					myObject.position.z = myObject.position.z < 0 ? 1000 : myObject.position.z;
 
 					// And rotate a bit
-					myObject.rotation.x += 36;
-				//	myObject.rotation.z += 18;
+				//	myObject.rotation.x += 3;
+					myObject.rotation.y += 2;
+					myObject.rotation.z += 1;
 
 					// Also scale it slightly
 				//	myObject.scale.y = (Math.sin(new Date().getTime()) + 1) / 2;
 				//	myObject.scale.x = (Math.cos(new Date().getTime()) + 1) / 2;
 
-					// And slowly move the camera to the right
-				//	Kukk3D.camera.position.x += 1;
-				//	Kukk3D.camera.rotation.z += 72;
-
 					// Re-render scene
 					Kukk3D.render();
-				}, 200);
+				}, 50);
+
+				// Allow user to move camera with cursors
+
 			})();
 		</script>
 
