@@ -362,7 +362,7 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 
 							// And preselect the correct one
 							if (!options[i].default || options[i].default == 'true') {
-								formItem+= ' checked="checked"'
+								formItem+= ' checked="checked"';
 							}
 
 							formItem	+= ' /> ' 
