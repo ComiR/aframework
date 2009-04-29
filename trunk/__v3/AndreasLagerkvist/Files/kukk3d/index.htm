@@ -25,9 +25,12 @@
 
 				// Init 3D-engine and pass canvas ID
 				Kukk3D.init('kukk3d');
-
+		
 				// Create a cube
 				var myObject = Kukk3D.addObject({
+					color: {
+						r: 255, g: 0, b: 0, a: 1
+					}, 
 					position: {
 						x: 0, y: 0, z: 1000
 					}, 
@@ -46,11 +49,22 @@
 						{x: 100,	y: -100,	z: 100}, 
 						{x: 100,	y: 100,		z: 100}, 
 						{x: -100,	y: 100,		z: 100}
+					], 
+					lines: [
+						{a: 0,	b: 1}, 
+						{a: 1,	b: 2}, 
+						{a: 2,	b: 3},
+						{a: 3,	b: 0}, 
+
+						{a: 4,	b: 5}, 
+						{a: 5,	b: 6}, 
+						{a: 6,	b: 7}, 
+						{a: 7,	b: 4}
 					]
 				});
 
 				// Render once now
-				Kukk3D.render(fillColor);
+				Kukk3D.render();
 
 				// And 5 times a second
 				setInterval(function () {
@@ -71,7 +85,7 @@
 				//	Kukk3D.camera.rotation.z += 72;
 
 					// Re-render scene
-					Kukk3D.render(fillColor);
+					Kukk3D.render();
 				}, 200);
 			})();
 		</script>
