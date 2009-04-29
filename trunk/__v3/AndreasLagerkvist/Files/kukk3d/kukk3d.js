@@ -75,6 +75,14 @@ var Kukk3D = {
 				var numLines = this.objects[i].lines.length;
 
 				for (j = 0; j < numLines; j++) {
+					console.log(
+						'Drawing line from vector nr ' 
+							+ this.objects[i].lines[j].a 
+							+ ' (x: FOO, y: BAR) to vector nr ' 
+							+ this.objects[i].lines[j].b 
+							+ ' (x: FOO, y: BAR)'
+					);
+
 					this.drawLine(
 						transformedVectors[ this.objects[i].lines[j].a ].xy.x, 
 						transformedVectors[ this.objects[i].lines[j].a ].xy.y, 
@@ -153,7 +161,7 @@ var Kukk3D = {
 
 		this.context.fillStyle = 'rgba(' + c.r + ', ' + c.g + ', ' + c.b + ', ' + c.a + ')';
 
-		this.context.fillRect(x, y, 1, 1);
+		this.context.fillRect(x-2, y-2, 5, 5);
 	}, 
 
 	/**
@@ -169,7 +177,7 @@ var Kukk3D = {
 
 		this.context.beginPath();
 		this.context.moveTo(x1, y1);
-		this.context.lineTo(x2, x2);
+		this.context.lineTo(x2, y2);
 		this.context.closePath();
 		this.context.stroke();
 	}, 
@@ -204,8 +212,8 @@ var Kukk3D = {
 			rotation:	object.rotation || {x: 0, y: 0, z: 0},
 			scale:		object.scale || {x: 0, y: 0, z: 0},
 			vectors:	object.vectors, 
-			lines:		object.lines, 
-			faces:		object.faces
+			lines:		object.lines || [], 
+			faces:		object.faces || []
 		})-1];
 	}, 
 
