@@ -44,7 +44,7 @@ var Kukk3D = {
 	 **/
 	render: function (fillColor) {
 		var numObjects = this.objects.length;
-		var numVectors, i, j, transformedVectors;
+		var i, j, numVectors, numLines, numFaces, transformedVectors;
 
 		if (fillColor) {
 			this.fillScene(fillColor);
@@ -71,12 +71,32 @@ var Kukk3D = {
 			}
 
 			// Solid (can also be wireframe)
-			if (this.objects[i].faces.length) {
-				
+			if (this.objects[i].drawFaces && this.objects[i].faces.length) {
+				numFaces = this.objects[i].faces.length;
+
+				for (j = 0; j < numFaces; j++) {
+					this.drawFace(
+						transformedVectors[ this.objects[i].faces[j].a ].xy.x, 
+						transformedVectors[ this.objects[i].faces[j].a ].xy.y, 
+						transformedVectors[ this.objects[i].faces[j].b ].xy.x, 
+						transformedVectors[ this.objects[i].faces[j].b ].xy.y, 
+						transformedVectors[ this.objects[i].faces[j].c ].xy.x, 
+						transformedVectors[ this.objects[i].faces[j].c ].xy.y, 
+						transformedVectors[ this.objects[i].faces[j].d ].xy.x, 
+						transformedVectors[ this.objects[i].faces[j].d ].xy.y, 
+						{
+							r: this.objects[i].fColor.r, 
+							g: this.objects[i].fColor.g, 
+							b: this.objects[i].fColor.b, 
+							a: this.objects[i].fColor.a - this.objects[i].fColor.a * (transformedVectors[ this.objects[i].faces[j].a ].z / this.drawDistance)
+						}, 
+						this.objects[i].faceWire
+					);
+				}
 			}
 			// Wireframe with lines
-			else if (this.objects[i].lines.length) {
-				var numLines = this.objects[i].lines.length;
+			if (this.objects[i].drawLines && this.objects[i].lines.length) {
+				numLines = this.objects[i].lines.length;
 
 				for (j = 0; j < numLines; j++) {
 					this.drawLine(
@@ -85,22 +105,22 @@ var Kukk3D = {
 						transformedVectors[ this.objects[i].lines[j].b ].xy.x, 
 						transformedVectors[ this.objects[i].lines[j].b ].xy.y, 
 						{
-							r: this.objects[i].color.r, 
-							g: this.objects[i].color.g, 
-							b: this.objects[i].color.b, 
-							a: this.objects[i].color.a - this.objects[i].color.a * (transformedVectors[ this.objects[i].lines[j].a ].z / this.drawDistance)
+							r: this.objects[i].lColor.r, 
+							g: this.objects[i].lColor.g, 
+							b: this.objects[i].lColor.b, 
+							a: this.objects[i].lColor.a - this.objects[i].lColor.a * (transformedVectors[ this.objects[i].lines[j].a ].z / this.drawDistance)
 						}
 					);
 				}
 			}
 			// Dots (no lines or faces specified)
-			if (!(this.objects[i].faces.length || this.objects[i].lines.length) || this.objects[i].drawVectors) {
+			if (this.objects[i].drawVectors) {
 				for (j = 0; j < numVectors; j++) {
 					this.plot(transformedVectors[j].xy.x, transformedVectors[j].xy.y, {
-						r: this.objects[i].color.r, 
-						g: this.objects[i].color.g, 
-						b: this.objects[i].color.b, 
-						a: this.objects[i].color.a - this.objects[i].color.a * (transformedVectors[j].z / this.drawDistance) // Opacity based on distance
+						r: this.objects[i].vColor.r, 
+						g: this.objects[i].vColor.g, 
+						b: this.objects[i].vColor.b, 
+						a: this.objects[i].vColor.a - this.objects[i].vColor.a * (transformedVectors[j].z / this.drawDistance)
 					});
 				}
 			}
@@ -152,9 +172,9 @@ var Kukk3D = {
 	 *
 	 **/
 	plot: function (x, y, c) {
-		if (x < 0 || x > this.canvas.width || y < 0 || y > this.canvas.height) {
+	/*	if (x < 0 || x > this.canvas.width || y < 0 || y > this.canvas.height) {
 			return false;
-		}
+		} */
 
 		this.context.fillStyle = 'rgba(' + c.r + ', ' + c.g + ', ' + c.b + ', ' + c.a + ')';
 
@@ -166,9 +186,9 @@ var Kukk3D = {
 	 *
 	 **/
 	drawLine: function (x1, y1, x2, y2, c) {
-		if (x1 < 0 || x1 > this.canvas.width || y1 < 0 || y1 > this.canvas.height || x2 < 0 || x2 > this.canvas.width || y2 < 0 || y2 > this.canvas.height) {
+	/*	if (x1 < 0 || x1 > this.canvas.width || y1 < 0 || y1 > this.canvas.height || x2 < 0 || x2 > this.canvas.width || y2 < 0 || y2 > this.canvas.height) {
 			return false;
-		}
+		} */
 
 		this.context.strokeStyle = 'rgba(' + c.r + ', ' + c.g + ', ' + c.b + ', ' + c.a + ')';
 
@@ -177,6 +197,25 @@ var Kukk3D = {
 		this.context.lineTo(x2, y2);
 		this.context.closePath();
 		this.context.stroke();
+	}, 
+
+	drawFace: function (x1, y1, x2, y2, x3, y3, x4, y4, c, wireframe) {
+		this.context.strokeStyle	= 'rgba(' + c.r + ', ' + c.g + ', ' + c.b + ', ' + c.a + ')';
+		this.context.fillStyle		= 'rgba(' + c.r + ', ' + c.g + ', ' + c.b + ', ' + c.a + ')';
+
+		this.context.beginPath();
+		this.context.moveTo(x1, y1);
+		this.context.lineTo(x2, y2);
+		this.context.lineTo(x3, y3);
+		this.context.lineTo(x4, y4);
+		this.context.closePath();
+
+		if (wireframe) {
+			this.context.stroke();
+		}
+		else {
+			this.context.fill();
+		}
 	}, 
 
 	/**
@@ -205,36 +244,22 @@ var Kukk3D = {
 		var numObjects = this.objects.length;
 
 		this.objects[numObjects] = {
-			color:		object.color	|| {r: 255, g: 0, b: 0, a: 1}, 
+			vColor:		object.vColor	|| {r: 255, g: 0, b: 0, a: 1}, 
+			lColor:		object.lColor	|| {r: 0, g: 255, b: 0, a: 1}, 
+			fColor:		object.fColor	|| {r: 0, g: 0, b: 255, a: 1}, 
 			position:	object.position	|| {x: 0, y: 0, z: 0}, 
 			rotation:	object.rotation	|| {x: 0, y: 0, z: 0},
 			scale:		object.scale	|| {x: 0, y: 0, z: 0},
-			vectors:	object.vectors, 
 			lines:		object.lines	|| [], 
-			faces:		object.faces	|| []
+			faces:		object.faces	|| [], 
+			drawVectors:object.drawVectors && object.drawVectors === true ? true : false, 
+			drawLines:	object.drawLines && object.drawLines === true ? true : false, 
+			drawFaces:	object.drawFaces && object.drawFaces === true ? true : false, 
+			faceWire:	object.faceWire && object.faceWire === true ? true : false,
+			vectors:	object.vectors
 		};
 
 		return this.objects[numObjects];
-	}, 
-
-	/**
-	 * addTest
-	 *
-	 **/
-	addTest: function (object) {
-		var numObjects = this.test.length;
-
-		this.test[numObjects] = {
-			color:		object.color	|| {r: 255, g: 0, b: 0, a: 1}, 
-			position:	object.position	|| {x: 0, y: 0, z: 0}, 
-			rotation:	object.rotation	|| {x: 0, y: 0, z: 0},
-			scale:		object.scale	|| {x: 0, y: 0, z: 0},
-			vectors:	object.vectors, 
-			lines:		object.lines	|| [], 
-			faces:		object.faces	|| []
-		};
-
-		return this.test[numObjects];
 	}, 
 
 	/**
@@ -374,8 +399,18 @@ var Kukk3D = {
 	objectSkeletons: {
 		cube: function () {
 			return {
-				color: {
+				drawVectors:	true, 
+				drawLines:		true,
+				drawFaces:		true,
+				faceWire:		false,
+				vColor: {
 					r: 255, g: 0, b: 0, a: 1
+				}, 
+				lColor: {
+					r: 0, g: 255, b: 0, a: 1
+				}, 
+				fColor: {
+					r: 0, g: 0, b: 255, a: .4
 				}, 
 				position: {
 					x: 0, y: 0, z: 1000
@@ -411,7 +446,11 @@ var Kukk3D = {
 					{a: 1,	b: 5}, 
 					{a: 2,	b: 6}, 
 					{a: 3,	b: 7}
-				]
+				], 
+				faces: [
+					{a: 0,	b: 1, c: 2, d: 3}, 
+					{a: 4,	b: 5, c: 6, d: 7}
+				], 
 			};
 		}
 	}
