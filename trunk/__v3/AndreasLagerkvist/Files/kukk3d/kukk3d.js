@@ -244,9 +244,7 @@ var Kukk3D = {
 		var rotY = this.calculateRotationMatrixForAxis(rotation.y, 'y');
 		var rotZ = this.calculateRotationMatrixForAxis(rotation.z, 'z');
 
-		rotZ = this.multiplyMatrixNMatrix(rotZ, rotY);
-
-		return this.multiplyMatrixNMatrix(rotZ, rotX);
+		return this.multiplyMatrixNMatrix(this.multiplyMatrixNMatrix(rotZ, rotY), rotX);
 	},
 
 	/**
@@ -259,13 +257,13 @@ var Kukk3D = {
 		var cos		= Math.cos(radians);
 
 		switch (axis.toLowerCase()) {
-			case 'y' : 
+			case 'x' : 
 				return [
 					{x: 1, y: 0, z: 0}, 
 					{x: 0, y: cos, z: -sin}, 
 					{x: 0, y: sin, z: cos}
 				];
-			case 'x' : 
+			case 'y' : 
 				return [
 					{x: cos, y: 0, z: sin}, 
 					{x: 0, y: 1, z: 0}, 
