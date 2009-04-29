@@ -44,7 +44,7 @@ var Kukk3D = {
 	 **/
 	render: function (fillColor) {
 		var numObjects = this.objects.length;
-		var numVectors, i, j, transformedObject;
+		var numVectors, i, j, transformedVectors;
 
 		if (fillColor) {
 			this.fillScene(fillColor);
@@ -53,32 +53,53 @@ var Kukk3D = {
 			this.clearScene();
 		}
 
-		// Render every object
+		// Go through every object
 		for (i = 0; i < numObjects; i++) {
-			numVectors = this.objects[i].vectors.length;
+			transformedVectors	= [];
+			numVectors			= this.objects[i].vectors.length;
 
-			// Render every vector in every object
+			// Transform every vector in the object
 			for (j = 0; j < numVectors; j++) {
-				transformedVector = this.transformVectorInObject(this.objects[i].vectors[j], this.objects[i]);
+				transformedVectors[j] = this.transformVectorInObject(this.objects[i].vectors[j], this.objects[i]);
 
-				// Unless it's behind the viewport
-				if (transformedVector.z >= 0) {
-					// Turn X, Y and Z into just X and Y
-					transformedVector.xy = this.xyz2xy({
-						x: transformedVector.x, 
-						y: transformedVector.y, 
-						z: transformedVector.z
-					});
+				// Turn X, Y and Z into just X and Y
+				transformedVectors[j].xy = this.xyz2xy({
+					x: transformedVectors[j].x, 
+					y: transformedVectors[j].y, 
+					z: transformedVectors[j].z
+				});
+			}
 
-					// And plot the vector
-					this.plot(transformedVector.xy.x, transformedVector.xy.y, {
+			// Wireframe with lines
+			if (this.objects[i].lines.length) {
+				var numLines = this.objects[i].lines.length;
+
+				for (j = 0; j < numLines; j++) {
+					console.log('Dreawing line');
+					this.drawLine(
+						transformedVectors[ this.objects[i].lines[j].a ].xy.x, 
+						transformedVectors[ this.objects[i].lines[j].a ].xy.y, 
+						transformedVectors[ this.objects[i].lines[j].b ].xy.x, 
+						transformedVectors[ this.objects[i].lines[j].b ].xy.y, 
+						this.objects[i].color
+					);
+				}
+			}
+			// Solid (can also be wireframe)
+			else if (this.objects[i].faces.length) {
+				
+			}
+			// Dots (no lines or faces specified)
+		//	else {
+				for (j = 0; j < numVectors; j++) {
+					this.plot(transformedVectors[j].xy.x, transformedVectors[j].xy.y, {
 						r: 255, 
 						g: 0, 
 						b: 0, 
 						a: 1 - this.objects[i].vectors[j].z / this.drawDistance // Opacity based on distance
 					});
 				}
-			}
+		//	}
 		}
 	}, 
 
@@ -137,6 +158,32 @@ var Kukk3D = {
 	}, 
 
 	/**
+	 * drawLine
+	 *
+	 **/
+	drawLine: function (x1, y1, x2, y2, c) {
+		if (x1 < 0 || x1 > this.canvas.width || y1 < 0 || y1 > this.canvas.height || x2 < 0 || x2 > this.canvas.width || y2 < 0 || y2 > this.canvas.height) {
+			return false;
+		}
+
+		this.context.fillStyle = 'rgba(' + c.r + ', ' + c.g + ', ' + c.b + ', ' + c.a + ')';
+
+		this.context.beginPath();
+		this.context.moveTo(x1, y1);
+		this.context.lineTo(x2, x2);
+		this.context.closePath();
+		this.context.stroke();
+
+		console.dir({
+			x1: x1, 
+			y1: y1, 
+			x2: x2, 
+			y2: y2, 
+			c: c
+		});
+	}, 
+
+	/**
 	 * fillScene
 	 *
 	 **/
@@ -161,10 +208,13 @@ var Kukk3D = {
 	addObject: function (object) {
 		return this.objects[this.objects.push({
 			objectID:	++this.objectID, 
+			color:		object.color || {r: 255, g: 0, b: 0, a: 1}, 
+			position:	object.position || {x: 0, y: 0, z: 0}, 
+			rotation:	object.rotation || {x: 0, y: 0, z: 0},
+			scale:		object.scale || {x: 0, y: 0, z: 0},
 			vectors:	object.vectors, 
-			position:	object.position, 
-			rotation:	object.rotation, 
-			scale:		object.scale
+			lines:		object.lines, 
+			faces:		object.faces
 		})-1];
 	}, 
 
