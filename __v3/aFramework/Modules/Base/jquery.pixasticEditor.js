@@ -361,7 +361,7 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 										+ '" value="1"';
 
 							// And preselect the correct one
-							if (!opts[i].default || opts[i].default == 'true') {
+							if (!opts[i]['default'] || opts[i]['default'] == 'true') {
 								formItem += ' checked="checked"';
 							}
 
@@ -371,7 +371,7 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 										+ opts[i].key 
 										+ '" value="0"';
 
-							if (opts[i].default && opts[i].default != 'true') {
+							if (opts[i]['default'] && opts[i]['default'] != 'true') {
 								formItem += ' checked="checked"';
 							}
 
@@ -390,8 +390,8 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 										+ '"'; 
 
 							// Set default value
-							if (opts[i].default) {
-								formItem+= ' value="' + opts[i].default + '"';
+							if (opts[i]['default']) {
+								formItem+= ' value="' + opts[i]['default'] + '"';
 							}
 							else if (opts[i].min) {
 								formItem += ' value="' + Math.round((parseInt(opts[i].min, 10) + parseInt(opts[i].max, 10)) / 2) + '"';
