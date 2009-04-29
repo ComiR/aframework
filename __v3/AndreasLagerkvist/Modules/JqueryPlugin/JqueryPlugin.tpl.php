@@ -104,7 +104,7 @@
 	<?php } ?>
 </ul>
 
-<h4><?php echo Lang::get('Other Resources'); ?></h4>
+<h3><?php echo Lang::get('Other Resources'); ?></h3>
 
 <ul>
 	<li><a href="http://www.jquery.com">jQuery.com</a></li>

@@ -75,7 +75,6 @@ var Kukk3D = {
 				var numLines = this.objects[i].lines.length;
 
 				for (j = 0; j < numLines; j++) {
-					console.log('Dreawing line');
 					this.drawLine(
 						transformedVectors[ this.objects[i].lines[j].a ].xy.x, 
 						transformedVectors[ this.objects[i].lines[j].a ].xy.y, 
@@ -173,14 +172,6 @@ var Kukk3D = {
 		this.context.lineTo(x2, x2);
 		this.context.closePath();
 		this.context.stroke();
-
-		console.dir({
-			x1: x1, 
-			y1: y1, 
-			x2: x2, 
-			y2: y2, 
-			c: c
-		});
 	}, 
 
 	/**
