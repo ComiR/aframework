@@ -9,32 +9,82 @@
 
 		<title>Kukk 3D Demo</title>
 
+		<style type="text/css">
+			body {
+				background: #f0f0f0;
+				margin: 0;
+				font: 100%/1.2 Helvetica;
+				color: #000;
+			}
+			h1 {
+				text-align: center;
+			}
+			canvas {
+				background: #012;
+				display: block;
+				margin: 1em auto;
+				border: 10px solid #666;
+			}
+		</style>
+
 	</head>
 
 	<body>
 
-		<h1>Kukk 3D Demo</h1>
+		<h1>
+			<a href="http://exscale.se/2009/04/30/kukk3d-javascript-3d-engine/">
+				Kukk 3D Demo
+			</a>
+		</h1>
 
 		<canvas id="kukk3d"></canvas>
 
 		<script type="text/javascript" src="kukk3d.js"></script>
 		<script type="text/javascript">
 			(function () {
-				// BG for canvas
-				var fillColor = {r: 0, g: 0, b: 0, a: 1};
+				var canvas = document.getElementById('kukk3d');
 
-				// Init 3D-engine and pass canvas ID
-				Kukk3D.init('kukk3d');
-		
+				// Init 3D-engine and pass canvas HTMLElement
+				Kukk3D.init(canvas);
+
 				// Create a few of cubes
-				var myObject		= Kukk3D.addObject(Kukk3D.objectSkeletons.cube());
-				var myOtherObject	= Kukk3D.addObject(Kukk3D.objectSkeletons.cube());
+				var cube1			= Kukk3D.addObject(Kukk3D.objectSkeletons.cube());
+				var cube2			= Kukk3D.addObject(Kukk3D.objectSkeletons.cube());
+				var cube3			= Kukk3D.addObject(Kukk3D.objectSkeletons.cube());
+			//	var sphere			= Kukk3D.addObject(Kukk3D.objectSkeletons.sphere());
 
-				myObject.position.x			= -250;
+				// Move the first one to the left and change its colors
+				cube1.position.x	= 0;
+				cube1.position.y	= -250;
+				cube1.position.z	= 2500;
+				cube1.fColor		= {r: 255, g: 155, b: 0, a: .5};
+				cube1.lColor		= {r: 255, g: 255, b: 255, a: .3};
+				cube1.vColor		= {r: 255, g: 255, b: 255, a: .3};
 
-				myOtherObject.position.x	= 250;
-				myOtherObject.lColor.r		= 255;
-				myOtherObject.lColor.g		= 150;
+				// Remove some of the faces
+				cube1.faces.splice(2);
+
+				// Do this with the other object
+				cube2.position.x	= 250;
+				cube2.position.y	= 250;
+				cube2.position.z	= 2500;
+				cube2.fColor		= {r: 60, g: 120, b: 180, a: .5};
+				cube2.lColor		= {r: 255, g: 255, b: 255, a: .3};
+				cube2.drawVectors	= false;
+
+				// Only keep two side-faces and the ones on the top
+				cube2.faces.splice(2, 2);
+
+				// And this with the third one
+				cube3.position.x	= -250;
+				cube3.position.y	= 250;
+				cube3.position.z	= 2500;
+				cube3.fColor		= {r: 60, g: 180, b: 120, a: .5};
+				cube3.vColor		= {r: 255, g: 255, b: 255, a: .3};
+				cube3.drawLines		= false;
+
+				// Only keep two side-faces and the ones on the top
+				cube3.faces.splice(2, 2);
 
 				// Render once now
 				Kukk3D.render();
@@ -42,26 +92,68 @@
 				// And 20 times a second
 				setInterval(function () {
 					// Draw object closer to screen
-					myObject.position.z -= 5;
-					myObject.position.z = myObject.position.z < 250 ? 1000 : myObject.position.z;
+					cube1.position.z	-= 30;
+					cube1.position.z	 = cube1.position.z < 200 ? 2500 : cube1.position.z;
+
+					cube2.position.z	-= 40;
+					cube2.position.z	 = cube2.position.z < 200 ? 2500 : cube2.position.z;
+
+					cube3.position.z	-= 35;
+					cube3.position.z	 = cube3.position.z < 200 ? 2500 : cube3.position.z;
 
 					// And rotate a bit
-				//	myObject.rotation.x += 3;
-					myObject.rotation.y += 2;
-					myObject.rotation.z += 1;
+				//	cube1.rotation.x	+= 3;
+					cube1.rotation.y	+= 2;
+					cube1.rotation.z	+= 1;
 
-					myOtherObject.rotation.y += 4;
+					cube2.rotation.y	+= 4;
+					cube2.rotation.z	+= 7;
+
+					cube3.rotation.y	-= 6;
+					cube3.rotation.z	-= 3;
 
 					// Also scale it slightly
-				//	myObject.scale.y = (Math.sin(new Date().getTime()) + 1) / 2;
-				//	myObject.scale.x = (Math.cos(new Date().getTime()) + 1) / 2;
+				//	cube1.scale.y = (Math.sin(new Date().getTime()) + 1) / 2;
+				//	cube1.scale.x = (Math.cos(new Date().getTime()) + 1) / 2;
+
+					// Also rotate the camera
+					Kukk3D.camera.rotation.z += 2;
 
 					// Re-render scene
 					Kukk3D.render();
 				}, 50);
 
 				// Allow user to move camera with cursors
-
+			/*	document.body.onkeydown = function (e) {
+					switch (e.keyCode) {
+						// Left
+						case 37 :
+							Kukk3D.camera.position.x -= 20;
+							break;
+						// Top
+						case 38 :
+							if (e.shiftKey) {
+								Kukk3D.camera.position.z += 20;
+							}
+							else {
+								Kukk3D.camera.position.y -= 20;
+							}
+							break;
+						// Right
+						case 39 :
+							Kukk3D.camera.position.x += 20;
+							break;
+						// Bottom
+						case 40 :
+							if (e.shiftKey) {
+								Kukk3D.camera.position.z -= 20;
+							}
+							else {
+								Kukk3D.camera.position.y += 10;
+							}
+							break;
+					}
+				}; */
 			})();
 		</script>
 

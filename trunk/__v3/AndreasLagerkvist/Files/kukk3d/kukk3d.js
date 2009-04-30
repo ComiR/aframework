@@ -94,6 +94,7 @@ var Kukk3D = {
 					);
 				}
 			}
+
 			// Wireframe with lines
 			if (this.objects[i].drawLines && this.objects[i].lines.length) {
 				numLines = this.objects[i].lines.length;
@@ -113,6 +114,7 @@ var Kukk3D = {
 					);
 				}
 			}
+
 			// Dots (no lines or faces specified)
 			if (this.objects[i].drawVectors) {
 				for (j = 0; j < numVectors; j++) {
@@ -121,7 +123,7 @@ var Kukk3D = {
 						g: this.objects[i].vColor.g, 
 						b: this.objects[i].vColor.b, 
 						a: this.objects[i].vColor.a - this.objects[i].vColor.a * (transformedVectors[j].z / this.drawDistance)
-					});
+					}, this.objects[i].vectorSize);
 				}
 			}
 		}
@@ -171,14 +173,13 @@ var Kukk3D = {
 	 * plot
 	 *
 	 **/
-	plot: function (x, y, c) {
-	/*	if (x < 0 || x > this.canvas.width || y < 0 || y > this.canvas.height) {
-			return false;
-		} */
+	plot: function (x, y, c, size) {
+		var s	= size || 5;
+		var hs	= Math.round(s / 2);
 
 		this.context.fillStyle = 'rgba(' + c.r + ', ' + c.g + ', ' + c.b + ', ' + c.a + ')';
 
-		this.context.fillRect(x-2, y-2, 5, 5);
+		this.context.fillRect(x - hs, y - hs, s, s);
 	}, 
 
 	/**
@@ -186,10 +187,6 @@ var Kukk3D = {
 	 *
 	 **/
 	drawLine: function (x1, y1, x2, y2, c) {
-	/*	if (x1 < 0 || x1 > this.canvas.width || y1 < 0 || y1 > this.canvas.height || x2 < 0 || x2 > this.canvas.width || y2 < 0 || y2 > this.canvas.height) {
-			return false;
-		} */
-
 		this.context.strokeStyle = 'rgba(' + c.r + ', ' + c.g + ', ' + c.b + ', ' + c.a + ')';
 
 		this.context.beginPath();
@@ -199,6 +196,10 @@ var Kukk3D = {
 		this.context.stroke();
 	}, 
 
+	/**
+	 * drawLine
+	 * TODO: variable number of corners (could be triangle)
+	 **/
 	drawFace: function (x1, y1, x2, y2, x3, y3, x4, y4, c, wireframe) {
 		this.context.strokeStyle	= 'rgba(' + c.r + ', ' + c.g + ', ' + c.b + ', ' + c.a + ')';
 		this.context.fillStyle		= 'rgba(' + c.r + ', ' + c.g + ', ' + c.b + ', ' + c.a + ')';
@@ -244,19 +245,25 @@ var Kukk3D = {
 		var numObjects = this.objects.length;
 
 		this.objects[numObjects] = {
-			vColor:		object.vColor	|| {r: 255, g: 0, b: 0, a: 1}, 
-			lColor:		object.lColor	|| {r: 0, g: 255, b: 0, a: 1}, 
-			fColor:		object.fColor	|| {r: 0, g: 0, b: 255, a: 1}, 
-			position:	object.position	|| {x: 0, y: 0, z: 0}, 
-			rotation:	object.rotation	|| {x: 0, y: 0, z: 0},
-			scale:		object.scale	|| {x: 0, y: 0, z: 0},
-			lines:		object.lines	|| [], 
-			faces:		object.faces	|| [], 
-			drawVectors:object.drawVectors && object.drawVectors === true ? true : false, 
-			drawLines:	object.drawLines && object.drawLines === true ? true : false, 
-			drawFaces:	object.drawFaces && object.drawFaces === true ? true : false, 
-			faceWire:	object.faceWire && object.faceWire === true ? true : false,
-			vectors:	object.vectors
+			vectorSize:		object.vectorSize	|| 1,
+
+			vColor:			object.vColor		|| {r: 255, g: 0, b: 0, a: 1}, 
+			lColor:			object.lColor		|| {r: 0, g: 255, b: 0, a: 1}, 
+			fColor:			object.fColor		|| {r: 0, g: 0, b: 255, a: 1}, 
+
+			position:		object.position		|| {x: 0, y: 0, z: 1000}, 
+			rotation:		object.rotation		|| {x: 0, y: 0, z: 0},
+			scale:			object.scale		|| {x: 1, y: 1, z: 1},
+
+			lines:			object.lines		|| [], 
+			faces:			object.faces		|| [],
+			vectors:		object.vectors,
+
+			drawVectors:	(typeof(object.drawVectors) != 'undefined' && object.drawVectors	=== false) ? false : true, 
+			drawLines:		(typeof(object.drawLines)	!= 'undefined' && object.drawLines		=== false) ? false : true, 
+			drawFaces:		(typeof(object.drawFaces)	!= 'undefined' && object.drawFaces		=== false) ? false : true, 
+
+			faceWire:		object.faceWire ? (object.faceWire && object.faceWire === false ? false : true) : false
 		};
 
 		return this.objects[numObjects];
@@ -291,7 +298,7 @@ var Kukk3D = {
 		var sin		= Math.sin(radians);
 		var cos		= Math.cos(radians);
 
-		switch (axis.toLowerCase()) {
+		switch (axis) {
 			case 'x' : 
 				return [
 					{x: 1, y: 0, z: 0}, 
@@ -349,60 +356,14 @@ var Kukk3D = {
 		};
 	}, 
 
-	/**
-	 * starField
-	 *
-	 **/
-	starField: function (numStars) {
-		var i;
-		var self	= this;
-		var num		= numStars || 500;
-		var stars	= [];
-		var rand	= function (min, max) {
-			return Math.floor(Math.random() * (max - min + 1)) + min;
-		};
-
-		// Give all the stars random positions
-		for (i = 0; i < num; i++) {
-			stars[i] = {
-				x:		rand(-2500, 2500), 
-				y:		rand(-2500, 2500), 
-				z:		rand(0, this.drawDistance)
-			};
-		}
-
-		// The frame loop
-		setInterval(function () {
-			// Black BG
-			self.fillScene({r: 0, g: 0, b: 0, a: 1});
-
-			// Move and draw stars
-			for (i = 0; i < num; i++) {
-				if (stars[i].z < 0) {
-					stars[i].z = self.drawDistance;
-				}
-
-				stars[i].z -= 100;
-
-				stars[i].xy = self.xyz2xy(stars[i]);
-
-				self.plot(stars[i].xy.x, stars[i].xy.y, {
-					r: 255, 
-					g: 255, 
-					b: 255, 
-					a: 1 - stars[i].z / this.drawDistance
-				});
-			}
-		}, 25);
-	}, 
-
 	objectSkeletons: {
 		cube: function () {
 			return {
-				drawVectors:	true, 
+				drawVectors:	true,
 				drawLines:		true,
 				drawFaces:		true,
 				faceWire:		false,
+				vectorSize:		7, // uneven number
 				vColor: {
 					r: 255, g: 0, b: 0, a: 1
 				}, 
@@ -449,9 +410,43 @@ var Kukk3D = {
 				], 
 				faces: [
 					{a: 0,	b: 1, c: 2, d: 3}, 
-					{a: 4,	b: 5, c: 6, d: 7}
-				], 
+					{a: 4,	b: 5, c: 6, d: 7}, 
+					{a: 0,	b: 4, c: 7, d: 3}, 
+					{a: 1,	b: 5, c: 6, d: 2}, 
+					{a: 0,	b: 4, c: 5, d: 1}, 
+					{a: 3,	b: 7, c: 6, d: 2}
+				]
 			};
+		}, 
+
+		sphere: function (_sides, _segments, _radius) {
+			var sides		= _sides	|| 24;
+			var segments	= _segments	|| 12;
+			var radius		= _radius	|| 250;
+			var object		= {vectors: []};
+			var aStep		= 1.0 / segments;
+			var bStep		= 1.0 / sides;
+
+			var i, j, a, b, rxy, rz;
+
+			// Create vectors
+			for (i = 0, a = 0; i <= segments; i++, a += aStep) {
+				for (j = 0, b = 0; j < sides; j++, b += bStep) {
+					rxy = Math.sin(a * Math.PI) * radius;
+					rz  = Math.cos(a * Math.PI) * radius;
+
+					object.vectors[i * sides + j] = {
+						x: Math.cos(b * Math.PI * 2) * rxy, 
+						y: Math.sin(b * Math.PI * 2) * rxy, 
+						z: rz
+					};
+				}
+			}
+
+			object.drawLines = false;
+			object.drawFaces = false;
+
+			return object;
 		}
 	}
 };
