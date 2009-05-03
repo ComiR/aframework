@@ -1,0 +1,65 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+
+	<head>
+
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+
+		<title>Kukk 3D Demo</title>
+
+		<style type="text/css">
+			body {
+				background: #f0f0f0;
+				margin: 0;
+				font: 100%/1.2 Helvetica;
+				color: #000;
+				text-align: center;
+			}
+
+			canvas {
+				background: #012;
+				display: block;
+				margin: 1em auto;
+				border: 10px solid #666;
+			}
+		</style>
+
+	</head>
+
+	<body>
+
+		<h1>
+			<a href="http://exscale.se/archives/2009/04/30/kukk3d-javascript-3d-engine/">
+				Kukk 3D Demo
+			</a>
+		</h1>
+
+		<canvas id="kukk3d"></canvas>
+
+		<p><a href="index.htm">Back to boxes</a></p>
+
+		<script type="text/javascript" src="kukk3d.js"></script>
+		<script type="text/javascript">
+			(function () {
+				Kukk3D.init('kukk3d');
+
+				var sphere = Kukk3D.addObject(Kukk3D.objectSkeletons.sphere(8, 6));
+
+				Kukk3D.render();
+
+				setInterval(function () {
+					sphere.rotation.y += 3;
+					sphere.rotation.z += 2;
+
+					Kukk3D.camera.rotation.z += 2;
+
+					Kukk3D.render();
+				}, 50);
+			})();
+		</script>
+
+	</body>
+
+</html>

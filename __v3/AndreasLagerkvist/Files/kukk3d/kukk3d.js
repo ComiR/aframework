@@ -59,7 +59,7 @@ var Kukk3D = {
 			numVectors			= this.objects[i].vectors.length;
 
 			// Transform every vector in the object
-			for (j = 0; j < numVectors; j++) {
+			for (j in this.objects[i].vectors) {
 				transformedVectors[j] = this.transformVectorInObject(this.objects[i].vectors[j], this.objects[i]);
 
 				// Turn X, Y and Z into just X and Y
@@ -74,7 +74,7 @@ var Kukk3D = {
 			if (this.objects[i].drawFaces && this.objects[i].faces.length) {
 				numFaces = this.objects[i].faces.length;
 
-				for (j = 0; j < numFaces; j++) {
+				for (j in this.objects[i].faces) {
 					this.drawFace(
 						transformedVectors[ this.objects[i].faces[j].a ].xy.x, 
 						transformedVectors[ this.objects[i].faces[j].a ].xy.y, 
@@ -99,7 +99,7 @@ var Kukk3D = {
 			if (this.objects[i].drawLines && this.objects[i].lines.length) {
 				numLines = this.objects[i].lines.length;
 
-				for (j = 0; j < numLines; j++) {
+				for (j in this.objects[i].lines) {
 					this.drawLine(
 						transformedVectors[ this.objects[i].lines[j].a ].xy.x, 
 						transformedVectors[ this.objects[i].lines[j].a ].xy.y, 
@@ -115,9 +115,9 @@ var Kukk3D = {
 				}
 			}
 
-			// Dots (no lines or faces specified)
+			// Dots
 			if (this.objects[i].drawVectors) {
-				for (j = 0; j < numVectors; j++) {
+				for (j in this.objects[i].vectors) {
 					this.plot(transformedVectors[j].xy.x, transformedVectors[j].xy.y, {
 						r: this.objects[i].vColor.r, 
 						g: this.objects[i].vColor.g, 
@@ -420,10 +420,10 @@ var Kukk3D = {
 		}, 
 
 		sphere: function (_sides, _segments, _radius) {
-			var sides		= _sides	|| 24;
-			var segments	= _segments	|| 12;
+			var sides		= _sides	|| 12;
+			var segments	= _segments	|| 6;
 			var radius		= _radius	|| 250;
-			var object		= {vectors: []};
+			var object		= {vectors: [], lines: []};
 			var aStep		= 1.0 / segments;
 			var bStep		= 1.0 / sides;
 
@@ -443,7 +443,33 @@ var Kukk3D = {
 				}
 			}
 
-			object.drawLines = false;
+			// Create lines
+			for (i = 0; i <= segments; i++) {
+				for (j = 0; j < sides - 1; j++) {
+					object.lines[i * sides + j] = {
+						a: i * sides + j, 
+						b: i * sides + j + 1
+					};
+				}
+
+				// lägg till den sista manuellt... den går ju från den sista till den första igen
+				object.lines[i * sides + sides - 1] = {
+					a: i * sides + sides - 1, 
+					b: i * sides + 0
+				};
+			}
+	
+			// de linjer som går mellan segmenten
+			for (i = 0; i < segments; i++) {
+				for (j = 0; j < sides; j++) {
+					// lägg på det som användes för ringarna   |  vanlig	vanlig + en hel ring
+					object.lines[(i * sides + j) + segments * sides + sides] = {
+						a: i * sides + j,
+						b: i * sides + j + sides
+					};
+				}
+			}
+
 			object.drawFaces = false;
 
 			return object;
