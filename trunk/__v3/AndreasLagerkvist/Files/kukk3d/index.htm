@@ -15,10 +15,9 @@
 				margin: 0;
 				font: 100%/1.2 Helvetica;
 				color: #000;
-			}
-			h1 {
 				text-align: center;
 			}
+
 			canvas {
 				background: #012;
 				display: block;
@@ -39,6 +38,8 @@
 
 		<canvas id="kukk3d"></canvas>
 
+		<p><a href="sphere.htm">Simple sphere</a></p>
+
 		<script type="text/javascript" src="kukk3d.js"></script>
 		<script type="text/javascript">
 			(function () {
@@ -51,7 +52,6 @@
 				var cube1			= Kukk3D.addObject(Kukk3D.objectSkeletons.cube());
 				var cube2			= Kukk3D.addObject(Kukk3D.objectSkeletons.cube());
 				var cube3			= Kukk3D.addObject(Kukk3D.objectSkeletons.cube());
-			//	var sphere			= Kukk3D.addObject(Kukk3D.objectSkeletons.sphere());
 
 				// Move the first one to the left and change its colors
 				cube1.position.x	= 0;
