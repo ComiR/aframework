@@ -40,7 +40,7 @@
 			Pages::delete($id);
 
 			if (!XHR) {
-				redirect(Router::urlFor('AddPage') .'?deleted_page');
+				redirect(Router::urlFor('AddPage') . '?deleted_page');
 			}
 		}
 

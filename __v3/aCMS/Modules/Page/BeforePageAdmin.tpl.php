@@ -1,1 +1,1 @@
-<h2><?php echo $page['pages_id'] ? Lang::get('Edit page') : Lang::get('Add page'); ?></h2>
+<h2><?php echo $page['pages_id'] ? Lang::get('Edit Page') : Lang::get('Add Page'); ?></h2>
