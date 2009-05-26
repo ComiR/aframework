@@ -68,7 +68,7 @@
 
 			# Make sure a controller by that name exists
 			if (!$foundController) {
-				die('No controller named ' . $controller);
+				die('aFramework error: No controller named ' . $controller);
 			}
 
 			# Load the base-node
