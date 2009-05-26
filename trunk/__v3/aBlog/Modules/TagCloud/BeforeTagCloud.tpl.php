@@ -1,1 +1,1 @@
-<h2><?php echo Lang::get('Tag cloud'); ?></h2>
+<h2><?php echo Lang::get('Tag Cloud'); ?></h2>

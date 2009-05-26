@@ -18,9 +18,9 @@
 				self::$tplFile = false;
 			}
 			else {
-				self::$tplVars['start'] = $start + 1;
-				self::$tplVars['prev'] = $start === 0 ? false : $start - Config::get('ablog.num_recent_stuff');
-				self::$tplVars['next'] = $start + Config::get('ablog.num_recent_stuff');
+				self::$tplVars['start']	= $start + 1;
+				self::$tplVars['prev']	= $start === 0 ? false : $start - Config::get('ablog.num_recent_stuff');
+				self::$tplVars['next']	= $start + Config::get('ablog.num_recent_stuff');
 			}
 		}
 

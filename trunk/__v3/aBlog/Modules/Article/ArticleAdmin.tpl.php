@@ -1,7 +1,7 @@
 <?php if ($errors) { ?>
 	<p>
 		<strong>
-			<?php echo Lang::get('The form contains errors'); ?> 
+			<?php echo Lang::get('The form contains errors.'); ?> 
 			<?php echo Lang::get('Please make sure you have filled out everything correctly'); ?>
 		</strong>
 	</p>
@@ -91,7 +91,7 @@
 		<input type="hidden" name="articles_id" value="<?php echo $article['articles_id']; ?>" />
 		<input type="hidden" name="article_submit" value="1" />
 		<input type="submit" name="insert" value="<?php echo $article['articles_id'] ? Lang::get('Save changes') : Lang::get('Add article'); ?>" />
-		<?php if ( $article['articles_id'] ) { ?>
+		<?php if ($article['articles_id']) { ?>
 			 <?php echo Lang::get('Or'); ?> 
 			<input type="submit" name="article_delete" value="<?php echo Lang::get('Delete this article'); ?>" />
 		<?php } ?>

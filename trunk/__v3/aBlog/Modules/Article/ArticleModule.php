@@ -47,12 +47,12 @@
 			Articles::delete($id);
 
 			if (!XHR) {
-				redirect(Router::urlFor('Home') .'?deleted_article');
+				redirect(Router::urlFor('Home') . '?deleted_article');
 			}
 		}
 
 		private static function updateArticle ($row) {
-			# If a page ID is set, update
+			# If an article ID is set, update
 			if (!empty($row['articles_id']) and is_numeric($row['articles_id'])) {
 				Articles::update($row['articles_id'], $_POST);
 
