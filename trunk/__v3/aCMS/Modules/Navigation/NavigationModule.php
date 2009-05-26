@@ -50,7 +50,7 @@
 
 		protected static function getAdminLinks () {
 			self::$tplVars['nav_items'][] = array(
-				'title'	=> Lang::get('Add page'), 
+				'title'	=> Lang::get('Add Page'), 
 				'url'	=> Router::urlFor('AddPage')
 			);
 		}
