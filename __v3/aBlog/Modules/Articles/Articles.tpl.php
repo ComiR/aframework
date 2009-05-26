@@ -20,12 +20,12 @@
 				<?php if ($a['num_comments']) { ?>
 					<?php echo Lang::get('Join'); ?> 
 					<?php echo $a['num_comments']; ?> 
-					<?php echo Lang::get('Others and'); ?> 
+					<?php echo Lang::get('others and'); ?> 
 				<?php } else { ?>
 					<?php echo Lang::get('Be the first to'); ?> 
 				<?php } ?>
 				<a href="<?php echo Router::urlFor('Article', $a); ?>#post-comment">
-					<?php echo Lang::get('Post a comment'); ?>
+					<?php echo Lang::get('post a comment'); ?>
 				</a>
 			</p>
 		</li>

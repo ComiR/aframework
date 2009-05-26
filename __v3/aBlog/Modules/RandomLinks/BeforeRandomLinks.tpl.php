@@ -1,1 +1,1 @@
-<h2><?php echo Lang::get('Random links'); ?></h2>
+<h2><?php echo Lang::get('Random Links'); ?></h2>

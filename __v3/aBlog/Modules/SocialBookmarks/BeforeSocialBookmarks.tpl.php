@@ -1,1 +1,1 @@
-<h3><?php echo Lang::get('Bookmark this article'); ?></h3>
+<h3><?php echo Lang::get('Bookmark this Article'); ?></h3>

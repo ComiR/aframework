@@ -1,14 +1,14 @@
-#article-bookmarking ul {
+#social-bookmarks ul {
 	margin-left: 0;
 	padding-left: 0;
 	list-style: none;
 }
 
-	#article-bookmarking ul li {
+	#social-bookmarks ul li {
 		display: inline;
 		margin-right: 5px;
 	}
 
-		#article-bookmarking ul li img {
+		#social-bookmarks ul li img {
 			border: 0;
 		}

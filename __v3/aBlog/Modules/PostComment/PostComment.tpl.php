@@ -25,7 +25,7 @@
 	<p>
 		<label>
 			<strong>*</strong> 
-			<?php echo Lang::get('Your comment'); ?><br />
+			<?php echo Lang::get('And comment'); ?><br />
 			<textarea name="content" rows="10" cols="40"></textarea>
 		</label>
 	</p>
