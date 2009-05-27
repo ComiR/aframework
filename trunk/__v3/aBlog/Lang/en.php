@@ -46,7 +46,7 @@
 'You are currently browsing' => 'You are currently browsing', 
 'articles tagged with' => 'articles tagged with', 
 'Archives for' => 'Archives for', 
-'articles posted ' => 'articles posted ', 
+'articles posted in' => 'articles posted in', 
 'The latest articles' => 'The latest articles', 
 
 # ArticlesByDate.tpl.php
