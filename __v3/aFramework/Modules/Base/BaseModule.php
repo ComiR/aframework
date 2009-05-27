@@ -11,6 +11,7 @@
 			self::$tplVars['style']				= (isset($_COOKIE['style'])) ? $_COOKIE['style'] : Config::get('general.default_style');
 			self::$tplVars['noindex']			= !empty($_SERVER['QUERY_STRING']);
 
+			# Allow a noindex-attribute in controller-XML-files
 			$controllerPath = DOCROOT . CURRENT_SITE . '/Controllers/' . $_GET['controller'] . '.xml';
 
 			if (

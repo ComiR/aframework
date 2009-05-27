@@ -22,6 +22,7 @@
 'Unpacked' => 'Unpacked', 
 'Minified' => 'Minified', 
 'Requires' => 'Requires', 
+'Other Resources' => 'Other Resources', 
 
 # JqueryPlugins.tpl.php
 'Author' => 'Author', 

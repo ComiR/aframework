@@ -45,7 +45,7 @@ jQuery.fn.checkedCheckboxParent = function () {
 			var check = $(this);
 
 			var checkParent = function () {
-				if ( check.is(':checked') ) {
+				if (check.is(':checked')) {
 					check.parent().addClass('checked');
 				}
 				else {

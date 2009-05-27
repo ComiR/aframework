@@ -50,7 +50,7 @@ Run the plug-in on a parent-element of the form-controls you want to affect. If 
 // I'm not actually running it because my site already uses formHints
 // jQuery('#jquery-form-hints-example').formHints();
 ***/
-jQuery.fn.formHints = function ( conf ) {
+jQuery.fn.formHints = function (conf) {
 	var config = jQuery.extend({
 		formControls:	'input[title], textarea[title]',
 		className:		'default-value'
@@ -63,18 +63,18 @@ jQuery.fn.formHints = function ( conf ) {
 			t.formHint = t.attr('title');
 			t.attr('title', '');
 
-			if ( t.val() === '' || t.val() == t.formHint ) {
+			if (t.val() === '' || t.val() == t.formHint) {
 				t.addClass(config.className).val(t.formHint);
 			}
 
 			t.focus(function () {
-				if ( t.val() == t.formHint ) {
+				if (t.val() == t.formHint) {
 					t.val('').removeClass(config.className);
 				}
 			});
 			
 			t.blur(function () {
-				if ( t.val() === '' || t.val() == t.formHint ) {
+				if (t.val() === '' || t.val() == t.formHint) {
 					t.addClass(config.className).val(t.formHint);
 				}
 			});

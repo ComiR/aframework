@@ -24,10 +24,10 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-Sizes tags in a list.
+Use this plug-in on a list of tags (li:s) and it will use whatever numbers found in the list to give each tag a corresponding size.
 
 @howto:
-jQuery('#tags').tagSizes();
+jQuery('#tags').tagSizes('span'); would apply sizes too all li:s in #tags and look for numbers in a span element in each li.
 
 @exampleHTML:
 <ul>
@@ -37,6 +37,7 @@ jQuery('#tags').tagSizes();
 </ul>
 
 @exampleJS:
+// No 'number element' passed in - the plug-in will look for numbers directly in the li:s
 jQuery('#jquery-tag-sizes-example').tagSizes();
 ***/
 jQuery.fn.tagSizes = function (numberElement, maxSize, minSize) {

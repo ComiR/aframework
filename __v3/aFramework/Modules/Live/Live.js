@@ -8,7 +8,7 @@ aFramework.modules.Live = {
 		var hide = Lang.get('Hide live cam');
 		var live = jQuery('#live object');
 
-		jQuery('<p><a href="#" id="live-toggler">' +show +'</a></p>').insertAfter('#live h2');
+		jQuery('<p><a href="#" id="live-toggler">' + show + '</a></p>').insertAfter('#live h2');
 		live.hide();
 
 		$('#live-toggler').toggle(function() {

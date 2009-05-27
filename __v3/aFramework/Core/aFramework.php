@@ -15,10 +15,10 @@
 		public static function run () {
 			if (isset($_GET['module'])) {
 				if (XHR) {
-					echo HTMLPacker::pack(self::runSingleModule(removeDots($_GET['module'])));
+					echo HTMLPacker::pack(self::runSingleModule(basename($_GET['module'])));
 				}
 				else {
-					echo self::runSingleModule(removeDots($_GET['module']));
+					echo self::runSingleModule(basename($_GET['module']));
 				}
 			}
 			elseif (isset($_GET['controller'])) {
@@ -26,7 +26,7 @@
 					FourOFour::run();
 				}
 				else {
-					echo HTMLPacker::pack(self::runController(removeDots($_GET['controller'])));
+					echo HTMLPacker::pack(self::runController(basename($_GET['controller'])));
 				}
 			}
 		}

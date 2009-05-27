@@ -5,7 +5,7 @@
 
 		public static function run () {
 			$site					= isset($_GET['site']) ? $_GET['site'] : 'aFramework';
-			$path					= removeDots(DOCROOT . $site);
+			$path					= basename(DOCROOT . $site);
 			self::$tplVars['langs']	= self::getLangsInDir($path);
 		}
 
@@ -31,7 +31,7 @@
 
 								if (preg_match_all($pattern, $contents, $matches)) {
 									foreach ($matches[2] as $key) {
-										$langs[$f][$key] = ucfirst(str_replace('_', ' ', $key));
+										$langs[$f][$key] = $key; # ucfirst(str_replace('_', ' ', $key));
 									}
 								}
 							}

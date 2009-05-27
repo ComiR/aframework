@@ -1,8 +1,8 @@
 <?php if ($error) { ?>
 	<p>
 		<strong>
-			<?php echo Lang::get('The form contains errors'); ?> 
-			<?php echo Lang::get('Please make sure you have filled out everything correctly'); ?>
+			<?php echo Lang::get('The form contains errors.'); ?> 
+			<?php echo Lang::get('Please make sure you have filled out everything correctly.'); ?>
 		</strong>
 	</p>
 <?php } ?>
@@ -11,21 +11,21 @@
 
 	<p>
 		<label>
-			<strong>*</strong> <?php echo Lang::get('Your name'); ?><br />
+			<strong>*</strong> <?php echo Lang::get('Your Name'); ?><br />
 			<input type="text" name="name" value="<?php echo $visitor['name']; ?>" />
 		</label>
 	</p>
 
 	<p>
 		<label>
-			<strong>*</strong> <?php echo Lang::get('Your email'); ?><br />
+			<strong>*</strong> <?php echo Lang::get('E-mail'); ?><br />
 			<input type="text" name="email" value="<?php echo $visitor['email']; ?>" />
 		</label>
 	</p>
 
 	<p>
 		<label>
-			<strong>*</strong> <?php echo Lang::get('Message'); ?><br />
+			<strong>*</strong> <?php echo Lang::get('And Message'); ?><br />
 			<textarea name="message" rows="6" cols="40"></textarea>
 		</label>
 	</p>

@@ -46,7 +46,7 @@ jQuery(document.body).imageZoom(); Would make every link pointing to an image in
 // I don't run it because my site already uses imgZoom
 // jQuery(document.body).imageZoom();
 ***/
-jQuery.fn.imageZoom = function ( conf ) {
+jQuery.fn.imageZoom = function (conf) {
 	// Some config. If you set dontFadeIn: 0 and hideClicked: 0 imgzoom will act exactly like fancyzoom
 	var config = jQuery.extend({
 		speed:			200,	// Animation-speed of zoom
@@ -66,12 +66,12 @@ jQuery.fn.imageZoom = function ( conf ) {
 		var clickedImg		= (clickedLink && clickedLink.find('img').length) ? clickedLink.find('img') : false; // See if the clicked link contains and image
 
 		// Only continue if a link pointing to an image was clicked
-		if ( clickedLink ) {
+		if (clickedLink) {
 			// These functions are used when the imaeg starts and stops loading (displays either 'loading..' or fades out the clicked img slightly)
 			clickedLink.oldText	= clickedLink.text();
 
 			clickedLink.setLoadingImg = function () {
-				if ( clickedImg ) {
+				if (clickedImg) {
 					clickedImg.css({opacity: '0.5'});
 				}
 				else {
@@ -80,7 +80,7 @@ jQuery.fn.imageZoom = function ( conf ) {
 			};
 
 			clickedLink.setNotLoadingImg = function () {
-				if ( clickedImg ) {
+				if (clickedImg) {
 					clickedImg.css({opacity: '1'});
 				}
 				else {
@@ -92,7 +92,7 @@ jQuery.fn.imageZoom = function ( conf ) {
 			var displayImgSrc = clickedLink.attr('href');
 
 			// If an imgzoom wiv this image is already open dont do nathin
-			if ( jQuery('div.' + config.className + ' img[src="' + displayImgSrc + '"]').length ) {
+			if (jQuery('div.' + config.className + ' img[src="' + displayImgSrc + '"]').length) {
 				return false;
 			}
 
@@ -123,13 +123,13 @@ jQuery.fn.imageZoom = function ( conf ) {
 					height:	jQuery(window).height()
 				};
 				// Make sure imgzoom isn't wider than screen
-				if ( imgzoomAfter.width > (windowDim.width - config.imageMargin * 2) ) {
+				if (imgzoomAfter.width > (windowDim.width - config.imageMargin * 2)) {
 					var nWidth			= windowDim.width - config.imageMargin * 2;
 					imgzoomAfter.height	= (nWidth / imgzoomAfter.width) * imgzoomAfter.height;
 					imgzoomAfter.width	= nWidth;
 				}
 				// Now make sure it isn't taller
-				if ( imgzoomAfter.height > (windowDim.height - config.imageMargin * 2) ) {
+				if (imgzoomAfter.height > (windowDim.height - config.imageMargin * 2)) {
 					var nHeight			= windowDim.height - config.imageMargin * 2;
 					imgzoomAfter.width	= (nHeight / imgzoomAfter.height) * imgzoomAfter.width;
 					imgzoomAfter.height	= nHeight;
@@ -140,7 +140,7 @@ jQuery.fn.imageZoom = function ( conf ) {
 				var closeButton		= jQuery('<a href="#">Close</a>').appendTo(imgzoom).hide(); // The button that closes the imgzoom (we're adding this after the calculation of the dimensions)
 
 				// Hide the clicked link if set so in config
-				if ( hideClicked ) {
+				if (hideClicked) {
 					clickedLink.css('visibility', 'hidden');
 				}
 
@@ -170,7 +170,7 @@ jQuery.fn.imageZoom = function ( conf ) {
 			var preload = new Image();
 				preload.src = displayImgSrc;
 
-			if ( preload.complete ) {
+			if (preload.complete) {
 				preloadOnload();
 			}
 			else {

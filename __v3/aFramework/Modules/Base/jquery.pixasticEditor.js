@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery, jquery.pixasticEditor.css, jquery.form.js, pixastic.custom.js
 
 @does:
-This plug-in inserts a stylable toolbar next to any image in your document that allows the user to apply different Pixastic-effects to the image.
+This app/plug-in inserts a (completely stylable) toolbar next to any image in your document that allows the user to apply different [Pixastic](http://pixastic.com)-effects to the image.
 
 @howto:
 $('#my-image').pixasticEditor(); would insert the editor in the #my-image-element and affect an img-element within #my-image. Since it's not possible to append a list or div or any other element directly to an image, the plug-in should be run on a parent-element (preferably div) of the img-element. If you have a list of images you could run it on each li of the list.
