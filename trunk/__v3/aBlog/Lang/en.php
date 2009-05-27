@@ -8,8 +8,10 @@
 'No comments' => 'No comments', 
 
 # ArticleAdmin.tpl.php
-'The form contains errors' => 'The form contains errors', 
+'The form contains errors.' => 'The form contains errors.', 
 'Please make sure you have filled out everything correctly' => 'Please make sure you have filled out everything correctly', 
+'The article was successfully saved!' => 'The article was successfully saved!', 
+'The article was successfully deleted!' => 'The article was successfully deleted!', 
 'Url string' => 'Url string', 
 'Title' => 'Title', 
 'Publish date' => 'Publish date', 
@@ -21,7 +23,7 @@
 'No' => 'No', 
 'Allow rating' => 'Allow rating', 
 'Save changes' => 'Save changes', 
-'Add page' => 'Add page', 
+'Add article' => 'Add article', 
 'Or' => 'Or', 
 'Delete this article' => 'Delete this article', 
 
@@ -35,40 +37,41 @@
 # Articles.tpl.php
 'Published' => 'Published', 
 'Join' => 'Join', 
-'Others and' => 'Others and', 
+'others and' => 'others and', 
 'Be the first to' => 'Be the first to', 
-'Post a comment' => 'Post a comment', 
+'post a comment' => 'post a comment', 
 
 # ArticlesModule.php
 'Articles tagged with' => 'Articles tagged with', 
 'You are currently browsing' => 'You are currently browsing', 
+'articles tagged with' => 'articles tagged with', 
 'Archives for' => 'Archives for', 
-'Articles posted ' => 'Articles posted ', 
+'articles posted ' => 'articles posted ', 
 'The latest articles' => 'The latest articles', 
 
 # ArticlesByDate.tpl.php
 'Continue reading' => 'Continue reading', 
 
 # BeforeArticlesByDate.tpl.php
-'Articles by date' => 'Articles by date', 
+'Articles by Date' => 'Articles by Date', 
 
 # BeforeComments.tpl.php
 'Comments' => 'Comments', 
 
 # Comments.tpl.php
 'No comments yet why not' => 'No comments yet why not', 
-'Be the first to post one' => 'Be the first to post one', 
+'be the first to post one' => 'be the first to post one', 
 
 # BeforeOlderArticles.tpl.php
-'Older articles' => 'Older articles', 
+'Older Articles' => 'Older Articles', 
 
 # OlderArticles.tpl.php
 'Published' => 'Published', 
 'Continue reading' => 'Continue reading', 
 
 # BeforePostComment.tpl.php
-'Post a comment' => 'Post a comment', 
-'The form contains errors' => 'The form contains errors', 
+'Post a Comment' => 'Post a Comment', 
+'The form contains errors.' => 'The form contains errors.', 
 'Please make sure you have filled out everything correctly' => 'Please make sure you have filled out everything correctly', 
 
 # PostComment.js
@@ -78,7 +81,7 @@
 'Your name' => 'Your name', 
 'Email' => 'Email', 
 'Website' => 'Website', 
-'Your comment' => 'Your comment', 
+'And comment' => 'And comment', 
 'Post comment' => 'Post comment', 
 
 # AfterPostIt.tpl.php
@@ -88,24 +91,24 @@
 'Post it' => 'Post it', 
 
 # BeforePostIt.tpl.php
-'Post it' => 'Post it', 
+'Post It' => 'Post It', 
 'From' => 'From', 
-'To' => 'To', 
+'to' => 'to', 
 
 # PostIt.tpl.php
 'Delete' => 'Delete', 
 
 # AfterRandomLinksAdmin.tpl.php
-'Add a link' => 'Add a link', 
-'The form contains errors' => 'The form contains errors', 
+'Add a Link' => 'Add a Link', 
+'The form contains errors.' => 'The form contains errors.', 
 'Please make sure you have filled out everything correctly' => 'Please make sure you have filled out everything correctly', 
 'Title' => 'Title', 
 'Description' => 'Description', 
-'Url' => 'Url', 
+'URL' => 'URL', 
 'Add' => 'Add', 
 
 # BeforeRandomLinks.tpl.php
-'Random links' => 'Random links', 
+'Random Links' => 'Random Links', 
 
 # RandomLinks.js
 'Get some new links' => 'Get some new links', 
@@ -119,20 +122,20 @@
 'Older' => 'Older', 
 
 # BeforeRecentComments.tpl.php
-'Recent comments' => 'Recent comments', 
+'Recent Comments' => 'Recent Comments', 
 
 # RecentComments.js
 'Loading' => 'Loading', 
 
 # RecentComments.tpl.php
-'On' => 'On', 
+'on' => 'on', 
 'Delete' => 'Delete', 
 
 # BeforeSocialBookmarks.tpl.php
-'Bookmark this article' => 'Bookmark this article', 
+'Bookmark this Article' => 'Bookmark this Article', 
 
 # BeforeTagCloud.tpl.php
-'Tag cloud' => 'Tag cloud', 
+'Tag Cloud' => 'Tag Cloud', 
 
 # TagCloud.tpl.php
 'Delete' => 'Delete', 

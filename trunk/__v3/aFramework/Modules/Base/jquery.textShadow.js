@@ -24,10 +24,10 @@ http://creativecommons.org/licenses/by/3.0/
 jquery, jquery.textShadow.css
 
 @does:
-Adds a shadow to text
+Frankly a rather crappy text-shadow plug-in (can one be done well? :) but nevertheless it does the job in some cases.
 
 @howto:
-jQuery('h2').textShadow();
+jQuery('h2').textShadow(); would give every h2 a shadow.
 
 @exampleHTML:
 <p>I should have a shadow.</p>

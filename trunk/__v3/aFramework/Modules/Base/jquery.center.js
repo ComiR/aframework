@@ -24,12 +24,10 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-Centers an element on the screen using either position: fixed or absolute.
-
-Can be used to display messages, pop up images etc.
+This little pluggy centers an element on the screen using either fixed or absolute positioning. Can be used to display messages, pop up images etc.
 
 @howto:
-jQuery('#my-element').center(); would center the element with ID 'my-element' using fixed position.
+jQuery('#my-element').center(true); would center the element with ID 'my-element' using absolute position (leave empty for fixed).
 
 @exampleHTML:
 <p>I should be fixed centered</p>
@@ -42,7 +40,7 @@ jQuery('#my-element').center(); would center the element with ID 'my-element' us
 jQuery('#jquery-center-example p:first-child').center();
 jQuery('#jquery-center-example p:last-child').center(true);
 ***/
-jQuery.fn.center = function ( absolute ) {
+jQuery.fn.center = function (absolute) {
 	return this.each(function () {
 		var t = jQuery(this);
 
@@ -56,7 +54,7 @@ jQuery.fn.center = function ( absolute ) {
 			marginTop:	'-' + (t.outerHeight() / 2) + 'px'
 		});
 
-		if ( absolute ) {
+		if (absolute) {
 			t.css({
 				marginTop:	parseInt(t.css('marginTop'), 10) + jQuery(window).scrollTop(), 
 				marginLeft:	parseInt(t.css('marginLeft'), 10) + jQuery(window).scrollLeft()

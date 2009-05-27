@@ -1,11 +1,11 @@
 <ul>
 	<li>
-		<a href="#" title="<?php echo Lang::get('Top of page'); ?>">
+		<a href="#" title="<?php echo Lang::get('Top of Page'); ?>">
 			<?php echo Lang::get('Top'); ?>
 		</a>
 	</li>
 	<li>
-		<a href="<?php echo Router::urlFor('Contact'); ?>" title="<?php echo Lang::get('Contact me'); ?>">
+		<a href="<?php echo Router::urlFor('Contact'); ?>" title="<?php echo Lang::get('Contact Me'); ?>">
 			<?php echo Lang::get('Contact'); ?>
 		</a>
 	</li>
@@ -27,7 +27,7 @@
 	<?php if (ADMIN) { ?>
 		<li>
 			<a href="<?php echo Router::urlFor('AdminLogin'); ?>?logout">
-				<?php echo Lang::get('Log out'); ?>
+				<?php echo Lang::get('Log Out'); ?>
 			</a>
 		</li>
 	<?php } ?>

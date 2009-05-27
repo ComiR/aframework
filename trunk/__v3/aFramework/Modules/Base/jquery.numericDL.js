@@ -49,15 +49,15 @@ jQuery.fn.numericDL = function () {
 			var dd		= dt.next('dd');
 			var i		= 1;
 
-			while ( dd.length ) {
+			while (dd.length) {
 				dd = dd.next('dd');
 				numDDs++;
 			}
 
-			if ( numDDs > 1 ) {
+			if (numDDs > 1) {
 				dd = dt.next('dd');
 
-				while ( dd.length ) {
+				while (dd.length) {
 					dd.text('(' + i++ + ') ' + dd.text());
 					dd = dd.next('dd');
 				}

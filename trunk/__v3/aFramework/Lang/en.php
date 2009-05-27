@@ -19,19 +19,19 @@
 'Loading' => 'Loading', 
 
 # AdminLogin.tpl.php
-'Please sign in' => 'Please sign in', 
-'Wrong username or password' => 'Wrong username or password', 
-'Please try again' => 'Please try again', 
+'Please Sign In' => 'Please Sign In', 
+'Wrong username or password.' => 'Wrong username or password.', 
+'Please try again.' => 'Please try again.', 
 'Username' => 'Username', 
 'Password' => 'Password', 
 'Remember me' => 'Remember me', 
 'Login' => 'Login', 
 
 # AdminLoginAdmin.tpl.php
-'You are logged in' => 'You are logged in', 
-'What would you like to do' => 'What would you like to do', 
+'You are Logged in' => 'You are Logged in', 
+'What would you like to do?' => 'What would you like to do?', 
 'Log out' => 'Log out', 
-'Go to home page' => 'Go to home page', 
+'Go to Home Page' => 'Go to Home Page', 
 
 # aFramework.js
 'Valid' => 'Valid', 
@@ -44,11 +44,11 @@
 'Thanks' => 'Thanks', 
 
 # Contact.tpl.php
-'The form contains errors' => 'The form contains errors', 
-'Please make sure you have filled out everything correctly' => 'Please make sure you have filled out everything correctly', 
-'Your name' => 'Your name', 
-'Your email' => 'Your email', 
-'Message' => 'Message', 
+'The form contains errors.' => 'The form contains errors.', 
+'Please make sure you have filled out everything correctly.' => 'Please make sure you have filled out everything correctly.', 
+'Your Name' => 'Your Name', 
+'E-mail' => 'E-mail', 
+'And Message' => 'And Message', 
 'Remember me' => 'Remember me', 
 'Send' => 'Send', 
 
@@ -58,25 +58,25 @@
 # AfterFooter.tpl.php
 'Copyright' => 'Copyright', 
 'All contents are released under a CCv3' => 'All contents are released under a CCv3', 
-'Some rights reserved' => 'Some rights reserved', 
-'Is powered by' => 'Is powered by', 
-'And' => 'And', 
+'Some rights reserved.' => 'Some rights reserved.', 
+'is powered by' => 'is powered by', 
+'and' => 'and', 
 'Seconds' => 'Seconds', 
-'Queries' => 'Queries', 
-'Cached' => 'Cached', 
+'queries' => 'queries', 
+'cached' => 'cached', 
 
 # Footer.tpl.php
-'Top of page' => 'Top of page', 
+'Top of Page' => 'Top of Page', 
 'Top' => 'Top', 
-'Contact me' => 'Contact me', 
+'Contact Me' => 'Contact Me', 
 'Contact' => 'Contact', 
 'Get' => 'Get', 
 'Valid' => 'Valid', 
 'Mostly' => 'Mostly', 
-'Log out' => 'Log out', 
+'Log Out' => 'Log Out', 
 
 # Header.tpl.php
-'Home page' => 'Home page', 
+'Home Page' => 'Home Page', 
 
 # Live.js
 'Show live cam' => 'Show live cam', 
@@ -101,28 +101,28 @@
 'Next' => 'Next', 
 
 # BeforeNoQuery.tpl.php
-'No query' => 'No query', 
+'No Query' => 'No Query', 
 
 # BeforeNoResults.tpl.php
-'No search results for' => 'No search results for', 
+'No Search Results for' => 'No Search Results for', 
 'Your search' => 'Your search', 
-'Did not match any documents' => 'Did not match any documents', 
+'did not match any documents' => 'did not match any documents', 
+
+# BeforeSearchResults.tpl.php
+'Search Results for' => 'Search Results for', 
+'Results' => 'Results', 
+'of about' => 'of about', 
+'for' => 'for', 
+
+# NoQuery.tpl.php
+'Please Enter a Search Query' => 'Please Enter a Search Query', 
+
+# NoResults.tpl.php
 'Suggestions' => 'Suggestions', 
 'Make sure all your words are spelled correctly' => 'Make sure all your words are spelled correctly', 
 'Try different keywords' => 'Try different keywords', 
 'Try more general keywords' => 'Try more general keywords', 
-
-# BeforeSearchResults.tpl.php
-'Search results for' => 'Search results for', 
-'Results' => 'Results', 
-'Of about' => 'Of about', 
-'For' => 'For', 
-
-# NoQuery.tpl.php
-'Please enter a search query' => 'Please enter a search query', 
-
-# NoResults.tpl.php
-'Sorry there were no results' => 'Sorry there were no results', 
+'Happy hunting!' => 'Happy hunting!', 
 
 # SearchResults.tpl.php
 'Read more' => 'Read more', 
@@ -134,8 +134,8 @@
 'Navigation' => 'Navigation', 
 
 # BeforeSocialBookmarks.tpl.php
-'Bookmark this url' => 'Bookmark this url', 
-'Add this url to your favourite bookmarking service' => 'Add this url to your favourite bookmarking service', 
+'Bookmark this URL' => 'Bookmark this URL', 
+'Add this URL to your favourite bookmarking service' => 'Add this URL to your favourite bookmarking service', 
 
 # Routes.php
 'url.admin' => 'admin', 

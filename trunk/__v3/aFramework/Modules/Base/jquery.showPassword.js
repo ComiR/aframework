@@ -35,7 +35,7 @@ jQuery('#my-form').showPassword(); would insert "password togglers" in every inp
 @exampleJS:
 jQuery('#jquery-show-password-example').showPassword();
 ***/
-jQuery.fn.showPassword = function(conf) {
+jQuery.fn.showPassword = function (conf) {
 	var config = $.extend({
 		str:		'Show password', 
 		className:	'password-toggler'
@@ -48,7 +48,7 @@ jQuery.fn.showPassword = function(conf) {
 			var check		= jQuery('<label class="' + config.className + '"><input type="checkbox" /> ' + config.str + '</label>');
 			var parentLabel	= field.parents('label');
 
-			if ( parentLabel.length ) {
+			if (parentLabel.length) {
 				check.insertAfter(parentLabel);
 			}
 			else {
@@ -56,7 +56,7 @@ jQuery.fn.showPassword = function(conf) {
 			}
 
 			check.find('input').click(function() {
-				if ( jQuery(this).is(':checked') ) {
+				if (jQuery(this).is(':checked')) {
 				//	field.attr('type', 'text'); // strange, this threw errors
 				//	field[0].type = 'text'; // and this doesn't work in IE
 					field.hide();

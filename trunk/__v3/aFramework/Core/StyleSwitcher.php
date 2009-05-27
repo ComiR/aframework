@@ -35,7 +35,7 @@
 		 * "Cleans" style-path, sets style-cookie and redirects
 		 **/
 		private static function setStyle ($style) {
-			$style = removeDots($style);
+			$style = basename($style);
 
 			if (is_dir(CURRENT_SITE_DIR . 'Styles/' . $style . '/')) {
 				setcookie('style', $style, time() + 31536000, WEBROOT);

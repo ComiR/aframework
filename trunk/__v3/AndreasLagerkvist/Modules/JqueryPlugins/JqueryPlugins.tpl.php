@@ -7,7 +7,7 @@
 				</a>
 			</h3>
 
-			<?php echo $plugin['does']; ?>
+			<?php echo $plugin['does_short']; ?>
 
 			<dl>
 			<!--<dt><?php echo Lang::get('Author'); ?></dt>

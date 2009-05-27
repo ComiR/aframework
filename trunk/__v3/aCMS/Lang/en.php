@@ -5,29 +5,29 @@
 
 # NavigationModule.php
 'Home' => 'Home', 
-'Add page' => 'Add page', 
+'Add Page' => 'Add Page', 
 
 # BeforePageAdmin.tpl.php
-'Edit page' => 'Edit page', 
-'Add page' => 'Add page', 
+'Edit Page' => 'Edit Page', 
+'Add Page' => 'Add Page', 
 
 # PageAdmin.tpl.php
-'The form contains errors' => 'The form contains errors', 
+'The form contains errors.' => 'The form contains errors.', 
 'Please make sure you have filled out everything correctly' => 'Please make sure you have filled out everything correctly', 
-'Url string' => 'Url string', 
-'Show in navigation' => 'Show in navigation', 
+'URL string' => 'URL string', 
+'Show in Navigation' => 'Show in Navigation', 
 'Yes' => 'Yes', 
 'No' => 'No', 
 'Priority' => 'Priority', 
 'A lower number places page early in the list' => 'A lower number places page early in the list', 
-'Page title' => 'Page title', 
-'Meta description' => 'Meta description', 
-'Meta keywords' => 'Meta keywords', 
-'Page content' => 'Page content', 
-'Save changes' => 'Save changes', 
-'Add page' => 'Add page', 
+'Page Title' => 'Page Title', 
+'Meta Description' => 'Meta Description', 
+'Meta Keywords' => 'Meta Keywords', 
+'Page Content' => 'Page Content', 
+'Save Changes' => 'Save Changes', 
+'Add Page' => 'Add Page', 
 'Or' => 'Or', 
-'Delete this page' => 'Delete this page', 
+'Delete this Page' => 'Delete this Page', 
 
 # PageModule.php
 'Add a page' => 'Add a page', 

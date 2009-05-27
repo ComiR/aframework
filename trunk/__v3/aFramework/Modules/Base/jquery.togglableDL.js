@@ -24,10 +24,10 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-Makes clicking dts show or hide the dds beneath it.
+Use this plug-in on your definition-lists (dl-elements) to allow the dd:s for a dt to be toggled when clicking the dt.
 
 @howto:
-jQuery('#faq dl').togglableDL();
+jQuery('#faq dl').togglableDL(); would make every dl in #faq 'togglable'.
 
 @exampleHTML:
 <dl>
@@ -40,7 +40,7 @@ jQuery('#faq dl').togglableDL();
 @exampleJS:
 jQuery('#jquery-togglable-dl-example dl').togglableDL();
 ***/
-jQuery.fn.togglableDL = function ( conf ) {
+jQuery.fn.togglableDL = function (conf) {
 	var config = jQuery.extend({
 		speed: 	100
 	}, conf);
@@ -55,7 +55,7 @@ jQuery.fn.togglableDL = function ( conf ) {
 				var isDT = false;
 
 				dt.nextAll().each(function () {
-					if ( isDT || jQuery(this).is('dt') ) {
+					if (isDT || jQuery(this).is('dt')) {
 						isDT = true;
 						return;
 					}
@@ -67,7 +67,7 @@ jQuery.fn.togglableDL = function ( conf ) {
 				var isDT = false;
 
 				dt.nextAll().each(function () {
-					if ( isDT || jQuery(this).is('dt') ) {
+					if (isDT || jQuery(this).is('dt')) {
 						isDT = true;
 						return;
 					}

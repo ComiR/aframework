@@ -56,6 +56,7 @@ jQuery.fn.dragToSelect = function (conf) {
 		disabledClass:	'disabled', 
 		selectedClass:	'selected', 
 		scrollTH:		10, 
+		percentCovered:	25, 
 		selectables:	false, 
 		autoScroll:		false, 
 		selectOnMove:	false, 
@@ -64,7 +65,8 @@ jQuery.fn.dragToSelect = function (conf) {
 		onRefresh:		function () {return true;}
 	}, c);
 
-	var parent = jQuery(this);
+	var realParent	= jQuery(this);
+	var parent		= realParent;
 
 	do {
 		if (/auto|scroll|hidden/.test(parent.css('overflow'))) {
@@ -197,7 +199,7 @@ jQuery.fn.dragToSelect = function (conf) {
 			return;
 		}
 
-		var selectables		= parent.find(config.selectables);
+		var selectables		= realParent.find(config.selectables);
 		var selectBoxOffset	= selectBox.offset();
 		var selectBoxDim	= {
 			left:	selectBoxOffset.left, 
@@ -216,18 +218,58 @@ jQuery.fn.dragToSelect = function (conf) {
 				height:	el.height()
 			};
 
-			if (
-				(selectBoxDim.left < elDim.left) && 
-				(selectBoxDim.top < elDim.top) && 
-				((selectBoxDim.left + selectBoxDim.width) > (elDim.left + elDim.width)) && 
-				((selectBoxDim.top + selectBoxDim.height) > (elDim.top + elDim.height))
-			) {
+			if (percentCovered(selectBoxDim, elDim) > config.percentCovered) {
 				el.addClass(config.selectedClass);
 			}
 			else {
 				el.removeClass(config.selectedClass);
 			}
 		});
+	};
+
+	// Returns the amount (in %) that dim1 covers dim2
+	var percentCovered = function (dim1, dim2) {
+		// The whole thing is covering the whole other thing
+		if (
+			(dim1.left <= dim2.left) && 
+			(dim1.top <= dim2.top) && 
+			((dim1.left + dim1.width) >= (dim2.left + dim2.width)) && 
+			((dim1.top + dim1.height) > (dim2.top + dim2.height))
+		) {
+			return 100;
+		}
+		// Only parts may be covered, calculate percentage
+		else {
+			dim1.right		= dim1.left + dim1.width;
+			dim1.bottom		= dim1.top + dim1.height;
+			dim2.right		= dim2.left + dim2.width;
+			dim2.bottom		= dim2.top + dim2.height;
+
+			var l = Math.max(dim1.left, dim2.left);
+			var r = Math.min(dim1.right, dim2.right);
+			var t = Math.max(dim1.top, dim2.top);
+			var b = Math.min(dim1.bottom, dim2.bottom);
+
+			if (b >= t && r >= l) {
+			/*	$('<div/>').appendTo(document.body).css({
+					background:	'red', 
+					position:	'absolute',
+					left:		l + 'px', 
+					top:		t + 'px', 
+					width:		(r - l) + 'px', 
+					height:		(b - t) + 'px', 
+					zIndex:		100
+				}); */
+
+				var percent = (((r - l) * (b - t)) / (dim2.width * dim2.height)) * 100;
+
+			//	alert(percent + '% covered')
+
+				return percent;
+			}
+		}
+		// Nothing covered, return 0
+		return 0;
 	};
 
 	// Do the right stuff then return this
@@ -261,6 +303,11 @@ jQuery.fn.dragToSelect = function (conf) {
 
 	parent
 		.mousedown(function (e) {
+			// Make sure user isn't clicking scrollbar (or disallow clicks far to the right actually)
+			if ((e.pageX + 20) > jQuery(document.body).width()) {
+				return;
+			}
+
 			showSelectBox(e);
 
 			e.preventDefault();

@@ -269,11 +269,6 @@ $img-small {
 	border: 0 solid #fff;
 }
 
-strong {
-	background: #fc3;
-	color: #111;
-}
-
 $small {
 	font-size: 10px;
 	color: #444;

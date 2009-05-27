@@ -24,10 +24,10 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-Makes an element vibrate every now and then... highly annoying!
+Makes an element vibrate every now and then. Can be used in conjunction with blink for maximum annoyance!
 
 @howto:
-jQuery('#ad-area').vibrate();
+jQuery('#ad-area').vibrate(); would make #ad-area vibrate every now and then, options are available, please check the source.
 
 Vibrate currently only works with elements positioned 'static'.
 
@@ -37,7 +37,7 @@ I should vibrate every now and then
 @exampleJS:
 jQuery('#jquery-vibrate-example').vibrate();
 ***/
-jQuery.fn.vibrate = function ( conf ) {
+jQuery.fn.vibrate = function (conf) {
 	var config = jQuery.extend({
 		speed:		30, 
 		duration:	2000, 

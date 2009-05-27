@@ -1,5 +1,5 @@
 <h2>
-	<?php echo Lang::get('Search results for'); ?> 
+	<?php echo Lang::get('Search Results for'); ?> 
 	&quot;<?php echo htmlentities($_GET['q']); ?>&quot;
 </h2>
 

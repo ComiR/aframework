@@ -5,7 +5,10 @@
 			'jquery.form.js', 
 			'jquery.scrollTo.js', 
 			'jquery.disableTextSelect.js', 
-			'pixastic.custom.js'
+			'pixastic.custom.js', 
+
+			'jquery.colourPicker.js', 
+			'jquery.imageViewer.js'
 		);
 
 		public static function get () {
@@ -101,6 +104,7 @@
 
 			$row['files']['csv_names']	= implode(',', $row['files']['csv_names']);
 
+			$row['does_short']			= NiceString::makeNice($row['does'], 4, false, 150);
 			$row['does']				= NiceString::makeNice($row['does'], 4);
 			$row['howto']				= NiceString::makeNice($row['howto'], 4);
 
