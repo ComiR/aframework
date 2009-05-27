@@ -10,3 +10,7 @@
 	#footer p {
 		margin: 0 0 5px;
 	}
+
+		#footer p small {
+			font-size: 11px;
+		}
