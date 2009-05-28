@@ -2,7 +2,7 @@ div#header {
 	background: url(gfx/gradient-border.png) no-repeat left bottom;
 
 	margin: 0 0 -245px;
-	padding: 30px 10px 260px;
+	padding: 30px 15px 260px;
 
 	height: 92px;
 }
@@ -10,7 +10,7 @@ div#header {
 	#header h1 {
 		width: 270px;
 
-		margin: 0 0 0 5px;
+		margin: 0;
 
 		position: relative;
 		z-index: 2;
@@ -27,7 +27,7 @@ div#header {
 	#header p {
 		width: 300px;
 
-		margin: -15px 0 0 86px;
+		margin: -15px 0 0 81px;
 
 		position: relative;
 		z-index: 1;
