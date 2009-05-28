@@ -6,3 +6,82 @@
 	#jquery-plugin h2 + p {
 		line-height: 1;
 	}
+
+	#jquery-plugin h3 {
+		margin-top: 40px;
+	}
+
+	#jquery-plugin div.what {
+		
+	}
+
+		#jquery-plugin div.what h3 {
+			margin-top: 20px;
+		}
+
+	#jquery-plugin div.how {
+		
+	}
+
+	#jquery-plugin div.example {
+		
+	}
+
+	#jquery-plugin div.source {
+		
+	}
+
+	#jquery-plugin div.download = $box;
+	#jquery-plugin div.download {
+		float: left;
+		width: 250px;
+	}
+
+		#jquery-plugin div.download h3 {
+			margin-top: 20px;
+		}
+
+		#jquery-plugin div.download ul = $plain-list;
+		#jquery-plugin div.download ul {
+			
+		}
+
+			#jquery-plugin div.download ul li {
+				background: url(gfx/icons/all.png) no-repeat left -335px;
+				margin: 0 0 5px;
+				padding: 5px 0 5px 40px;
+			}
+
+			#jquery-plugin div.download ul:last-child li {
+				background-position: left -778px;
+			}
+
+				#jquery-plugin div.download ul li small, 
+				#jquery-plugin div.download ul li img {
+					display: block;
+				}
+
+	#jquery-plugin div.other-resources = $box;
+	#jquery-plugin div.other-resources {
+		float: right;
+		width: 250px;
+	}
+
+		#jquery-plugin div.other-resources h3 {
+			margin-top: 20px;
+		}
+
+		#jquery-plugin div.other-resources ul = $plain-list;
+		#jquery-plugin div.other-resources ul {
+			
+		}
+
+			#jquery-plugin div.other-resources ul li {
+				background: url(gfx/icons/all.png) no-repeat left -278px;
+				margin: 0 0 5px;
+				padding: 5px 0 5px 40px;
+			}
+
+			#jquery-plugin div.other-resources ul li:last-child {
+				background-position: left -778px;
+			}

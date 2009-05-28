@@ -5,3 +5,27 @@
 }
 
 	#comments h3 = $main-heading;
+
+	#comments ol = $plain-list;
+	#comments ol {
+		
+	}
+
+		#comments ol li = $box;
+		#comments ol li {
+			padding-left: 120px;
+			width: 380px;
+			position: relative;
+		}
+
+			#comments ol li h4 {
+				margin-top: 10px;
+			}
+
+			#comments ol li h4 + p small = $pub-date;
+
+				#comments ol li h4 img {
+					position: absolute;
+					left: 20px;
+					top: 20px;
+				}

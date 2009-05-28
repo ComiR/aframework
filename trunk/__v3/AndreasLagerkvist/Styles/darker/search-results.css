@@ -14,7 +14,8 @@
 		font-size: 32px;
 	}
 
-	#jquery-live-search h2:after {
+	#jquery-live-search h2:after, 
+	#search-results h2:after{
 		content: ": ";
 	}
 
