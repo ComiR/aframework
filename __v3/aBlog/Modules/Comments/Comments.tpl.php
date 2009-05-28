@@ -9,6 +9,13 @@
 					</a>
 				</h4>
 
+				<p>
+					<small>
+						<?php echo Lang::get('Published'); ?> 
+						<?php echo date(Config::get('general.date_format'), strtotime($c['pub_date'])); ?>
+					</small>
+				</p>
+
 				<?php echo NiceString::makeNice($c['content'], 5); ?>
 			</li>
 		<?php } ?>

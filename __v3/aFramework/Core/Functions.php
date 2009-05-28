@@ -12,7 +12,12 @@
 
 		return $url;
 	}
-	
+
+	# Removes ..\, ../ from str
+ 	function removeDots ($str) {
+ 		return str_replace(array('..\\', '../'), '', $str);
+	}
+
 	# Determines whether it's naked day
 	function is_naked_day ($d) {
 		$start	= date('U', mktime(-12, 0, 0, 04, $d, date('Y')));

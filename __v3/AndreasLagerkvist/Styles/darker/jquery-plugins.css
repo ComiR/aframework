@@ -13,54 +13,50 @@
 		list-style: none;
 	}
 
-			#jquery-plugins ul li {
-				background: url(gfx/box.png) no-repeat;
+		#jquery-plugins ul li = $box;
+		#jquery-plugins ul li {
+			position: relative;
+			float: left;
+			width: 380px;
+			margin: 0 10px 20px;
+			padding: 30px 50px 30px 30px;
+		}
 
-				width: 380px;
-				min-height: 190px;
-
-				position: relative;
-				float: left;
-
-				padding: 30px 50px 30px 30px;
-				margin: 0 10px 20px;
+			#jquery-plugins ul li h3 {
+				margin-top: 0;
 			}
 
-				#jquery-plugins ul li h3 {
-					margin-top: 0;
+			#jquery-plugins ul li dl = $plain-definition;
+			#jquery-plugins ul li dl = $small;
+			#jquery-plugins ul li dl {
+				width: 85px;
+				position: absolute;
+				right: 0;
+				top: 32px;
+			}
+
+				#jquery-plugins ul li dl dt {
+					margin: 10px 0 0;
+					display: none;
 				}
 
-				#jquery-plugins ul li dl = $plain-definition;
-				#jquery-plugins ul li dl = $small;
-				#jquery-plugins ul li dl {
-					width: 85px;
-					position: absolute;
-					right: 0;
-					top: 32px;
+				#jquery-plugins ul li dl dd {
+					float: left;
+					font: bold 18px/1 Arial;
+					color: #fff;
 				}
 
-					#jquery-plugins ul li dl dt {
-						margin: 10px 0 0;
-						display: none;
+					#jquery-plugins ul li dl dd a = $img-replace;
+					#jquery-plugins ul li dl dd a {
+						background: url(gfx/icons/large-download.png);
+						width: 48px;
+						height: 48px;
+						margin: -12px 0 0 10px;
 					}
 
-					#jquery-plugins ul li dl dd {
-						float: left;
-						font: bold 18px/1 Arial;
-						color: #fff;
+					#jquery-plugins ul li dl dd a:hover {
+						background-position: left -48px;
 					}
 
-						#jquery-plugins ul li dl dd a = $img-replace;
-						#jquery-plugins ul li dl dd a {
-							background: url(gfx/icons/large-download.png);
-							width: 48px;
-							height: 48px;
-							margin: -12px 0 0 10px;
-						}
-
-						#jquery-plugins ul li dl dd a:hover {
-							background-position: left -48px;
-						}
-
-				#jquery-plugins ul li p:last-child a = $icon;
-				#jquery-plugins ul li p:last-child a = $icon-next;
+			#jquery-plugins ul li p:last-child a = $icon;
+			#jquery-plugins ul li p:last-child a = $icon-next;

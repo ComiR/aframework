@@ -304,6 +304,15 @@ small = $small;
 	height: 100px;
 }
 
+$box {
+	background: url(gfx/box.png) no-repeat;
+
+	min-height: 190px;
+
+	padding: 10px 20px;
+	margin: 20px 0;
+}
+
 /*
 	=== The Grid ===
 */
