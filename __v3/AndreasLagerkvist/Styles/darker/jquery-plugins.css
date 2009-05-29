@@ -17,13 +17,12 @@
 		#jquery-plugins ul li {
 			position: relative;
 			float: left;
-			width: 380px;
-			margin: 0 10px 20px;
-			padding: 30px 50px 30px 30px;
+			width: 370px;
+			margin: 0 30px 30px;
 		}
 
 			#jquery-plugins ul li h3 {
-				margin-top: 0;
+				
 			}
 
 			#jquery-plugins ul li dl = $plain-definition;
