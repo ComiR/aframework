@@ -1,8 +1,9 @@
 #footer = $small;
-#footer {
+div#footer {
 	clear: both;
 	text-align: center;
 	text-transform: uppercase;
+	padding-top: 70px;
 }
 
 	#footer ul = $pipe-menu;
