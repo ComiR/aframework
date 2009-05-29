@@ -33,8 +33,7 @@
 
 	#jquery-plugin div.download = $box;
 	#jquery-plugin div.download {
-		float: left;
-		width: 250px;
+		position: relative;
 	}
 
 		#jquery-plugin div.download h3 {
@@ -52,19 +51,28 @@
 				padding: 5px 0 5px 40px;
 			}
 
-			#jquery-plugin div.download ul:last-child li {
-				background-position: left -778px;
-			}
-
 				#jquery-plugin div.download ul li small, 
 				#jquery-plugin div.download ul li img {
 					display: block;
 				}
 
+		#jquery-plugin div.download ul + h4, 
+		#jquery-plugin div.download ul:last-child {
+			position: absolute;
+			left: 60%;
+			top: 49px;
+		}
+
+		#jquery-plugin div.download ul:last-child {
+			top: 94px;
+		}
+
+			#jquery-plugin div.download ul:last-child li {
+				background-position: left -778px;
+			}
+
 	#jquery-plugin div.other-resources = $box;
 	#jquery-plugin div.other-resources {
-		float: right;
-		width: 250px;
 	}
 
 		#jquery-plugin div.other-resources h3 {
