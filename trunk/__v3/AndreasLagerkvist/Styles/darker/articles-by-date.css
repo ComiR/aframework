@@ -35,10 +35,10 @@
 
 			#articles-by-date > ul > li > ul = $floated-list;
 			#articles-by-date > ul > li > ul {
-				background: #090909;
+				background: #030303;
 
 				border: 1px solid #000;
-				border-color: #000 #666 #666 #000;
+				border-color: #000 #444 #444 #000;
 			}
 
 			body.js-enabled #articles-by-date > ul > li > ul {

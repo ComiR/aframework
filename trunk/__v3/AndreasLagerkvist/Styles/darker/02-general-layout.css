@@ -106,10 +106,10 @@ $pub-date {
 }
 
 .code-block {
-	background-color: #090909;
+	background-color: #030303;
 	border: 1px solid #000;
-	border-color: #000 #666 #666 #000;
-	font-family: Monaco;
+	border-color: #000 #444 #444 #000;
+	font-family: Monaco, Courier New, monotype;
 	color: #f8f8f8;
 }
 
@@ -156,18 +156,12 @@ ol {
 	padding: 0;
 }
 
-$pagination strong {
-	background: transparent;
-	color: inherit;
-}
-
 form {
 	margin: 0;
 	padding: 0;
 }
 
 	form strong {
-		background: transparent;
 		color: red;
 	}
 
