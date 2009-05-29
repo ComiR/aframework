@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-Makes an element vibrate every now and then. Can be used in conjunction with blink for maximum annoyance!
+This plug-in makes any element you want "vibrate" every now and then. Can be used in conjunction with blink for maximum annoyance!
 
 @howto:
 jQuery('#ad-area').vibrate(); would make #ad-area vibrate every now and then, options are available, please check the source.
