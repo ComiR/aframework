@@ -94,7 +94,7 @@
 			);
 
 			foreach($regexps as $regexp) {
-				if (preg_match($regex, $fields['content'])) {
+				if (preg_match($regexp, $fields['content'])) {
 					$score -= 10;
 				}
 			}
@@ -112,7 +112,7 @@
 			preg_match_all('/[bcdfghjklmnpqrstvwxz]{5}/', strtolower($fields['email'] . $fields['author']), $matches);
 			$score -= count($matches[0]);
 
-			return $score > $threshold ? false : true;
+			return $score;
 		}
 	}
 ?>
