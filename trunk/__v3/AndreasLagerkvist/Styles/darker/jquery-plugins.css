@@ -7,7 +7,8 @@
 	#jquery-plugins h2 + p = $first-p;
 
 	#jquery-plugins ul {
-		margin: 40px -335px 0 -15px;
+		margin: 40px 0 0;
+		width: 960px;
 		clear: right;
 		overflow: hidden;
 		list-style: none;
@@ -17,7 +18,7 @@
 		#jquery-plugins ul li {
 			position: relative;
 			float: left;
-			width: 370px;
+			width: 409px;
 			margin: 0 30px 30px;
 		}
 
@@ -30,7 +31,7 @@
 			#jquery-plugins ul li dl {
 				width: 85px;
 				position: absolute;
-				right: 0;
+				right: 20px;
 				top: 32px;
 			}
 
@@ -42,7 +43,7 @@
 				#jquery-plugins ul li dl dd {
 					float: left;
 					font: bold 18px/1 Arial;
-					color: #fff;
+					color: #fc3;
 				}
 
 					#jquery-plugins ul li dl dd a = $img-replace;
