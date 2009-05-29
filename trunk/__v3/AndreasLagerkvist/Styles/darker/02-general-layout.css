@@ -21,7 +21,7 @@ body {
 /*	background: url(gfx/footer-bg.jpg) repeat-x left bottom; */
 
 	margin: 0;
-	padding: 0 0 100px;
+	padding: 0 0 70px;
 }
 
 h1, 
@@ -301,7 +301,7 @@ small = $small;
 	bottom: 0;
 
 	width: 100%;
-	height: 100px;
+	height: 70px;
 }
 
 $box {
@@ -372,7 +372,7 @@ $box {
 			padding: 10px 0;
 			margin-left: -15px;
 			margin-right: -15px;
-			min-height: 180px;
+			min-height: 115px;
 		}
 
 		$3-col-listing > ol {
@@ -380,5 +380,5 @@ $box {
 			padding: 10px 0;
 			margin-left: -15px;
 			margin-right: -15px;
-			min-height: 200px;
+			min-height: 115px;
 		}
