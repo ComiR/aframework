@@ -301,10 +301,11 @@ small = $small;
 $box {
 	background: url(gfx/box.png) no-repeat;
 
-	min-height: 190px;
-
 	padding: 10px 20px;
 	margin: 20px 0;
+
+	border: 1px solid #171717;
+	border-width: 0 1px 1px 0;
 }
 
 /*
