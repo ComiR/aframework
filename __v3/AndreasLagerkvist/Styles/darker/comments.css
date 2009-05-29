@@ -13,7 +13,7 @@
 
 		#comments ol li = $box;
 		#comments ol li {
-			padding-left: 120px;
+			padding-left: 130px;
 			width: 380px;
 			position: relative;
 		}
@@ -28,4 +28,5 @@
 					position: absolute;
 					left: 20px;
 					top: 20px;
+					border: 5px solid #fff;
 				}
