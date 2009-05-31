@@ -15,7 +15,8 @@
 				LEFT JOIN
 					' . Config::get('db.table_prefix') . 'articles USING(articles_id)
 				WHERE
-					articles_id = "' . esc($id) . '"
+					' . Config::get('db.table_prefix') . 'articles.articles_id = "' . esc($id) . '" AND
+					' . Config::get('db.table_prefix') . 'comments.spam > 0
 				ORDER BY
 					' . Config::get('db.table_prefix') . 'comments.pub_date ASC
 			');
@@ -49,7 +50,8 @@
 				LEFT JOIN
 					' . Config::get('db.table_prefix') . 'articles USING(articles_id)
 				WHERE
-					url_str = "' . esc($urlStr) . '"
+					' . Config::get('db.table_prefix') . 'articles.url_str = "' . esc($urlStr) . '" AND
+					' . Config::get('db.table_prefix') . 'comments.spam > 0
 				ORDER BY
 					' . Config::get('db.table_prefix') . 'comments.pub_date ASC
 			');
@@ -82,6 +84,8 @@
 					' . Config::get('db.table_prefix') . 'comments
 				LEFT JOIN
 					' . Config::get('db.table_prefix') . 'articles USING(articles_id)
+				WHERE
+					' . Config::get('db.table_prefix') . 'comments.spam > 0
 				ORDER BY
 					' . Config::get('db.table_prefix') . 'comments.' . esc($sort) . ' ' . esc($order) . '
 				LIMIT
@@ -108,7 +112,7 @@
 		public static function insert ($row) {
 			$fields	 = array(
 				'articles_id'		=> $row['articles_id'], 
-				'spam'				=> SpamChecker::isSpam($row) ? 1 : 0, 
+				'spam'				=> SpamChecker::getScore($row), 
 				'ip'				=> $_SERVER['REMOTE_ADDR'], 
 				'author'			=> $row['author'], 
 				'email'				=> $row['email'], 

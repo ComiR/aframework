@@ -23,8 +23,7 @@
 		private static function insertComment ($row) {
 			if (
 				isset($row['author']) and !empty($row['author']) and 
-				isset($row['content']) and !empty($row['content']) and
-				!SpamChecker::isSpam($row)
+				isset($row['content']) and !empty($row['content'])
 			) {
 				Comments::insert($row);
 
