@@ -11,7 +11,7 @@
 				self::insertLink($_POST);
 			}
 
-			if (!(self::$tplVars['links'] = Links::get('RAND()', 'ASC', 0, Config::get('ablog.num_recent_stuff') * 2))) {
+			if (!(self::$tplVars['links'] = Links::get('RAND()', 'ASC', 0, 4))) {
 				self::$tplFile = false;
 			}
 		}
