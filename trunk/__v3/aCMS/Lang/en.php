@@ -13,8 +13,8 @@
 
 # PageAdmin.tpl.php
 'The form contains errors.' => 'The form contains errors.', 
-'Please make sure you have filled out everything correctly' => 'Please make sure you have filled out everything correctly', 
-'URL string' => 'URL string', 
+'Please make sure you have filled out everything correctly.' => 'Please make sure you have filled out everything correctly.', 
+'URL String' => 'URL String', 
 'Show in Navigation' => 'Show in Navigation', 
 'Yes' => 'Yes', 
 'No' => 'No', 
@@ -26,7 +26,7 @@
 'Page Content' => 'Page Content', 
 'Save Changes' => 'Save Changes', 
 'Add Page' => 'Add Page', 
-'Or' => 'Or', 
+'or' => 'or', 
 'Delete this Page' => 'Delete this Page', 
 
 # PageModule.php

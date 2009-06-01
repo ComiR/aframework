@@ -1,24 +1,24 @@
 <?php return array(
 
 # BeforeArticlesByDate.tpl.php
-'Articles by date' => 'Articles by date', 
+'Articles by Date' => 'Articles by Date', 
 
 # BeforeContact.tpl.php
-'Send us a letter' => 'Send us a letter', 
-'Write something in the form below' => 'Write something in the form below', 
-'I will get back to you as soon as possible' => 'I will get back to you as soon as possible', 
+'Send Us a Letter' => 'Send Us a Letter', 
+'Write something in the form below.' => 'Write something in the form below.', 
+'I will get back to you as soon as possible.' => 'I will get back to you as soon as possible.', 
 
 # JqueryPlugin.tpl.php
 'Created' => 'Created', 
-'By' => 'By', 
+'by' => 'by', 
 'Copyright' => 'Copyright', 
-'What it does' => 'What it does', 
-'How to use' => 'How to use', 
+'What it Does' => 'What it Does', 
+'How to Use' => 'How to Use', 
 'Example' => 'Example', 
-'Example code' => 'Example code', 
-'Source code' => 'Source code', 
+'Example Code' => 'Example Code', 
+'Source Code' => 'Source Code', 
 'Download' => 'Download', 
-'Plug in' => 'Plug in', 
+'Plug-in' => 'Plug-in', 
 'Unpacked' => 'Unpacked', 
 'Minified' => 'Minified', 
 'Requires' => 'Requires', 
@@ -36,13 +36,13 @@
 'Jquery' => 'Jquery', 
 
 # BeforeOlderArticles.tpl.php
-'Slightly older articles' => 'Slightly older articles', 
+'Slightly Older Articles' => 'Slightly Older Articles', 
 
 # AfterRandomJqueryPlugins.tpl.php
-'More plug ins' => 'More plug ins', 
+'More Plug-ins' => 'More Plug-ins', 
 
 # BeforeRandomJqueryPlugins.tpl.php
-'Random jquery plug ins' => 'Random jquery plug ins', 
+'Random jQuery Plug-ins' => 'Random jQuery Plug-ins', 
 
 # RandomJqueryPlugins.js
 'Loading' => 'Loading', 

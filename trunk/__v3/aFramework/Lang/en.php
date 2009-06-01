@@ -3,6 +3,7 @@
 # AndreasLagerkvist_darker.js
 'Valid' => 'Valid', 
 'Invalid' => 'Invalid', 
+'Sending' => 'Sending', 
 'Show live cam' => 'Show live cam', 
 'Hide live cam' => 'Hide live cam', 
 'Posting' => 'Posting', 
@@ -28,7 +29,7 @@
 'Login' => 'Login', 
 
 # AdminLoginAdmin.tpl.php
-'You are Logged in' => 'You are Logged in', 
+'You are Logged In' => 'You are Logged In', 
 'What would you like to do?' => 'What would you like to do?', 
 'Log out' => 'Log out', 
 'Go to Home Page' => 'Go to Home Page', 
@@ -43,25 +44,28 @@
 # BeforeMsgSent.tpl.php
 'Thanks' => 'Thanks', 
 
+# Contact.js
+'Sending' => 'Sending', 
+
 # Contact.tpl.php
 'The form contains errors.' => 'The form contains errors.', 
 'Please make sure you have filled out everything correctly.' => 'Please make sure you have filled out everything correctly.', 
 'Your Name' => 'Your Name', 
 'E-mail' => 'E-mail', 
 'And Message' => 'And Message', 
-'Remember me' => 'Remember me', 
+'Remember Me' => 'Remember Me', 
 'Send' => 'Send', 
 
 # MsgSent.tpl.php
-'Thank you' => 'Thank you', 
+'Thank you.' => 'Thank you.', 
 
 # AfterFooter.tpl.php
 'Copyright' => 'Copyright', 
 'All contents are released under a CCv3' => 'All contents are released under a CCv3', 
-'Some rights reserved.' => 'Some rights reserved.', 
+'Some Rights Reserved.' => 'Some Rights Reserved.', 
 'is powered by' => 'is powered by', 
 'and' => 'and', 
-'Seconds' => 'Seconds', 
+'seconds' => 'seconds', 
 'queries' => 'queries', 
 'cached' => 'cached', 
 
@@ -70,10 +74,10 @@
 'Top' => 'Top', 
 'Contact Me' => 'Contact Me', 
 'Contact' => 'Contact', 
-'Get' => 'Get', 
-'Valid' => 'Valid', 
-'Mostly' => 'Mostly', 
-'Log Out' => 'Log Out', 
+'Get Firefox!' => 'Get Firefox!', 
+'Valid XHTML 1.0 Strict' => 'Valid XHTML 1.0 Strict', 
+'(Mostly) Valid CSS' => '(Mostly) Valid CSS', 
+'Logout' => 'Logout', 
 
 # Header.tpl.php
 'Home Page' => 'Home Page', 
@@ -93,7 +97,7 @@
 'Search' => 'Search', 
 
 # Search.tpl.php
-'Search terms' => 'Search terms', 
+'Search Terms' => 'Search Terms', 
 'Find' => 'Find', 
 
 # AfterSearchResults.tpl.php
@@ -106,7 +110,7 @@
 # BeforeNoResults.tpl.php
 'No Search Results for' => 'No Search Results for', 
 'Your search' => 'Your search', 
-'did not match any documents' => 'did not match any documents', 
+'did not match any documents.' => 'did not match any documents.', 
 
 # BeforeSearchResults.tpl.php
 'Search Results for' => 'Search Results for', 
@@ -135,7 +139,10 @@
 
 # BeforeSocialBookmarks.tpl.php
 'Bookmark this URL' => 'Bookmark this URL', 
-'Add this URL to your favourite bookmarking service' => 'Add this URL to your favourite bookmarking service', 
+'Add this URL to your favourite bookmarking service.' => 'Add this URL to your favourite bookmarking service.', 
+
+# SocialBookmarks.tpl.php
+'Add to' => 'Add to', 
 
 # Routes.php
 'url.admin' => 'admin', 

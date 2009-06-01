@@ -9,30 +9,30 @@
 
 # ArticleAdmin.tpl.php
 'The form contains errors.' => 'The form contains errors.', 
-'Please make sure you have filled out everything correctly' => 'Please make sure you have filled out everything correctly', 
+'Please make sure you have filled out everything correctly.' => 'Please make sure you have filled out everything correctly.', 
 'The article was successfully saved!' => 'The article was successfully saved!', 
 'The article was successfully deleted!' => 'The article was successfully deleted!', 
-'Url string' => 'Url string', 
+'URL String' => 'URL String', 
 'Title' => 'Title', 
-'Publish date' => 'Publish date', 
-'Meta description' => 'Meta description', 
-'Meta keywords' => 'Meta keywords', 
-'Article content' => 'Article content', 
-'Allow comments' => 'Allow comments', 
+'Publish Date' => 'Publish Date', 
+'Meta Description' => 'Meta Description', 
+'Meta Keywords' => 'Meta Keywords', 
+'Article Content' => 'Article Content', 
+'Allow Comments' => 'Allow Comments', 
 'Yes' => 'Yes', 
 'No' => 'No', 
-'Allow rating' => 'Allow rating', 
-'Save changes' => 'Save changes', 
-'Add article' => 'Add article', 
-'Or' => 'Or', 
-'Delete this article' => 'Delete this article', 
+'Allow Rating' => 'Allow Rating', 
+'Save Changes' => 'Save Changes', 
+'Add Article' => 'Add Article', 
+'or' => 'or', 
+'Delete this Article' => 'Delete this Article', 
 
 # ArticleModule.php
 'Add an article' => 'Add an article', 
 
 # BeforeArticleAdmin.tpl.php
-'Edit article' => 'Edit article', 
-'Add article' => 'Add article', 
+'Edit Article' => 'Edit Article', 
+'Add Article' => 'Add Article', 
 
 # Articles.tpl.php
 'Published' => 'Published', 
@@ -42,12 +42,13 @@
 'post a comment' => 'post a comment', 
 
 # ArticlesModule.php
-'Articles tagged with' => 'Articles tagged with', 
+'Articles Tagged with' => 'Articles Tagged with', 
 'You are currently browsing' => 'You are currently browsing', 
 'articles tagged with' => 'articles tagged with', 
 'Archives for' => 'Archives for', 
 'articles posted in' => 'articles posted in', 
-'The latest articles' => 'The latest articles', 
+'articles posted on' => 'articles posted on', 
+'The Latest Articles' => 'The Latest Articles', 
 
 # ArticlesByDate.tpl.php
 'Continue reading' => 'Continue reading', 
@@ -59,7 +60,8 @@
 'Comments' => 'Comments', 
 
 # Comments.tpl.php
-'No comments yet why not' => 'No comments yet why not', 
+'Published' => 'Published', 
+'No comments yet, why not' => 'No comments yet, why not', 
 'be the first to post one' => 'be the first to post one', 
 
 # BeforeOlderArticles.tpl.php
@@ -72,23 +74,23 @@
 # BeforePostComment.tpl.php
 'Post a Comment' => 'Post a Comment', 
 'The form contains errors.' => 'The form contains errors.', 
-'Please make sure you have filled out everything correctly' => 'Please make sure you have filled out everything correctly', 
+'Please make sure you have filled out everything correctly.' => 'Please make sure you have filled out everything correctly.', 
 
 # PostComment.js
 'Posting' => 'Posting', 
 
 # PostComment.tpl.php
-'Your name' => 'Your name', 
-'Email' => 'Email', 
+'Your Name' => 'Your Name', 
+'E-mail' => 'E-mail', 
 'Website' => 'Website', 
-'And comment' => 'And comment', 
-'Post comment' => 'Post comment', 
+'And Comment' => 'And Comment', 
+'Post Comment' => 'Post Comment', 
 
 # AfterPostIt.tpl.php
 'Newer' => 'Newer', 
 'Older' => 'Older', 
-'Say this' => 'Say this', 
-'Post it' => 'Post it', 
+'Say This' => 'Say This', 
+'Post It' => 'Post It', 
 
 # BeforePostIt.tpl.php
 'Post It' => 'Post It', 
@@ -101,7 +103,7 @@
 # AfterRandomLinksAdmin.tpl.php
 'Add a Link' => 'Add a Link', 
 'The form contains errors.' => 'The form contains errors.', 
-'Please make sure you have filled out everything correctly' => 'Please make sure you have filled out everything correctly', 
+'Please make sure you have filled out everything correctly.' => 'Please make sure you have filled out everything correctly.', 
 'Title' => 'Title', 
 'Description' => 'Description', 
 'URL' => 'URL', 
