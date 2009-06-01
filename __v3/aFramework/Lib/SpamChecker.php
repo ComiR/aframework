@@ -81,7 +81,7 @@
 			$score -= preg_match('/-.*-.*htm$/', $fields['url']) ? 2 : 0;
 
 			# spam urls are on average 38 chars long
-			$score -= strlen($c['url']) > 30 ? 1 : 0;
+			$score -= strlen($fields['url']) > 30 ? 1 : 0;
 
 			#####
 			# Check spam phrases
