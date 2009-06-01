@@ -1,25 +1,31 @@
 <?php
 	class SpamChecker {
-		public static function getScore ($fields) {
+		public static function getScore ($f) {
 			$score		= 0;
+			$fields		= array(
+				'content'	=> isset($f['content'])	? $f['content']	: '', 
+				'author'	=> isset($f['author'])	? $f['author']	: '', 
+				'email'		=> isset($f['email'])	? $f['email']	: '', 
+				'url'		=> isset($f['url'])		? $f['url']		: (isset($f['website']) ? $f['website'] : '')
+			);
 			$badWords	= array(
-							'levitra',
-							'viagra',
-							'casino',
-							'plavix',
-							'cialis',
-							'ativan',
-							'fioricet',
-							'rape',
-							'acyclovir',
-							'penis',
-							'phentermine',
-							'porno',
-							'pharm',
-							'ringtone',
-							'pharmacy',
-							'url>'
-						);
+				'levitra',
+				'viagra',
+				'casino',
+				'plavix',
+				'cialis',
+				'ativan',
+				'fioricet',
+				'rape',
+				'acyclovir',
+				'penis',
+				'phentermine',
+				'porno',
+				'pharm',
+				'ringtone',
+				'pharmacy',
+				'url>'
+			);
 
 			#####
 			# Check for link frequency in content
