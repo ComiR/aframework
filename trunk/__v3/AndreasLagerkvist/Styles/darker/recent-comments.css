@@ -19,3 +19,7 @@
 		#recent-comments ul li a = $icon;
 		#recent-comments ul li:first-child a = $icon-previous;
 		#recent-comments ul li:last-child a = $icon-next-right;
+
+		#recent-comments ol li img {
+			border-color: #fff;
+		}
