@@ -1,6 +1,6 @@
 <?php
 	class SpamChecker {
-		public static function isSpam ($fields, $threshold = 1) {
+		public static function getScore ($fields) {
 			$score		= 0;
 			$badWords	= array(
 							'levitra',
