@@ -2,7 +2,7 @@
 	<p>
 		<strong>
 			<?php echo Lang::get('The form contains errors.'); ?> 
-			<?php echo Lang::get('Please make sure you have filled out everything correctly'); ?>
+			<?php echo Lang::get('Please make sure you have filled out everything correctly.'); ?>
 		</strong>
 	</p>
 <?php } ?>
@@ -11,7 +11,7 @@
 
 	<p>
 		<label>
-			<strong>*</strong> <?php echo Lang::get('URL string'); ?><br />
+			<strong>*</strong> <?php echo Lang::get('URL String'); ?><br />
 			<input type="text" name="url_str" value="<?php echo htmlentities($page['url_str']); ?>" />
 		</label>
 	</p>
@@ -68,8 +68,8 @@
 		<input type="hidden" name="pages_id" value="<?php echo $page['pages_id']; ?>" />
 		<input type="hidden" name="page_submit" value="1" />
 		<input type="submit" name="insert" value="<?php echo $page['pages_id'] ? Lang::get('Save Changes') : Lang::get('Add Page'); ?>" />
-		<?php if ( $page['pages_id'] ) { ?>
-			 <?php echo Lang::get('Or'); ?> 
+		<?php if ($page['pages_id']) { ?>
+			 <?php echo Lang::get('or'); ?> 
 			<input type="submit" name="page_delete" value="<?php echo Lang::get('Delete this Page'); ?>" />
 		<?php } ?>
 	</p>

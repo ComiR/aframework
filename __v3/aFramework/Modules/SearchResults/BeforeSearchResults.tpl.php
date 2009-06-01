@@ -9,5 +9,5 @@
 	<?php echo Lang::get('of about'); ?> 
 	<strong><?php echo $total_num_results; ?></strong> 
 	<?php echo Lang::get('for'); ?> 
-	&quot;<strong><?php echo @htmlentities($_GET['q']); ?></strong>&quot;
+	&quot;<strong><?php echo @htmlentities($_GET['q']); ?></strong>&quot;.
 </p>

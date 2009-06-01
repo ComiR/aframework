@@ -4,7 +4,7 @@
 	<small>
 		<?php echo Lang::get('Created'); ?> 
 		<?php echo $plugin['pub_date']; ?> 
-		<?php echo Lang::get('By'); ?> 
+		<?php echo Lang::get('by'); ?> 
 		<?php echo $plugin['author']; ?><br />
 		<a href="<?php echo $plugin['license']; ?>">
 			<?php echo Lang::get('Copyright'); ?> &copy; 
@@ -15,7 +15,7 @@
 
 <div class="what">
 
-	<h3><?php echo Lang::get('What it does'); ?></h3>
+	<h3><?php echo Lang::get('What it Does'); ?></h3>
 
 	<?php echo $plugin['does']; ?>
 
@@ -23,7 +23,7 @@
 
 <div class="how">
 
-	<h3><?php echo Lang::get('How to use'); ?></h3>
+	<h3><?php echo Lang::get('How to Use'); ?></h3>
 
 	<?php echo $plugin['howto']; ?>
 
@@ -45,7 +45,7 @@
 		</script>
 	<?php } ?>
 
-	<h4><?php echo Lang::get('Example code'); ?></h4>
+	<h4><?php echo Lang::get('Example Code'); ?></h4>
 
 	<h5><abbr title="HyperText Markup Language">HTML</abbr></h5>
 
@@ -59,7 +59,7 @@
 
 <div class="source">
 
-	<h3><?php echo Lang::get('Source code'); ?></h3>
+	<h3><?php echo Lang::get('Source Code'); ?></h3>
 
 	<?php echo $plugin['source_code']; ?>
 
@@ -69,7 +69,7 @@
 
 	<h3><?php echo Lang::get('Download'); ?></h3>
 
-	<h4><?php echo Lang::get('Plug in'); ?></h4>
+	<h4><?php echo Lang::get('Plug-in'); ?></h4>
 
 	<ul>
 		<?php foreach ($plugin['files']['plugin'] as $file) { ?>
@@ -130,6 +130,7 @@
 	<ul>
 		<li><a href="http://www.jquery.com">jQuery.com</a></li>
 		<li><a href="http://plugins.jquery.com/project/<?php echo $plugin['url_str']; ?>">This plug-in on jQuery.com</a></li>
+		<li><a href="http://code.google.com/p/aframework/source/browse/trunk/__v3/aFramework/Modules/Base/<?php echo $plugin['file_name']; ?>">This plug-in on Google Code</a></li>
 		<li><a href="http://plugins.jquery.com/project/issues/<?php echo $plugin['url_str']; ?>?category=bug">File a bug!</a></li>
 	</ul>
 
