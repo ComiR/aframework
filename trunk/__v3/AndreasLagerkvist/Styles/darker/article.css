@@ -24,14 +24,14 @@
 		border-top: 1px dotted #333;
 	}
 
-		#article > dl:last-child dt = $icon;
-		#article > dl:last-child dt = $icon-comment;
+		#article > dl:last-child dt = $icon-24;
+		#article > dl:last-child dt = $icon-comment-24;
 		#article > dl:last-child dt {
 			display: inline;
 			margin: 0 0 0 20px;
 		}
 
-		#article > dl:last-child dt:first-child = $icon-tag;
+		#article > dl:last-child dt:first-child = $icon-tag-24;
 		#article > dl:last-child dt:first-child {
 			margin-left: 0;
 		}

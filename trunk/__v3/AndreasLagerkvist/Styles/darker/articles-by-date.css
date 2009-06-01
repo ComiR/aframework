@@ -18,10 +18,10 @@
 				margin: 10px 0 0;
 			}
 
-				#articles-by-date > ul > li h3 a = $icon;
-				#articles-by-date > ul > li h3 a = $icon-pub-date;
+				#articles-by-date > ul > li h3 a = $icon-32;
+				#articles-by-date > ul > li h3 a = $icon-calendar-32;
 				#articles-by-date > ul > li h3 a {
-					background-position: right -529px;
+					background-position: right -215px;
 					display: block;
 					outline: 0;
 					padding: 0 25px 10px 0;

@@ -45,10 +45,11 @@
 			
 		}
 
+			#jquery-plugin div.download ul li = $icon-24;
+			#jquery-plugin div.download ul li = $icon-download-2-24;
 			#jquery-plugin div.download ul li {
-				background: url(gfx/icons/all.png) no-repeat left -335px;
 				margin: 0 0 5px;
-				padding: 5px 0 5px 40px;
+				padding: 5px 0 5px 32px;
 			}
 
 				#jquery-plugin div.download ul li small, 
@@ -67,9 +68,7 @@
 			top: 94px;
 		}
 
-			#jquery-plugin div.download ul:last-child li {
-				background-position: left -778px;
-			}
+			#jquery-plugin div.download ul:last-child li = $icon-warning-24;
 
 	#jquery-plugin div.other-resources = $box;
 	#jquery-plugin div.other-resources {
@@ -84,12 +83,11 @@
 			
 		}
 
+			#jquery-plugin div.other-resources ul li = $icon-24;
+			#jquery-plugin div.other-resources ul li = $icon-arrow-right-5-24;
 			#jquery-plugin div.other-resources ul li {
-				background: url(gfx/icons/all.png) no-repeat left -278px;
 				margin: 0 0 5px;
-				padding: 5px 0 5px 40px;
+				padding: 5px 0 5px 32px;
 			}
 
-			#jquery-plugin div.other-resources ul li:last-child {
-				background-position: left -778px;
-			}
+			#jquery-plugin div.other-resources ul li:last-child = $icon-warning-24;

@@ -9,5 +9,5 @@
 		margin: 0 0 10px 10px;
 	}
 
-	#quick-about p:last-child a = $icon;
-	#quick-about p:last-child a = $icon-next;
+	#quick-about p:last-child a = $icon-24;
+	#quick-about p:last-child a = $icon-arrow-right-4-24;
