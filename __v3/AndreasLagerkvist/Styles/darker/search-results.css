@@ -50,9 +50,9 @@
 			border-color: #369;
 		}
 
-			#search-results ol li p:last-child a = $icon;
-			#search-results ol li p:last-child a = $icon-next;
-			#jquery-live-search ol li p:last-child a = $icon;
-			#jquery-live-search ol li p:last-child a = $icon-next;
+			#search-results ol li p:last-child a = $icon-24;
+			#search-results ol li p:last-child a = $icon-arrow-right-24;
+			#jquery-live-search ol li p:last-child a = $icon-24;
+			#jquery-live-search ol li p:last-child a = $icon-arrow-right-24;
 
 	#jquery-live-search > ul:last-child = $pagination;

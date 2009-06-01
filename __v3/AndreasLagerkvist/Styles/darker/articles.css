@@ -24,16 +24,16 @@
 
 				#articles > ul > li > h3 + p + p img = $img-small;
 
-			#articles > ul > li > p:last-child = $icon;
-			#articles > ul > li > p:last-child = $icon-comment;
+			#articles > ul > li > p:last-child = $icon-24;
+			#articles > ul > li > p:last-child = $icon-comment-24;
 			#articles > ul > li > p:last-child {
-				background-position: -6px -580px;
+				background-position: left -1205px;
 				margin: 10px 0 0;
 				padding-bottom: 10px;
 			}
 
-				#articles > ul > li > p:last-child a = $icon;
-				#articles > ul > li > p:last-child a = $icon-next-right;
+				#articles > ul > li > p:last-child a = $icon-32;
+				#articles > ul > li > p:last-child a = $icon-arrow-right-r-32;
 				#articles > ul > li > p:last-child a {
 					font-weight: bold;
 				}

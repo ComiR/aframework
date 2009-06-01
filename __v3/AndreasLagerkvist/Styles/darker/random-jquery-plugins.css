@@ -19,9 +19,9 @@
 
 			#random-jquery-plugins ul li h3 = $main-heading;
 
-			#random-jquery-plugins ul li p:last-child a = $icon;
-			#random-jquery-plugins ul li p:last-child a = $icon-next;
+			#random-jquery-plugins ul li p:last-child a = $icon-24;
+			#random-jquery-plugins ul li p:last-child a = $icon-arrow-right-5-24;
 
-			#random-jquery-plugins > p:last-child a = $icon;
-			body.js-disabled #random-jquery-plugins > p:last-child a = $icon-next;
-			body.js-enabled #random-jquery-plugins > p:last-child a = $icon-refresh2;
+			#random-jquery-plugins > p:last-child a = $icon-32;
+			body.js-disabled #random-jquery-plugins > p:last-child a = $icon-arrow-right-32;
+			body.js-enabled #random-jquery-plugins > p:last-child a = $icon-refresh-2-32;

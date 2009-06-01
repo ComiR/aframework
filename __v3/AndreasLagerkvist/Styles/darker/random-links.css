@@ -1,7 +1,7 @@
 #random-links = $tertiary-content;
 
-	#random-links p a = $icon;
-	#random-links p a = $icon-refresh2;
+	#random-links p a = $icon-32;
+	#random-links p a = $icon-refresh-2-32;
 
 	#random-links ul li {
 		margin: 0 0 10px;
