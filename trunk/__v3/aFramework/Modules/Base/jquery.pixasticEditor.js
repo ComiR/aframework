@@ -30,7 +30,7 @@ This app/plug-in inserts a (completely stylable) toolbar next to any image in yo
 $('#my-image').pixasticEditor(); would insert the editor in the #my-image-element and affect an img-element within #my-image. Since it's not possible to append a list or div or any other element directly to an image, the plug-in should be run on a parent-element (preferably div) of the img-element. If you have a list of images you could run it on each li of the list.
 
 @exampleHTML:
-<img src="/af/AndreasLagerkvist/Files/lamp-and-mates.jpg" alt="Lamp and Mates" />
+<img src="http://exscale.se/__files/3d/lamp-and-mates/lamp-and-mates-01.jpg" alt="Lamp and Mates" />
 
 @exampleJS:
 $(function () {
