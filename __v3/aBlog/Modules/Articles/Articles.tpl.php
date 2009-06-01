@@ -14,7 +14,7 @@
 				</small>
 			</p>
 
-			<?php echo NiceString::makeNice($a['content'], 4, false); ?>
+			<?php echo NiceString::makeNice($a['content'], 4, true); ?>
 
 			<p>
 				<?php if ($a['num_comments']) { ?>
