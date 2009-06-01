@@ -10,24 +10,24 @@
 		</a>
 	</li>
 	<li>
-		<a href="http://www.getfirefox.com" title="<?php echo Lang::get('Get'); ?> Firefox!">
+		<a href="http://www.getfirefox.com" title="<?php echo Lang::get('Get Firefox!'); ?>">
 			Firefox
 		</a>
 	</li>
 	<li>
-		<a href="http://validator.w3.org/check?uri=referer" title="<?php echo Lang::get('Valid'); ?> XHTML 1.0 Strict">
+		<a href="http://validator.w3.org/check?uri=referer" title="<?php echo Lang::get('Valid XHTML 1.0 Strict'); ?>">
 			XHTML
 		</a>
 	</li>
 	<li>
-		<a href="http://jigsaw.w3.org/css-validator/check/referer" title="(<?php echo Lang::get('Mostly'); ?>) <?php echo Lang::get('Valid'); ?> CSS">
+		<a href="http://jigsaw.w3.org/css-validator/check/referer" title="<?php echo Lang::get('(Mostly) Valid CSS'); ?>">
 			CSS
 		</a>
 	</li>
 	<?php if (ADMIN) { ?>
 		<li>
 			<a href="<?php echo Router::urlFor('AdminLogin'); ?>?logout">
-				<?php echo Lang::get('Log Out'); ?>
+				<?php echo Lang::get('Logout'); ?>
 			</a>
 		</li>
 	<?php } ?>

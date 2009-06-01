@@ -6,5 +6,5 @@
 <p>
 	<?php echo Lang::get('Your search'); ?> - 
 	&quot;<strong><?php echo @htmlentities($_GET['q']); ?></strong>&quot; - 
-	<?php echo Lang::get('did not match any documents'); ?>
+	<?php echo Lang::get('did not match any documents.'); ?>
 </p>

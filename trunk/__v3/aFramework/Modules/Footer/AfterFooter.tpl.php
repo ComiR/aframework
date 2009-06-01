@@ -3,7 +3,7 @@
 	<?php echo date('Y'); ?> 
 	<?php echo Config::get('general.site_author'); ?>. 
 	<a href="http://creativecommons.org/licenses/by/3.0/" title="<?php echo Lang::get('All contents are released under a CCv3'); ?>">
-		<?php echo Lang::get('Some rights reserved.'); ?>
+		<?php echo Lang::get('Some Rights Reserved.'); ?>
 	</a><br />
 	<small>
 		<?php echo Config::get('general.site_title'); ?> 
@@ -25,7 +25,7 @@
 			}
 		?>. 
 		<?php echo round(Timer::stop(), 2); ?> 
-		<?php echo Lang::get('Seconds'); ?>, 
+		<?php echo Lang::get('seconds'); ?>, 
 		<?php $qryInfo = dbQry(false, true); echo count($qryInfo['cached_queries']); ?>  
 		<?php echo Lang::get('queries'); ?> 
 		(<?php echo (count($qryInfo['cached_queries']) - $qryInfo['num_queries']); ?> <?php echo Lang::get('cached'); ?>).

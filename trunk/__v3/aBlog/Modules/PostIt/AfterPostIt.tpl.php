@@ -22,9 +22,9 @@
 
 		<p>
 			<label>
-				<?php echo Lang::get('Say this'); ?><br />
+				<?php echo Lang::get('Say This'); ?><br />
 				<input type="text" name="post_it_text" size="25" />
-			</label> <input type="submit" value="<?php echo Lang::get('Post it'); ?>" />
+			</label> <input type="submit" value="<?php echo Lang::get('Post It'); ?>" />
 		</p>
 	
 	</form>

@@ -6,9 +6,9 @@
 				<a href="<?php echo Router::urlFor('Article', $c); ?>#comment-<?php echo $c['comments_id']; ?>">
 					<?php echo htmlentities($c['author']); ?>
 				</a> <?php echo Lang::get('on'); ?> 
-				<a href="<?php echo Router::urlFor('Article', $c); ?>">
+				&quot;<a href="<?php echo Router::urlFor('Article', $c); ?>">
 					<?php echo htmlentities($c['article_title']); ?>
-				</a>
+				</a>&quot;
 			</h3>
 
 			<?php echo NiceString::makeNice($c['content'], 4, false, 50); ?>

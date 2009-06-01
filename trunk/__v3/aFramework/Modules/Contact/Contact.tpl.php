@@ -33,7 +33,7 @@
 	<p>
 		<label>
 			<input type="checkbox" name="remember"<?php echo($visitor['remembered']) ? 'checked="checked"' : ''; ?> /> 
-			<?php echo Lang::get('Remember me'); ?>
+			<?php echo Lang::get('Remember Me'); ?>
 		</label>
 	</p>
 
