@@ -16,6 +16,7 @@
 'How to Use' => 'How to Use', 
 'Example' => 'Example', 
 'Example Code' => 'Example Code', 
+'Plug-in Code' => 'Plug-in Code', 
 'Source Code' => 'Source Code', 
 'Download' => 'Download', 
 'Plug-in' => 'Plug-in', 
