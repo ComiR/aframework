@@ -18,10 +18,9 @@
 				margin: 10px 0 0;
 			}
 
-				#articles-by-date > ul > li h3 a = $icon-32;
-				#articles-by-date > ul > li h3 a = $icon-calendar-32;
+				#articles-by-date > ul > li h3 a = $icon;
 				#articles-by-date > ul > li h3 a {
-					background-position: right -215px;
+					background-position: right -1865px;
 					display: block;
 					outline: 0;
 					padding: 0 25px 10px 0;
@@ -63,5 +62,7 @@
 						display: none;
 					}
 
-						#articles-by-date ul li ul li p:last-child a = $icon-32;
-						#articles-by-date ul li ul li p:last-child a = $icon-arrow-right-32;
+						#articles-by-date ul li ul li p:last-child a = $icon;
+						#articles-by-date ul li ul li p:last-child a {
+							background-position: left -3587px;
+						}

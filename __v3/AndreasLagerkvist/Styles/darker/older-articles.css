@@ -35,5 +35,7 @@
 				clear: right;
 			}
 
-				#older-articles ol li p:last-child a = $icon-24;
-				#older-articles ol li p:last-child a = $icon-arrow-right-3-24;
+				#older-articles ol li p:last-child a = $icon;
+				#older-articles ol li p:last-child a {
+					background-position: left -3587px;
+				}
