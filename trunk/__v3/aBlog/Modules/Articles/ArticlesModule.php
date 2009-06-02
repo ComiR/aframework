@@ -32,7 +32,7 @@
 				FourOFour::run();
 			}
 			else {
-				self::$tplVars['title']			= Lang::get('Articles Tagged with') . ' "' . $urlStr . '".';
+				self::$tplVars['title']			= Lang::get('Articles Tagged with') . ' "' . $urlStr . '"';
 				self::$tplVars['description']	= Lang::get('You are currently browsing') . ' ' . count(self::$tplVars['articles']) . ' ' . Lang::get('articles tagged with') . ' "' . $urlStr . '".';
 			}
 		}
