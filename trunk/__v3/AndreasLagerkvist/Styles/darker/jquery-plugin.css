@@ -56,9 +56,9 @@
 			
 		}
 
-			#jquery-plugin-download ul li = $icon-24;
-			#jquery-plugin-download ul li = $icon-download-2-24;
+			#jquery-plugin-download ul li = $icon;
 			#jquery-plugin-download ul li {
+				background-position: left -17px;
 				margin: 0 0 5px;
 				padding: 5px 0 5px 32px;
 			}
@@ -79,7 +79,9 @@
 			top: 94px;
 		}
 
-			#jquery-plugin-download ul:last-child li = $icon-warning-24;
+			#jquery-plugin-download ul:last-child li {
+				background-position: left -1px;
+			}
 
 	/* Other Resources */
 	#jquery-plugin-other-resources = $box;
@@ -92,14 +94,15 @@
 			
 		}
 
-			#jquery-plugin-other-resources ul li = $icon-24;
-			#jquery-plugin-other-resources ul li = $icon-arrow-right-5-24;
+			#jquery-plugin-other-resources ul li = $icon;
 			#jquery-plugin-other-resources ul li {
-				background-position: left -565px;
+				background-position: left -1px;
 				margin: 0 0 5px;
 				padding: 5px 0 5px 32px;
 				float: left;
 				width: 43%;
 			}
 
-			#jquery-plugin-other-resources ul li:last-child = $icon-warning-24;
+			#jquery-plugin-other-resources ul li:last-child {
+				background-position: left -1px;
+			}

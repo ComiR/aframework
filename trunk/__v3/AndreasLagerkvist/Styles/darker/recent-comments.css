@@ -16,9 +16,17 @@
 
 			#recent-comments ol li h3 a = $link-font;
 
-		#recent-comments ul li a = $icon-32;
-		#recent-comments ul li:first-child a = $icon-arrow-left-32;
-		#recent-comments ul li:last-child a = $icon-arrow-right-r-32;
+		#recent-comments ul li a = $icon;
+
+		#recent-comments ul li:first-child a {
+			background-position: left -3533px;
+		}
+
+		#recent-comments ul li:last-child a {
+			background-position: right -3587px;
+			padding-left: 0;
+			padding-right: 30px;
+		}
 
 		#recent-comments ol li img {
 			border-color: #fff;

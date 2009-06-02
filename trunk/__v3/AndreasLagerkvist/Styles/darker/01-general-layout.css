@@ -98,9 +98,9 @@ $first-p {
 }
 
 $pub-date {
-	background: url(gfx/icons/32.png) no-repeat -7px -220px;
+	background: url(gfx/icons/blue.png) no-repeat left -1866px;
 	display: block;
-	padding: 0 0 0 27px;
+	padding: 2px 0 2px 30px;
 	width: 150px;
 	line-height: 1;
 }
@@ -250,6 +250,11 @@ $img-small {
 	width: 200px;
 
 	border: 0 solid #fff;
+}
+
+$icon {
+	background: url(gfx/icons/blue.png) no-repeat left -1px;
+	padding: 10px 0 10px 30px;
 }
 
 $small {
