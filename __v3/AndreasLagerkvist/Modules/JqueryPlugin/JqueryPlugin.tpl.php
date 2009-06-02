@@ -13,7 +13,7 @@
 	</small>
 </p>
 
-<div class="what">
+<div id="jquery-plugin-what">
 
 	<h3><?php echo Lang::get('What it Does'); ?></h3>
 
@@ -21,7 +21,7 @@
 
 </div>
 
-<div class="how">
+<div id="jquery-plugin-how">
 
 	<h3><?php echo Lang::get('How to Use'); ?></h3>
 
@@ -29,43 +29,57 @@
 
 </div>
 
-<div class="example">
+<div id="jquery-plugin-example-and-code">
 
-	<h3><?php echo Lang::get('Example'); ?></h3>
+	<ul>
+		<li><a href="#jquery-plugin-example"><?php echo Lang::get('Example'); ?></a></li>
+		<li><a href="#jquery-plugin-example-code"><?php echo Lang::get('Example Code'); ?></a></li>
+		<li><a href="#jquery-plugin-source"><?php echo Lang::get('Plug-in Code'); ?></a></li>
+	</ul>
 
-	<div id="jquery-<?php echo $plugin['url_str']; ?>-example">
+	<div id="jquery-plugin-example">
 
-		<?php echo str_replace("\n", "\n\t", $plugin['example_html']); ?>
+		<h3><?php echo Lang::get('Example'); ?></h3>
+
+		<div id="jquery-<?php echo $plugin['url_str']; ?>-example">
+
+			<?php echo str_replace("\n", "\n\t", $plugin['example_html']); ?>
+
+		</div>
+
+		<?php if (NAKED_DAY) { ?>
+			<script type="text/javascript">
+				alert('It\'s naked day today and jQuery isn\'t included on my site so the example will not work. You can still check out the source-code and download the plug-in of course.');
+			</script>
+		<?php } ?>
 
 	</div>
 
-	<?php if (NAKED_DAY) { ?>
-		<script type="text/javascript">
-			alert('It\'s naked day today and jQuery isn\'t included on my site so the example will not work. You can still check out the source-code and download the plug-in of course.');
-		</script>
-	<?php } ?>
+	<div id="jquery-plugin-example-code">
 
-	<h4><?php echo Lang::get('Example Code'); ?></h4>
+		<h3><?php echo Lang::get('Example Code'); ?></h3>
 
-	<h5><abbr title="HyperText Markup Language">HTML</abbr></h5>
+		<h4><abbr title="HyperText Markup Language">HTML</abbr></h4>
 
-	<?php echo $plugin['example_html_code']; ?>
+		<?php echo $plugin['example_html_code']; ?>
 
-	<h5><abbr title="Javascript">JS</abbr></h5>
+		<h4><abbr title="Javascript">JS</abbr></h4>
 
-	<?php echo $plugin['example_js_code']; ?>
+		<?php echo $plugin['example_js_code']; ?>
 
-</div>
+	</div>
 
-<div class="source">
+	<div id="jquery-plugin-source">
 
-	<h3><?php echo Lang::get('Source Code'); ?></h3>
+		<h3><?php echo Lang::get('Source Code'); ?></h3>
 
-	<?php echo $plugin['source_code']; ?>
+		<?php echo $plugin['source_code']; ?>
+
+	</div>
 
 </div>
 
-<div class="download">
+<div id="jquery-plugin-download">
 
 	<h3><?php echo Lang::get('Download'); ?></h3>
 
@@ -123,7 +137,7 @@
 
 </div>
 
-<div class="other-resources">
+<div id="jquery-plugin-other-resources">
 
 	<h3><?php echo Lang::get('Other Resources'); ?></h3>
 

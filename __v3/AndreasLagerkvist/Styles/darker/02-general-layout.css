@@ -297,6 +297,62 @@ $box {
 	border-width: 0 1px 1px 0;
 }
 
+$box-tabs {
+	margin: 20px 0 -2px;
+	padding: 0;
+	list-style: none;
+	overflow: hidden;
+}
+
+	$box-tabs li {
+		float: left;
+		width: 180px;
+		margin: 0 5px 0 0;
+	}
+
+		$box-tabs li a {
+			background: #060606 url(gfx/box.png);
+
+			display: block;
+			padding: 10px 20px;
+
+			outline: 0;
+			text-decoration: none;
+			text-align: center;
+			color: #fff;
+
+			opacity: .7;
+
+			border: 1px solid #444;
+			border-right-color: #171717;
+			border-width: 0 1px 1px 1px;
+		}
+
+		$box-tabs li:first-child a {
+			background-position: left top;
+			border-left: 0;
+		}
+
+		$box-tabs li:first-child + li a {
+			background-position: -185px top;
+		}
+
+		$box-tabs li:first-child + li + li a {
+			background-position: -370px top;
+		}
+
+		$box-tabs li a.selected {
+			font-weight: bold;
+			opacity: 1;
+			border-bottom: 0;
+			border-left: 1px solid #444;
+			padding-bottom: 11px;
+		}
+
+		$box-tabs li:first-child a.selected {
+			border-left: 0;
+		}
+
 /*
 	=== The Grid ===
 */

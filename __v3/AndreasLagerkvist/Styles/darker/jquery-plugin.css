@@ -7,87 +7,99 @@
 		line-height: 1;
 	}
 
-	#jquery-plugin h3 {
-		margin-top: 40px;
-	}
-
-	#jquery-plugin div.what {
+	/* What it Does */
+	#jquery-plugin-what {
 		
 	}
 
-		#jquery-plugin div.what h3 {
-			margin-top: 20px;
+	/* How to Use */
+	#jquery-plugin-how {
+		
+	}
+
+		#jquery-plugin-how h3 {
+			margin-top: 40px;
 		}
 
-	#jquery-plugin div.how {
+	/* Example and Code */
+	#jquery-plugin-example-and-code {
 		
 	}
 
-	#jquery-plugin div.example {
-		
-	}
+		#jquery-plugin-example-and-code > ul = $box-tabs;
 
-	#jquery-plugin div.source {
-		
-	}
+		#jquery-plugin-example-and-code > div = $box;
+		#jquery-plugin-example-and-code > div {
+			margin-top: 0;
+		}
 
-	#jquery-plugin div.download = $box;
-	#jquery-plugin div.download {
+		#jquery-plugin-example {
+			
+		}
+
+		#jquery-plugin-example-code {
+			
+		}
+
+		#jquery-plugin-source {
+			
+		}
+
+	/* Download */
+	#jquery-plugin-download = $box;
+	#jquery-plugin-download {
 		position: relative;
 	}
 
-		#jquery-plugin div.download h3 {
-			margin-top: 20px;
-		}
-
-		#jquery-plugin div.download ul = $plain-list;
-		#jquery-plugin div.download ul {
+		#jquery-plugin-download ul = $plain-list;
+		#jquery-plugin-download ul {
 			
 		}
 
-			#jquery-plugin div.download ul li = $icon-24;
-			#jquery-plugin div.download ul li = $icon-download-2-24;
-			#jquery-plugin div.download ul li {
+			#jquery-plugin-download ul li = $icon-24;
+			#jquery-plugin-download ul li = $icon-download-2-24;
+			#jquery-plugin-download ul li {
 				margin: 0 0 5px;
 				padding: 5px 0 5px 32px;
 			}
 
-				#jquery-plugin div.download ul li small, 
-				#jquery-plugin div.download ul li img {
+				#jquery-plugin-download ul li small, 
+				#jquery-plugin-download ul li img {
 					display: block;
 				}
 
-		#jquery-plugin div.download ul + h4, 
-		#jquery-plugin div.download ul:last-child {
+		#jquery-plugin-download ul + h4, 
+		#jquery-plugin-download ul:last-child {
 			position: absolute;
-			left: 60%;
+			left: 49%;
 			top: 49px;
 		}
 
-		#jquery-plugin div.download ul:last-child {
+		#jquery-plugin-download ul:last-child {
 			top: 94px;
 		}
 
-			#jquery-plugin div.download ul:last-child li = $icon-warning-24;
+			#jquery-plugin-download ul:last-child li = $icon-warning-24;
 
-	#jquery-plugin div.other-resources = $box;
-	#jquery-plugin div.other-resources {
+	/* Other Resources */
+	#jquery-plugin-other-resources = $box;
+	#jquery-plugin-other-resources {
 	}
 
-		#jquery-plugin div.other-resources h3 {
-			margin-top: 20px;
-		}
-
-		#jquery-plugin div.other-resources ul = $plain-list;
-		#jquery-plugin div.other-resources ul {
+		#jquery-plugin-other-resources ul = $plain-list;
+		#jquery-plugin-other-resources ul = $self-clear;
+		#jquery-plugin-other-resources ul {
 			
 		}
 
-			#jquery-plugin div.other-resources ul li = $icon-24;
-			#jquery-plugin div.other-resources ul li = $icon-arrow-right-5-24;
-			#jquery-plugin div.other-resources ul li {
+			#jquery-plugin-other-resources ul li = $icon-24;
+			#jquery-plugin-other-resources ul li = $icon-arrow-right-5-24;
+			#jquery-plugin-other-resources ul li {
+				background-position: left -565px;
 				margin: 0 0 5px;
 				padding: 5px 0 5px 32px;
+				float: left;
+				width: 43%;
 			}
 
-			#jquery-plugin div.other-resources ul li:last-child = $icon-warning-24;
+			#jquery-plugin-other-resources ul li:last-child = $icon-warning-24;
