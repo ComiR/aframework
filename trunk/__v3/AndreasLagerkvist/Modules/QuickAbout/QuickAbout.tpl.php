@@ -7,7 +7,7 @@
 <p>
 	<a href="<?php echo Router::urlForFile('me.jpg', CURRENT_SITE); ?>">
 		<img src="<?php echo Router::urlForFile('me.jpg', CURRENT_SITE); ?>" alt="Andreas Lagerkvist" />
-	</a> Swedish <strong>web developer</strong>, spare-time <strong>php-developer</strong>, wanna-be <strong>designer</strong> and <strong>ex-3D-hobbyist</strong>. This is my website where I write about stuff that interests me.
+	</a> I'm a Swedish <strong>web developer</strong>, spare-time <strong>php-developer</strong>, wanna-be <strong>designer</strong> and <strong>ex-3D-hobbyist</strong>. This is my website where I write about stuff that interests me.
 </p>
 
 <p>
