@@ -96,7 +96,7 @@ $icon-zoom-24 { background-position: 0 -3216px; }
 $icon-32 { background-image: url(gfx/icons/32.png); background-repeat: no-repeat; padding: 10px 0 10px 27px; }
 
 $icon-add-32 { background-position: -7px -30px; } 
-$icon-arrow-left-32 { background-position: -7px -92px; } 
+$icon-arrow-left-32 { background-position: -7px -90px; } 
 $icon-arrow-right-32 { background-position: -7px -151px; } 
 $icon-arrow-right-r-32 { background-position: right -151px; padding-left: 0; padding-right: 34px; } 
 $icon-calendar-32 { background-position: -7px -216px; } 
