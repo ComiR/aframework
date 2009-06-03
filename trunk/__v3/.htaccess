@@ -28,6 +28,7 @@ ErrorDocument 404 /index.php
 	RewriteRule ^(.*)_small\.(jp(e)?g|png|gif)$ ?module=Img&img=$1.$2&%{QUERY_STRING} [L,NC]
 
 	# Run CSS and JS-"files" in root through the code compressor
+	RewriteCond %{REQUEST_FILENAME} !-f
 	RewriteRule ^([^/]*)/([^/]*)\.(css|js)$ ?module=CodeCompressor&s=$2&t=$3&%{QUERY_STRING} [L,NC]
 
 	# Redirect /index.php to /
