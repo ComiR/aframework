@@ -21,15 +21,18 @@
 
 			#random-jquery-plugins ul li p:last-child a = $icon;
 			#random-jquery-plugins ul li p:last-child a {
+				background-image: url(gfx/icons/yellow.png);
 				background-position: left -3587px;
 			}
 
 			#random-jquery-plugins > p:last-child a = $icon;
 
 			body.js-disabled #random-jquery-plugins > p:last-child a {
+				background-image: url(gfx/icons/green.png);
 				background-position: left -3587px;
 			}
 
 			body.js-enabled #random-jquery-plugins > p:last-child a {
+					background-image: url(gfx/icons/green.png);
 				background-position: left -4019px;
 			}

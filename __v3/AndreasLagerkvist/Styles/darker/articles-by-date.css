@@ -20,6 +20,7 @@
 
 				#articles-by-date > ul > li h3 a = $icon;
 				#articles-by-date > ul > li h3 a {
+					background-image: url(gfx/icons/red.png);
 					background-position: right -1865px;
 					display: block;
 					outline: 0;
@@ -64,5 +65,6 @@
 
 						#articles-by-date ul li ul li p:last-child a = $icon;
 						#articles-by-date ul li ul li p:last-child a {
+							background-image: url(gfx/icons/yellow.png);
 							background-position: left -3587px;
 						}

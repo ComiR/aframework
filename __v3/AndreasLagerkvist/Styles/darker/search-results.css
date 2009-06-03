@@ -55,6 +55,7 @@
 
 			#search-results ol li p:last-child a, 
 			#jquery-live-search ol li p:last-child a {
+				background-image: url(gfx/icons/yellow.png);
 				background-position: left -3587px;
 			}
 

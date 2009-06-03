@@ -33,6 +33,7 @@
 
 				#articles > ul > li > p:last-child a = $icon;
 				#articles > ul > li > p:last-child a {
+					background-image: url(gfx/icons/yellow.png);
 					background-position: right -3587px;
 					padding-left: 0;
 					padding-right: 30px;
