@@ -46,6 +46,7 @@
 		}
 
 	/* Download */
+	#jquery-plugin-download = $self-clear;
 	#jquery-plugin-download = $box;
 	#jquery-plugin-download {
 		position: relative;
@@ -53,15 +54,19 @@
 
 		#jquery-plugin-download ul = $plain-list;
 		#jquery-plugin-download ul {
-			
+			width: 45%;
 		}
 
-			#jquery-plugin-download ul li = $icon;
 			#jquery-plugin-download ul li {
-				background-position: left -17px;
 				margin: 0 0 5px;
-				padding: 5px 0 5px 32px;
+				padding: 0 0 0 30px;
 			}
+
+				#jquery-plugin-download ul li > a = $icon;
+				#jquery-plugin-download ul li > a {
+					background-position: left -3420px;
+					margin: 0 0 0 -30px;
+				}
 
 				#jquery-plugin-download ul li small, 
 				#jquery-plugin-download ul li img {
@@ -79,9 +84,19 @@
 			top: 94px;
 		}
 
-			#jquery-plugin-download ul:last-child li {
-				background-position: left -1px;
+			#jquery-plugin-download ul:last-child li:first-child {
+				padding: 0;
+				margin: 0 0 15px;
 			}
+
+				#jquery-plugin-download ul:last-child li > a {
+					background-image: url(gfx/icons/red.png);
+					background-position: left -3748px;
+				}
+
+				#jquery-plugin-download ul:last-child li:first-child a {
+					margin: 0;
+				}
 
 	/* Other Resources */
 	#jquery-plugin-other-resources = $box;
@@ -93,16 +108,18 @@
 		#jquery-plugin-other-resources ul {
 			
 		}
-
-			#jquery-plugin-other-resources ul li = $icon;
+/* vashti bunjan - here before */
 			#jquery-plugin-other-resources ul li {
-				background-position: left -1px;
-				margin: 0 0 5px;
-				padding: 5px 0 5px 32px;
+				margin: 0 0 15px;
 				float: left;
-				width: 43%;
+				width: 49%;
 			}
 
-			#jquery-plugin-other-resources ul li:last-child {
-				background-position: left -1px;
-			}
+				#jquery-plugin-other-resources ul li a = $icon;
+				#jquery-plugin-other-resources ul li a {
+					background-position: left -3694px;
+				}
+
+				#jquery-plugin-other-resources ul li:last-child a {
+					background-position: left -3694px;
+				}
