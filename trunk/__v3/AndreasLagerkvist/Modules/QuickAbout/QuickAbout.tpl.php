@@ -17,9 +17,7 @@
 </p>
 
 <p>
-	<strong>
-		<a href="<?php echo Router::urlFor('Page', array('url_str' => 'about')); ?>">
-			Read more about me and the site
-		</a>
-	</strong>
+	<a href="<?php echo Router::urlFor('Page', array('url_str' => 'about')); ?>">
+		Read more about me and the site
+	</a>
 </p>

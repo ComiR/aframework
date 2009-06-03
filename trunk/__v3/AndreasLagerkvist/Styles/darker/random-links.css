@@ -2,6 +2,7 @@
 
 	#random-links p a = $icon;
 	#random-links p a {
+		background-image: url(gfx/icons/green.png);
 		background-position: left -4019px;
 	}
 

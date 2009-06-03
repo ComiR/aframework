@@ -33,15 +33,15 @@ DarkerStyle.run();
 
 /* We want some animation in search so we have to override the original search-module
 aFramework.modules.Search = {
-	run: function() {
+	run: function () {
 		$('#q')
-			.focus(function() {
+			.focus(function () {
 				$(this).animate({
 					width: '290px'
 				}, 300);
 			})
-			.blur(function() {
-				if(!$('#jquery-live-search').is(':visible')) {
+			.blur(function () {
+				if (!$('#jquery-live-search').is(':visible')) {
 					$(this).animate({
 						width: '145px'
 					}, 300);
@@ -50,7 +50,7 @@ aFramework.modules.Search = {
 			.liveSearch({
 				url:		WEBROOT +'?module=SearchResults&q=', 
 				duration:	300, 
-				onSlideUp:	function() {
+				onSlideUp:	function () {
 					$('#q').blur();
 				}
 			}

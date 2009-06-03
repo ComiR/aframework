@@ -98,11 +98,11 @@ $first-p {
 }
 
 $pub-date {
-	background: url(gfx/icons/blue.png) no-repeat left -1866px;
+	background: url(gfx/icons/red.png) no-repeat left -1864px;
 	display: block;
 	padding: 2px 0 2px 30px;
 	width: 150px;
-	line-height: 1;
+	line-height: 1.2;
 }
 
 .code-block {

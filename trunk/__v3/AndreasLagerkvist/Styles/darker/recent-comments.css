@@ -19,10 +19,12 @@
 		#recent-comments ul li a = $icon;
 
 		#recent-comments ul li:first-child a {
+			background-image: url(gfx/icons/green.png);
 			background-position: left -3533px;
 		}
 
 		#recent-comments ul li:last-child a {
+			background-image: url(gfx/icons/green.png);
 			background-position: right -3587px;
 			padding-left: 0;
 			padding-right: 30px;

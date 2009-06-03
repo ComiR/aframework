@@ -11,5 +11,6 @@
 
 	#quick-about p:last-child a = $icon;
 	#quick-about p:last-child a {
+		background-image: url(gfx/icons/green.png);
 		background-position: left -3587px;
 	}
