@@ -21,7 +21,7 @@
 				isset($_POST['name']) and 
 				isset($_POST['email']) and 
 				FormValidator::validate($_POST) and 
-				!SpamChecker::isSpam($_POST)
+				SpamChecker::getScore($_POST)
 			) {
 				mail(Config::get('general.contact_email'), 'From Website', $_POST['message'], 'From: ' . $_POST['name'] . ' <' . $_POST['email'] . ">\r\n");
 
