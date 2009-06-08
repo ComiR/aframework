@@ -97,6 +97,10 @@ $first-p {
 	font-style: italic;
 }
 
+	$first-p em {
+		font-style: normal;
+	}
+
 $pub-date {
 	background: url(gfx/icons/red.png) no-repeat left -1864px;
 	display: block;
@@ -138,6 +142,15 @@ $error {
 	color: #600;
 	border: 1px solid red;
 }
+
+blockquote {
+	font: italic 18px Georgia;
+	color: #666;
+}
+
+	blockquote em {
+		font-style: normal;
+	}
 
 ul, 
 ol {
