@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery, jquery.imageZoom.css, jquery.imageZoom.png
 
 @does:
-This plug-in makes links pointing to images open in the "Image Zoom". Clicking a link will zoom out the clicked image to its target-image. Click anywhere on the image or the close-button to zoom the image back in.
+This plug-in makes links pointing to images open in the "Image Zoom". Clicking a link will zoom out the clicked image to its target-image. Click anywhere on the image or the close-button to zoom the image back in. Only ~3k minified.
 
 @howto:
 jQuery(document.body).imageZoom(); Would make every link pointing to an image in the document open in the zoom.
