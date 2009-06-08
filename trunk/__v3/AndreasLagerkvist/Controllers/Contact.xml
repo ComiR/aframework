@@ -6,8 +6,8 @@
 		<Navigation/>
 		<Search/>
 		<Breadcrumbs/>
-		<QuickAbout/>
 		<Contact/>
+		<QuickAbout/>
 		<RandomJqueryPlugins/>
 		<RandomLinks/>
 		<RecentComments/>

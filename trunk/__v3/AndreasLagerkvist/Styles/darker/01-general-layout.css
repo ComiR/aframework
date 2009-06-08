@@ -389,6 +389,7 @@ $box-tabs {
 	$primary-content {
 		width: 610px;
 		font-size: 14px;
+		float: left;
 	}
 
 	$secondary-content {
