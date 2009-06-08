@@ -6,8 +6,8 @@
 		<Navigation/>
 		<Search/>
 		<Breadcrumbs/>
-		<QuickAbout/>
 		<Article/>
+		<QuickAbout/>
 		<OlderArticles/>
 		<RandomJqueryPlugins/>
 		<RandomLinks/>
