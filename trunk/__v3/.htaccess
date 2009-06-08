@@ -13,7 +13,7 @@
 	# RewriteRule .* - [F,L]
 
 	# Prevent www-access (you should change the yourdomain-bit)
-	RewriteCond %{HTTP_HOST} ^www\.andreaslagerkvist.com$ [NC]
+	RewriteCond %{HTTP_HOST} ^www\.andreaslagerkvist\.com$ [NC]
 	RewriteRule ^(.*)$ http://andreaslagerkvist\.com/$1 [R=301,L]
 
 	# Force a trailing slash for dirs
