@@ -1,11 +1,8 @@
-ErrorDocument 404 /index.php
-
 #################################################################
 # A little rewriting
 # If you don't have access to mod_rewrite change 
 # the USE_MOD_REWRITE-setting in aFramework/Bootstrap.php
 #################################################################
-
 <IfModule mod_rewrite.c>
 	# Start ModRewrite
 	RewriteEngine On
@@ -16,8 +13,8 @@ ErrorDocument 404 /index.php
 	# RewriteRule .* - [F,L]
 
 	# Prevent www-access (you should change the yourdomain-bit)
-	RewriteCond %{HTTP_HOST} ^www\.yourdomain\.com$ [NC]
-	RewriteRule ^(.*)$ http://yourdomain\.com/$1 [R=301,L]
+	RewriteCond %{HTTP_HOST} ^www\.andreaslagerkvist.com$ [NC]
+	RewriteRule ^(.*)$ http://andreaslagerkvist\.com/$1 [R=301,L]
 
 	# Force a trailing slash for dirs
 	RewriteRule !\..{2,4}$ - [C]
@@ -25,7 +22,7 @@ ErrorDocument 404 /index.php
 	RewriteRule ^(.+)$ $1/ [R=301,L]
 
 	# Run images suffixed wiv _small through Thumb-generator
-	RewriteRule ^(.*)_small\.(jp(e)?g|png|gif)$ ?module=Img&img=$1.$2&%{QUERY_STRING} [L,NC]
+	# RewriteRule ^(.*)_small\.(jp(e)?g|png|gif)$ ?module=Img&img=$1.$2&%{QUERY_STRING} [L,NC]
 
 	# Run CSS and JS-"files" in root through the code compressor
 	RewriteCond %{REQUEST_FILENAME} !-f
@@ -45,20 +42,16 @@ ErrorDocument 404 /index.php
 # These are for performance and they increase
 # speed a fookin lot (try yslow wiv and wivout)
 #################################################################
-
 # Configure ETags
 FileETag MTime Size
 
-# Enable expirations
+# Enable Expirations
 <IfModule mod_expires.c>
 	ExpiresActive On
-
 	ExpiresDefault "access plus 3 days"
 </IfModule>
 
 # Gzip HTML, CSS and JS
 <IfModule mod_deflate.c>
-	AddOutputFilterByType DEFLATE text/html
-	AddOutputFilterByType DEFLATE text/css
-	AddOutputFilterByType DEFLATE application/x-javascript
+	AddOutputFilterByType DEFLATE text/html text/css application/x-javascript text/plain text/xml
 </IfModule>
