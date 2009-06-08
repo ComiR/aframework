@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-Use this plug-in on your definition-lists (dl-elements) to allow the dd:s for a dt to be toggled when clicking the dt.
+Use this plug-in on your definition-lists (dl-elements) to allow the dd:s for a dt to be toggled when clicking the dt. Don't use it unless it's semantically a definition list of some kind though :)
 
 @howto:
 jQuery('#faq dl').togglableDL(); would make every dl in #faq 'togglable'.
