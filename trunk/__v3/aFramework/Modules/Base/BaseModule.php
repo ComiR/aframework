@@ -5,7 +5,7 @@
 
 		public static function run() {
 			self::$tplVars['body_id']			= strtolower(ccFix($_GET['controller'], '-'));
-			self::$tplVars['html_title']		= ccFix($_GET['controller'], ' ');
+			self::$tplVars['html_title']		= $_GET['controller'] == 'Home' ? Config::get('general.site_tagline') : ccFix($_GET['controller'], ' ');
 			self::$tplVars['meta_description']	= '';
 			self::$tplVars['meta_keywords']		= '';
 			self::$tplVars['style']				= (isset($_COOKIE['style'])) ? $_COOKIE['style'] : Config::get('general.default_style');
