@@ -49,8 +49,8 @@
 				# JS gets packed
 				if (self::$type == 'js') {
 					$code .= self::getJSLangCode();
-				#	$jsPacker = new JavaScriptPacker($code, 0);
-				#	$code = $jsPacker->pack();
+					$jsPacker = new JavaScriptPacker($code, 0);
+					$code = $jsPacker->pack();
 				}
 				# CSS gets constant-treatment
 				elseif (self::$type == 'css') {

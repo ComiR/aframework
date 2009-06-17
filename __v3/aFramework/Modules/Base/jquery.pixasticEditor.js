@@ -243,7 +243,7 @@ jQuery.fn.pixasticEditor = function (conf, cb) {
 				 **/
 				getRectFromBox: function () {
 					var imageOffset	= container.find('div.' + config.className + '-drag-to-select').offset();
-					var box			= container.find('div.jquery-drag-to-select')
+					var box			= container.find('div.jquery-drag-to-select');
 					var boxOffset	= box.offset();
 
 					return {
