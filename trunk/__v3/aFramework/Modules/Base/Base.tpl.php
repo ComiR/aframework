@@ -39,12 +39,7 @@
 
 		<!--[if lte IE 8]>
 			<p>
-				Your browser doesn't support the modern CSS and JavaScript used on this web page, therefore it is served with <a href="http://forabeautifulweb.com/blog/about/universal_internet_explorer_6_css/">the universal IE6 stylesheet</a> and no JS.
-			</p>
-
-					
-			<p>
-				For a richer browsing experience, please consider upgrading to <a href="http://www.getfirefox.com">a better, modern browser</a>.
+				Your browser doesn't support the modern CSS and JavaScript used on this web page, therefore it is served with <a href="http://forabeautifulweb.com/blog/about/universal_internet_explorer_6_css/">the universal IE6 stylesheet</a> and no JS. For a richer browsing experience, please consider upgrading to <a href="http://www.getfirefox.com">a better, modern browser</a>.
 			</p>
 		<![endif]-->
 
