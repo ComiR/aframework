@@ -37,28 +37,27 @@
 			WEBROOT = '<?php echo WEBROOT; ?>';
 		</script>
 
-		<!--[if IE]>
-			<div id="ie-warning">
+		<!--[if lte IE 8]>
+			<p>
+				Your browser doesn't support the modern CSS and JavaScript used on this web page, therefore you will be served with <a href="http://forabeautifulweb.com/blog/about/universal_internet_explorer_6_css/">the universal IE6 stylesheet</a> and no JS.
+			</p>
 
-				<p>Your browser is outdated and unsafe. For a richer browsing experience, please consider upgrading to <a href="http://www.getfirefox.com">a better, modern browser</a>. You would also <a href="http://www.savethedevelopers.org/">help save the developers</a> :)</p>
-
-			</div>
+					
+			<p>
+				For a richer browsing experience, please consider upgrading to <a href="http://www.getfirefox.com">a better, modern browser</a>.
+			</p>
 		<![endif]-->
 
 		<noscript>
 
-			<p>You're really missing out coming here with <abbr title="JavaScript">JS</abbr> disabled. Everything still works but it's so much nicer with JS enabled. If you <em>had</em> JS enabled and also "ajax-mode" enabled, <a href="?ajax_mode=0">click here to disable it</a>.</p>
+			<p>You're really missing out coming here with <abbr title="JavaScript">JS</abbr> disabled. Everything still works but it's so much nicer with JS enabled.<!-- If you <em>had</em> JS enabled and also "ajax-mode" enabled, <a href="?ajax_mode=0">click here to disable it</a>.--></p>
 
 		</noscript>
 
 		<?php if (NAKED_DAY) { ?>
-			<div id="naked-day-info">
+			<p>Today it's CSS naked day, that's why I'm all naked. I've also taken the liberty of disabling JavaScript - I believe it's equally important to do accessible JS.</p>
 
-				<p>Today it's CSS naked day, that's why I'm all naked. I've also taken the liberty of disabling JavaScript - I believe it's equally important to do accessible JS.</p>
-
-				<p>To learn more about naked day visit the <a href="http://naked.dustindiaz.com" title="Web Standards Naked Day Host Website">Annual CSS Naked Day</a> website.</p>
-
-			</div>
+			<p>To learn more about naked day visit the <a href="http://naked.dustindiaz.com" title="Web Standards Naked Day Host Website">Annual CSS Naked Day</a> website.</p>
 		<?php } ?>
 
 		<?php echo $child_modules; ?>
@@ -82,9 +81,11 @@
 		<?php } ?>
 
 		<?php if ($scripts) { ?>
-			<script type="text/javascript">
-				<?php echo $scripts; ?>
-			</script>
+			<!--[if !IE 6 & !IE 7]>-->
+				<script type="text/javascript">
+					<?php echo $scripts; ?>
+				</script>
+			<!--<![endif]-->
 		<?php } ?>
 
 	</body>
