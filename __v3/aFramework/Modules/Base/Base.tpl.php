@@ -1,10 +1,12 @@
+<?php /* <?xml version="1.0" encoding="utf-8"?> */ ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
 	<head>
 
-		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
 
 		<meta name="author" content="<?php echo Config::get('general.site_author'); ?>" />
 		<meta name="copyright" content="Copyright (c) <?php echo date('Y') . ' ' . Config::get('general.site_author'); ?>" />
@@ -12,10 +14,16 @@
 		<meta name="description" content="<?php echo $meta_description; ?>" />
 		<meta name="robots" content="<?php echo $noindex ? 'noindex' : 'all'; ?>" />
 
-		<link rel="alternate" type="application/rss+xml" title="<?php echo Config::get('general.site_title'); ?> Articles" href="<?php echo WEBROOT; ?>?module=Articles&amp;rss=1" />
-		<link rel="shortcut icon" type="image/ico" href="<?php echo WEBROOT; ?>favicon.ico" />
+		<!--<link rel="alternate" type="application/rss+xml" title="<?php echo Config::get('general.site_title'); ?> Articles" href="<?php echo WEBROOT; ?>?module=Articles&amp;rss=1" />
+		<link rel="shortcut icon" type="image/ico" href="<?php echo WEBROOT; ?>favicon.ico" />-->
+
 		<?php if (!NAKED_DAY) { ?>
-			<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo WEBROOT; echo USE_MOD_REWRITE ? CURRENT_SITE . '/' . $style . '.css' : '?module=CodeCompressor&amp;s=' . $style . '&amp;t=css'; ?>" />
+			<!--[if !IE 6 & !IE 7]>-->
+				<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo WEBROOT; echo USE_MOD_REWRITE ? CURRENT_SITE . '/' . $style . '.css' : '?module=CodeCompressor&amp;s=' . $style . '&amp;t=css'; ?>" />
+			<!--<![endif]-->
+			<!--[if lt IE 8]>
+				<link rel="stylesheet" type="text/css" media="screen,projection" href="http://universal-ie6-css.googlecode.com/files/ie6.0.3.css" />
+			<![endif]-->
 		<?php } ?>
 
 		<title><?php echo $html_title; ?> - <?php echo Config::get('general.site_title'); ?></title>
@@ -56,7 +64,9 @@
 		<?php echo $child_modules; ?>
 
 		<?php if (!NAKED_DAY) { ?>
-			<script type="text/javascript" src="<?php echo WEBROOT; echo USE_MOD_REWRITE ? CURRENT_SITE . '/' . $style . '.js' : '?module=CodeCompressor&amp;s=' . $style . '&amp;t=js'; ?>"></script>
+			<!--[if !IE 6 & !IE 7]>-->
+				<script type="text/javascript" src="<?php echo WEBROOT; echo USE_MOD_REWRITE ? CURRENT_SITE . '/' . $style . '.js' : '?module=CodeCompressor&amp;s=' . $style . '&amp;t=js'; ?>"></script>
+			<!--<![endif]-->
 		<?php } ?>
 
 		<?php if (Config::get('general.ga_id')) { ?>
