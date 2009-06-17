@@ -32,7 +32,7 @@ function superSimpleAjax (conf, updateID) {
 	// Send the request
 	if (config.method.toUpperCase() == 'POST') {
 		requestObject.open('POST', config.url, true);
-		requestObject.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+		requestObject.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 		requestObject.onreadystatechange = onReadyStateChange;
 		requestObject.send(config.data);
 	}
