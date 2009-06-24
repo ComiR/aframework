@@ -58,7 +58,7 @@
 		}
 
 		private static function extractHTMLBlocks ($str, &$htmlBlocks) {
-			if (substr_count($str, '/[xhtml]/') != substr_count($str, '/[\/xhtml]/')) {
+			if (substr_count($str, '[xhtml]') != substr_count($str, '[/xhtml]')) {
 				$str .= '[/xhtml]';
 			}
 
@@ -70,7 +70,7 @@
 		}
 
 		private static function extractCodeBlocks ($str, &$codeBlocks) {
-			if (substr_count($str, '/[code]/') != substr_count($str, '/[\/code]/')) {
+			if (substr_count($str, '[code]') != substr_count($str, '[/code]')) {
 				$str .= '[/code]';
 			}
 
