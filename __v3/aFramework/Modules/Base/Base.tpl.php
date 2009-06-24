@@ -8,8 +8,8 @@
 		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 
-		<meta name="author" content="<?php echo Config::get('general.site_author'); ?>" />
-		<meta name="copyright" content="Copyright (c) <?php echo date('Y') . ' ' . Config::get('general.site_author'); ?>" />
+		<meta name="author" content="<?php echo htmlentities(Config::get('general.site_author')); ?>" />
+		<meta name="copyright" content="Copyright (c) <?php echo date('Y') . ' ' . htmlentities(Config::get('general.site_author')); ?>" />
 		<meta name="keywords" content="<?php echo $meta_keywords; ?>" />
 		<meta name="description" content="<?php echo $meta_description; ?>" />
 		<meta name="robots" content="<?php echo $noindex ? 'noindex' : 'all'; ?>" />
@@ -26,7 +26,7 @@
 			<![endif]-->
 		<?php } ?>
 
-		<title><?php echo $html_title; ?> - <?php echo Config::get('general.site_title'); ?></title>
+		<title><?php echo $html_title; ?> - <?php echo htmlentities(Config::get('general.site_title')); ?></title>
 
 	</head>
 
