@@ -14,8 +14,8 @@
 		<meta name="description" content="<?php echo $meta_description; ?>" />
 		<meta name="robots" content="<?php echo $noindex ? 'noindex' : 'all'; ?>" />
 
-		<!--<link rel="alternate" type="application/rss+xml" title="<?php echo Config::get('general.site_title'); ?> Articles" href="<?php echo WEBROOT; ?>?module=Articles&amp;rss=1" />
-		<link rel="shortcut icon" type="image/ico" href="<?php echo WEBROOT; ?>favicon.ico" />-->
+		<link rel="alternate" type="application/rss+xml" title="<?php echo htmlentities(Config::get('general.site_title')); ?> Articles" href="<?php echo WEBROOT; ?>?module=Articles&amp;rss=1" />
+		<!--<link rel="shortcut icon" type="image/ico" href="<?php echo WEBROOT; ?>favicon.ico" />-->
 
 		<?php if (!NAKED_DAY) { ?>
 			<!--[if !IE 6 & !IE 7]>-->
