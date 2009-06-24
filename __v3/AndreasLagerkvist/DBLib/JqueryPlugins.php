@@ -28,7 +28,21 @@
 				}
 			}
 
+			usort($plugins, array('self', 'pluginSorter'));
+
 			return $plugins;
+		}
+
+		public static function pluginSorter ($a, $b) {
+			if ($a['title'] < $b['title']) {
+				return -1;
+			}
+			elseif ($a['title'] > $b['title']) {
+				return 1;
+			}
+			else {
+				return 0;
+			}
 		}
 
 		public static function getByUrlStr ($urlStr) {
