@@ -24,7 +24,13 @@
 				self::showLatestArticles();
 			}
 
-			aFramework_BaseModule::$tplVars['html_title']	= self::$tplVars['title'];
+			aFramework_BaseModule::$tplVars['html_title'] = self::$tplVars['title'];
+
+			if (isset($_GET['rss'])) {
+				header("Content-type: application/rss+xml");
+
+				self::$tplFile = 'RSS';
+			}
 		}
 
 		private static function showArticlesByTagURLStr ($urlStr) {
