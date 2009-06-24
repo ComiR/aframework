@@ -7,9 +7,9 @@
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
-					articles.url_str, 
-					articles.title AS article_title, 
-					MD5(comments.email) AS email_md5
+					' . Config::get('db.table_prefix') . 'articles.url_str, 
+					' . Config::get('db.table_prefix') . 'articles.title AS article_title, 
+					MD5(' . Config::get('db.table_prefix') . 'comments.email) AS email_md5
 				FROM
 					' . Config::get('db.table_prefix') . 'comments
 				LEFT JOIN
