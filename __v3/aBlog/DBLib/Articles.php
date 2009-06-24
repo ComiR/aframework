@@ -109,6 +109,7 @@
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
+					' . Config::get('db.table_prefix') . 'comments.spam, 
 					COUNT(comments_id) as num_comments
 				FROM
 					' . Config::get('db.table_prefix') . 'articles
@@ -138,6 +139,7 @@
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
+					' . Config::get('db.table_prefix') . 'comments.spam, 
 					COUNT(comments_id) as num_comments
 				FROM
 					' . Config::get('db.table_prefix') . 'articles
