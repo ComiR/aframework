@@ -5,7 +5,7 @@
 
 		public static function run () {
 			if (isset($_GET['q'])) {
-				$start = isset($_GET['start']) ? $_GET['start'] : 0;
+				$start = (isset($_GET['start']) and is_numeric($_GET['start']) and $_GET['start'] > 0) ? $_GET['start'] : 0;
 
 				if (!(self::$tplVars = self::getSearchResults($_GET['q'], $start))) {
 					self::$tplFile = 'NoResults';

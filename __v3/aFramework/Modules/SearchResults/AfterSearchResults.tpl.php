@@ -1,4 +1,4 @@
-<?php if ($pages) { ?>
+<?php if (count($pages) > 1) { ?>
 	<ul>
 		<li>
 			<?php if (isset($_GET['start']) and $_GET['start'] > 0) { ?>
