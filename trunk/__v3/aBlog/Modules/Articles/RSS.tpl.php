@@ -9,7 +9,7 @@
 			<item>
 				<title><?php echo htmlentities($a['title']); ?></title>
 				<description><?php echo htmlentities(NiceString::makeNice($a['content'], 4)); ?></description>
-				<link><?php echo $_SERVER['SERVER_NAME'] . Router::urlFor('Article', $a); ?></link>
+				<link>http://<?php echo $_SERVER['SERVER_NAME'] . Router::urlFor('Article', $a); ?></link>
 				<pubDate><?php echo date(DATE_RSS, strtotime($a['pub_date'])); ?></pubDate>
 			</item>
 		<?php } ?>
