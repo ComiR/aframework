@@ -12,7 +12,7 @@
 		}
 
 		private static function showTheComments () {
-			$start = (isset($_GET['recent_comments_start']) and is_numeric($_GET['recent_comments_start'])) ? $_GET['recent_comments_start'] : 0;
+			$start = (isset($_GET['recent_comments_start']) and is_numeric($_GET['recent_comments_start']) and $_GET['recent_comments_start'] > 0) ? $_GET['recent_comments_start'] : 0;
 
 			if (!(self::$tplVars['comments'] = Comments::get('pub_date', 'DESC', $start, Config::get('ablog.num_recent_stuff')))) {
 				self::$tplFile = false;
