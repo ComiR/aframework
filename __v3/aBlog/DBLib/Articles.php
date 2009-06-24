@@ -32,7 +32,6 @@
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
-					IFNULL(' . Config::get('db.table_prefix') . 'comments.spam, 1) as spam, 
 					COUNT(comments_id) as num_comments
 				FROM 
 					' . Config::get('db.table_prefix') . 'articles 
@@ -42,8 +41,7 @@
 					' . Config::get('db.table_prefix') . 'articles.articles_id
 				HAVING
 					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "' . $dateFormatA . '") = ' . $pubDate . ' AND
-					spam > 0
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "' . $dateFormatA . '") = ' . $pubDate . '
 				ORDER BY 
 					' . Config::get('db.table_prefix') . 'articles.pub_date DESC
 			');
@@ -70,7 +68,6 @@
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
-					IFNULL(' . Config::get('db.table_prefix') . 'comments.spam, 1) as spam, 
 					COUNT(comments_id) as num_comments
 				FROM
 					' . Config::get('db.table_prefix') . 'articles
@@ -82,8 +79,7 @@
 					' . Config::get('db.table_prefix') . 'tags USING(tags_id)
 				WHERE
 					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND 
-					' . Config::get('db.table_prefix') . 'tags.url_str = "' . esc($urlStr) . '" AND
-					spam > 0
+					' . Config::get('db.table_prefix') . 'tags.url_str = "' . esc($urlStr) . '"
 				GROUP BY
 					' . Config::get('db.table_prefix') . 'articles.articles_id
 				ORDER BY
@@ -111,7 +107,6 @@
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
-					IFNULL(' . Config::get('db.table_prefix') . 'comments.spam, 1) as spam, 
 					COUNT(comments_id) as num_comments
 				FROM
 					' . Config::get('db.table_prefix') . 'articles
@@ -121,8 +116,7 @@
 					' . Config::get('db.table_prefix') . 'articles.articles_id
 				HAVING
 					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND 
-					' . Config::get('db.table_prefix') . 'articles.url_str = "' . esc($urlStr) . '" AND
-					spam > 0
+					' . Config::get('db.table_prefix') . 'articles.url_str = "' . esc($urlStr) . '"
 				LIMIT 1
 			');
 
@@ -141,7 +135,6 @@
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
 					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
-					IFNULL(' . Config::get('db.table_prefix') . 'comments.spam, 1) as spam, 
 					COUNT(comments_id) as num_comments
 				FROM
 					' . Config::get('db.table_prefix') . 'articles
@@ -150,8 +143,7 @@
 				GROUP BY
 					' . Config::get('db.table_prefix') . 'articles.articles_id
 				HAVING
-					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND
-					spam > 0
+					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW()
 				ORDER BY
 					' . Config::get('db.table_prefix') . 'articles.' . esc($sort) . ' ' . esc($order) . '
 				LIMIT
