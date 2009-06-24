@@ -121,8 +121,9 @@
 						$childModules = self::fetchModules($module->childNodes);
 					}
 
-					$moduleTpl = self::fetchModule($module->nodeName, array('child_modules' => $childModules));
-					$id = (strtolower($module->nodeName) == 'wrapper') ? strtolower(ccFix($module->getAttribute('name'))) : strtolower(ccFix($module->nodeName));
+					$moduleTpl	= self::fetchModule($module->nodeName, array('child_modules' => $childModules));
+					$id			= (strtolower($module->nodeName) == 'wrapper') ? strtolower(ccFix($module->getAttribute('name'))) : strtolower(ccFix($module->nodeName));
+					$title		= self::fetchModuleDescription($module->nodeName);
 
 					self::$debugInfo['modules'][$module->nodeName]['html_id'] = $id;
 
@@ -131,7 +132,13 @@
 							$page .= "\n\n<hr />"; # :)
 						}
 						if ($module->nodeName != 'Base') {
-							$page .= "\n\n<div id=\"$id\">\n\n";
+							$page .= "\n\n<div id=\"$id\"";
+
+							if ($title) {
+								$page .= " title=\"$title\"";
+							}
+
+							$page .= ">\n\n";
 						}
 						if (strtolower($module->nodeName) == 'wrapper') {
 							$page .= $childModules;
@@ -149,6 +156,25 @@
 			}
 
 			return $page;
+		}
+
+		/**
+		 * fetchModuleDescription
+		 *
+		 * Gets the module's info.txt-file's contents
+		 **/
+		public static function fetchModuleDescription ($module) {
+			$sites = explode(' ', SITE_HIERARCHY);
+
+			foreach ($sites as $site) {
+				$txtPath = DOCROOT . $site . '/Modules/' . $module . '/info.txt';
+
+				if (file_exists($txtPath)) {
+					return file_get_contents($txtPath);
+				}
+			}
+
+			return false;
 		}
 
 		/**
