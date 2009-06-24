@@ -41,7 +41,8 @@
 					' . Config::get('db.table_prefix') . 'articles.articles_id
 				HAVING
 					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "' . $dateFormatA . '") = ' . $pubDate . '
+					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "' . $dateFormatA . '") = ' . $pubDate . ' AND
+					' . Config::get('db.table_prefix') . 'comments.spam > 0
 				ORDER BY 
 					' . Config::get('db.table_prefix') . 'articles.pub_date DESC
 			');
@@ -79,11 +80,12 @@
 					' . Config::get('db.table_prefix') . 'tags USING(tags_id)
 				WHERE
 					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND 
-					tags.url_str = "' . esc($urlStr) . '"
+					' . Config::get('db.table_prefix') . 'tags.url_str = "' . esc($urlStr) . '" AND
+					' . Config::get('db.table_prefix') . 'comments.spam > 0
 				GROUP BY
 					' . Config::get('db.table_prefix') . 'articles.articles_id
 				ORDER BY
-					articles.pub_date DESC
+					' . Config::get('db.table_prefix') . 'articles.pub_date DESC
 			');
 
 			if (mysql_num_rows($res)) {
@@ -116,7 +118,8 @@
 					' . Config::get('db.table_prefix') . 'articles.articles_id
 				HAVING
 					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND 
-					' . Config::get('db.table_prefix') . 'articles.url_str = "' . esc($urlStr) . '"
+					' . Config::get('db.table_prefix') . 'articles.url_str = "' . esc($urlStr) . '" AND
+					' . Config::get('db.table_prefix') . 'comments.spam > 0
 				LIMIT 1
 			');
 
@@ -143,7 +146,8 @@
 				GROUP BY
 					' . Config::get('db.table_prefix') . 'articles.articles_id
 				HAVING
-					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW()
+					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND
+					' . Config::get('db.table_prefix') . 'comments.spam > 0
 				ORDER BY
 					' . Config::get('db.table_prefix') . 'articles.' . esc($sort) . ' ' . esc($order) . '
 				LIMIT
