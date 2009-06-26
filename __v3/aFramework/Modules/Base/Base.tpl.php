@@ -18,10 +18,10 @@
 		<!--<link rel="shortcut icon" type="image/ico" href="<?php echo WEBROOT; ?>favicon.ico" />-->
 
 		<?php if (!NAKED_DAY) { ?>
-			<!--[if !IE 6 & !IE 7]>-->
+			<!--[if gt IE 8]>-->
 				<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo WEBROOT; echo USE_MOD_REWRITE ? CURRENT_SITE . '/' . $style . '.css' : '?module=CodeCompressor&amp;s=' . $style . '&amp;t=css'; ?>" />
 			<!--<![endif]-->
-			<!--[if lt IE 8]>
+			<!--[if lte IE 8]>
 				<link rel="stylesheet" type="text/css" media="screen,projection" href="http://universal-ie6-css.googlecode.com/files/ie6.0.3.css" />
 			<![endif]-->
 		<?php } ?>
