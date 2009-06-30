@@ -22,7 +22,7 @@
 			}
 
 			# For the search-results-module
-			$_GET['q'] = trim(str_replace(array('index.php', '/', '-', WEBROOT), ' ', $_SERVER['REQUEST_URI']));
+			$_GET['q'] = urldecode(trim(str_replace(array('index.php', '/', '-', WEBROOT), ' ', $_SERVER['REQUEST_URI'])));
 
 			include DOCROOT .'aFramework/Files/404-stuff/head.php';
 
