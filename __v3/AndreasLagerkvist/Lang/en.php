@@ -34,7 +34,7 @@
 
 # NavigationModule.php
 'Archives' => 'Archives', 
-'Jquery' => 'Jquery', 
+'jQuery' => 'jQuery', 
 
 # BeforeOlderArticles.tpl.php
 'Slightly Older Articles' => 'Slightly Older Articles', 
