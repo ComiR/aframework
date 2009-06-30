@@ -4,7 +4,7 @@
 	 *
 	 * Random handy functions
 	 **/
-	function currPageURL($noQry) {
+	function currPageURL($noQry = false) {
 		$isHTTPS	= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on');
 		$port		= (isset($_SERVER['SERVER_PORT']) && ((!$isHTTPS && $_SERVER['SERVER_PORT'] != "80") || ($isHTTPS && $_SERVER['SERVER_PORT'] != '443')));
 		$port		= ($port) ? ':' . $_SERVER['SERVER_PORT'] : '';
