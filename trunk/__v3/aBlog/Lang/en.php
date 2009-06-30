@@ -1,6 +1,7 @@
 <?php return array(
 
 # Article.tpl.php
+'Continue Reading' => 'Continue Reading', 
 'Published' => 'Published', 
 'Tags' => 'Tags', 
 'No tags' => 'No tags', 
@@ -28,7 +29,7 @@
 'Delete this Article' => 'Delete this Article', 
 
 # ArticleModule.php
-'Add an article' => 'Add an article', 
+'Add an Article' => 'Add an Article', 
 
 # BeforeArticleAdmin.tpl.php
 'Edit Article' => 'Edit Article', 

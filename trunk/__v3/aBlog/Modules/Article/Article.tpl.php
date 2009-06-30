@@ -13,6 +13,14 @@
 
 <?php echo NiceString::makeNice($article['content'], 3, $more_cut); ?>
 
+<?php if ($more_cut) { ?>
+	<p>
+		<a href="<?php echo Router::urlFor('Article', $article); ?>">
+			<?php echo Lang::get('Continue Reading'); ?> &raquo;
+		</a>
+	</p>
+<?php } ?>
+
 <dl>
 	<dt><?php echo Lang::get('Tags'); ?></dt>
 	<dd>
