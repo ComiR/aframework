@@ -14,6 +14,10 @@
 		<meta name="description" content="<?php echo $meta_description; ?>" />
 		<meta name="robots" content="<?php echo $noindex ? 'noindex' : 'all'; ?>" />
 
+		<?php if ($canonical_url) { ?>
+			<link rel="canonical" href="<?php echo $canonical_url; ?>" />
+		<?php } ?>
+
 		<link rel="alternate" type="application/rss+xml" title="<?php echo htmlentities(Config::get('general.site_title')); ?> Articles" href="<?php echo WEBROOT; ?>?module=Articles&amp;rss=1" />
 		<!--<link rel="shortcut icon" type="image/ico" href="<?php echo WEBROOT; ?>favicon.ico" />-->
 
