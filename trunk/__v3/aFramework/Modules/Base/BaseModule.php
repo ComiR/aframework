@@ -9,13 +9,20 @@
 			self::$tplVars['meta_description']	= '';
 			self::$tplVars['meta_keywords']		= '';
 			self::$tplVars['style']				= (isset($_COOKIE['style'])) ? $_COOKIE['style'] : Config::get('general.default_style');
-			self::$tplVars['noindex']			= !empty($_SERVER['QUERY_STRING']);
+
+			# Set canonical URLs for everything with a query string
+			if (!empty($_SERVER['QUERY_STRING'])) {
+				self::$tplVars['canonical_url'] = currPageURL(true);
+			}
 
 			# Allow a noindex-attribute in controller-XML-files
 			$controllerPath = DOCROOT . CURRENT_SITE . '/Controllers/' . $_GET['controller'] . '.xml';
 
 			if (
-				!self::$tplVars['noindex'] and 
+				(
+					!isset(self::$tplVars['noindex']) or 
+					!self::$tplVars['noindex']
+				) and 
 				file_exists($controllerPath) and 
 				strpos(file_get_contents($controllerPath), 'noindex="true"') !== false
 			) {
