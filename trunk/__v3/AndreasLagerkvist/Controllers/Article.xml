@@ -6,8 +6,8 @@
 		<Navigation/>
 		<Search/>
 		<Breadcrumbs/>
-		<GoogleAds/>
 		<Article/>
+		<GoogleAds/>
 		<SocialBookmarks/>
 		<GoogleAdsWide/>
 		<Comments/>
