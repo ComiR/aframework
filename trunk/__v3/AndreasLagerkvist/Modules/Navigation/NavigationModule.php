@@ -13,7 +13,7 @@
 				'url'	=> Router::urlFor('Archives')
 			);
 			$navItems[] = array(
-				'title'	=> Lang::get('Jquery'), 
+				'title'	=> Lang::get('jQuery'), 
 				'url'	=> Router::urlFor('JqueryPlugins')
 			);
 
