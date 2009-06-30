@@ -15,6 +15,12 @@
 		color: #999;
 	}
 
+	#article > p:last-of-type a = $icon;
+	#article > p:last-of-type a {
+		background-image: url(gfx/icons/yellow.png);
+		background-position: left -3587px;
+	}
+
 	#article > dl:last-child = $small;
 	#article > dl:last-child {
 		margin-top: 20px;
