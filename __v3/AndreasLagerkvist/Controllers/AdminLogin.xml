@@ -6,8 +6,8 @@
 		<Navigation/>
 		<Search/>
 		<Breadcrumbs/>
-		<GoogleAds/>
 		<AdminLogin/>
+		<GoogleAds/>
 		<RandomJqueryPlugins/>
 		<RandomLinks/>
 		<RecentComments/>

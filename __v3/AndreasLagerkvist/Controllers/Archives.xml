@@ -6,8 +6,8 @@
 		<Navigation/>
 		<Search/>
 		<Breadcrumbs/>
-		<GoogleAds/>
 		<ArticlesByDate/>
+		<GoogleAds/>
 		<RandomJqueryPlugins/>
 		<RandomLinks/>
 		<RecentComments/>
