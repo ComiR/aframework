@@ -226,9 +226,9 @@
 			$sites		= explode(' ', SITE_HIERARCHY);
 			$tplFile	= null;
 			$tplVars	= $tplVarsAdd;
-			$before		= '';
-			$middle		= '';
-			$after		= '';
+			$before		= false;
+			$middle		= false;
+			$after		= false;
 
 			# Find the first module-class and store the template-filename
 			# to be fetched as well as the template variables
@@ -267,21 +267,21 @@
 				$afterPath	= (ADMIN and file_exists(DOCROOT . $site . '/Modules/' . $module . '/After' . $tplFile . 'Admin.tpl.php')) ? DOCROOT . $site . '/Modules/' . $module . '/After' . $tplFile . 'Admin.tpl.php' : DOCROOT . $site . '/Modules/' . $module . '/After' . $tplFile . '.tpl.php';
 
 				# Before
-				if ($before == '' and file_exists($beforePath)) {
+				if ($before === false and file_exists($beforePath)) {
 					self::$debugInfo['modules'][$module]['tpl_paths']['before'] = $beforePath;
 
 					$before = self::fetchTpl($beforePath, $tplVars);
 				}
 
 				# Middle
-				if ($middle == '' and file_exists($middlePath)) {
+				if ($middle === false and file_exists($middlePath)) {
 					self::$debugInfo['modules'][$module]['tpl_paths']['middle'] = $middlePath;
 
 					$middle = self::fetchTpl($middlePath, $tplVars);
 				}
 
 				# After
-				if ($after == '' and file_exists($afterPath)) {
+				if ($after === false and file_exists($afterPath)) {
 					self::$debugInfo['modules'][$module]['tpl_paths']['after'] = $afterPath;
 
 					$after = self::fetchTpl($afterPath, $tplVars);
