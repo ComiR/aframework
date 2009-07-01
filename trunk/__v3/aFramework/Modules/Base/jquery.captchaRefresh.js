@@ -32,10 +32,10 @@ jQuery(document.body).captchaRefresh({src: '/captcha.png'}); Would make all imag
 Run Captcha Refresh on a parent-element of the captcha image(s). Running it on document.body affects every CAPTCHA-image in the document.
 
 @exampleHTML:
-<img src="/af/?module=Captcha" alt="" />
+<img src="/?module=Captcha" alt="" />
 
 @exampleJS:
-jQuery('#jquery-captcha-refresh-example').captchaRefresh({src: '/af/?module=Captcha'});
+jQuery('#jquery-captcha-refresh-example').captchaRefresh({src: '/?module=Captcha'});
 ***/
 jQuery.fn.captchaRefresh = function (conf) {
 	var config = jQuery.extend({
