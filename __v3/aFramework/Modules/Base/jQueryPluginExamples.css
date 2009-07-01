@@ -10,16 +10,16 @@ $jquery-example-box {
 }
 
 /*
+	=== Ajax Loader ===
+*/
+#jquery-ajax-loader-example = $jquery-example-box;
+
+/*
 	=== Center ===
 */
 #jquery-center-example p:first-child = $jquery-example-box;
 
 #jquery-center-example p:last-child = $jquery-example-box;
-
-/*
-	=== Vibrate ===
-*/
-#jquery-vibrate-example = $jquery-example-box;
 
 /*
 	=== Checked checkbox parent ===
@@ -28,22 +28,6 @@ $jquery-example-box {
 	background: #369;
 	color: #fff;
 }
-
-/*
-	=== Equal Height ===
-*/
-#jquery-equal-height-example = $self-clear;
-
-	#jquery-equal-height-example p = $jquery-example-box;
-
-	#jquery-equal-height-example p {
-		float: left;
-		margin-right: 5px;
-	}
-
-	#jquery-equal-height-example p:last-child {
-		border-width: 5px;
-	}
 
 /*
 	=== Drag to Select ===
@@ -70,3 +54,80 @@ $jquery-example-box {
 			#jquery-drag-to-select-example ul li img {
 				width: 100%;
 			}
+
+/*
+	=== Equal Height ===
+*/
+#jquery-equal-height-example = $self-clear;
+
+	#jquery-equal-height-example p = $jquery-example-box;
+
+	#jquery-equal-height-example p {
+		float: left;
+		margin-right: 5px;
+	}
+
+	#jquery-equal-height-example p:last-child {
+		border-width: 5px;
+	}
+
+/*
+	=== Favicons ===
+*/
+#jquery-favicons-example ul = $plain-list;
+
+	#jquery-favicons-example ul li {
+		margin-bottom: 5px;
+	}
+
+		#jquery-favicons-example ul li img {
+			margin-right: 10px;
+		}
+
+/*
+	=== Image Zoom ===
+*/
+#jquery-image-zoom-example ul = $inline-menu;
+
+	#jquery-image-zoom-example ul li {
+		margin: 0 10px 10px 0;
+	}
+
+		#jquery-image-zoom-example ul li img {
+			width: 160px;
+		}
+
+/*
+	=== Live Search ===
+*/
+#jquery-live-search-example input[type=text] {
+	width: 320px;
+}
+
+#jquery-live-search-example input[type=submit] {
+	display: none;
+}
+
+/*
+	=== Max Length Form Controls ===
+*/
+#jquery-max-length-form-controls-example span.characters-remaining {
+	margin-left: 5px;
+	font-size: 80%;
+}
+
+#jquery-live-search-example input[type=submit] {
+	display: none;
+}
+
+/*
+	=== Text Shadow ===
+*/
+#jquery-text-shadow-example {
+	font-size: 180%;
+}
+
+/*
+	=== Vibrate ===
+*/
+#jquery-vibrate-example = $jquery-example-box;
