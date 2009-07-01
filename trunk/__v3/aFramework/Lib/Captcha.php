@@ -6,8 +6,8 @@
 			$str					= self::genStr($len); 
 			$_SESSION['captcha']	= md5($str);
 			$image					= imagecreate(60, 30);
-			$backgroundColor		= imagecolorallocate($im, 255, 255, 255);
-			$fontColor				= imagecolorallocate($im, 33, 66, 99);
+			$backgroundColor		= imagecolorallocate($image, 255, 255, 255);
+			$color					= imagecolorallocate($image, 11, 22, 33);
 
 			imagettftext($image, 20, 0, 5, 20, $color, $font, $str);
 			imagepng($image);
