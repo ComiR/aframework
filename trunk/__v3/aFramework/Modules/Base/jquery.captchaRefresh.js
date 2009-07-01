@@ -32,11 +32,10 @@ jQuery(document.body).captchaRefresh({src: '/captcha.png'}); Would make all imag
 Run Captcha Refresh on a parent-element of the captcha image(s). Running it on document.body affects every CAPTCHA-image in the document.
 
 @exampleHTML:
-<img src="/?module=Captcha" alt="" />
+<img src="/af/?module=Captcha" alt="" />
 
 @exampleJS:
-// I'm not running it because I already use captchaRefresh on my site
-// jQuery(document.body).captchaRefresh({src: WEBROOT + '?module=Captcha'});
+jQuery('#jquery-captcha-refresh-example').captchaRefresh({src: '/af/?module=Captcha'});
 ***/
 jQuery.fn.captchaRefresh = function (conf) {
 	var config = jQuery.extend({
@@ -44,13 +43,13 @@ jQuery.fn.captchaRefresh = function (conf) {
 		title:	'Can\'t see what it says? Click me to get a new string.'
 	}, conf);
 
-	return this.each(function () {
+	return this.each(function (x) {
 		jQuery('img[src^="' + config.src + '"]', this).attr('title', config.title);
 
-		jQuery(this).click(function(event) {
+		jQuery(this).click(function (event) {
 			var clicked = jQuery(event.target);
 
-			if (clicked.is('img[src^="' + config.src + '"]')) {
+			if (clicked.attr('src') && clicked.attr('src').indexOf(config.src) === 0) {
 				var now			= new Date();
 				var separator	= config.src.indexOf('?') == -1 ? '?' : '&';
 
