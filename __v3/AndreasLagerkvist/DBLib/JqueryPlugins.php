@@ -7,7 +7,6 @@
 			'jquery.disableTextSelect.js', 
 			'pixastic.custom.js', 
 
-			'jquery.colourPicker.js', 
 			'jquery.imageViewer.js'
 		);
 
@@ -54,7 +53,7 @@
 				$plugin .= $i++ > 0 ? (in_array($bit, array('dl')) ? strtoupper($bit) : ucfirst($bit)) : $bit;
 			}
 
-			if (file_exists(DOCROOT . 'aFramework/Modules/Base/jquery.' . $plugin . '.js')) {
+			if (!in_array('jquery.' . $plugin . '.js', self::$notMyPlugins) and file_exists(DOCROOT . 'aFramework/Modules/Base/jquery.' . $plugin . '.js')) {
 				return self::pluginAsArray($plugin);
 			}
 
