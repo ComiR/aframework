@@ -15,8 +15,8 @@
 		color: #999;
 	}
 
-	#article > p:last-of-type a = $icon;
-	#article > p:last-of-type a {
+	#home-page #article > p:last-of-type a = $icon;
+	#home-page #article > p:last-of-type a {
 		background-image: url(gfx/icons/yellow.png);
 		background-position: left -3587px;
 	}
