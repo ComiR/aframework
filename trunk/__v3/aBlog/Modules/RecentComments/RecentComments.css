@@ -10,25 +10,9 @@
 		position: relative;
 	}
 
-	body.admin #recent-comments ol li {
-		padding-right: 25px;
+	body.admin #recent-comments ol li:hover {
+		outline: 1px dotted red;
 	}
-
-		/* body.admin #recent-comments ol li a:last-child {
-			background: url(/__files/misc/file-uploader/rubbish-bin.gif) no-repeat;
-
-			display: block;
-			width: 16px;
-			height: 18px;
-
-			text-decoration: none;
-			text-indent: -10000px;
-			outline: 0;
-
-			position: absolute;
-			right: 0;
-			top: 0;
-		} */
 
 		#recent-comments ol li img {
 			position: absolute;
@@ -47,6 +31,14 @@
 
 			left: -18px;
 			top: -22px;
+		}
+
+		#recent-comments ol li form {
+			display: none;
+		}
+
+		#recent-comments:hover ol li form {
+			display: block;
 		}
 
 #recent-comments ul = $previous-next-menu;
