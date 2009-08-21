@@ -9,6 +9,10 @@
 		padding: 0 0 0 30px;
 	}
 
+	body.admin #random-links ul li:hover {
+		outline: 1px dotted red;
+	}
+
 		#random-links ul li img {
 			position: absolute;
 			left: 0;
@@ -34,4 +38,12 @@
 			position: absolute;
 			right: 0;
 			top: 0;
+		}
+
+		#random-links ul li form {
+			display: none;
+		}
+
+		#random-links:hover ul li form {
+			display: block;
 		}

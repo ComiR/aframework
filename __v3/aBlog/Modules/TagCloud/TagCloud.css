@@ -12,4 +12,20 @@
 			vertical-align: middle;
 		}
 
+		body.admin #tag-cloud ul li:hover {
+			outline: 1px dotted red;
+		}
+
 			body.js-enabled #tag-cloud ul li strong = $a11y-hide;
+
+			#tag-cloud ul li form {
+				display: none;
+			}
+
+				#tag-cloud ul li form p {
+					display: inline;
+				}
+
+			#tag-cloud:hover ul li form {
+				display: inline;
+			}
