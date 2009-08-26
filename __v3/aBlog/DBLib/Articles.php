@@ -128,6 +128,26 @@
 			}
 		}
 
+		public static function getImages () {
+			$articles	= Articles::get();
+			$matches	= array();
+			$images		= array();
+
+			foreach ($articles as $article) {
+				if (preg_match_all('/!\[(.*?)\]\((.*?)\)/', $article['content'], $matches)) {
+					foreach ($matches[0] as $k => $v) {
+						$images[] = array(
+							'title'		=> ucwords(str_replace(array('-', '.jpg', '.gif', '.png'), array(' ', ''), basename($matches[2][$k]))),
+							'src'		=> $matches[2][$k],
+							'article'	=> $article
+						);
+					}
+				}
+			}
+
+			return count($images) ? $images : false;
+		}
+
 		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000) {
 			$res = dbQry('
 				SELECT
