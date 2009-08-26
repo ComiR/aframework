@@ -12,7 +12,7 @@
 		 **/
 		public static function run () {
 			# Make sure user-selected style exists
-			if (isset($_COOKIE['style']) and !is_dir(CURRENT_SITE_DIR . 'Styles/' . $_COOKIE['style'] . '/')) {
+			if (isset($_COOKIE['style']) and !is_dir(CURRENT_SITE_DIR . 'Styles/' . basename($_COOKIE['style']) . '/')) {
 				self::setStyle(Config::get('general.default_style'));
 			}
 

@@ -33,7 +33,7 @@
 				}
 			}
 
-			setcookie('visitor', serialize(array_merge($oldData, $set)), time() + 31536000, BASE_PATH . '/');
+			setcookie('visitor', serialize(array_merge($oldData, $set)), time() + 31536000, WEBROOT . '/');
 		}
 	}
 ?>
