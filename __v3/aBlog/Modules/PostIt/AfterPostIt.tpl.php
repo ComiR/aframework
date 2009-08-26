@@ -1,7 +1,7 @@
 <ul>
 	<li>
 		<?php if ($prev === false) {
-			echo Lang::get('Newer')
+			echo Lang::get('Newer');
 		} else { ?>
 			<a href="?post_it_start=<?php echo $prev; ?>">
 				<?php echo Lang::get('Newer'); ?>
@@ -10,9 +10,11 @@
 	</li>
 	<li>
 		<?php if($next === false) {
-			<?php echo Lang::get('Older'); ?>
+			echo Lang::get('Older');
 		} else { ?>
-			<a href="?post_it_start=<?php echo $next; ?>"><?php echo Lang::get('Older'); ?></a>
+			<a href="?post_it_start=<?php echo $next; ?>">
+				<?php echo Lang::get('Older'); ?>
+			</a>
 		<?php } ?>
 	</li>
 </ul>

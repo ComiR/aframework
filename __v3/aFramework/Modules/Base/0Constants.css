@@ -14,7 +14,7 @@ $img-replace {
 
 /**
  * A11y hide
- * Hides and element in an accessible way
+ * Hides an element in an accessible way
  */
 $a11y-hide {
 	position: absolute;
