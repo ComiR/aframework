@@ -79,7 +79,7 @@
 			# Run and fetch all modules
 			self::runModules($base);
 			$theSite = self::fetchModules($base);
-			$theSite = DEBUG ? str_replace('</body>', fetch(DOCROOT . 'aFramework/Files/debug.tpl.php') . '</body>', $theSite) : $theSite;
+			$theSite = ADMIN ? str_replace('</body>', fetch(DOCROOT . 'aFramework/Files/new-debug.tpl.php') . '</body>', $theSite) : $theSite;
 
 			return $theSite;
 		}
@@ -203,8 +203,8 @@
 					self::$debugInfo['modules'][$module]['site']		= $site;
 					self::$debugInfo['modules'][$module]['class_name']	= $modName;
 					self::$debugInfo['modules'][$module]['run_time']	= $stop - $start;
-					self::$debugInfo['modules'][$module]['tpl_file']	= eval('$tmpTplFile = ' . $modName . '::$tplFile;'); $tmpTplFile; # $modName::$tplFile;
-					self::$debugInfo['modules'][$module]['tpl_vars']	= eval('$tmpTplVars = ' . $modName . '::$tplVars;'); $tmpTplVars; # $modName::$tplVars;
+				#	eval('$tmpTplVars = ' . $modName . '::$tplVars;');
+				#	self::$debugInfo['modules'][$module]['tpl_vars']	= $tmpTplVars; # $modName::$tplVars;
 					self::$debugInfo['modules'][$module]['num_queries']	= $numQAfter['num_queries'] - $numQBefore['num_queries'];
 
 					return true;
