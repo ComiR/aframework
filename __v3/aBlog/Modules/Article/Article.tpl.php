@@ -11,7 +11,7 @@
 	</small>
 </p>
 
-<?php echo NiceString::makeNice($article['content'], 3, $more_cut); ?>
+<?php echo NiceString::makeNice($article['content'], 3, $more_cut, false, true); ?>
 
 <?php if ($more_cut) { ?>
 	<p>
