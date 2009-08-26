@@ -65,9 +65,9 @@
 		if ($info) {
 			return array('num_queries' => $i, 'cached_queries' => $cache);
 		}
-		if (isset($cache[$qry])) {
-			return $cache[$qry];
-		}
+	#	if (isset($cache[$qry])) {
+	#		return $cache[$qry];
+	#	}
 
 		$i++;
 
