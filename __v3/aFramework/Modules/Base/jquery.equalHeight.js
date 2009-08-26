@@ -50,10 +50,7 @@ jQuery.fn.equalHeight = function () {
 	// Set element's min-height to tallest element's height
 	return this.each(function () {
 		var t			= jQuery(this);
-		var innerHeight	= t.innerHeight();
-		var outerHeight	= t.outerHeight();
-		var notHeight	= outerHeight - innerHeight;
-		var minHeight	= maxHeight - notHeight;
+		var minHeight	= maxHeight - t.outerHeight() - t.height();
 		var property	= jQuery.browser.msie && jQuery.browser.version < 7 ? 'height' : 'min-height';
 
 		t.css(property, minHeight + 'px');
