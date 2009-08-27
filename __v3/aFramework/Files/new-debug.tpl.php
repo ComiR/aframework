@@ -9,24 +9,52 @@
 	<h2>Debug Information</h2>
 
 	<p>
-		<small>
-			<?php echo str_replace(DOCROOT, '', $tplVars['controller']['path']); ?>, 
-			<?php echo round(Timer::stop(), 2); ?> sec(s), <?php $qryInfo = dbQry(false, true); echo $qryInfo['num_queries']; ?> queries.
-		</small>
+		<a href="<?php echo Router::urlFor('AdminLogin'); ?>?logout">
+			Logout
+		</a>
 	</p>
 
 	<ul>
+		<li>
+			<h3>Admin</h3>
+
+			<ul>
+				<li>
+					<h4>Controller</h4>
+
+					<dl>
+						<dt>Path</dt>
+						<dd><?php echo str_replace(DOCROOT, '', $tplVars['controller']['path']); ?></dd>
+						<dt>Run time</dt>
+						<dd><?php echo round(Timer::stop(), 2); ?> sec(s)</dd>
+						<dt>Number of queries</dt>
+						<dd><?php $qryInfo = dbQry(false, true); echo $qryInfo['num_queries']; ?></dd>
+					</dl>
+				</li>
+				<li>
+					<h4>Tools</h4>
+
+					<dl>
+						<dt>Styles</dt>
+						<dd>Switch to <a href="?style=admin">Admin</a> or <a href="?style=hmm">Default</a> style</dd>
+						<dt>Database</dt>
+						<dd><a href="<?php echo WEBROOT; ?>?module=ExportDatabase">Export</a></dd>
+						<dd><a href="<?php echo WEBROOT; ?>?module=ExportDatabase">Import</a></dd>
+					</dl>
+				</li>
+			</ul>
+		</li>
 		<li>
 			<h3>Modules</h3>
 
 			<ul>
 				<?php foreach($tplVars['modules'] as $mod) { ?>
-					<li title="<?php echo $mod['html_id']; ?>">
+					<li class="<?php echo $mod['html_id']; ?>">
 						<h4><?php echo $mod['class_name'] ? $mod['class_name'] : '[NoClass]' .'_' .$mod['name']; ?></h4>
 
-						<p><?php echo isset($mod['path']) ? str_replace(DOCROOT, '', $mod['path']) : '[no module-class]'; ?></p>
-
 						<dl>
+							<dt>Module class</dt>
+							<dd><?php echo isset($mod['path']) ? str_replace(DOCROOT, '', $mod['path']) : '[no module-class]'; ?></dd>
 							<dt>Run time</dt>
 							<dd><?php echo $mod['run_time'] ? $mod['run_time'] : '[no run]'; ?> sec(s)</dd>
 							<dt>Number of queries</dt>
@@ -91,15 +119,6 @@
 						</li>
 					<?php } ?>
 				<?php } ?>
-			</ul>
-		</li>
-		<li>
-			<h3>Tools</h3>
-
-			<ul>
-				<li><a href="<?php echo WEBROOT; ?>?module=ExportDatabase">Export Database</a></li>
-				<li><a href="<?php echo WEBROOT; ?>?module=ExportDatabase">Import Database</a></li>
-				<li>Switch to <a href="?style=admin">Admin</a> or <a href="?style=hmm">Default</a> style</li>
 			</ul>
 		</li>
 	</ul>
