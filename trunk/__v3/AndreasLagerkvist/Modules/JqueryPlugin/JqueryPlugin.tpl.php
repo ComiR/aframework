@@ -145,7 +145,7 @@
 		<li><a href="http://www.jquery.com">jQuery.com</a></li>
 		<li><a href="http://plugins.jquery.com/project/<?php echo $plugin['url_str']; ?>">This plug-in on jQuery.com</a></li>
 		<li><a href="http://code.google.com/p/aframework/source/browse/trunk/__v3/aFramework/Modules/Base/<?php echo $plugin['file_name']; ?>">This plug-in on Google Code</a></li>
-		<li><a href="/how-to-include-a-jquery-plug-in/">How to Include a jQuery Plug-in</a></li>
+		<li><a href="<?php echo Router::urlFor('Page', array('url_str' => 'how-to-include-a-jquery-plug-in')); ?>">How to Include a jQuery Plug-in</a></li>
 		<li><a href="http://plugins.jquery.com/project/issues/<?php echo $plugin['url_str']; ?>?category=bug">Report a bug!</a></li>
 	</ul>
 

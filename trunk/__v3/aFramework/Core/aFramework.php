@@ -21,12 +21,12 @@
 					echo self::runSingleModule(basename($_GET['module']));
 				}
 			}
-			elseif (isset($_GET['controller'])) {
-				if ($_GET['controller'] == false) {
+			elseif (isset(Router::$params['controller'])) {
+				if (Router::$params['controller'] == false) {
 					FourOFour::run();
 				}
 				else {
-					echo HTMLPacker::pack(self::runController(basename($_GET['controller'])));
+					echo HTMLPacker::pack(self::runController(basename(Router::$params['controller'])));
 				}
 			}
 		}

@@ -18,11 +18,11 @@
 		}
 
 		private static function showTheArticle () {
-			if (!isset($_GET['url_str']) and ADMIN) {
+			if (!isset(Router::$params['url_str']) and ADMIN) {
 				aFramework_BaseModule::$tplVars['html_title'] = Lang::get('Add an Article');
 			}
 			else {
-				$article = isset($_GET['url_str']) ? Articles::getArticleByURLStr($_GET['url_str']) : Articles::get('pub_date', 'DESC', 0, 1);
+				$article = isset(Router::$params['url_str']) ? Articles::getArticleByURLStr(Router::$params['url_str']) : Articles::get('pub_date', 'DESC', 0, 1);
 
 				if (!$article) {
 					FourOFour::run();
@@ -32,7 +32,7 @@
 					self::$tplVars['article']['tags']	= Tags::getTagsByArticlesID(self::$tplVars['article']['articles_id']);
 					self::$tplVars['more_cut']			= true;
 
-					if (isset($_GET['url_str'])) {
+					if (isset(Router::$params['url_str'])) {
 						aFramework_BaseModule::$tplVars['html_title']		= $article['title'];
 						aFramework_BaseModule::$tplVars['meta_description']	= $article['meta_description'];
 						aFramework_BaseModule::$tplVars['meta_keywords']	= $article['meta_keywords'];

@@ -1,0 +1,63 @@
+body.admin #article {
+	
+}
+
+	body.admin #article form {
+		
+	}
+
+		body.admin #article form p {
+			
+		}
+
+			body.admin #article form p label {
+				
+			}
+
+				body.admin #article form p label input[type=text] {
+					
+				}
+
+				body.admin #article form p label textarea {
+					width: 90%;
+				}
+
+				/* Title */
+				body.admin #article form p label input[name=title] {
+					width: 90%;
+					font-size: 180%;
+				}
+
+		/* Slug and Pub-date */
+		body.admin #article form p:first-child + p, 
+		body.admin #article form p:first-child + p + p {
+			float: left;
+			width: 40%;
+		}
+
+			body.admin #article form p:first-child + p input, 
+			body.admin #article form p:first-child + p + p input {
+				width: 80%;
+			}
+
+		body.admin #article form p:first-child + p + p + p {
+			clear: left;
+		}
+
+				/* Meta keywords */
+				body.admin #article form p label input[name=meta_keywords] {
+					width: 90%;
+				}
+
+		/* Comments/Rating */
+		body.admin #article form p:nth-last-child(-n+3) {
+			float: left;
+			width: 25%;
+		}
+
+		/* Submit */
+		body.admin #article form p:last-child {
+			float: none;
+			width: auto;
+			clear: left;
+		}

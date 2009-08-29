@@ -23,15 +23,15 @@
 
 	<p>
 		<label>
-			<strong>*</strong> <?php echo Lang::get('URL String'); ?><br />
-			<input type="text" name="url_str" value="<?php echo htmlentities($article['url_str']); ?>" />
+			<strong>*</strong> <?php echo Lang::get('Title'); ?><br />
+			<input type="text" name="title" value="<?php echo htmlentities($article['title']); ?>" />
 		</label>
 	</p>
 
 	<p>
 		<label>
-			<strong>*</strong> <?php echo Lang::get('Title'); ?><br />
-			<input type="text" name="title" value="<?php echo htmlentities($article['title']); ?>" />
+			<strong>*</strong> <?php echo Lang::get('Slug'); ?><br />
+			<input type="text" name="url_str" value="<?php echo htmlentities($article['url_str']); ?>" />
 		</label>
 	</p>
 
@@ -44,15 +44,15 @@
 
 	<p>
 		<label>
-			<?php echo Lang::get('Meta Description'); ?><br />
-			<textarea name="meta_description" rows="3" cols="60"><?php echo htmlentities($article['meta_description']); ?></textarea>
+			<?php echo Lang::get('Meta Keywords'); ?><br />
+			<input type="text" name="meta_keywords" value="<?php echo htmlentities($article['meta_keywords']); ?>" />
 		</label>
 	</p>
 
 	<p>
 		<label>
-			<?php echo Lang::get('Meta Keywords'); ?><br />
-			<input type="text" name="meta_keywords" value="<?php echo htmlentities($article['meta_keywords']); ?>" />
+			<?php echo Lang::get('Meta Description'); ?><br />
+			<textarea name="meta_description" rows="3" cols="40"><?php echo htmlentities($article['meta_description']); ?></textarea>
 		</label>
 	</p>
 
