@@ -16,7 +16,7 @@
 
 	<ul>
 		<li>
-			<h3>Admin</h3>
+			<h3>Debug</h3>
 
 			<ul>
 				<li>
