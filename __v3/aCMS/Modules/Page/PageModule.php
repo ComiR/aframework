@@ -16,10 +16,10 @@
 
 		private static function showThePage () {
 			# Try to get $get.url_str, else get home-page
-			$page = Pages::getPageByURLStr(isset($_GET['url_str']) ? $_GET['url_str'] : 'home');
+			$page = Pages::getPageByURLStr(isset(Router::$params['url_str']) ? Router::$params['url_str'] : 'home');
 
 			# If no url_str is set and we're admin
-			if (!isset($_GET['url_str']) and ADMIN) {
+			if (!isset(Router::$params['url_str']) and ADMIN) {
 				aFramework_BaseModule::$tplVars['html_title'] = Lang::get('Add a page');
 			}
 			# No page exists

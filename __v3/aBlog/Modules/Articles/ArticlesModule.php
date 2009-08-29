@@ -4,18 +4,18 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			if (isset($_GET['url_str'])) {
-				self::showArticlesByTagURLStr($_GET['url_str']);
+			if (isset(Router::$params['url_str'])) {
+				self::showArticlesByTagURLStr(Router::$params['url_str']);
 			}
-			elseif (isset($_GET['year'])) {
-				$date = $_GET['year'];
+			elseif (isset(Router::$params['year'])) {
+				$date = Router::$params['year'];
 
-				if (isset($_GET['month'])) {
-					$date .= $_GET['month'];
+				if (isset(Router::$params['month'])) {
+					$date .= Router::$params['month'];
 				}
 
-				if (isset($_GET['day'])) {
-					$date .= $_GET['day'];
+				if (isset(Router::$params['day'])) {
+					$date .= Router::$params['day'];
 				}
 
 				self::showArticlesByDate($date);

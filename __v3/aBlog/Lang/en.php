@@ -7,6 +7,7 @@
 'No tags' => 'No tags', 
 'Comments' => 'Comments', 
 'No comments' => 'No comments', 
+'Slug' => 'Slug', 
 
 # ArticleAdmin.tpl.php
 'The form contains errors.' => 'The form contains errors.', 

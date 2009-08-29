@@ -11,7 +11,14 @@
 
 	<p>
 		<label>
-			<strong>*</strong> <?php echo Lang::get('URL String'); ?><br />
+			<strong>*</strong> <?php echo Lang::get('Page Title'); ?><br />
+			<input type="text" name="title" value="<?php echo htmlentities($page['title']); ?>" />
+		</label>
+	</p>
+
+	<p>
+		<label>
+			<strong>*</strong> <?php echo Lang::get('Slug'); ?><br />
 			<input type="text" name="url_str" value="<?php echo htmlentities($page['url_str']); ?>" />
 		</label>
 	</p>
@@ -37,8 +44,8 @@
 
 	<p>
 		<label>
-			<strong>*</strong> <?php echo Lang::get('Page Title'); ?><br />
-			<input type="text" name="title" value="<?php echo htmlentities($page['title']); ?>" />
+			<?php echo Lang::get('Meta Keywords'); ?><br />
+			<input type="text" name="meta_keywords" value="<?php echo htmlentities($page['meta_keywords']); ?>" />
 		</label>
 	</p>
 
@@ -46,13 +53,6 @@
 		<label>
 			<?php echo Lang::get('Meta Description'); ?><br />
 			<textarea name="meta_description" rows="3" cols="60"><?php echo htmlentities($page['meta_description']); ?></textarea>
-		</label>
-	</p>
-
-	<p>
-		<label>
-			<?php echo Lang::get('Meta Keywords'); ?><br />
-			<input type="text" name="meta_keywords" value="<?php echo htmlentities($page['meta_keywords']); ?>" />
 		</label>
 	</p>
 

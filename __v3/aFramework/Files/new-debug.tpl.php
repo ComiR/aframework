@@ -32,6 +32,26 @@
 					</dl>
 				</li>
 				<li>
+					<h4>Routes</h4>
+
+					<dl>
+						<?php foreach($tplVars['routes'] as $k => $v) { ?>
+							<dt><?php echo $k; ?></dt>
+							<dd><?php echo $v != '' ? $v : '[empty]'; ?></dd>
+						<?php } ?>
+					</dl>
+				</li>
+				<li>
+					<h4>Route params</h4>
+
+					<dl>
+						<?php foreach(Router::$params as $k => $v) { ?>
+							<dt><?php echo $k; ?></dt>
+							<dd><?php echo $v != '' ? $v : '[empty]'; ?></dd>
+						<?php } ?>
+					</dl>
+				</li>
+				<li>
 					<h4>Tools</h4>
 
 					<dl>

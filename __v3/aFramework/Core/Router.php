@@ -6,6 +6,7 @@
 	 **/
 	final class Router {
 		private static $routes = false;
+		public static $params = array();
 
 		/**
 		 * run
@@ -29,7 +30,12 @@
 			self::sortRoutes();
 
 			# Merge params with GET-vars
-			$_GET = array_merge($_GET, self::getParamsFromURI()); # Could switch places so ?controller= overrides /controller/ but that allows URL-trickery that can be potentially bad for SEO
+		#	$_GET = array_merge($_GET, self::getParamsFromURI()); # Could switch places so ?controller= overrides /controller/ but that allows URL-trickery that can be potentially bad for SEO
+			self::$params = self::getParamsFromURI();
+
+			if (XHR) {
+				self::$params = array_merge(self::$params, $_GET);
+			}
 		}
 
 		private static function sortRoutes () {

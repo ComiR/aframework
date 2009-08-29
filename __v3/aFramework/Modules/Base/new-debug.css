@@ -10,7 +10,7 @@
 	width: 100%;
 	opacity: .9;
 
-	font: 12px/1 Verdana, sans-serif;
+	font: 12px/1 Arial, sans-serif;
 	letter-spacing: normal;
 	color: #000;
 
@@ -20,10 +20,15 @@
 
 	#new-debug h2 = $a11y-hide;
 
+	#new-debug a {
+		color: #000;
+		font-weight: bold;
+	}
+
 	#new-debug > p {
 		position: absolute;
 		right: 10px;
-		top: 3px;
+		top: 5px;
 		line-height: 1;
 
 		margin: 0;
@@ -47,7 +52,7 @@
 				padding: 5px 10px;
 				height: 15px;
 
-				font: bold 12px/1 Verdana, sans-serif;
+				font: bold 12px/1 Arial, sans-serif;
 				letter-spacing: normal;
 				color: #000;
 
@@ -98,11 +103,17 @@
 						margin: 0;
 						padding: 7px 10px;
 
-						font: bold 12px/1 Verdana, sans-serif;
+						font: bold 12px/1 Arial, sans-serif;
 						letter-spacing: normal;
 						color: #000;
 
 						cursor: pointer;
+					}
+
+					#new-debug > ul > li > ul > li h4:after {
+						content: "\203A";
+						float: right;
+						font-weight: bold;
 					}
 
 					#new-debug > ul > li > ul > li:last-child h4 {
