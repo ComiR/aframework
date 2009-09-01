@@ -24,7 +24,7 @@
 
 			# If the requested style exists in the current site's Style-dir
 			# it's considered a valid style.
-			if (self::$type == 'css' and !is_dir(CURRENT_SITE_DIR . 'Styles/' . $style . '/')) {
+			if (/* self::$type == 'css' and */!is_dir(CURRENT_SITE_DIR . 'Styles/' . $style . '/')) {
 				return false;
 			}
 
