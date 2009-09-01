@@ -131,3 +131,16 @@ $jquery-example-box {
 	=== Vibrate ===
 */
 #jquery-vibrate-example = $jquery-example-box;
+
+/*
+	=== Colour Picker ===
+*/
+#jquery-colour-picker-example input, 
+#jquery-colour-picker-example img {
+	margin: 0 5px 0 0;
+	vertical-align: middle;
+}
+
+#jquery-colour-picker-example img {
+	border: 0;
+}
