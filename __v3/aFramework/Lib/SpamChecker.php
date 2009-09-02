@@ -1,6 +1,6 @@
 <?php
 	class SpamChecker {
-		public static function getScore ($f) {
+		public static function getKarma ($f) {
 			$score		= 0;
 			$fields		= array(
 				'content'	=> isset($f['content'])	? $f['content']	: '', 

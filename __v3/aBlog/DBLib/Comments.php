@@ -16,7 +16,7 @@
 					' . Config::get('db.table_prefix') . 'articles USING(articles_id)
 				WHERE
 					' . Config::get('db.table_prefix') . 'articles.articles_id = "' . esc($id) . '" AND
-					' . Config::get('db.table_prefix') . 'comments.spam > 0
+					' . Config::get('db.table_prefix') . 'comments.karma > 0
 				ORDER BY
 					' . Config::get('db.table_prefix') . 'comments.pub_date ASC
 			');
@@ -51,7 +51,7 @@
 					' . Config::get('db.table_prefix') . 'articles USING(articles_id)
 				WHERE
 					' . Config::get('db.table_prefix') . 'articles.url_str = "' . esc($urlStr) . '" AND
-					' . Config::get('db.table_prefix') . 'comments.spam > 0
+					' . Config::get('db.table_prefix') . 'comments.karma > 0
 				ORDER BY
 					' . Config::get('db.table_prefix') . 'comments.pub_date ASC
 			');
@@ -85,7 +85,7 @@
 				LEFT JOIN
 					' . Config::get('db.table_prefix') . 'articles USING(articles_id)
 				WHERE
-					' . Config::get('db.table_prefix') . 'comments.spam > 0
+					' . Config::get('db.table_prefix') . 'comments.karma > 0
 				ORDER BY
 					' . Config::get('db.table_prefix') . 'comments.' . esc($sort) . ' ' . esc($order) . '
 				LIMIT
@@ -112,7 +112,7 @@
 		public static function insert ($row) {
 			$fields	 = array(
 				'articles_id'		=> $row['articles_id'], 
-				'spam'				=> SpamChecker::getScore($row), 
+				'karma'				=> SpamChecker::getKarma($row), 
 				'ip'				=> $_SERVER['REMOTE_ADDR'], 
 				'author'			=> $row['author'], 
 				'email'				=> $row['email'], 
@@ -127,7 +127,7 @@
 		public static function update ($id, $row) {
 			$validFields = array(
 				'articles_id', 
-				'spam', 
+				'karma', 
 				'author', 
 				'email', 
 				'website', 
