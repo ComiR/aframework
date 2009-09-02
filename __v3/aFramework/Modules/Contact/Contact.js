@@ -8,8 +8,8 @@ aFramework.modules.Contact = {
 
 		contact
 			.liveValidation({
-				validIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-valid.png', 
-				invalidIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-invalid.png', 
+				validIco:	WEBROOT + 'aFramework/Modules/Base/gfx/jquery.liveValidation-valid.png', 
+				invalidIco:	WEBROOT + 'aFramework/Modules/Base/gfx/jquery.liveValidation-invalid.png', 
 				required:	['name', 'email']
 			})
 			.ajaxForm({

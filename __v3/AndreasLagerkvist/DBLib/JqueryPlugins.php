@@ -5,9 +5,7 @@
 			'jquery.form.js', 
 			'jquery.scrollTo.js', 
 			'jquery.disableTextSelect.js', 
-			'pixastic.custom.js', 
-
-			'jquery.imageViewer.js'
+			'pixastic.custom.js'
 		);
 
 		public static function get () {
@@ -153,12 +151,12 @@
 						'size'	=> filesize(DOCROOT . 'aFramework/Modules/Base/' . $req)
 					);
 				}
-				elseif (in_array($ext, array('png', 'gif', 'jpg')) and file_exists(DOCROOT . 'aFramework/Styles/gfx/' . $req)) {
+				elseif (in_array($ext, array('png', 'gif', 'jpg')) and file_exists(DOCROOT . 'aFramework/Modules/Base/gfx/' . $req)) {
 					$pluginFiles[] = array(
 						'name'	=> $req, 
 						'ext'	=> $ext, 
 						'img'	=> true, 
-						'url'	=> WEBROOT . 'aFramework/Styles/gfx/' . $req
+						'url'	=> WEBROOT . 'aFramework/Modules/Base/gfx/' . $req
 					);
 				}
 				elseif ('js' == $ext and file_exists(DOCROOT .'aFramework/Modules/Base/' . $req)) {

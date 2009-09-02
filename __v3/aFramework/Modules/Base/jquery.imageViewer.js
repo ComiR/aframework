@@ -1,4 +1,4 @@
-/***
+/**
 @title:
 TODO: Image Viewer
 
@@ -44,4 +44,4 @@ jQuery('#holiday-photos, #flickr-images').imageViewer(); would create Image View
 
 @exampleJS:
 jQuery('#jquery-image-viewer-example ul').imageViewer();
-***/
+**/
