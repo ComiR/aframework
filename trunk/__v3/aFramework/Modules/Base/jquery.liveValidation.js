@@ -68,8 +68,8 @@ Run the plug-in on a parent-element of the form-controls you want to affect. If 
 
 @exampleJS:
 jQuery('#jquery-live-validation-example').liveValidation({
-	validIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-valid.png', 
-	invalidIco: WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-invalid.png', 
+	validIco:	WEBROOT + 'aFramework/Modules/Base/gfx/jquery.liveValidation-valid.png', 
+	invalidIco: WEBROOT + 'aFramework/Modules/Base/gfx/jquery.liveValidation-invalid.png', 
 	required:	['name', 'email', 'foo'], 
 	fields:		{foo: /^\S.*$/}
 });

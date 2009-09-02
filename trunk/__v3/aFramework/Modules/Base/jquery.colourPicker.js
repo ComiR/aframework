@@ -124,7 +124,7 @@ Use it like this: <select name="colour"><?php gwsc(); ?></select>.
 
 @exampleJS:
 jQuery('#jquery-colour-picker-example select').colourPicker({
-	ico:	WEBROOT +'aFramework/Styles/gfx/jquery.colourPicker.gif', 
+	ico:	WEBROOT + 'aFramework/Modules/Base/gfx/jquery.colourPicker.gif', 
 	title:	false
 });
 ***/

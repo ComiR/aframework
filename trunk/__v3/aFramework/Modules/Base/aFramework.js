@@ -10,8 +10,8 @@ var aFramework = {
 		this.jQueryLiveValidation = {
 			valid:		Lang.get('Valid'), 
 			invalid:	Lang.get('Invalid'), 
-			validIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-valid.png', 
-			invalidIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.liveValidation-invalid.png'
+			validIco:	WEBROOT + 'aFramework/Modules/Base/gfx/jquery.liveValidation-valid.png', 
+			invalidIco:	WEBROOT + 'aFramework/Modules/Base/gfx/jquery.liveValidation-invalid.png'
 		};
 	}, 
 

@@ -7,7 +7,7 @@ aFramework.modules.RandomLinks = {
 	addFavicons: function () {
 		jQuery('#random-links').favicons({
 			insert:		'insertAfter', 
-			defaultIco:	WEBROOT + 'aFramework/Styles/gfx/jquery.favicons.png'
+			defaultIco:	WEBROOT + 'aFramework/Modules/Base/gfx/jquery.favicons.png'
 		});
 	}, 
 
