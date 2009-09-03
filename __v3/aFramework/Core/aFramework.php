@@ -79,7 +79,7 @@
 			# Run and fetch all modules
 			self::runModules($base);
 			$theSite = self::fetchModules($base);
-			$theSite = ADMIN ? str_replace('</body>', fetch(DOCROOT . 'aFramework/Files/new-debug.tpl.php') . '</body>', $theSite) : $theSite;
+			$theSite = ADMIN ? str_replace('{AFRAMEWORK_ADDED}', fetch(DOCROOT . 'aFramework/Modules/Debug/Debug.tpl.php'), $theSite) : str_replace('{AFRAMEWORK_ADDED}', '', $theSite);
 
 			return $theSite;
 		}

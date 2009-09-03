@@ -4,7 +4,7 @@
 	$tplVars['routes'] = Router::getRoutes();
 ?>
 
-<div id="new-debug">
+<div id="debug">
 
 	<h2>Debug Information</h2>
 
