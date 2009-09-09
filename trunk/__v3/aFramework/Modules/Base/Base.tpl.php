@@ -64,7 +64,7 @@
 		{AFRAMEWORK_ADDED}
 		
 		<?php if (!NAKED_DAY) { ?>
-			<!--[if !IE 6 & !IE 7]>-->
+			<!--[if gt IE 8]>-->
 				<script type="text/javascript" src="<?php echo WEBROOT; echo USE_MOD_REWRITE ? CURRENT_SITE . '/' . $style . '.js' : '?module=CodeCompressor&amp;s=' . $style . '&amp;t=js'; ?>"></script>
 			<!--<![endif]-->
 		<?php } ?>
@@ -82,7 +82,7 @@
 		<?php } ?>
 
 		<?php if ($scripts) { ?>
-			<!--[if !IE 6 & !IE 7]>-->
+			<!--[if gt IE 8]>-->
 				<script type="text/javascript">
 					<?php echo $scripts; ?>
 				</script>
