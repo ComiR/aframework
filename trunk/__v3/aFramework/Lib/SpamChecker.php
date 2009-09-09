@@ -24,7 +24,8 @@
 				'pharm',
 				'ringtone',
 				'pharmacy',
-				'url>'
+				'url>', 
+				'vigrx'
 			);
 
 			#####
