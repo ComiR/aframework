@@ -264,7 +264,7 @@
 		private static function youtubeClips ($str) {
 			$find = '/\<p\>\[youtube=(.*)\]\<\/p\>/';
 			$replace = '
-			<object type="application/x-shockwave-flash" data="http://www.youtube.com/v/$1" width="425" height="350">
+			<object type="application/x-shockwave-flash" data="http://www.youtube.com/v/$1" width="560" height="340">
 				<param name="movie" value="http://www.youtube.com/v/$1" />
 			</object>
 			';

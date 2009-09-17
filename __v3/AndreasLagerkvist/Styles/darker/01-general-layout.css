@@ -390,6 +390,11 @@ $box-tabs {
 		float: left;
 	}
 
+		$primary-content object {
+			width: 610px;
+			height: 370px;
+		}
+
 	$secondary-content {
 		width: 290px;
 		float: right;
