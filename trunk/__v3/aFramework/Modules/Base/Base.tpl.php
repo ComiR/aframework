@@ -22,7 +22,7 @@
 		<!--<link rel="shortcut icon" type="image/ico" href="<?php echo WEBROOT; ?>favicon.ico" />-->
 
 		<?php if (!NAKED_DAY) { ?>
-			<!--[if gt IE 8]>-->
+			<!--[if gt IE 8]><!-->
 				<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo WEBROOT; echo USE_MOD_REWRITE ? CURRENT_SITE . '/' . $style . '.css' : '?module=CodeCompressor&amp;s=' . $style . '&amp;t=css'; ?>" />
 			<!--<![endif]-->
 			<!--[if lte IE 8]>
