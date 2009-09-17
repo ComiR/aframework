@@ -3,13 +3,13 @@
 Super Simple Tabs
 
 @version:
-1.0
+1.1
 
 @author:
 Andreas Lagerkvist
 
 @date:
-2009-06-01
+2009-09-17
 
 @url:
 http://andreaslagerkvist.com/jquery/super-simple-tabs/
@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-This is an extremely basic tabs-plugin which allows you to create tabbed content from the ever-so-common list of in-page-links. Atm the plug-in takes no configuration and simply hides/shows the content the links are pointing to as the user clicks.
+This is an extremely basic tabs-plugin which allows you to create tabbed content from the ever-so-common list of in-page-links. The plug-in takes one argument; 'selected', which allows you to set which tab should be selected by default. It defaults to the first tab in the list.
 
 @howto:
 jQuery('ul.tabs').superSimpleTabs(); would make every ul with the class 'tabs' hide show the content its links are pointing to.
@@ -48,32 +48,53 @@ jQuery('ul.tabs').superSimpleTabs(); would make every ul with the class 'tabs' h
 @exampleJS:
 jQuery('#jquery-super-simple-tabs-example ul').superSimpleTabs();
 ***/
-jQuery.fn.superSimpleTabs = function () {
+jQuery.fn.superSimpleTabs = function (selected) {
+	var sel = selected || 1;
+
 	return this.each(function () {
-		var ul = jQuery(this);
+		var ul	= jQuery(this);
+		var ipl	= 'a[href^=#]';
 
 		// Go through all the in-page links in the ul
-		ul.find('a[href^=#]').each(function (i) {
+		// and hide all but the selected's contents
+		ul.find(ipl).each(function (i) {
 			var link = jQuery(this);
 
-			// Hide all containers cept the first
-			if (i) {
-				jQuery(link.attr('href')).hide();
-			}
-			else {
+			if ((i + 1) === sel) {
 				link.addClass('selected');
 			}
+			else {
+				jQuery(link.attr('href')).hide();
+			}
+		});
 
-			// When clicking link
-			link.click(function () {
-				// Hide selected link's containers
-				jQuery(ul.find('a.selected').removeClass('selected').attr('href')).hide();
+		// When clicking the UL (or anything within)
+		ul.click(function (e) {
+			var clicked	= jQuery(e.target);
+			var link	= false;
 
-				// Show this one's
+			if (clicked.is(ipl)) {
+				link = clicked;
+			}
+			else {
+				var parent = clicked.parents(ipl);
+
+				if (parent.length) {
+					link = parent;
+				}
+			}
+
+			if (link) {
+				var selected = ul.find('a.selected');
+
+				if (selected.length) {
+					jQuery(selected.removeClass('selected').attr('href')).hide();
+				}
+
 				jQuery(link.addClass('selected').attr('href')).show();
 
 				return false;
-			});
+			}
 		});
 	});
 };
