@@ -17,4 +17,5 @@
 												));
 
 	Config::set('general.site_title',			'aBlog');
+	Config::set('general.site_tagline',			'Just another blogging software.');
 ?>
