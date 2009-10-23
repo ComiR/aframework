@@ -132,10 +132,9 @@
 'Read more' => 'Read more', 
 
 # SkipNavigation.tpl.php
-'Skip to' => 'Skip to', 
-
-# SkipNavigationModule.php
-'Navigation' => 'Navigation', 
+'Skip to Navigation' => 'Skip to Navigation', 
+'Skip to Content' => 'Skip to Content', 
+'Skip to Secondary content' => 'Skip to Secondary content', 
 
 # BeforeSocialBookmarks.tpl.php
 'Bookmark this URL' => 'Bookmark this URL', 
