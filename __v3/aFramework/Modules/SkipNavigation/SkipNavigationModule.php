@@ -12,7 +12,7 @@
 
 			if (stristr($contents, '<Navigation')) {
 				self::$tplVars['links'][] = array(
-					'title'	=> Lang::get('Navigation'), 
+					'title'	=> 'Navigation', 
 					'url'	=> '#navigation'
 				);
 			}
@@ -20,7 +20,7 @@
 			foreach ($matches[1] as $wrapper) {
 				if ($wrapper != 'wrapper') {
 					self::$tplVars['links'][] = array(
-						'title'	=> Lang::get(str_replace('-', ' ', $wrapper)), 
+						'title'	=> ucfirst(str_replace('-', ' ', $wrapper)), 
 						'url'	=> '#' . $wrapper
 					);
 				}
