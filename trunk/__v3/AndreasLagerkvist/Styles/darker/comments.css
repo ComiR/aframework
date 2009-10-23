@@ -6,13 +6,13 @@
 
 	#comments h3 = $main-heading;
 
-	#comments ol = $plain-list;
-	#comments ol {
+	#comments > ol = $plain-list;
+	#comments > ol {
 		
 	}
 
-		#comments ol li = $box;
-		#comments ol li {
+		#comments > ol > li = $box;
+		#comments > ol > li {
 			padding-left: 130px;
 			width: 380px;
 			min-height: 110px;
