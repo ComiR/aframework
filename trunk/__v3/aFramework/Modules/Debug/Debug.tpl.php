@@ -55,8 +55,8 @@
 					<h4>Tools</h4>
 
 					<dl>
-						<dt>Styles</dt>
-						<dd>Switch to <a href="?style=admin">Admin</a> or <a href="?style=hmm">Default</a> style</dd>
+					<!--<dt>Styles</dt>
+						<dd>Switch to <a href="?style=admin">Admin</a> or <a href="?style=hmm">Default</a> style</dd>-->
 						<dt>Database</dt>
 						<dd><a href="<?php echo WEBROOT; ?>?module=ExportDatabase">Export</a></dd>
 						<dd><a href="<?php echo WEBROOT; ?>?module=ExportDatabase">Import</a></dd>
