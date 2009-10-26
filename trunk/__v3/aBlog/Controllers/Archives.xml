@@ -3,8 +3,9 @@
 	<Wrapper name="wrapper">
 		<SkipNavigation/>
 		<Header/>
+		<Navigation/>
 		<Breadcrumbs/>
-		<Wrapper name="content">
+		<Wrapper name="primary-content">
 			<ArticlesByDate/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
