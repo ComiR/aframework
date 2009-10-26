@@ -1,0 +1,13 @@
+#navigation {
+	background: #181818;
+
+	margin: 0 -100px;
+	padding: 5px 100px;
+}
+
+	#navigation h2 = $a11y-hide;
+
+	#navigation ul = $pipe-menu;
+	#navigation ul {
+		margin: 0;
+	}
