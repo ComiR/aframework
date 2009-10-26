@@ -30,7 +30,7 @@
 'Delete this Page' => 'Delete this Page', 
 
 # PageModule.php
-'Add a page' => 'Add a page', 
+'Add a Page' => 'Add a Page', 
 
 # Routes.php
 'url.add-page' => 'add-page'
