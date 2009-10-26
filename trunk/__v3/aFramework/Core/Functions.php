@@ -4,7 +4,42 @@
 	 *
 	 * Random handy functions
 	 **/
-	function currPageURL($noQry = false) {
+	# Insert element in array at given position
+	# from: http://snipplr.com/view/19898/insert-into--add-element-to-array-at-specific-position/ but modified
+	function array_insert ($val, $pos, &$array) {
+		$array2		= array_splice($array, $pos);
+		$array[]	= $val;
+		$array		= array_merge($array, $array2);
+	}
+
+	# Appends 'what' to query string
+	function appendToQryStr ($what) {
+		$qryStr = $_SERVER['QUERY_STRING'];
+
+		if ($qryStr) {
+			$newVars = explode('&', $what);
+
+			foreach ($newVars as $var) {
+				list($key, $val)	= explode('=', $var);
+				$regExp				= "/$key=.*?(&|$)/";
+
+				if (preg_match($regExp, $qryStr)) {
+					$qryStr = preg_replace($regExp, "$key=$val" . '$1', $qryStr);
+				}
+				else {
+					$qryStr .= "&$key=$val";
+				}
+			}
+		}
+		else {
+			$qryStr = $what;
+		}
+
+		return '?' . htmlentities($qryStr);
+	}
+
+	# Returns the current page url
+	function currPageURL ($noQry = false) {
 		$isHTTPS	= (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on');
 		$port		= (isset($_SERVER['SERVER_PORT']) && ((!$isHTTPS && $_SERVER['SERVER_PORT'] != "80") || ($isHTTPS && $_SERVER['SERVER_PORT'] != '443')));
 		$port		= ($port) ? ':' . $_SERVER['SERVER_PORT'] : '';

@@ -3,21 +3,15 @@
 		public static function run () {
 			parent::run();
 
-			$navItems	= array();
-			$navItems[]	= self::$tplVars['nav_items'][0];
-
-			unset(self::$tplVars['nav_items'][0]);
-
-			$navItems[] = array(
+			self::addItem(array(
 				'title'	=> Lang::get('Archives'), 
 				'url'	=> Router::urlFor('Archives')
-			);
-			$navItems[] = array(
+			), 1);
+
+			self::addItem(array(
 				'title'	=> Lang::get('jQuery'), 
 				'url'	=> Router::urlFor('JqueryPlugins')
-			);
-
-			self::$tplVars['nav_items'] = array_merge($navItems, self::$tplVars['nav_items']);
+			), 2);
 
 			self::setSelectedNavigationItem();
 		}
