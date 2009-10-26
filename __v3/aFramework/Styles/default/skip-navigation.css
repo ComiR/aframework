@@ -1,0 +1,26 @@
+#skip-navigation {
+	position: fixed;
+	left: 0;
+	top: 0;
+
+	width: 100%;
+}
+
+	#skip-navigation ul = $pipe-menu;
+	#skip-navigation ul {
+		background: #333;
+		opacity: .07;
+
+		margin: 0;
+		padding: 5px 0;
+
+		text-align: center;
+	}
+
+	#skip-navigation:hover ul {
+		opacity: 1;
+	}
+
+		#skip-navigation ul a {
+			color: #eee;
+		}

@@ -1,5 +1,5 @@
 body {
-	background: #69f;
+	background: #eee;
 
 	margin: 0;
 	padding: 0;
@@ -7,42 +7,6 @@ body {
 	font: 100%/1.4 Verdana, sans-serif;
 	color: #333;
 }
-
-#wrapper {
-	background: #fafafa;
-
-	width: 880px;
-
-	margin: 20px auto;
-	padding: 40px;
-
-	border: 5px solid #147;
-	-moz-border-radius: 10px;
-}
-
-#content {
-	width: 600px;
-	float: left;
-}
-
-#secondary-content {
-	width: 260px;
-	float: right;
-}
-
-#secondary-content + * {
-	clear: both;
-}
-
-#skip-navigation ul = $pipe-menu;
-
-#navigation ul = $pipe-menu;
-
-#footer {
-	text-align: center;
-}
-
-	#footer ul = $pipe-menu;
 
 h1, h2, h3, h4, h5, h6 {
 	font: bold 200%/1.2 Helvetica, Arial, serif;
@@ -82,5 +46,34 @@ ul, ol {
 a = $underlined;
 
 a {
-	color: #369;
+	color: #06c;
+}
+
+#wrapper {
+	background: #fafafa;
+
+	position: relative;
+	width: 760px;
+
+	margin: 60px auto;
+	padding: 100px;
+
+	border: 1px solid #333;
+	-moz-border-radius: 80px;
+}
+
+#primary-content {
+	width: 500px;
+	padding: 30px 0 0;
+	float: left;
+}
+
+#secondary-content {
+	width: 230px;
+	padding: 30px 0 0;
+	float: right;
+}
+
+#secondary-content + * {
+	clear: both;
 }
