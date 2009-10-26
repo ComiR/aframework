@@ -5,7 +5,7 @@
 		<Header/>
 		<Navigation/>
 		<Breadcrumbs/>
-		<Wrapper name="content">
+		<Wrapper name="primary-content">
 			<ForumInfo/>
 			<LatestThreads/>
 			<LatestThreadReplies/>
