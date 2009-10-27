@@ -21,6 +21,9 @@
 			if (!isset(Router::$params['url_str']) and ADMIN) {
 				aFramework_BaseModule::$tplVars['html_title'] = Lang::get('Add an Article');
 			}
+			elseif (Router::$params['controller'] == 'AddArticle' and !ADMIN) {
+				FourOFour::run();
+			}
 			else {
 				$article = isset(Router::$params['url_str']) ? Articles::getArticleByURLStr(Router::$params['url_str']) : Articles::get('pub_date', 'DESC', 0, 1);
 
