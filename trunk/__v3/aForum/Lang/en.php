@@ -1,5 +1,5 @@
 <?php
 	return array(
-		'url.forum'	=> 'forum'
+		'url.forums'	=> 'forums'
 	);
 ?>
