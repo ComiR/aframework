@@ -31,6 +31,7 @@
 
 # ArticleModule.php
 'Add an Article' => 'Add an Article', 
+'Add Article +' => 'Add Article +', 
 
 # BeforeArticleAdmin.tpl.php
 'Edit Article' => 'Edit Article', 
@@ -145,6 +146,7 @@
 'Delete' => 'Delete', 
 
 # Routes.php
-'url.archives' => 'archives'
+'url.archives' => 'archives', 
+'url.add-article' => 'add-article', 
 
 ); ?>

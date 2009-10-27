@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Base cache-time="60">
+<Base>
 	<Wrapper name="wrapper">
 		<SkipNavigation/>
 		<Header/>
@@ -12,11 +12,11 @@
 			<PostComment/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
-			<Search ajax-run="true"/>
-			<PostIt ajax-run="true"/>
-			<TagCloud ajax-run="true"/>
-			<RecentArticles ajax-run="true"/>
-			<RecentComments ajax-run="true"/>
+			<Search/>
+			<PostIt/>
+			<TagCloud/>
+			<RecentArticles/>
+			<RecentComments/>
 		</Wrapper>
 		<Footer/>
 	</Wrapper>
