@@ -27,6 +27,7 @@
 				}
 				else {
 					echo HTMLPacker::pack(self::runController(basename(Router::$params['controller'])));
+					#header('content-type: text/plain');var_dump(self::$debugInfo);
 				}
 			}
 		}
@@ -186,6 +187,7 @@
 			$sites = explode(' ', SITE_HIERARCHY);
 
 			# Find the first Module-class and run it
+			# No, run ALL module-classes
 			foreach ($sites as $site) {
 				$modPath = DOCROOT . $site . '/Modules/' . $module . '/' . $module . 'Module.php';
 				$modName = $site . '_' . $module . 'Module';
@@ -199,19 +201,20 @@
 					$stop		= microtime(true);
 					$numQAfter	= dbQry(false, true);
 
-					self::$debugInfo['modules'][$module]['path']		= $modPath;
-					self::$debugInfo['modules'][$module]['site']		= $site;
-					self::$debugInfo['modules'][$module]['class_name']	= $modName;
-					self::$debugInfo['modules'][$module]['run_time']	= $stop - $start;
-				#	eval('$tmpTplVars = ' . $modName . '::$tplVars;');
-				#	self::$debugInfo['modules'][$module]['tpl_vars']	= $tmpTplVars; # $modName::$tplVars;
-					self::$debugInfo['modules'][$module]['num_queries']	= $numQAfter['num_queries'] - $numQBefore['num_queries'];
+					self::$debugInfo['modules'][$module]['classes'][] = array(
+						'path'			=> $modPath, 
+						'site'			=> $site, 
+						'class_name'	=> $modName, 
+						'run_time'		=> $stop - $start, 
+						'num_queries'	=> $numQAfter['num_queries'] - $numQBefore['num_queries']
+					#	'tpl_vars'		=> $modName::$tplVars
+					);
 
-					return true;
+				#	return true; # don't return here, keep running module-classes
 				}
 			}
 
-			return false;
+		#	return false;
 		}
 
 		/**
@@ -230,9 +233,11 @@
 			$middle		= false;
 			$after		= false;
 
-			# Find the first module-class and store the template-filename
+			# Find the -first- _last_ module-class and store the template-filename
 			# to be fetched as well as the template variables
-			foreach ($sites as $site) {
+			$reversedSites = array_reverse($sites);
+
+			foreach ($reversedSites as $site) {
 				$modPath = DOCROOT . $site . '/Modules/' . $module . '/' . $module . 'Module.php';
 				$modName = $site . '_' . $module . 'Module';
 
