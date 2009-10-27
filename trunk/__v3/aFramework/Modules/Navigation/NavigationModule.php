@@ -7,7 +7,7 @@
 			self::addItem(array(
 				'title'	=> Lang::get('Home'), 
 				'url'	=> Router::urlFor('Home')
-			));
+			), 0);
 
 			self::setSelectedNavigationItem();
 		}
@@ -17,6 +17,10 @@
 				self::$tplVars['nav_items'][] = $arrItem;
 			}
 			else {
+				if (!isset(self::$tplVars['nav_items'])) {
+					self::$tplVars['nav_items'] = array();
+				}
+
 				array_insert($arrItem, $pos, self::$tplVars['nav_items']);
 			}
 		}
@@ -27,6 +31,8 @@
 
 		public function setSelectedNavigationItem () {
 			$url			= $_SERVER['REQUEST_URI'];
+			$url			= explode('?', $url);
+			$url			= $url[0];
 			$tmpSelected	= array('url' => '', 'selected' => false);
 			$numItems		= count(self::$tplVars['nav_items']);
 
