@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Base>
+	<Wrapper name="wrapper">
+		<SkipNavigation/>
+		<Header/>
+		<Navigation/>
+		<Breadcrumbs/>
+		<Wrapper name="primary-content">
+			<Threads/>
+		</Wrapper>
+		<Wrapper name="secondary-content">
+			<Search/>
+			<PostIt/>
+			<RecentComments/>
+			<RecentForumThreads/>
+		</Wrapper>
+		<Wrapper name="tertiary-content">
+			<TagCloud/>
+			<RandomLinks/>
+			<StyleSwitcher/>
+		</Wrapper>
+		<Footer/>
+	</Wrapper>
+</Base>
