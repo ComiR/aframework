@@ -9,7 +9,7 @@
 
 # BeforePageAdmin.tpl.php
 'Edit Page' => 'Edit Page', 
-'Add Page' => 'Add Page', 
+'Add Page +' => 'Add Page +', 
 
 # PageAdmin.tpl.php
 'The form contains errors.' => 'The form contains errors.', 
