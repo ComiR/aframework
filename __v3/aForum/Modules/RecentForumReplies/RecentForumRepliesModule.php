@@ -1,5 +1,5 @@
 <?php
-	class aForum_LatestThreadRepliesModule {
+	class aForum_RecentForumRepliesModule {
 		public static $tplVars = array();
 		public static $tplFile = true;
 
