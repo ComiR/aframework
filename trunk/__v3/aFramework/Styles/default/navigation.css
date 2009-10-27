@@ -1,8 +1,8 @@
 #navigation {
 	background: #181818;
 
-	margin: 0 -100px;
-	padding: 5px 100px;
+	margin: 0 -40px;
+	padding: 10px 40px;
 }
 
 	#navigation h2 = $a11y-hide;

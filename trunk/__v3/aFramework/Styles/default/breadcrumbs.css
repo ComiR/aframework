@@ -1,8 +1,10 @@
 #breadcrumbs {
 	background: #222;
 
-	margin: 0 -100px;
-	padding: 5px 100px;
+	margin: 0 -40px;
+	padding: 5px 40px;
+
+	font-size: 80%;
 }
 
 	#breadcrumbs p {

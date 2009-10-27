@@ -1,0 +1,14 @@
+#footer {
+	background: #444;
+
+	padding: 20px 0;
+
+	text-align: center;
+	color: #a9a9a9;
+}
+
+	#footer a {
+		color: #a9a9a9;
+	}
+
+	#footer ul = $pipe-menu;

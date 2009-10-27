@@ -1,5 +1,5 @@
 body {
-	background: #eee;
+	background: #fed;
 
 	margin: 0;
 	padding: 0;
@@ -46,34 +46,46 @@ ul, ol {
 a = $underlined;
 
 a {
-	color: #06c;
+	color: #963;
 }
 
 #wrapper {
 	background: #fafafa;
 
 	position: relative;
-	width: 760px;
+	width: 880px;
 
 	margin: 60px auto;
-	padding: 100px;
+	padding: 0 40px;
 
 	border: 1px solid #333;
 	-moz-border-radius: 80px;
 }
 
 #primary-content {
-	width: 500px;
-	padding: 30px 0 0;
+	width: 560px;
+	padding: 40px 40px 40px 0;
 	float: left;
 }
 
 #secondary-content {
-	width: 230px;
-	padding: 30px 0 0;
+	width: 240px;
+	padding: 40px 0 40px 40px;
+	font-size: 80%;
 	float: right;
 }
 
 #secondary-content + * {
 	clear: both;
 }
+
+#tertiary-content = $self-clear;
+#tertiary-content {
+	font-size: 80%;
+	padding: 40px 0;
+}
+
+	#tertiary-content > div {
+		width: 33%;
+		float: left;
+	}
