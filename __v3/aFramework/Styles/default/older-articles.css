@@ -1,0 +1,10 @@
+#older-articles > ol = $self-clear;
+#older-articles > ol {
+	margin-left: 0;
+	list-style: none;
+}
+
+	#older-articles > ol > li {
+		width: 33%;
+		float: left;
+	}
