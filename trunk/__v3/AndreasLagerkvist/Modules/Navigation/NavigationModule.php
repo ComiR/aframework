@@ -1,19 +1,15 @@
 <?php
-	class AndreasLagerkvist_NavigationModule extends aCMS_NavigationModule {
+	class AndreasLagerkvist_NavigationModule {
+		public static $tplVars = array();
+		public static $tplFile = true;
+
 		public static function run () {
-			parent::run();
-
-			self::addItem(array(
-				'title'	=> Lang::get('Archives'), 
-				'url'	=> Router::urlFor('Archives')
-			), 1);
-
-			self::addItem(array(
+			aFramework_NavigationModule::addItem(array(
 				'title'	=> Lang::get('jQuery'), 
 				'url'	=> Router::urlFor('JqueryPlugins')
 			), 2);
 
-			self::setSelectedNavigationItem();
+			aFramework_NavigationModule::setSelectedNavigationItem();
 		}
 	}
 ?>
