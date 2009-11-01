@@ -13,6 +13,8 @@
 			if (isset($_GET['error'])) {
 				self::$tplVars['error'] = true;
 			}
+
+			self::$tplVars['visitor'] = VisitorData::getVisitorData();
 		}
 
 		private static function sendEmail () {
@@ -23,7 +25,7 @@
 				FormValidator::validate($_POST) and 
 				SpamChecker::getKarma($_POST)
 			) {
-				mail(Config::get('general.contact_email'), 'From Website', $_POST['message'], 'From: ' . $_POST['name'] . ' <' . $_POST['email'] . ">\r\n");
+				mail(Config::get('general.contact_email'), 'From ' . Config::get('general.site_title'), $_POST['message'], 'From: ' . $_POST['name'] . ' <' . $_POST['email'] . ">\r\n");
 
 				if (!XHR) {
 					redirect('?msg_sent');

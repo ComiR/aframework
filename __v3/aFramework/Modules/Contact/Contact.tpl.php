@@ -32,7 +32,7 @@
 
 	<p>
 		<label>
-			<input type="checkbox" name="remember"<?php echo($visitor['remembered']) ? 'checked="checked"' : ''; ?> /> 
+			<input type="checkbox" name="remember_visitor_data"<?php echo($visitor['remembered']) ? 'checked="checked"' : ''; ?> /> 
 			<?php echo Lang::get('Remember Me'); ?>
 		</label>
 	</p>

@@ -14,6 +14,7 @@
 
 			if ($articlesID) {
 				self::$tplVars['articles_id'] = $articlesID;
+				self::$tplVars['visitor'] = VisitorData::getVisitorData();
 			}
 			else {
 				self::$tplFile = false;

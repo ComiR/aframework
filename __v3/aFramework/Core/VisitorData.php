@@ -6,8 +6,8 @@
 	 **/
 	final class VisitorData {
 		public static function run () {
-			if (isset($_REQUEST['remember_visitor_data']) and $_REQUEST['remember_visitor_data']) {
-				self::set($_REQUEST);
+			if (isset($_POST['remember_visitor_data']) and $_POST['remember_visitor_data']) {
+				self::setVisitorData($_POST);
 			}
 		}
 
@@ -23,17 +23,23 @@
 		}
 
 		private static function setVisitorData ($data) {
-			$validData	= array('name', 'email', 'url', 'tel');
+			$validData	= array('name', 'email', 'url', 'tel', 'author');
+			$convert	= array('author' => 'name', 'website' => 'url');
 			$oldData	= (array)self::getVisitorData();
 			$set		= array();
 
 			foreach ($data as $k => $v) {
 				if (in_array($k, $validData)) {
-					$set[$k] = $v;
+					if (isset($convert[$k])) {
+						$set[$convert[$k]] = $v;
+					}
+					else {
+						$set[$k] = $v;
+					}
 				}
 			}
 
-			setcookie('visitor', serialize(array_merge($oldData, $set)), time() + 31536000, WEBROOT . '/');
+			setcookie('visitor_data', serialize(array_merge($oldData, $set)), time() + 31536000, WEBROOT);
 		}
 	}
 ?>
