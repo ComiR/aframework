@@ -8,16 +8,18 @@
 		<Wrapper name="primary-content">
 			<Article/>
 			<OlderArticles/>
+			<RecentForumThreads/>
+			<RecentForumReplies/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<Search/>
 			<PostIt/>
+			<RecentArticles/>
 			<RecentComments/>
-			<RecentForumThreads/>
 		</Wrapper>
 		<Wrapper name="tertiary-content">
-			<TagCloud/>
 			<RandomLinks/>
+			<TagCloud/>
 			<StyleSwitcher/>
 		</Wrapper>
 		<Footer/>
