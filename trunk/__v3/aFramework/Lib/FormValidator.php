@@ -4,9 +4,9 @@
 			'name'			=> '/^\S.*$/',											// name (atleast one character)
 			'title'			=> '/^\S.*$/',											// title (atleast one character)
 			'author'		=> '/^\S.*$/',											// author (atleast one character)
-			'message'		=> '/^\S.*$/',											// message (atleast one character)
-			'comment'		=> '/^\S.*$/',											// comment (atleast one character)
-			'description'	=> '/^\S.*$/',											// description (atleast one character)
+			'message'		=> '/^\S.*$/s',											// message (atleast one character)
+			'comment'		=> '/^\S.*$/s',											// comment (atleast one character)
+			'description'	=> '/^\S.*$/s',											// description (atleast one character)
 			'dimensions'	=> '/^\d+x\d+$/',										// dimensions (DIGITxDIGIT)
 			'price'			=> '/^\d+$/',											// price (atleast one digit)
 			'url'			=> '/^(http:\/\/)?(www)?([^ |\.]*?)\.([^ ]){2,5}$/',	// url
