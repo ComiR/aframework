@@ -8,7 +8,6 @@
 			self::$tplVars['html_title']		= Router::$params['controller'] == 'Home' ? Config::get('general.site_tagline') : ccFix(Router::$params['controller'], ' ');
 			self::$tplVars['meta_description']	= '';
 			self::$tplVars['meta_keywords']		= '';
-			self::$tplVars['style']				= (isset($_COOKIE['style'])) ? $_COOKIE['style'] : Config::get('general.default_style');
 
 			# Set canonical URLs for everything with a query string
 			if (!empty($_SERVER['QUERY_STRING'])) {
