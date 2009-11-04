@@ -11,6 +11,10 @@
 													'value'			=> 8, 
 													'title'			=> 'Number of recent articles on first page'
 												));
+	Config::set('ablog.num_older_articles',		array(
+													'value'			=> 4, 
+													'title'			=> 'Number of older articles below latest article'
+												));
 	Config::set('ablog.comment_spam_time',		array(
 													'value'			=> 5, 
 													'title'			=> 'Minutes users need to wait between comments'

@@ -18,18 +18,29 @@
 		}
 
 		private static function showTheArticle () {
+			# If no particular article is requested and we're admin
 			if (!isset(Router::$params['url_str']) and ADMIN) {
 				aFramework_BaseModule::$tplVars['html_title'] = Lang::get('Add an Article');
 			}
+			# Or if we're on the AddArticle-page and NOT admin
 			elseif (Router::$params['controller'] == 'AddArticle' and !ADMIN) {
 				FourOFour::run();
 			}
+			# Or it's a normal article-display
 			else {
+				# If url_str is set get that article else get latest article
 				$article = isset(Router::$params['url_str']) ? Articles::getArticleByURLStr(Router::$params['url_str']) : Articles::get('pub_date', 'DESC', 0, 1);
 
-				if (!$article) {
+				# Make sure URL-date is the same as article-date if a particular article is requested
+				if (isset(Router::$params['url_str'])) {
+					$urlYMD = Router::$params['year'] . Router::$params['month'] . Router::$params['day'];
+					$articleYMD = $article['year'] . $article['month'] . $article['day'];
+				}
+				# If no article exists or the URL-date isn't the same run 404
+				if (!$article or (isset(Router::$params['url_str']) and $urlYMD != $articleYMD)) {
 					FourOFour::run();
 				}
+				# Article exists and URL-date is either correct or not set - display article
 				else {
 					self::$tplVars['article']			= $article;
 					self::$tplVars['article']['tags']	= Tags::getTagsByArticlesID(self::$tplVars['article']['articles_id']);
