@@ -6,8 +6,7 @@
 		<Navigation/>
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
-			<Article/>
-			<OlderArticles/>
+			<Styles/>
 			<RecentForumThreads/>
 			<RecentForumReplies/>
 		</Wrapper>
