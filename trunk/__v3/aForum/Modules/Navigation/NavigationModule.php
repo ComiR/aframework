@@ -8,8 +8,6 @@
 				'title'	=> Lang::get('Forums'), 
 				'url'	=> Router::urlFor('Forums')
 			));
-
-			aFramework_NavigationModule::setSelectedNavigationItem();
 		}
 	}
 ?>
