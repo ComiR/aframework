@@ -1,5 +1,5 @@
 #search {
-	background: #999;
+	background: #9f9f9f;
 
 	padding: 15px 20px;
 
@@ -28,6 +28,20 @@
 				display: none;
 			}
 
+				#search form p input {
+					font-size: 80%;
+				}
+
 				#search #q {
-					width: 140px;
+					width: 200px;
+					padding: 3px;
+					border: 1px solid rgba(100, 100, 100, .5);
+					-moz-border-radius: 10px;
+					-webkit-border-radius: 10px;
+					border-radius: 10px;
+				}
+
+				#search #q.default-value {
+					font-style: normal;
+					color: #666;
 				}

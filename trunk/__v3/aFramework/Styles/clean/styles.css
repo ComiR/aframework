@@ -1,0 +1,45 @@
+#styles {
+	
+}
+
+	#styles ul {
+		
+	}
+
+		#styles ul li = $self-clear;
+		#styles ul li {
+		
+		}
+
+		#styles ul li.selected {
+			background: rgba(100, 150, 200, .2);
+		}
+
+			#styles ul li h3 {
+				
+			}
+
+			#styles ul li p {
+				float: left;
+				margin: 0 15px 0 0;
+			}
+
+				#styles ul li p img {
+					width: 300px;
+				}
+
+			#styles ul li dl = $data-definition;
+			#styles ul li dl {
+				float: left;
+				width: 250px;
+			}
+
+			#styles ul li p:last-child {
+				float: none;
+				margin: 0;
+				clear: both;
+			}
+
+				#styles ul li p img {
+					width: 300px;
+				}

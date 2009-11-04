@@ -1,0 +1,35 @@
+$forum-threads {
+	margin: 0;
+	list-style: none;
+}
+
+	$forum-threads > li {
+		padding: 5px 0;
+		border-bottom: 1px solid rgba(100, 100, 100, .3);
+		border-top: 1px solid rgba(200, 200, 200, .3);
+	}
+
+	$forum-threads > li:first-child {
+		border-top: 0;
+	}
+
+	$forum-threads > li:last-child {
+		border-bottom: 0;
+	}
+
+		$forum-threads > li h3 {
+			font: bold 100%/1.2 Arial;
+			margin: 0;
+			letter-spacing: 0;
+		}
+
+		$forum-threads > li p {
+			margin: 0;
+		}
+
+#primary-content #recent-forum-replies {
+	width: 50%;
+	float: right;
+}
+
+	#recent-forum-replies ol = $forum-threads;

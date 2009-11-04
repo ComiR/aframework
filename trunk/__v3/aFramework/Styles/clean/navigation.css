@@ -1,14 +1,17 @@
 #navigation {
+	background: url(gfx/horizontal-ruler.png) repeat-x;
+	margin: 0 -30px;
+	padding-top: 2px;
 }
 
 	#navigation h2 = $a11y-hide;
 
 	#navigation ul = $self-clear;
 	#navigation ul {
-		margin: 0 -30px;
+		background: url(gfx/horizontal-ruler.png) repeat-x left bottom;
+		margin: 0;
+		padding-bottom: 2px;
 		list-style: none;
-		border: 1px solid #a7a7a7;
-		border-width: 1px 0;
 	}
 
 		#navigation ul li {
@@ -22,6 +25,9 @@
 
 				color: #fff;
 				text-decoration: none;
+				-moz-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+				-webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+				text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 			}
 
 			#navigation ul li a:hover {
