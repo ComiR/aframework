@@ -2,13 +2,15 @@
 
 	<p>
 		<label>
-			Select Style<br/>
+			<?php echo Lang::get('Select Style'); ?><br/>
 			<select name="style">
-				<option value="default">aFramework Default Style</option>
-				<option value="clean">aFramework Clean Style</option>
-				<option value="grunge">aFramework Grunge Style</option>
+				<?php foreach ($styles as $style) { ?>
+					<option value="<?php echo $style['name']; ?>"<?php if (CURRENT_STYLE == $style['name']) { ?> selected="selected"<?php } ?>>
+						<?php echo htmlentities($style['title']); ?>
+					</option>
+				<?php } ?>
 			</select>
-		</label> <input type="submit" value="Go"/>
+		</label> <input type="submit" value="<?php echo Lang::get('Go'); ?>"/>
 	</p>
 
 </form>

@@ -1,1 +1,1 @@
-<h2>Change Style</h2>
+<h2><?php echo Lang::get('Change Style'); ?></h2>
