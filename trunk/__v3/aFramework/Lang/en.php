@@ -146,6 +146,7 @@
 # Routes.php
 'url.admin' => 'admin', 
 'url.contact' => 'contact', 
-'url.search' => 'search'
+'url.search' => 'search', 
+'url.styles' => 'styles'
 
 ); ?>
