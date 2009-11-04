@@ -1,0 +1,217 @@
+/***
+@title: aDynAdmin Default Style
+@author: Andreas Lagerkvist
+@date: 2009-11-03 23:30:00
+***/
+body {
+	background: #333;
+
+	margin: 0;
+	padding: 0;
+
+	font: 100%/1.4 Verdana, sans-serif;
+	color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font: bold 200%/1.2 Helvetica, Arial, serif;
+	letter-spacing: -2px;
+	margin: 10px 0 0;
+}
+
+h2 {
+	font-size: 180%;
+}
+
+h3 {
+	font-size: 160%;
+}
+
+h4 {
+	font-size: 160%;
+}
+
+h5 {
+	font-size: 140%;
+}
+
+h6 {
+	font-size: 120%;
+}
+
+p {
+	margin: 0 0 10px;
+}
+
+ul, ol {
+	margin: 0 0 10px 30px;
+	padding: 0;
+}
+
+a = $underlined;
+
+a {
+	color: #06c;
+}
+
+#header {
+	background: #333;
+	height: 50px;
+	padding: 50px 20px 20px;
+}
+
+	#header h1 {
+		margin: 0;
+	}
+
+		#header h1 a {
+			color: #f7f7f7;
+			text-decoration: none;
+		}
+
+	#header p = $a11y-hide;
+
+#dyn-tables {
+	float: left;
+	width: 13%;
+}
+
+	#dyn-tables ul {
+		margin: 0;
+		padding: 20px 0 0 10px;
+		list-style: none;
+	}
+
+		#dyn-tables ul li {
+		}
+
+			#dyn-tables ul li a, 
+			#dyn-tables ul li strong {
+				display: block;
+				padding: 5px 10px;
+				color: #f7f7f7;
+				text-decoration: none;
+			}
+
+			#dyn-tables ul li strong {
+				background: #f7f7f7;
+				color: #333;
+				-moz-border-radius: 5px 0 0 5px;
+			}
+
+#primary-content {
+	background: #f7f7f7;
+	float: left;
+	position: relative;
+	margin: 0 0 20px;
+	width: 87%;
+	-moz-border-radius: 20px 0 0 20px;
+}
+
+	#primary-content > div {
+		padding: 20px;
+	}
+
+#dyn-nav {
+	position: absolute;
+	left: 40px;
+	top: -30px;
+	padding: 0 !important;
+}
+
+	#dyn-nav ul = $self-clear;
+	#dyn-nav ul {
+		margin: 0;
+		list-style: none;
+	}
+
+		#dyn-nav ul li {
+			float: left;
+			margin: 0 10px 0 0;
+		}
+
+			#dyn-nav ul li a, 
+			#dyn-nav ul li strong {
+				background: #aaa;
+				display: block;
+				height: 20px;
+				padding: 5px 10px;
+				-moz-border-radius: 5px 5px 0 0;
+			}
+
+			#dyn-nav ul li a {
+				color: #f7f7f7;
+				text-decoration: none;
+			}
+
+			#dyn-nav ul li strong {
+				background: #f7f7f7;
+			}
+
+#dyn-items {
+	
+}
+
+	#dyn-items table {
+		width: 100%;
+		border-spacing: 0;
+		font-size: 75%;
+		border-bottom: 1px solid #ddd;
+	}
+
+		#dyn-items table th {
+			text-align: left;
+			text-transform: uppercase;
+			vertical-align: bottom;
+			padding: 5px 10px 5px 0;
+			border-bottom: 1px solid #aaa;
+		}
+
+		#dyn-items table td {
+			padding: 5px 10px 5px 0;
+			border-top: 1px solid #ddd;
+			border-bottom: 1px solid #aaa;
+		}
+
+		#dyn-items tr:hover td {
+			background: rgba(0, 100, 200, .1);
+		}
+
+			#dyn-items tr td p {
+				margin: 0;
+			}
+
+	#dyn-items ul = $previous-next-menu;
+
+#dyn-item = $self-clear;
+#dyn-item {
+	
+}
+
+	#dyn-item form {
+		float: left;
+	}
+
+		#dyn-item form p {
+			text-align: right;
+		}
+
+			#dyn-item form p label {
+	
+			}
+
+				#dyn-item form p label br {
+					display: none;
+				}
+
+				#dyn-item form p label input, 
+				#dyn-item form p label textarea {
+					width: 500px;
+					margin-left: 10px;
+					vertical-align: top;
+				}
+
+				#dyn-item form p label input {
+					width: 400px;
+					margin-right: 100px;
+				}
