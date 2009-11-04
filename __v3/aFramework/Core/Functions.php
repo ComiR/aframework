@@ -13,7 +13,7 @@
 	}
 
 	# Appends 'what' to query string
-	function appendToQryStr ($what) {
+	function appendToQryStr ($what, $inHTML = true) {
 		$qryStr = $_SERVER['QUERY_STRING'];
 
 		if ($qryStr) {
@@ -35,7 +35,12 @@
 			$qryStr = $what;
 		}
 
-		return '?' . htmlentities($qryStr);
+		if ($inHTML) {
+			return '?' . htmlentities($qryStr);
+		}
+		else {
+			return '?' . $qryStr;
+		}
 	}
 
 	# Returns the current page url
