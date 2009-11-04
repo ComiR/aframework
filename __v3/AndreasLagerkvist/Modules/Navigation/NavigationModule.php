@@ -8,8 +8,6 @@
 				'title'	=> Lang::get('jQuery'), 
 				'url'	=> Router::urlFor('JqueryPlugins')
 			), 2);
-
-			aFramework_NavigationModule::setSelectedNavigationItem();
 		}
 	}
 ?>

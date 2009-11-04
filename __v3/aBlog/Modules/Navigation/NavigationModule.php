@@ -15,8 +15,6 @@
 					'url'	=> Router::urlFor('AddArticle')
 				));
 			}
-
-			aFramework_NavigationModule::setSelectedNavigationItem();
 		}
 	}
 ?>

@@ -21,8 +21,6 @@
 					'url'	=> Router::urlFor('AddPage')
 				));
 			}
-
-			aFramework_NavigationModule::setSelectedNavigationItem();
 		}
 	}
 ?>
