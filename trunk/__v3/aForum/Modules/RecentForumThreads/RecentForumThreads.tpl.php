@@ -5,7 +5,7 @@
 				<a href="<?php echo Router::urlFor('Thread', $thread); ?>">
 					<?php echo $thread['title']; ?>
 				</a>
-					 by 
+				 by 
 				<a href="<?php echo Router::urlFor('ForumAuthor', $thread['author']); ?>">
 					<?php echo $thread['author']; ?>
 				</a>
