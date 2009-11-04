@@ -1,3 +1,8 @@
+/***
+@title: aFramework Clean Style
+@author: Alexander Agnarson
+@date: 2010-01-01
+***/
 body {
 	background: #bbb url(gfx/body-bg.gif);
 
@@ -11,9 +16,12 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font: 200%/1.2 Helvetica, Arial, serif;
+	font: bold 200%/1.2 Helvetica, Arial, serif;
 	letter-spacing: -2px;
 	margin: 10px 0 0;
+	-moz-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	-webkit-text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
+	text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
 }
 
 	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -61,19 +69,20 @@ a {
 }
 
 #wrapper {
+	background: url(gfx/top-light.png) no-repeat left top;
 	position: relative;
 	width: 960px;
 	margin: 0 auto;
 }
 
 	#primary-content {
-		width: 630px;
+		width: 600px;
 		padding: 20px 0;
 		float: left;
 	}
 
 	#secondary-content {
-		width: 310px;
+		width: 300px;
 		padding: 20px 0;
 		float: right;
 	}
@@ -84,12 +93,20 @@ a {
 
 	#tertiary-content = $self-clear;
 	#tertiary-content {
-		background: #444;
+		background: #464646 url(gfx/bottom-shadow.gif) repeat-x;
 		padding: 20px 0;
 		border-top: 5px solid rgba(170, 170, 170, .5);
 	}
 
+		#tertiary-content h2 {
+			margin-top: 0;
+		}
+
 		#tertiary-content > div {
-			width: 33%;
+			width: 300px;
 			float: left;
+		}
+
+		#tertiary-content > div:first-child + div {
+			margin: 0 30px;
 		}
