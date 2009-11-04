@@ -33,6 +33,7 @@
 	define('DEBUG',					isset($_GET['debug']) and ADMIN);
 	define('AUTO_HR',				false);
 	define('USE_MOD_REWRITE',		true);
+	define('CURRENT_STYLE',			(isset($_COOKIE['style']) ? $_COOKIE['style'] : Config::get('general.default_style')));
 
 	# Core classes
 	require_once 'Core/Lang.php';
