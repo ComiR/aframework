@@ -6,24 +6,29 @@
 		public static function run () {
 			self::$tplVars['replies'] = array(
 				array(
-					'title'	=> 'How to bla bla', 
-					'thread_replies_id'	=> 1
+					'title'		=> 'How to bla bla', 
+					'author'	=> 'powerbuoy', 
+					'content'	=> 'Lorem ipsum dolor sit amet consequeteur lipsumus dolorimus sipsum'
 				), 
 				array(
-					'title'	=> 'How to bla bla', 
-					'thread_replies_id'	=> 2
+					'title'		=> 'How to bla bla', 
+					'author'	=> 'powerbuoy', 
+					'content'	=> 'Lorem ipsum dolor sit amet consequeteur lipsumus dolorimus sipsum'
 				), 
 				array(
-					'title'	=> 'How to bla bla', 
-					'thread_replies_id'	=> 3
+					'title'		=> 'How to bla bla', 
+					'author'	=> 'powerbuoy', 
+					'content'	=> 'Lorem ipsum dolor sit amet consequeteur lipsumus dolorimus sipsum'
 				), 
 				array(
-					'title'	=> 'How to bla bla', 
-					'thread_replies_id'	=> 4
+					'title'		=> 'How to bla bla', 
+					'author'	=> 'powerbuoy', 
+					'content'	=> 'Lorem ipsum dolor sit amet consequeteur lipsumus dolorimus sipsum'
 				), 
 				array(
-					'title'	=> 'How to bla bla', 
-					'thread_replies_id'	=> 5
+					'title'		=> 'How to bla bla', 
+					'author'	=> 'powerbuoy', 
+					'content'	=> 'Lorem ipsum dolor sit amet consequeteur lipsumus dolorimus sipsum'
 				)
 			);
 		}
