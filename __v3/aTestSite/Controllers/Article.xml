@@ -6,20 +6,24 @@
 		<Navigation/>
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
+			<ArticleNavigation/>
 			<Article/>
 			<SocialBookmarks/>
+			<RelatedArticles/>
 			<Comments/>
 			<PostComment/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<Search/>
 			<PostIt/>
+			<RecentArticles/>
 			<RecentComments/>
-			<RecentForumThreads/>
+			<ArticleCalendar/>
+			<RandomArticleImages/>
 		</Wrapper>
 		<Wrapper name="tertiary-content">
-			<TagCloud/>
 			<RandomLinks/>
+			<TagCloud/>
 			<StyleSwitcher/>
 		</Wrapper>
 		<Footer/>
