@@ -33,7 +33,6 @@
 	define('DEBUG',					isset($_GET['debug']) and ADMIN);
 	define('AUTO_HR',				false);
 	define('USE_MOD_REWRITE',		true);
-	define('CURRENT_STYLE',			(isset($_COOKIE['style']) ? $_COOKIE['style'] : Config::get('general.default_style')));
 
 	# Core classes
 	require_once 'Core/Lang.php';
@@ -54,6 +53,9 @@
 			require_once $path;
 		}
 	}
+
+	# Can only know this after all config is included
+	define('CURRENT_STYLE',			(isset($_COOKIE['style']) ? $_COOKIE['style'] : Config::get('general.default_style')));
 
 	# Connect to DB
 	mysql_connect(Config::get('db.host'), Config::get('db.user'), Config::get('db.pass')) or die('aFramework Error: Unable to connect to MySQL - Please check your config files');
