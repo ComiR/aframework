@@ -4,7 +4,7 @@
 			<th>
 				<a href="<?php echo appendToQryStr('sort=' . $property['name'] . '&order=' . $new_order); ?>">
 					<?php if ($sort == $property['name']) { ?>
-						<img src="" alt="Ordering by <?php echo $property['name'] . ' ' . strtolower($order) . 'ending.'; ?>"/>&nbsp;
+						<img src="<?php echo Router::urlForFile('arrow-' . strtolower($order) . '.gif', 'aDynAdmin'); ?>" alt="Ordering by <?php echo $property['name'] . ' ' . strtolower($order) . 'ending.'; ?>"/>&nbsp;
 					<?php } ?>
 					<?php echo htmlentities($property['title']); ?>
 				</a>
@@ -21,7 +21,7 @@
 		<tr>
 			<?php foreach ($row['properties'] as $property) { ?>
 				<td>
-					<?php # todo: should be editable ?>
+					<?php # todo: should be editable (?) ?>
 					<?php echo htmlentities(substr($property, 0, 50)); ?>
 				</td>
 			<?php } ?>

@@ -7,7 +7,7 @@
 				<?php if ($field['properties']['Type'] == 'longtext') { ?>
 					<textarea name="<?php echo $field['name']; ?>" rows="10" cols="50"><?php echo htmlentities($field['value']); ?></textarea>
 				<?php } else { ?>
-					<input type="text" name="<?php echo $field['name']; ?>" value="<?php echo htmlentities($field['value']); ?>"/>
+					<input type="text" name="<?php echo $field['name']; ?>" value="<?php echo htmlentities($field['value']); ?>"<?php echo ($field['name'] == Router::$params['table_name'] . '_id' and empty($field['value'])) ? ' readonly="readonly"' : ''; ?>/>
 				<?php } ?>
 			</label>
 		</p>
