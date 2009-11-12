@@ -1,0 +1,14 @@
+#article-calendar {
+	
+}
+
+	#article-calendar table {
+		width: 100%;
+		border-spacing: 0;
+	}
+
+		#article-calendar table th {
+			text-align: left;
+		}
+
+	#article-calendar ul = $previous-next-menu;
