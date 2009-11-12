@@ -10,10 +10,6 @@
 		position: relative;
 	}
 
-	body.admin #recent-comments ol li:hover {
-		outline: 1px dotted red;
-	}
-
 		#recent-comments ol li img {
 			position: absolute;
 			left: 0;
@@ -31,14 +27,6 @@
 
 			left: -18px;
 			top: -22px;
-		}
-
-		#recent-comments ol li form {
-			display: none;
-		}
-
-		#recent-comments:hover ol li form {
-			display: block;
 		}
 
 #recent-comments ul = $previous-next-menu;

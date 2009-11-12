@@ -1,5 +1,33 @@
 <?php
 	class Articles {
+		public static function getArticlesGroupedByWeek ($month, $year) {
+			
+		}
+
+		public static function getArticlesGroupedByMonth () {
+			$articles	= self::get('pub_date', 'DESC');
+			$dates		= array();
+			$currDate	= false;
+
+			foreach ($articles as $a) {
+				$monthYear = date('F Y', strtotime($a['pub_date']));
+
+				if ($currDate === false or $currDate != $monthYear) {
+					$currDate = $monthYear;
+
+					$dates[$monthYear] = array(
+						'month_year'	=> $monthYear, 
+						'year'			=> date('Y', strtotime($a['pub_date'])), 
+						'month'			=> date('m', strtotime($a['pub_date']))
+					);
+				}
+
+				$dates[$monthYear]['articles'][] = $a;
+			}
+
+			return $dates;
+		}
+
 		public static function getArticlesByPubDate ($pubDate) {
 			if (!is_numeric($pubDate)) {
 				return false;
@@ -148,7 +176,7 @@
 			return count($images) ? $images : false;
 		}
 
-		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000) {
+		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000, $where = '1 = 1') {
 			$res = dbQry('
 				SELECT
 					' . Config::get('db.table_prefix') . 'articles.*, 
@@ -163,7 +191,8 @@
 				GROUP BY
 					' . Config::get('db.table_prefix') . 'articles.articles_id
 				HAVING
-					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW()
+					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND 
+					' . $where . '
 				ORDER BY
 					' . Config::get('db.table_prefix') . 'articles.' . esc($sort) . ' ' . esc($order) . '
 				LIMIT

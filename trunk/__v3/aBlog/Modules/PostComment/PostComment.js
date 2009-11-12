@@ -6,7 +6,8 @@ aFramework.modules.PostComment = {
 
 	liveValidation: function () {
 		jQuery('#post-comment').liveValidation(jQuery.extend(aFramework.jQueryLiveValidation, {
-			required: ['author', 'content']
+			required: ['author', 'content'], 
+			optional: ['website', 'email']
 		}));
 	}, 
 

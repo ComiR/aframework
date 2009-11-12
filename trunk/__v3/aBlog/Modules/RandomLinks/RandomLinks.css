@@ -9,41 +9,9 @@
 		padding: 0 0 0 30px;
 	}
 
-	body.admin #random-links ul li:hover {
-		outline: 1px dotted red;
-	}
-
 		#random-links ul li img {
 			position: absolute;
 			left: 0;
 			top: 3px;
 			max-width: 25px;
-		}
-
-	body.admin #random-links ul li {
-		padding-right: 25px;
-	}
-
-		body.admin #random-links ul li a[href^="?blog_roll_delete"] {
-			background: url(common_gfx/icons/delete.png) no-repeat;
-
-			display: block;
-			width: 32px;
-			height: 32px;
-
-			text-decoration: none;
-			text-indent: -10000px;
-			outline: 0;
-
-			position: absolute;
-			right: 0;
-			top: 0;
-		}
-
-		#random-links ul li form {
-			display: none;
-		}
-
-		#random-links:hover ul li form {
-			display: block;
 		}

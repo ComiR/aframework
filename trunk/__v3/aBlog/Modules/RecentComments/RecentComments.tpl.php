@@ -11,17 +11,6 @@
 				</a>&quot;
 			</h3>
 
-			<?php echo NiceString::makeNice($c['content'], 4, false, 50); ?>
-
-			<?php if (ADMIN) { ?>
-				<form method="post" action="">
-					<p>
-						<input type="hidden" name="recent_comments_delete" value="1" />
-						<input type="hidden" name="comments_id" value="<?php echo $c['comments_id']; ?>" />
-						<input type="submit" value="<?php echo Lang::get('Delete'); ?>" />
-					</p>
-				</form>
-			<?php } ?>
-		</li>
+			<?php echo NiceString::makeNice($c['content'], 4, false, 50); ?>		</li>
 	<?php } ?>
 </ol>
