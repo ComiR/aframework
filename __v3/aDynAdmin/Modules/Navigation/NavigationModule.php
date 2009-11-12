@@ -7,7 +7,7 @@
 			if (ADMIN) {
 				aFramework_NavigationModule::addItem(array(
 					'title'	=> 'aDynAdmin', 
-					'url'	=> Router::urlFor('DynAdmin')
+					'url'	=> Router::urlFor('DynAdmin') . '?style=dynadmin'
 				));
 			}
 		}
