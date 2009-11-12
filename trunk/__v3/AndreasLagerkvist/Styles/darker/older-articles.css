@@ -21,7 +21,8 @@
 
 				#older-articles ol li h3 + p small = $pub-date;
 
-				#older-articles ol li p img {
+				#older-articles ol li p img, 
+				#older-articles ol li object {
 					display: none;
 				}
 
