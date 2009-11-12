@@ -83,24 +83,24 @@ jQuery.fn.liveValidation = function (conf, addedFields) {
 		validClass:		'valid',											// valid class
 		invalidClass:	'invalid',											// invalid class
 		required:		[],													// json/array of required fields
+		optional:		[], 												// json/array of optional fields
 		fields:			{}													// json of fields and regexps
 	}, conf);
 
 	var fields = jQuery.extend({
 		name: 			/^\S.*$/,											// name (at least one character)
-		title: 			/^\S.*$/,											// title (at least one character)
-		author: 		/^\S.*$/,											// author (at least one character)
-		message: 		/^\S.*$/m,											// message (at least one character)
-		comment: 		/^\S.*$/m,											// comment (at least one character)
 		content: 		/^\S.*$/m,											// "content" (at least one character)
-		description:	/^\S.*$/m,											// description (at least one character)
 		dimensions:		/^\d+x\d+$/,										// dimensions (DIGITxDIGIT)
 		price:			/^\d+$/,											// price (at least one digit)
-		url: 			/^(http:\/\/)?(www)?([^ |\.]*?)\.([^ ]){2,5}$/,		// url
+		url: 			/^(http:\/\/)?(www)?([^ |\.]*?)\.([^ ]+){2,5}$/,	// url
 		email: 			/^.+?@.+?\..{2,4}$/									// email
 	}, config.fields);
 
-	var formControls = config.required;
+	fields.website = fields.url;
+	fields.title = fields.author = fields.name;
+	fields.message = fields.comment = fields.description = fields.content;
+
+	var formControls = jQuery.merge(config.required, config.optional);
 
 	if (!formControls.length) {
 		return this;
@@ -114,7 +114,16 @@ jQuery.fn.liveValidation = function (conf, addedFields) {
 
 	return this.each(function () {
 		jQuery(formControls, this).each(function () {
-			var t = jQuery(this);
+			var t			= jQuery(this);
+			var isOptional	= false;
+			var fieldName	= t.attr('name');
+
+			for (var i in config.optional) {
+				if (fieldName == config.optional[i]) {
+					isOptional = true;
+					break;
+				}
+			}
 
 			if (t.is('.jquery-live-validation-on')) {
 				return;
@@ -123,8 +132,9 @@ jQuery.fn.liveValidation = function (conf, addedFields) {
 				t.addClass('jquery-live-validation-on');
 			}
 
-			// Add invalid icon
-			var validator = jQuery('<img src="' + config.invalidIco + '" alt="' + config.invalid + '" />').insertAfter(t.addClass(config.invalidClass));
+			// Add (in)valid icon
+			var imageType = isOptional ? 'valid' : 'invalid';
+			var validator = jQuery('<img src="' + config[imageType + 'Ico'] + '" alt="' + config[imageType] + '" />').insertAfter(t.addClass(config[imageType + 'Class']));
 
 			// This function is run now and on key up
 			var validate = function () {
@@ -137,7 +147,7 @@ jQuery.fn.liveValidation = function (conf, addedFields) {
 				val = tit == val ? '' : val;
 
 				// Make sure the value matches
-				if (val.match(fields[key])) {
+				if ((isOptional && val == '') || val.match(fields[key])) {
 					// If it's not already valid
 					if (validator.attr('alt') != config.valid) {
 						validator.attr('src', config.validIco);
