@@ -12,12 +12,26 @@
 		);
 
 		public static function run () {
-			self::$type		= (isset($_GET['t']) and array_key_exists($_GET['t'], self::$mimeTypes)) ? $_GET['t'] : 'css';
+			self::$type	= (isset($_GET['t']) and array_key_exists($_GET['t'], self::$mimeTypes)) ? $_GET['t'] : 'css';
+			$style		= basename(@$_GET['s']);
+			$styleData	= Styles::getByName($style);
+			$code		= '';
 
 			header('Content-type: ' . self::$mimeTypes[self::$type]);
 
+			if (isset($styleData['extends'])) {
+				$extends = explode(',', $styleData['extends']);
+
+				foreach ($extends as $extend) {
+					$code .= self::getStyleCode(trim($extend));
+				}
+			}
+
+			self::$tplVars['code'] = $code . self::getStyleCode($style);
+		}
+
+		private static function getStyleCode ($style) {
 			$cacheTime		= ADMIN ? 0 : 0; # 3600
-			$style			= basename(@$_GET['s']);
 			$cachePath		= DOCROOT . 'aFramework/Cache/' . CURRENT_SITE . '_' . $style . '.' . self::$type;
 			$cacheExists	= file_exists($cachePath);
 			$cacheModified	= $cacheExists ? filemtime($cachePath) : 0;
@@ -58,11 +72,11 @@
 					$code = CSSConstants::compile($code);
 				}
 
-				# Assign code to template
-				self::$tplVars['code'] = $code;
-
 				# Also create a cache
-				file_put_contents($cachePath, $code);
+				@file_put_contents($cachePath, $code);
+
+				# Assign code to template
+				return $code;
 			}
 		}
 
