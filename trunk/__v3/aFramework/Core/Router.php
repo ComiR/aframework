@@ -33,9 +33,32 @@
 		#	$_GET = array_merge($_GET, self::getParamsFromURI()); # Could switch places so ?controller= overrides /controller/ but that allows URL-trickery that can be potentially bad for SEO
 			self::$params = self::getParamsFromURI();
 
+			# So that modules that read Router::$params work on ajax-requests
 			if (XHR) {
 				self::$params = array_merge(self::$params, $_GET);
 			}
+
+		#	header('Content-type: text/plain');
+		#	var_dump(Router::getRoutes());
+		#	var_dump($_GET);
+		#	echo Router::urlFor($_GET['controller']) ."\n";
+		#	echo Router::urlFor('Article', array(
+		#		'url_str' => 'hej', 
+		#		'year' => '2008', 
+		#		'month' => '12'
+		#	)) ."\n";
+		#	echo Router::urlFor('Article', array(
+		#		'url_str' => 'hej', 
+		#		'year' => '2008', 
+		#		'month' => '12', 
+		#		'day' => '1', 
+		#		'daytona' => 'piss', 
+		#		'url' => 'something'
+		#	)) ."\n";
+		#	echo Router::urlForModule('Article') ."\n";
+		#	echo Router::urlForFile('/fonts/', 'aFramework') ."\n";
+		#	echo Router::urlForFile('/fonts/');
+		#	die;
 		}
 
 		private static function sortRoutes () {
