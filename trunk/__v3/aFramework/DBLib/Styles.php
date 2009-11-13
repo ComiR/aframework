@@ -18,6 +18,10 @@
 			return $styles;
 		}
 
+		public static function getByName ($style) {
+			return self::getStyleData($style);
+		}
+
 		private static function getStyleData ($style) {
 			$sites	= explode(' ', SITE_HIERARCHY);
 			$data	= false;
