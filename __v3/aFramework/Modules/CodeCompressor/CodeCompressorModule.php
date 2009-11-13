@@ -44,9 +44,7 @@
 
 			# If the cache is younger than $cacheTime just load it directly and return
 			if ((time() - $cacheModified) < $cacheTime) {
-				self::$tplVars['code'] = file_get_contents($cachePath);
-
-				return true;
+				return file_get_contents($cachePath);
 			}
 
 			# Get the highest last modified date of all the files in all
@@ -54,30 +52,29 @@
 			$fileLastModified = self::getLastModifiedFile($style);
 
 			if ($cacheModified >= $fileLastModified) {
-				self::$tplVars['code'] = file_get_contents($cachePath);
+				return file_get_contents($cachePath);
 			}
+
 			# No cache or old, generate new
-			else {
-				# Get all the code in all the dirs of all the sites
-				$code = self::getAllCodeInAllDirsOfAllSites($style);
+			# Get all the code in all the dirs of all the sites
+			$code = self::getAllCodeInAllDirsOfAllSites($style);
 
-				# JS gets packed
-				if (self::$type == 'js') {
-					$code .= self::getJSLangCode();
-				#	$jsPacker = new JavaScriptPacker($code, 0);
-				#	$code = $jsPacker->pack();
-				}
-				# CSS gets constant-treatment
-				elseif (self::$type == 'css') {
-					$code = CSSConstants::compile($code);
-				}
-
-				# Also create a cache
-				@file_put_contents($cachePath, $code);
-
-				# Assign code to template
-				return $code;
+			# JS gets packed
+			if (self::$type == 'js') {
+				$code .= self::getJSLangCode();
+			#	$jsPacker = new JavaScriptPacker($code, 0);
+			#	$code = $jsPacker->pack();
 			}
+			# CSS gets constant-treatment
+			elseif (self::$type == 'css') {
+				$code = CSSConstants::compile($code);
+			}
+
+			# Also create a cache
+			@file_put_contents($cachePath, $code);
+
+			# Assign code to template
+			return $code;
 		}
 
 		/**
