@@ -2,6 +2,7 @@
 @title: aFramework Grunge Style
 @author: Alexander Agnarson
 @date: 2010-01-01
+@extends: clean
 ***/
 body::before {
 	content: "Under Construction";
