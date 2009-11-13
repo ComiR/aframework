@@ -29,7 +29,7 @@
 			$set		= array();
 
 			foreach ($data as $k => $v) {
-				if (in_array($k, $validData)) {
+				if (in_array($k, $validData) || array_key_exists($k, $convert)) {
 					if (isset($convert[$k])) {
 						$set[$convert[$k]] = $v;
 					}

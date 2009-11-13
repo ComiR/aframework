@@ -6,6 +6,7 @@
 	 **/
 	final class aFramework {
 		public static $debugInfo = array();
+		public static $autorunModules = array('Debug', 'ControllerAdmin', 'AutoStyleSwitcher');
 
 		/**
 		 * run
@@ -77,10 +78,21 @@
 			$doc->load($path);
 			$base = $doc->getElementsByTagName('Base');
 
+			# Auto-insert some modules
+			if (count(self::$autorunModules)) {
+				foreach (self::$autorunModules as $mod) {
+					$newMod = $doc->createElement($mod);
+
+					foreach ($base as $rootMod) {
+						$rootMod->appendChild($newMod);
+						break;
+					}
+				}
+			}
+
 			# Run and fetch all modules
 			self::runModules($base);
 			$theSite = self::fetchModules($base);
-			$theSite = ADMIN ? str_replace('{AFRAMEWORK_ADDED}', fetch(DOCROOT . 'aFramework/Modules/Debug/Debug.tpl.php'), $theSite) : str_replace('{AFRAMEWORK_ADDED}', '', $theSite);
 
 			return $theSite;
 		}

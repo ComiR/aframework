@@ -61,8 +61,6 @@
 
 		<?php echo $child_modules; ?>
 
-		{AFRAMEWORK_ADDED}
-		
 		<?php if (!NAKED_DAY) { ?>
 			<!--[if gt IE 8]>-->
 				<script type="text/javascript" src="<?php echo WEBROOT; echo USE_MOD_REWRITE ? CURRENT_SITE . '/' . CURRENT_STYLE . '.js' : '?module=CodeCompressor&amp;s=' . CURRENT_STYLE . '&amp;t=js'; ?>"></script>

@@ -1,12 +1,12 @@
 #################################################################
 # A little rewriting
 # If you don't have access to mod_rewrite change 
-# the USE_MOD_REWRITE-setting in aFramework/Bootstrap.php
+# the USE_MOD_REWRITE-constant in index.php
 #################################################################
 <IfModule mod_rewrite.c>
 	# Start ModRewrite
 	RewriteEngine On
-	RewriteBase /af/
+	RewriteBase /
 
 	# Prevent access for visitors without user-agent string (prevents some spam)
 	# RewriteCond %{HTTP_USER_AGENT} = ""
