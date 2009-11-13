@@ -1,16 +1,9 @@
 <?php
-	/**
-	 * StyleSwitcher
-	 *
-	 * Switches styles if allowed
-	 **/
-	final class StyleSwitcher {
-		/**
-		 * run
-		 *
-		 * Runs the switcher
-		 **/
-		public static function run () {
+	class aFramework_AutoStyleSwitcherModule {
+		public static $tplVars = array();
+		public static $tplFile = false;
+
+		public static function run() {
 			# Make sure user-selected style exists
 			if (isset($_COOKIE['style']) and !is_dir(CURRENT_SITE_DIR . 'Styles/' . basename($_COOKIE['style']) . '/')) {
 				self::setStyle(Config::get('general.default_style'));
@@ -29,11 +22,6 @@
 			}
 		}
 
-		/**
-		 * setStyle
-		 *
-		 * "Cleans" style-path, sets style-cookie and redirects
-		 **/
 		private static function setStyle ($style) {
 			$style = basename($style);
 
