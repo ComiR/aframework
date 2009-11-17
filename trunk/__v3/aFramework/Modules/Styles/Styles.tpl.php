@@ -1,6 +1,6 @@
 <ul>
 	<?php foreach ($styles as $style) { ?>
-		<li<?php if (CURRENT_STYLE == $style['name']) { ?> class="selected"<?php } ?>>
+		<li<?php if (aFramework_BaseModule::$tplVars['style'] == $style['name']) { ?> class="selected"<?php } ?>>
 			<h3>
 				<a href="?style=<?php echo $style['name']; ?>">
 					<?php echo htmlentities($style['title']); ?>
@@ -23,7 +23,7 @@
 			</dl>
 
 			<p>
-				<?php if (CURRENT_STYLE == $style['name']) { ?>
+				<?php if (aFramework_BaseModule::$tplVars['style'] == $style['name']) { ?>
 					<?php echo Lang::get('This style is currently in use.'); ?>
 				<?php } else { ?>
 					<a href="?style=<?php echo $style['name']; ?>">
