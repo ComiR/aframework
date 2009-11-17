@@ -135,7 +135,8 @@
 					}
 
 					$moduleTpl	= self::fetchModule($module->nodeName, array('child_modules' => $childModules));
-					$id			= (strtolower($module->nodeName) == 'wrapper') ? strtolower(ccFix($module->getAttribute('name'))) : strtolower(ccFix($module->nodeName));
+					$isWrapper	= strtolower($module->nodeName) == 'wrapper' ? true : false;
+					$id			= $isWrapper ? strtolower(ccFix($module->getAttribute('name'))) : strtolower(ccFix($module->nodeName));
 					$title		= self::fetchModuleDescription($module->nodeName);
 
 					self::$debugInfo['modules'][$module->nodeName]['html_id'] = $id;
@@ -151,7 +152,26 @@
 								$page .= " title=\"$title\"";
 							}
 
-							$page .= ">\n\n";
+							if (CONTROLLER_ADMIN and !in_array($module->nodeName, self::$autorunModules)) {
+								$page .= ' class="aframework-';
+
+								if ($isWrapper) {
+									$page .= 'wrapper';
+								}
+								else {
+									$page .= 'module';
+								}
+
+								$page .= '"';
+							}
+
+							$page .= ">";
+
+							if (CONTROLLER_ADMIN and !$isWrapper and !in_array($module->nodeName, self::$autorunModules)) {
+								$page .= '<div class="aframework-module-header">' 
+										. ucwords(str_replace('-', ' ', $id)) 
+										. ' <a href="?remove_module=' . $module->nodeName . '">Remove</a></div>';
+							}
 						}
 						if (strtolower($module->nodeName) == 'wrapper') {
 							$page .= $childModules;
@@ -160,7 +180,7 @@
 							$page .= $moduleTpl;
 						}
 						if ($module->nodeName != 'Base') {
-							$page .= "\n\n</div>";
+							$page .= "</div>";
 						}
 
 						$i++;
