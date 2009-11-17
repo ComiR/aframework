@@ -4,6 +4,6 @@
 
 <ul>
 	<li><a href="?logout"><?php echo Lang::get('Log out'); ?></a></li>
-	<li><a href="<?php echo Router::urlFor('DynAdmin'); ?>?style=dynadmin"><?php echo Lang::get('Go to aDynAdmin'); ?></a></li>
+	<li><a href="<?php echo Router::urlFor('DynAdmin'); ?>"><?php echo Lang::get('Go to aDynAdmin'); ?></a></li>
 	<li><a href="<?php echo Router::urlFor('Home'); ?>"><?php echo Lang::get('Go to Home Page'); ?></a></li>
 </ul>
