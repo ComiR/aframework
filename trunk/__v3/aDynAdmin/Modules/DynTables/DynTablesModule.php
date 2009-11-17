@@ -8,6 +8,8 @@
 				FourOFour::run();
 			}
 
+			aFramework_BaseModule::$tplVars['style'] = 'dynadmin';
+
 			$res = dbQry('SHOW TABLES');
 
 			while ($row = mysql_fetch_assoc($res)) {
