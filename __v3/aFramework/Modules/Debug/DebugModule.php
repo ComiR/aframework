@@ -4,9 +4,7 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			if (!ADMIN) {
-				self::$tplFile = false;
-			}
+			self::$tplFile = ADMIN ? true : false;
 		}
 	}
 ?>
