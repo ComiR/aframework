@@ -7,6 +7,7 @@
 	ini_set('display_errors', false);
 
 	# The site(s) you wanna run
+#	define('SITE_HIERARCHY', 'aTestSite aBlog aForum aCMS aDynAdmin aModPack aFramework');
 	define('SITE_HIERARCHY', 'AndreasLagerkvist aBlog aCMS aDynAdmin aFramework');
 
 	# Core classes/files
@@ -37,6 +38,7 @@
 	define('ADMIN_SESSION',			'admin');
 	define('ADMIN',					isset($_COOKIE[ADMIN_SESSION]) or isset($_SESSION[ADMIN_SESSION]));
 	define('DEBUG',					isset($_GET['debug']) and ADMIN);
+	define('CONTROLLER_ADMIN',		ADMIN and (isset($_SESSION['controller_admin']) or isset($_GET['controller_admin'])) and !isset($_GET['no_controller_admin']));
 	define('AUTO_HR',				false);
 	define('USE_MOD_REWRITE',		false);
 
@@ -50,9 +52,6 @@
 			require_once $path;
 		}
 	}
-
-	# Can only know this after all config is included
-	define('CURRENT_STYLE',			(isset($_COOKIE['style']) ? $_COOKIE['style'] : Config::get('general.default_style')));
 
 	# Connect to DB
 	mysql_connect(Config::get('db.host'), Config::get('db.user'), Config::get('db.pass')) or die('aFramework Error: Unable to connect to MySQL - Please check your config files');
