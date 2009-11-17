@@ -23,7 +23,7 @@
 
 		<?php if (!NAKED_DAY) { ?>
 			<!--[if gt IE 8]><!-->
-				<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo WEBROOT; echo USE_MOD_REWRITE ? CURRENT_SITE . '/' . CURRENT_STYLE . '.css' : '?module=CodeCompressor&amp;s=' . CURRENT_STYLE . '&amp;t=css'; ?>" />
+				<link rel="stylesheet" type="text/css" media="screen,projection" href="<?php echo WEBROOT; echo USE_MOD_REWRITE ? CURRENT_SITE . '/' . $style . '.css' : '?module=CodeCompressor&amp;s=' . $style . '&amp;t=css'; ?>" />
 			<!--<![endif]-->
 			<!--[if lte IE 8]>
 				<link rel="stylesheet" type="text/css" media="screen,projection" href="http://universal-ie6-css.googlecode.com/files/ie6.0.3.css" />
@@ -34,7 +34,7 @@
 
 	</head>
 
-	<body id="<?php echo $body_id; ?>-page" class="js-disabled <?php echo $time_body_class; ?> <?php echo $weather_body_class; ?> <?php echo ADMIN ? 'admin' : 'not-admin'; ?> <?php echo DEBUG ? 'debug' : 'not-debug'; ?>">
+	<body id="<?php echo $body_id; ?>-page" class="js-disabled <?php echo $time_body_class; ?> <?php echo $weather_body_class; ?> <?php echo ADMIN ? 'admin' : 'not-admin'; ?> <?php echo DEBUG ? 'debug' : 'not-debug'; ?><?php echo CONTROLLER_ADMIN ? ' controller-admin' : ''; ?>">
 
 		<script type="text/javascript">
 			document.body.className = document.body.className.replace('js-disabled', 'js-enabled');
@@ -63,7 +63,7 @@
 
 		<?php if (!NAKED_DAY) { ?>
 			<!--[if gt IE 8]>-->
-				<script type="text/javascript" src="<?php echo WEBROOT; echo USE_MOD_REWRITE ? CURRENT_SITE . '/' . CURRENT_STYLE . '.js' : '?module=CodeCompressor&amp;s=' . CURRENT_STYLE . '&amp;t=js'; ?>"></script>
+				<script type="text/javascript" src="<?php echo WEBROOT; echo USE_MOD_REWRITE ? CURRENT_SITE . '/' . $style . '.js' : '?module=CodeCompressor&amp;s=' . $style . '&amp;t=js'; ?>"></script>
 			<!--<![endif]-->
 		<?php } ?>
 
