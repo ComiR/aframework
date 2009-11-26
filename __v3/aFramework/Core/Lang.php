@@ -1,17 +1,29 @@
 <?php
 	Class Lang {
 		private static $lang = false;
+		private static $lcs = array(
+			'en'	=> 'English', 
+			'se'	=> 'Svenska'
+		);
 
-		public static function get ($str, $l = false) {
-			if ($l === false) {
-				$l = Config::get('general.lang');
-			}
-
+		public static function get ($str) {
+			# Load every language for every site if not already loaded
 			if (self::$lang === false) {
 				self::loadLang();
 			}
 
-			return isset(self::$lang[$l][$str]) ? self::$lang[$l][$str] : $str;
+			# If the string exists in the CURRENT_LANG use that
+			if (isset(self::$lang[CURRENT_LANG][$str])) {
+				return self::$lang[CURRENT_LANG][$str];
+			}
+			# Else, try default lang
+			elseif (isset(self::$lang[Config::get('general.default_lang')][$str])) {
+				return self::$lang[Config::get('general.default_lang')][$str];
+			}
+			# Else, just return the string
+			else {
+				return $str;
+			}
 		}
 
 		public static function getLang () {
@@ -37,6 +49,10 @@
 					}
 				}
 			}
+		}
+
+		public static function lcToName ($lc) {
+			return isset(self::$lcs[$lc]) ? self::$lcs[$lc] : $lc;
 		}
 	}
 ?>
