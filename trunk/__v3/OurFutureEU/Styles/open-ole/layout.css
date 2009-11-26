@@ -1,0 +1,40 @@
+#wrapper {
+	width: 960px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#primary-content {
+	width: 600px;
+	padding: 0;
+	float: left;
+}
+
+#secondary-content {
+	width: 320px;
+	padding: 0;
+	float: right;
+}
+
+$bottom-bar {
+	background: #147;
+	color: #def;
+}
+
+	$bottom-bar a {
+		color: #def;
+	}
+
+#tertiary-content = $bottom-bar;
+#tertiary-content {
+	border-top: 10px solid #123;
+	padding: 20px 0;
+	clear: both;
+}
+
+	#wrapper > div, 
+	#primary-content > div, 
+	#secondary-content > div, 
+	#tertiary-content > div {
+		*padding: 10px 20px;
+	}

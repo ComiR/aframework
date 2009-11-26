@@ -1,0 +1,11 @@
+#lang-switcher {
+	position: absolute;
+	right: 0;
+	top: 10px;
+}
+
+	#lang-switcher ul = $pipe-menu;
+	#lang-switcher ul = $small;
+	#lang-switcher ul {
+		margin: 0;
+	}

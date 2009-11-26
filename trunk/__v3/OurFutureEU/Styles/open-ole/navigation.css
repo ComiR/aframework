@@ -1,0 +1,13 @@
+#navigation {
+	border-top: 1px solid #369;
+	border-bottom: 1px solid #fdfeff;
+	margin: 15px 0;
+}
+
+	#navigation ul = $pipe-menu;
+	#navigation ul {
+		margin: 0;
+		padding: 15px 0;
+		border-top: 1px solid #fdfeff;
+		border-bottom: 1px solid #369;
+	}
