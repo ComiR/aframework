@@ -213,11 +213,12 @@
 			return $code;
 		}
 
+		# TODO: Should have ALL langs
 		private static function getJSLangCode () {
 			$langs	= Lang::getLang();
 			$code	= 'Lang.lang = {';
 
-			foreach ($langs[Config::get('general.lang')] as $k => $v) {
+			foreach ($langs[CURRENT_LANG] as $k => $v) {
 				$code .= "'$k': '$v', \n";
 			}
 
