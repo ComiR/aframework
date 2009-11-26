@@ -4,7 +4,6 @@
 		public static $tplFile = true;
 
 		public static function run () {
-
 			if (isset($_GET['file'])) {
 				$path = str_replace(array('///', '//'), '/', $_SERVER['DOCUMENT_ROOT'] . '/' . removeDots($_GET['file']));
 
