@@ -53,7 +53,11 @@
 													'title'			=> 'Date format used throughout aFramework-sites', 
 													'value'			=> 'Y-m-d H:i:s'
 												));
-	Config::set('general.lang',					array(
+	Config::set('general.allowed_langs',		array(
+													'title'			=> 'Comma separated list of allowed language codes', 
+													'value'			=> 'en'
+												));
+	Config::set('general.default_lang',			array(
 													'title'			=> 'Preferred, default language', 
 													'value'			=> 'en'
 												));
