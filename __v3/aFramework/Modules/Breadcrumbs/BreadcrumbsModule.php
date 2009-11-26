@@ -12,7 +12,8 @@
 		private static function getBreadcrumbs () {
 			$cols		= array();
 			$cols[0]	= array('title' => Config::get('general.site_title'), 'url' => Router::urlFor('Home'));
-			$dirs		= explode('/', preg_replace('#^' . WEBROOT . '#', '', $_SERVER['REQUEST_URI']));
+			$pathInfo	= isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/';
+			$dirs		= explode('/', str_replace('/' . CURRENT_LANG . '/', '/', $pathInfo));
 			$validDirs	= array();
 			$i			= 1;
 			$prevUrl	= '';
