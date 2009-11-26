@@ -35,12 +35,14 @@
 
 			$body	= json_decode($body);
 
-			foreach ($body->responseData->results as $r) {
-				$return['results'][] = array(
-					'title'		=> preg_replace('/ - ' . Config::get('general.site_title') . '$/', '', str_replace(array('b>'), array('strong>'), $r->titleNoFormatting)), 
-					'url'		=> $r->url, 
-					'content'	=> str_replace(array('<b>...</b>', '<b>....</b>', 'b>'), array('...', '...', 'strong>'), $r->content)
-				);
+			if (isset($body->responseData->results)) {
+				foreach ($body->responseData->results as $r) {
+					$return['results'][] = array(
+						'title'		=> preg_replace('/ - ' . Config::get('general.site_title') . '$/', '', str_replace(array('b>'), array('strong>'), $r->titleNoFormatting)), 
+						'url'		=> $r->url, 
+						'content'	=> str_replace(array('<b>...</b>', '<b>....</b>', 'b>'), array('...', '...', 'strong>'), $r->content)
+					);
+				}
 			}
 
 			if (isset($body->responseData->cursor->pages)) {
