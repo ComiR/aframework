@@ -13,7 +13,7 @@
 		 * 
 		 * Loads all the routes and merges the params with GET-array
 		 **/
-		public static function run () {
+		public static function run ($uri) {
 			$sites = explode(' ', SITE_HIERARCHY);
 
 			# Load all routes
@@ -29,9 +29,7 @@
 
 			self::sortRoutes();
 
-			# Merge params with GET-vars
-		#	$_GET = array_merge($_GET, self::getParamsFromURI()); # Could switch places so ?controller= overrides /controller/ but that allows URL-trickery that can be potentially bad for SEO
-			self::$params = self::getParamsFromURI();
+			self::$params = self::getParamsFromURI($uri);
 
 			# So that modules that read Router::$params work on ajax-requests
 			if (XHR) {
@@ -120,6 +118,20 @@
 			return str_replace('//', '/', WEBROOT . $site . '/Files/' . $path);
 		}
 
+		public static function urlForLang ($lang) {
+			$url = WEBROOT;
+
+			if ($lang == Config::get('general.default_lang')) {
+				return $url;
+			}
+
+			if (!USE_MOD_REWRITE) {
+				$url .= 'index.php/';
+			}
+
+			return $url . "$lang/";
+		}
+
 		/**
 		 * urlFor
 		 * 
@@ -145,9 +157,11 @@
 				}
 			}
 
-			$webroot = USE_MOD_REWRITE ? WEBROOT : ($requestedController == 'Home' ? WEBROOT : WEBROOT . 'index.php/');
+			$langPrefix	= CURRENT_LANG == Config::get('general.default_lang') ? '' : '/' . CURRENT_LANG;
+			$webroot	= USE_MOD_REWRITE ? WEBROOT : (($requestedController == 'Home' and empty($langPrefix)) ? WEBROOT : WEBROOT . 'index.php/');
+			$url		= $url ? str_replace('//', '/', $webroot . $langPrefix . $url) : '#';
 
-			return $url ? str_replace('//', '/', $webroot . $url) : '#';
+			return $url;
 		}
 
 		/**
@@ -156,8 +170,8 @@
 		 * Analyses the URI and tries to match it to a route stored in $routes
 		 * If a match is found returns array with controller and attrs set, else returns 404-controller
 		 **/
-		private static function getParamsFromURI () {
-			$requested		= isset($_SERVER['PATH_INFO']) ? explode('/', $_SERVER['PATH_INFO']) : explode('/', '/');
+		private static function getParamsFromURI ($uri = '/') {
+			$requested		= explode('/', $uri);
 			$countRequested	= count($requested);
 			$params			= array();
 			$isValid		= false;
