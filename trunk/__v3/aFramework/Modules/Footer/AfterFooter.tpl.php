@@ -27,7 +27,11 @@
 		<?php echo round(Timer::stop(), 2); ?> 
 		<?php echo Lang::get('seconds'); ?>, 
 		<?php $qryInfo = dbQry(false, true); echo count($qryInfo['cached_queries']); ?>  
-		<?php echo Lang::get('queries'); ?> 
-		(<?php echo (count($qryInfo['cached_queries']) - $qryInfo['num_queries']); ?> <?php echo Lang::get('cached'); ?>).
+		<?php echo Lang::get('queries'); ?>
+		<?php
+			$num_cached = (count($qryInfo['cached_queries']) - $qryInfo['num_queries']);
+			if ($num_cached) { ?>
+			 (<?php echo $num_cached; ?> <?php echo Lang::get('cached'); ?>).
+		<?php } ?>
 	</small>
 </p>
