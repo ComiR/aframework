@@ -1,0 +1,236 @@
+/***
+@title: Our Life as Elderly "Open"
+@author: Andreas Lagerkvist
+@date: 2009-11-25 (started)
+***/
+html {
+	margin: 0;
+	padding: 0;
+}
+
+$base-font {
+	font: 100%/1.2 Arial, sans-serif;
+	color: #333;
+}
+
+body = $base-font;
+
+body {
+	background: #def;
+
+	margin: 0;
+	padding: 0;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	margin: 20px 0 10px;
+
+	font: bold 260%/.8 Helvetica, Arial, sans-serif;
+	letter-spacing: -.08em;
+}
+
+	h1 a, 
+	h2 a, 
+	h3 a, 
+	h4 a, 
+	h5 a, 
+	h6 a {
+		text-decoration: none;
+	}
+
+	h1 a:hover, 
+	h2 a:hover, 
+	h3 a:hover, 
+	h4 a:hover, 
+	h5 a:hover, 
+	h6 a:hover {
+
+	}
+
+h2 {
+	font-size: 220%;
+	letter-spacing: -.08em;
+}
+
+h3 {
+	font-size: 180%;
+	letter-spacing: -.05em;
+}
+
+h4 {
+	font-size: 140%;
+	letter-spacing: -.03em;
+}
+
+h5 {
+	font-size: 120%;
+	letter-spacing: -.02em;
+}
+
+h6 {
+	font-size: 100%;
+	letter-spacing: -.01em;
+}
+
+p {
+	margin: 0 0 10px;
+	line-height: 1.5;
+}
+
+$first-p {
+	font-size: 150%;
+	font-style: italic;
+}
+
+	$first-p em {
+		font-style: normal;
+	}
+
+blockquote {
+	font: italic 150% Georgia;
+}
+
+	blockquote em {
+		font-style: normal;
+	}
+
+ul, 
+ol {
+	margin: 0 0 10px 30px;
+	padding: 0;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+	form strong {
+		color: red;
+	}
+
+	label {
+		cursor: pointer;
+	}
+
+	input, 
+	select {
+		vertical-align: middle;
+	}
+
+	input[type="text"], 
+	textarea, 
+	input[type="password"] {
+		background: #f5f5f5;
+
+		padding: 4px;
+		max-height: 400px;
+
+		color: #333;
+
+		border: 1px solid #fff;
+		border-top-color: #000;
+		border-left-color: #000;
+		border-right-color: #999;
+		border-bottom-color: #999;
+	}
+
+	input[type="text"]:focus, 
+	textarea:focus, 
+	input[type="password"]:focus {
+		
+	}
+
+	input[type="checkbox"], 
+	input[type="radio"] {
+		margin-right: 5px;
+	}
+
+	input[type="submit"] {
+		cursor: pointer;
+	}
+
+$link-font {
+	color: #06c;
+	text-decoration: underline;
+}
+
+$link-font:hover {
+	text-decoration: none;
+}
+/*
+$link-font:visited {
+	color: purple;
+}
+
+$link-font:active {
+	color: red;
+}
+
+$link-font:focus {
+	font-weight: bold;
+	text-decoration: overline underline;
+}
+*/
+
+a = $link-font;
+
+	a img {
+		border: 2px solid #369;
+		padding: 2px;
+		border: 0;
+		padding: 0;
+	}
+
+img {
+	vertical-align: middle;
+}
+
+$img-large {
+	display: block;
+	float: none;
+
+	margin: 10px 0;
+	width: 590px; /* calc(100% - (propval(padding-left, body) + propval(padding-right, body))) */
+
+	border: 10px solid #fff;
+}
+
+$img-small {
+	display: block;
+	float: right;
+
+	margin: 0 0 10px 10px;
+	width: 200px;
+
+	border: 0 solid #fff;
+}
+
+$icon {
+	background: url(gfx/icons/blue.png) no-repeat left -1px;
+	padding: 10px 0 10px 30px;
+}
+
+$small {
+	font-size: 70%;
+	text-transform: uppercase;
+}
+
+	$small a {
+	}
+
+$small:hover {
+}
+
+	$small:hover small {
+	}
+
+	$small:hover a {
+	}
+
+small = $small;

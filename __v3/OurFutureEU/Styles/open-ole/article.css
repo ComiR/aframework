@@ -1,0 +1,12 @@
+#article {
+
+}
+
+	#article > dl:last-child = $small;
+	#article > dl:last-child = $inline-definition;
+
+		#article > dl:last-child ul = $comma-list;
+		#article > dl:last-child ul {
+			display: inline;
+			margin: 0;
+		}

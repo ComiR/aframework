@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Base>
+	<Wrapper name="wrapper">
+		<SkipNavigation/>
+		<LangSwitcher/>
+		<Header/>
+		<Navigation/>
+		<Search/>
+		<Breadcrumbs/>
+		<Wrapper name="primary-content">
+			<Page/>
+			<Article/>
+		</Wrapper>
+		<Wrapper name="secondary-content">
+			<LatestComic/>
+			<RandomLinks/>
+		</Wrapper>
+		<Wrapper name="tertiary-content">
+			<MainSponsors/>
+		</Wrapper>
+		<Footer/>
+	</Wrapper>
+</Base>
