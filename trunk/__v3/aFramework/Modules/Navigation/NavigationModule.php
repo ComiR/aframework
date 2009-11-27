@@ -4,10 +4,19 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			self::addItem(array(
-				'title'	=> Lang::get('Home'), 
-				'url'	=> Router::urlFor('Home')
-			), 0);
+			if (Config::get('navigation.home')) {
+				self::addItem(array(
+					'title'	=> Lang::get('Home'), 
+					'url'	=> Router::urlFor('Home')
+				), 0);
+			}
+
+			if (Config::get('navigation.styles')) {
+				self::addItem(array(
+					'title'	=> Lang::get('Styles'), 
+					'url'	=> Router::urlFor('Styles')
+				));
+			}
 
 			self::setSelectedNavigationItem();
 		}
