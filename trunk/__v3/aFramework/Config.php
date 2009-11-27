@@ -75,4 +75,12 @@
 													'title'			=> 'Password', 
 													'value'			=> '1234'
 												));
+
+	# Navigation
+	Config::set('navigation',				array(
+													'title'			=> 'Navigation Items', 
+													'description'	=> 'Which navigation items should aFramework add?'
+												));
+	Config::set('navigation.home',				true);
+	Config::set('navigation.styles',			true);
 ?>
