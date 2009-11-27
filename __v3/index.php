@@ -41,10 +41,9 @@
 	define('XHR',					isset($_SERVER['HTTP_X_REQUESTED_WITH']));
 	define('ADMIN_SESSION',			'admin');
 	define('ADMIN',					isset($_COOKIE[ADMIN_SESSION]) or isset($_SESSION[ADMIN_SESSION]));
-	define('DEBUG',					isset($_GET['debug']) and ADMIN);
 	define('CONTROLLER_ADMIN',		ADMIN and (isset($_SESSION['controller_admin']) or isset($_GET['controller_admin'])) and !isset($_GET['no_controller_admin']));
 	define('AUTO_HR',				false);
-	define('USE_MOD_REWRITE',		false);
+	define('USE_MOD_REWRITE',		true);
 
 	# Include config-files
 	$sites = array_reverse(explode(' ', SITE_HIERARCHY));
