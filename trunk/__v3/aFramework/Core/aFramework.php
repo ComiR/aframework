@@ -347,20 +347,21 @@
 		 * Extracts tpl-vars into function-scope, turns off errors, includes and returns template
 		 **/
 		private static function fetchTpl ($tpl, $vars) {
-		#	if (!DEBUG) {
-				ini_set('display_errors', false);
-		#	}
+			ini_set('display_errors', false);
 
 			ob_start();
+
 			$__all = $vars;
+
 			extract((array)$vars);
+
 			include $tpl;
+
 			$contents = ob_get_contents();
+
 			ob_end_clean();
 
-		#	if (!DEBUG) {
-				ini_set('display_errors', true);
-		#	}
+			ini_set('display_errors', true);
 
 			return $contents;
 		}
