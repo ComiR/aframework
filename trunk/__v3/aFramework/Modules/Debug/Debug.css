@@ -1,3 +1,7 @@
+body.admin {
+	margin-top: 24px; /* 10px (padding-top/bottom) + 12px (font-size (line-height: 1)) + 2px (border-top/bottom) */
+}
+
 #debug {
 	background: #ccc;
 	background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#999));
@@ -8,7 +12,6 @@
 	z-index: 50;
 
 	width: 100%;
-	opacity: .1;
 
 	font: 12px/1 Arial, sans-serif;
 	letter-spacing: normal;
@@ -16,10 +19,6 @@
 
 	border-top: 1px solid #fff;
 	border-bottom: 1px solid #000;
-}
-
-#debug:hover {
-	opacity: .9;
 }
 
 	#debug h2 = $a11y-hide;
