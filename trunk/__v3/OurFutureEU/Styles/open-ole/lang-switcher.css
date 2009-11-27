@@ -4,8 +4,21 @@
 	top: 10px;
 }
 
-	#lang-switcher ul = $pipe-menu;
+	#lang-switcher ul = $inline-menu;
 	#lang-switcher ul = $small;
 	#lang-switcher ul {
 		margin: 0;
 	}
+
+		#lang-switcher ul li {
+			margin: 0 0 0 10px;
+		}
+
+			#lang-switcher ul li a {
+				text-decoration: none;
+				opacity: .5;
+			}
+
+			#lang-switcher ul li a:hover {
+				opacity: 1;
+			}

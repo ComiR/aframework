@@ -4,12 +4,24 @@
 }
 
 	#header h1 {
+		background: url(gfx/logo.png) no-repeat;
+		width: 242px;
 		margin: 0 15px 0 0;
 		float: left;
 	}
 
+		#header h1 a {
+			display: block;
+			height: 100px;
+
+			text-indent: -10000px;
+			text-decoration: none;
+			outline: 0;
+		}
+
+	#header p = $link-font;
 	#header p {
-		margin: 8px 0 0;
+		margin: 40px 0 0;
 		font-style: italic;
 		float: left;
 	}

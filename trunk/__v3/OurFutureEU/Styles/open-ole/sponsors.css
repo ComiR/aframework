@@ -1,0 +1,11 @@
+#sponsors {
+
+}
+
+	#sponsors h2 = $a11y-hide;
+
+	#sponsors ul = $floated-list;
+
+		#sponsors ul li:last-child {
+			float: right;
+		}

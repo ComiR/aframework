@@ -1,7 +1,7 @@
 #search {
 	position: absolute;
 	right: 0;
-	top: 30px;
+	top: 60px;
 }
 
 	#search p {
@@ -17,4 +17,7 @@
 
 		#search p #q {
 			width: 310px;
+			-moz-border-radius: 8px;
+			-webkit-border-radius: 8px;
+			border-radius: 8px;
 		}

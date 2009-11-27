@@ -4,6 +4,8 @@
 @date: 2009-11-25 (started)
 ***/
 html {
+	background: #e0edf6 url(gfx/sky-gradient.gif) repeat-x;
+
 	margin: 0;
 	padding: 0;
 }
@@ -16,7 +18,7 @@ $base-font {
 body = $base-font;
 
 body {
-	background: #def;
+	background: url(gfx/big-flower.png) no-repeat -300px 100px;
 
 	margin: 0;
 	padding: 0;
@@ -30,8 +32,8 @@ h5,
 h6 {
 	margin: 20px 0 10px;
 
-	font: bold 260%/.8 Helvetica, Arial, sans-serif;
-	letter-spacing: -.08em;
+	font: italic bold 260%/.8 Trebuchet MS, sans-serif;
+	color: #1795d0;
 }
 
 	h1 a, 
@@ -49,32 +51,27 @@ h6 {
 	h4 a:hover, 
 	h5 a:hover, 
 	h6 a:hover {
-
+		text-decoration: underline;
 	}
 
 h2 {
 	font-size: 220%;
-	letter-spacing: -.08em;
 }
 
 h3 {
 	font-size: 180%;
-	letter-spacing: -.05em;
 }
 
 h4 {
 	font-size: 140%;
-	letter-spacing: -.03em;
 }
 
 h5 {
 	font-size: 120%;
-	letter-spacing: -.02em;
 }
 
 h6 {
 	font-size: 100%;
-	letter-spacing: -.01em;
 }
 
 p {
@@ -146,6 +143,10 @@ form {
 		
 	}
 
+	input.default-value {
+		color: #999 !important;
+	}
+
 	input[type="checkbox"], 
 	input[type="radio"] {
 		margin-right: 5px;
@@ -156,13 +157,9 @@ form {
 	}
 
 $link-font {
-	color: #06c;
-	text-decoration: underline;
+	color: #1795d0;
 }
 
-$link-font:hover {
-	text-decoration: none;
-}
 /*
 $link-font:visited {
 	color: purple;
@@ -179,6 +176,7 @@ $link-font:focus {
 */
 
 a = $link-font;
+a = $underlined;
 
 	a img {
 		border: 2px solid #369;

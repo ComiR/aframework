@@ -4,10 +4,31 @@
 	margin: 15px 0;
 }
 
-	#navigation ul = $pipe-menu;
+	#navigation ul = $floated-list;
 	#navigation ul {
 		margin: 0;
-		padding: 15px 0;
 		border-top: 1px solid #fdfeff;
 		border-bottom: 1px solid #369;
 	}
+
+		#navigation ul li {
+			padding: 0 10px;
+		}
+
+			#navigation ul li a {
+				display: block;
+				padding: 15px 0;
+				text-decoration: none;
+			}
+
+			#navigation ul li > a:hover, 
+			#navigation ul li strong {
+				display: block;
+				padding: 15px 0 10px;
+				font-weight: normal;
+				border-bottom: 5px solid #1795d0;
+			}
+
+				#navigation ul li strong a {
+					padding: 0;
+				}
