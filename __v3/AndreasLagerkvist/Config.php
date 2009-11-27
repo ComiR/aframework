@@ -18,4 +18,6 @@
 	Config::set('alcom.num_random_plugins',		3);
 	Config::set('ablog.num_recent_stuff',		3);
 	Config::set('ablog.num_older_articles',		3);
+
+	Config::set('navigation.styles',			false);
 ?>
