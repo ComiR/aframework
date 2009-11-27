@@ -1,0 +1,13 @@
+#partners {
+	
+}
+
+	#partners h2 = $a11y-hide;
+
+	#partners ul = $floated-list;
+
+		#partners ul li {
+			width: 25%;
+			margin: 0 0 10px;
+			text-align: center;
+		}
