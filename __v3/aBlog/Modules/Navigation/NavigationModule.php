@@ -4,10 +4,12 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			aFramework_NavigationModule::addItem(array(
-				'title'	=> Lang::get('Archives'), 
-				'url'	=> Router::urlFor('Archives')
-			));
+			if (Config::get('navigation.archives')) {
+				aFramework_NavigationModule::addItem(array(
+					'title'	=> Lang::get('Archives'), 
+					'url'	=> Router::urlFor('Archives')
+				));
+			}
 
 			if (ADMIN) {
 				aFramework_NavigationModule::addItem(array(
