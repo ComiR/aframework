@@ -2,14 +2,21 @@
 <Base>
 	<Wrapper name="wrapper">
 		<SkipNavigation/>
+		<LangSwitcher/>
 		<Header/>
 		<Navigation/>
+		<Search/>
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
 			<AdminLogin/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
-			<Search/>
+			<LatestComic/>
+			<RandomLinks/>
+		</Wrapper>
+		<Wrapper name="tertiary-content">
+			<Sponsors/>
+			<Partners/>
 		</Wrapper>
 		<Footer/>
 	</Wrapper>

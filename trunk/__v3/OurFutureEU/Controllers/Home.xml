@@ -16,7 +16,8 @@
 			<RandomLinks/>
 		</Wrapper>
 		<Wrapper name="tertiary-content">
-			<MainSponsors/>
+			<Sponsors/>
+			<Partners/>
 		</Wrapper>
 		<Footer/>
 	</Wrapper>

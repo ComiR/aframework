@@ -2,8 +2,10 @@
 <Base>
 	<Wrapper name="wrapper">
 		<SkipNavigation/>
+		<LangSwitcher/>
 		<Header/>
 		<Navigation/>
+		<Search/>
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
 			<Article/>
@@ -12,10 +14,12 @@
 			<PostComment/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
-			<Search/>
-			<TagCloud/>
-			<RecentArticles/>
-			<RecentComments/>
+			<LatestComic/>
+			<RandomLinks/>
+		</Wrapper>
+		<Wrapper name="tertiary-content">
+			<Sponsors/>
+			<Partners/>
 		</Wrapper>
 		<Footer/>
 	</Wrapper>
