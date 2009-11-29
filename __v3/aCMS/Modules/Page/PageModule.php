@@ -33,6 +33,7 @@
 				aFramework_BaseModule::$tplVars['html_title']		= $page['title'];
 				aFramework_BaseModule::$tplVars['meta_description']	= $page['meta_description'];
 				aFramework_BaseModule::$tplVars['meta_keywords']	= $page['meta_keywords'];
+				aFramework_BaseModule::$tplVars['body_id']			= $page['url_str'];
 			}
 		}
 
