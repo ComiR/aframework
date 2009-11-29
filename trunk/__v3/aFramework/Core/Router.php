@@ -112,10 +112,10 @@
 		 * urlForFile
 		 * 
 		 **/
-		public static function urlForFile ($path, $site = false) {
+		public static function urlForFile ($path, $site = false, $prefix = WEBROOT) {
 			$site = $site ? $site : CURRENT_SITE;
 
-			return str_replace('//', '/', WEBROOT . $site . '/Files/' . $path);
+			return str_replace('//', '/', $prefix . $site . '/Files/' . $path);
 		}
 
 		public static function urlForLang ($lang) {

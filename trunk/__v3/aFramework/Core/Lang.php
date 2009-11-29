@@ -196,15 +196,15 @@
 
 			# If the string exists in the CURRENT_LANG use that
 			if (isset(self::$lang[CURRENT_LANG][$str])) {
-				return self::$lang[CURRENT_LANG][$str];
+				return htmlentities(self::$lang[CURRENT_LANG][$str]);
 			}
 			# Else, try default lang
 			elseif (isset(self::$lang[Config::get('general.default_lang')][$str])) {
-				return self::$lang[Config::get('general.default_lang')][$str];
+				return htmlentities(self::$lang[Config::get('general.default_lang')][$str]);
 			}
 			# Else, just return the string
 			else {
-				return $str;
+				return htmlentities($str);
 			}
 		}
 
