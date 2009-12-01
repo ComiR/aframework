@@ -22,7 +22,8 @@
 			}
 
 			# For the search-results-module
-			$_GET['q'] = urldecode(trim(str_replace(array(WEBROOT, 'index.php', '/', '-'), ' ', $_SERVER['REQUEST_URI'])));
+			$pathInfo	= isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '';
+			$_GET['q']	= urldecode(trim(str_replace('/' . CURRENT_LANG . '/', '', str_replace(array(WEBROOT, 'index.php', '/', '-'), ' ', $_SERVER['PATH_INFO']))));
 
 			include DOCROOT .'aFramework/Files/404-stuff/head.php';
 
