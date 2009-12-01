@@ -4,6 +4,11 @@
 	 *
 	 * Random handy functions
 	 **/
+	# Prefixes table-names in an SQL-query
+	function prefixDBTableNames ($qry, $prefix, $tables = true) {
+		return $qry;
+	}
+
 	# Insert element in array at given position
 	# from: http://snipplr.com/view/19898/insert-into--add-element-to-array-at-specific-position/ but modified
 	function array_insert ($val, $pos, &$array) {
@@ -54,11 +59,6 @@
 		return $url;
 	}
 
-	# Removes ..\, ../ from str
- 	function removeDots ($str) {
- 		return str_replace(array('..\\', '../'), '', $str);
-	}
-
 	# Determines whether it's naked day
 	function is_naked_day ($d) {
 		$start	= date('U', mktime(-12, 0, 0, 04, $d, date('Y')));
@@ -95,25 +95,6 @@
 		$ref = (stristr($ref, '?')) ? $ref . '&' : $ref . '?';
 
 		redirect($ref . $append);
-	}
-
-	# Instead of mysql_query, also counts queries and dies on error
-	function dbQry ($qry, $info = false) {
-		static $cache = array();
-		static $i = 0;
-
-		if ($info) {
-			return array('num_queries' => $i, 'cached_queries' => $cache);
-		}
-	#	if (isset($cache[$qry])) {
-	#		return $cache[$qry];
-	#	}
-
-		$i++;
-
-		$cache[$qry] = mysql_query($qry) or die(mysql_error() . '<hr /><pre>' . htmlentities($qry) . '</pre>');
-
-		return $cache[$qry];
 	}
 
 	# "Debug" variables
