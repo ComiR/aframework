@@ -27,7 +27,7 @@
 			$sort	= isset($_GET['sort']) ? $_GET['sort'] : 1;
 			$order	= isset($_GET['order']) ? $_GET['order'] : 'ASC';
 			$start	= isset($_GET['start']) ? $_GET['start'] : 0;
-			$res	= dbQry('SELECT * FROM ' . Router::$params['table_name'] . ' ORDER BY ' . $sort . ' ' . $order . ' LIMIT ' . $start . ', ' . Config::get('adynadmin.num_items_per_page'));
+			$res	= DB::qry('SELECT * FROM ' . Router::$params['table_name'] . ' ORDER BY ' . $sort . ' ' . $order . ' LIMIT ' . $start . ', ' . Config::get('adynadmin.num_items_per_page'));
 			$i		= 0;
 
 			self::$tplVars['table'] = array(
