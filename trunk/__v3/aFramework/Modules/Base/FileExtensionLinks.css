@@ -1,0 +1,492 @@
+$file-extension-links a {
+	background: url(gfx/file-extension-icons/txt.png) no-repeat left 50%;
+	padding: 5px 0 5px 25px;
+}
+
+$file-extension-links a[href$=".dat"] {
+	background-image: url(gfx/file-extension-icons/dat.png);
+}
+
+$file-extension-links a[href$=".vob"] {
+	background-image: url(gfx/file-extension-icons/vob.png);
+}
+
+$file-extension-links a[href$=".bat"] {
+	background-image: url(gfx/file-extension-icons/bat.png);
+}
+
+$file-extension-links a[href$=".xlsx"] {
+	background-image: url(gfx/file-extension-icons/xlsx.png);
+}
+
+$file-extension-links a[href$=".divx"] {
+	background-image: url(gfx/file-extension-icons/divx.png);
+}
+
+$file-extension-links a[href$="."] {
+	background-image: url(gfx/file-extension-icons/.png);
+}
+
+$file-extension-links a[href$=".mpe"] {
+	background-image: url(gfx/file-extension-icons/mpe.png);
+}
+
+$file-extension-links a[href$=".music"] {
+	background-image: url(gfx/file-extension-icons/music.png);
+}
+
+$file-extension-links a[href$=".m4p"] {
+	background-image: url(gfx/file-extension-icons/m4p.png);
+}
+
+$file-extension-links a[href$=".theme"] {
+	background-image: url(gfx/file-extension-icons/theme.png);
+}
+
+$file-extension-links a[href$=".movie"] {
+	background-image: url(gfx/file-extension-icons/movie.png);
+}
+
+$file-extension-links a[href$=".rar"] {
+	background-image: url(gfx/file-extension-icons/rar.png);
+}
+
+$file-extension-links a[href$=".mmm"] {
+	background-image: url(gfx/file-extension-icons/mmm.png);
+}
+
+$file-extension-links a[href$=".tmp"] {
+	background-image: url(gfx/file-extension-icons/tmp.png);
+}
+
+$file-extension-links a[href$=".vcr"] {
+	background-image: url(gfx/file-extension-icons/vcr.png);
+}
+
+$file-extension-links a[href$=".mov"] {
+	background-image: url(gfx/file-extension-icons/mov.png);
+}
+
+$file-extension-links a[href$=".ac3"] {
+	background-image: url(gfx/file-extension-icons/ac3.png);
+}
+
+$file-extension-links a[href$=".xls"] {
+	background-image: url(gfx/file-extension-icons/xls.png);
+}
+
+$file-extension-links a[href$=".cat"] {
+	background-image: url(gfx/file-extension-icons/cat.png);
+}
+
+$file-extension-links a[href$=".au"] {
+	background-image: url(gfx/file-extension-icons/au.png);
+}
+
+$file-extension-links a[href$=".mmf"] {
+	background-image: url(gfx/file-extension-icons/mmf.png);
+}
+
+$file-extension-links a[href$=".csv"] {
+	background-image: url(gfx/file-extension-icons/csv.png);
+}
+
+$file-extension-links a[href$=".js"] {
+	background-image: url(gfx/file-extension-icons/js.png);
+}
+
+$file-extension-links a[href$=".search"] {
+	background-image: url(gfx/file-extension-icons/search.png);
+}
+
+$file-extension-links a[href$=".download"] {
+	background-image: url(gfx/file-extension-icons/download.png);
+}
+
+$file-extension-links a[href$=".mpg"] {
+	background-image: url(gfx/file-extension-icons/mpg.png);
+}
+
+$file-extension-links a[href$=".video"] {
+	background-image: url(gfx/file-extension-icons/video.png);
+}
+
+$file-extension-links a[href$=".font"] {
+	background-image: url(gfx/file-extension-icons/font.png);
+}
+
+$file-extension-links a[href$=".pptx"] {
+	background-image: url(gfx/file-extension-icons/pptx.png);
+}
+
+$file-extension-links a[href$=".default"] {
+	background-image: url(gfx/file-extension-icons/default.png);
+}
+
+$file-extension-links a[href$=".wri"] {
+	background-image: url(gfx/file-extension-icons/wri.png);
+}
+
+$file-extension-links a[href$=".ie7"] {
+	background-image: url(gfx/file-extension-icons/ie7.png);
+}
+
+$file-extension-links a[href$=".dll"] {
+	background-image: url(gfx/file-extension-icons/dll.png);
+}
+
+$file-extension-links a[href$=".pdd"] {
+	background-image: url(gfx/file-extension-icons/pdd.png);
+}
+
+$file-extension-links a[href$=".fla"] {
+	background-image: url(gfx/file-extension-icons/fla.png);
+}
+
+$file-extension-links a[href$=".pps"] {
+	background-image: url(gfx/file-extension-icons/pps.png);
+}
+
+$file-extension-links a[href$=".safari"] {
+	background-image: url(gfx/file-extension-icons/safari.png);
+}
+
+$file-extension-links a[href$=".mpeg"] {
+	background-image: url(gfx/file-extension-icons/mpeg.png);
+}
+
+$file-extension-links a[href$=".aac"] {
+	background-image: url(gfx/file-extension-icons/aac.png);
+}
+
+$file-extension-links a[href$=".ttf"] {
+	background-image: url(gfx/file-extension-icons/ttf.png);
+}
+
+$file-extension-links a[href$=".msi"] {
+	background-image: url(gfx/file-extension-icons/msi.png);
+}
+
+$file-extension-links a[href$="."] {
+	background-image: url(gfx/file-extension-icons/.png);
+}
+
+$file-extension-links a[href$=".uis"] {
+	background-image: url(gfx/file-extension-icons/uis.png);
+}
+
+$file-extension-links a[href$=".ade"] {
+	background-image: url(gfx/file-extension-icons/ade.png);
+}
+
+$file-extension-links a[href$=".docx"] {
+	background-image: url(gfx/file-extension-icons/docx.png);
+}
+
+$file-extension-links a[href$=".wpl"] {
+	background-image: url(gfx/file-extension-icons/wpl.png);
+}
+
+$file-extension-links a[href$=".index"] {
+	background-image: url(gfx/file-extension-icons/index.png);
+}
+
+$file-extension-links a[href$=".log"] {
+	background-image: url(gfx/file-extension-icons/log.png);
+}
+
+$file-extension-links a[href$=".php"] {
+	background-image: url(gfx/file-extension-icons/php.png);
+}
+
+$file-extension-links a[href$=".tiff"] {
+	background-image: url(gfx/file-extension-icons/tiff.png);
+}
+
+$file-extension-links a[href$=".gif"] {
+	background-image: url(gfx/file-extension-icons/gif.png);
+}
+
+$file-extension-links a[href$=".sql"] {
+	background-image: url(gfx/file-extension-icons/sql.png);
+}
+
+$file-extension-links a[href$=".html"] {
+	background-image: url(gfx/file-extension-icons/html.png);
+}
+
+$file-extension-links a[href$=".txt"] {
+	background-image: url(gfx/file-extension-icons/txt.png);
+}
+
+$file-extension-links a[href$=".exc"] {
+	background-image: url(gfx/file-extension-icons/exc.png);
+}
+
+$file-extension-links a[href$=".wmv"] {
+	background-image: url(gfx/file-extension-icons/wmv.png);
+}
+
+$file-extension-links a[href$=".mp4"] {
+	background-image: url(gfx/file-extension-icons/mp4.png);
+}
+
+$file-extension-links a[href$=".diz"] {
+	background-image: url(gfx/file-extension-icons/diz.png);
+}
+
+$file-extension-links a[href$=".adp"] {
+	background-image: url(gfx/file-extension-icons/adp.png);
+}
+
+$file-extension-links a[href$=".sys"] {
+	background-image: url(gfx/file-extension-icons/sys.png);
+}
+
+$file-extension-links a[href$=".aspx"] {
+	background-image: url(gfx/file-extension-icons/aspx.png);
+}
+
+$file-extension-links a[href$=".hlp"] {
+	background-image: url(gfx/file-extension-icons/hlp.png);
+}
+
+$file-extension-links a[href$=".rtf"] {
+	background-image: url(gfx/file-extension-icons/rtf.png);
+}
+
+$file-extension-links a[href$=".dic"] {
+	background-image: url(gfx/file-extension-icons/dic.png);
+}
+
+$file-extension-links a[href$=".wma"] {
+	background-image: url(gfx/file-extension-icons/wma.png);
+}
+
+$file-extension-links a[href$=".dos"] {
+	background-image: url(gfx/file-extension-icons/dos.png);
+}
+
+$file-extension-links a[href$=".reg"] {
+	background-image: url(gfx/file-extension-icons/reg.png);
+}
+
+$file-extension-links a[href$=".zip"] {
+	background-image: url(gfx/file-extension-icons/zip.png);
+}
+
+$file-extension-links a[href$=".doc"] {
+	background-image: url(gfx/file-extension-icons/doc.png);
+}
+
+$file-extension-links a[href$=".avi"] {
+	background-image: url(gfx/file-extension-icons/avi.png);
+}
+
+$file-extension-links a[href$=".fav"] {
+	background-image: url(gfx/file-extension-icons/fav.png);
+}
+
+$file-extension-links a[href$=".mp3"] {
+	background-image: url(gfx/file-extension-icons/mp3.png);
+}
+
+$file-extension-links a[href$=".bmp"] {
+	background-image: url(gfx/file-extension-icons/bmp.png);
+}
+
+$file-extension-links a[href$=".inf"] {
+	background-image: url(gfx/file-extension-icons/inf.png);
+}
+
+$file-extension-links a[href$=".url"] {
+	background-image: url(gfx/file-extension-icons/url.png);
+}
+
+$file-extension-links a[href$=".iso"] {
+	background-image: url(gfx/file-extension-icons/iso.png);
+}
+
+$file-extension-links a[href$=".css"] {
+	background-image: url(gfx/file-extension-icons/css.png);
+}
+
+$file-extension-links a[href$=".xsl"] {
+	background-image: url(gfx/file-extension-icons/xsl.png);
+}
+
+$file-extension-links a[href$=".zap"] {
+	background-image: url(gfx/file-extension-icons/zap.png);
+}
+
+$file-extension-links a[href$=".cab"] {
+	background-image: url(gfx/file-extension-icons/cab.png);
+}
+
+$file-extension-links a[href$=".chm"] {
+	background-image: url(gfx/file-extension-icons/chm.png);
+}
+
+$file-extension-links a[href$=".tif"] {
+	background-image: url(gfx/file-extension-icons/tif.png);
+}
+
+$file-extension-links a[href$=".m4a"] {
+	background-image: url(gfx/file-extension-icons/m4a.png);
+}
+
+$file-extension-links a[href$=".scp"] {
+	background-image: url(gfx/file-extension-icons/scp.png);
+}
+
+$file-extension-links a[href$=".dwg"] {
+	background-image: url(gfx/file-extension-icons/dwg.png);
+}
+
+$file-extension-links a[href$=".print"] {
+	background-image: url(gfx/file-extension-icons/print.png);
+}
+
+$file-extension-links a[href$=".cue"] {
+	background-image: url(gfx/file-extension-icons/cue.png);
+}
+
+$file-extension-links a[href$=".jfif"] {
+	background-image: url(gfx/file-extension-icons/jfif.png);
+}
+
+$file-extension-links a[href$=".wzv"] {
+	background-image: url(gfx/file-extension-icons/wzv.png);
+}
+
+$file-extension-links a[href$=".nfo"] {
+	background-image: url(gfx/file-extension-icons/nfo.png);
+}
+
+$file-extension-links a[href$=".mp2"] {
+	background-image: url(gfx/file-extension-icons/mp2.png);
+}
+
+$file-extension-links a[href$=".bin"] {
+	background-image: url(gfx/file-extension-icons/bin.png);
+}
+
+$file-extension-links a[href$=".ppt"] {
+	background-image: url(gfx/file-extension-icons/ppt.png);
+}
+
+$file-extension-links a[href$=".pdf"] {
+	background-image: url(gfx/file-extension-icons/pdf.png);
+}
+
+$file-extension-links a[href$=".mpv2"] {
+	background-image: url(gfx/file-extension-icons/mpv2.png);
+}
+
+$file-extension-links a[href$=".dwt"] {
+	background-image: url(gfx/file-extension-icons/dwt.png);
+}
+
+$file-extension-links a[href$=".bup"] {
+	background-image: url(gfx/file-extension-icons/bup.png);
+}
+
+$file-extension-links a[href$=".isp"] {
+	background-image: url(gfx/file-extension-icons/isp.png);
+}
+
+$file-extension-links a[href$=".dvd"] {
+	background-image: url(gfx/file-extension-icons/dvd.png);
+}
+
+$file-extension-links a[href$=".xml"] {
+	background-image: url(gfx/file-extension-icons/xml.png);
+}
+
+$file-extension-links a[href$=".ini"] {
+	background-image: url(gfx/file-extension-icons/ini.png);
+}
+
+$file-extension-links a[href$=".ai"] {
+	background-image: url(gfx/file-extension-icons/ai.png);
+}
+
+$file-extension-links a[href$=".upload"] {
+	background-image: url(gfx/file-extension-icons/upload.png);
+}
+
+$file-extension-links a[href$=".emf"] {
+	background-image: url(gfx/file-extension-icons/emf.png);
+}
+
+$file-extension-links a[href$=".cmd"] {
+	background-image: url(gfx/file-extension-icons/cmd.png);
+}
+
+$file-extension-links a[href$=".rb"] {
+	background-image: url(gfx/file-extension-icons/rb.png);
+}
+
+$file-extension-links a[href$=".ace"] {
+	background-image: url(gfx/file-extension-icons/ace.png);
+}
+
+$file-extension-links a[href$=".jpg"] {
+	background-image: url(gfx/file-extension-icons/jpg.png);
+}
+
+$file-extension-links a[href$=".mp2v"] {
+	background-image: url(gfx/file-extension-icons/mp2v.png);
+}
+
+$file-extension-links a[href$=".blue-ray"] {
+	background-image: url(gfx/file-extension-icons/blue-ray.png);
+}
+
+$file-extension-links a[href$=".aiff"] {
+	background-image: url(gfx/file-extension-icons/aiff.png);
+}
+
+$file-extension-links a[href$=".wtx"] {
+	background-image: url(gfx/file-extension-icons/wtx.png);
+}
+
+$file-extension-links a[href$=".one"] {
+	background-image: url(gfx/file-extension-icons/one.png);
+}
+
+$file-extension-links a[href$=".swf"] {
+	background-image: url(gfx/file-extension-icons/swf.png);
+}
+
+$file-extension-links a[href$=".java"] {
+	background-image: url(gfx/file-extension-icons/java.png);
+}
+
+$file-extension-links a[href$=".bak"] {
+	background-image: url(gfx/file-extension-icons/bak.png);
+}
+
+$file-extension-links a[href$=".jpeg"] {
+	background-image: url(gfx/file-extension-icons/jpeg.png);
+}
+
+$file-extension-links a[href$=".psd"] {
+	background-image: url(gfx/file-extension-icons/psd.png);
+}
+
+$file-extension-links a[href$=".ifo"] {
+	background-image: url(gfx/file-extension-icons/ifo.png);
+}
+
+$file-extension-links a[href$=".wba"] {
+	background-image: url(gfx/file-extension-icons/wba.png);
+}
+
+$file-extension-links a[href$=".png"] {
+	background-image: url(gfx/file-extension-icons/png.png);
+}
+
+$file-extension-links a[href$=".der"] {
+	background-image: url(gfx/file-extension-icons/der.png);
+}
