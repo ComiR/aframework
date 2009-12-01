@@ -1,5 +1,5 @@
 #wrapper {
-	background: url(gfx/top-light.png) no-repeat left top;
+	background: url(gfx/sun.png) no-repeat 60% 30% fixed;
 	width: 960px;
 	margin: 0 auto;
 	position: relative;
@@ -12,13 +12,13 @@
 	float: left;
 }
 
-	#primary-content h2 {
+/*	#primary-content h2 {
 		background-image: url(gfx/flower.gif);
 		background-repeat: no-repeat;
 		background-position: left 5px;
 		margin-left: -35px;
 		padding-left: 35px;
-	}
+	} */
 
 #secondary-content {
 	width: 320px;
@@ -35,25 +35,8 @@
 			font-size: 160%;
 		}
 
-$bottom-bar {
-	background: #147;
-	color: #e0edf6;
-}
-
-	$bottom-bar a {
-		color: #e0edf6;
-	}
-
-#tertiary-content = $bottom-bar;
 #tertiary-content {
-	border-top: 10px solid #123;
-	padding: 20px 0;
+	background: url(gfx/grass.png) repeat-x;
+	padding: 60px 0 20px;
 	clear: both;
 }
-
-	#wrapper > div, 
-	#primary-content > div, 
-	#secondary-content > div, 
-	#tertiary-content > div {
-		*padding: 10px 20px;
-	}

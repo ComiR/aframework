@@ -23,9 +23,9 @@
 			outline: 0;
 		}
 
-	#header p = $link-font;
 	#header p {
 		margin: 40px 0 0;
 		font-style: italic;
 		float: left;
+		color: #15739f;
 	}

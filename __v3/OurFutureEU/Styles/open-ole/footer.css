@@ -1,8 +1,9 @@
-#footer = $bottom-bar;
 #footer = $small;
 #footer {
+	background: #210;
+	color: #850;
 	overflow: hidden;
-	padding: 0 0 10px 0;
+	padding: 10px 0 10px;
 }
 
 	#footer p {
@@ -14,4 +15,8 @@
 	#footer ul {
 		margin: 0;
 		float: right;
+	}
+
+	#footer a {
+		color: #850;
 	}
