@@ -24,6 +24,10 @@
 													'title'			=> 'Database table prefix (if unsure leave empty)', 
 													'value'			=> ''
 												));
+	Config::set('db.translated_tables',			array(
+													'title'			=> 'If your site is multilingual you can specify which DB tables should be language-specific', 
+													'value'			=> ''
+												));
 
 	# aFramework
 	Config::set('general',						array(
