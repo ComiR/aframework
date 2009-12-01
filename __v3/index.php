@@ -1,21 +1,35 @@
 <?php
-	require_once 'aFramework/Core/Timer.php';
-	Timer::start();
-
 	# While deving
 	error_reporting(0);
 	ini_set('display_errors', false);
 
+	# Start the timer
+	require_once 'aFramework/Core/Timer.php';
+	Timer::start();
+
 	# The site(s) you wanna run
+/*	switch ($_SERVER['SERVER_NAME']) {
+		case 'andreaslagerkvist.com' : 
+			define('SITE_HIERARCHY', 'AndreasLagerkvist aBlog aCMS aDynAdmin aFramework');
+			break;
+		case 'agnesekman.com' : 
+			define('SITE_HIERARCHY', 'AgnesEkman aBlog aCMS aDynAdmin aFramework');
+			break;
+		case 'ourfuture.eu' : 
+			define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
+			break;
+		case 'localhost' : 
+			define('SITE_HIERARCHY', 'aTestSite aBlog aForum aCMS aDynAdmin aModPack aFramework');
+			break;
+	} */
 #	define('SITE_HIERARCHY', 'aTestSite aBlog aForum aCMS aDynAdmin aModPack aFramework');
 	define('SITE_HIERARCHY', 'AndreasLagerkvist aBlog aCMS aDynAdmin aFramework');
 #	define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
 
-	# Used by both lang and router
-	$requestedURI = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/';
-
 	# Core classes/files
 	require_once 'aFramework/Core/Config.php';
+	require_once 'aFramework/Core/DB.php';
+	require_once 'aFramework/Core/LangSwitcher.php';
 	require_once 'aFramework/Core/Functions.php';
 	require_once 'aFramework/Core/Lang.php';
 	require_once 'aFramework/Core/AutoLoader.php';
@@ -57,37 +71,18 @@
 	}
 
 	# Set correct lang based on URI
-	$allowedLangs	= explode(',', Config::get('general.allowed_langs'));
-	$currentLang	= Config::get('general.default_lang');
-
-	if (count($allowedLangs)) {
-		$requestedURIPortions = explode('/', $requestedURI);
-
-		# /en/about/ == 0 => '', 1 => 'en', 2 => 'about', 3 => ''
-		if (in_array($requestedURIPortions[1], $allowedLangs)) {
-			# If URI points to default lang, redirect it away
-			if ($requestedURIPortions[1] == $currentLang) {
-				redirect(str_replace('/' . $requestedURIPortions[1] . '/', '/', currPageURL()));
-			}
-
-			$currentLang = $requestedURIPortions[1];
-
-			# Remove the lang from the requestedURI so as not to affect routing
-			$requestedURI = str_replace('/' . $requestedURIPortions[1] . '/', '/', $requestedURI);
-		}
-	}
-
-	define('CURRENT_LANG', $currentLang);
+	LangSwitcher::run();
 
 	# Connect to DB
-	mysql_connect(Config::get('db.host'), Config::get('db.user'), Config::get('db.pass')) or die('aFramework Error: Unable to connect to MySQL - Please check your config files');
-	mysql_select_db(Config::get('db.name')) or die('aFramework Error: Unable to select DB - Please check your config files');
+	DB::connect();
 
 	# Register autoloader
 	spl_autoload_register('AutoLoader::load');
 
 	# The Router uses the current site's Routes.php-file to
 	# set appropiate $_GET-variables (controller, url_str, etc)
+	$requestedURI = isset($_SERVER['PATH_INFO']) ? str_replace('/' . CURRENT_LANG . '/', '/', $_SERVER['PATH_INFO']) : '/';	
+
 	Router::run($requestedURI);
 
 	# The VisitorData-class sets visitor-data to the visitor-data-cookie
