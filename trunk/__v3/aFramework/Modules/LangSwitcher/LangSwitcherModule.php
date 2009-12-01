@@ -14,6 +14,7 @@
 				self::$tplVars['langs'][] = array(
 					'title'		=> Lang::lcToName($lang),
 					'lc'		=> $lang, 
+					'cc'		=> Lang::lc2cc($lang), 
 					'selected'	=> CURRENT_LANG == $lang ? true : false
 				);
 			}
