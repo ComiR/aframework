@@ -2,6 +2,18 @@
 
 }
 
+	#article h2 {
+		margin-bottom: 0;
+	}
+
+	#article h2 + p small = $small;
+
+	body:not(#home-page) #article h2 + p + p = $first-p;
+	body:not(#home-page) #article h2 + p + h3 + p = $first-p;
+
+	#article ul = $pretty-list;
+	#article ol = $pretty-list;
+
 	#article > dl:last-child = $small;
 	#article > dl:last-child = $inline-definition;
 

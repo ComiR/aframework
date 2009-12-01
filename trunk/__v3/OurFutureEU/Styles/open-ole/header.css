@@ -5,14 +5,18 @@
 
 	#header h1 {
 		background: url(gfx/logo.png) no-repeat;
-		width: 242px;
+		width: 231px;
 		margin: 0 15px 0 0;
 		float: left;
 	}
 
+	#header h1:hover {
+		background-position: left -88px;
+	}
+
 		#header h1 a {
 			display: block;
-			height: 100px;
+			height: 88px;
 
 			text-indent: -10000px;
 			text-decoration: none;

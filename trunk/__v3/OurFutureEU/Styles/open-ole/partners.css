@@ -9,5 +9,15 @@
 		#partners ul li {
 			width: 25%;
 			margin: 0 0 10px;
+			height: 80px;
+			line-height: 80px;
 			text-align: center;
 		}
+
+			#partners ul li a {
+				opacity: .5;
+			}
+
+			#partners ul li a:hover {
+				opacity: 1;
+			}

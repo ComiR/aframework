@@ -1,0 +1,35 @@
+#documents {
+	
+}
+
+	#documents-page #documents h2 {
+		display: none;
+	}
+
+	#documents table {
+		width: 100%;
+		border-spacing: 0;
+	}
+
+		#documents table th, 
+		#documents table td {
+			text-align: left;
+			vertical-align: middle;
+			padding: 5px 10px 5px 0;
+		}
+
+			#documents table td = $file-extension-links;
+
+			#documents table form, 
+			#documents table form p {
+				margin: 0;
+			}
+
+	#documents form {
+		margin: 15px 0 0;
+	}
+
+		#documents form p {
+			display: inline;
+			margin: 0 10px 0 0;
+		}
