@@ -13,12 +13,22 @@
 
 		#documents table th, 
 		#documents table td {
-			text-align: left;
+			text-align: center;
 			vertical-align: middle;
 			padding: 5px 10px 5px 0;
 		}
 
-			#documents table td = $file-extension-links;
+		#documents table th:first-child, 
+		#documents table td:first-child {
+			text-align: left;
+		}
+
+		#documents table th:last-child, 
+		#documents table td:last-child {
+			text-align: right;
+		}
+
+		#documents table td = $file-extension-links;
 
 			#documents table form, 
 			#documents table form p {

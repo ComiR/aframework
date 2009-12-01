@@ -6,6 +6,9 @@
 			<?php echo Lang::get('Name'); ?>
 		</th>
 		<th>
+			<?php echo Lang::get('Type'); ?>
+		</th>
+		<th>
 			<?php echo Lang::get('Size'); ?>
 		</th>
 		<?php if (ADMIN) { ?>
@@ -20,6 +23,9 @@
 				<a href="<?php echo $document['path']; ?>">
 					<?php echo htmlentities($document['title']); ?>
 				</a>
+			</td>
+			<td>
+				<?php echo htmlentities($document['ext']); ?>
 			</td>
 			<td>
 				<?php echo round($document['size']/1024/1024, 2); ?> mb
