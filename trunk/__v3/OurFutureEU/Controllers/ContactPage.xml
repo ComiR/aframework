@@ -9,11 +9,13 @@
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
 			<Page/>
-			<ContactInformation/>
+			<ContactPersons/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<LatestComic/>
 			<RandomLinks/>
+			<ArticleCalendar/>
+			<RecentComments/>
 		</Wrapper>
 		<Wrapper name="tertiary-content">
 			<Sponsors/>

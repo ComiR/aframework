@@ -13,6 +13,8 @@
 		<Wrapper name="secondary-content">
 			<LatestComic/>
 			<RandomLinks/>
+			<ArticleCalendar/>
+			<RecentComments/>
 		</Wrapper>
 		<Wrapper name="tertiary-content">
 			<Sponsors/>
