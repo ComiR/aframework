@@ -10,7 +10,7 @@
 
 			aFramework_BaseModule::$tplVars['style'] = 'dynadmin';
 
-			$res = dbQry('SHOW TABLES');
+			$res = DB::qry('SHOW TABLES');
 
 			while ($row = mysql_fetch_assoc($res)) {
 				$tableName = end($row);
