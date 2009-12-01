@@ -9,3 +9,11 @@
 		#sponsors ul li:last-child {
 			float: right;
 		}
+
+			#sponsors ul li a {
+				opacity: .5;
+			}
+
+			#sponsors ul li a:hover {
+				opacity: 1;
+			}

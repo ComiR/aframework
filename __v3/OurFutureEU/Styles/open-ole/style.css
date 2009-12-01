@@ -80,7 +80,7 @@ p {
 }
 
 $first-p {
-	font-size: 150%;
+	font-size: 130%;
 	font-style: italic;
 }
 
@@ -100,7 +100,16 @@ ul,
 ol {
 	margin: 0 0 10px 30px;
 	padding: 0;
+	line-height: 1.5;
 }
+
+$pretty-list {
+	
+}
+
+	$pretty-list li {
+		margin-bottom: 5px;
+	}
 
 form {
 	margin: 0;
@@ -109,6 +118,10 @@ form {
 
 	form strong {
 		color: red;
+	}
+
+	body.js-enabled form strong {
+		display: none;
 	}
 
 	label {
@@ -189,29 +202,13 @@ img {
 	vertical-align: middle;
 }
 
-$img-large {
-	display: block;
-	float: none;
-
-	margin: 10px 0;
-	width: 590px; /* calc(100% - (propval(padding-left, body) + propval(padding-right, body))) */
-
+$pretty-image {
 	border: 10px solid #fff;
-}
+	border-width: 20px 15px 40px;
 
-$img-small {
-	display: block;
-	float: right;
-
-	margin: 0 0 10px 10px;
-	width: 200px;
-
-	border: 0 solid #fff;
-}
-
-$icon {
-	background: url(gfx/icons/blue.png) no-repeat left -1px;
-	padding: 10px 0 10px 30px;
+	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 $small {

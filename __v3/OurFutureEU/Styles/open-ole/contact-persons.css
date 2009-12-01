@@ -1,0 +1,41 @@
+#contact-persons {
+	
+}
+
+	#contact-persons h3 {
+		
+	}
+
+	#contact-persons ul = $plain-list;
+
+		#contact-persons ul li {
+			position: relative;
+			margin: 0 0 10px;
+			padding: 0 0 0 180px;
+		}
+
+		body.js-disabled #contact-persons ul li {
+			min-height: 225px;
+		}
+
+			#contact-persons ul li h4 {
+				margin-left: -180px;
+			}
+
+			#contact-persons ul li h5 {
+				margin-bottom: 0;
+			}
+
+			#contact-persons ul li p {
+				font-style: italic;
+			}
+
+			#contact-persons ul li img = $pretty-image;
+			#contact-persons ul li img {
+				width: 120px;
+				position: absolute;
+				left: 0;
+				top: 35px;
+			}
+
+			#contact-persons ul li dl = $data-definition;

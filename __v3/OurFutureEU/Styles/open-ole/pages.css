@@ -1,0 +1,116 @@
+/* Presentation */
+#presentation-page #page ol {
+	font-weight: bold;
+}
+
+/* Organization */
+#organization-page #page img {
+	float: none;
+	margin: 0;
+	border: 0;
+	width: 100%;
+}
+
+/* Our Projects */
+#project-list ul = $self-clear;
+#project-list ul {
+	margin: 0;
+	list-style: none;
+}
+
+	#project-list ul li {
+		margin: 0 0 10px;
+	}
+
+		#project-list ul li a {
+			background: #fdfeff;
+
+			display: block;
+			position: relative;
+
+			padding: 15px 10px 15px 50px;
+
+			font-weight: bold;
+			text-transform: uppercase;
+			text-decoration: none;
+
+			border: 1px solid #ccc;
+			-moz-border-radius: 5px;
+			-webkit-border-radius: 5px;
+			border-radius: 5px;
+		}
+
+			#project-list ul li a img {
+				position: absolute;
+				left: 10px;
+				top: 11px;
+				border: 0;
+				float: none;
+				margin: 0;
+			}
+
+		#project-list ul li a:hover {
+			background: #1795d0;
+			color: #fdfeff;
+		}
+
+#project-tabs = $self-clear;
+#project-tabs {
+	margin: 0;
+	list-style: none;
+	border-bottom: 1px solid #def;
+}
+
+	#project-tabs li {
+		float: left;
+		margin: 0 10px 0 0;
+	}
+
+		#project-tabs li a = $small;
+		#project-tabs li a {
+			background: #fdfeff;
+
+			display: block;
+			padding: 5px 10px;
+
+			text-transform: uppercase;
+			text-decoration: none;
+			outline: 0;
+
+			border: 1px solid #def;
+			border-width: 1px 1px 0;
+			-moz-border-radius: 5px 5px 0 0;
+			-webkit-border-radius: 5px 5px 0 0;
+			border-radius: 5px 5px 0 0;
+		}
+
+		#project-tabs li a:hover, 
+		#project-tabs li a.selected {
+			background: #1795d0;
+			color: #fdfeff;
+		}
+
+/* Participating Partners */
+#participating-partners-page #page ul = $self-clear;
+#participating-partners-page #page ul {
+	margin: 0;
+	list-style: none;
+}
+
+	#participating-partners-page #page ul li {
+		position: relative;
+		padding: 0 0 0 80px;
+		min-height: 60px;
+		line-height: 50px;
+		width: 30%;
+		float: left;
+	}
+
+		#participating-partners-page #page ul li img {
+			position: absolute;
+			left: 0;
+			top: 0;
+			border: 0;
+			margin: 0;
+			float: none;
+		}

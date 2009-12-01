@@ -1,10 +1,10 @@
 <?php
 	$documentPages = array(
-		'our-projects',
-		'documents'
+		Lang::get('url.our-projects'),
+		Lang::get('url.documents')
 	);
 	$contactPages = array(
-		'contact-information'
+		Lang::get('url.contact-information')
 	);
 
 	return array(

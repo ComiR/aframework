@@ -15,4 +15,28 @@
 			paddingRight:	(distance + oldPaddingRight) + 'px'
 		});
 	});
+
+	window.onload = function () {
+		// "Self-clear" absolutely positioned images
+		$('#contact-persons li').each(function () {
+			var minHeight = parseInt($(this).find('img').outerHeight(), 10) + 35;
+
+			$(this).css('min-height', minHeight + 'px');
+		});
+
+		// Tabs on project pages
+		if (document.getElementById('project-page-page')) {
+			// Add tab-list
+			$('<ul id="project-tabs"><li><a href="#page">' 
+				+ Lang.get('About') 
+				+ '</a></li><li><a href="#contact-persons">' 
+				+ Lang.get('Contact') 
+				+ '</a></li><li><a href="#documents">' 
+				+ Lang.get('Documents') 
+				+ '</a></li></ul>').prependTo('#primary-content').superSimpleTabs();
+
+			// Move the heading above the tabs
+			$('#page h2').prependTo('#primary-content');
+		}
+	};
 })();

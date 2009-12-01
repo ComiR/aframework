@@ -3,6 +3,7 @@
 	Config::set('db.pass',						'root');
 	Config::set('db.host',						'localhost');
 	Config::set('db.name',						'ole2');
+	Config::set('db.translated_tables',			'articles,pages');
 
 	Config::set('general.allowed_langs',		'en,sv,fo');
 	Config::set('general.default_lang',			'en');

@@ -27,6 +27,14 @@
 	float: right;
 }
 
+	#secondary-content div {
+		margin: 0 0 30px;
+	}
+
+		#secondary-content h2 {
+			font-size: 160%;
+		}
+
 $bottom-bar {
 	background: #147;
 	color: #e0edf6;
