@@ -1,7 +1,7 @@
 <?php
 	class DBRow {
 		public static function get ($tableName, $sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000) {
-			$res = dbQry('
+			$res = DB::qry('
 				SELECT
 					*
 				FROM
@@ -41,7 +41,7 @@
 			$insertVals = substr($insertVals, 0, -1);
 			$insertCols = substr($insertCols, 0, -1);
 
-			dbQry("
+			DB::qry("
 				INSERT INTO
 					$tableName (
 						$insertCols
@@ -63,7 +63,7 @@
 
 			$updateStr = substr($updateStr, 0, -1);
 
-			dbQry("
+			DB::qry("
 				UPDATE
 					$tableName
 				SET
@@ -77,7 +77,7 @@
 		}
 		
 		public static function delete ($tableName, $id) {
-			dbQry("
+			DB::qry("
 				DELETE FROM
 					$tableName
 				WHERE
