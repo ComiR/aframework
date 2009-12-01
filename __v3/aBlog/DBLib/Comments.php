@@ -1,24 +1,24 @@
 <?php
 	class Comments {
 		public static function getCommentsByArticleID ($id) {
-			$res = dbQry('
+			$res = DB::qry('
 				SELECT
-					' . Config::get('db.table_prefix') . 'comments.*, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
-					' . Config::get('db.table_prefix') . 'articles.url_str, 
-					' . Config::get('db.table_prefix') . 'articles.title AS article_title, 
-					MD5(' . Config::get('db.table_prefix') . 'comments.email) AS email_md5
+					comments.*, 
+					DATE_FORMAT(articles.pub_date, "%Y") AS year, 
+					DATE_FORMAT(articles.pub_date, "%m") AS month, 
+					DATE_FORMAT(articles.pub_date, "%d") AS day, 
+					articles.url_str, 
+					articles.title AS article_title, 
+					MD5(comments.email) AS email_md5
 				FROM
-					' . Config::get('db.table_prefix') . 'comments
+					comments
 				LEFT JOIN
-					' . Config::get('db.table_prefix') . 'articles USING(articles_id)
+					articles USING(articles_id)
 				WHERE
-					' . Config::get('db.table_prefix') . 'articles.articles_id = "' . esc($id) . '" AND
-					' . Config::get('db.table_prefix') . 'comments.karma > 0
+					articles.articles_id = "' . esc($id) . '" AND
+					comments.karma > 0
 				ORDER BY
-					' . Config::get('db.table_prefix') . 'comments.pub_date ASC
+					comments.pub_date ASC
 			');
 
 			if (mysql_num_rows($res)) {
@@ -36,24 +36,24 @@
 		}
 
 		public static function getCommentsByArticleURLStr ($urlStr) {
-			$res = dbQry('
+			$res = DB::qry('
 				SELECT
-					' . Config::get('db.table_prefix') . 'comments.*, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
+					comments.*, 
+					DATE_FORMAT(articles.pub_date, "%Y") AS year, 
+					DATE_FORMAT(articles.pub_date, "%m") AS month, 
+					DATE_FORMAT(articles.pub_date, "%d") AS day, 
 					articles.url_str, 
 					articles.title AS article_title, 
 					MD5(comments.email) AS email_md5
 				FROM
-					' . Config::get('db.table_prefix') . 'comments
+					comments
 				LEFT JOIN
-					' . Config::get('db.table_prefix') . 'articles USING(articles_id)
+					articles USING(articles_id)
 				WHERE
-					' . Config::get('db.table_prefix') . 'articles.url_str = "' . esc($urlStr) . '" AND
-					' . Config::get('db.table_prefix') . 'comments.karma > 0
+					articles.url_str = "' . esc($urlStr) . '" AND
+					comments.karma > 0
 				ORDER BY
-					' . Config::get('db.table_prefix') . 'comments.pub_date ASC
+					comments.pub_date ASC
 			');
 
 			if (mysql_num_rows($res)) {
@@ -71,23 +71,23 @@
 		}
 
 		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000) {
-			$res = dbQry('
+			$res = DB::qry('
 				SELECT
-					' . Config::get('db.table_prefix') . 'comments.*, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
+					comments.*, 
+					DATE_FORMAT(articles.pub_date, "%Y") AS year, 
+					DATE_FORMAT(articles.pub_date, "%m") AS month, 
+					DATE_FORMAT(articles.pub_date, "%d") AS day, 
 					articles.url_str, 
 					articles.title AS article_title, 
 					MD5(comments.email) AS email_md5
 				FROM
-					' . Config::get('db.table_prefix') . 'comments
+					comments
 				LEFT JOIN
-					' . Config::get('db.table_prefix') . 'articles USING(articles_id)
+					articles USING(articles_id)
 				WHERE
-					' . Config::get('db.table_prefix') . 'comments.karma > 0
+					comments.karma > 0
 				ORDER BY
-					' . Config::get('db.table_prefix') . 'comments.' . esc($sort) . ' ' . esc($order) . '
+					comments.' . esc($sort) . ' ' . esc($order) . '
 				LIMIT
 					' . esc($start) . ', ' . esc($limit)
 			);
@@ -121,7 +121,7 @@
 				'pub_date'			=> isset($row['pub_date']) ? $row['pub_date'] : date('Y-m-d H:i:s')
 			);
 
-			return DBRow::insert(Config::get('db.table_prefix') . 'comments', $fields);
+			return DBRow::insert('comments', $fields);
 		}
 
 		public static function update ($id, $row) {
@@ -142,11 +142,11 @@
 				}
 			}
 
-			return DBRow::update(Config::get('db.table_prefix') . 'comments', $id, $fields);
+			return DBRow::update('comments', $id, $fields);
 		}
 
 		public static function delete ($id) {
-			return DBRow::delete(Config::get('db.table_prefix') . 'comments', $id);
+			return DBRow::delete('comments', $id);
 		}
 	}
 ?>

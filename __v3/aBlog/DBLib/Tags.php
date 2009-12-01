@@ -2,13 +2,13 @@
 	class Tags {
 		public static function getTagsByArticlesID ($articlesID) {
 			if (is_numeric($articlesID)) {
-				$res = dbQry('
+				$res = DB::qry('
 					SELECT
-						' . Config::get('db.table_prefix') . 'tags.*
+						tags.*
 					FROM
-						' . Config::get('db.table_prefix') . 'article_tags
+						article_tags
 					LEFT JOIN
-						' . Config::get('db.table_prefix') . 'tags USING(tags_id)
+						tags USING(tags_id)
 					WHERE
 						articles_id = ' . $articlesID
 				);
@@ -29,18 +29,18 @@
 		}
 
 		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000) {
-			$res = dbQry('
+			$res = DB::qry('
 				SELECT
-					' . Config::get('db.table_prefix') . 'tags.*, 
+					tags.*, 
 					COUNT(articles_id) as num_articles
 				FROM
-					' . Config::get('db.table_prefix') . 'tags
+					tags
 				LEFT JOIN
-					' . Config::get('db.table_prefix') . 'article_tags USING(tags_id)
+					article_tags USING(tags_id)
 				GROUP BY
-					' . Config::get('db.table_prefix') . 'tags.tags_id
+					tags.tags_id
 				ORDER BY
-					' . Config::get('db.table_prefix') . 'tags.' . esc($sort) . ' ' . esc($order) . '
+					tags.' . esc($sort) . ' ' . esc($order) . '
 				LIMIT
 					' . esc($start) . ', ' . esc($limit)
 			);
@@ -67,7 +67,7 @@
 				'title' => $row['title']
 			);
 
-			return DBRow::insert(Config::get('db.table_prefix') . 'tags', $fields);
+			return DBRow::insert('tags', $fields);
 		}
 
 		public static function update ($id, $row) {
@@ -82,11 +82,11 @@
 				}
 			}
 
-			return DBRow::update(Config::get('db.table_prefix') . 'tags', $id, $fields);
+			return DBRow::update('tags', $id, $fields);
 		}
 
 		public static function delete ($id) {
-			return DBRow::delete(Config::get('db.table_prefix') . 'tags', $id);
+			return DBRow::delete('tags', $id);
 		}
 	}
 ?>

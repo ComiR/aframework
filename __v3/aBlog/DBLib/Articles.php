@@ -54,26 +54,26 @@
 				return false;
 			}
 
-			$res = dbQry('
+			$res = DB::qry('
 				SELECT
-					' . Config::get('db.table_prefix') . 'articles.*, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "' . $dateFormatA . '") AS compare_date, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "' . $dateFormatB . '") AS show_date,
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
+					articles.*, 
+					DATE_FORMAT(articles.pub_date, "' . $dateFormatA . '") AS compare_date, 
+					DATE_FORMAT(articles.pub_date, "' . $dateFormatB . '") AS show_date,
+					DATE_FORMAT(articles.pub_date, "%Y") AS year, 
+					DATE_FORMAT(articles.pub_date, "%m") AS month, 
+					DATE_FORMAT(articles.pub_date, "%d") AS day, 
 					COUNT(comments_id) as num_comments
 				FROM 
-					' . Config::get('db.table_prefix') . 'articles 
+					articles 
 				LEFT JOIN
-					' . Config::get('db.table_prefix') . 'comments USING(articles_id)
+					comments USING(articles_id)
 				GROUP BY
-					' . Config::get('db.table_prefix') . 'articles.articles_id
+					articles.articles_id
 				HAVING
-					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "' . $dateFormatA . '") = ' . $pubDate . '
+					articles.pub_date <= NOW() AND 
+					DATE_FORMAT(articles.pub_date, "' . $dateFormatA . '") = ' . $pubDate . '
 				ORDER BY 
-					' . Config::get('db.table_prefix') . 'articles.pub_date DESC
+					articles.pub_date DESC
 			');
 
 			if (mysql_num_rows($res)) {
@@ -91,29 +91,29 @@
 		}
 
 		public static function getArticlesByTagURLStr ($urlStr) {
-			$res = dbQry('
+			$res = DB::qry('
 				SELECT
-					' . Config::get('db.table_prefix') . 'articles.*, 
-					' . Config::get('db.table_prefix') . 'tags.url_str AS tags_url_str, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
+					articles.*, 
+					tags.url_str AS tags_url_str, 
+					DATE_FORMAT(articles.pub_date, "%Y") AS year, 
+					DATE_FORMAT(articles.pub_date, "%m") AS month, 
+					DATE_FORMAT(articles.pub_date, "%d") AS day, 
 					COUNT(comments_id) as num_comments
 				FROM
-					' . Config::get('db.table_prefix') . 'articles
+					articles
 				LEFT JOIN
-					' . Config::get('db.table_prefix') . 'article_tags USING(articles_id)
+					article_tags USING(articles_id)
 				LEFT JOIN
-					' . Config::get('db.table_prefix') . 'comments USING(articles_id)
+					comments USING(articles_id)
 				LEFT JOIN
-					' . Config::get('db.table_prefix') . 'tags USING(tags_id)
+					tags USING(tags_id)
 				WHERE
-					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND 
-					' . Config::get('db.table_prefix') . 'tags.url_str = "' . esc($urlStr) . '"
+					articles.pub_date <= NOW() AND 
+					tags.url_str = "' . esc($urlStr) . '"
 				GROUP BY
-					' . Config::get('db.table_prefix') . 'articles.articles_id
+					articles.articles_id
 				ORDER BY
-					' . Config::get('db.table_prefix') . 'articles.pub_date DESC
+					articles.pub_date DESC
 			');
 
 			if (mysql_num_rows($res)) {
@@ -131,22 +131,22 @@
 		}
 
 		public static function getArticleByURLStr ($urlStr) {
-			$res = dbQry('
+			$res = DB::qry('
 				SELECT
-					' . Config::get('db.table_prefix') . 'articles.*, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
+					articles.*, 
+					DATE_FORMAT(articles.pub_date, "%Y") AS year, 
+					DATE_FORMAT(articles.pub_date, "%m") AS month, 
+					DATE_FORMAT(articles.pub_date, "%d") AS day, 
 					COUNT(comments_id) as num_comments
 				FROM
-					' . Config::get('db.table_prefix') . 'articles
+					articles
 				LEFT JOIN
-					' . Config::get('db.table_prefix') . 'comments USING(articles_id)
+					comments USING(articles_id)
 				GROUP BY
-					' . Config::get('db.table_prefix') . 'articles.articles_id
+					articles.articles_id
 				HAVING
-					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND 
-					' . Config::get('db.table_prefix') . 'articles.url_str = "' . esc($urlStr) . '"
+					articles.pub_date <= NOW() AND 
+					articles.url_str = "' . esc($urlStr) . '"
 				LIMIT 1
 			');
 
@@ -179,24 +179,24 @@
 		}
 
 		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000, $where = '1 = 1') {
-			$res = dbQry('
+			$res = DB::qry('
 				SELECT
-					' . Config::get('db.table_prefix') . 'articles.*, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%Y") AS year, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%m") AS month, 
-					DATE_FORMAT(' . Config::get('db.table_prefix') . 'articles.pub_date, "%d") AS day, 
+					articles.*, 
+					DATE_FORMAT(articles.pub_date, "%Y") AS year, 
+					DATE_FORMAT(articles.pub_date, "%m") AS month, 
+					DATE_FORMAT(articles.pub_date, "%d") AS day, 
 					COUNT(comments_id) as num_comments
 				FROM
-					' . Config::get('db.table_prefix') . 'articles
+					articles
 				LEFT JOIN
-					' . Config::get('db.table_prefix') . 'comments USING(articles_id)
+					comments USING(articles_id)
 				GROUP BY
-					' . Config::get('db.table_prefix') . 'articles.articles_id
+					articles.articles_id
 				HAVING
-					' . Config::get('db.table_prefix') . 'articles.pub_date <= NOW() AND 
+					articles.pub_date <= NOW() AND 
 					' . $where . '
 				ORDER BY
-					' . Config::get('db.table_prefix') . 'articles.' . esc($sort) . ' ' . esc($order) . '
+					articles.' . esc($sort) . ' ' . esc($order) . '
 				LIMIT
 					' . esc($start) . ', ' . esc($limit)
 			);
@@ -231,7 +231,7 @@
 				'num_hits'			=> 0
 			);
 
-			return DBRow::insert(Config::get('db.table_prefix') . 'articles', $fields);
+			return DBRow::insert('articles', $fields);
 		}
 
 		public static function update ($id, $row) {
@@ -255,11 +255,11 @@
 				}
 			}
 
-			return DBRow::update(Config::get('db.table_prefix') . 'articles', $id, $fields);
+			return DBRow::update('articles', $id, $fields);
 		}
 
 		public static function delete ($id) {
-			return DBRow::delete(Config::get('db.table_prefix') . 'articles', $id);
+			return DBRow::delete('articles', $id);
 		}
 	}
 ?>
