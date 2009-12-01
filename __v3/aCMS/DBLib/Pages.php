@@ -1,11 +1,11 @@
 <?php
 	class Pages {
 		public static function getPageByURLStr ($urlStr) {
-			$res = dbQry('
+			$res = DB::qry('
 				SELECT
 					*
 				FROM
-					' . Config::get('db.table_prefix') . 'pages
+					pages
 				WHERE
 					url_str = "' . esc($urlStr) . '"
 				LIMIT 1
@@ -20,11 +20,11 @@
 		}
 
 		public static function getPagesInNavigation () {
-			$res = dbQry('
+			$res = DB::qry('
 				SELECT
 					*
 				FROM
-					' . Config::get('db.table_prefix') . 'pages
+					pages
 				WHERE
 					in_navigation = 1
 				ORDER BY
@@ -46,7 +46,7 @@
 		}
 
 		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000) {
-			return DBRow::get(Config::get('db.table_prefix') . 'pages', $sort, $order, $start, $limit);
+			return DBRow::get('pages', $sort, $order, $start, $limit);
 		}
 
 		public static function insert ($row) {
@@ -61,7 +61,7 @@
 				'content'			=> $row['content']
 			);
 
-			return DBRow::insert(Config::get('db.table_prefix') . 'pages', $fields);
+			return DBRow::insert('pages', $fields);
 		}
 
 		public static function update ($id, $row) {
@@ -83,11 +83,11 @@
 				}
 			}
 
-			return DBRow::update(Config::get('db.table_prefix') . 'pages', $id, $fields);
+			return DBRow::update('pages', $id, $fields);
 		}
 
 		public static function delete ($id) {
-			return DBRow::delete(Config::get('db.table_prefix') . 'pages', $id);
+			return DBRow::delete('pages', $id);
 		}
 	}
 ?>
