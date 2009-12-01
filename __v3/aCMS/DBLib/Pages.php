@@ -7,7 +7,7 @@
 				FROM
 					pages
 				WHERE
-					url_str = "' . esc($urlStr) . '"
+					url_str LIKE BINARY "' . esc($urlStr) . '"
 				LIMIT 1
 			');
 

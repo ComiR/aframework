@@ -109,7 +109,7 @@
 					tags USING(tags_id)
 				WHERE
 					articles.pub_date <= NOW() AND 
-					tags.url_str = "' . esc($urlStr) . '"
+					tags.url_str LIKE BINARY "' . esc($urlStr) . '"
 				GROUP BY
 					articles.articles_id
 				ORDER BY
@@ -146,7 +146,7 @@
 					articles.articles_id
 				HAVING
 					articles.pub_date <= NOW() AND 
-					articles.url_str = "' . esc($urlStr) . '"
+					articles.url_str LIKE BINARY "' . esc($urlStr) . '"
 				LIMIT 1
 			');
 
