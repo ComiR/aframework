@@ -1,6 +1,10 @@
 <?php
 	Class Lang {
 		private static $lang = false;
+		private static $lc2cc = array(
+			'sv' => 'se', 
+			'en' => 'gb'
+		);
 		private static $lcs = array(
 			'aa' => 'Afar',
 			'ab' => 'Abkhazian',
@@ -235,6 +239,10 @@
 
 		public static function lcToName ($lc) {
 			return isset(self::$lcs[$lc]) ? self::$lcs[$lc] : $lc;
+		}
+
+		public static function lc2cc ($lc) {
+			return isset(self::$lc2cc[$lc]) ? self::$lc2cc[$lc] : $lc;
 		}
 	}
 ?>
