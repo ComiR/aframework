@@ -25,7 +25,7 @@
 					<dt>Run time</dt>
 					<dd><?php echo round(Timer::stop(), 2); ?> sec(s)</dd>
 					<dt>Number of queries</dt>
-					<dd><?php $qryInfo = dbQry(false, true); echo $qryInfo['num_queries']; ?></dd>
+					<dd><?php echo DB::getNumQueries(); ?></dd>
 				</dl>
 			</li>
 			<li>

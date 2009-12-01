@@ -6,7 +6,6 @@ body.controller-admin div.aframework-module {
 	padding: 5px 10px !important;
 
 	border: 1px solid rgba(220, 240, 255, .2) !important;
-
 	-moz-border-radius: 10px !important;
 }
 
@@ -19,25 +18,28 @@ body.controller-admin div.aframework-module:hover {
 }
 
 	body.controller-admin div.aframework-module div.aframework-module-header {
-		background: rgba(50, 100, 150, .2);
+		background: rgba(50, 100, 150, .2) !important;
 
-		position: relative;
-		margin: -5px -10px 5px;
-		padding: 5px 10px;
+		position: relative !important;
+		margin: -5px -10px 5px !important;
+		padding: 5px 10px !important;
 
-		color: #fff;
-		cursor: move;
+		color: #fff !important;
+		cursor: move !important;
+		text-transform: none !important;
+		font: 12px/1.2 Arial, sans-serif;
 
-		border-bottom: 1px solid rgba(220, 240, 255, .2);
-		-moz-border-radius: 10px 10px 0 0;
+		border-bottom: 1px solid rgba(220, 240, 255, .2) !important;
+		-moz-border-radius: 10px 10px 0 0 !important;
 	}
 
 	body.controller-admin div.aframework-module:hover div.aframework-module-header {
-		background: rgba(50, 100, 150, .8);
-		border-color: rgba(220, 240, 255, .8);
+		background: rgba(50, 100, 150, .8) !important;
+		border-color: rgba(220, 240, 255, .8) !important;
 	}
 
 		body.controller-admin div.aframework-module div.aframework-module-header a {
-			position: absolute;
-			right: 10px;
+			position: absolute !important;
+			right: 10px !important;
+			color: #fff !important;
 		}
