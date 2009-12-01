@@ -14,7 +14,7 @@
 		 * Runs either a single module or a controller of modules
 		 **/
 		public static function run () {
-			if (isset($_GET['module'])) {
+			if ((!isset($_SERVER['PATH_INFO']) and isset($_GET['module'])) or (isset($_SERVER['PATH_INFO']) and $_SERVER['PATH_INFO'] == '/' . CURRENT_LANG . '/' and isset($_GET['module']))) {
 				if (XHR) {
 					echo HTMLPacker::pack(self::runSingleModule(basename($_GET['module'])));
 				}
@@ -226,19 +226,19 @@
 
 				if (file_exists($modPath)) {
 					$start		= microtime(true);
-					$numQBefore	= dbQry(false, true);
+					$numQBefore	= DB::getNumQueries();
 
 					call_user_func($modName . '::run'); # $modName::run();
 
 					$stop		= microtime(true);
-					$numQAfter	= dbQry(false, true);
+					$numQAfter	= DB::getNumQueries();
 
 					self::$debugInfo['modules'][$module]['classes'][] = array(
 						'path'			=> $modPath, 
 						'site'			=> $site, 
 						'class_name'	=> $modName, 
 						'run_time'		=> $stop - $start, 
-						'num_queries'	=> $numQAfter['num_queries'] - $numQBefore['num_queries']
+						'num_queries'	=> $numQAfter - $numQBefore
 					#	'tpl_vars'		=> $modName::$tplVars
 					);
 
