@@ -12,6 +12,16 @@
 		</a>
 	</li>
 	<li>
+		<a href="http://www.hafnarfjordur.is">
+			<img src="<?php echo Router::urlForFile('logos/hafnarfjordur.jpg'); ?>" alt="Hafnarfjarðarbær"/>
+		</a>
+	</li>
+	<li>
+		<a href="http://www.akureyri.is">
+			<img src="<?php echo Router::urlForFile('logos/akureyri.jpg'); ?>" alt="Akureyri"/>
+		</a>
+	</li>
+	<li>
 		<a href="http://www.hornafjordur.is">
 			<img src="<?php echo Router::urlForFile('logos/hornafjordur.gif'); ?>" alt="Hornafjordur"/>
 		</a>
@@ -24,16 +34,6 @@
 	<li>
 		<a href="http://www.fkf.fo">
 			<img src="<?php echo Router::urlForFile('logos/faroe.jpg'); ?>" alt="The Faroe association of municipalitys"/>
-		</a>
-	</li>
-	<li>
-		<a href="http://www.hafnarfjordur.is">
-			<img src="<?php echo Router::urlForFile('logos/hafnarfjordur.jpg'); ?>" alt="Hafnarfjarðarbær"/>
-		</a>
-	</li>
-	<li>
-		<a href="http://www.akureyri.is">
-			<img src="<?php echo Router::urlForFile('logos/akureyri.jpg'); ?>" alt="Akureyri"/>
 		</a>
 	</li>
 	<li>
