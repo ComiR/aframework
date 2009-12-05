@@ -23,6 +23,23 @@
 			}
 
 			define('CURRENT_LANG', $currentLang);
+
+			# Buggy with lang-free requests (like CodeCompressor...)
+		/*	$preferredLang = isset($_COOKIE['preferred_lang']) ? $_COOKIE['preferred_lang'] : CURRENT_LANG;
+
+			# Check if user has a preferred lang and that he's not trying to change it
+			if ($preferredLang != CURRENT_LANG and !isset($_GET['set_lang'])) {
+				if ($preferredLang == Config::get('general.default_lang')) {
+					redirect(WEBROOT);
+				}
+				else {
+					redirect(WEBROOT . "/$preferredLang/");
+				}
+			}
+			# See if user is changing lang
+			elseif (isset($_GET['set_lang'])) {
+				setcookie('preferred_lang', CURRENT_LANG, time() + 31536000, WEBROOT);
+			}	*/
 		}
 	}
 ?>
