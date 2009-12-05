@@ -1,9 +1,19 @@
 #footer = $small;
 #footer {
-	background: #210;
-	color: #850;
+	background: url(gfx/dirt.png) repeat-x;
 	overflow: hidden;
-	padding: 10px 0 10px;
+	margin: -10px 0 0;
+	padding: 15px 0 10px;
+}
+
+#footer, 
+#footer a {
+	color: #b09c75;
+}
+
+#footer:hover, 
+#footer:hover a {
+	color: #fec;
 }
 
 	#footer p {
@@ -15,8 +25,4 @@
 	#footer ul {
 		margin: 0;
 		float: right;
-	}
-
-	#footer a {
-		color: #850;
 	}

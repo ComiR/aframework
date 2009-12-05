@@ -25,7 +25,7 @@
 				</a>
 			</td>
 			<td>
-				<?php echo htmlentities($document['ext']); ?>
+				<?php echo htmlentities(strtoupper($document['ext'])); ?>
 			</td>
 			<td>
 				<?php echo round($document['size']/1024/1024, 2); ?> mb

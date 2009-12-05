@@ -54,34 +54,48 @@
 			color: #fdfeff;
 		}
 
-#project-tabs = $self-clear;
-#project-tabs {
-	margin: 0;
-	list-style: none;
-	border-bottom: 1px solid #def;
+#project-page-page #primary-content {
+	position: relative;
 }
 
+#project-tabs {
+	background: url(gfx/tab-border.png) no-repeat right top;
+
+	width: 99px;
+	min-height: 250px;
+	margin: 0;
+	padding: 50px 1px 0 0;
+
+	position: absolute;
+	left: -125px;
+	top: 50px;
+
+	list-style: none;
+}
+
+	#project-tabs li = $self-clear;
 	#project-tabs li {
-		float: left;
-		margin: 0 10px 0 0;
+		margin: 0 0 10px 0;
 	}
 
 		#project-tabs li a = $small;
 		#project-tabs li a {
-			background: #fdfeff;
+			background: #9ce;
 
 			display: block;
 			padding: 5px 10px;
+			float: right;
 
 			text-transform: uppercase;
 			text-decoration: none;
+			text-align: right;
 			outline: 0;
 
-			border: 1px solid #def;
-			border-width: 1px 1px 0;
-			-moz-border-radius: 5px 5px 0 0;
-			-webkit-border-radius: 5px 5px 0 0;
-			border-radius: 5px 5px 0 0;
+			border: 1px solid #1795d0;
+			border-width: 1px 0 1px 1px;
+			-moz-border-radius: 5px 0 0 5px;
+			-webkit-border-radius: 5px 0 0 5px;
+			border-radius: 5px 0 0 5px;
 		}
 
 		#project-tabs li a:hover, 

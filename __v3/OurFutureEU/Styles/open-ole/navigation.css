@@ -1,5 +1,5 @@
 #navigation {
-	border-top: 1px solid #369;
+	border-top: 1px solid #8DABC9;
 	border-bottom: 1px solid #fdfeff;
 	margin: 15px 0;
 }
@@ -8,7 +8,7 @@
 	#navigation ul {
 		margin: 0;
 		border-top: 1px solid #fdfeff;
-		border-bottom: 1px solid #369;
+		border-bottom: 1px solid #8DABC9;
 	}
 
 		#navigation ul li {
