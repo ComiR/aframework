@@ -30,7 +30,10 @@
 			else {
 				self::$tplVars['page'] = $page;
 
-				aFramework_BaseModule::$tplVars['html_title']		= $page['title'];
+				if (Router::$params['controller'] != 'Home') {
+					aFramework_BaseModule::$tplVars['html_title']	= $page['title'];
+				}
+
 				aFramework_BaseModule::$tplVars['meta_description']	= $page['meta_description'];
 				aFramework_BaseModule::$tplVars['meta_keywords']	= $page['meta_keywords'];
 
