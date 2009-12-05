@@ -10,7 +10,7 @@ aFramework.modules.RecentComments = {
 
 			clicked.text(Lang.get('Loading') + '...');
 
-			jQuery.get(clicked.attr('href') + '&module=RecentComments', function (data) {
+			jQuery.get(WEBROOT + '?module=RecentComments&' + clicked.attr('href').substr(1), function (data) {
 				if (data == '') {
 					clicked.parent().html(oldText);
 				}
