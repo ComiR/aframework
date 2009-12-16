@@ -4,8 +4,41 @@
 	 *
 	 * Random handy functions
 	 **/
+	# Escapes the 5 characters used by HTML
+	function escHTML ($str) {
+		return str_replace(
+					array(
+						'&amp;', 
+						'&', 
+						'<', 
+						'>', 
+						'"'
+					), 
+					array(
+						'&', 
+						'&amp;', 
+						'&lt;', 
+						'&gt;', 
+						'&quot;'
+					), 
+					$str
+				);
+	}
+
 	# Prefixes table-names in an SQL-query
 	function prefixDBTableNames ($qry, $prefix, $tables = true) {
+		# Prefix certain tables
+		if (is_array($tables)) {
+			$qry = preg_replace('/([^_])(' . implode('|', $tables) . ')([^_])/', '$1' . $prefix . '$2$3', $qry);
+		#	foreach ($tables as $table) {
+		#		$qry = preg_replace('/([^_])(' . $table . ')([^_])/', '$1' . $prefix . '$2$3', $qry);
+		#	}
+		}
+		# Prefix ALL tables... TODO
+		else {
+			
+		}
+
 		return $qry;
 	}
 
@@ -99,7 +132,7 @@
 
 	# "Debug" variables
 	function debug ($foo) {
-		header('Content-type: text/plain');
+		header('Content-type: text/plain; charset=utf-8');
 
 		if (is_array($foo)) {
 			echo '# ' . count($foo) . " elements #\n";
