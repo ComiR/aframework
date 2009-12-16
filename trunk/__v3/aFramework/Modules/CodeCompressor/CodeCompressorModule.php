@@ -17,7 +17,7 @@
 			$styleData	= Styles::getByName($style);
 			$code		= '';
 
-			header('Content-type: ' . self::$mimeTypes[self::$type]);
+			header('Content-type: ' . self::$mimeTypes[self::$type] . '; charset=utf-8');
 
 			if (isset($styleData['extends'])) {
 				$extends = explode(',', $styleData['extends']);
@@ -31,14 +31,14 @@
 		}
 
 		private static function getStyleCode ($style) {
-			$cacheTime		= ADMIN ? 0 : 0; # 3600
+			$cacheTime		= ADMIN ? 0 : 3600;
 			$cachePath		= DOCROOT . 'aFramework/Cache/' . CURRENT_SITE . '_' . $style . '.' . self::$type;
 			$cacheExists	= file_exists($cachePath);
 			$cacheModified	= $cacheExists ? filemtime($cachePath) : 0;
 
 			# If the requested style exists in the current site's Style-dir
 			# it's considered a valid style.
-			if (/* self::$type == 'css' and */!is_dir(CURRENT_SITE_DIR . 'Styles/' . $style . '/')) {
+			if (!is_dir(CURRENT_SITE_DIR . 'Styles/' . $style . '/')) {
 				return false;
 			}
 
@@ -61,9 +61,9 @@
 
 			# JS gets packed
 			if (self::$type == 'js') {
-				$code .= self::getJSLangCode();
-			#	$jsPacker = new JavaScriptPacker($code, 0);
-			#	$code = $jsPacker->pack();
+				$code .= Lang::getJSLangCode();
+				$jsPacker = new JavaScriptPacker($code, 0);
+				$code = $jsPacker->pack();
 			}
 			# CSS gets constant-treatment
 			elseif (self::$type == 'css') {
@@ -83,8 +83,8 @@
 		 * Gets the last modified file
 		 */
 		private static function getLastModifiedFile ($style) {
-			$sites				= explode(' ', SITE_HIERARCHY);
-			$dirs				= array();
+			$sites	= explode(' ', SITE_HIERARCHY);
+			$dirs	= array();
 
 			# Create array of directories to look for files in
 			# Every sites every module and style can contain files
@@ -115,7 +115,7 @@
 					while ($f = readdir($dh)) {
 						# Check if the file extention is what is being asked for (css/js)
 						if (self::$type == end(explode('.', $f))) {
-							$tmpFlm = filemtime($dir .$f);
+							$tmpFlm = filemtime($dir . $f);
 
 							if ($tmpFlm > $flm) {
 								$flm = $tmpFlm;
@@ -142,6 +142,7 @@
 			foreach ($sites as $site) {
 				# Style dir
 				$path = DOCROOT . $site . '/Styles/' . $style . '/';
+
 				if (is_dir($path)) {
 					$code = self::getCodeInDirs(array($path), $site, $style) . $code;
 				}
@@ -167,7 +168,7 @@
 		}
 
 		/**
-		 * getCodeInDir
+		 * getCodeInDirs
 		 *
 		 * Gets all code in a particular directory. Sorts on filename
 		 */
@@ -175,7 +176,8 @@
 			$code	= '';
 			$files	= array();
 
-			# Go through all the dirs and store the files of the requested type that are not prefixed with '__'
+			# Go through all the dirs and store the files of
+			# the requested type that are not prefixed with '__'
 			foreach ($dirs as $dir) {
 				$dh = opendir($dir);
 
@@ -188,15 +190,17 @@
 				}
 			}
 
-			# Sort them (that's why we keep the path in the 'key' and the lower-case path in the 'value')
+			# Sort them (that's why we keep the path in 
+			# the 'key' and the lower-case path in the 'value')
 			asort($files);
 
 			# Now go through all the files and get the code
 			foreach ($files as $path => $name) {
 				$contents = file_get_contents($path);
 
-				# Authors can reference gfx/ from their CSS which will point to the current style's gfx-dir _or_
-				# if the file is located in a module-directory we point it to the module's gfx-dir
+				# Authors can reference gfx/ from their CSS which will point to
+				# the current style's gfx-dir _or_ if the file is located in a 
+				# module-directory we point it to the module's gfx-dir
 				if (preg_match('/Modules\/(.*?)\//', $path, $matches)) {
 					$contents = str_replace('url(gfx/', 'url(' . WEBROOT . $site . '/Modules/' . $matches[1] . '/gfx/', $contents);
 				}
@@ -204,25 +208,14 @@
 					$contents = str_replace('url(gfx/', 'url(' . WEBROOT . $site . '/Styles/' . $style . '/gfx/', $contents);
 				}
 
-				# Authors can reference common_gfx/ from their CSS which we now point to the absolute path of the Base/gfx-dir
+				# Authors can reference common_gfx/ from their CSS which we now point to 
+				# the absolute path of the Base/gfx-dir
 				$contents = str_replace('url(common_gfx/', 'url(' . WEBROOT . 'aFramework/Modules/Base/gfx/', $contents);
 
 				$code .= $contents . "\n";
 			}
 
 			return $code;
-		}
-
-		# TODO: Should have ALL langs
-		private static function getJSLangCode () {
-			$langs	= Lang::getLang();
-			$code	= 'Lang.lang = {';
-
-			foreach ($langs[CURRENT_LANG] as $k => $v) {
-				$code .= "'$k': '$v', \n";
-			}
-
-			return substr($code, 0, -3) . "\n\n};"; 
 		}
 	}
 ?>
