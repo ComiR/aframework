@@ -1,0 +1,243 @@
+/*
+	=== Different layouts ===
+*/
+/* vertical-toolbar, vertical-form (default) */
+div.jquery-pixastic-editor img, 
+div.jquery-pixastic-editor canvas, 
+div.jquery-pixastic-editor div.jquery-pixastic-editor-drag-to-select, 
+ul.jquery-pixastic-editor-toolbar, 
+form.jquery-pixastic-editor-form {
+	float: left;
+	margin: 0 10px 0 0;
+}
+
+ul.jquery-pixastic-editor-toolbar {
+	margin: 0 5px 0 0;
+}
+
+/* vertical-toolbar, horizontal-form */
+div.jquery-pixastic-editor.horizontal-form:not(.horizontal-toolbar) img, 
+div.jquery-pixastic-editor.horizontal-form:not(.horizontal-toolbar) canvas, 
+div.jquery-pixastic-editor.horizontal-form:not(.horizontal-toolbar) div.jquery-pixastic-editor-drag-to-select, 
+div.jquery-pixastic-editor.horizontal-form:not(.horizontal-toolbar) ul.jquery-pixastic-editor-toolbar {
+	float: left;
+	margin: 0 10px 10px 0;
+}
+
+div.jquery-pixastic-editor.horizontal-form:not(.horizontal-toolbar) ul.jquery-pixastic-editor-toolbar {
+	margin: 0 5px 0 0;
+}
+
+div.jquery-pixastic-editor.horizontal-form:not(.horizontal-toolbar) form.jquery-pixastic-editor-form {
+	clear: left;
+}
+
+/* horizontal-toolbar horizontal-form */
+div.jquery-pixastic-editor.horizontal-form.horizontal-toolbar img, 
+div.jquery-pixastic-editor.horizontal-form.horizontal-toolbar canvas, 
+div.jquery-pixastic-editor.horizontal-form.horizontal-toolbar div.jquery-pixastic-editor-drag-to-select, 
+div.jquery-pixastic-editor.horizontal-form.horizontal-toolbar ul.jquery-pixastic-editor-toolbar, 
+div.jquery-pixastic-editor.horizontal-form.horizontal-toolbar form.jquery-pixastic-editor-form {
+	float: none;
+	margin: 0 0 10px;
+}
+
+div.jquery-pixastic-editor.horizontal-form.horizontal-toolbar ul.jquery-pixastic-editor-toolbar {
+	margin: 0 0 5px;
+}
+
+/* horizontal-toolbar, vertical-form (looks shit, don't use) */
+div.jquery-pixastic-editor.horizontal-toolbar:not(.horizontal-form) img, 
+div.jquery-pixastic-editor.horizontal-toolbar:not(.horizontal-form) canvas, 
+div.jquery-pixastic-editor.horizontal-toolbar:not(.horizontal-form) div.jquery-pixastic-editor-drag-to-select,
+div.jquery-pixastic-editor.horizontal-toolbar:not(.horizontal-form) ul.jquery-pixastic-editor-toolbar, 
+div.jquery-pixastic-editor.horizontal-toolbar:not(.horizontal-form) form.jquery-pixastic-editor-form {
+	float: none;
+	margin: 0 0 10px;
+}
+
+/* Default toolbar style */
+ul.jquery-pixastic-editor-toolbar {
+	width: 60px;
+}
+
+/* Default form style */
+form.jquery-pixastic-editor-form {
+	width: 250px;
+}
+
+/* Horizontal toolbar style */
+div.jquery-pixastic-editor.horizontal-toolbar ul.jquery-pixastic-editor-toolbar {
+	width: auto;
+}
+
+/* Horizontal form style */
+div.jquery-pixastic-editor.horizontal-form form.jquery-pixastic-editor-form {
+	overflow: hidden; /* self-clear */
+	width: auto;
+}
+
+	div.jquery-pixastic-editor.horizontal-form form.jquery-pixastic-editor-form canvas {
+		float: left;
+		margin-right: 10px;
+	}
+
+	div.jquery-pixastic-editor.horizontal-form form.jquery-pixastic-editor-form p {
+		float: left;
+		width: 160px;
+		padding-right: 10px;
+	}
+
+/*
+	=== The parent-element of the image the editor is attached to ===
+*/
+div.jquery-pixastic-editor {
+	overflow: hidden; /* Self-clear */
+}
+
+	/* Drag to select container */
+	div.jquery-pixastic-editor-drag-to-select {
+		overflow: hidden;
+		position: relative;
+	}
+
+		/* Hack to allow clicking canvas but don't use 
+		div.jquery-pixastic-editor div.jquery-drag-to-select {
+			margin-left: -5px;
+			margin-top: -5px;
+		}*/
+
+		/* So box doesn't disappear onmouseup */
+		div.jquery-pixastic-editor div.jquery-drag-to-select.fake-active {
+			display: block;
+		}
+
+	/*
+		=== The actual image being edited ===
+	*/
+	div.jquery-pixastic-editor img {
+		
+	}
+
+	div.jquery-pixastic-editor canvas {
+		cursor: pointer;
+	}
+
+		div.jquery-pixastic-editor div.jquery-pixastic-editor-drag-to-select img, 
+		div.jquery-pixastic-editor div.jquery-pixastic-editor-drag-to-select canvas {
+			float: none !important;
+			margin: 0 !important;
+		}
+
+	/* If user has fullPreview */
+	canvas.jquery-pixastic-editor-preview {
+		position: absolute;
+		z-index: 100;
+	}
+
+	/*
+		=== The list of actions ===
+	*/
+	ul.jquery-pixastic-editor-toolbar {
+		margin-left: 0;
+		padding-left: 0;
+		list-style: none;
+		overflow: hidden; /* Self-clear */
+	}
+
+		ul.jquery-pixastic-editor-toolbar li {
+			float: left;
+			margin: 0 5px 5px 0;
+		}
+
+			ul.jquery-pixastic-editor-toolbar li a {
+				background: url(jquery.pixasticEditor.gif);
+
+				display: block;
+				width: 25px;
+				height: 25px;
+
+				text-indent: -10000px;
+				text-decoration: none;
+				outline: 0;
+			}
+
+			ul.jquery-pixastic-editor-toolbar li a:hover {
+				opacity: .7;
+			}
+
+			ul.jquery-pixastic-editor-toolbar li a.loading {
+				opacity: .2;
+			}
+
+			/* Different icons */
+			ul.jquery-pixastic-editor-toolbar li a.blend {background-position: left top;}
+			ul.jquery-pixastic-editor-toolbar li a.blur {background-position: left -25px;}
+			ul.jquery-pixastic-editor-toolbar li a.blurfast {background-position: left -50px;}
+			ul.jquery-pixastic-editor-toolbar li a.brightness {background-position: left -75px;}
+			ul.jquery-pixastic-editor-toolbar li a.coloradjust {background-position: left -100px;}
+			ul.jquery-pixastic-editor-toolbar li a.colorhistogram {background-position: left -125px;}
+			ul.jquery-pixastic-editor-toolbar li a.crop {background-position: left -150px;}
+			ul.jquery-pixastic-editor-toolbar li a.desaturate {background-position: left -175px;}
+			ul.jquery-pixastic-editor-toolbar li a.edges {background-position: left -200px;}
+			ul.jquery-pixastic-editor-toolbar li a.edges2 {background-position: left -225px;}
+			ul.jquery-pixastic-editor-toolbar li a.emboss {background-position: left -250px;}
+			ul.jquery-pixastic-editor-toolbar li a.fliph {background-position: left -275px;}
+			ul.jquery-pixastic-editor-toolbar li a.flipv {background-position: left -300px;}
+			ul.jquery-pixastic-editor-toolbar li a.glow {background-position: left -325px;}
+			ul.jquery-pixastic-editor-toolbar li a.histogram {background-position: left -350px;}
+			ul.jquery-pixastic-editor-toolbar li a.hsl {background-position: left -375px;}
+			ul.jquery-pixastic-editor-toolbar li a.invert {background-position: left -400px;}
+			ul.jquery-pixastic-editor-toolbar li a.laplace {background-position: left -425px;}
+			ul.jquery-pixastic-editor-toolbar li a.lighten {background-position: left -450px;}
+			ul.jquery-pixastic-editor-toolbar li a.mosaic {background-position: left -475px;}
+			ul.jquery-pixastic-editor-toolbar li a.noise {background-position: left -500px;}
+			ul.jquery-pixastic-editor-toolbar li a.posterize {background-position: left -525px;}
+			ul.jquery-pixastic-editor-toolbar li a.pointillize {background-position: left -550px;}
+			ul.jquery-pixastic-editor-toolbar li a.removenoise {background-position: left -575px;}
+			ul.jquery-pixastic-editor-toolbar li a.sepia {background-position: left -600px;}
+			ul.jquery-pixastic-editor-toolbar li a.sharpen {background-position: left -625px;}
+			ul.jquery-pixastic-editor-toolbar li a.unsharpmask {background-position: left -650px;}
+
+	/*
+		=== The options form ===
+	*/
+	form.jquery-pixastic-editor-form {
+		position: relative;
+	}
+
+		form.jquery-pixastic-editor-form canvas {
+			border: 1px solid #666;
+			float: none;
+			margin: 0 0 10px;
+			cursor: default;
+		}
+
+		form.jquery-pixastic-editor-form fieldset {
+			margin: 0;
+			padding: 10px 0 0;
+			border: 0;
+		}
+
+			form.jquery-pixastic-editor-form fieldset legend {
+				margin: 0;
+				padding: 0;
+				font-weight: bold;
+			}
+
+			form.jquery-pixastic-editor-form fieldset div.jquery-pixastic-editor-slider {
+				margin: 5px 0 0;
+			}
+
+			form.jquery-pixastic-editor-form fieldset p {
+				position: relative;
+			}
+
+				form.jquery-pixastic-editor-form fieldset p input[type=text] {
+					width: 100px;
+				}
+
+				form.jquery-pixastic-editor-form fieldset p input.reset {
+					position: absolute;
+					right: 0;
+				}
