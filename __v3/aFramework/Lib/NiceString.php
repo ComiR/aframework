@@ -175,7 +175,23 @@
 		}
 
 		private static function stripHTML ($str) {
-			return htmlentities($str);
+			return str_replace(
+				array(
+					'&amp;', 
+					'&', 
+					'<', 
+					'>', 
+					'"'
+				), 
+				array(
+					'&', 
+					'&amp;', 
+					'&lt;', 
+					'&gt;', 
+					'&quot;'
+				), 
+				$str
+			);
 		}
 
 		private static function reverseMarkdownBlockquotes ($str) {
