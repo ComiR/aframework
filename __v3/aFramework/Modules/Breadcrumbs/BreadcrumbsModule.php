@@ -19,7 +19,7 @@
 			$prevUrl	= '';
 
 			foreach ($dirs as $dir) {
-				if (0 < strlen($dir) and 'index.php' != $dir and '?' != substr($dir, 0, 1)) {
+				if (strlen($dir) > 0 and $dir != 'index.php' and substr($dir, 0, 1) != '?') {
 					$validDirs[] = $dir;
 				}
 			}
@@ -28,7 +28,8 @@
 			$numDirs	= count($dirs);
 
 			foreach ($dirs as $dir) {
-				$url		= str_replace('//', '/', ($i == $numDirs ? false : (USE_MOD_REWRITE ? WEBROOT : WEBROOT . 'index.php/') . "$prevUrl/$dir/"));
+				$langPrefix	= (CURRENT_LANG == Config::get('general.default_lang')) ? '' : CURRENT_LANG . '/';
+				$url		= ($i == $numDirs ? false : str_replace('//', '/', (USE_MOD_REWRITE ? WEBROOT : WEBROOT . 'index.php/') . "$langPrefix{$prevUrl}/$dir/"));
 				$cols[$i++]	= array('title' => ucwords(str_replace('-', ' ', $dir)), 'url' => $url);
 				$prevUrl	= "$prevUrl/$dir";
 			}
