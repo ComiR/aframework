@@ -6,7 +6,7 @@
 					<?php if ($sort == $property['name']) { ?>
 						<img src="<?php echo Router::urlForFile('arrow-' . strtolower($order) . '.gif', 'aDynAdmin'); ?>" alt="Ordering by <?php echo $property['name'] . ' ' . strtolower($order) . 'ending.'; ?>"/>&nbsp;
 					<?php } ?>
-					<?php echo htmlentities($property['title']); ?>
+					<?php echo escHTML($property['title']); ?>
 				</a>
 			</th>
 		<?php } ?>
@@ -22,7 +22,7 @@
 			<?php foreach ($row['properties'] as $property) { ?>
 				<td>
 					<?php # todo: should be editable (?) ?>
-					<?php echo htmlentities(substr($property, 0, 50)); ?>
+					<?php echo escHTML(substr($property, 0, 50)); ?>
 				</td>
 			<?php } ?>
 			<td>

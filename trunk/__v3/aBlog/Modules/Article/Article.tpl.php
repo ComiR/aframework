@@ -1,6 +1,6 @@
 <h2>
 	<a href="<?php echo Router::urlFor('Article', $article); ?>">
-		<?php echo htmlentities($article['title']); ?>
+		<?php echo escHTML($article['title']); ?>
 	</a>
 </h2>
 
@@ -29,7 +29,7 @@
 				<?php foreach ($article['tags'] as $t) { ?>
 					<li>
 						<a href="<?php echo Router::urlFor('ArticlesByTag', $t); ?>">
-							<?php echo htmlentities($t['title']); ?>
+							<?php echo escHTML($t['title']); ?>
 						</a>
 					</li>
 				<?php } ?>

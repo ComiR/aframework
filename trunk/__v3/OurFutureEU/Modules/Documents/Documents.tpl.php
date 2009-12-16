@@ -21,11 +21,11 @@
 		<tr>
 			<td>
 				<a href="<?php echo $document['path']; ?>">
-					<?php echo htmlentities($document['title']); ?>
+					<?php echo escHTML($document['title']); ?>
 				</a>
 			</td>
 			<td>
-				<?php echo htmlentities(strtoupper($document['ext'])); ?>
+				<?php echo escHTML(strtoupper($document['ext'])); ?>
 			</td>
 			<td>
 				<?php echo round($document['size']/1024/1024, 2); ?> mb

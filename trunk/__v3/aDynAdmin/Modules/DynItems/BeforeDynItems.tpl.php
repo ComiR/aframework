@@ -1,1 +1,1 @@
-<h2><?php echo htmlentities($table['title']); ?></h2>
+<h2><?php echo escHTML($table['title']); ?></h2>

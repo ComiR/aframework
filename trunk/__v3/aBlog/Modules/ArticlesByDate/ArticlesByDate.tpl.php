@@ -12,7 +12,7 @@
 					<li>
 						<h4>
 							<a href="<?php echo Router::urlFor('Article', $a); ?>">
-								<?php echo htmlentities($a['title']); ?>
+								<?php echo escHTML($a['title']); ?>
 							</a>
 						</h4>
 

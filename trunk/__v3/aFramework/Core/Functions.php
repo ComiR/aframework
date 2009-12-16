@@ -74,7 +74,7 @@
 		}
 
 		if ($inHTML) {
-			return '?' . htmlentities($qryStr);
+			return '?' . escHTML($qryStr);
 		}
 		else {
 			return '?' . $qryStr;
@@ -149,7 +149,7 @@
 	}
 
 	function __htmlentitiesDebug ($foo) {
-		return htmlentities($foo);
+		return escHTML($foo);
 	}
 
 	function array_map_r ($func, $arr) {
@@ -231,7 +231,7 @@
 		$threeDotsFirst = ($start > 0) ? '[...] ' : '';
 		$threeDotsLast = ((strlen($str) - strlen($start)) > $reqLen) ? ' [...]' : '';
 
-		$str = htmlentities($threeDotsFirst .substr($str, $start, $reqLen) .$threeDotsLast);
+		$str = escHTML($threeDotsFirst .substr($str, $start, $reqLen) .$threeDotsLast);
 
 		# Make search terms bold
 		$srs = explode(' ', $sr);

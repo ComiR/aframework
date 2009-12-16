@@ -14,11 +14,11 @@
 		<li>
 			<?php if ($table['selected']) { ?>
 				<strong>
-					<?php echo htmlentities($table['title']); ?>
+					<?php echo escHTML($table['title']); ?>
 				</strong>
 			<?php } else { ?>
 				<a href="<?php echo Router::urlFor('DynItems', array('table_name' => $table['name'])); ?>">
-					<?php echo htmlentities($table['title']); ?>
+					<?php echo escHTML($table['title']); ?>
 				</a>
 			<?php } ?>
 		</li>

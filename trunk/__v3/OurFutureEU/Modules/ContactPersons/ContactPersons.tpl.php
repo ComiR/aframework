@@ -2,20 +2,20 @@
 	<?php if ($what and $observational) { ?>
 		<h3><?php echo Lang::get('Observational Partners'); ?></h3>
 	<?php } elseif (!$what and $title) { ?>
-		<h3><?php echo htmlentities($title); ?></h3>
+		<h3><?php echo escHTML($title); ?></h3>
 	<?php } ?>
 
 	<ul>
 		<?php foreach ($persons as $person) { ?>
 			<?php if ($person['observational'] == $what) { ?>
 				<li>
-					<h4><?php echo htmlentities($person['country']); ?></h4>
+					<h4><?php echo escHTML($person['country']); ?></h4>
 
 					<img src="<?php echo Router::urlForFile('people/' . strtolower(preg_replace('/[^a-zA-Z0-9\-_]*/', '', $person['name']))); ?>.jpg" alt=""/>
 
-					<h5><?php echo htmlentities($person['name']); ?></h5>
+					<h5><?php echo escHTML($person['name']); ?></h5>
 
-					<p><?php echo htmlentities($person['title']); ?></p>
+					<p><?php echo escHTML($person['title']); ?></p>
 
 					<dl>
 						<dt><?php echo Lang::get('Telephone'); ?></dt>

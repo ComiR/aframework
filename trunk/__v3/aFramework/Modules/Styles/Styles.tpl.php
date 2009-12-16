@@ -3,7 +3,7 @@
 		<li<?php if (aFramework_BaseModule::$tplVars['style'] == $style['name']) { ?> class="selected"<?php } ?>>
 			<h3>
 				<a href="?style=<?php echo $style['name']; ?>">
-					<?php echo htmlentities($style['title']); ?>
+					<?php echo escHTML($style['title']); ?>
 				</a>
 			</h3>
 
@@ -17,7 +17,7 @@
 
 			<dl>
 				<dt><?php echo Lang::get('Author'); ?></dt>
-				<dd><?php echo htmlentities($style['author']); ?></dd>
+				<dd><?php echo escHTML($style['author']); ?></dd>
 				<dt><?php echo Lang::get('Date'); ?></dt>
 				<dd><?php echo date(Config::get('general.date_format'), strtotime($style['date'])); ?></dd>
 			</dl>

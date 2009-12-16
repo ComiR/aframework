@@ -25,7 +25,7 @@
 				if(!in_array($sF, $notSites) and is_dir($sDir .$sF) and '##' != substr($sF, 0, 2) and file_exists($sDir .$sF .'/style.css')) {
 					$styles[] = array(
 						'name'		=> $sF, 
-						'title'		=> htmlentities($sF), 
+						'title'		=> escHTML($sF), 
 						'thumb_url'	=> $webRoot .$f .'/Styles/' .$sF .'/thumb.jpg', 
 						'img_url'	=> $webRoot .$f .'/Styles/' .$sF .'/thumb.jpg'
 					);
@@ -34,7 +34,7 @@
 
 			$sites[] = array(
 				'name'		=> $f, 
-				'title'		=> htmlentities($f), 
+				'title'		=> escHTML($f), 
 				'styles'	=> $styles, 
 				'thumb_url'	=> $webRoot .$f .'/thumb.png', 
 				'img_url'	=> $webRoot .$f .'/thumb.png'
