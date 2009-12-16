@@ -2,7 +2,7 @@
 	Config::set('db.user',						'root');
 	Config::set('db.pass',						'root');
 	Config::set('db.host',						'localhost');
-	Config::set('db.name',						'afv3');
+	Config::set('db.name',						'ante_alcom_utf8');
 
 	Config::set('general.default_style',		'darker');
 	Config::set('general.site_author',			'Andreas Lagerkvist');
