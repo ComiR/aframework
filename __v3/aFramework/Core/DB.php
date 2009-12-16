@@ -10,14 +10,14 @@
 		public static function qry ($qry) {
 			# Prefix DB table names
 			if (Config::get('db.table_prefix')) {
-				prefixDBTableNames($qry, Config::get('db.table_prefix'));
+				$qry = prefixDBTableNames($qry, Config::get('db.table_prefix'));
 			}
 
 			# Prefix selected tables with language IF user isn't using default language
 			$translatedTables = explode(',', Config::get('db.translated_tables'));
 
 			if (Config::get('db.translated_tables') and CURRENT_LANG != Config::get('general.default_lang')) {
-				prefixDBTableNames($qry, CURRENT_LANG . '_', $translatedTables);
+				$qry = prefixDBTableNames($qry, CURRENT_LANG . '_', $translatedTables);
 			}
 
 			# Count the number of queries
