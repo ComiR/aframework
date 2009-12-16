@@ -12,7 +12,7 @@ aFramework.modules.ArticleCalendar = {
 
 			clicked.text(Lang.get('Loading') + '...');
 
-			jQuery.get(WEBROOT + '?module=ArticleCalendar&year=' + year + '&month=' + month, function (data) {
+			jQuery.get(Router.urlForModule('ArticleCalendar') + '&year=' + year + '&month=' + month, function (data) {
 				if (data == '') {
 					clicked.parent().html(oldText);
 				}
