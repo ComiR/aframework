@@ -10,12 +10,9 @@
 
 		#contact-persons ul li {
 			position: relative;
-			margin: 0 0 10px;
+			margin: 0 0 30px;
 			padding: 0 0 0 170px;
-		}
-
-		body.js-disabled #contact-persons ul li {
-			min-height: 225px;
+			min-height: 260px;
 		}
 
 			#contact-persons ul li h4 {

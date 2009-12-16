@@ -9,7 +9,6 @@
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
 			<Article/>
-			<SocialBookmarks/>
 			<Comments/>
 			<PostComment/>
 		</Wrapper>

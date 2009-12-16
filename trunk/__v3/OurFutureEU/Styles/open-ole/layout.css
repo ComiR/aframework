@@ -5,6 +5,10 @@
 	position: relative;
 }
 
+body.js-enabled #wrapper {
+	background-position: 60% -400px;
+}
+
 #primary-content {
 	width: 600px;
 	margin: 0 0 20px;

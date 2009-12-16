@@ -1,6 +1,4 @@
 (function () {
-	//console.dir($('#style-switcher option'));
-
 	// Full-width bottom-bar
 	var fullWidthBottomBar = function () {
 		var docWidth = $(document).width();
@@ -42,6 +40,25 @@
 		}
 	});
 
+	// Move the sun onscroll
+	var win			= $(window);
+	var wrapper		= $('#wrapper');
+	var pageHeight	= $(document).height();
+	var maxScroll	= pageHeight - $(window).height();
+
+	var updateSunPosition	= function () {
+		var scrollTop		= win.scrollTop();
+		var percentScrolled	= scrollTop / maxScroll; // pageHeight;
+		var sunPos			= Math.round(400 * percentScrolled - 400);
+		//	sunPos			= sunPos > 0 ? 0 : sunPos;
+
+		wrapper.css('background-position', '60% ' + sunPos + 'px');
+	};
+
+	updateSunPosition();
+	win.scroll(updateSunPosition);
+
+	// Things that need to happen after images have loaded
 	window.onload = function () {
 		// "Self-clear" absolutely positioned images
 		$('#contact-persons li').each(function () {

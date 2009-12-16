@@ -3,7 +3,7 @@
 	Config::set('db.pass',						'root');
 	Config::set('db.host',						'localhost');
 	Config::set('db.name',						'ole2');
-	Config::set('db.translated_tables',			'articles,pages');
+	Config::set('db.translated_tables',			'articles,pages,tags,article_tags,comments');
 
 	Config::set('general.allowed_langs',		'en,sv,fo');
 	Config::set('general.default_lang',			'en');
@@ -19,7 +19,7 @@
 	Config::set('general.ga_id',				false);
 
 	Config::set('general.ie_script_support',	false);
-	Config::set('general.ie_css_support',		true);
+	Config::set('general.ie_style_support',		6);
 
 	Config::set('admin.user',					'admin');
 	Config::set('admin.pass',					'1234');

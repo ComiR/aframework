@@ -1,0 +1,16 @@
+#articles {
+	
+}
+
+	#articles > ul {
+		margin: 0;
+		list-style: none;
+	}
+
+		#articles > ul > li {
+			margin: 0 0 20px;
+		}
+
+			#articles > ul > li > p:last-child {
+				font-weight: bold;
+			}
