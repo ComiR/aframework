@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+
+	<head>
+
+		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta http-equiv="Content-Style-Type" content="text/css" />
+		<meta name="author" content="Andreas Lagerkvist" />
+		<meta name="copyright" content="Copyright (c) 2009 Andreas Lagerkvist" />
+
+		<link rel="stylesheet" type="text/css" href="jquery.pixasticEditor.css"/>
+		<link rel="stylesheet" type="text/css" href="/aFramework/Modules/Base/jquery.dragToSelect.css"/><!-- optional -->
+		<link rel="stylesheet" type="text/css" href="/aFramework/Modules/Base/jquery-ui-1.7.1.custom.css"/><!-- optional -->
+
+		<title>jQuery Pixastic Editor Example - AndreasLagerkvist.com</title>
+
+	</head>
+
+	<body>
+
+		<h1><a href="http://andreaslagerkvist.com/jquery/pixastic-editor/">jQuery Pixastic Editor</a></h1>
+
+		<div id="jquery-pixastic-editor-example">
+
+			<img src="/AndreasLagerkvist/Files/lamp-and-mates.jpg" alt="Lamp and Mates" />
+
+		</div>
+
+		<script type="text/javascript" src="/aFramework/Modules/Base/1-jquery-1.3.2.js"></script>
+		<script type="text/javascript" src="/aFramework/Modules/Base/jquery.form.js"></script>
+		<script type="text/javascript" src="/aFramework/Modules/Base/jquery-ui-1.7.1.custom.min.js"></script><!-- optional -->
+		<script type="text/javascript" src="/aFramework/Modules/Base/jquery.dragToSelect.js"></script><!-- optional -->
+		<script type="text/javascript" src="pixastic.custom.js"></script>
+		<script type="text/javascript" src="jquery.pixasticEditor.js"></script>
+		<script type="text/javascript">
+			$(function () {
+				var img = $('#jquery-pixastic-editor-example').find('img')[0]; //.addClass('horizontal-toolbar horizontal-form').find('img')[0];
+
+				if (img.complete) {
+					$('#jquery-pixastic-editor-example').pixasticEditor();
+				}
+				else {
+					img.onload = function () {
+						$('#jquery-pixastic-editor-example').pixasticEditor();
+					};
+				}
+			});
+		</script>
+
+	</body>
+
+</html>
