@@ -60,6 +60,8 @@
 # design.js
 'About' => 'Om', 
 'Contact' => 'Kontakt', 
-'Documents' => 'Dokument'
+'Documents' => 'Dokument', 
+
+'Elderly care when the older to be decides' => 'Framtidens äldrevård när våra blivande äldre får bestämma'
 
 ); ?>
