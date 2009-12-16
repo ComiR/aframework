@@ -15,7 +15,7 @@ aFramework.modules.PostComment = {
 		var postComment = jQuery('#post-comment');
 
 		postComment.find('form').ajaxForm({
-			url: WEBROOT + '?module=PostComment', 
+			url: Router.urlForModule('PostComment'), 
 			beforeSubmit: function () {
 				if (!postComment.find('img[alt=' + aFramework.jQueryLiveValidation.invalid + ']').length) {
 					postComment.find('input[type=submit]').val(Lang.get('Posting') + '...');
@@ -26,7 +26,7 @@ aFramework.modules.PostComment = {
 				return false;
 			}, 
 			success: function (data) {
-				jQuery.get(WEBROOT + '?module=Comments&articles_id=' + postComment.find('input[name=articles_id]').val(), function (newComments) {
+				jQuery.get(Router.urlForModule('Comments') + '&articles_id=' + postComment.find('input[name=articles_id]').val(), function (newComments) {
 					jQuery('#comments').html(newComments);
 				//	aFramework.modules.Comments.run(); // doesn't have one as of yet
 				});
