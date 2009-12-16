@@ -42,11 +42,11 @@ jQuery('#q').liveSearch({url: '/ajax/search.php?q='}); would add the live-search
 </form>
 
 @exampleJS:
-jQuery('#jquery-live-search-example input[name="q"]').liveSearch({url: WEBROOT +'?module=SearchResults&q='});
+jQuery('#jquery-live-search-example input[name="q"]').liveSearch({url: Router.urlForModule('SearchResults') + '&q='});
 ***/
 jQuery.fn.liveSearch = function (conf) {
 	var config = jQuery.extend({
-		url:			'/?module=SearchResults&q=', 
+		url:			'/search-results.php?q=', 
 		id:				'jquery-live-search', 
 		duration:		400, 
 		typeDelay:		200,
