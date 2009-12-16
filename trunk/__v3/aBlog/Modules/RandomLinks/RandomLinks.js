@@ -18,7 +18,7 @@ aFramework.modules.RandomLinks = {
 			.click(function () {
 				jQuery(this).text(Lang.get('Loading') + '...');
 
-				jQuery('#random-links').load(WEBROOT + '?module=RandomLinks', function () {
+				jQuery('#random-links').load(Router.urlForModule('RandomLinks'), function () {
 					aFramework.modules.RandomLinks.run();
 				});
 
