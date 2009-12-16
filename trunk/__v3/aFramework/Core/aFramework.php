@@ -33,6 +33,10 @@
 			}
 		}
 
+		private static function autoACForms ($html) {
+			return preg_replace('/<form(.*?)>/', '<form$1 accept-charset="utf-8">', $html);
+		}
+
 		/**
 		 * runSingleModule
 		 *
