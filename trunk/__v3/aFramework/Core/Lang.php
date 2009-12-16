@@ -200,15 +200,15 @@
 
 			# If the string exists in the CURRENT_LANG use that
 			if (isset(self::$lang[CURRENT_LANG][$str])) {
-				return htmlentities(self::$lang[CURRENT_LANG][$str]);
+				return escHTML(self::$lang[CURRENT_LANG][$str]);
 			}
 			# Else, try default lang
 			elseif (isset(self::$lang[Config::get('general.default_lang')][$str])) {
-				return htmlentities(self::$lang[Config::get('general.default_lang')][$str]);
+				return escHTML(self::$lang[Config::get('general.default_lang')][$str]);
 			}
 			# Else, just return the string
 			else {
-				return htmlentities($str);
+				return escHTML($str);
 			}
 		}
 
@@ -230,6 +230,10 @@
 						$lc = substr($f, 0, -4);
 
 						if ('php' == end(explode('.', $f))) {
+							if (!isset(self::$lang[$lc])) {
+								self::$lang[$lc] = array();
+							}
+
 							self::$lang[$lc] = array_merge((array)include $path . $f, (array)self::$lang[$lc]);
 						}
 					}
@@ -243,6 +247,88 @@
 
 		public static function lc2cc ($lc) {
 			return isset(self::$lc2cc[$lc]) ? self::$lc2cc[$lc] : $lc;
+		}
+
+		public static function getJSLangCode () {
+			$langs	= self::getLang();
+			$code	= "Lang.lang = {\n";
+			$sites	= explode(' ', SITE_HIERARCHY);
+			$jsLang	= array();
+
+			# Get the lang used in .js-files
+			foreach ($sites as $site) {
+				$jsLangsForSite	= self::getLangsInDir(DOCROOT . $site, array('js'));
+				$jsLang			= $jsLangsForSite ? array_merge($jsLang, $jsLangsForSite) : $jsLang;
+			}
+
+			foreach ($jsLang as $file => $strs) {
+				foreach ($strs as $str) {
+					$tmp[$str] = $str;
+				}
+			}
+
+			$jsLang = $tmp;
+
+			# Loop through all lang in the lang-files
+			foreach ($langs as $lc => $translations) {
+				$numJSLangs = 0;
+				$code .= "\t'$lc': {\n";
+
+				foreach ($translations as $k => $v) {
+					# Only include the ones that are used in the .js-files
+					if (isset($jsLang[$k])) {
+						$code .= "\t\t'$k': '$v', \n";
+						$numJSLangs++;
+					}
+				}
+
+				if ($numJSLangs) {
+					$code = substr($code, 0, -3);
+				}
+
+				$code .= "\n\t}, \n";
+			}
+
+			$code = substr($code, 0, -3) . "\n};";
+
+			return $code;
+		}
+
+		public static function getLangsInDir ($dir, $validExts = array('js', 'php')) {
+
+			$langs = array();
+
+			if (is_dir($dir)) {
+				$dh = opendir($dir);
+
+				while ($f = readdir($dh)) {
+					if ($f != '..' and $f != '.') {
+						if (is_dir($dir . '/' . $f)) {
+							$newLangs = self::getLangsInDir($dir . '/' . $f, $validExts);
+							$langs = $newLangs !== false ? array_merge($langs, $newLangs) : $langs;
+						}
+						else {
+							$ext = end(explode('.', $f));
+
+							if (in_array($ext, $validExts)) {
+								$pattern	= '/Lang(::|\.)get\(\'(.*?)\'(.*?)\)/';
+								$matches	= array();
+								$contents	= file_get_contents($dir . '/' . $f);
+
+								if (preg_match_all($pattern, $contents, $matches)) {
+									foreach ($matches[2] as $key) {
+										$langs[$f][$key] = $key; # ucfirst(str_replace('_', ' ', $key));
+									}
+								}
+							}
+						}
+					}
+				}
+
+				return $langs;
+			}
+
+			return false;
 		}
 	}
 ?>
