@@ -24,11 +24,4 @@
 			CSS
 		</a>
 	</li>
-	<?php if (ADMIN) { ?>
-		<li>
-			<a href="<?php echo Router::urlFor('AdminLogin'); ?>?logout">
-				<?php echo Lang::get('Logout'); ?>
-			</a>
-		</li>
-	<?php } ?>
 </ul>

@@ -16,6 +16,7 @@
 				$sites		= explode(' ', SITE_HIERARCHY);
 				$numSites	= count($sites) - 1;
 				$i			= 0;
+
 				foreach ($sites as $site) {
 					if ($site != CURRENT_SITE) {
 						echo '<a href="http://' . strtolower($site) . '.pixlperfik.com">' . $site . '</a>';
