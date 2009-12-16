@@ -10,12 +10,19 @@
 			self::$tplVars['meta_keywords']		= '';
 			self::$tplVars['style']				= isset($_COOKIE['style']) ? $_COOKIE['style'] : Config::get('general.default_style');
 
-			# Set canonical URLs for everything with a query string
+			self::canonicalURLs();
+			self::noIndexControllers();
+		}
+
+		# Set canonical URLs for everything with a query string
+		private static function canonicalURLs () {
 			if (!empty($_SERVER['QUERY_STRING'])) {
 				self::$tplVars['canonical_url'] = currPageURL(true);
 			}
+		}
 
-			# Allow a noindex-attribute in controller-XML-files
+		# Allow a noindex-attribute in controller-XML-files
+		private static function noIndexControllers () {
 			$controllerPath = DOCROOT . CURRENT_SITE . '/Controllers/' . Router::$params['controller'] . '.xml';
 
 			if (
