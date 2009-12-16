@@ -7,17 +7,11 @@
 	require_once 'aFramework/Core/Timer.php';
 	Timer::start();
 
+	# UTF-8 FTW
 	header('Content-Type: text/html; charset=utf-8');
 #	setlocale(LC_ALL, 'en_GB.UTF8');
 
-	# Turn POST-data FROM UTF-8 to iso-8859-1 EVEN THOUGH everything (all files, the html, the database) is UTF8
-	# (charsets are a fuckin nightmare and this is the only solution i could find that actually worked, even though it actually converts away from UTF8...)
-#	foreach($_POST as $k => $v) {
-#		$_POST[$k] = iconv('UTF-8', 'iso-8859-1', $_POST[$k]);
-	#	$_POST[$k] = iconv('iso-8859-1', 'UTF-8', $_POST[$k]);
-#	}
-
-	# The site(s) you wanna run
+	# Determine which site(s) to run
 	switch ($_SERVER['HTTP_HOST']) {
 		case 'andreaslagerkvist.com' : 
 			define('SITE_HIERARCHY', 'AndreasLagerkvist aBlog aCMS aDynAdmin aFramework');
