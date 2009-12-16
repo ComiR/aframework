@@ -18,7 +18,7 @@
 #	}
 
 	# The site(s) you wanna run
-/*	switch ($_SERVER['SERVER_NAME']) {
+	switch ($_SERVER['HTTP_HOST']) {
 		case 'andreaslagerkvist.com' : 
 			define('SITE_HIERARCHY', 'AndreasLagerkvist aBlog aCMS aDynAdmin aFramework');
 			break;
@@ -29,12 +29,11 @@
 			define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
 			break;
 		case 'localhost' : 
-			define('SITE_HIERARCHY', 'aTestSite aBlog aForum aCMS aDynAdmin aModPack aFramework');
+		#	define('SITE_HIERARCHY', 'aTestSite aBlog aForum aCMS aDynAdmin aModPack aFramework');
+			define('SITE_HIERARCHY', 'AndreasLagerkvist aBlog aCMS aDynAdmin aFramework');
+		#	define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
 			break;
-	} */
-#	define('SITE_HIERARCHY', 'aTestSite aBlog aForum aCMS aDynAdmin aModPack aFramework');
-	define('SITE_HIERARCHY', 'AndreasLagerkvist aBlog aCMS aDynAdmin aFramework');
-#	define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
+	}
 
 	# Core classes/files
 	require_once 'aFramework/Core/Config.php';
