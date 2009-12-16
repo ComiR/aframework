@@ -1,3 +1,90 @@
+body.controller-admin {
+	margin-bottom: 150px;
+}
+
+/* The controller admin bar */
+#controller-admin {
+	background: url(gfx/bar.png) repeat-x;
+
+	position: fixed;
+	left: 0;
+	bottom: 0;
+
+	width: 100%;
+}
+
+body.controller-admin #controller-admin {
+	background-position: left 15px;
+	padding: 27px 10px 10px;
+}
+
+	#controller-admin p {
+		background: url(gfx/button.png);
+
+		width: 80px;
+
+		margin: 0 0 0 -40px;
+
+		position: absolute;
+		left: 50%;
+		top: -15px;
+	}
+
+	body.controller-admin #controller-admin p {
+		top: 0;
+	}
+
+		#controller-admin p a {
+			display: block;
+			height: 17px;
+
+			text-decoration: none;
+			text-indent: -10000px;
+			outline: 0;
+		}
+
+	#controller-admin ul = $self-clear;
+	#controller-admin ul {
+		margin: 0;
+		list-style: none;
+		width: 10000px;
+	}
+
+		#controller-admin ul li {
+			float: left;
+			width: 80px;
+			text-align: center;
+			font-size: 11px;
+		}
+
+	/*	#controller-admin ul li {
+			background: #fff;
+
+			width: 60px;
+			height: 40px;
+
+			margin: 5px;
+			padding: 5px;
+
+			line-height: 60px;
+
+			border: 1px solid #666;
+			-webkit-border-radius: 5px;
+			-moz-border-radius: 5px;
+			border-radius: 5px;
+		} */
+
+			#controller-admin ul li img {
+				display: block;
+				width: 60px;
+				margin: 0 auto 5px;
+			}
+
+			#controller-admin ul li br {
+				display: none;
+			}
+
+/* Draggable modules that are currently in use */
 body.controller-admin div.aframework-module {
 	float: none !important;
 	position: static !important;
