@@ -105,7 +105,13 @@
 		 * 
 		 **/
 		public static function urlForModule ($mod) {
-			return WEBROOT . '?module=' . $mod;
+			$langPrefix = '';
+
+			if (CURRENT_LANG != Config::get('general.default_lang')) {
+				$langPrefix = CURRENT_LANG . '/';
+			}
+
+			return WEBROOT . $langPrefix . '?module=' . $mod;
 		}
 
 		/**
