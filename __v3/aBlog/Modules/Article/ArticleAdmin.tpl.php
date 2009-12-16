@@ -24,14 +24,14 @@
 	<p>
 		<label>
 			<strong>*</strong> <?php echo Lang::get('Title'); ?><br />
-			<input type="text" name="title" value="<?php echo htmlentities($article['title']); ?>" />
+			<input type="text" name="title" value="<?php echo escHTML($article['title']); ?>" />
 		</label>
 	</p>
 
 	<p>
 		<label>
 			<strong>*</strong> <?php echo Lang::get('Slug'); ?><br />
-			<input type="text" name="url_str" value="<?php echo htmlentities($article['url_str']); ?>" />
+			<input type="text" name="url_str" value="<?php echo escHTML($article['url_str']); ?>" />
 		</label>
 	</p>
 
@@ -45,21 +45,21 @@
 	<p>
 		<label>
 			<?php echo Lang::get('Meta Keywords'); ?><br />
-			<input type="text" name="meta_keywords" value="<?php echo htmlentities($article['meta_keywords']); ?>" />
+			<input type="text" name="meta_keywords" value="<?php echo escHTML($article['meta_keywords']); ?>" />
 		</label>
 	</p>
 
 	<p>
 		<label>
 			<?php echo Lang::get('Meta Description'); ?><br />
-			<textarea name="meta_description" rows="3" cols="40"><?php echo htmlentities($article['meta_description']); ?></textarea>
+			<textarea name="meta_description" rows="3" cols="40"><?php echo escHTML($article['meta_description']); ?></textarea>
 		</label>
 	</p>
 
 	<p>
 		<label>
 			<strong>*</strong> <?php echo Lang::get('Article Content'); ?><br />
-			<textarea name="content" rows="20" cols="60"><?php echo htmlentities($article['content']); ?></textarea>
+			<textarea name="content" rows="20" cols="60"><?php echo escHTML($article['content']); ?></textarea>
 		</label>
 	</p>
 

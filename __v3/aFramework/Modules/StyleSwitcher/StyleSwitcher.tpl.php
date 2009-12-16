@@ -6,7 +6,7 @@
 			<select name="style">
 				<?php foreach ($styles as $style) { ?>
 					<option value="<?php echo $style['name']; ?>"<?php if (aFramework_BaseModule::$tplVars['style'] == $style['name']) { ?> selected="selected"<?php } ?>>
-						<?php echo htmlentities($style['title']); ?>
+						<?php echo escHTML($style['title']); ?>
 					</option>
 				<?php } ?>
 			</select>

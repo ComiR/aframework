@@ -1,3 +1,3 @@
-<h2><?php echo htmlentities($title); ?></h2>
+<h2><?php echo escHTML($title); ?></h2>
 
 <?php echo NiceString::makeNice($description, 3); ?>

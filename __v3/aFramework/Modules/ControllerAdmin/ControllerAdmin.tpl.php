@@ -9,7 +9,7 @@
 		<?php foreach ($available_modules as $module) { if (!$module['in_use']) { ?>
 			<li>
 				<img src="<?php echo $module['thumb']; ?>" alt=""/><br/>
-				<?php echo htmlentities(ccFix($module['name'], ' ')); ?>
+				<?php echo escHTML(ccFix($module['name'], ' ')); ?>
 			</li>
 		<?php } } ?>
 	</ul>

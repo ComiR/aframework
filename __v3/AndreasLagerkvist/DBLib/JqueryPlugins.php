@@ -86,25 +86,25 @@
 		}
 
 		private static function makeNice ($row) {
-			$row['name']				= htmlentities($row['name']);
-			$row['file_name']			= htmlentities($row['file_name']);
+			$row['name']				= escHTML($row['name']);
+			$row['file_name']			= escHTML($row['file_name']);
 			$row['source_code']			= NiceString::makeNice('[code]' . $row['source'] . '[/code]');
 			$row['source_url']			= WEBROOT . 'aFramework/Modules/Base/' . $row['file_name'];
 
-			$row['title']				= htmlentities($row['title']);
-			$row['version']				= htmlentities($row['version']);
+			$row['title']				= escHTML($row['title']);
+			$row['version']				= escHTML($row['version']);
 
-			$row['author']				= htmlentities($row['author']);
+			$row['author']				= escHTML($row['author']);
 
-			$row['date']				= htmlentities($row['date']);
+			$row['date']				= escHTML($row['date']);
 			$row['pub_date']			= date(Config::get('general.date_format'), strtotime($row['date']));
 
-			$row['real_url']			= htmlentities($row['url']);
+			$row['real_url']			= escHTML($row['url']);
 			$row['url_str']				= strtolower(ccFix($row['name'], '-'));
 			$row['url']					= Router::urlFor('JqueryPlugin', array('url_str' => $row['url_str'])); # should pass entire $row
 
-			$row['license']				= htmlentities($row['license']);
-			$row['copyright']			= htmlentities($row['copyright']);
+			$row['license']				= escHTML($row['license']);
+			$row['copyright']			= escHTML($row['copyright']);
 
 			$row['files']				= self::getPluginFiles('jquery.' . $row['name'] .'.js, ' .$row['requires']);
 			$row['files']['csv_names']	= array();

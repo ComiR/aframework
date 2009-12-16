@@ -1,0 +1,6 @@
+body.controller-admin #skip-navigation, 
+body.controller-admin #lang-switcher, 
+body.controller-admin #search, 
+body.controller-admin #breadcrumbs {
+	display: none;
+}

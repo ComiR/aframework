@@ -92,7 +92,7 @@
 													echo '</pre>';
 												}
 												else {
-													echo htmlentities($v) != '' ? htmlentities($v) : '[empty]';
+													echo escHTML($v) != '' ? escHTML($v) : '[empty]';
 												}
 											?>
 										</dd>

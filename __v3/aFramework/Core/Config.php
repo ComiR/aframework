@@ -7,8 +7,8 @@
 				self::$config[$k] = isset(self::$config[$k]) ? self::$config[$k] : array('__info' => array());
 				self::$config[$k]['__info'] = array_merge((array)self::$config[$k]['__info'], array(
 					'name'			=> $k, 
-					'title'			=> (is_array($v) and isset($v['title'])) ? htmlentities($v['title']) : htmlentities(ucfirst(str_replace('_', ' ', $v))), 
-					'description'	=> (is_array($v) and isset($v['description'])) ? htmlentities($v['description']) : htmlentities(ucfirst(str_replace('_', ' ', $v)))
+					'title'			=> (is_array($v) and isset($v['title'])) ? escHTML($v['title']) : escHTML(ucfirst(str_replace('_', ' ', $v))), 
+					'description'	=> (is_array($v) and isset($v['description'])) ? escHTML($v['description']) : escHTML(ucfirst(str_replace('_', ' ', $v)))
 				));
 				return;
 			}
@@ -25,8 +25,8 @@
 				'value'			=> is_array($v) ? $v['value'] : $v, 
 				'key'			=> $k, 
 				'highest_key'	=> $l, 
-				'title'			=> (is_array($v) and isset($v['title'])) ? htmlentities($v['title']) : htmlentities(ucfirst(str_replace('_', ' ', $l))), 
-				'description'	=> (is_array($v) and isset($v['description'])) ? htmlentities($v['description']) : (is_array($v) ? htmlentities($v['value']) : htmlentities($v))
+				'title'			=> (is_array($v) and isset($v['title'])) ? escHTML($v['title']) : escHTML(ucfirst(str_replace('_', ' ', $l))), 
+				'description'	=> (is_array($v) and isset($v['description'])) ? escHTML($v['description']) : (is_array($v) ? escHTML($v['value']) : escHTML($v))
 			);
 		}
 

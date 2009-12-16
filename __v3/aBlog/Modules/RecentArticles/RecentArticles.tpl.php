@@ -2,7 +2,7 @@
 	<?php foreach ($articles as $article) { ?>
 		<li>
 			<a href="<?php echo Router::urlFor('Article', $article); ?>">
-				<?php echo htmlentities($article['title']); ?>
+				<?php echo escHTML($article['title']); ?>
 			</a>
 		</li>
 	<?php } ?>

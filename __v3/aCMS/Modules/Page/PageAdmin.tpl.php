@@ -12,14 +12,14 @@
 	<p>
 		<label>
 			<strong>*</strong> <?php echo Lang::get('Page Title'); ?><br />
-			<input type="text" name="title" value="<?php echo htmlentities($page['title']); ?>" />
+			<input type="text" name="title" value="<?php echo escHTML($page['title']); ?>" />
 		</label>
 	</p>
 
 	<p>
 		<label>
 			<strong>*</strong> <?php echo Lang::get('Slug'); ?><br />
-			<input type="text" name="url_str" value="<?php echo htmlentities($page['url_str']); ?>" />
+			<input type="text" name="url_str" value="<?php echo escHTML($page['url_str']); ?>" />
 		</label>
 	</p>
 
@@ -38,28 +38,28 @@
 	<p>
 		<label>
 			<?php echo Lang::get('Priority'); ?> (<?php echo Lang::get('A lower number places page early in the list'); ?>)<br />
-			<input type="text" name="priority" value="<?php echo htmlentities($page['priority']); ?>" />
+			<input type="text" name="priority" value="<?php echo escHTML($page['priority']); ?>" />
 		</label>
 	</p>
 
 	<p>
 		<label>
 			<?php echo Lang::get('Meta Keywords'); ?><br />
-			<input type="text" name="meta_keywords" value="<?php echo htmlentities($page['meta_keywords']); ?>" />
+			<input type="text" name="meta_keywords" value="<?php echo escHTML($page['meta_keywords']); ?>" />
 		</label>
 	</p>
 
 	<p>
 		<label>
 			<?php echo Lang::get('Meta Description'); ?><br />
-			<textarea name="meta_description" rows="3" cols="60"><?php echo htmlentities($page['meta_description']); ?></textarea>
+			<textarea name="meta_description" rows="3" cols="60"><?php echo escHTML($page['meta_description']); ?></textarea>
 		</label>
 	</p>
 
 	<p>
 		<label>
 			<strong>*</strong> <?php echo Lang::get('Page Content'); ?><br />
-			<textarea name="content" rows="20" cols="60"><?php echo htmlentities($page['content']); ?></textarea>
+			<textarea name="content" rows="20" cols="60"><?php echo escHTML($page['content']); ?></textarea>
 		</label>
 	</p>
 
