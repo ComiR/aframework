@@ -4,16 +4,13 @@
 
 	#sponsors h2 = $a11y-hide;
 
-	#sponsors ul = $floated-list;
+	#sponsors ul {
+		list-style: none;
+		margin-left: 0;
+		text-align: center;
+	}
 
-		#sponsors ul li:last-child {
-			float: right;
+		#sponsors ul li {
+			display: inline;
+			margin: 0 20px;
 		}
-
-			#sponsors ul li a {
-				opacity: 1;
-			}
-
-			#sponsors ul li a:hover {
-				opacity: 1;
-			}

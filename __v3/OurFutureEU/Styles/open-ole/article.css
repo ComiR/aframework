@@ -14,6 +14,10 @@
 	#article ul = $pretty-list;
 	#article ol = $pretty-list;
 
+	#home-page #article > p:last-of-type {
+		font-weight: bold;
+	}
+
 	#article > dl:last-child = $small;
 	#article > dl:last-child = $inline-definition;
 

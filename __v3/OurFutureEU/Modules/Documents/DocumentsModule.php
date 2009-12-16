@@ -20,7 +20,7 @@
 			}
 
 			$docs		= array();
-			$pageName	= Router::$params['url_str'];
+			$pageName	= str_replace(array('å', 'ä', 'ö'), array('a', 'a', 'o'), Router::$params['url_str']);
 			$docDir		= Router::urlForFile("documents/$pageName/", 'OurFutureEU', DOCROOT);
 			$docPath	= Router::urlForFile("documents/$pageName/", 'OurFutureEU', WEBROOT);
 

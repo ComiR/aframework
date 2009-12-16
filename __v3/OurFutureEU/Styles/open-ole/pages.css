@@ -4,7 +4,8 @@
 }
 
 /* Organization */
-#organization-page #page img {
+#organization-page #page img, 
+#organisation-page #page img {
 	float: none;
 	margin: 0;
 	border: 0;
@@ -22,22 +23,27 @@
 		margin: 0 0 10px;
 	}
 
-		#project-list ul li a {
+		$white-round-box {
 			background: #fdfeff;
 
-			display: block;
-			position: relative;
-
-			padding: 15px 10px 15px 50px;
-
-			font-weight: bold;
-			text-transform: uppercase;
-			text-decoration: none;
+			padding: 15px 10px;
 
 			border: 1px solid #ccc;
 			-moz-border-radius: 5px;
 			-webkit-border-radius: 5px;
 			border-radius: 5px;
+		}
+
+		#project-list ul li a = $white-round-box;
+		#project-list ul li a {
+			display: block;
+			position: relative;
+
+			padding-left: 50px;
+
+			font-weight: bold;
+			text-transform: uppercase;
+			text-decoration: none;
 		}
 
 			#project-list ul li a img {
@@ -106,12 +112,15 @@
 
 /* Participating Partners */
 #participating-partners-page #page ul = $self-clear;
-#participating-partners-page #page ul {
+#deltagande-partners-page #page ul = $self-clear;
+#participating-partners-page #page ul, 
+#deltagande-partners-page #page ul {
 	margin: 0;
 	list-style: none;
 }
 
-	#participating-partners-page #page ul li {
+	#participating-partners-page #page ul li, 
+	#deltagande-partners-page #page ul li {
 		position: relative;
 		padding: 0 0 0 80px;
 		min-height: 60px;
@@ -120,7 +129,8 @@
 		float: left;
 	}
 
-		#participating-partners-page #page ul li img {
+		#participating-partners-page #page ul li img, 
+		#deltagande-partners-page #page ul li img {
 			position: absolute;
 			left: 0;
 			top: 0;
