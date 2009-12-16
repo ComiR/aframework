@@ -36,6 +36,16 @@
 												));
 	Config::set('general.allow_styles',			true);
 	Config::set('general.default_style',		'default');
+	Config::set('general.ie_style_support',		array(
+													'title'			=> 'IE CSS Support', 
+													'value'			=> false, 
+													'description'	=> 'Can be false, true or a version-number (6 means CSS support for IE6 and up)'
+												));
+	Config::set('general.ie_script_support',	array(
+													'title'			=> 'IE JS Support', 
+													'value'			=> false, 
+													'description'	=> 'Can be false, true or a version-number (6 means JS support for IE6 and up)'
+												));
 	Config::set('general.site_author',			array(
 													'value'			=> 'Andreas Lagerkvist', 
 													'description'	=> 'You'
