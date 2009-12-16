@@ -59,7 +59,7 @@ var aFramework = {
 			t.html('Loading ' + niceName + '...');
 
 			// Load the module with ajax
-			jQuery.get(urlForModule(moduleName), function(data) {
+			jQuery.get(Router.urlForModule(moduleName), function(data) {
 				t.html(data);
 
 				if (aFramework.modules[moduleName] && typeof(aFramework.modules[moduleName].run) == 'function') {
