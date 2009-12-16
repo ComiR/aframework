@@ -1,7 +1,7 @@
 <?php return array(
 
 # Routes.php
-'url.our-projects' => 'våra-projekt', 
+'url.our-projects' => 'vara-projekt', 
 'url.documents' => 'dokument', 
 'url.contact-information' => 'kontaktinformation', 
 'url.news-tag' => 'nyheter', 
@@ -60,6 +60,8 @@
 # design.js
 'About' => 'Om', 
 'Contact' => 'Kontakt', 
-'Documents' => 'Dokument'
+'Documents' => 'Dokument', 
+
+'Elderly care when the older to be decides' => 'Framtidens äldrevård när våra blivande äldre får bestämma'
 
 ); ?>

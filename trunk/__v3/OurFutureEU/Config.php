@@ -2,7 +2,7 @@
 	Config::set('db.user',						'root');
 	Config::set('db.pass',						'root');
 	Config::set('db.host',						'localhost');
-	Config::set('db.name',						'ole2_utf8');
+	Config::set('db.name',						'ante_ole2_utf8');
 	Config::set('db.translated_tables',			'articles,pages,tags,article_tags,comments');
 
 	Config::set('general.allowed_langs',		'en,sv,fo');

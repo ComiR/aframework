@@ -60,6 +60,8 @@
 # design.js
 'About' => 'About', 
 'Contact' => 'Contact', 
-'Documents' => 'Documents'
+'Documents' => 'Documents', 
+
+'Elderly care when the older to be decides' => 'Elderly care when the older to be decides'
 
 ); ?>
