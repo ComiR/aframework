@@ -13,7 +13,7 @@ aFramework.modules.Contact = {
 				required:	['name', 'email', 'message']
 			})
 			.ajaxForm({
-				url:		WEBROOT + '?module=Contact', 
+				url:		Router.urlForModule('Contact'), 
 				beforeSubmit: function () {
 					if (!contact.find('img[alt=' + aFramework.jQueryLiveValidation.invalid + ']').length) {
 						contact.find('input[type=submit]').val(Lang.get('Sending') + '...');
