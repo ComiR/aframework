@@ -1,23 +1,24 @@
 <?php return array(
 
-# AndreasLagerkvist_darker.js
-'Valid' => 'Valid', 
-'Invalid' => 'Invalid', 
-'Sending' => 'Sending', 
-'Show live cam' => 'Show live cam', 
-'Hide live cam' => 'Hide live cam', 
-'Posting' => 'Posting', 
-'Get some new links' => 'Get some new links', 
-'Loading' => 'Loading', 
+# Routes.php
+'url.admin' => 'admin', 
+'url.contact' => 'contact', 
+'url.search' => 'search', 
+'url.styles' => 'styles', 
 
-# AndreasLagerkvist_default.js
-'Valid' => 'Valid', 
-'Invalid' => 'Invalid', 
-'Show live cam' => 'Show live cam', 
-'Hide live cam' => 'Hide live cam', 
-'Posting' => 'Posting', 
-'Get some new links' => 'Get some new links', 
-'Loading' => 'Loading', 
+# SocialBookmarks.tpl.php
+'Add to' => 'Add to', 
+
+# BeforeSocialBookmarks.tpl.php
+'Bookmark this URL' => 'Bookmark this URL', 
+'Add this URL to your favourite bookmarking service.' => 'Add this URL to your favourite bookmarking service.', 
+
+# AdminLoginAdmin.tpl.php
+'You are Logged In' => 'You are Logged In', 
+'What would you like to do?' => 'What would you like to do?', 
+'Log out' => 'Log out', 
+'Go to aDynAdmin' => 'Go to aDynAdmin', 
+'Go to Home Page' => 'Go to Home Page', 
 
 # AdminLogin.tpl.php
 'Please Sign In' => 'Please Sign In', 
@@ -28,24 +29,35 @@
 'Remember me' => 'Remember me', 
 'Login' => 'Login', 
 
-# AdminLoginAdmin.tpl.php
-'You are Logged In' => 'You are Logged In', 
-'What would you like to do?' => 'What would you like to do?', 
-'Log out' => 'Log out', 
-'Go to Home Page' => 'Go to Home Page', 
+# StyleSwitcher.tpl.php
+'Select Style' => 'Select Style', 
+'Go' => 'Go', 
 
-# aFramework.js
-'Valid' => 'Valid', 
-'Invalid' => 'Invalid', 
+# BeforeStyleSwitcher.tpl.php
+'Change Style' => 'Change Style', 
 
-# BeforeContact.tpl.php
-'Contact' => 'Contact', 
+# BeforeNavigation.tpl.php
+'Navigation' => 'Navigation', 
+
+# NavigationModule.php
+'Home' => 'Home', 
+'Styles' => 'Styles', 
+
+# ModuleAdmin.tpl.php
+'Module admin' => 'Module admin', 
+'Remove module from controller' => 'Remove module from controller', 
+'Add to' => 'Add to', 
+'Or' => 'Or', 
+'Insert before' => 'Insert before', 
+
+# Contact.js
+'Sending' => 'Sending', 
 
 # BeforeMsgSent.tpl.php
 'Thanks' => 'Thanks', 
 
-# Contact.js
-'Sending' => 'Sending', 
+# BeforeContact.tpl.php
+'Contact' => 'Contact', 
 
 # Contact.tpl.php
 'The form contains errors.' => 'The form contains errors.', 
@@ -59,58 +71,22 @@
 # MsgSent.tpl.php
 'Thank you.' => 'Thank you.', 
 
-# AfterFooter.tpl.php
-'Copyright' => 'Copyright', 
-'All contents are released under a CCv3' => 'All contents are released under a CCv3', 
-'Some Rights Reserved.' => 'Some Rights Reserved.', 
-'is powered by' => 'is powered by', 
-'and' => 'and', 
-'seconds' => 'seconds', 
-'queries' => 'queries', 
-'cached' => 'cached', 
+# SearchResults.tpl.php
+'Read more' => 'Read more', 
 
-# Footer.tpl.php
-'Top of Page' => 'Top of Page', 
-'Top' => 'Top', 
-'Contact Me' => 'Contact Me', 
-'Contact' => 'Contact', 
-'Get Firefox!' => 'Get Firefox!', 
-'Valid XHTML 1.0 Strict' => 'Valid XHTML 1.0 Strict', 
-'(Mostly) Valid CSS' => '(Mostly) Valid CSS', 
-'Logout' => 'Logout', 
-
-# Header.tpl.php
-'Home Page' => 'Home Page', 
-
-# Live.js
-'Show live cam' => 'Show live cam', 
-'Hide live cam' => 'Hide live cam', 
-
-# ModuleAdmin.tpl.php
-'Module admin' => 'Module admin', 
-'Remove module from controller' => 'Remove module from controller', 
-'Add to' => 'Add to', 
-'Or' => 'Or', 
-'Insert before' => 'Insert before', 
-
-# BeforeSearch.tpl.php
-'Search' => 'Search', 
-
-# Search.tpl.php
-'Search Terms' => 'Search Terms', 
-'Find' => 'Find', 
+# BeforeNoQuery.tpl.php
+'No Query' => 'No Query', 
 
 # AfterSearchResults.tpl.php
 'Previous' => 'Previous', 
 'Next' => 'Next', 
 
-# BeforeNoQuery.tpl.php
-'No Query' => 'No Query', 
-
-# BeforeNoResults.tpl.php
-'No Search Results for' => 'No Search Results for', 
-'Your search' => 'Your search', 
-'did not match any documents.' => 'did not match any documents.', 
+# NoResults.tpl.php
+'Suggestions' => 'Suggestions', 
+'Make sure all your words are spelled correctly' => 'Make sure all your words are spelled correctly', 
+'Try different keywords' => 'Try different keywords', 
+'Try more general keywords' => 'Try more general keywords', 
+'Happy hunting!' => 'Happy hunting!', 
 
 # BeforeSearchResults.tpl.php
 'Search Results for' => 'Search Results for', 
@@ -121,32 +97,59 @@
 # NoQuery.tpl.php
 'Please Enter a Search Query' => 'Please Enter a Search Query', 
 
-# NoResults.tpl.php
-'Suggestions' => 'Suggestions', 
-'Make sure all your words are spelled correctly' => 'Make sure all your words are spelled correctly', 
-'Try different keywords' => 'Try different keywords', 
-'Try more general keywords' => 'Try more general keywords', 
-'Happy hunting!' => 'Happy hunting!', 
-
-# SearchResults.tpl.php
-'Read more' => 'Read more', 
+# BeforeNoResults.tpl.php
+'No Search Results for' => 'No Search Results for', 
+'Your search' => 'Your search', 
+'did not match any documents.' => 'did not match any documents.', 
 
 # SkipNavigation.tpl.php
-'Skip to Navigation' => 'Skip to Navigation', 
-'Skip to Content' => 'Skip to Content', 
-'Skip to Secondary content' => 'Skip to Secondary content', 
+'Skip to ' => 'Skip to ', 
 
-# BeforeSocialBookmarks.tpl.php
-'Bookmark this URL' => 'Bookmark this URL', 
-'Add this URL to your favourite bookmarking service.' => 'Add this URL to your favourite bookmarking service.', 
+# BeforeSearch.tpl.php
+'Search' => 'Search', 
 
-# SocialBookmarks.tpl.php
-'Add to' => 'Add to', 
+# Search.tpl.php
+'Search Terms' => 'Search Terms', 
+'Find' => 'Find', 
 
-# Routes.php
-'url.admin' => 'admin', 
-'url.contact' => 'contact', 
-'url.search' => 'search', 
-'url.styles' => 'styles'
+# Header.tpl.php
+'Home Page' => 'Home Page', 
+
+# Live.js
+'Show live cam' => 'Show live cam', 
+'Hide live cam' => 'Hide live cam', 
+
+# BeforeStyles.tpl.php
+'Styles' => 'Styles', 
+'There are currently' => 'There are currently', 
+'styles to choose from.' => 'styles to choose from.', 
+
+# Styles.tpl.php
+'Author' => 'Author', 
+'Date' => 'Date', 
+'This style is currently in use.' => 'This style is currently in use.', 
+'Use this style' => 'Use this style', 
+
+# aFramework.js
+'Valid' => 'Valid', 
+'Invalid' => 'Invalid', 
+
+# AfterFooter.tpl.php
+'Copyright' => 'Copyright', 
+'All contents are released under a CCv3' => 'All contents are released under a CCv3', 
+'Some Rights Reserved.' => 'Some Rights Reserved.', 
+'is powered by' => 'is powered by', 
+'and' => 'and', 
+'seconds' => 'seconds', 
+'queries' => 'queries', 
+
+# Footer.tpl.php
+'Top of Page' => 'Top of Page', 
+'Top' => 'Top', 
+'Contact Me' => 'Contact Me', 
+'Contact' => 'Contact', 
+'Get Firefox!' => 'Get Firefox!', 
+'Valid XHTML 1.0 Strict' => 'Valid XHTML 1.0 Strict', 
+'(Mostly) Valid CSS' => '(Mostly) Valid CSS'
 
 ); ?>
