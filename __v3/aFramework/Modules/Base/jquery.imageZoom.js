@@ -183,3 +183,10 @@ jQuery.fn.imageZoom = function (conf) {
 		}
 	});
 };
+
+// Close image zooms when user hits esc
+$(document).keydown(function (e) {
+	if (e.keyCode == 27) {
+		$('div.jquery-image-zoom a').click();
+	}
+});
