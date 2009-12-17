@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Base cache-time="60">
+	<Wrapper name="wrapper">
+		<SkipNavigation/>
+		<Header/>
+		<Navigation/>
+		<Breadcrumbs/>
+		<Wrapper name="primary-content">
+			<Article/>
+			<Comments/>
+			<PostComment/>
+		</Wrapper>
+		<Wrapper name="secondary-content">
+			<Search/>
+			<QuickAbout/>
+			<RandomGalleryImage/>
+			<TagCloud/>
+		</Wrapper>
+		<Footer/>
+	</Wrapper>
+</Base>

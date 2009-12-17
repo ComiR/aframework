@@ -1,0 +1,63 @@
+#gallery {
+	
+}
+
+	#gallery h2 {
+		
+	}
+
+	#gallery ol = $self-clear;
+	#gallery ol {
+		margin: 0 -60px 0 0;
+		list-style: none;
+	}
+
+		#gallery ol li {
+			float: left;
+			position: relative;
+			margin: 0 60px 10px 0;
+			width: 110px;
+		}
+
+			#gallery ol li h3 {
+				background: #f7f7f9;
+
+				margin: 0 0 5px;
+				padding: 105px 10px 10px;
+
+				font: italic bold 12px/1.2 Georgia;
+				color: #232324;
+
+				-webkit-box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
+				-moz-box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
+				box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
+			}
+
+			#gallery ol li a {
+				display: block;
+				width: 85px;
+				height: 85px;
+
+				position: absolute;
+				left: 10px;
+				top: 10px;
+				overflow: hidden;
+			}
+
+				#gallery ol li a img {
+					max-width: none;
+					width: 200px;
+				}
+
+			#gallery ol li p {
+				font-size: 11px;
+			}
+
+				#gallery ol li p a {
+					display: inline;
+					width: auto;
+					height: auto;
+
+					position: static;
+					overflow: visible;
+				}

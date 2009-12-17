@@ -1,0 +1,122 @@
+#navigation {
+	position: absolute;
+	right: 0;
+	top: 63px;
+	z-index: 1;
+}
+
+	#navigation span {
+		background: url(gfx/bottom-grass.png);
+
+		display: block;
+		width: 22px;
+		height: 30px;
+
+		position: absolute;
+		right: 0;
+		bottom: 2px;
+	}
+
+	#navigation ul = $self-clear;
+	#navigation ul {
+		list-style: none;
+		margin: 0;
+	}
+
+		#navigation ul li {
+			background: url(gfx/stick-vertical.gif) repeat-y 50% top;
+			float: left;
+			margin: 0 20px 0 0;
+			padding: 0 0 30px; /* Height of "sticks" */
+		}
+
+		#navigation ul li:first-child {
+			background: url(gfx/stick-grass.png) no-repeat 50% 15px;
+		}
+
+		#navigation ul li:last-child {
+			margin-right: 0;
+		}
+
+			#navigation ul li a {
+				background: #f7f7f9;
+
+				display: block;
+				padding: 5px 10px;
+				position: relative;
+
+				font: 18px Georgia;
+				color: #72bd77;
+				text-decoration: none;
+				text-transform: lowercase;
+				outline: 0;
+
+				-moz-box-shadow: 4px 4px 4px rgba(0, 0, 0, .6);
+				-webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, .6);
+				box-shadow: 4px 4px 4px rgba(0, 0, 0, .6);
+
+				-moz-transform: rotate(3deg);
+				-webkit-transform: rotate(3deg);
+				transform: rotate(3deg);
+			}
+
+			#navigation ul li a[href="/archives/"] {
+				-moz-transform: rotate(-4deg);
+				-webkit-transform: rotate(-4deg);
+				transform: rotate(-4deg);
+			}
+
+			#navigation ul li a[href="/gallery/"] {
+				-moz-transform: rotate(-4deg);
+				-webkit-transform: rotate(-4deg);
+				transform: rotate(-4deg);
+				margin-top: -3px;
+			}
+
+			#navigation ul li a[href="/about/"] {
+				-moz-transform: rotate(3deg);
+				-webkit-transform: rotate(3deg);
+				transform: rotate(3deg);
+			}
+
+			#navigation ul li a:after {
+				content: '.';
+			}
+
+			#navigation ul li a:hover {
+				color: #018b08;
+			}
+
+				/* Worms n stuff */
+				#navigation ul li a span {
+					background: url(gfx/top-grass.png);
+
+					display: block;
+					width: 19px;
+					height: 9px;
+
+					position: absolute;
+					right: 0;
+					top: -9px;
+					bottom: auto;
+				}
+
+				#navigation ul li:first-child a span {
+					background: url(gfx/happy-worm.png);
+					width: 31px;
+					height: 16px;
+					top: -16px;
+				}
+
+				#navigation ul li:last-child a span {
+					display: none;
+				}
+
+			/* Selected */
+			#navigation ul li strong {
+				
+			}
+
+				#navigation ul li strong a {
+					color: #018b08;
+				}
