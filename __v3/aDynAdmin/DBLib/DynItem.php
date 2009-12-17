@@ -1,7 +1,7 @@
 <?php
 	class DynItem {
 		public static function getTableColumns ($tableName) {
-			$res	= DB::qry('SHOW COLUMNS FROM ' . esc($tableName));
+			$res	= DB::qry('SHOW COLUMNS FROM ' . escSQL($tableName));
 			$cols	= array();
 
 			while ($row = mysql_fetch_assoc($res)) {
@@ -28,7 +28,7 @@
 		}
 
 		public static function getByID ($tableName, $id) {
-			$res	= DB::qry('SELECT * FROM ' . esc($tableName) . ' WHERE ' . esc($tableName) . '_id = ' . esc($id) . ' LIMIT 1');
+			$res	= DB::qry('SELECT * FROM ' . escSQL($tableName) . ' WHERE ' . escSQL($tableName) . '_id = ' . escSQL($id) . ' LIMIT 1');
 			$row	= mysql_fetch_assoc($res);
 			$cols	= self::getTableColumns($tableName);
 			$nRow	= array();

@@ -7,9 +7,9 @@
 				FROM
 					' . $tableName . '
 				ORDER BY
-					' . esc($sort) . ' ' . esc($order) . '
+					' . escSQL($sort) . ' ' . escSQL($order) . '
 				LIMIT
-					' . esc($start) . ', ' . esc($limit)
+					' . escSQL($start) . ', ' . escSQL($limit)
 			);
 
 			if (mysql_num_rows($res) === 1) {
@@ -34,7 +34,7 @@
 			$insertCols = '';
 
 			foreach ($fields as $col => $val) {
-				$insertVals .= '\'' .esc($val) .'\',';
+				$insertVals .= '\'' .escSQL($val) .'\',';
 				$insertCols .= $col .',';
 			}
 
@@ -58,7 +58,7 @@
 			$updateStr = '';
 
 			foreach ($fields as $col => $val) {
-				$updateStr .= "$col = '" .esc($val) ."',";
+				$updateStr .= "$col = '" .escSQL($val) ."',";
 			}
 
 			$updateStr = substr($updateStr, 0, -1);
@@ -69,7 +69,7 @@
 				SET
 					$updateStr
 				WHERE
-					{$tableName}_id = " . esc($id) . "
+					{$tableName}_id = " . escSQL($id) . "
 				LIMIT 1
 			");
 
@@ -81,7 +81,7 @@
 				DELETE FROM
 					$tableName
 				WHERE
-					{$tableName}_id = " . esc($id) . "
+					{$tableName}_id = " . escSQL($id) . "
 				LIMIT 1
 			");
 

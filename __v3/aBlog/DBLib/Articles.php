@@ -109,7 +109,7 @@
 					tags USING(tags_id)
 				WHERE
 					articles.pub_date <= NOW() AND 
-					tags.url_str LIKE BINARY "' . esc($urlStr) . '"
+					tags.url_str LIKE BINARY "' . escSQL($urlStr) . '"
 				GROUP BY
 					articles.articles_id
 				ORDER BY
@@ -146,7 +146,7 @@
 					articles.articles_id
 				HAVING
 					articles.pub_date <= NOW() AND 
-					articles.url_str LIKE BINARY "' . esc($urlStr) . '"
+					articles.url_str LIKE BINARY "' . escSQL($urlStr) . '"
 				LIMIT 1
 			');
 
@@ -196,9 +196,9 @@
 					articles.pub_date <= NOW() AND 
 					' . $where . '
 				ORDER BY
-					articles.' . esc($sort) . ' ' . esc($order) . '
+					articles.' . escSQL($sort) . ' ' . escSQL($order) . '
 				LIMIT
-					' . esc($start) . ', ' . esc($limit)
+					' . escSQL($start) . ', ' . escSQL($limit)
 			);
 
 			if (mysql_num_rows($res) === 1) {

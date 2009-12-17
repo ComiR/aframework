@@ -40,9 +40,9 @@
 				GROUP BY
 					tags.tags_id
 				ORDER BY
-					tags.' . esc($sort) . ' ' . esc($order) . '
+					tags.' . escSQL($sort) . ' ' . escSQL($order) . '
 				LIMIT
-					' . esc($start) . ', ' . esc($limit)
+					' . escSQL($start) . ', ' . escSQL($limit)
 			);
 
 			if (mysql_num_rows($res) === 1) {
