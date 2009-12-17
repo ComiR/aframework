@@ -8,18 +8,12 @@
 
 			if ($pages) {
 				foreach ($pages as $page) {
-					aFramework_NavigationModule::addItem(array(
-						'title'	=> $page['title'], 
-						'url'	=> Router::urlFor('Page', $page)
-					));
+					aFramework_NavigationModule::addItem($page['title'], Router::urlFor('Page', $page));
 				}
 			}
 
 			if (ADMIN) {
-				aFramework_NavigationModule::addItem(array(
-					'title'	=> Lang::get('Add Page +'), 
-					'url'	=> Router::urlFor('AddPage')
-				));
+				aFramework_DebugModule::addItem(Lang::get('Add Page +'), Router::urlFor('AddPage'));
 			}
 		}
 	}
