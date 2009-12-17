@@ -4,10 +4,7 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			aFramework_NavigationModule::addItem(array(
-				'title'	=> Lang::get('Forums'), 
-				'url'	=> Router::urlFor('Forums')
-			));
+			aFramework_NavigationModule::addItem(Lang::get('Forums'), Router::urlFor('Forums'));
 		}
 	}
 ?>
