@@ -19,7 +19,7 @@
 			$page = Pages::getPageByURLStr(isset(Router::$params['url_str']) ? Router::$params['url_str'] : 'home');
 
 			# If no url_str is set and we're admin
-			if (!isset(Router::$params['url_str']) and ADMIN) {
+			if (!isset(Router::$params['url_str']) and Router::$params['controller'] == 'AddPage' and ADMIN) {
 				aFramework_BaseModule::$tplVars['html_title'] = Lang::get('Add a Page');
 			}
 			# No page exists

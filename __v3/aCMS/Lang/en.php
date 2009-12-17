@@ -1,7 +1,7 @@
 <?php return array(
 
 # Routes.php
-'url.add-page' => 'url.add-page', 
+'url.add-page' => 'add-page', 
 
 # NavigationModule.php
 'Add Page +' => 'Add Page +', 
