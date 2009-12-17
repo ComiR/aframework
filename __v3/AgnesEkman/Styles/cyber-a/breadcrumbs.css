@@ -1,0 +1,29 @@
+#breadcrumbs {
+	position: absolute;
+	left: 0;
+	top: 82px;
+
+	width: 550px;
+	margin: 0;
+	padding: 5px 10px;
+
+	font-size: 10px;
+	opacity: .5;
+}
+
+#breadcrumbs:hover {
+	opacity: 1;
+}
+
+	#breadcrumbs p {
+		margin: 0;
+	}
+
+		#breadcrumbs p a {
+			color: #72bd77;
+		}
+
+		#breadcrumbs p strong {
+			color: #018b08;
+			font-weight: normal;
+		}

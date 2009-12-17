@@ -1,0 +1,61 @@
+#search {
+
+}
+
+	#search label = $a11y-hide;
+
+	#search br {
+		display: none;
+	}
+
+#jquery-live-search {
+	font-size: 10px;
+	width: 218px !important;
+	border: 1px solid #333;
+	margin-top: -1px;
+}
+	
+	#jquery-live-search h2 = $sh2;
+	#jquery-live-search h2 {
+		margin-top: 15px;	
+	}
+
+	#jquery-live-search > p {
+		
+	}
+
+		#jquery-live-search > p strong {
+			color: #BA4600;
+			font-size: 12px;
+			font-weight: bold;
+		}
+	
+	#jquery-live-search h3 = $sh2;
+	#jquery-live-search h3 {
+		margin-top: 15px;
+	}
+
+	#jquery-live-search > ul {
+		list-style: inside circle;
+		margin-left: 0;
+	}
+
+		#jquery-live-search > ul li {
+			margin-bottom: 5px;
+		}
+		
+	#jquery-live-search > ol {
+		margin-left: 0;
+		list-style: none;
+	} 
+
+		#jquery-live-search > ol > li h3 a = $sh2;
+		#jquery-live-search > ol > li h3 a:hover {
+			color: #C37449;
+		}
+
+	#jquery-live-search > ul:last-child = $pagination;
+
+		#jquery-live-search > ul:last-child {
+			margin-bottom: 0;
+		}

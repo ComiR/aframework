@@ -1,0 +1,24 @@
+#header {
+	background: url(gfx/header.png) no-repeat left bottom;
+	width: 595px;
+	margin: 0 0 -2px -1px;
+	padding: 0 0 30px;
+}
+
+	#header h1 {
+		background: url(gfx/logo.png) no-repeat;
+
+		width: 401px;
+		margin: 0;
+
+		text-indent: -10000px;
+		font-size: 1px;
+	}
+
+		#header h1 a {
+			display: block;
+			height: 54px;
+			outline: 0;
+		}
+
+	#header p = $a11y-hide;

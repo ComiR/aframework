@@ -1,0 +1,16 @@
+#quick-about {
+
+}
+
+	#quick-about h2 = $a11y-hide;
+
+	#quick-about p strong {
+		color: #ba4600;
+		font: italic bold 20px Georgia, serif;	
+	}
+
+	#quick-about p img {
+		float: right;
+		margin: 0 0 5px 5px;
+		width: 70px;
+	}

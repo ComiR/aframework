@@ -1,0 +1,32 @@
+#articles {
+	
+}
+
+	#home-page #articles > h2 = $a11y-hide;
+	#home-page #articles > h2 + p = $a11y-hide;
+
+	#articles > ul = $plain-list;
+	#articles > ul {
+		margin: 0;
+	}
+
+		#articles > ul > li {
+
+		}
+
+			#articles > ul > li h3 = $h2;
+			#articles > ul > li h3 {
+				
+			}
+
+			#articles > ul > li h3 + p = $pub-date;
+
+			$article-meta-data {
+				background: #e4e4e5;
+				margin: 45px 0 45px -60px;
+				padding: 5px 10px 5px 60px;
+				text-transform: uppercase;
+				font-size: 11px;
+			}
+
+			#articles > ul > li > p:last-child = $article-meta-data;

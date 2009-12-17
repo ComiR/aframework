@@ -1,0 +1,96 @@
+#post-comment {
+	background: #232324;
+
+	padding: 20px 15px;
+
+	color: #fff;
+}
+
+	#post-comment h3 = $a11y-hide;
+	#post-comment h3 {
+		margin: 0 0 10px;
+
+		font: 12px/1 Verdana, sans-serif;
+		text-transform: uppercase;
+		color: #fff;
+	}
+
+	#post-comment form = $self-clear;
+	#post-comment form {
+		position: relative;
+	}
+
+		#post-comment form p {
+			position: relative;
+			width: 150px;
+			line-height: 1;
+		}
+
+			#post-comment form p strong {
+				display: none;
+			}
+
+			#post-comment form p input[type=text] {
+				width: 140px;
+			}
+
+			#post-comment form p img {
+				position: absolute;
+				right: -12px;
+				top: 5px;
+			}
+
+		#post-comment form p:first-child + p + p + p {
+			width: 250px;
+			position: absolute;
+			right: 0;
+			top: 0;
+		}
+
+			#post-comment form p:first-child + p + p + p textarea {
+				width: 240px;
+				height: 185px;
+			}
+
+		#post-comment form p:last-child {
+			text-align: right;
+			margin: 0;
+		}
+
+			#post-comment form p input[type=submit] {
+				background: transparent url(gfx/send-btn.png) ;
+
+				
+				width: 60px;
+				height: 60px;
+
+				margin: 0;
+				padding: 0;
+
+				font: 1px sans-serif;
+				text-indent: -10000px;
+
+				border: 0;
+			}
+
+			/*
+			#post-comment form p input[type=submit] {
+				background: #7ae43d;
+
+				padding: 20px 5px;
+
+				font: bold 12px/1.2 Verdana, sans-serif;
+				text-shadow: rgba(20, 20, 20, .5) 1px 1px 2px;
+				text-transform: uppercase;
+				color: #fff;
+
+				border: 0;
+				-moz-border-radius: 50px;
+				-webkit-border-radius: 50px;
+				border-radius: 50px;
+
+				-moz-box-shadow: 0 0 5px rgba(200, 200, 200, 0.5);
+				-webkit-box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+				box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+			}
+			*/

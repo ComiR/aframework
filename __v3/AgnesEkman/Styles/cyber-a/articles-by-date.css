@@ -1,0 +1,75 @@
+#articles-by-date {
+	
+}
+
+	#articles-by-date h2 {
+	
+	}
+
+	/* Tabs */
+	#articles-by-date ul.tabs = $self-clear;
+	#articles-by-date ul.tabs {
+		background: #e4e4e5 url(gfx/arrow-right.gif) no-repeat right 50%;
+		margin: 0 0 0 -60px;
+		padding: 0 0 0 50px;
+		list-style: none;
+	}
+
+		#articles-by-date ul.tabs li {
+			float: left;
+		}
+
+			#articles-by-date ul.tabs li a {
+				display: block;
+				padding: 10px;
+
+				font: bold 14px/1 Georgia, serif;
+				color: #232324;
+				text-decoration: none;
+				outline: 0;
+			}
+
+			#articles-by-date ul.tabs li a.selected {
+				background: url(gfx/arrow-down.gif) no-repeat 50% bottom;
+				padding-bottom: 30px;
+				margin-bottom: -30px;
+			}
+
+	/* List of months */
+	#articles-by-date > ul {
+		list-style: none;
+		margin: 0;
+	}
+
+		#articles-by-date > ul > li {
+			
+		}
+
+			/* Month title */
+			body.js-enabled #articles-by-date > ul > li h3 = $a11y-hide;
+
+			/* List of articles in a month */
+			#articles-by-date > ul > li > ul {
+				list-style: none;
+				margin-left: -60px;
+			}
+
+				#articles-by-date > ul > li > ul > li {
+					background: #e4e4e5;
+					padding: 10px 10px 15px 60px;
+					margin: 20px 0 20px 0;					
+				}
+
+					/* Article title */
+					#articles-by-date > ul > li > ul > li h4 {
+						
+					}
+
+						#articles-by-date > ul > li > ul > li h4 a {
+							color: #c37449;
+						}
+						
+					/* Continue reading */
+					#articles-by-date > ul > li > ul > li > p:last-child {
+						
+					}

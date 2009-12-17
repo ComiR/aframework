@@ -1,0 +1,43 @@
+#article {
+	
+}
+
+	#article h2 + p = $pub-date;
+
+	#article > dl:last-child = $article-meta-data;
+
+		#article > dl:last-child dt {
+			display: inline;
+			margin: 0 0 0 20px;
+		}
+
+		#article > dl:last-child dt:first-child {
+			margin-left: 0;
+		}
+
+		#article > dl:last-child dt:after {
+			content: ": ";
+		}
+
+		#article > dl:last-child dd {
+			display: inline;
+			margin: 0;
+		}
+
+			#article > dl:last-child dd ul {
+				display: inline;
+				margin: 0;
+				list-style: none;
+			}
+
+				#article > dl:last-child dd ul li {
+					display: inline;
+				}
+
+				#article > dl:last-child dd ul li:after {
+					content: ", ";
+				}
+
+				#article > dl:last-child dd ul li:last-child:after {
+					content: "";
+				}
