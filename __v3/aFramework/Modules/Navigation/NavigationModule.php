@@ -5,32 +5,26 @@
 
 		public static function run () {
 			if (Config::get('navigation.home')) {
-				self::addItem(array(
-					'title'	=> Lang::get('Home'), 
-					'url'	=> Router::urlFor('Home')
-				), 0);
+				self::addItem(Lang::get('Home'), Router::urlFor('Home'), 0);
 			}
 
 			if (Config::get('navigation.styles')) {
-				self::addItem(array(
-					'title'	=> Lang::get('Styles'), 
-					'url'	=> Router::urlFor('Styles')
-				));
+				self::addItem(Lang::get('Styles'), Router::urlFor('Styles'));
 			}
 
 			self::setSelectedNavigationItem();
 		}
 
-		public static function addItem ($arrItem, $pos = false) {
+		public static function addItem ($title, $url, $pos = false) {
 			if ($pos === false) {
-				self::$tplVars['nav_items'][] = $arrItem;
+				self::$tplVars['nav_items'][] = array('title' => $title, 'url' => $url);
 			}
 			else {
 				if (!isset(self::$tplVars['nav_items'])) {
 					self::$tplVars['nav_items'] = array();
 				}
 
-				array_insert($arrItem, $pos, self::$tplVars['nav_items']);
+				array_insert(array('title' => $title, 'url' => $url), $pos, self::$tplVars['nav_items']);
 			}
 		}
 
