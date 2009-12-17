@@ -45,12 +45,7 @@
 				}
 			}
 
-			if (!count($docs)) {
-				self::$tplFile = 'NoDocuments';
-			}
-			else {
-				self::$tplVars['documents'] = $docs;
-			}
+			self::$tplVars['documents'] = $docs;
 		}
 
 		private static function deleteDocument ($path) {
