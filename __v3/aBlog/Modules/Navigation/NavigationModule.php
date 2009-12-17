@@ -5,17 +5,11 @@
 
 		public static function run () {
 			if (Config::get('navigation.archives')) {
-				aFramework_NavigationModule::addItem(array(
-					'title'	=> Lang::get('Archives'), 
-					'url'	=> Router::urlFor('Archives')
-				));
+				aFramework_NavigationModule::addItem(Lang::get('Archives'), Router::urlFor('Archives'));
 			}
 
 			if (ADMIN) {
-				aFramework_NavigationModule::addItem(array(
-					'title'	=> Lang::get('Add Article +'), 
-					'url'	=> Router::urlFor('AddArticle')
-				));
+				aFramework_DebugModule::addItem(Lang::get('Add Article +'), Router::urlFor('AddArticle'));
 			}
 		}
 	}
