@@ -78,7 +78,7 @@
 									<?php foreach ($mod['classes'] as $modClass) { ?>
 										<li>
 											<?php echo $modClass['class_name']; ?><br />
-											<small><?php echo $modClass['run_time']; ?> sec(s), <?php echo $modClass['num_queries']; ?> queries</small>
+											<small><?php echo round($modClass['run_time'], 5); ?> sec(s), <?php echo $modClass['num_queries']; ?> queries</small>
 										</li>
 									<?php } ?>
 								</ul>

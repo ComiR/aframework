@@ -5,37 +5,43 @@ body.admin {
 #debug {
 	background: #fff url(common_gfx/gradients/10x100-e5e5e5-fff.png) repeat-x;
 
-	position: absolute;
+	position: fixed;
 	left: 0;
 	top: 0;
 	z-index: 50;
+	opacity: .9;
 
 	width: 100%;
 
-	font: 12px/1 Arial, sans-serif;
-	letter-spacing: normal;
-	color: #000;
-
 	border-bottom: 1px solid #aaa;
 }
+
+	#debug, 
+	#debug * {
+		font: 12px/1 Arial, sans-serif !important;
+		letter-spacing: normal !important;
+		color: #111 !important;
+		text-transform: none !important;
+	}
+
+	#debug small {
+		font-size: 10px !important;
+		color: #666 !important;
+	}
+
+	#debug a = $underlined;
 
 	#debug h2 = $a11y-hide;
 	#debug h2, 
 	#debug h3, 
 	#debug h4 {
-		-moz-text-shadow: 0;
-		-webkit-text-shadow: 0;
-		text-shadow: none;
-	}
-
-	#debug a {
-		color: #000;
-		font-weight: bold;
+		-moz-text-shadow: 0 !important;
+		-webkit-text-shadow: 0 !important;
+		text-shadow: none !important;
 	}
 
 	#debug > p {
 		float: right;
-		line-height: 1;
 
 		margin: 0;
 		padding: 5px 10px;
@@ -49,7 +55,6 @@ body.admin {
 		padding: 5px 10px;
 
 		list-style: none;
-		line-height: 1;
 	}
 
 		#debug ul.navigation li {
@@ -75,10 +80,6 @@ body.admin {
 				margin: 0;
 				padding: 5px 10px;
 				height: 15px;
-
-				font: bold 12px/1 Arial, sans-serif;
-				letter-spacing: normal;
-				color: #000;
 
 				cursor: pointer;
 			}
@@ -167,7 +168,10 @@ body.admin {
 						top: 2px;
 
 						display: none;
+						padding: 15px 0;
 						width: 550px;
+						max-height: 400px;
+						overflow: auto;
 
 						-moz-border-radius: 0 5px 5px 5px;
 						-webkit-border-top-right-radius: 5px;
@@ -183,7 +187,7 @@ body.admin {
 						#debug ul.debug > li > ul > li > dl > dt {
 							clear: both;
 							float: left;
-							width: 200px;
+							width: 190px;
 
 							margin: 0;
 							padding: 7px 10px;
@@ -194,11 +198,20 @@ body.admin {
 
 						#debug ul.debug > li > ul > li > dl > dd {
 							float: right;
-							width: 310px;
+							width: 300px;
 
 							margin: 0;
 							padding: 7px 10px;
 						}
+
+							#debug ul.debug > li > ul > li > dl > dd ul {
+								margin: 0;
+								list-style: none;
+							}
+
+								#debug ul.debug > li > ul > li > dl > dd ul li {
+									margin: 0 0 5px;
+								}
 
 						#debug ul.debug > li > ul > li > dl > dt:last-of-type, 
 						#debug ul.debug > li > ul > li > dl > dd:last-of-type {
