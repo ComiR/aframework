@@ -5,10 +5,7 @@
 
 		public static function run () {
 			if (ADMIN) {
-				aFramework_NavigationModule::addItem(array(
-					'title'	=> 'aDynAdmin', 
-					'url'	=> Router::urlFor('DynAdmin')
-				));
+				aFramework_DebugModule::addItem('aDynAdmin', Router::urlFor('DynAdmin'));
 			}
 		}
 	}
