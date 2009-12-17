@@ -4,7 +4,7 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			$allPages		= Pages::get();
+			$allPages		= Pages::get('priority');
 			$projectPages	= array();
 
 			foreach ($allPages as $page) {
