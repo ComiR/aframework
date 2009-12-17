@@ -20,12 +20,12 @@
 		private static function showTheArticle () {
 			# If no particular article is requested and we're admin
 			if (!isset(Router::$params['url_str']) and ADMIN) {
-				if (Router::$params['controller'] != 'Home') {
+				if (Router::getController() != 'Home') {
 					aFramework_BaseModule::$tplVars['html_title'] = Lang::get('Add an Article');
 				}
 			}
 			# Or if we're on the AddArticle-page and NOT admin
-			elseif (Router::$params['controller'] == 'AddArticle' and !ADMIN) {
+			elseif (Router::getController() == 'AddArticle' and !ADMIN) {
 				FourOFour::run();
 			}
 			# Or it's a normal article-display

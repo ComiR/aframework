@@ -19,7 +19,7 @@
 			$page = Pages::getPageByURLStr(isset(Router::$params['url_str']) ? Router::$params['url_str'] : 'home');
 
 			# If no url_str is set and we're admin
-			if (!isset(Router::$params['url_str']) and Router::$params['controller'] == 'AddPage' and ADMIN) {
+			if (!isset(Router::$params['url_str']) and Router::getController() == 'AddPage' and ADMIN) {
 				aFramework_BaseModule::$tplVars['html_title'] = Lang::get('Add a Page');
 			}
 			# No page exists
@@ -30,14 +30,14 @@
 			else {
 				self::$tplVars['page'] = $page;
 
-				if (Router::$params['controller'] != 'Home') {
+				if (Router::getController() != 'Home') {
 					aFramework_BaseModule::$tplVars['html_title']	= escHTML($page['title']);
 				}
 
 				aFramework_BaseModule::$tplVars['meta_description']	= escHTML($page['meta_description']);
 				aFramework_BaseModule::$tplVars['meta_keywords']	= escHTML($page['meta_keywords']);
 
-				if (Router::$params['controller'] == 'Page') {
+				if (Router::getController() == 'Page') {
 					aFramework_BaseModule::$tplVars['body_id'] = $page['url_str'];
 				}
 			}

@@ -1,6 +1,6 @@
 <ul>
 	<li>
-		<?php if (Router::$params['controller'] == 'DynAdmin') { ?>
+		<?php if (Router::getController() == 'DynAdmin') { ?>
 			<strong>
 				<?php echo Lang::get('Home'); ?>
 			</strong>
@@ -24,7 +24,7 @@
 		</li>
 	<?php } ?>
 	<li>
-		<?php if (Router::$params['controller'] == 'ConfigAdmin') { ?>
+		<?php if (Router::getController() == 'ConfigAdmin') { ?>
 			<strong>
 				<?php echo Lang::get('Config'); ?>
 			</strong>
@@ -35,7 +35,7 @@
 		<?php } ?>
 	</li>
 	<li>
-		<?php if (Router::$params['controller'] == 'DatabaseAdmin') { ?>
+		<?php if (Router::getController() == 'DatabaseAdmin') { ?>
 			<strong>
 				<?php echo Lang::get('Tools'); ?>
 			</strong>

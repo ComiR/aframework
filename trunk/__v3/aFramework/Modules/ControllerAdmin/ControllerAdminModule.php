@@ -63,7 +63,7 @@
 			}
 
 			# Get all available modules for this site
-			self::$tplVars = self::getAvailableModules(isset(Router::$params['controller']) ? Router::$params['controller'] : 'Home');
+			self::$tplVars = self::getAvailableModules(Router::getController() ? Router::getController() : 'Home');
 		}
 
 		/**

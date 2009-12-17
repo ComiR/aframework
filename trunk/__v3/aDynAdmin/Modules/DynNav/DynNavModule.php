@@ -16,12 +16,12 @@
 				array(
 					'title'		=> Lang::get('Browse'), 
 					'url'		=> Router::urlFor('DynItems', array('table_name' => Router::$params['table_name'])), 
-					'selected'	=> (Router::$params['controller'] == 'DynItems') ? true : false
+					'selected'	=> (Router::getController() == 'DynItems') ? true : false
 				), 
 				array(
 					'title'		=> Lang::get('Add'), 
 					'url'		=> Router::urlFor('AddDynItem', array('table_name' => Router::$params['table_name'])), 
-					'selected'	=> (Router::$params['controller'] == 'AddDynItem') ? true : false
+					'selected'	=> (Router::getController() == 'AddDynItem') ? true : false
 				)
 			);
 
