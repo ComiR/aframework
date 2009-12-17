@@ -27,4 +27,6 @@
 	Config::set('navigation.home',				true);
 	Config::set('navigation.styles',			false);
 	Config::set('navigation.archives',			false);
+
+	Config::set('ablog.num_recent_stuff',		3);
 ?>
