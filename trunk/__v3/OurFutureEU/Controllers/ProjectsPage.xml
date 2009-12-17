@@ -8,9 +8,8 @@
 		<Search/>
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
-			<ProjectList/>
 			<Page/>
-			<ContactPersons/>
+			<ProjectList/>
 			<Documents/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
