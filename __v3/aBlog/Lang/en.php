@@ -93,7 +93,8 @@
 'You are currently browsing' => 'You are currently browsing', 
 'articles tagged with' => 'articles tagged with', 
 'Archives for' => 'Archives for', 
-'articles posted ' => 'articles posted ', 
+'articles posted in' => 'articles posted in', 
+'articles posted on' => 'articles posted on', 
 'The Latest Articles' => 'The Latest Articles', 
 
 # BeforeRecentArticles.tpl.php

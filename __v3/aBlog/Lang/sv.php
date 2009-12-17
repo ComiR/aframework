@@ -85,7 +85,8 @@
 'You are currently browsing' => 'Du surfar för närvarande', 
 'articles tagged with' => 'artiklar taggade med', 
 'Archives for' => 'Arkivet för', 
-'articles posted ' => 'artiklar postade ', 
+'articles posted in' => 'artiklar publicerade', 
+'articles posted on' => 'artiklar publicerade', 
 'The Latest Articles' => 'De senaste artiklarna', 
 
 # BeforeRecentArticles.tpl.php
