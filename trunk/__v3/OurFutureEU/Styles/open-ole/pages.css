@@ -13,53 +13,6 @@
 }
 
 /* Our Projects */
-#project-list ul = $self-clear;
-#project-list ul {
-	margin: 0;
-	list-style: none;
-}
-
-	#project-list ul li {
-		margin: 0 0 10px;
-	}
-
-		$white-round-box {
-			background: #fdfeff;
-
-			padding: 15px 10px;
-
-			border: 1px solid #ccc;
-			-moz-border-radius: 5px;
-			-webkit-border-radius: 5px;
-			border-radius: 5px;
-		}
-
-		#project-list ul li a = $white-round-box;
-		#project-list ul li a {
-			display: block;
-			position: relative;
-
-			padding-left: 50px;
-
-			font-weight: bold;
-			text-transform: uppercase;
-			text-decoration: none;
-		}
-
-			#project-list ul li a img {
-				position: absolute;
-				left: 10px;
-				top: 11px;
-				border: 0;
-				float: none;
-				margin: 0;
-			}
-
-		#project-list ul li a:hover {
-			background: #1795d0;
-			color: #fdfeff;
-		}
-
 #project-page-page #primary-content {
 	position: relative;
 }

@@ -1,0 +1,35 @@
+#projects-page-page #project-list ul = $self-clear;
+#projects-page-page #project-list ul {
+	margin: 0;
+	list-style: none;
+}
+
+	#projects-page-page #project-list ul li {
+		margin: 0 0 10px;
+	}
+
+		#projects-page-page #project-list ul li a = $white-round-box;
+		#projects-page-page #project-list ul li a {
+			display: block;
+			position: relative;
+
+			padding-left: 50px;
+
+			font-weight: bold;
+			text-transform: uppercase;
+			text-decoration: none;
+		}
+
+			#projects-page-page #project-list ul li a img {
+				position: absolute;
+				left: 10px;
+				top: 11px;
+				border: 0;
+				float: none;
+				margin: 0;
+			}
+
+		#projects-page-page #project-list ul li a:hover {
+			background: #1795d0;
+			color: #fdfeff;
+		}

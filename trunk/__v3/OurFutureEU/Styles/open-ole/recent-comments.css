@@ -22,6 +22,10 @@
 
 				#recent-comments ol li h3 a = $link-font;
 
+				#recent-comments ol li h3 img {
+					border-color: #15739F;
+				}
+
 				#recent-comments ol li h3 img + a {
 					display: block;
 					font-weight: bold;

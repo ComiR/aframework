@@ -1,0 +1,10 @@
+$white-round-box {
+	background: #fdfeff;
+
+	padding: 15px 10px;
+
+	border: 1px solid #ccc;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
