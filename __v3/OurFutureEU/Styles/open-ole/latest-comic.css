@@ -1,13 +1,3 @@
-$white-shadowed-box {
-	background: #fefefe;
-	margin: 0 0 30px;
-	padding: 30px 20px 20px;
-
-	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-	-moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
-}
-
 #latest-comic = $white-shadowed-box;
 
 	#latest-comic h2 = $a11y-hide;

@@ -10,6 +10,8 @@
 
 		#projects-page-page #project-list ul li a = $white-round-box;
 		#projects-page-page #project-list ul li a {
+			background: #FDFEFF url(gfx/icons/heart.png) no-repeat 9px 11px;
+
 			display: block;
 			position: relative;
 
@@ -30,6 +32,6 @@
 			}
 
 		#projects-page-page #project-list ul li a:hover {
-			background: #1795d0;
+			background-color: #1795d0;
 			color: #fdfeff;
 		}
