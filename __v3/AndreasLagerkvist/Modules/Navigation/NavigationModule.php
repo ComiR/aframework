@@ -4,10 +4,7 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			aFramework_NavigationModule::addItem(array(
-				'title'	=> Lang::get('jQuery'), 
-				'url'	=> Router::urlFor('JqueryPlugins')
-			), 2);
+			aFramework_NavigationModule::addItem(Lang::get('jQuery'), Router::urlFor('JqueryPlugins'), 2);
 		}
 	}
 ?>

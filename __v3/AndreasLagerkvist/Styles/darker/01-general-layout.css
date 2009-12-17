@@ -305,6 +305,10 @@ small = $small;
 	height: 70px;
 }
 
+body.admin #faded-footer {
+	display: none;
+}
+
 $box {
 	background: url(gfx/box.png) no-repeat;
 
