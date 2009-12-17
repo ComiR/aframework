@@ -14,6 +14,22 @@
 		<link rel="stylesheet" type="text/css" href="/aFramework/Modules/Base/jquery.dragToSelect.css"/><!-- optional -->
 		<link rel="stylesheet" type="text/css" href="/aFramework/Modules/Base/jquery-ui-1.7.1.custom.css"/><!-- optional -->
 
+		<style type="text/css">
+			body {
+				background: #eee;
+
+				margin: 0;
+				padding: 20px;
+
+				font: 100%/1.2 Arial, sans-serif;
+				color: #111;
+			}
+
+			body > p {
+				width: 60%;
+			}
+		</style>
+
 		<title>jQuery Pixastic Editor Example - AndreasLagerkvist.com</title>
 
 	</head>
@@ -21,6 +37,16 @@
 	<body>
 
 		<h1><a href="http://andreaslagerkvist.com/jquery/pixastic-editor/">jQuery Pixastic Editor</a></h1>
+
+		<p>This is a jQuery Plug-in built on top of the <a href="http://www.pixastic.com">Pixastic JS Library</a>. Check the source for how to implement.</p>
+
+		<p>Click one of the effects to the right of the image. <a href="#pixastic-editor-emboss">Emboss</a> (Embs) and <a href="#pixastic-editor-hsl">HSL</a> are pretty cool.</p>
+
+		<p>You can also select only a portion of the image and apply effects to that. Simply drag and drop your cursor over the image. Note that some previews don't work properly (might try and fix that) but the end result looks as it should.</p>
+
+		<p>To "save" your image simply click it to open it in a new tab. Because I also use <a href="http://andreaslagerkvist.com/jquery/drag-to-select/">dragToSelect</a> it can be tricky to get the click-event triggered. This is obviously bad code on my part and may get fixed.
+
+		<p><strong>Check the source for all necessary (and optional) scripts and stylesheets.</strong></p>
 
 		<div id="jquery-pixastic-editor-example">
 
@@ -35,17 +61,37 @@
 		<script type="text/javascript" src="pixastic.custom.js"></script>
 		<script type="text/javascript" src="jquery.pixasticEditor.js"></script>
 		<script type="text/javascript">
+			// This is necessary to run pixastic
 			$(function () {
-				var img = $('#jquery-pixastic-editor-example').find('img')[0]; //.addClass('horizontal-toolbar horizontal-form').find('img')[0];
+				// Grab the image (HTMLElement, not jQuery Object)
+				// we want to run pixastic on (we need to check if it's loaded before running the editor)
+				var img = $('#jquery-pixastic-editor-example').find('img')[0]; // [0] = first element in jQuery Object's array of HTMLElements
 
+				// If the image was already loaded
 				if (img.complete) {
+					// Run pixasticEditor now
 					$('#jquery-pixastic-editor-example').pixasticEditor();
 				}
 				else {
+					// Otherwise run it as soon as the image has loaded
 					img.onload = function () {
 						$('#jquery-pixastic-editor-example').pixasticEditor();
 					};
 				}
+			});
+
+			// This code allows you to have links anywhere on
+			// the page pointing to #pixastic-editor-EFFECT
+			// where EFFECT is replaced by the class-name of the
+			// effect you want to run, for example #pixastic-editor-hsl.
+			$(function () {
+				var pixasticWrapper = $('#jquery-pixastic-editor-example');
+
+				$('a[href^=#pixastic-editor-]').click(function () {
+					pixasticWrapper.find('a.' + $(this).attr('href').substr(17)).click();
+
+					return false;
+				});
 			});
 		</script>
 
