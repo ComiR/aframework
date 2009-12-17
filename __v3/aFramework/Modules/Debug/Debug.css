@@ -3,8 +3,7 @@ body.admin {
 }
 
 #debug {
-	background: #ccc;
-	background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#999));
+	background: #fff url(common_gfx/gradients/10x100-e5e5e5-fff.png) repeat-x;
 
 	position: absolute;
 	left: 0;
@@ -17,11 +16,17 @@ body.admin {
 	letter-spacing: normal;
 	color: #000;
 
-	border-top: 1px solid #fff;
-	border-bottom: 1px solid #000;
+	border-bottom: 1px solid #aaa;
 }
 
 	#debug h2 = $a11y-hide;
+	#debug h2, 
+	#debug h3, 
+	#debug h4 {
+		-moz-text-shadow: 0;
+		-webkit-text-shadow: 0;
+		text-shadow: none;
+	}
 
 	#debug a {
 		color: #000;
@@ -29,28 +34,44 @@ body.admin {
 	}
 
 	#debug > p {
-		position: absolute;
-		right: 10px;
-		top: 5px;
+		float: right;
 		line-height: 1;
 
 		margin: 0;
+		padding: 5px 10px;
 	}
 
-	#debug > ul = $self-clear;
-	#debug > ul {
+	/* Navigation Menu */
+	#debug ul.navigation {
+		float: right;
+
+		margin: 0;
+		padding: 5px 10px;
+
+		list-style: none;
+		line-height: 1;
+	}
+
+		#debug ul.navigation li {
+			display: inline;
+			margin: 0 10px;
+		}
+
+	/* Debug Menu */
+	#debug ul.debug = $self-clear;
+	#debug ul.debug {
 		margin: 0;
 		padding: 0;
 		list-style: none;
 	}
 
 		/* First level */
-		#debug > ul > li {
+		#debug ul.debug > li {
 			float: left;
 			position: relative;
 		}
 
-			#debug > ul > li h3 {
+			#debug ul.debug > li h3 {
 				margin: 0;
 				padding: 5px 10px;
 				height: 15px;
@@ -62,14 +83,14 @@ body.admin {
 				cursor: pointer;
 			}
 
-			body.js-disabled #debug > ul > li h3:hover, 
-			#debug > ul > li h3.active {
+			body.js-disabled #debug ul.debug > li h3:hover, 
+			#debug ul.debug > li h3.active {
 				background-color: rgba(30, 60, 250, .8);
 				color: #fff;
 			}
 
 			/* Drop Down */
-			#debug > ul > li > ul {
+			#debug ul.debug > li > ul {
 				background: #f2f2f2;
 
 				display: none;
@@ -93,17 +114,17 @@ body.admin {
 				box-shadow: 5px 5px 5px rgba(0, 0, 0, .3);
 			}
 
-			body.js-disabled #debug > ul > li h3:hover + ul, 
-			body.js-disabled #debug > ul > li > ul:hover, 
-			#debug > ul > li h3.active + ul {
+			body.js-disabled #debug ul.debug > li h3:hover + ul, 
+			body.js-disabled #debug ul.debug > li > ul:hover, 
+			#debug ul.debug > li h3.active + ul {
 				display: block;
 			}
 
-				#debug > ul > li > ul > li {
+				#debug ul.debug > li > ul > li {
 					position: relative;
 				}
 
-					#debug > ul > li > ul > li h4 {
+					#debug ul.debug > li > ul > li h4 {
 						margin: 0;
 						padding: 7px 10px;
 
@@ -114,31 +135,31 @@ body.admin {
 						cursor: pointer;
 					}
 
-					#debug > ul > li > ul > li h4:after {
+					#debug ul.debug > li > ul > li h4:after {
 						content: "\203A";
 						float: right;
 						font-weight: bold;
 					}
 
-					#debug > ul > li > ul > li:last-child h4 {
+					#debug ul.debug > li > ul > li:last-child h4 {
 						-moz-border-radius: 0 0 5px 5px;
 						-webkit-border-bottom-right-radius: 5px;
 						-webkit-border-bottom-left-radius: 5px;
 						border-radius: 0 0 5px 5px;
 					}
 
-					#debug > ul > li > ul > li h4:hover, 
-					#debug > ul > li > ul > li h4.active {		
+					#debug ul.debug > li > ul > li h4:hover, 
+					#debug ul.debug > li > ul > li h4.active {		
 						background-color: rgba(30, 60, 250, .8);
 						color: #fff;
 					}
 
-					#debug > ul > li > ul > li p {
+					#debug ul.debug > li > ul > li p {
 						display: none;
 					}
 
-					#debug > ul > li > ul > li > dl = $self-clear;
-					#debug > ul > li > ul > li > dl {
+					#debug ul.debug > li > ul > li > dl = $self-clear;
+					#debug ul.debug > li > ul > li > dl {
 						background: #f2f2f2;
 
 						position: absolute;
@@ -159,7 +180,7 @@ body.admin {
 						box-shadow: 5px 5px 5px rgba(0, 0, 0, .3);
 					}
 
-						#debug > ul > li > ul > li > dl > dt {
+						#debug ul.debug > li > ul > li > dl > dt {
 							clear: both;
 							float: left;
 							width: 200px;
@@ -171,7 +192,7 @@ body.admin {
 							font-weight: bold;
 						}
 
-						#debug > ul > li > ul > li > dl > dd {
+						#debug ul.debug > li > ul > li > dl > dd {
 							float: right;
 							width: 310px;
 
@@ -179,14 +200,14 @@ body.admin {
 							padding: 7px 10px;
 						}
 
-						#debug > ul > li > ul > li > dl > dt:last-of-type, 
-						#debug > ul > li > ul > li > dl > dd:last-of-type {
+						#debug ul.debug > li > ul > li > dl > dt:last-of-type, 
+						#debug ul.debug > li > ul > li > dl > dd:last-of-type {
 							border: 0;
 						}
 
-					body.js-disabled #debug > ul > li > ul > li h4:hover + dl, 
-					body.js-disabled #debug > ul > li > ul > li h4:hover + p + dl, 
-					#debug > ul > li > ul > li h4.active + dl, 
-					#debug > ul > li > ul > li h4.active + p + dl {
+					body.js-disabled #debug ul.debug > li > ul > li h4:hover + dl, 
+					body.js-disabled #debug ul.debug > li > ul > li h4:hover + p + dl, 
+					#debug ul.debug > li > ul > li h4.active + dl, 
+					#debug ul.debug > li > ul > li h4.active + p + dl {
 						display: block;
 					}
