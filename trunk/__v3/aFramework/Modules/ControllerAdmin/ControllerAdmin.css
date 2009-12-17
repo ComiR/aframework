@@ -1,8 +1,47 @@
+/* Module Box */
+$controller-admin-module-box {
+	padding: 5px 10px !important;
+
+	border: 1px solid rgba(220, 240, 255, .2) !important;
+	-moz-border-radius: 10px !important;
+	-webkit-border-radius: 10px !important;
+	border-radius: 10px !important;
+}
+
+$controller-admin-module-box:hover {
+	border-color: rgba(220, 240, 255, .8) !important;
+}
+
+	$controller-admin-module-box-header {
+		background: rgba(50, 100, 150, .2) !important;
+
+		margin: -5px -10px 5px !important;
+		padding: 5px 10px !important;
+
+		color: #fff !important;
+		cursor: move !important;
+		text-transform: none !important;
+		font: 12px/1.2 Arial, sans-serif;
+		-moz-text-shadow: none !important;
+		-webkit-text-shadow: none !important;
+		text-shadow: none !important;
+
+		border-bottom: 1px solid rgba(220, 240, 255, .2) !important;
+		-moz-border-radius: 10px 10px 0 0 !important;
+		-webkit-border-radius: 10px 10px 0 0 !important;
+		border-radius: 10px 10px 0 0 !important;
+	}
+
+	$controller-admin-module-hover-box-header {
+		background: rgba(50, 100, 150, .8) !important;
+		border-color: rgba(220, 240, 255, .8) !important;
+	}
+
 body.controller-admin {
 	margin-bottom: 150px;
 }
 
-/* The controller admin bar */
+/* The controller admin bar and its draggable modules */
 #controller-admin {
 	background: url(gfx/bar.png) repeat-x;
 
@@ -17,6 +56,8 @@ body.controller-admin #controller-admin {
 	background-position: left 15px;
 	padding: 27px 10px 10px;
 }
+
+	#controller-admin h2 = $a11y-hide;
 
 	#controller-admin p {
 		background: url(gfx/button.png);
@@ -47,32 +88,18 @@ body.controller-admin #controller-admin {
 	#controller-admin ul {
 		margin: 0;
 		list-style: none;
-		width: 10000px;
 	}
 
+		#controller-admin ul li = $controller-admin-module-box;
 		#controller-admin ul li {
-			float: left;
-			width: 80px;
-			text-align: center;
-			font-size: 11px;
-		}
-
-	/*	#controller-admin ul li {
 			background: #fff;
 
-			width: 60px;
-			height: 40px;
+			float: left;
+			width: 80px;
+			margin: 0 5px;
 
-			margin: 5px;
-			padding: 5px;
-
-			line-height: 60px;
-
-			border: 1px solid #666;
-			-webkit-border-radius: 5px;
-			-moz-border-radius: 5px;
-			border-radius: 5px;
-		} */
+			font-size: 11px;
+		}
 
 			#controller-admin ul li img {
 				display: block;
@@ -80,50 +107,35 @@ body.controller-admin #controller-admin {
 				margin: 0 auto 5px;
 			}
 
-			#controller-admin ul li br {
-				display: none;
-			}
+			#controller-admin ul li h3 = $controller-admin-module-box-header;
+			#controller-admin ul li:hover h3 = $controller-admin-module-hover-box-header;
 
-/* Draggable modules that are currently in use */
+/* A module that is being dragged from the panel */
+body.controller-admin div.aframework-module.ui-draggable-dragging {
+	background: #fff;
+	width: 400px !important;
+	height: 150px !important;
+}
+
+/* Sortable modules that are currently in use */
+body.controller-admin div.aframework-module = $controller-admin-module-box;
 body.controller-admin div.aframework-module {
 	float: none !important;
 	position: static !important;
 
 	margin: 0 0 10px !important;
-	padding: 5px 10px !important;
-
-	border: 1px solid rgba(220, 240, 255, .2) !important;
-	-moz-border-radius: 10px !important;
 }
 
 body.controller-admin div.aframework-module.ui-sortable-helper {
 	position: absolute !important;
 }
 
-body.controller-admin div.aframework-module:hover {
-	border-color: rgba(220, 240, 255, .8) !important;
-}
-
+	body.controller-admin div.aframework-module div.aframework-module-header = $controller-admin-module-box-header;
 	body.controller-admin div.aframework-module div.aframework-module-header {
-		background: rgba(50, 100, 150, .2) !important;
-
 		position: relative !important;
-		margin: -5px -10px 5px !important;
-		padding: 5px 10px !important;
-
-		color: #fff !important;
-		cursor: move !important;
-		text-transform: none !important;
-		font: 12px/1.2 Arial, sans-serif;
-
-		border-bottom: 1px solid rgba(220, 240, 255, .2) !important;
-		-moz-border-radius: 10px 10px 0 0 !important;
 	}
 
-	body.controller-admin div.aframework-module:hover div.aframework-module-header {
-		background: rgba(50, 100, 150, .8) !important;
-		border-color: rgba(220, 240, 255, .8) !important;
-	}
+	body.controller-admin div.aframework-module:hover div.aframework-module-header = $controller-admin-module-hover-box-header;
 
 		body.controller-admin div.aframework-module div.aframework-module-header a {
 			position: absolute !important;
