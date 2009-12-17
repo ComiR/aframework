@@ -4,4 +4,4 @@
 	</a>
 </h1>
 
-<p><?php echo escHTML(Config::get('general.site_tagline')); ?></p>
+<p><?php echo Lang::get(Config::get('general.site_tagline')); ?></p>
