@@ -9,7 +9,7 @@
 				LEFT JOIN
 					contact_persons USING (contact_persons_id)
 				WHERE
-					pages_id = ' . esc($pagesID)
+					pages_id = ' . escSQL($pagesID)
 			);
 
 			if (mysql_num_rows($res)) {

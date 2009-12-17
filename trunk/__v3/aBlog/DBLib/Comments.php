@@ -15,7 +15,7 @@
 				LEFT JOIN
 					articles USING(articles_id)
 				WHERE
-					articles.articles_id = "' . esc($id) . '" AND
+					articles.articles_id = "' . escSQL($id) . '" AND
 					comments.karma > 0
 				ORDER BY
 					comments.pub_date ASC
@@ -50,7 +50,7 @@
 				LEFT JOIN
 					articles USING(articles_id)
 				WHERE
-					articles.url_str = "' . esc($urlStr) . '" AND
+					articles.url_str = "' . escSQL($urlStr) . '" AND
 					comments.karma > 0
 				ORDER BY
 					comments.pub_date ASC
@@ -87,9 +87,9 @@
 				WHERE
 					comments.karma > 0
 				ORDER BY
-					comments.' . esc($sort) . ' ' . esc($order) . '
+					comments.' . escSQL($sort) . ' ' . escSQL($order) . '
 				LIMIT
-					' . esc($start) . ', ' . esc($limit)
+					' . escSQL($start) . ', ' . escSQL($limit)
 			);
 
 			if (mysql_num_rows($res) === 1) {
