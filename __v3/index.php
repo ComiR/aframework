@@ -35,6 +35,7 @@
 		case 'localhost' : 
 		#	define('SITE_HIERARCHY', 'aTestSite aBlog aForum aCMS aDynAdmin aModPack aFramework');
 			define('SITE_HIERARCHY', 'AndreasLagerkvist aBlog aCMS aDynAdmin aFramework');
+		#	define('SITE_HIERARCHY', 'AgnesEkman aBlog aCMS aDynAdmin aFramework');
 		#	define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
 			break;
 	}
@@ -55,22 +56,22 @@
 	session_start();
 
 	# Directory paths
-	define('DOCROOT',				realpath(dirname( __FILE__ )) . '/');
-	define('WEBROOT',				substr($_SERVER['SCRIPT_NAME'], 0, -9)); # minus "index.php"
+	define('DOCROOT',			realpath(dirname( __FILE__ )) . '/');
+	define('WEBROOT',			substr($_SERVER['SCRIPT_NAME'], 0, -9)); # minus "index.php"
 
-	list($currentSite)				= explode(' ', SITE_HIERARCHY);
+	list($currentSite)			= explode(' ', SITE_HIERARCHY);
 
-	define('CURRENT_SITE',			$currentSite);
-	define('CURRENT_SITE_DIR',		DOCROOT . CURRENT_SITE . '/');
+	define('CURRENT_SITE',		$currentSite);
+	define('CURRENT_SITE_DIR',	DOCROOT . CURRENT_SITE . '/');
 
 	# Misc
-	define('NAKED_DAY',				is_naked_day(9));
-	define('XHR',					isset($_SERVER['HTTP_X_REQUESTED_WITH']));
-	define('ADMIN_SESSION',			'admin');
-	define('ADMIN',					isset($_COOKIE[ADMIN_SESSION]) or isset($_SESSION[ADMIN_SESSION]));
-	define('CONTROLLER_ADMIN',		ADMIN and (isset($_SESSION['controller_admin']) or isset($_GET['controller_admin'])) and !isset($_GET['no_controller_admin']));
-	define('AUTO_HR',				false);
-	define('USE_MOD_REWRITE',		true);
+	define('NAKED_DAY',			is_naked_day(9));
+	define('XHR',				isset($_SERVER['HTTP_X_REQUESTED_WITH']));
+	define('ADMIN_SESSION',		'admin');
+	define('ADMIN',				isset($_COOKIE[ADMIN_SESSION]) or isset($_SESSION[ADMIN_SESSION]));
+	define('CONTROLLER_ADMIN',	ADMIN and (isset($_SESSION['controller_admin']) or isset($_GET['controller_admin'])) and !isset($_GET['no_controller_admin']));
+	define('AUTO_HR',			false);
+	define('USE_MOD_REWRITE',	true);
 
 	# Register autoloader
 	spl_autoload_register('AutoLoader::load');
