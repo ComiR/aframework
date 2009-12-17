@@ -13,6 +13,12 @@
 	</small>
 </p>
 
+<p>
+	<strong>
+		Please have a look at the "<a href="#jquery-plugin-other-resources">Other Resources</a>" for bug reports or further help on jQuery. <em>Do not</em> post bug reports or feature requests as comments to unrelated articles. If bug reporting on jquery.com fails, <a href="/contact/">e-mail me</a>.
+	</strong>
+</p>
+
 <div id="jquery-plugin-what">
 
 	<h3><?php echo Lang::get('What it Does'); ?></h3>
