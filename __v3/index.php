@@ -1,8 +1,14 @@
 <?php
-	# While deving
-	error_reporting(0);
-	ini_set('display_errors', false);
-
+	/**
+	 * aFramework - PHP Web Development Framework
+	 *
+	 * This is the entry-point for aFramework. You may wanna edit
+	 * the SITE_HIERARCHY definition for localhost if you intend to
+	 * work on your own projects (~line >30).
+	 *
+	 * Copyright: 2006-2009 Andreas Lagerkvist (andreaslagerkvist.com)
+	 * License: http://creativecommons.org/licenses/by/3.0/
+	 **/
 	# Start the timer
 	require_once 'aFramework/Core/Timer.php';
 	Timer::start();
@@ -10,6 +16,10 @@
 	# UTF-8 FTW
 	header('Content-Type: text/html; charset=utf-8');
 #	setlocale(LC_ALL, 'en_GB.UTF8');
+
+	# While deving
+	error_reporting(0);
+	ini_set('display_errors', false);
 
 	# Determine which site(s) to run
 	switch ($_SERVER['HTTP_HOST']) {
@@ -30,16 +40,16 @@
 	}
 
 	# Core classes/files
+	require_once 'aFramework/Core/aFramework.php';
+	require_once 'aFramework/Core/AutoLoader.php';
 	require_once 'aFramework/Core/Config.php';
 	require_once 'aFramework/Core/DB.php';
-	require_once 'aFramework/Core/LangSwitcher.php';
+	require_once 'aFramework/Core/FourOFour.php';
 	require_once 'aFramework/Core/Functions.php';
 	require_once 'aFramework/Core/Lang.php';
-	require_once 'aFramework/Core/AutoLoader.php';
-	require_once 'aFramework/Core/FourOFour.php';
+	require_once 'aFramework/Core/LangSwitcher.php';
 	require_once 'aFramework/Core/Router.php';
 	require_once 'aFramework/Core/VisitorData.php';
-	require_once 'aFramework/Core/aFramework.php';
 
 	# Start sessions
 	session_start();
@@ -62,7 +72,10 @@
 	define('AUTO_HR',				false);
 	define('USE_MOD_REWRITE',		true);
 
-	# Include config-files
+	# Register autoloader
+	spl_autoload_register('AutoLoader::load');
+
+	# Include config-files (include top prio site's config last (to override others))
 	$sites = array_reverse(explode(' ', SITE_HIERARCHY));
 
 	foreach ($sites as $site) {
@@ -73,25 +86,22 @@
 		}
 	}
 
-	# Set correct lang based on URI
+	# Set correct lang based on URI (/ => default, /sv/ => swedish, /fo/ => faroese etc..)
+	# Needs to run _after_ config so it knows which langs are allowed/default etc...
 	LangSwitcher::run();
 
-	# Connect to DB
+	# Connect to DB (username etc set in config for each site)
 	DB::connect();
 
-	# Register autoloader
-	spl_autoload_register('AutoLoader::load');
-
-	# The Router uses the current site's Routes.php-file to
-	# set appropiate $_GET-variables (controller, url_str, etc)
+	# Set Router-params based on the requested URI - but remove lang-prefix before (/sv/ for example)
 	$requestedURI = isset($_SERVER['PATH_INFO']) ? str_replace('/' . CURRENT_LANG . '/', '/', $_SERVER['PATH_INFO']) : '/';	
 
 	Router::run($requestedURI);
 
-	# The VisitorData-class sets visitor-data to the visitor-data-cookie
-	# upon user-request (either post.visitor_data or get.visitor_data)
+	# Store and retrieve visitor-data (name, email etc (for forms with "remember me"))
+	# Needs to run on every load, even single-module ajax-requests (so can not be an autorun-module)
 	VisitorData::run();
 
-	# aFramework either runs a single module or a collection of modules stored in a controller
+	# Now run the requested controller (Router.params.controller.) or module (_GET.module)
 	aFramework::run();
 ?>
