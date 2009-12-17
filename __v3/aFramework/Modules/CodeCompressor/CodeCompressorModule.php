@@ -52,7 +52,12 @@
 			$fileLastModified = self::getLastModifiedFile($style);
 
 			if ($cacheModified >= $fileLastModified) {
-				return file_get_contents($cachePath);
+				$cachedCode = file_get_contents($cachePath);
+
+				# Rewrite cache so we get som new cacheTime
+				file_put_contents($cachePath, $cachedCode);
+
+				return $cachedCode;
 			}
 
 			# No cache or old, generate new
