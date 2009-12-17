@@ -12,7 +12,7 @@
 
 			self::$tplVars['persons'] = ContactPersons::getByPagesID($pagesID);
 
-			if (Router::$params['controller'] == 'ContactPage') {
+			if (Router::getController() == 'ContactPage') {
 				self::$tplVars['title'] = Lang::get('Contact Persons Grouped by Country');
 			}
 			else {

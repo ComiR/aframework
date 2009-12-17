@@ -4,7 +4,7 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			$path			= self::getControllerPath(isset(Router::$params['controller']) ? Router::$params['controller'] : false);
+			$path			= self::getControllerPath(Router::getController() ? Router::getController() : false);
 			$matches		= array();
 			$contents		= file_get_contents($path);
 
