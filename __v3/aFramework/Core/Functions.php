@@ -4,6 +4,12 @@
 	 *
 	 * Random handy functions
 	 **/
+	# Like mysql_real_escape_string
+	function escSQL ($str) {
+		return mysql_real_escape_string(stripslashes($str));
+	//	return (get_magic_quotes_gpc()) ? $str : mysql_real_escape_string($str); // this caused problems somewhere...
+	}
+
 	# Escapes the 5 characters used by HTML
 	function escHTML ($str) {
 		return str_replace(
@@ -182,12 +188,6 @@
 		}
 
 		return $str;
-	}
-
-	# Like mysql_real_escape_string
-	function esc ($str) {
-		return mysql_real_escape_string(stripslashes($str));
-	//	return (get_magic_quotes_gpc()) ? $str : mysql_real_escape_string($str); // this caused problems somewhere...
 	}
 
 	# Cuts string to $reqLen's length and focuses around $sr (if existent)
