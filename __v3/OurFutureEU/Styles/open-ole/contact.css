@@ -1,0 +1,23 @@
+#contact {
+	
+}
+
+	#contact form {
+
+	}
+
+		#contact form p:first-child, 
+		#contact form p:first-child + p {
+			width: 45%;
+			float: left;
+			margin-right: 5%;
+		}
+
+			#contact input[type=text] {
+				width: 80%;
+			}
+
+			#contact textarea {
+				width: 550px;
+				height: 200px;
+			}
