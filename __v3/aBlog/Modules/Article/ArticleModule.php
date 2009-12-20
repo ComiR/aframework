@@ -61,9 +61,10 @@
 
 		private static function deleteArticle ($id) {
 			Articles::delete($id);
+			Tags::deleteTagsForArticle($id);
 
 			if (!XHR) {
-				redirect(Router::urlFor('Home') . '?deleted_article');
+				redirect(Router::urlFor('AddArticle') . '?deleted_article');
 			}
 		}
 
@@ -71,6 +72,7 @@
 			# If an article ID is set, update
 			if (!empty($row['articles_id']) and is_numeric($row['articles_id'])) {
 				Articles::update($row['articles_id'], $_POST);
+				Tags::updateTagsForArticle($row['articles_id'], $_POST['tags']);
 
 				if (!XHR) {
 					redirect('?updated_article');
@@ -81,13 +83,23 @@
 				# Make sure mandatory fields are filled out
 				if (
 					isset($row['title']) and !empty($row['title']) and 
-					isset($row['content']) and !empty($row['content']) and 
-					isset($row['url_str']) and !empty($row['url_str'])
+					isset($row['content']) and !empty($row['content'])
 				) {
+					$row['pub_date']	= empty($row['pub_date']) ? date('Y-m-d H:i:s') : $row['pub_date'];
+					$row['url_str']		= empty($row['url_str']) ? $row['title'] : $row['url_str'];
+					$row['url_str']		= Router::urlize($row['url_str']);
+
 					Articles::insert($row);
 
+					$row['articles_id']	= mysql_insert_id();
+					$row['year']		= substr($row['pub_date'], 0, 4);
+					$row['month']		= substr($row['pub_date'], 5, 2);
+					$row['day']			= substr($row['pub_date'], 8, 2);
+
+					Tags::updateTagsForArticle($row['articles_id'], $_POST['tags']);
+
 					if (!XHR) {
-						redirect(Router::urlFor('Home') . '?inserted_article');
+						redirect(Router::urlFor('Article', $row) . '?inserted_article');
 					}
 				}
 				# Errors in form
