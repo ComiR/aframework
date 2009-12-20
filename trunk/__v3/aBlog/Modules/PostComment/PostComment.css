@@ -6,6 +6,6 @@
 		
 	}
 
-		body.js-enabled #post-comment form strong {
+		body.js-enabled #post-comment form label > strong {
 			display: none;
 		}

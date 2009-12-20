@@ -34,6 +34,11 @@
 					
 				}
 
+				#post-comment .markItUp textarea {
+					width: 233px !important;
+					height: 250px !important;
+				}
+
 				#post-comment form p label input[type=text] {
 					position: absolute;
 					right: 0;

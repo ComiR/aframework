@@ -1,12 +1,13 @@
 <?php
 	class aFramework_CodeCompressorModule {
-		public static $tplVars = array();
-		public static $tplFile = true;
+		public static $tplVars		= array();
+		public static $tplFile		= true;
 
 		protected static $type;
-		protected static $exclude = array();
+		protected static $exclude	= array();
 
-		private static $mimeTypes = array(
+		private static $debug		= array();
+		private static $mimeTypes	= array(
 			'css'	=> 'text/css', 
 			'js'	=> 'application/x-javascript'
 		);
@@ -39,6 +40,12 @@
 				}
 			}
 
+			# Set some debug info
+			self::$debug['type']			= self::$type;
+			self::$debug['style']			= $style;
+			self::$debug['style_data']		= $styleData;
+			self::$debug['cache_time']		= $cacheTime;
+
 			# Now include this style's code
 			self::$tplVars['code'] = $code . self::getStyleCode($style, $cacheTime);
 		}
@@ -57,6 +64,8 @@
 
 			# If the cache is younger than $cacheTime just load it directly and return
 			if ((time() - $cacheModified) < $cacheTime) {
+				self::$debug['load_type'] = 'Cache - From cache time';
+
 				return file_get_contents($cachePath);
 			}
 
@@ -65,6 +74,8 @@
 			$fileLastModified = self::getLastModifiedFile($style);
 
 			if ($cacheModified >= $fileLastModified) {
+				self::$debug['load_type'] = 'Cache - From last modified';
+
 				$cachedCode = file_get_contents($cachePath);
 
 				# Rewrite cache so we get som new cacheTime
@@ -74,6 +85,8 @@
 			}
 
 			# No cache or old, generate new
+			self::$debug['load_type'] = 'No cache';
+
 			# Get all the code in all the dirs of all the sites
 			$code = self::getAllCodeInAllDirsOfAllSites($style);
 
@@ -134,6 +147,13 @@
 						# Check if the file extention is what is being asked for (css/js)
 						if (self::$type == end(explode('.', $f))) {
 							$tmpFlm = filemtime($dir . $f);
+
+							self::$debug['last_modified_files'][] = array(
+								array(
+									'path'		=> $dir . $f, 
+									'modified'	=> $tmpFlm
+								)
+							);
 
 							if ($tmpFlm > $flm) {
 								$flm = $tmpFlm;
@@ -214,6 +234,8 @@
 
 			# Now go through all the files and get the code
 			foreach ($files as $path => $name) {
+				self::$debug['files'][] = $path;
+
 				$contents = file_get_contents($path);
 
 				# Authors can reference gfx/ from their CSS which will point to
