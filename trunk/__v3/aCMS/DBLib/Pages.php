@@ -56,8 +56,8 @@
 				'in_navigation'		=> $row['in_navigation'] ? 1 : 0, 
 				'priority'			=> (isset($row['priority']) and is_numeric($row['priority'])) ? $row['priority'] : 0, 
 				'title'				=> $row['title'], 
-				'meta_keywords'		=> $row['meta_keywords'], 
-				'meta_description'	=> $row['meta_description'], 
+				'meta_keywords'		=> @$row['meta_keywords'], 
+				'meta_description'	=> @$row['meta_description'], 
 				'content'			=> $row['content']
 			);
 
