@@ -12,33 +12,46 @@
 		);
 
 		public static function run () {
+			# A style needs to be set
+			if (!isset($_GET['s'])) {
+				return self::$tplFile = false;
+			}
+
+			# Default to CSS
 			self::$type	= (isset($_GET['t']) and array_key_exists($_GET['t'], self::$mimeTypes)) ? $_GET['t'] : 'css';
-			$style		= basename(@$_GET['s']);
+
+			# Some vars we need
+			$cacheTime	= ADMIN ? 0 : 3600;
+			$style		= basename($_GET['s']);
 			$styleData	= Styles::getByName($style);
 			$code		= '';
 
+			# Set correct content-type and cache
 			header('Content-type: ' . self::$mimeTypes[self::$type] . '; charset=utf-8');
+			header('Expires: ' . gmdate('D, d M Y H:i:s', time() + $cacheTime) . ' GMT');
 
+			# See if this style extends other styles, if so include them as well
 			if (isset($styleData['extends'])) {
 				$extends = explode(',', $styleData['extends']);
 
 				foreach ($extends as $extend) {
-					$code .= self::getStyleCode(trim($extend));
+					$code .= self::getStyleCode(trim($extend), $cacheTime);
 				}
 			}
 
-			self::$tplVars['code'] = $code . self::getStyleCode($style);
+			# Now include this style's code
+			self::$tplVars['code'] = $code . self::getStyleCode($style, $cacheTime);
 		}
 
-		private static function getStyleCode ($style) {
-			$cacheTime		= ADMIN ? 0 : 3600;
+		private static function getStyleCode ($style, $cacheTime = 3600) {
+			$cacheTime		= ADMIN ? 0 : $cacheTime;
 			$cachePath		= DOCROOT . 'aFramework/Cache/' . CURRENT_SITE . '_' . $style . '.' . self::$type;
 			$cacheExists	= file_exists($cachePath);
 			$cacheModified	= $cacheExists ? filemtime($cachePath) : 0;
 
 			# If the requested style exists in the current site's Style-dir
-			# it's considered a valid style.
-			if (!is_dir(CURRENT_SITE_DIR . 'Styles/' . $style . '/')) {
+			# _or_ it's a hidden style (prefixed with __) it's considered a valid style.
+			if (substr($style, 0, 2) != '__' and !is_dir(CURRENT_SITE_DIR . 'Styles/' . $style . '/')) {
 				return false;
 			}
 
@@ -55,7 +68,7 @@
 				$cachedCode = file_get_contents($cachePath);
 
 				# Rewrite cache so we get som new cacheTime
-				file_put_contents($cachePath, $cachedCode);
+				@file_put_contents($cachePath, $cachedCode);
 
 				return $cachedCode;
 			}
