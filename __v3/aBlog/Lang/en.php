@@ -70,6 +70,10 @@
 'Delete' => 'Delete', 
 'No comments yet, why not' => 'No comments yet, why not', 
 'be the first to post one' => 'be the first to post one', 
+'Delete all Spam Comments' => 'Delete all Spam Comments', 
+'No Comments' => 'No Comments', 
+'Mark as Ham' => 'Mark as Ham', 
+'Mark as Spam' => 'Mark as Spam', 
 
 # BeforeComments.tpl.php
 'Comments' => 'Comments', 
