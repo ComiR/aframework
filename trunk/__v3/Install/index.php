@@ -50,7 +50,7 @@
 
 		</div></div></div>
 
-		<script type="text/javascript" src="js/all.php"></script>
+		<!--<script type="text/javascript" src="js/all.php"></script>-->
 
 	</body>
 

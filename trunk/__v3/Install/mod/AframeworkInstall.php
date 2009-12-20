@@ -21,13 +21,13 @@
 				);
 	}
 
-	$docRoot = str_replace(array('\\', '//'), '/', realpath(dirname( __FILE__ ) . '/../.. ') . '/');
-	$webRoot = str_replace(array('\\', '//'), '/', '/' .substr($docRoot, strlen($_SERVER['DOCUMENT_ROOT'])));
+	$docRoot = str_replace('//', '/', realpath(dirname( __FILE__ ) . '/../..') . '/');
+	$webRoot = str_replace('//', '/', '/' . substr($docRoot, strlen($_SERVER['DOCUMENT_ROOT'])));
 
 	# Store all available sites, their styles and their config in array
 	$notSites	= array(
-		'. ', 
-		'.. ', 
+		'.', 
+		'..', 
 		'.svn', 
 		'Install', 
 		'aSimplePortfolio', 
@@ -48,17 +48,20 @@
 		if (!in_array($f, $notSites) and is_dir($docRoot . $f) and '__' != substr($f, 0, 2)) {
 			$sDir	= $docRoot . $f . '/Styles/';
 			$styles	= array();
-			$sDH	= opendir($sDir);
 
-			# Grab this site's styles
-			while ($sF = readdir($sDH)) {
-				if (!in_array($sF, $notSites) and is_dir($sDir . $sF) and '__' != substr($sF, 0, 2) and file_exists($sDir . $sF . '/style.css')) {
-					$styles[] = array(
-						'name'		=> $sF, 
-						'title'		=> escHTML($sF), 
-						'thumb_url'	=> $webRoot . $f . '/Styles/' . $sF . '/thumb.png', 
-						'img_url'	=> $webRoot . $f . '/Styles/' . $sF . '/thumb.png'
-					);
+			if (is_dir($sDir)) {
+				$sDH = opendir($sDir);
+
+				# Grab this site's styles
+				while ($sF = readdir($sDH)) {
+					if (!in_array($sF, $notSites) and is_dir($sDir . $sF) and '__' != substr($sF, 0, 2) and file_exists($sDir . $sF . '/style.css')) {
+						$styles[] = array(
+							'name'		=> $sF, 
+							'title'		=> escHTML($sF), 
+							'thumb_url'	=> $webRoot . $f . '/Styles/' . $sF . '/thumb.png', 
+							'img_url'	=> $webRoot . $f . '/Styles/' . $sF . '/thumb.png'
+						);
+					}
 				}
 			}
 
@@ -100,11 +103,15 @@
 
 	# Create site
 	if (isset($_POST['aframework_install_submit']) and $_POST['aframework_install_submit'] == 1) {
-	/*	$siteName = preg_replace('/[^A-Za-z0-9_-]/', '', $_POST['site_name']);
+		$siteName = preg_replace('/[^A-Za-z0-9_-]/', '', $_POST['site_name']);
 		$siteHierarchy = array_filter($_POST['site_hierarchy']);
 
 		if (empty($siteName) or is_dir($docRoot . $siteName)) {
 			die('SITE ALREADY EXISTS OR CANT EXIST');
+		}
+
+		if (is_writeable()) {
+			
 		}
 
 		# 1. Create Site directory
@@ -120,7 +127,7 @@
 				$dh = opendir($path);
 
 				while ($f = readdir($dh)) {
-					if ('xml' == end(explode('. ', $f))) {
+					if ('xml' == end(explode('.', $f))) {
 						file_put_contents($docRoot . $siteName . '/Controllers/' . $f, file_get_contents($path . $f));
 					}
 				}
@@ -131,7 +138,9 @@
 		$configFile = "<?php\n";
 
 		foreach ($_POST['config'] as $k => $v) {
-			$configFile .= "Config::set('$k', '$v');\n";
+			if (!empty($v)) {
+				$configFile .= "\tConfig::set('$k', '$v');\n";
+			}
 		}
 
 		file_put_contents($docRoot . $siteName . '/Config.php', $configFile . '?>');
@@ -161,20 +170,12 @@
 		}
 
 		# 5. Modify index.php's SITE_HIERARCHY-definition to reflect user's new site
-		file_put_contents(
-			$docRoot . 'index.php', 
-			preg_replace(
-				'define\(\'SITE_HIERARCHY\'.*?\)', 
-				'define\(\'SITE_HIERARCHY\', ' .implode(' ', 
-					array_merge(
-						array($siteName), 
-						array_filter($_POST['site_hierarchy'])
-					)
-				) . '\)', 
-				file_get_contents($docRoot . 'index.php')
-			)
-		);
-		*/
+		$indexCode			= file_get_contents($docRoot . 'index.php');
+		$siteHierarchyStr	= implode(' ', array_merge(array($siteName), $siteHierarchy));
+		$newIndexCode		= preg_replace('/default :.*?define\(\'SITE_HIERARCHY\'.*?\)/s', "default : \n\t\t\tdefine('SITE_HIERARCHY', '$siteHierarchyStr')", $indexCode);
+
+	#	file_put_contents($docRoot . 'index.php', $newIndexCode);
+
 		$installed = true;
 	}
 ?>
@@ -225,6 +226,7 @@
 							<?php } } ?>
 						</ul>
 
+						<input type="hidden" name="site_hierarchy[]" value="aDynAdmin" />
 						<input type="hidden" name="site_hierarchy[]" value="aFramework" />
 
 					</fieldset>

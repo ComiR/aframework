@@ -3,8 +3,8 @@
 	 * aFramework - PHP Web Development Framework
 	 *
 	 * This is the entry-point for aFramework. You may wanna edit
-	 * the SITE_HIERARCHY definition for localhost if you intend to
-	 * work on your own projects (~line >30).
+	 * the default SITE_HIERARCHY definition if you intend to
+	 * work on your own projects (~line >35).
 	 *
 	 * Copyright: 2006-2009 Andreas Lagerkvist (andreaslagerkvist.com)
 	 * License: http://creativecommons.org/licenses/by/3.0/
@@ -22,6 +22,7 @@
 	ini_set('display_errors', false);
 
 	# Determine which site(s) to run
+	# Add your own domains and site hierarchies here
 	switch ($_SERVER['HTTP_HOST']) {
 		case 'andreaslagerkvist.com' : 
 			define('SITE_HIERARCHY', 'AndreasLagerkvist aBlog aCMS aDynAdmin aFramework');
@@ -32,11 +33,8 @@
 		case 'ourfuture.eu' : 
 			define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
 			break;
-		case 'localhost' : 
-		#	define('SITE_HIERARCHY', 'aTestSite aBlog aForum aCMS aDynAdmin aModPack aFramework');
+		default : 
 			define('SITE_HIERARCHY', 'AndreasLagerkvist aBlog aCMS aDynAdmin aFramework');
-		#	define('SITE_HIERARCHY', 'AgnesEkman aBlog aCMS aDynAdmin aFramework');
-		#	define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
 			break;
 	}
 
