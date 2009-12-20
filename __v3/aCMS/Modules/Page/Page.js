@@ -1,5 +1,7 @@
 aFramework.modules.Page = {
 	run: function () {
+		$('#page textarea[name=content]').markItUp(mySettings);
+
 		this.confirmDelete();
 		this.advancedToggler();
 		this.autoSlug();

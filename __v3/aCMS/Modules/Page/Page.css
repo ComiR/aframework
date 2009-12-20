@@ -10,64 +10,64 @@ body.admin #page {
 		
 	}
 
-		body.admin #page form p {
+		body.admin #page form > p {
 			
 		}
 
-			body.admin #page form p label {
+			body.admin #page form > p label {
 				
 			}
 
-				body.admin #page form p label input[type=text] {
+				body.admin #page form > p label input[type=text] {
 					
 				}
 
-				body.admin #page form p label textarea {
+				body.admin #page form > p label textarea {
 					width: 90%;
 				}
 
 				/* Title */
-				body.admin #page form p label input[name=title] {
+				body.admin #page form > p label input[name=title] {
 					width: 90%;
 					font-size: 180%;
 				}
 
 		/* Slug and priority etc */
-		body.admin #page form p:first-child + p, 
-		body.admin #page form p:first-child + p + p, 
-		body.admin #page form p:first-child + p + p + p {
+		body.admin #page form > p:first-child + p, 
+		body.admin #page form > p:first-child + p + p, 
+		body.admin #page form > p:first-child + p + p + p {
 			float: left;
 			width: 30%;
 		}
 
-			body.admin #page form p:first-child + p input, 
-			body.admin #page form p:first-child + p + p + p input {
+			body.admin #page form > p:first-child + p input, 
+			body.admin #page form > p:first-child + p + p + p input {
 				width: 80%;
 			}
 
 		/* Meta keywords */
-		body.admin #page form p:first-child + p + p + p + p {
+		body.admin #page form > p:first-child + p + p + p + p {
 			clear: left;
 		}
 
 				/* Meta keywords */
-				body.admin #page form p label input[name=meta_keywords] {
+				body.admin #page form > p label input[name=meta_keywords] {
 					width: 90%;
 				}
 
 		/* Hidden unless advanced */
-		body.admin.js-enabled #page form p:first-child + p, 
-		body.admin.js-enabled #page form p:first-child + p + p, 
-		body.admin.js-enabled #page form p:first-child + p + p + p, 
-		body.admin.js-enabled #page form p:first-child + p + p + p + p, 
-		body.admin.js-enabled #page form p:first-child + p + p + p + p + p {
+		body.admin.js-enabled #page form > p:first-child + p, 
+		body.admin.js-enabled #page form > p:first-child + p + p, 
+		body.admin.js-enabled #page form > p:first-child + p + p + p, 
+		body.admin.js-enabled #page form > p:first-child + p + p + p + p, 
+		body.admin.js-enabled #page form > p:first-child + p + p + p + p + p {
 			display: none;
 		}
 
-		body.admin.js-enabled #page form.advanced p:first-child + p, 
-		body.admin.js-enabled #page form.advanced p:first-child + p + p, 
-		body.admin.js-enabled #page form.advanced p:first-child + p + p + p, 
-		body.admin.js-enabled #page form.advanced p:first-child + p + p + p + p, 
-		body.admin.js-enabled #page form.advanced p:first-child + p + p + p + p + p {
+		body.admin.js-enabled #page form.advanced > p:first-child + p, 
+		body.admin.js-enabled #page form.advanced > p:first-child + p + p, 
+		body.admin.js-enabled #page form.advanced > p:first-child + p + p + p, 
+		body.admin.js-enabled #page form.advanced > p:first-child + p + p + p + p, 
+		body.admin.js-enabled #page form.advanced > p:first-child + p + p + p + p + p {
 			display: block;
 		}
