@@ -4,23 +4,31 @@
 		public static $tplFile		= true;
 
 		private static $notModules	= array(
+			# Other dirs
 			'.', 
 			'..', 
 			'.svn', 
+
+			# Base is always included
 			'Base', 
-			'Debug',
-			'Captcha', 
-			'WeatherInfo', 
+
+			# Utils (should be moved to Utils/)
 			'CodeCompressor', 
-			'JSPacker', 
-			'ModuleAdmin', 
-			'LangGenerator', 
+
+			# Autorun Modules (should check aFramework::$autorunModules)
 			'AutoStyleSwitcher', 
+			'ControllerAdmin', 
+			'Debug', 
+			'ModuleAdmin', 
+
+			# DynAdmin
 			'DynItem', 
 			'DynNav', 
 			'RecentDynItems', 
 			'DynTables', 
 			'DynItems', 
+
+			# XML text/comment nodes
 			'#text', 
 			'#comment', 
 			'#cdata-section'
