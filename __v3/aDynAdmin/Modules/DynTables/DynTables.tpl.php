@@ -17,12 +17,13 @@
 					<?php echo escHTML($table['title']); ?>
 				</strong>
 			<?php } else { ?>
-				<a href="<?php echo Router::urlFor('DynItems', array('table_name' => $table['name'])); ?>">
+				<a href="<?php echo Router::urlFor('DynItems', array('table_name' => $table['name_no_lang'])); ?>">
 					<?php echo escHTML($table['title']); ?>
 				</a>
 			<?php } ?>
 		</li>
 	<?php } ?>
+	<!--
 	<li>
 		<?php if (Router::getController() == 'ConfigAdmin') { ?>
 			<strong>
@@ -45,4 +46,5 @@
 			</a>
 		<?php } ?>
 	</li>
+	-->
 </ul>

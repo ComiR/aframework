@@ -8,19 +8,11 @@
 				FourOFour::run();
 			}
 
-			aFramework_BaseModule::$tplVars['style'] = 'dynadmin';
+			# Change style
+			aFramework_BaseModule::$tplVars['style'] = '__dynadmin';
 
-			$res = DB::qry('SHOW TABLES');
-
-			while ($row = mysql_fetch_assoc($res)) {
-				$tableName = end($row);
-
-				self::$tplVars['tables'][] = array(
-					'name'		=> $tableName, 
-					'title'		=> ucwords(str_replace('_', ' ', $tableName)), 
-					'selected'	=> isset(Router::$params['table_name']) and Router::$params['table_name'] == $tableName ? true : false
-				);
-			}
+			# Get all tables
+			self::$tplVars['tables'] = DynItem::getTables(explode(',', Config::get('db.translated_tables')), CURRENT_LANG, explode(',', Config::get('general.allowed_langs')));
 		}
 	}
 ?>

@@ -4,7 +4,7 @@
 @date: 2009-11-03 23:30:00
 ***/
 body {
-	background: #369;
+	background: #ace;
 
 	margin: 0;
 	padding: 0;
@@ -67,7 +67,7 @@ a {
 	}
 
 		#header h1 a {
-			color: #f7f7f7;
+			color: #f3f3f3;
 			text-decoration: none;
 		}
 
@@ -91,18 +91,18 @@ a {
 			#dyn-tables ul li strong {
 				display: block;
 				padding: 5px 10px;
-				color: #f7f7f7;
+				color: #f3f3f3;
 				text-decoration: none;
 			}
 
 			#dyn-tables ul li strong {
-				background: #f7f7f7;
-				color: #369;
+				background: #f3f3f3;
+				color: #ace;
 				-moz-border-radius: 5px 0 0 5px;
 			}
 
 #primary-content {
-	background: #f7f7f7;
+	background: #f3f3f3;
 	float: left;
 	position: relative;
 	margin: 0 0 20px;
@@ -134,8 +134,8 @@ a {
 
 			#dyn-nav ul li a, 
 			#dyn-nav ul li strong {
-				background: #f7f7f7;
-				color: #369;
+				background: #f3f3f3;
+				color: #ace;
 				text-decoration: none;
 				font-weight: bold;
 				display: block;
@@ -156,7 +156,7 @@ a {
 		width: 100%;
 		border-spacing: 0;
 		font-size: 75%;
-		border-bottom: 1px solid #ddd;
+		border-bottom: 1px solid #fff;
 	}
 
 		#dyn-items table th {
@@ -164,13 +164,13 @@ a {
 			text-transform: uppercase;
 			vertical-align: bottom;
 			padding: 5px 10px 5px 0;
-			border-bottom: 1px solid #aaa;
+			border-bottom: 1px solid #ddd;
 		}
 
 		#dyn-items table td {
 			padding: 5px 10px 5px 0;
-			border-top: 1px solid #ddd;
-			border-bottom: 1px solid #aaa;
+			border-top: 1px solid #fff;
+			border-bottom: 1px solid #ddd;
 		}
 
 		#dyn-items tr:hover td {
@@ -207,6 +207,13 @@ a {
 				#dyn-item form p label input, 
 				#dyn-item form p label textarea {
 					width: 500px;
+					margin-left: 10px;
+					vertical-align: top;
+				}
+
+				#dyn-item form p label select {
+					width: 250px;
+					margin-right: 250px;
 					margin-left: 10px;
 					vertical-align: top;
 				}
