@@ -111,7 +111,7 @@
 						.bind("mousedown", function(e) {
 							var h = $$.height(), y = e.clientY, mouseMove, mouseUp;
 							mouseMove = function(e) {
-								$$.css("height", Math.max(20, e.clientY+h-y)+"px");
+								$$.css("height", Math.max(50, e.clientY+h-y)+"px");
 								return false;
 							};
 							mouseUp = function(e) {
