@@ -37,7 +37,7 @@
 
 	<p>
 		<label>
-			<?php echo Lang::get('Priority'); ?> (<?php echo Lang::get('A lower number places page early in the list'); ?>)<br />
+			<?php echo Lang::get('Priority'); ?> <small>(<?php echo Lang::get('A lower number places page early in the list'); ?>)</small><br />
 			<input type="text" name="priority" value="<?php echo escHTML($page['priority']); ?>" />
 		</label>
 	</p>
