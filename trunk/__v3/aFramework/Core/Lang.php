@@ -295,7 +295,6 @@
 		}
 
 		public static function getLangsInDir ($dir, $validExts = array('js', 'php')) {
-
 			$langs = array();
 
 			if (is_dir($dir)) {

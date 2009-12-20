@@ -10,14 +10,14 @@
 		public static function qry ($qry) {
 			# Prefix DB table names
 			if (Config::get('db.table_prefix')) {
-				$qry = prefixDBTableNames($qry, Config::get('db.table_prefix'));
+				$qry = self::prefixDBTableNames($qry, Config::get('db.table_prefix'));
 			}
 
-			# Prefix selected tables with language IF user isn't using default language
+			# Prefix selected tables with language
 			$translatedTables = explode(',', Config::get('db.translated_tables'));
 
-			if (Config::get('db.translated_tables') and CURRENT_LANG != Config::get('general.default_lang')) {
-				$qry = prefixDBTableNames($qry, CURRENT_LANG . '_', $translatedTables);
+			if (Config::get('db.translated_tables')) {
+				$qry = self::prefixDBTableNames($qry, CURRENT_LANG . '_', $translatedTables);
 			}
 
 			# Count the number of queries
@@ -30,6 +30,23 @@
 
 		public static function getNumQueries () {
 			return self::$numQueries;
+		}
+
+		# Prefixes table-names in an SQL-query
+		public static function prefixDBTableNames ($qry, $prefix, $tables = true) {
+			# Prefix certain tables
+			if (is_array($tables)) {
+				$qry = preg_replace('/([^_])(' . implode('|', $tables) . ')([^_]|$)/', '$1' . $prefix . '$2$3', $qry);
+			#	foreach ($tables as $table) {
+			#		$qry = preg_replace('/([^_])(' . $table . ')([^_])/', '$1' . $prefix . '$2$3', $qry);
+			#	}
+			}
+			# Prefix ALL tables... TODO
+			else {
+			
+			}
+
+			return $qry;
 		}
 	}
 ?>
