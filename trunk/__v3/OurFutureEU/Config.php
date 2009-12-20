@@ -16,7 +16,7 @@
 
 	Config::set('general.contact_email',		'info@ourfuture.eu');
 	Config::set('general.date_format',			'l jS \of F Y');
-	Config::set('general.ga_id',				false);
+	Config::set('general.ga_id',				false); # UA-1823084-8
 
 	Config::set('general.ie_script_support',	false);
 	Config::set('general.ie_style_support',		6);

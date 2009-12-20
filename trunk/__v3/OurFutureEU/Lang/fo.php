@@ -10,6 +10,9 @@
 # LatestComic.tpl.php
 'The Latest Comic' => 'Senaste strippen', 
 'by' => 'av', 
+'Upload a Comic' => 'Ladda upp en strip', 
+'Select Image' => 'Välj bild', 
+'Upload' => 'Ladda upp', 
 
 # Partners.tpl.php
 'Partners' => 'Partners', 
@@ -132,6 +135,9 @@
 'Delete' => 'Radera', 
 'No comments yet, why not' => 'Inga kommentarer än, varför inte', 
 'be the first to post one' => 'posta den första?', 
+'No Comments' => 'Inga kommentarer', 
+'Mark as Ham' => 'Markera som ham (inte spam)', 
+'Mark as Spam' => 'Markera som spam', 
 
 # RandomLinks.js
 'Get some new links' => 'Slumpa nya länkar', 

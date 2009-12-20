@@ -8,7 +8,7 @@
 			$projectPages	= array();
 
 			foreach ($allPages as $page) {
-				if (!$page['in_navigation'] and $page['url_str'] != 'home') {
+				if (!$page['in_navigation'] and substr($page['url_str'], 0, 2) != '__') {
 					$projectPages[] = $page;
 				}
 			}
