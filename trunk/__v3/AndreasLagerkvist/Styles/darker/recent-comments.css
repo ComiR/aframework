@@ -1,4 +1,6 @@
-#recent-comments = $tertiary-content;
+#recent-comments {
+
+}
 
 	#recent-comments ul li a:after, 
 	#recent-comments ul li a:before, 

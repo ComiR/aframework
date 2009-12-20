@@ -107,7 +107,7 @@
 
 						<?php if ($file['psize']) { ?>
 							 (<!--<?php #echo round($file['psize'] / 1024, 2); ?> kb -->
-							<a href="<?php echo WEBROOT; ?>?module=JSPacker&amp;file=<?php echo $file['url']; ?>">
+							<a href="<?php echo Router::urlForUtil('JSPacker') . '?file=' . $file['url']; ?>">
 								<?php echo Lang::get('Minified'); ?>
 							</a>)
 						<?php } ?>
@@ -131,7 +131,7 @@
 						(<?php echo round($file['size'] / 1024, 2); ?> kb <?php echo Lang::get('Unpacked'); ?>)
 						<?php if($file['psize']) { ?>
 							 (<!--<?php #echo round($file['psize'] / 1024, 2); ?> kb -->
-							<a href="<?php echo WEBROOT; ?>?module=JSPacker&amp;file=<?php echo $file['url']; ?>">
+							<a href="<?php echo Router::urlForUtil('JSPacker') . '?file=' . $file['url']; ?>">
 								<?php echo Lang::get('Minified'); ?>
 							</a>)
 						<?php } ?>

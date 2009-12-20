@@ -1,4 +1,6 @@
-#random-links = $tertiary-content;
+#random-links {
+
+}
 
 	#random-links p a = $icon;
 	#random-links p a {

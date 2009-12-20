@@ -1,6 +1,4 @@
-#article = $primary-content;
 #article {
-	float: left;
 }
 
 	#article h2 + p small = $pub-date;
@@ -11,7 +9,7 @@
 
 		#article h2 + p + p img = $img-small;
 
-	#article strong {
+	body:not(.admin) #article strong {
 		color: #999;
 	}
 

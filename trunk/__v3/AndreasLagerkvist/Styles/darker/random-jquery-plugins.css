@@ -1,6 +1,6 @@
 #random-jquery-plugins = $3-col-listing;
 #random-jquery-plugins {
-	clear: both;
+	clear: both; /* comments / post-comment (and maybe more...) */
 }
 
 	#random-jquery-plugins h2:after {
@@ -12,7 +12,7 @@
 		list-style: none;
 	}
 
-		#random-jquery-plugins ul li = $tertiary-content;
+		#random-jquery-plugins ul li = $one-third-box;
 		#random-jquery-plugins ul li {
 
 		}

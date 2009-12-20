@@ -6,13 +6,19 @@
 		<Navigation/>
 		<Search/>
 		<Breadcrumbs/>
-		<Page/>
-		<GoogleAds/>
-		<GoogleAdsWide/>
-		<RandomJqueryPlugins/>
-		<RandomLinks/>
-		<RecentComments/>
-		<TagCloud/>
+		<Wrapper name="primary-content">
+			<Page/>
+			<GoogleAdsWide/>
+			<RandomJqueryPlugins/>
+		</Wrapper>
+		<Wrapper name="secondary-content">
+			<GoogleAds/>
+		</Wrapper>
+		<Wrapper name="tertiary-content">
+			<RandomLinks/>
+			<RecentComments/>
+			<TagCloud/>
+		</Wrapper>
 		<Footer/>
 	</Wrapper>
 </Base>
