@@ -36,7 +36,7 @@
 
 				#post-comment .markItUp textarea {
 					width: 233px !important;
-					height: 250px !important;
+					height: 250px;
 				}
 
 				#post-comment form p label input[type=text] {

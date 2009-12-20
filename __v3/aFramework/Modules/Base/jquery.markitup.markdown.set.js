@@ -49,6 +49,8 @@ mySettings = {
 				preview = $('<div class="markItUpPreview"></div>').insertAfter(editor);
 			}
 
+			preview.html('<p>Loading...</p>');
+
 			$.post(Router.urlForUtil('NiceStringPreview'), {
 				data:	textarea.val(), 
 				mhl:	false, 

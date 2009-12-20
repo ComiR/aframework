@@ -402,7 +402,7 @@ $box-tabs {
 
 		#primary-content .markItUp textarea {
 			width: 553px !important;
-			height: 320px !important;
+			height: 320px;
 		}
 
 	#secondary-content = $self-clear;
@@ -419,7 +419,7 @@ $box-tabs {
 
 		#secondary-content .markItUp textarea {
 			width: 233px !important;
-			height: 250px !important;
+			height: 250px;
 		}
 
 	#tertiary-content = $self-clear;
