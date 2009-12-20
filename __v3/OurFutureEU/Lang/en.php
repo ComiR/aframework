@@ -9,6 +9,9 @@
 # LatestComic.tpl.php
 'The Latest Comic' => 'The Latest Comic', 
 'by' => 'by', 
+'Upload a Comic' => 'Upload a Comic', 
+'Select Image' => 'Select Image', 
+'Upload' => 'Upload', 
 
 # Partners.tpl.php
 'Partners' => 'Partners', 

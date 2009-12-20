@@ -9,6 +9,9 @@
 # LatestComic.tpl.php
 'The Latest Comic' => 'Senaste strippen', 
 'by' => 'av', 
+'Upload a Comic' => 'Ladda upp en strip', 
+'Select Image' => 'Välj bild', 
+'Upload' => 'Ladda upp', 
 
 # Partners.tpl.php
 'Partners' => 'Partners', 
