@@ -2,6 +2,11 @@ body.admin #article {
 	
 }
 
+	body.admin #article p.advanced-toggler {
+		font: inherit !important;
+		margin: 10px 0 !important;
+	}
+
 	body.admin #article form {
 		
 	}
@@ -40,6 +45,7 @@ body.admin #article {
 				width: 80%;
 			}
 
+		/* Meta keywords */
 		body.admin #article form p:first-child + p + p + p {
 			clear: left;
 		}
@@ -48,6 +54,15 @@ body.admin #article {
 				body.admin #article form p label input[name=meta_keywords] {
 					width: 90%;
 				}
+
+		/* Tags */
+		body.admin #article form p:nth-last-child(-n+4) {
+
+		}
+
+			body.admin #article form p input[name=tags] {
+				width: 90%;
+			}
 
 		/* Comments/Rating */
 		body.admin #article form p:nth-last-child(-n+3) {
@@ -60,4 +75,19 @@ body.admin #article {
 			float: none;
 			width: auto;
 			clear: left;
+		}
+
+		/* Hidden unless advanced */
+		body.admin.js-enabled #article form p:first-child + p, 
+		body.admin.js-enabled #article form p:first-child + p + p, 
+		body.admin.js-enabled #article form p:first-child + p + p + p, 
+		body.admin.js-enabled #article form p:first-child + p + p + p + p {
+			display: none;
+		}
+
+		body.admin.js-enabled #article form.advanced p:first-child + p, 
+		body.admin.js-enabled #article form.advanced p:first-child + p + p, 
+		body.admin.js-enabled #article form.advanced p:first-child + p + p + p, 
+		body.admin.js-enabled #article form.advanced p:first-child + p + p + p + p {
+			display: block;
 		}

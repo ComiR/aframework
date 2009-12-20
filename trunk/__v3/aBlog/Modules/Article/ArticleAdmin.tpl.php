@@ -30,7 +30,7 @@
 
 	<p>
 		<label>
-			<strong>*</strong> <?php echo Lang::get('Slug'); ?><br />
+			<?php echo Lang::get('Slug'); ?><br />
 			<input type="text" name="url_str" value="<?php echo escHTML($article['url_str']); ?>" />
 		</label>
 	</p>
@@ -38,7 +38,7 @@
 	<p>
 		<label>
 			<?php echo Lang::get('Publish Date'); ?><br />
-			<input type="text" name="pub_date" value="<?php echo $article['pub_date']; ?>" />
+			<input type="text" name="pub_date" value="<?php echo empty($article['pub_date']) ? date('Y-m-d H:i:s') : $article['pub_date']; ?>" />
 		</label>
 	</p>
 
@@ -60,6 +60,23 @@
 		<label>
 			<strong>*</strong> <?php echo Lang::get('Article Content'); ?><br />
 			<textarea name="content" rows="20" cols="60"><?php echo escHTML($article['content']); ?></textarea>
+		</label>
+	</p>
+
+	<?php
+		$tags = array();
+
+		foreach ($article['tags'] as $tag) {
+			$tags[] = $tag['title'];
+		}
+
+		$tags = implode(', ', $tags);
+	?>
+
+	<p>
+		<label>
+			<?php echo Lang::get('Tags'); ?> <small>(<?php echo Lang::get('Use a comma (,) to separate tags'); ?>)</small><br />
+			<input type="text" name="tags" value="<?php echo escHTML($tags); ?>" />
 		</label>
 	</p>
 
@@ -86,7 +103,7 @@
 			<?php echo Lang::get('No'); ?>
 		</label>
 	</p>
-	
+
 	<p>
 		<input type="hidden" name="articles_id" value="<?php echo $article['articles_id']; ?>" />
 		<input type="hidden" name="article_submit" value="1" />
