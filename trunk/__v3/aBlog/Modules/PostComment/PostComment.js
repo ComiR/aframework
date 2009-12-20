@@ -28,7 +28,7 @@ aFramework.modules.PostComment = {
 			success: function (data) {
 				jQuery.get(Router.urlForModule('Comments') + '&articles_id=' + postComment.find('input[name=articles_id]').val(), function (newComments) {
 					jQuery('#comments').html(newComments);
-				//	aFramework.modules.Comments.run(); // doesn't have one as of yet
+					aFramework.modules.Comments.run(); // Should use custom events...
 				});
 
 				postComment.html(data);
