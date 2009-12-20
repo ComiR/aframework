@@ -1,33 +1,63 @@
 <?php
-	$docRoot = str_replace(array('\\', '//'), '/', realpath(dirname( __FILE__ ) .'/../..') .'/');
+	function escHTML ($str) {
+		return str_replace(
+					array(
+						'&amp;', 
+						'&', 
+						'<', 
+						'>', 
+						'"', 
+						"'"
+					), 
+					array(
+						'&', 
+						'&amp;', 
+						'&lt;', 
+						'&gt;', 
+						'&quot;', 
+						'&apos;'
+					), 
+					$str
+				);
+	}
+
+	$docRoot = str_replace(array('\\', '//'), '/', realpath(dirname( __FILE__ ) . '/../.. ') . '/');
 	$webRoot = str_replace(array('\\', '//'), '/', '/' .substr($docRoot, strlen($_SERVER['DOCUMENT_ROOT'])));
 
 	# Store all available sites, their styles and their config in array
 	$notSites	= array(
-		'.', 
-		'..', 
+		'. ', 
+		'.. ', 
 		'.svn', 
 		'Install', 
 		'aSimplePortfolio', 
 		'aDynAdmin', 
-		'AndreasLagerkvist'
+		'AndreasLagerkvist', 
+		'aBugTracker', 
+		'aForum', 
+		'AgnesEkman', 
+		'OurFutureEU', 
+		'phpmyadmin', 
+		'aModPack', 
+		'aTestSite'
 	);
 	$sites	= array();
 	$dh		= opendir($docRoot);
 
-	while($f = readdir($dh)) {
-		if(!in_array($f, $notSites) and is_dir($docRoot .$f) and '##' != substr($f, 0, 2)) {
-			$sDir	= $docRoot .$f .'/Styles/';
+	while ($f = readdir($dh)) {
+		if (!in_array($f, $notSites) and is_dir($docRoot . $f) and '__' != substr($f, 0, 2)) {
+			$sDir	= $docRoot . $f . '/Styles/';
 			$styles	= array();
-			$sDH	= @opendir($sDir);
+			$sDH	= opendir($sDir);
 
-			while($sF = @readdir($sDH)) {
-				if(!in_array($sF, $notSites) and is_dir($sDir .$sF) and '##' != substr($sF, 0, 2) and file_exists($sDir .$sF .'/style.css')) {
+			# Grab this site's styles
+			while ($sF = readdir($sDH)) {
+				if (!in_array($sF, $notSites) and is_dir($sDir . $sF) and '__' != substr($sF, 0, 2) and file_exists($sDir . $sF . '/style.css')) {
 					$styles[] = array(
 						'name'		=> $sF, 
 						'title'		=> escHTML($sF), 
-						'thumb_url'	=> $webRoot .$f .'/Styles/' .$sF .'/thumb.jpg', 
-						'img_url'	=> $webRoot .$f .'/Styles/' .$sF .'/thumb.jpg'
+						'thumb_url'	=> $webRoot . $f . '/Styles/' . $sF . '/thumb.png', 
+						'img_url'	=> $webRoot . $f . '/Styles/' . $sF . '/thumb.png'
 					);
 				}
 			}
@@ -36,28 +66,29 @@
 				'name'		=> $f, 
 				'title'		=> escHTML($f), 
 				'styles'	=> $styles, 
-				'thumb_url'	=> $webRoot .$f .'/thumb.png', 
-				'img_url'	=> $webRoot .$f .'/thumb.png'
+				'thumb_url'	=> $webRoot . $f . '/thumb.png', 
+				'img_url'	=> $webRoot . $f . '/thumb.png'
 			);
 		}
 	}
 
 	# If user has selected his site_hiearchy
-	if(isset($_POST['site_hierarchy'])) {
+	if (isset($_POST['site_hierarchy'])) {
 		# Store all selected sites
 		$site_hierarchy_sites = array();
 		$tmp = array_unique(array_filter($_POST['site_hierarchy']));
-		foreach($tmp as $v) {
+
+		foreach ($tmp as $v) {
 			$site_hierarchy_sites[] = $v;
 		}
 
 		# Store all selected site's config
-		require_once $docRoot .'aFramework/Core/Config.php';
+		require_once $docRoot . 'aFramework/Core/Config.php';
 
-		foreach($site_hierarchy_sites as $s) {
-			$path = $docRoot .$s .'/Config.php';
+		foreach ($site_hierarchy_sites as $s) {
+			$path = $docRoot . $s . '/Config.php';
 
-			if(file_exists($path)) {
+			if (file_exists($path)) {
 				require_once $path;
 			}
 		}
@@ -68,29 +99,29 @@
 	}
 
 	# Create site
-	if(isset($_POST['aframework_install_submit']) and $_POST['aframework_install_submit'] == 1) {
+	if (isset($_POST['aframework_install_submit']) and $_POST['aframework_install_submit'] == 1) {
 	/*	$siteName = preg_replace('/[^A-Za-z0-9_-]/', '', $_POST['site_name']);
 		$siteHierarchy = array_filter($_POST['site_hierarchy']);
 
-		if(empty($siteName) or is_dir($docRoot .$siteName)) {
+		if (empty($siteName) or is_dir($docRoot . $siteName)) {
 			die('SITE ALREADY EXISTS OR CANT EXIST');
 		}
 
 		# 1. Create Site directory
-		mkdir($docRoot .$siteName, 0777);
+		mkdir($docRoot . $siteName);
 
 		# 2. Create Controller-files based on selected parent-sites
-		mkdir($docRoot .$siteName .'/Controllers', 0777);
+		mkdir($docRoot . $siteName . '/Controllers');
 
-		foreach($siteHierarchy as $site) {
-			$path = $docRoot .$site .'/Controllers/';
+		foreach ($siteHierarchy as $site) {
+			$path = $docRoot . $site . '/Controllers/';
 
-			if(is_dir($path)) {
+			if (is_dir($path)) {
 				$dh = opendir($path);
 
-				while($f = readdir($dh)) {
-					if('xml' == end(explode('.', $f))) {
-						file_put_contents($docRoot .$siteName .'/Controllers/' .$f, file_get_contents($path .$f));
+				while ($f = readdir($dh)) {
+					if ('xml' == end(explode('. ', $f))) {
+						file_put_contents($docRoot . $siteName . '/Controllers/' . $f, file_get_contents($path . $f));
 					}
 				}
 			}
@@ -99,22 +130,39 @@
 		# 3. Create Config-files based on selected config
 		$configFile = "<?php\n";
 
-		foreach($_POST['config'] as $k => $v) {
+		foreach ($_POST['config'] as $k => $v) {
 			$configFile .= "Config::set('$k', '$v');\n";
 		}
 
-		file_put_contents($docRoot .$siteName .'/Config.php', $configFile .'?>');
+		file_put_contents($docRoot . $siteName . '/Config.php', $configFile . '?>');
 
 		# 4. Create Styles directories based on selected styles
-		mkdir($docRoot .$siteName .'/Styles', 0777);
+		mkdir($docRoot . $siteName . '/Styles');
 
-		foreach($_POST['styles'] as $style) {
-			mkdir($docRoot .$siteName .'/Styles/' .$style);
+		foreach ($_POST['styles'] as $style) {
+			mkdir($docRoot . $siteName . '/Styles/' . $style);
+		}
+
+		# 5. Install SQL-files for all selected sites
+		$sql = '';
+
+		foreach ($siteHierarchy as $site) {
+			$path = $docRoot . $site . '/DBLib/';
+
+			if (is_dir($path)) {
+				$dh = opendir($path);
+
+				while ($f = readdir($dh)) {
+					if ('sql' == end(explode('. ', $f))) {
+						$sql .= file_get_contents($path . $f);
+					}
+				}
+			}
 		}
 
 		# 5. Modify index.php's SITE_HIERARCHY-definition to reflect user's new site
 		file_put_contents(
-			$docRoot .'index.php', 
+			$docRoot . 'index.php', 
 			preg_replace(
 				'define\(\'SITE_HIERARCHY\'.*?\)', 
 				'define\(\'SITE_HIERARCHY\', ' .implode(' ', 
@@ -122,8 +170,8 @@
 						array($siteName), 
 						array_filter($_POST['site_hierarchy'])
 					)
-				) .'\)', 
-				file_get_contents($docRoot .'index.php')
+				) . '\)', 
+				file_get_contents($docRoot . 'index.php')
 			)
 		);
 		*/
@@ -134,7 +182,7 @@
 
 	<h2>Installation Wizard</h2>
 
-	<?php if(isset($installed)) { ?>
+	<?php if (isset($installed)) { ?>
 		<h3>Nice one</h3>
 
 		<p>Your site was successfully installed. <a href="../">View your site</a> and start creating.</p>
@@ -166,11 +214,11 @@
 						<p>Your site may inherit features from any number of other aFramework-sites, please select which sites you wish your site to inherit features from. If you want to create a site completely from scratch don't select anything.</p>
 
 						<ul>
-							<?php foreach($sites as $s) { if($s['name'] != 'aFramework') { ?>
+							<?php foreach ($sites as $s) { if ($s['name'] != 'aFramework') { ?>
 								<li>
 									<label>
 										<img src="<?php echo $s['thumb_url']; ?>" alt="" /><br />
-										<input type="checkbox" name="site_hierarchy[]" value="<?php echo $s['name']; ?>"<?php if(isset($site_hierarchy_sites) and in_array($s['name'], $site_hierarchy_sites)) { ?> checked="checked"<?php } ?> /> 
+										<input type="checkbox" name="site_hierarchy[]" value="<?php echo $s['name']; ?>"<?php if (isset($site_hierarchy_sites) and in_array($s['name'], $site_hierarchy_sites)) { ?> checked="checked"<?php } ?> /> 
 										<?php echo $s['title']; ?>
 									</label> 
 								</li>
@@ -181,7 +229,7 @@
 
 					</fieldset>
 				</li>
-				<?php if(isset($site_hierarchy_config)) { foreach($site_hierarchy_config as $config) { ?>
+				<?php if (isset($site_hierarchy_config)) { foreach ($site_hierarchy_config as $config) { ?>
 					<li>
 						<fieldset>
 
@@ -189,11 +237,11 @@
 
 							<p><?php echo $config['info']['description']; ?></p>
 
-							<?php foreach($config['items'] as $item) { if('aframework.default_style' != $item['key'] and 'aframework.allow_styles' != $item['key']) { ?>
+							<?php foreach ($config['items'] as $item) { if ('aframework.default_style' != $item['key'] and 'aframework.allow_styles' != $item['key']) { ?>
 								<p>
 									<label>
 										<?php echo $item['title']; ?><br />
-										<input type="text" name="config[<?php echo $item['key']; ?>]"<?php echo $item['description'] != '' ? ' title="E.g. ' .$item['description'] .'"' : ''; ?> />
+										<input type="text" name="config[<?php echo $item['key']; ?>]"<?php echo $item['description'] != '' ? ' title="E.g. ' . $item['description'] . '"' : ''; ?> />
 									</label>
 								</p>
 							<?php } } ?>
@@ -201,7 +249,7 @@
 						</fieldset>
 					</li>
 				<?php } } ?>
-				<?php if(isset($site_hierarchy_sites)) { ?>
+				<?php if (isset($site_hierarchy_sites)) { ?>
 					<li>
 						<fieldset>
 
@@ -210,11 +258,11 @@
 							<p>Select the style(s) you want your site to have. If you want to enable user style switching select more than one style, if not select only one style.<br />Please note that styles may not necessarily be created for more than one particular site and may not suite all your selected sites.</p>
 
 							<dl>
-								<?php $i = 0; foreach($sites as $s) { if(in_array($s['name'], $site_hierarchy_sites) and count($s['styles'])) { $i++; ?>
+								<?php $i = 0; foreach ($sites as $s) { if (in_array($s['name'], $site_hierarchy_sites) and count($s['styles'])) { $i++; ?>
 									<dt><?php echo $s['title']; ?></dt>
 									<dd>
 										<ul>
-											<?php foreach($s['styles'] as $st) { ?>
+											<?php foreach ($s['styles'] as $st) { ?>
 												<li>
 													<a href="<?php echo $st['img_url']; ?>">
 														<img src="<?php echo $st['thumb_url']; ?>" alt="" />
@@ -224,7 +272,7 @@
 														<?php echo $st['title']; ?>
 													</label><br />
 													<label>
-														<input type="radio" name="default_style"<?php if($i == 1) { ?> checked="checked"<?php } ?> /> Make default
+														<input type="radio" name="default_style"<?php if ($i == 1) { ?> checked="checked"<?php } ?> /> Make default
 													</label>
 												</li>
 											<?php } ?>
@@ -239,7 +287,7 @@
 			</ol>
 
 			<p>
-				<?php if(isset($submit)) { ?>
+				<?php if (isset($submit)) { ?>
 					<input type="hidden" name="aframework_install_submit" value="1" />
 					<input type="submit" value="Create my site" />
 				<?php } else { ?>
