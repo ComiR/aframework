@@ -41,7 +41,7 @@ mySettings = {
 	//	{name:'Code Block / Code', openWith:'(!(\t|!|`)!)', closeWith:'(!(`)!)'},
 		{name:'Code Block / Code', openWith:'[code]', closeWith:'[/code]'},
 		{separator:'---------------'},
-		{name:'Preview', call:function (textarea) {
+		{name:'Preview', key:'S', call:function (textarea) {
 			var editor	= textarea.parents('div.markItUp').eq(0).parent();
 			var preview	= editor.next('div.markItUpPreview');
 
