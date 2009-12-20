@@ -1,0 +1,11 @@
+#post-comment {
+	
+}
+
+	#post-comment form {
+		
+	}
+
+		body.js-enabled #post-comment form strong {
+			display: none;
+		}
