@@ -1,5 +1,49 @@
 <?php
 	class Tags {
+		public static function deleteTagsForArticle ($articlesID) {			
+			DB::qry('DELETE FROM article_tags WHERE articles_id = ' . escSQL($articlesID));
+		}
+
+		public static function updateTagsForArticle ($articlesID, $tags) {
+			$tags		= is_array($tags) ? $tags : explode(',', $tags);
+			$tags		= array_map('trim', $tags);
+			$tags		= array_unique($tags);
+			$tagsArr	= array();
+
+			# No tags, delete all old tags for this article
+			if (!count($tags)) {
+				DB::qry('DELETE FROM article_tags WHERE articles_id = ' . escSQL($articlesID));
+
+				return;
+			}
+
+			# Insert new tags
+			foreach ($tags as $tag) {
+				if (!mysql_num_rows(DB::qry('SELECT tags_id FROM tags WHERE title = "' . escSQL($tag) . '"'))) {
+					Tags::insert(array(
+						'url_str'	=> Router::urlize($tag), 
+						'title'		=> $tag
+					));
+				}
+			}
+
+			# Grab all the tags for this article's IDs
+			$res = DB::qry('SELECT tags_id FROM tags WHERE title IN ("' . implode('","', $tags) . '")');
+			$ids = array();
+
+			while ($row = mysql_fetch_assoc($res)) {
+				$ids[] = $row;
+			}
+
+			# Delete all old tags for this article
+			self::deleteTagsForArticle($articlesID);
+
+			# Insert the new ones
+			foreach ($ids as $id) {
+				DB::qry('INSERT INTO article_tags VALUES ("", "' . escSQL($articlesID) . '", "' . escSQL($id['tags_id']) . '")');
+			}
+		}
+
 		public static function getTagsByArticlesID ($articlesID) {
 			if (is_numeric($articlesID)) {
 				$res = DB::qry('

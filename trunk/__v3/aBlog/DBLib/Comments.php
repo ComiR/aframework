@@ -1,6 +1,11 @@
 <?php
 	class Comments {
-		public static function getCommentsByArticleID ($id) {
+		public static function deleteAllSpamForArticle ($articlesID) {
+			DB::qry('DELETE FROM comments WHERE articles_id = ' . escSQL($articlesID) . ' AND karma < 1');
+		}
+
+		public static function getCommentsByArticleID ($id, $spam = false) {
+			$karma = $spam ? '' : ' AND comments.karma > 0 ';
 			$res = DB::qry('
 				SELECT
 					comments.*, 
@@ -15,8 +20,8 @@
 				LEFT JOIN
 					articles USING(articles_id)
 				WHERE
-					articles.articles_id = "' . escSQL($id) . '" AND
-					comments.karma > 0
+					articles.articles_id = "' . escSQL($id) . '"
+					' . $karma . '
 				ORDER BY
 					comments.pub_date ASC
 			');
@@ -35,7 +40,8 @@
 			}
 		}
 
-		public static function getCommentsByArticleURLStr ($urlStr) {
+		public static function getCommentsByArticleURLStr ($urlStr, $spam = false) {
+			$karma = $spam ? '' : ' AND comments.karma > 0 ';
 			$res = DB::qry('
 				SELECT
 					comments.*, 
@@ -50,8 +56,8 @@
 				LEFT JOIN
 					articles USING(articles_id)
 				WHERE
-					articles.url_str = "' . escSQL($urlStr) . '" AND
-					comments.karma > 0
+					articles.url_str = "' . escSQL($urlStr) . '"
+					' . $karma . '
 				ORDER BY
 					comments.pub_date ASC
 			');
@@ -70,7 +76,8 @@
 			}
 		}
 
-		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000) {
+		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000, $spam = false) {
+			$karma = $spam ? '' : ' WHERE comments.karma > 0 ';
 			$res = DB::qry('
 				SELECT
 					comments.*, 
@@ -84,8 +91,7 @@
 					comments
 				LEFT JOIN
 					articles USING(articles_id)
-				WHERE
-					comments.karma > 0
+				' . $karma . '
 				ORDER BY
 					comments.' . escSQL($sort) . ' ' . escSQL($order) . '
 				LIMIT
