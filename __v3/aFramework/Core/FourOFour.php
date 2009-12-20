@@ -23,7 +23,10 @@
 
 			# For the search-results-module
 			$pathInfo	= isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '';
-			$_GET['q']	= urldecode(trim(str_replace('/' . CURRENT_LANG . '/', '', str_replace(array(WEBROOT, 'index.php', '/', '-'), ' ', $_SERVER['PATH_INFO']))));
+			$searchTerm	= str_replace('/' . CURRENT_LANG . '/', '', $pathInfo);
+			$searchTerm	= str_replace(array(WEBROOT, 'index.php', '/', '-'), ' ', $searchTerm);
+			$searchTerm	= urldecode(trim($searchTerm));
+			$_GET['q']	= $searchTerm;
 
 			include DOCROOT .'aFramework/Files/404-stuff/head.php';
 

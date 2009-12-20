@@ -33,23 +33,6 @@
 				);
 	}
 
-	# Prefixes table-names in an SQL-query
-	function prefixDBTableNames ($qry, $prefix, $tables = true) {
-		# Prefix certain tables
-		if (is_array($tables)) {
-			$qry = preg_replace('/([^_])(' . implode('|', $tables) . ')([^_])/', '$1' . $prefix . '$2$3', $qry);
-		#	foreach ($tables as $table) {
-		#		$qry = preg_replace('/([^_])(' . $table . ')([^_])/', '$1' . $prefix . '$2$3', $qry);
-		#	}
-		}
-		# Prefix ALL tables... TODO
-		else {
-			
-		}
-
-		return $qry;
-	}
-
 	# Insert element in array at given position
 	# from: http://snipplr.com/view/19898/insert-into--add-element-to-array-at-specific-position/ but modified
 	function array_insert ($val, $pos, &$array) {
