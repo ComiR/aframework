@@ -1,6 +1,5 @@
-#comments = $primary-content;
 #comments {
-	clear: both;
+	width: 610px;
 	float: left;
 }
 
@@ -15,7 +14,6 @@
 		#comments > ol > li {
 			padding-left: 130px;
 			width: 380px;
-			min-height: 110px;
 			position: relative;
 		}
 

@@ -1,4 +1,6 @@
-#contact = $primary-content;
+#contact {
+
+}
 
 	#contact h2 + p = $first-p;
 

@@ -384,45 +384,56 @@ $box-tabs {
 	position: relative;
 }
 
-	#wrapper > div {
-		padding: 10px 15px;
-	}
-
-	$primary-content {
+	#primary-content = $self-clear;
+	#primary-content {
 		width: 610px;
-		font-size: 14px;
+		padding: 10px 15px;
 		float: left;
 	}
 
-		$primary-content object {
+		#primary-content > div:first-child {
+			font-size: 14px;
+		}
+
+		#primary-content object {
 			width: 610px;
 			height: 370px;
 		}
 
-	$secondary-content {
+	#secondary-content = $self-clear;
+	#secondary-content {
 		width: 290px;
+		padding: 10px 15px;
 		float: right;
 	}
 
-		$secondary-content h2 {
+		#secondary-content h2 {
 			font-size: 24px;
 			margin-top: 38px;
 		}
 
-	$tertiary-content {
-		width: 290px;
-		float: left;
-		padding-left: 15px;
-		padding-right: 15px;
+	#tertiary-content = $self-clear;
+	#tertiary-content {
+		clear: both;
 	}
 
-		$tertiary-content h2 {
-			font-size: 24px;
-			margin-top: 38px;
+		$one-third-box {
+			width: 290px;
+			float: left;
+			padding-left: 15px;
+			padding-right: 15px;
 		}
 
+			$one-third-box h2 {
+				font-size: 24px;
+				margin-top: 38px;
+			}
+
+		#tertiary-content > div = $one-third-box;
+
 	$3-col-listing {
-		
+		width: 930px;
+		padding-top: 30px;
 	}
 
 		$3-col-listing h2 {

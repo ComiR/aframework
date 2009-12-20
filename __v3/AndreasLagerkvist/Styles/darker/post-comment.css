@@ -1,4 +1,8 @@
-#post-comment = $secondary-content;
+#post-comment {
+	width: 290px;
+	margin-right: -320px;
+	float: right;
+}
 
 	#post-comment h3 = $main-heading;
 
@@ -30,7 +34,7 @@
 					
 				}
 
-				#post-comment form p label input {
+				#post-comment form p label input[type=text] {
 					position: absolute;
 					right: 0;
 					top: 0;

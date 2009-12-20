@@ -1,6 +1,6 @@
 #older-articles = $3-col-listing;
 #older-articles {
-	clear: both;
+
 }
 
 	#older-articles h2:after {
@@ -12,7 +12,7 @@
 		list-style: none;
 	}
 
-		#older-articles > ol > li = $tertiary-content;
+		#older-articles > ol > li = $one-third-box;
 		#older-articles > ol > li {
 			
 		}
