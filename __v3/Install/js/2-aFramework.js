@@ -1,7 +1,3 @@
-var urlForModule = function(module) {
-	return WEBROOT +'?module=' +module;
-};
-
 var aFramework = {
 	run: function() {
 		jQuery(document.body)
