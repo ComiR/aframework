@@ -30,6 +30,8 @@ The modified image can be opened in a new window by clicking it.
 
 **I've recently stopped including pixastic on my site so I had to remove the example and downloads from this page. Instead, please have a look at the [external example page](/AndreasLagerkvist/Files/pixastic-editor/) and its source for what you need.**
 
+If you want more information about the plug-in then [check out this article on exscale.se](http://exscale.se/archives/jquery/#article-240).
+
 @howto:
 $('#my-image').pixasticEditor(); would insert the editor in the #my-image-element and affect an img-element within #my-image.
 
