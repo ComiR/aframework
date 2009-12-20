@@ -164,7 +164,7 @@
 							return false;
 						}).mouseup(function() {
 							if (button.call) {
-								if (typeof(button.call == 'function')) {
+								if (typeof(button.call) == 'function') {
 									button.call($$);
 								}
 								else {
