@@ -86,6 +86,7 @@
 						border-top: 1px solid #ccc;
 					}
 
+					/* Search Results Pagination */
 					h2 + ol + ul {
 						margin-left: 0;
 						padding-left: 0;
