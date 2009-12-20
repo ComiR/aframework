@@ -1,0 +1,19 @@
+#comments {
+	
+}
+
+	#comments ol {
+		
+	}
+
+		#comments ol li {
+		
+		}
+
+		#comments ol li.spam {
+			opacity: .4;
+		}
+
+		#comments ol li.spam:hover {
+			opacity: 1;
+		}
