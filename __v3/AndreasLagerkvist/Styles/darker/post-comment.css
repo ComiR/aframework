@@ -19,13 +19,13 @@
 				
 			}
 
-				#post-comment form p label strong {
+				#post-comment form p label > strong {
 					position: absolute;
 					left: -15px;
 					top: 7px;
 				}
 
-				#post-comment form p label br {
+				#post-comment form p label > br {
 					display: none;
 				}
 
@@ -57,6 +57,7 @@
 					height: 120px;
 				}
 
-				#post-comment form p label textarea + img {
+				#post-comment form p label textarea + img, 
+				body.js-enabled #post-comment form p label div + img {
 					top: 16px;
 				}
