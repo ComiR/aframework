@@ -31,7 +31,7 @@
 'Add Article +' => 'Lägg till artikel +', 
 
 # BeforeArticleAdmin.tpl.php
-'Edit Article' => 'Redigera Artikel', 
+'Edit Article' => 'Redigera artikel', 
 'Add Article' => 'Lägg till artikel', 
 
 # ArticleAdmin.tpl.php
@@ -66,6 +66,10 @@
 'Delete' => 'Radera', 
 'No comments yet, why not' => 'Inga kommentarer än, varför inte', 
 'be the first to post one' => 'posta den första?', 
+'Delete all Spam Comments' => 'Radera alla spam-kommentarer', 
+'No Comments' => 'Inga kommentarer', 
+'Mark as Ham' => 'Markera som ham (inte spam)', 
+'Mark as Spam' => 'Markera som spam', 
 
 # RandomLinks.js
 'Get some new links' => 'Slumpa nya länkar', 
