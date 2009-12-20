@@ -143,7 +143,7 @@
 		 * Turns $str into a valid url
 		 **/
 		public static function urlize ($str) {
-			return strtolower(preg_replace('/[^A-Za-z0-9_-]/', '', $str));
+			return preg_replace('/[^a-z0-9_-]/', '', str_replace(array('å', 'ä', 'ö', ' '), array('a', 'a', 'o', '-'), strtolower($str)));
 		}
 
 		/**
@@ -159,6 +159,15 @@
 			}
 
 			return WEBROOT . $langPrefix . '?module=' . $mod;
+		}
+
+		/**
+		 * urlForUtil
+		 * 
+		 * Returns the URL for a particular util
+		 **/
+		public static function urlForUtil ($util) {
+			return WEBROOT . 'aFramework/Utils/' . $util . '.php';
 		}
 
 		/**
