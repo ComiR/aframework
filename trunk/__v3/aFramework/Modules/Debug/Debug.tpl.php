@@ -50,16 +50,18 @@
 					<?php } ?>
 				</dl>
 			</li>
-			<li>
-				<h4>Route params</h4>
+			<?php if (count(Router::$params)) { ?>
+				<li>
+					<h4>Route params</h4>
 
-				<dl>
-					<?php foreach(Router::$params as $k => $v) { ?>
-						<dt><?php echo $k; ?></dt>
-						<dd><?php echo $v != '' ? $v : '[empty]'; ?></dd>
-					<?php } ?>
-				</dl>
-			</li>
+					<dl>
+						<?php foreach(Router::$params as $k => $v) { ?>
+							<dt><?php echo $k; ?></dt>
+							<dd><?php echo $v != '' ? $v : '[empty]'; ?></dd>
+						<?php } ?>
+					</dl>
+				</li>
+			<?php } ?>
 		</ul>
 	</li>
 	<li>

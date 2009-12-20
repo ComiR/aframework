@@ -87,7 +87,7 @@ body.admin {
 			body.js-disabled #debug ul.debug > li h3:hover, 
 			#debug ul.debug > li h3.active {
 				background-color: rgba(30, 60, 250, .8);
-				color: #fff;
+				color: #fff !important;
 			}
 
 			/* Drop Down */
@@ -129,10 +129,6 @@ body.admin {
 						margin: 0;
 						padding: 7px 10px;
 
-						font: bold 12px/1 Arial, sans-serif;
-						letter-spacing: normal;
-						color: #000;
-
 						cursor: pointer;
 					}
 
@@ -152,7 +148,7 @@ body.admin {
 					#debug ul.debug > li > ul > li h4:hover, 
 					#debug ul.debug > li > ul > li h4.active {		
 						background-color: rgba(30, 60, 250, .8);
-						color: #fff;
+						color: #fff !important;
 					}
 
 					#debug ul.debug > li > ul > li p {
