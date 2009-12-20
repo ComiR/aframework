@@ -15,8 +15,13 @@
 		}
 
 		private static function showThePage () {
+			# Don't allow "hidden" pages
+			if (isset(Router::$params['url_str']) and substr(Router::$params['url_str'], 0, 2) == '__') {
+				FourOFour::run();
+			}
+
 			# Try to get $get.url_str, else get home-page
-			$page = Pages::getPageByURLStr(isset(Router::$params['url_str']) ? Router::$params['url_str'] : 'home');
+			$page = Pages::getPageByURLStr(isset(Router::$params['url_str']) ? Router::$params['url_str'] : '__home');
 
 			# If no url_str is set and we're admin
 			if (!isset(Router::$params['url_str']) and Router::getController() == 'AddPage' and ADMIN) {
