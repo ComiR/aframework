@@ -9,8 +9,8 @@
 				self::setStyle(Config::get('general.default_style'));
 			}
 
-			# Don't do nothing if current site doesn't allow styles
-			if (!Config::get('general.allow_styles')) {
+			# Don't do nothing if current site doesn't allow styles (has only one style)
+			if (self::getNumStylesForCurrentSite() < 2) {
 				return false;
 			}
 
@@ -20,6 +20,23 @@
 			if (isset($tmp['style'])) {
 				self::setStyle($tmp['style']);
 			}
+		}
+
+		private static function getNumStylesForCurrentSite () {
+			$path		= CURRENT_SITE_DIR . 'Styles/';
+			$numStyles	= 0;
+
+			if (is_dir($path)) {
+				$dh = opendir($path);
+
+				while ($f = readdir($dh)) {
+					if (substr($f, 0, 1) != '.' and substr($f, 0, 2) != '__' and is_dir($path . $f)) {
+						$numStyles++;
+					}
+				}
+			}
+
+			return $numStyles;
 		}
 
 		private static function setStyle ($style) {
