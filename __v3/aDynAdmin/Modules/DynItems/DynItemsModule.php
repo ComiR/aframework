@@ -27,7 +27,7 @@
 			$sort		= isset($_GET['sort']) ? $_GET['sort'] : 1;
 			$order		= isset($_GET['order']) ? $_GET['order'] : 'ASC';
 			$start		= isset($_GET['start']) ? $_GET['start'] : 0;
-			$fullTable	= DynItem::getFullTable(Router::$params['table_name'], $sort, $order, $start, explode(',', Config::get('general.allowed_langs')));
+			$fullTable	= DynItem::getFullTable(Router::$params['table_name'], $sort, $order, $start, explode(',', Config::get('lang.allowed_langs')));
 
 			if (!count($fullTable['rows'])) {
 				self::$tplFile = 'NoItems';

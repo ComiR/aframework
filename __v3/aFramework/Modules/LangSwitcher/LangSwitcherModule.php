@@ -4,7 +4,7 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			$langs = explode(',', Config::get('general.allowed_langs'));
+			$langs = explode(',', Config::get('lang.allowed_langs'));
 
 			if (1 == count($langs)) {
 				return self::$tplFile = false;

@@ -6,8 +6,8 @@
 
 		private static function setCurrentLang () {
 			$requestedURI	= isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/';
-			$allowedLangs	= explode(',', Config::get('general.allowed_langs'));
-			$currentLang	= Config::get('general.default_lang');
+			$allowedLangs	= explode(',', Config::get('lang.allowed_langs'));
+			$currentLang	= Config::get('lang.default_lang');
 
 			if (count($allowedLangs)) {
 				$requestedURIPortions = explode('/', $requestedURI);
@@ -32,7 +32,7 @@
 
 			# Check if user has a preferred lang and that he's not trying to change it
 			if ($preferredLang != CURRENT_LANG and !isset($_GET['set_lang'])) {
-				if ($preferredLang == Config::get('general.default_lang')) {
+				if ($preferredLang == Config::get('lang.default_lang')) {
 					redirect(WEBROOT);
 				}
 				else {

@@ -21,7 +21,7 @@
 
 		private static function getSearchResults ($q, $start = 0) {
 			$return = array();
-			$lang	= CURRENT_LANG == Config::get('general.default_lang') ? '' : CURRENT_LANG . '/';
+			$lang	= CURRENT_LANG == Config::get('lang.default_lang') ? '' : CURRENT_LANG . '/';
 			$site	= $_SERVER['SERVER_NAME'] . WEBROOT . $lang;
 			$url	= 'http://ajax.googleapis.com/ajax/services/search/web?v=1.0&q=' . urlencode($q) . '%20site:' . $site . '&rsz=large&start=' . $start;
 			$ch		= curl_init();

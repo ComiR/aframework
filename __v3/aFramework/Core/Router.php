@@ -154,7 +154,7 @@
 		public static function urlForModule ($mod) {
 			$langPrefix = '';
 
-			if (CURRENT_LANG != Config::get('general.default_lang')) {
+			if (CURRENT_LANG != Config::get('lang.default_lang')) {
 				$langPrefix = CURRENT_LANG . '/';
 			}
 
@@ -191,7 +191,7 @@
 		public static function urlForLang ($lang) {
 			$url = WEBROOT;
 
-			if ($lang == Config::get('general.default_lang')) {
+			if ($lang == Config::get('lang.default_lang')) {
 				return $url;
 			}
 
@@ -227,7 +227,7 @@
 				}
 			}
 
-			$langPrefix	= CURRENT_LANG == Config::get('general.default_lang') ? '' : '/' . CURRENT_LANG;
+			$langPrefix	= CURRENT_LANG == Config::get('lang.default_lang') ? '' : '/' . CURRENT_LANG;
 			$webroot	= USE_MOD_REWRITE ? WEBROOT : (($requestedController == 'Home' and empty($langPrefix)) ? WEBROOT : WEBROOT . 'index.php/');
 			$url		= $url ? str_replace('//', '/', $webroot . $langPrefix . $url) : '#';
 

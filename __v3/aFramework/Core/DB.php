@@ -14,9 +14,9 @@
 			}
 
 			# Prefix selected tables with language
-			$translatedTables = explode(',', Config::get('db.translated_tables'));
+			$translatedTables = explode(',', Config::get('lang.translated_tables'));
 
-			if (Config::get('db.translated_tables')) {
+			if (Config::get('lang.translated_tables')) {
 				$qry = self::prefixDBTableNames($qry, CURRENT_LANG . '_', $translatedTables);
 			}
 

@@ -23,7 +23,7 @@
 
 		<?php
 			if (!NAKED_DAY) {
-				$ieStyleSupport 	= Config::get('general.ie_style_support');
+				$ieStyleSupport 	= Config::get('ie_support.style_support');
 				$linkBlock			= '<link rel="stylesheet" type="text/css" media="screen,projection" href="' . WEBROOT . (USE_MOD_REWRITE ? CURRENT_SITE . '/' . $style . '.css' : Router::urlForModule('CodeCompressor') . '&amp;s=' . $style . '&amp;t=css') . '" />';
 				$universalLinkBlock	= '<link rel="stylesheet" type="text/css" media="screen,projection" href="http://universal-ie6-css.googlecode.com/files/ie6.0.3.css" />';
 
@@ -50,12 +50,12 @@
 		<script type="text/javascript">
 			document.body.className	= document.body.className.replace('js-disabled', 'js-enabled');
 			WEBROOT					= '<?php echo WEBROOT; ?>';
-			DEFAULT_LANG			= '<?php echo Config::get('general.default_lang'); ?>';
+			DEFAULT_LANG			= '<?php echo Config::get('lang.default_lang'); ?>';
 			CURRENT_LANG			= '<?php echo CURRENT_LANG; ?>';
 		</script>
 
 		<?php
-			$ieStyleSupport		= Config::get('general.ie_style_support');
+			$ieStyleSupport		= Config::get('ie_support.style_support');
 			$str				= 'Your browser doesn\'t support the modern CSS used on this web page, therefore it is served with <a href="http://forabeautifulweb.com/blog/about/universal_internet_explorer_6_css/">the universal IE6 stylesheet</a>. For a richer browsing experience, please consider upgrading to <a href="http://www.getfirefox.com">a better, modern browser</a>.';
 
 			if ($ieStyleSupport === false) {
@@ -82,7 +82,7 @@
 
 		<?php
 			if (!NAKED_DAY) {
-				$ieScriptSupport	= Config::get('general.ie_script_support');
+				$ieScriptSupport	= Config::get('ie_support.script_support');
 
 				if ($ieScriptSupport === false) {
 					$ie_script_support_before	= '<!--[if !IE]><!-->';

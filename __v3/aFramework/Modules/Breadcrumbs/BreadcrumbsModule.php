@@ -28,7 +28,7 @@
 			$numDirs	= count($dirs);
 
 			foreach ($dirs as $dir) {
-				$langPrefix	= (CURRENT_LANG == Config::get('general.default_lang')) ? '' : CURRENT_LANG . '/';
+				$langPrefix	= (CURRENT_LANG == Config::get('lang.default_lang')) ? '' : CURRENT_LANG . '/';
 				$url		= ($i == $numDirs ? false : str_replace('//', '/', (USE_MOD_REWRITE ? WEBROOT : WEBROOT . 'index.php/') . "$langPrefix{$prevUrl}/$dir/"));
 				$cols[$i++]	= array('title' => ucwords(str_replace('-', ' ', $dir)), 'url' => $url);
 				$prevUrl	= "$prevUrl/$dir";

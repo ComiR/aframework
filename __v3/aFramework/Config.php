@@ -24,10 +24,6 @@
 													'title'			=> 'Database table prefix (if unsure leave empty)', 
 													'value'			=> ''
 												));
-	Config::set('db.translated_tables',			array(
-													'title'			=> 'If your site is multilingual you can specify which DB tables should be language-specific', 
-													'value'			=> ''
-												));
 
 	# aFramework
 	Config::set('general',						array(
@@ -36,16 +32,6 @@
 												));
 	Config::set('general.allow_styles',			true);
 	Config::set('general.default_style',		'default');
-	Config::set('general.ie_style_support',		array(
-													'title'			=> 'IE CSS Support', 
-													'value'			=> false, 
-													'description'	=> 'Can be false, true or a version-number (6 means CSS support for IE6 and up)'
-												));
-	Config::set('general.ie_script_support',	array(
-													'title'			=> 'IE JS Support', 
-													'value'			=> false, 
-													'description'	=> 'Can be false, true or a version-number (6 means JS support for IE6 and up)'
-												));
 	Config::set('general.site_author',			array(
 													'value'			=> 'Andreas Lagerkvist', 
 													'description'	=> 'You'
@@ -67,13 +53,39 @@
 													'title'			=> 'Date format used throughout aFramework-sites', 
 													'value'			=> 'Y-m-d H:i:s'
 												));
-	Config::set('general.allowed_langs',		array(
+
+	# Language
+	Config::set('lang',							array(
+													'title'			=> 'Language Settings', 
+													'description'	=> 'If you intend to create a multi lingual site please specify which languages should be allowed, which should be default and which database tables should be translated'
+												));
+	Config::set('lang.allowed_langs',			array(
 													'title'			=> 'Comma separated list of allowed language codes', 
 													'value'			=> 'en'
 												));
-	Config::set('general.default_lang',			array(
+	Config::set('lang.default_lang',			array(
 													'title'			=> 'Preferred, default language', 
 													'value'			=> 'en'
+												));
+	Config::set('lang.translated_tables',		array(
+													'title'			=> 'If your site is multilingual you can specify which DB tables should be language-specific', 
+													'value'			=> ''
+												));
+
+	# IE Support
+	Config::set('ie_support',					array(
+													'title'			=> 'IE Support', 
+													'description'	=> 'Level of Internet Explorer Support for CSS and JS'
+												));
+	Config::set('ie_support.style_support',		array(
+													'title'			=> 'CSS Support', 
+													'value'			=> false, 
+													'description'	=> 'Can be false, true or a version-number (6 means CSS support for IE6 and up)'
+												));
+	Config::set('ie_support.script_support',	array(
+													'title'			=> 'JS Support', 
+													'value'			=> false, 
+													'description'	=> 'Can be false, true or a version-number (6 means JS support for IE6 and up)'
 												));
 
 	# Admin
