@@ -1,0 +1,22 @@
+#header {
+	float: left;
+}
+
+	#header h1 {
+		background: url(gfx/logo.png);
+
+		margin: 0 0 0 -37px;
+		width: 211px;
+	}
+
+		#header h1 a {
+			display: block;
+			height: 28px;
+
+			text-indent: -10000px;
+			text-decoration: none;
+			outline: 0;
+		}
+
+	#header p {
+	}

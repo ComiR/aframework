@@ -1,0 +1,40 @@
+#aframework-download {
+	
+}
+
+	#aframework-download ul {
+		float: right;
+		margin: 0;
+		list-style: none;
+	}
+
+		#aframework-download ul li {
+		}
+
+			#aframework-download ul li a {
+				background: red;
+
+				display: block;
+				padding: 10px 20px;
+				text-decoration: none;
+
+				color: #fff;
+			}
+
+				#aframework-download ul li a strong {
+					display: block;
+					text-decoration: underline;
+				}
+
+				#aframework-download ul li a:hover strong {
+					display: block;
+					text-decoration: none;
+				}
+
+				#aframework-download ul li a br {
+					display: none;
+				}
+
+				#aframework-download ul li a small {
+					display: block;
+				}
