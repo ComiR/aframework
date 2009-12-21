@@ -1,0 +1,50 @@
+#aframework-users {
+	background: #222;
+
+	padding: 20px 0;
+
+	clear: both;
+}
+
+	#aframework-users h2 = $a11y-hide;
+
+	#aframework-users > div {
+		overflow: auto;
+	}
+
+	body.js-enabled #aframework-users > div {
+		overflow: hidden;
+	}
+
+		#aframework-users > div > ul = $self-clear;
+		#aframework-users > div > ul {
+			width: 2400px;
+			margin: 0;
+
+			list-style: none;
+		}
+
+			#aframework-users > div > ul > li {
+				float: left;
+				position: relative;
+				padding: 0 0 0 300px;
+				width: 500px;
+				min-height: 180px;
+			}
+
+				#aframework-users div ul li h3 {
+					
+				}
+
+				#aframework-users div ul li h3 + p {
+					margin: 0;
+				}
+
+					#aframework-users div ul li p img {
+						position: absolute;
+						left: 0;
+						top: 0;
+
+						width: 280px;
+						height: 180px;
+					}
