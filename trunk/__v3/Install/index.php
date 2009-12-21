@@ -19,10 +19,10 @@
 
 	<body id="home-page" class="js-disabled">
 
-		<script type="text/javascript">
+		<!--<script type="text/javascript">
 			document.body.className = 'js-enabled';
 			var WEBROOT = '/';
-		</script>
+		</script>-->
 
 		<div id="wrapper-a"><div id="wrapper-b"><div id="wrapper-c">
 
@@ -44,7 +44,7 @@
 
 			<div id="footer">
 
-				<p>aFramework is copyright &copy; 2007-2008 <a href="http://andreaslagerkvist.com">Andreas Lagerkvist</a>. <a href="http://creativecommons.org/licenses/by/3.0/" title="All articles, content, scripts, images, etc are released under a CCv3">Some Rights Reserved</a>.</p>
+				<p>&copy; aFramework and <a href="http://andreaslagerkvist.com">Andreas Lagerkvist</a>. <a href="http://creativecommons.org/licenses/by/3.0/" title="All articles, content, scripts, images, etc are released under a CCv3">Some Rights Reserved</a>.</p>
 
 			</div>
 

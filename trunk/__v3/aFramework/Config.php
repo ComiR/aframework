@@ -30,8 +30,7 @@
 													'title'			=> 'General', 
 													'description'	=> 'General settings used by various modules in aFramework.'
 												));
-	Config::set('general.allow_styles',			true);
-	Config::set('general.default_style',		'default');
+	Config::set('general.default_style',		'aframework');
 	Config::set('general.site_author',			array(
 													'value'			=> 'Andreas Lagerkvist', 
 													'description'	=> 'You'

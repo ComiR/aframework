@@ -85,6 +85,13 @@
 		}
 	}
 
+	# Special case to allow empty allowed_langs...
+	$allowedLangs = Config::get('lang.allowed_langs');
+
+	if (empty($allowedLangs)) {
+		Config::set('lang.allowed_langs', Config::get('lang.default_lang'));
+	}
+
 	# Set correct lang based on URI (/ => default, /sv/ => swedish, /fo/ => faroese etc..)
 	# Needs to run _after_ config so it knows which langs are allowed/default etc...
 	LangSwitcher::run();
