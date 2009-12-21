@@ -203,25 +203,36 @@
 		private static function fixMarkdownHeadingLevels ($str, $markdownHeadingLevel) {
 			if ($markdownHeadingLevel > 0 and $markdownHeadingLevel < 7) {
 				# Find the highest heading level in the string
-				$levels = array();
 				for ($highestLevel = 1; $highestLevel < 7; $highestLevel++) {
-					$match = '/(^|\n)#{' . $highestLevel . ',' . $highestLevel . '} {0,}[^#]*($|\n)/';
+				#	$match = '/(^|\n)#{' . $highestLevel . ',' . $highestLevel . '} {0,}[^#]*($|\n)/';
+					$match = '/#{' . $highestLevel . ',' . $highestLevel . '}.*?\n/';
+
 					if (preg_match($match, $str)) {
 						break;
 					}
 				}
+
+				# No headings
+				if ($highestLevel == 7) {
+					return $str;
+				}
+
 				# If the highest level is higher (less #) than ours, add x # to each heading
 				if ($highestLevel < $markdownHeadingLevel) {
 					$diff		= $markdownHeadingLevel - $highestLevel;
-					$find		= '/(^|\n)(#+)( {0,})([^$\n]*)/';
-					$replace	= '$1$2' . str_repeat('#', $diff) . '$3$4';
+				#	$find		= '/(^|\n)(#+)( {0,})([^$\n]*)/';
+					$find		= '/(#+)(.*?)\n/';
+				#	$replace	= '$1$2' . str_repeat('#', $diff) . '$3$4';
+					$replace	= '$1' . str_repeat('#', $diff) . '$2' . "\n";
 					$str		= preg_replace($find, $replace, $str);
 				}
 				# If the $str's highest level is lower (more #) than ours, subtract X # to all headings
 				elseif ($highestLevel > $markdownHeadingLevel) {
 					$diff		= $highestLevel - $markdownHeadingLevel;
-					$find		= '/(^|\n)(#+)( {0,})([^$\n]*)/e';
-					$replace	= "'$1' . substr(\"$2\", 0, strlen(\"$2\")-$diff) . '$3$4'";
+				#	$find		= '/(^|\n)(#+)( {0,})([^$\n]*)/e';
+					$find		= '/(#+)(.*?)\n/e';
+				#	$replace	= "'$1' . substr(\"$2\", 0, strlen(\"$2\")-$diff) . '$3$4'";
+					$replace	= "'' . substr(\"$1\", 0, strlen(\"$1\") - $diff) . '$2'" . "\n";
 					$str		= preg_replace($find, $replace, $str);
 				}
 				# else - The string is already gtg

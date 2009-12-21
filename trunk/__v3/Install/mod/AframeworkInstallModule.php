@@ -126,17 +126,21 @@
 			mkdir(DOCROOT . $siteName);
 
 			# 2. Create Controller-files based on selected parent-sites
+			# TODO: Should merge all Home-controller's primary-content, and ALL controller's secondary/tertiary-content
 			mkdir(DOCROOT . $siteName . '/Controllers');
 
 			foreach ($siteHierarchy as $site) {
-				$path = DOCROOT . $site . '/Controllers/';
+				# Except for aDynAdmin
+				if ($site != 'aDynAdmin') {
+					$path = DOCROOT . $site . '/Controllers/';
 
-				if (is_dir($path)) {
-					$dh = opendir($path);
+					if (is_dir($path)) {
+						$dh = opendir($path);
 
-					while ($f = readdir($dh)) {
-						if ('xml' == end(explode('.', $f))) {
-							file_put_contents(DOCROOT . $siteName . '/Controllers/' . $f, file_get_contents($path . $f));
+						while ($f = readdir($dh)) {
+							if ('xml' == end(explode('.', $f))) {
+								file_put_contents(DOCROOT . $siteName . '/Controllers/' . $f, file_get_contents($path . $f));
+							}
 						}
 					}
 				}
