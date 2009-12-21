@@ -19,10 +19,10 @@
 
 	<body id="home-page" class="js-disabled">
 
-		<!--<script type="text/javascript">
+		<script type="text/javascript">
 			document.body.className = 'js-enabled';
 			var WEBROOT = '/';
-		</script>-->
+		</script>
 
 		<div id="wrapper-a"><div id="wrapper-b"><div id="wrapper-c">
 
@@ -50,7 +50,7 @@
 
 		</div></div></div>
 
-		<!--<script type="text/javascript" src="js/all.php"></script>-->
+		<script type="text/javascript" src="js/all.php"></script>
 
 	</body>
 

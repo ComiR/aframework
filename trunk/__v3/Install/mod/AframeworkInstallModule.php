@@ -23,9 +23,9 @@
 		 * Runs everything and returns template variables
 		 **/
 		public static function run () {
-			$tplVars = array();
-
-			$tplVars['sites'] = self::getAllSitesAndTheirStyles();
+			$tplVars = array(
+				'sites'	=> self::getAllSitesAndTheirStyles()
+			);
 
 			# If user has selected his site_hiearchy
 			if (isset($_POST['site_hierarchy'])) {
@@ -227,6 +227,7 @@
 			$siteHierarchyStr	= implode(' ', array_merge(array($siteName), $siteHierarchy));
 			$newIndexCode		= preg_replace('/default :.*?define\(\'SITE_HIERARCHY\'.*?\)/s', "default : \n\t\t\tdefine('SITE_HIERARCHY', '$siteHierarchyStr')", $indexCode);
 
+			unlink(DOCROOT . 'index.php');
 			file_put_contents(DOCROOT . 'index.php', $newIndexCode);
 		}
 	}
