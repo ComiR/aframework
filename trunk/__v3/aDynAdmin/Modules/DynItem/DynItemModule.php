@@ -28,7 +28,7 @@
 
 			# Show new/empty or existing item
 			if (isset(Router::$params['item_id'])) {
-				self::$tplVars['item']			= DynItem::getByID(Router::$params['table_name'], Router::$params['item_id'], explode(',', Config::get('general.allowed_langs')));
+				self::$tplVars['item']			= DynItem::getByID(Router::$params['table_name'], Router::$params['item_id'], explode(',', Config::get('lang.allowed_langs')));
 				self::$tplVars['edit_or_add']	= Lang::get('Edit');
 			}
 			else {

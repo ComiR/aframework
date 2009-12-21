@@ -203,8 +203,8 @@
 				return escHTML(self::$lang[CURRENT_LANG][$str]);
 			}
 			# Else, try default lang
-			elseif (isset(self::$lang[Config::get('general.default_lang')][$str])) {
-				return escHTML(self::$lang[Config::get('general.default_lang')][$str]);
+			elseif (isset(self::$lang[Config::get('lang.default_lang')][$str])) {
+				return escHTML(self::$lang[Config::get('lang.default_lang')][$str]);
 			}
 			# Else, just return the string
 			else {

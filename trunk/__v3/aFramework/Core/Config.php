@@ -31,6 +31,10 @@
 			);
 		}
 
+		public static function clear () {
+			self::$config = array();
+		}
+
 		public static function get ($k) {
 			$levels	= explode('.', $k);
 			$tmp	= &self::$config;
