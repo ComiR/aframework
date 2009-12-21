@@ -1,22 +1,5 @@
 (function () {
-	// Full-width bottom-bar
-	var fullWidthBottomBar = function () {
-		var docWidth = $(document).width();
-
-		if (docWidth > 960) {
-			var distance = (docWidth - 960) / 2;
-
-			$('#tertiary-content, #footer').css({
-				marginLeft:		'-' + distance + 'px', 
-				marginRight:	'-' + distance + 'px', 
-				paddingLeft:	distance + 'px', 
-				paddingRight:	distance + 'px'
-			});
-		}
-	};
-
-	fullWidthBottomBar();
-	$(window).resize(fullWidthBottomBar);
+	$('#tertiary-content, #footer').fullPageWidthBar();
 
 	// Give documents-type same bg as links
 	$('#documents tr').each(function (i) {
