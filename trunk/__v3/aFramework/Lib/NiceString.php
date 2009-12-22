@@ -283,7 +283,7 @@
 		}
 
 		private static function autoAbbr ($str) {
-			return preg_replace('/[ ^]([A-Z]{2,})\((.*?)\)/', '<abbr title="$2">$1</abbr>', $str);
+			return preg_replace('/([ ^])([A-Z]{2,})\((.*?)\)/', '$1<abbr title="$3">$2</abbr>', $str);
 		}
 
 		private static function autoDel ($str) {
