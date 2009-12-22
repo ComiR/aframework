@@ -1,7 +1,11 @@
 #aframework-users {
-	background: #222;
+	background: #222 url(gfx/aframework-users-bg.png) repeat-x;
 
 	padding: 20px 0;
+
+	font-size: 140%;
+	font-style: italic;
+	color: #ccc;
 
 	clear: both;
 }
@@ -10,41 +14,47 @@
 
 	#aframework-users > div {
 		overflow: auto;
+		height: 240px;
 	}
 
 	body.js-enabled #aframework-users > div {
 		overflow: hidden;
 	}
 
-		#aframework-users > div > ul = $self-clear;
 		#aframework-users > div > ul {
-			width: 2400px;
 			margin: 0;
-
 			list-style: none;
 		}
 
 			#aframework-users > div > ul > li {
-				float: left;
 				position: relative;
-				padding: 0 0 0 300px;
-				width: 500px;
-				min-height: 180px;
+				padding: 20px 0 20px 310px;
+				width: 490px;
+				min-height: 200px;
 			}
 
 				#aframework-users div ul li h3 {
-					
+					margin-top: 0;
 				}
 
-				#aframework-users div ul li h3 + p {
+					#aframework-users div ul li h3 a {
+						color: #666;
+					}
+
+				#aframework-users div ul li h3 + p {				
+					position: absolute;
+					left: 0;
+					top: 20px;
+
 					margin: 0;
+					width: 280px;
+					height: 190px;
+					overflow: hidden;
+
+					border: 5px solid #fff;
 				}
 
 					#aframework-users div ul li p img {
-						position: absolute;
-						left: 0;
-						top: 0;
-
-						width: 280px;
-						height: 180px;
+						width: 600px;
+						margin-left: -50px;
 					}
