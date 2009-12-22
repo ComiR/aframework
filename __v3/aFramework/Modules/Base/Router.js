@@ -1,12 +1,17 @@
 var Router = {
 	urlForModule: function (module) {
-		var langPrefix = '';
+		var langPrefix	= '';
+		var urlPrefix	= '';
 
 		if (CURRENT_LANG != DEFAULT_LANG) {
 			langPrefix = CURRENT_LANG + '/';
 		}
 
-		return WEBROOT + langPrefix + '?module=' + module;
+		if (!USE_MOD_REWRITE) {
+			urlPrefix = 'index.php/';
+		}
+
+		return WEBROOT + urlPrefix + langPrefix + '?module=' + module;
 	},
 
 	urlForUtil: function (util) {

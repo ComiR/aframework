@@ -52,6 +52,7 @@
 			WEBROOT					= '<?php echo WEBROOT; ?>';
 			DEFAULT_LANG			= '<?php echo Config::get('lang.default_lang'); ?>';
 			CURRENT_LANG			= '<?php echo CURRENT_LANG; ?>';
+			USE_MOD_REWRITE			= <?php echo USE_MOD_REWRITE ? 'true' : 'false'; ?>;
 		</script>
 
 		<?php
