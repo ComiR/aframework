@@ -20,7 +20,10 @@
 													'title'			=> 'Minutes users need to wait between comments'
 												));
 	
-	Config::set('navigation.archives',			true);
+	Config::set('navigation.archives',			array(
+													'value'			=> true, 
+													'description'	=> 'true/false', 
+												));
 
 	Config::set('general.site_title',			'aBlog');
 	Config::set('general.site_tagline',			'Just another blogging software.');
