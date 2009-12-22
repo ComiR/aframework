@@ -33,6 +33,9 @@
 		case 'ourfuture.eu' : 
 			define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
 			break;
+		case 'a-framework.org' : 
+			define('SITE_HIERARCHY', 'aFrameworkCom aCMS aDynAdmin aFramework');
+			break;
 		default : 
 			define('SITE_HIERARCHY', 'AndreasLagerkvist aBlog aCMS aDynAdmin aFramework');
 			break;
