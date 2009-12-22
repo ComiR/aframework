@@ -9,3 +9,9 @@
 	#footer a {
 		color: #999;
 	}
+
+	#footer ul = $inline-menu;
+
+		#footer ul li {
+			margin: 0 15px;
+		}

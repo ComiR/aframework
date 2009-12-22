@@ -4,8 +4,8 @@
 		var aFrameworkUsers = $('#aframework-users');
 
 		if (aFrameworkUsers.length) {
-			// Full Page With
-			aFrameworkUsers.fullPageWidthBar();
+			// Full Page With (works better when there's no way site is shorter than browser because of how firefox (and others) show and hide the scrollbar)
+		//	aFrameworkUsers.fullPageWidthBar();
 
 			// Scroll users
 			var pos				= 0;
@@ -30,44 +30,11 @@
 		}
 	};
 
-	var homePageTabsModule = function () {
-		// Home Page Tabs
-		var aFrameworkWrapper = $('#aframework-wrapper');
-
-		if (aFrameworkWrapper.length) {
-			// Create tabs
-			var tabs = '<div id="aframework-tabs"><ul>';
-
-			aFrameworkWrapper.find('> div').each(function () {
-				var div	= $(this);
-				var h2	= div.find('h2');
-
-				tabs += '<li><a href="#' + div.attr('id') + '">' + h2.html() + '</a></li>';
-			});
-
-			// Prepend them to the scrollContainer
-			var scrollContainer = aFrameworkWrapper.parent().scrollTo(0, {axis: 'x'});
-
-			$(tabs + '</ul></div>')
-				.insertBefore(scrollContainer)
-				.find('a')
-					.click(function () {
-						scrollContainer.scrollTo('#' + $(this).attr('href'), {
-							axis:		'x', 
-							duration:	1000, 
-							easing:		'easeOutQuad'
-						});
-
-						return false;
-					});
-		}
-	};
-
 	// Home Page Accordion
 	var homePageAccordionModule = function () {
 		// First we have to recreate the HTML in a manner that jQuery.fn.accordion works
 		// From semantic ul's and ol's to a bunch of divs unfortunately :(
-		var doThese = $('#aframework-features, #aframework-quick-start');
+		var doThese = $('#aframework-reasons, #aframework-features, #aframework-quick-start');
 
 		doThese.each(function () {
 			var thisDiv			= $(this);
@@ -83,12 +50,12 @@
 			newHTML += '</div>';
 
 			var newDiv = $(newHTML).replaceAll(toBeReplaced).accordion({
-				fillHeight:	true
+				fillHeight:	true, 
+				active:		false
 			});
 		});
 	};
 
 	aFrameworkUsersModule();
-//	homePageTabsModule();
 	homePageAccordionModule();
 })();
