@@ -78,7 +78,7 @@ jQuery.fn.formHints = function(conf) {
 
 		// Remove hints on form submission
 		jQuery('form', this).submit(function() {
-			jQuery('.' +config.className, this).val('');
+			jQuery('.' + config.className, this).val('');
 		});
 	});
 };
