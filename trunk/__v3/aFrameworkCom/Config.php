@@ -68,7 +68,7 @@
 	Config::set('ie_support.style_support', '6');
 
 	# JS Support
-	Config::set('ie_support.script_support', 'false');
+	Config::set('ie_support.script_support', false);
 
 	##################################################
 	# Administration

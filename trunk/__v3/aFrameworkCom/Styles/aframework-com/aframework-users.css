@@ -28,8 +28,8 @@
 
 			#aframework-users > div > ul > li {
 				position: relative;
-				padding: 20px 0 20px 310px;
-				width: 490px;
+				padding: 20px 0 20px 330px;
+				width: 470px;
 				min-height: 200px;
 			}
 
@@ -47,7 +47,7 @@
 					top: 20px;
 
 					margin: 0;
-					width: 280px;
+					width: 290px;
 					height: 190px;
 					overflow: hidden;
 

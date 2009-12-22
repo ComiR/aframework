@@ -63,6 +63,32 @@
 		}
 	};
 
+	// Home Page Accordion
+	var homePageAccordionModule = function () {
+		// First we have to recreate the HTML in a manner that jQuery.fn.accordion works
+		// From semantic ul's and ol's to a bunch of divs unfortunately :(
+		var doThese = $('#aframework-features, #aframework-quick-start');
+
+		doThese.each(function () {
+			var thisDiv			= $(this);
+			var newHTML			= '<div id="' + thisDiv.attr('id') + '-accordion">';
+			var toBeReplaced	= thisDiv.find('> ul, > ol');
+
+			toBeReplaced.find('> li').each(function () {
+				var li = $(this);
+
+				newHTML += '<h3>' + li.find('h3').html() + '</h3><div>' + li.html().replace(/<h3>.*?<\/h3>/, '') + '</div>';
+			});
+
+			newHTML += '</div>';
+
+			var newDiv = $(newHTML).replaceAll(toBeReplaced).accordion({
+				fillHeight:	true
+			});
+		});
+	};
+
 	aFrameworkUsersModule();
-	homePageTabsModule();
+//	homePageTabsModule();
+	homePageAccordionModule();
 })();
