@@ -1,0 +1,77 @@
+/* Scrolling Tabs Home Page */
+/* The "Tabs" */
+#aframework-tabs {
+
+}
+
+	#aframework-tabs ul = $self-clear;
+	#aframework-tabs ul {
+		margin: 0;
+		list-style: none;
+	}
+
+		#aframework-tabs ul li {
+			float: left;
+		}
+
+			#aframework-tabs ul li a {
+				display: block;
+				padding: 5px 10px;
+			}
+
+#home-page #page {
+	overflow: hidden;
+	padding: 10px 0;
+}
+
+	/* Tab Wrapper */
+	#aframework-wrapper = $self-clear;
+	#aframework-wrapper {
+		width: 2400px;
+	}
+
+	/* Each Tabbed Content */
+	#aframework-wrapper > div {
+		width: 600px;
+		float: left;
+		padding: 0 200px 0 0;
+	}
+
+		body.js-enabled #aframework-wrapper h2 = $a11y-hide;
+
+		#aframework-wrapper > div > ul, 
+		#aframework-wrapper > div > ol {
+			
+		}
+
+			#aframework-wrapper > div > ul > li, 
+			#aframework-wrapper > div > ol > li {
+				
+			}
+
+				#aframework-wrapper > div > ul > li > *, 
+				#aframework-wrapper > div > ol > li > * {
+					display: none;
+				}
+
+				#aframework-wrapper > div > ul > li h3, 
+				#aframework-wrapper > div > ol > li h3 {
+					font: bold 16px/1.2 Arial;
+					color: #666;
+					display: block;
+				}
+
+	/* About */
+	#aframework-about {
+
+	}
+
+	/* Features */
+	#aframework-features {
+
+	}
+
+	/* Getting Started */
+	#aframework-quick-start {
+
+	}
