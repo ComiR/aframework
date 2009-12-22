@@ -69,42 +69,47 @@
 		}
 
 		private static function updateArticle ($row) {
-			# If an article ID is set, update
-			if (!empty($row['articles_id']) and is_numeric($row['articles_id'])) {
-				Articles::update($row['articles_id'], $_POST);
-				Tags::updateTagsForArticle($row['articles_id'], $_POST['tags']);
+			$row['url_str']		= empty($row['url_str']) ? $row['title'] : $row['url_str'];
+			$row['url_str']		= Router::urlize($row['url_str']);
+			$row['pub_date']	= empty($row['pub_date']) ? date('Y-m-d H:i:s') : $row['pub_date'];
 
-				if (!XHR) {
-					redirect('?updated_article');
-				}
-			}
-			# Not set, insert
-			else {
-				# Make sure mandatory fields are filled out
-				if (
+			# Make sure mandatory fields are filled out
+			if (
 					isset($row['title']) and !empty($row['title']) and 
 					isset($row['content']) and !empty($row['content'])
 				) {
-					$row['pub_date']	= empty($row['pub_date']) ? date('Y-m-d H:i:s') : $row['pub_date'];
-					$row['url_str']		= empty($row['url_str']) ? $row['title'] : $row['url_str'];
-					$row['url_str']		= Router::urlize($row['url_str']);
+				# If an article ID is set, update
+				if (!empty($row['articles_id']) and is_numeric($row['articles_id'])) {
+					Articles::update($row['articles_id'], $_POST);
 
+					Tags::updateTagsForArticle($row['articles_id'], $_POST['tags']);
+				}
+				# Not set, insert
+				else {
 					Articles::insert($row);
 
 					$row['articles_id']	= mysql_insert_id();
-					$row['year']		= substr($row['pub_date'], 0, 4);
-					$row['month']		= substr($row['pub_date'], 5, 2);
-					$row['day']			= substr($row['pub_date'], 8, 2);
 
 					Tags::updateTagsForArticle($row['articles_id'], $_POST['tags']);
-
-					if (!XHR) {
-						redirect(Router::urlFor('Article', $row) . '?inserted_article');
-					}
 				}
-				# Errors in form
+			}
+			# Errors in form
+			else {
+				self::$tplVars['errors'] = true;
+
+				return;
+			}
+
+			$row['year']	= isset($row['year']) ? $row['year'] : substr($row['pub_date'], 0, 4);
+			$row['month']	= isset($row['month']) ? $row['month'] : substr($row['pub_date'], 5, 2);
+			$row['day']		= isset($row['day']) ? $row['day'] : substr($row['pub_date'], 8, 2);
+
+			if (!XHR) {
+				if (substr($row['url_str'], 0, 2) == '__') {
+					redirect('?saved_article');
+				}
 				else {
-					self::$tplVars['errors'] = true;
+					redirect(Router::urlFor('Article', $row) . '?saved_article');
 				}
 			}
 		}
