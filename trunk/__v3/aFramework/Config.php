@@ -55,7 +55,7 @@
 
 	# Language
 	Config::set('lang',							array(
-													'title'			=> 'Language Settings', 
+													'title'			=> 'Language', 
 													'description'	=> 'If you intend to create a multi lingual site please specify which languages should be allowed, which should be default and which database tables should be translated'
 												));
 	Config::set('lang.allowed_langs',			array(
@@ -79,12 +79,12 @@
 	Config::set('ie_support.style_support',		array(
 													'title'			=> 'CSS Support', 
 													'value'			=> false, 
-													'description'	=> 'Can be false, true or a version-number (6 means CSS support for IE6 and up)'
+													'description'	=> 'false, true or a version-number (6 means CSS support for IE6 and up)'
 												));
 	Config::set('ie_support.script_support',	array(
 													'title'			=> 'JS Support', 
 													'value'			=> false, 
-													'description'	=> 'Can be false, true or a version-number (6 means JS support for IE6 and up)'
+													'description'	=> 'false, true or a version-number (6 means JS support for IE6 and up)'
 												));
 
 	# Admin
@@ -106,6 +106,12 @@
 													'title'			=> 'Navigation Items', 
 													'description'	=> 'Which navigation items should aFramework add?'
 												));
-	Config::set('navigation.home',				true);
-	Config::set('navigation.styles',			true);
+	Config::set('navigation.home',				array(
+													'value'			=> true, 
+													'description'	=> 'true/false', 
+												));
+	Config::set('navigation.styles',			array(
+													'value'			=> true, 
+													'description'	=> 'true/false', 
+												));
 ?>
