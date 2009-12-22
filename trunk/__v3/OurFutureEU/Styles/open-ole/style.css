@@ -39,7 +39,7 @@ h6 {
 	font: italic bold 260%/1 Trebuchet MS, sans-serif;
 	color: #15739f;
 
-	-webkit-text-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+	-webkit-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 

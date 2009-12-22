@@ -9,16 +9,27 @@
 	}
 
 		#aframework-download ul li {
+			float: left;
+			margin-left: 20px;
 		}
 
 			#aframework-download ul li a {
-				background: red;
+				background: #06c;
 
 				display: block;
-				padding: 10px 20px;
+				padding: 5px 15px;
 				text-decoration: none;
+				text-align: center;
 
 				color: #fff;
+
+				border: 3px solid #39e;
+				-moz-border-radius: 5px;
+			}
+
+			#aframework-download ul li a:hover {
+				background: #39e;
+				border-color: #5bf;
 			}
 
 				#aframework-download ul li a strong {
@@ -36,5 +47,14 @@
 				}
 
 				#aframework-download ul li a small {
+					color: #abc;
 					display: block;
 				}
+
+				#aframework-download ul li a:hover small {
+					color: #036;
+				}
+
+					#aframework-download ul li a small ins {
+						display: inline;
+					}

@@ -23,7 +23,7 @@
 				), 
 				array(
 					'url'			=> 'http://ourfuture.eu', 
-					'title'			=> 'OurFuture.EU', 
+					'title'			=> 'OurFuture.eu', 
 					'thumb'			=> WEBROOT . 'OurFutureEU/Styles/open-ole/thumb.png', 
 					'description'	=> 'We needed a multi-lingual, highly accessible website for our transnational project "Our Life as Elderly". aFramework was perfect for our needs.'
 				)

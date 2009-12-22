@@ -6,7 +6,7 @@
 @description: The style used on aFramework's official site.
 ***/
 body {
-	background: #fff;
+	background: #f2f2f2;
 	font: 13px/1.2 Arial, sans-serif;
 	color: #666;
 }
@@ -19,23 +19,27 @@ h5,
 h6 {
 	margin: 10px 0 5px;
 
-	font: 28px/1.2 Helvetica, Arial, sans-serif;
+	font: italic 28px/1.2 Georgia, serif;
+	color: #999;
+
+	-webkit-text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+	text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 h2 {
-	font-size: 28px;
+	font-size: 36px;
 }
 
 h3 {
-	font-size: 22px;
+	font-size: 30px;
 }
 
 h4 {
-	font-size: 18px;
+	font-size: 24px;
 }
 
 h5 {
-	font-size: 16px;
+	font-size: 18px;
 }
 
 h6 {
