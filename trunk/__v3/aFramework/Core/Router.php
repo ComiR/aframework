@@ -152,13 +152,18 @@
 		 * Returns the URL for a particular module
 		 **/
 		public static function urlForModule ($mod) {
-			$langPrefix = '';
+			$langPrefix	= '';
+			$urlPrefix	= '';
 
 			if (CURRENT_LANG != Config::get('lang.default_lang')) {
 				$langPrefix = CURRENT_LANG . '/';
 			}
 
-			return WEBROOT . $langPrefix . '?module=' . $mod;
+			if (!USE_MOD_REWRITE) {
+				$urlPrefix = 'index.php/';
+			}
+
+			return WEBROOT . $urlPrefix . $langPrefix . '?module=' . $mod;
 		}
 
 		/**
