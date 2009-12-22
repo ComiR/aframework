@@ -57,31 +57,35 @@
 		}
 
 		private static function updatePage ($row) {
-			# If a page ID is set, update
-			if (!empty($row['pages_id']) and is_numeric($row['pages_id'])) {
-				Pages::update($row['pages_id'], $_POST);
+			$row['url_str']		= empty($row['url_str']) ? $row['title'] : $row['url_str'];
+			$row['url_str']		= Router::urlize($row['url_str']);
+			$row['pub_date']	= empty($row['pub_date']) ? date('Y-m-d H:i:s') : $row['pub_date'];
 
-				if (!XHR) {
-					redirect('?updated_page');
+			# Make sure mandatory fields are filled out
+			if (
+					isset($row['title']) and !empty($row['title']) and 
+					isset($row['content']) and !empty($row['content'])
+				) {
+				# If a page ID is set, update
+				if (!empty($row['pages_id']) and is_numeric($row['pages_id'])) {
+					Pages::update($row['pages_id'], $_POST);
+				}
+				# Not set, insert
+				else {
+					Pages::insert($row);
 				}
 			}
-			# Not set, insert
+			# Errors in form
 			else {
-				# Make sure mandatory fields are filled out
-				if (
-					isset($row['title']) and !empty($row['title']) and 
-					isset($row['content']) and !empty($row['content']) and 
-					isset($row['url_str']) and !empty($row['url_str'])
-				) {
-					Pages::insert($row);
+				self::$tplVars['errors'] = true;
+			}
 
-					if (!XHR) {
-						redirect(Router::urlFor('Page', array('url_str' => $row['url_str'])) . '?inserted_page');
-					}
+			if (!XHR) {
+				if (substr($row['url_str'], 0, 2) == '__') {
+					redirect('?saved_page');
 				}
-				# Errors in form
 				else {
-					self::$tplVars['errors'] = true;
+					redirect(Router::urlFor('Page', $row) . '?saved_page');
 				}
 			}
 		}
