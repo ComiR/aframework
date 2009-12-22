@@ -35,7 +35,15 @@
 
 	<h2>Installation Wizard</h2>
 
-	<?php if ($installed) { ?>
+	<?php if ($errors) { ?>
+		<h3>There were Errors</h3>
+
+		<ul>
+			<?php foreach ($errors as $error) { ?>
+				<li><?php echo escHTML($error); ?></li>
+			<?php } ?>
+		</ul>
+	<?php } elseif ($installed) { ?>
 		<h3>Nice one</h3>
 
 		<p>Your site was successfully installed. <a href="../">View your site</a> and start creating.</p>

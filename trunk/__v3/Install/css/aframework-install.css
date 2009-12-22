@@ -1,6 +1,7 @@
 /* With JS on */
 body.js-enabled #aframework-install {
 	overflow: hidden;
+	padding: 0;
 }
 
 	body.js-enabled #aframework-install form > ol = $floated-list;
@@ -11,6 +12,7 @@ body.js-enabled #aframework-install {
 
 		body.js-enabled #aframework-install form > ol > li {
 			width: 800px;
+			padding: 40px 0;
 		}
 
 	body.js-enabled #aframework-install form > p {
@@ -19,6 +21,7 @@ body.js-enabled #aframework-install {
 
 /* With and without JS */
 #aframework-install {
+	padding: 20px 0;
 }
 
 	#aframework-install h2 {
@@ -33,7 +36,7 @@ body.js-enabled #aframework-install {
 		#aframework-install form > ol = $plain-list;
 
 			#aframework-install form > ol > li {
-				padding: 40px 0;
+				padding: 20px 0;
 			}
 
 				#aframework-install fieldset {	

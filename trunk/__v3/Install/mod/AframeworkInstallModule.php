@@ -9,6 +9,7 @@
 			'aDynAdmin', 
 			'AndreasLagerkvist', 
 			'aBugTracker', 
+			'aFrameworkCom', 
 			'aForum', 
 			'AgnesEkman', 
 			'OurFutureEU', 
@@ -16,6 +17,7 @@
 			'aModPack', 
 			'aTestSite'
 		);
+		private static $errors = array();
 
 		/**
 		 * run
@@ -38,7 +40,8 @@
 			if (isset($_POST['aframework_install_submit']) and $_POST['aframework_install_submit'] == 1) {
 				self::installSite();
 
-				$tplVars['installed'] = true;
+				$tplVars['errors']		= count(self::$errors) ? self::$errors : false;
+				$tplVars['installed']	= true;
 			}
 
 			return $tplVars;
@@ -117,13 +120,15 @@
 			$siteHierarchy	= array_filter($_POST['site_hierarchy']);
 
 			if (empty($siteName) or is_dir(DOCROOT . $siteName)) {
-				echo 'ERROR: Site already exists or can\'t exist';
+				self::$errors[] = "The site '$siteName' already exists or is invalid";
 
 				return false;
 			}
 
 			# 1. Create Site directory
-			mkdir(DOCROOT . $siteName);
+			if (!mkdir(DOCROOT . $siteName)) {
+				self::$errors[] = 'Could not create directory - perhaps permissions? Try $ chomd -r 777 aFrameworkROOT/';
+			}
 
 			# 2. Create Controller-files based on selected parent-sites
 			# TODO: Should merge all Home-controller's primary-content, and ALL controller's secondary/tertiary-content
@@ -167,8 +172,9 @@
 
 				foreach ($config['items'] as $item) {
 					$value = (isset($_POST['config'][$item['name']]) and !empty($_POST['config'][$item['name']])) ? $_POST['config'][$item['name']] : $item['value'];
+					$value = is_bool($value) ? ($value === true ? 'true' : 'false') : "'" . addslashes($value) . "'";
 
-					$configFile .= "\n\t# {$item['title']}\n\tConfig::set('{$item['name']}', '" . addslashes($value) . "');\n";
+					$configFile .= "\n\t# {$item['title']}\n\tConfig::set('{$item['name']}', " . $value . ");\n";
 				}
 			}
 
@@ -179,6 +185,10 @@
 			# 4. Create Styles directories based on selected styles
 			mkdir(DOCROOT . $siteName . '/Styles');
 
+			$styles		= $_POST['styles'];
+			$styles[]	= $_POST['default_style'];
+			$styles		= array_unique($styles);
+
 			foreach ($_POST['styles'] as $style) {
 				mkdir(DOCROOT . $siteName . '/Styles/' . $style);
 			}
@@ -187,13 +197,13 @@
 			mysql_connect(Config::get('db.host'), Config::get('db.user'), Config::get('db.pass'));
 			
 			if (mysql_select_db(Config::get('db.name'))) {
-				echo 'Error: Database already exists - will not modify';
+				self::$errors[] = 'The database ' . Config::get('db.name') . ' already exists - please insert sql-files manually';
 			}
 			else {
 				mysql_query('CREATE DATABASE ' . Config::get('db.name') . ' CHARACTER SET utf8 COLLATE utf8_general_ci');
 
 				if (!mysql_select_db(Config::get('db.name'))) {
-					echo 'Error: Unable to create database - please insert sql-files manually';
+					self::$errors[] = 'Unable to create database - please insert sql-files manually';
 				}
 				else {
 					# 6. Install all SQL-files, prefix "translated_tables"
