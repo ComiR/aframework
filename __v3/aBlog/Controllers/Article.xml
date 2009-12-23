@@ -4,6 +4,7 @@
 		<SkipNavigation/>
 		<Header/>
 		<Navigation/>
+		<Search/>
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
 			<Article/>
@@ -12,10 +13,13 @@
 			<PostComment/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
-			<Search/>
-			<TagCloud/>
+			<StyleSwitcher/>
 			<RecentArticles/>
+		</Wrapper>
+		<Wrapper name="tertiary-content">
+			<RandomLinks/>
 			<RecentComments/>
+			<TagCloud/>
 		</Wrapper>
 		<Footer/>
 	</Wrapper>
