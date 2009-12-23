@@ -1,6 +1,6 @@
 <ul>
 	<li>
-		<a href="http://demo.aframework.com">
+		<a href="http://demo.a-framework.org">
 			<strong>Check out the Demo</strong><br/>
 			<small>Try before you <del>buy</del> <ins>download free</ins></small>
 		</a>

@@ -10,21 +10,32 @@
 			// Scroll users
 			var pos				= 0;
 			var scrollContainer	= aFrameworkUsers.find('> div').scrollTo(0, {axis: 'y'});
-			var items			= scrollContainer.find('> ul > li');
+			var itemsList		= scrollContainer.find('> ul');
+			var items			= itemsList.find('> li');
+
+			// Add first item to end of list as well so that we can scroll in a loop
+			$('<li>' + items.eq(0).html() + '</li>').appendTo(itemsList);
+
+				items			= itemsList.find('> li');
 			var numItems		= items.length;
 
 			setInterval(function () {
-				var scrollTo = false;
 				pos++;
+				var afterScroll = function () {};
 
-				if (pos >= numItems) {
-					pos = 0;
+				// We're scrolling to the last item
+				if (pos == numItems - 1) {
+					afterScroll = function () {
+						scrollContainer.scrollTo('0', {axis: 'y'});
+						pos = 0;
+					};
 				}
 
 				scrollContainer.scrollTo(items.eq(pos), {
 					axis:		'y', 
 					duration:	1000, 
-					easing:		'easeOutQuad'
+					easing:		'easeOutQuad', 
+					onAfter:	afterScroll
 				});
 			}, 7500);
 		}
