@@ -3,6 +3,7 @@
 	margin: 0 -15px;
 }
 
+	/* All divs in the wrapper */
 	#aframework-wrapper > div {
 		width: 300px;
 		float: left;
@@ -10,7 +11,7 @@
 	}
 
 		#aframework-wrapper > div h2 {
-			margin-top: 0;
+			margin: 0 0 15px;
 		}
 
 		#aframework-wrapper > div > ul, 
@@ -41,6 +42,34 @@
 					margin-bottom: 0;
 				}
 
+	/* Reasons */
+	#aframework-reasons h3.ui-state-default {
+		background-image: url(gfx/accordion-red.png);
+	}
+
+	#aframework-reasons h2 {
+		color: #a88;
+	}
+
+	/* Features */
+	#aframework-features h3.ui-state-default {
+		background-image: url(gfx/accordion-green.png);
+	}
+
+	#aframework-features h2 {
+		color: #8a8;
+	}
+
+	/* Quick Start */
+	#aframework-quick-start h3.ui-state-default {
+		background-image: url(gfx/accordion-blue.png);
+	}
+
+	#aframework-quick-start h2 {
+		color: #88a;
+	}
+
+/* Thanks */
 #aframework-thanks {
 	margin: 30px 0 0 0;
 	padding: 30px 150px 0;
