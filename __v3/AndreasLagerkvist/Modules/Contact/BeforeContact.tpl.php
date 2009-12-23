@@ -1,4 +1,4 @@
-<h2><?php echo Lang::get('Send Us a Letter'); ?></h2>
+<h2><?php echo Lang::get('Send us a Letter'); ?></h2>
 
 <p>
 	<?php echo Lang::get('Write something in the form below.'); ?> 
