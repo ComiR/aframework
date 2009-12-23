@@ -11,7 +11,7 @@
 			<RandomJqueryPlugins/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
-			<GoogleAds/>
+			
 		</Wrapper>
 		<Wrapper name="tertiary-content">
 			<RandomLinks/>
