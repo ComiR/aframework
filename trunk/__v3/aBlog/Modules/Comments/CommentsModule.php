@@ -37,6 +37,10 @@
 			}
 			if (isset($_POST['comments_delete_all_spam'])) {
 				Comments::deleteAllSpamForArticle($articlesID);
+
+				if (!XHR) {
+					redirect('?deleted_all_spam');
+				}
 			}
 
 			# Grab the comments for this article
