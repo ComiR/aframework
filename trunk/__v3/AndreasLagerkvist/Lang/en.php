@@ -4,7 +4,7 @@
 'Articles by Date' => 'Articles by Date', 
 
 # BeforeContact.tpl.php
-'Send Us a Letter' => 'Send Us a Letter', 
+'Send us a Letter' => 'Send us a Letter', 
 'Write something in the form below.' => 'Write something in the form below.', 
 'I will get back to you as soon as possible.' => 'I will get back to you as soon as possible.', 
 
