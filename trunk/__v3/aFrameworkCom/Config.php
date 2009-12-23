@@ -31,10 +31,10 @@
 	Config::set('general.site_author', 'Andreas Lagerkvist');
 
 	# Site title
-	Config::set('general.site_title', 'aFramework.com');
+	Config::set('general.site_title', 'aFramework');
 
 	# Site tagline
-	Config::set('general.site_tagline', 'a Lightweight and Modular PHP Web Development Framework');
+	Config::set('general.site_tagline', 'a Lightweight and Modular Open Source PHP Web Development Framework');
 
 	# Contact email
 	Config::set('general.contact_email', 'you@yourdomain.com');

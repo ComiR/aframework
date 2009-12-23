@@ -1,3 +1,4 @@
+#aframework-wrapper = $self-clear;
 #aframework-wrapper {
 	margin: 0 -15px;
 }
@@ -39,3 +40,19 @@
 				#aframework-wrapper div.ui-accordion-content > *:last-child {
 					margin-bottom: 0;
 				}
+
+#aframework-thanks {
+	margin: 30px 0 0 0;
+	padding: 30px 150px 0;
+	border-top: 1px dotted #ccc;
+}
+
+	#aframework-thanks h2 {
+		text-align: center;
+		margin-top: 0;
+	}
+
+	#aframework-thanks ul = $pipe-menu;
+	#aframework-thanks ul {
+		text-align: center;
+	}
