@@ -4,12 +4,13 @@
 		<SkipNavigation/>
 		<Header/>
 		<Navigation/>
+		<Search/>
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
 			<Contact/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
-			<Search/>
+			<StyleSwitcher/>
 		</Wrapper>
 		<Footer/>
 	</Wrapper>
