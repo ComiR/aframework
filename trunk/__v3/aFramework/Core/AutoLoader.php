@@ -13,20 +13,20 @@
 					die("$path does not exist");
 				}
 			}
-			# It's a Lib or DBLib-class
+			# It's a Lib or Model-class
 			else {
 				$sites = explode(' ', SITE_HIERARCHY);
 
 				foreach ($sites as $site) {
 					$libPath	= DOCROOT . $site . '/Lib/' . $class . '.php';
-					$dbLibPath	= DOCROOT . $site . '/DBLib/' . $class . '.php';
+					$modelPath	= DOCROOT . $site . '/Models/' . $class . '.php';
 
 					if (file_exists($libPath)) {
 						require_once $libPath;
 						break;
 					}
-					elseif (file_exists($dbLibPath)) {
-						require_once $dbLibPath;
+					elseif (file_exists($modelPath)) {
+						require_once $modelPath;
 						break;
 					}
 				}
