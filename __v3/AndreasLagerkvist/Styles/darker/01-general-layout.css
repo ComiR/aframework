@@ -254,6 +254,10 @@ $img-large {
 	border: 10px solid #fff;
 }
 
+	$img-large + br {
+		display: none;
+	}
+
 $img-small {
 	display: block;
 	float: right;
