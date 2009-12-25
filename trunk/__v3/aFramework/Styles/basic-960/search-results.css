@@ -1,0 +1,9 @@
+#search-results {
+	
+}
+
+	#search-results h2 + p = $first-p;
+
+	#search-results > ol = $plain-list;
+
+		#search-results > ol > li = $separated;

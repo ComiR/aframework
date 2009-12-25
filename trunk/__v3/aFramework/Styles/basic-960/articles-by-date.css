@@ -1,0 +1,19 @@
+#articles-by-date {
+	
+}
+
+	#articles-by-date h2 {
+
+	}
+
+	#articles-by-date h2 + p = $first-p;
+
+	#articles-by-date > ul = $plain-list;
+
+		#articles-by-date > ul > li = $separated;
+
+			#articles-by-date > ul > li > ul = $plain-list;
+
+				#articles-by-date > ul > li > ul > li > p img {
+					display: none;
+				}

@@ -1,0 +1,15 @@
+#header = $self-clear;
+#header {
+	
+}
+
+	#header h1 {
+		font-size: 36px;
+		margin: 0 15px 0 0;
+		float: left;
+	}
+
+	#header p {
+		margin: 15px 0 0;
+		float: left;
+	}

@@ -1,6 +1,16 @@
+#footer = $small;
+#footer = $self-clear;
 #footer {
-	text-align: center;
 	padding: 15px 0;
 }
 
 	#footer ul = $pipe-menu;
+	#footer ul {
+		float: right;
+		margin: 0;
+	}
+
+	#footer p {
+		float: left;
+		margin: 0;
+	}

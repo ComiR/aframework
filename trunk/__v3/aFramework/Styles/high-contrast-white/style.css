@@ -1,319 +1,35 @@
 /***
-@title: aFramework High Contrast White
+@title: High Contrast White
 @author: Andreas Lagerkvist
 @author-url: http://andreaslagerkvist.com
 @date: 2007-01-24
-@description: An ancient style. Rumored to have magical powers.
+@description: High contrast style. Black text on white background.
+@extends: aframework
 ***/
-/*
-	=== General Stuff ===
-*/
 body {
 	background: #fff;
-
-	margin: 0;
-	padding: 0;
-
-	font: 100%/1.6 Verdana, sans-serif;
 	color: #000;
-}
-
-h1, h2, h3, h4, h5, h6 {
-	font: 200%/1.4 Georgia, sans-serif;
-	margin: 0.6em 0 0.1em 0;
-	text-transform: uppercase;
-}
-
-h2 {
-	font-size: 180%;
-}
-
-h3 {
-	font-size: 160%;
-}
-
-h4 {
-	font-size: 1.4em;
-}
-
-h5 {
-	font-size: 1.1em;
-}
-
-h6 {
-	font-size: 1em;
-}
-
-h1:first-letter, h1 a:first-letter, 
-h2:first-letter, h2 a:first-letter, 
-h3:first-letter, h3 a:first-letter, 
-h4:first-letter, h4 a:first-letter, 
-h5:first-letter, h5 a:first-letter, 
-h6:first-letter, h6 a:first-letter{
-	font-size: 120%;
-}
-
-p {
-	margin: 0 0 0.8em 0;
-}
-
-ul, ol {
-	margin: 0 0 0.6em 2.2em;
-	padding: 0;
 }
 
 a {
 	color: #000;
-	text-decoration: underline;
 }
 
-a:visited {
-	color: purple;
-	text-decoration: underline;
-}
-
-a:hover {
-	text-decoration: none;
-}
-
-a:focus {
-	text-decoration: underline overline;
-}
-
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-	text-decoration: none;
-}
-
-h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
-	text-decoration: underline;
-}
-
-	a img {
-		border: 0;
-	}
-
-label, input[type="submit"] {
-	cursor: pointer;
-}
-
-input[type="text"]:focus, input[type="password"]:focus, textarea:focus {
-	background: #ffa;
-}
-
-hr {
-	display: none;
-}
-
-abbr, acronym {
-	cursor: help;
-	border-bottom: 1px dotted #662;
-}
-
-blockquote {
-	font-style: italic;
-}
-
-/* Article Titles and pub-dates */
-#article h2, #articles li h3 {
-	margin-bottom: 0;
-}
-
-#article h2 + p, #articles li h3 + p {
-	margin-bottom: 0.6em;
-	margin-top: 0;
-	text-transform: uppercase;
-}
-
-/* Border bottom for articles, styles, etc */
-#navigation, #articles > ul > li, #styles > ul > li, #intro-text, #secondary-content > div, #breadcrumbs {
-	padding-bottom: 0.6em;
-	border-bottom: 1px dotted #000;
-	margin-bottom: 0.6em;
-}
-
-	#breadcrumbs p {
-		margin: 0;
-	}
-
-/* No border for last children */
-#secondary-content > div:last-child, #articles > ul > li:last-child, #styles > ul > li:last-child {
-	padding-bottom: 0;
-	margin-bottom: 0;
-	border: 0;
-}
-
-/*
-	=== Site Layout ===
-*/
 #wrapper {
 	background: #fff;
-	margin: 0 auto;
-	padding: 10px 20px 0 20px;
-	width: 85%;
-	min-width: 770px;
-	max-width: 1100px;
-	border-left: 1px solid #000;
-	border-right: 1px solid #000;
 }
 
-#header p {
-	text-transform: uppercase;
-}
-
-#navigation h2 {
-	display: none;
-}
-
-#navigation ul, #footer ul, #skip-navigation ul {
-	margin-left: 0;
-	list-style-type: none;
-}
-
-	#navigation ul li, #footer ul li, #skip-navigation ul li {
-		display: inline;
-	}
-
-	#navigation ul li {
-		text-transform: uppercase;
-	}
-
-	#navigation ul li:after, #footer ul li:after, #skip-navigation ul li:after {
-		content: " | ";
-	}
-
-	#navigation ul li:last-child:after, #footer ul li:last-child:after, #skip-navigation ul li:last-child:after {
-		content: "";
-	}
-
-		#navigation ul li strong {
-			text-decoration: overline underline;
-		}
-
-#primary-content {
-	float: left;
-	width: 64%;
-	margin: 0 0 1.5em;
-	padding: 0 2% 0 0;
-	border-right: 1px dotted #000;
-}
-
-	#primary-content img {
-		max-width: 95%;
-		height: auto;
-		border: 2px solid #E9E99D;
-	}
-
-#secondary-content {
-	width: 32%;
-	margin: 0 0 1.5em;
-	float: right;
-	font-size: 90%;
-}
-
-	#secondary-content h2:first-letter {
-		font-size: 1.3em;
-	}
-
-#tertiary-content {
-	clear: both;
-	padding: 1.5em 0 1em 0;
-	margin: 1.5em 0 0 0;
-	border-top: 1px dotted #000;
-}
-
-	#tertiary-content > div {
-		float: left;
-		width: 30%;
-		margin-right: 3%;
-	}
-
-#footer {
-	text-align: center;
-	padding: 1.5em 0 1em 0;
-	margin: 1.5em 0 0 0;
-	border-top: 1px dotted #000;
-	clear: both;
-}
-
-/* Quick Search Results */
-#quick-search input[type="text"] {
-	width: 90%;
-	padding: 0.2em;
-	font-size: 150%;
-}
-
-#quick-search-results {
-	background: #ffe;
-	border-color: #991;
-	font-size: 100%;
-	max-height: 450px;
-	padding: 0;
-}
-
-	#quick-search-results > h2, 
-	#quick-search-results > h2 + p {
-		background: #993;
-		color: #fff;
-		margin: 0;
-		padding: 0 10px 10px;
-	}
-	
-	#quick-search-results > h2 {
-		font-size: 130%;
-		padding: 10px 10px 0;
-	}
-
-	#quick-search-results > h3, 
-	#quick-search-results > h3 + p {
-		background: #cc6;
-		color: #330;
-		margin: 0;
-		padding: 0 10px 10px;
-	}
-
-	#quick-search-results > h3 {
-		font-size: 120%;
-		padding: 10px 10px 0;
-	}
-
-	#quick-search-results > h4 {
-		font-size: 110%;
-		margin: 0;
-		padding: 5px 10px;
-		border-bottom: 1px dashed #000;
-	}
-
-	#quick-search-results > h4:last-of-kind {
-		border-bottom: 0;
-	}
-
-/* Calendar */
-#article-calendar table {
-	border-spacing: 0;
-	border-collapse: collapse;
-}
-
-	#article-calendar table th, 
-	#article-calendar table td {
-		border: 1px solid #000;
-		padding: 5px;
-		text-align: center;
-		text-align: center;
-	}
-
-	#article-calendar table th {
-		background: #993;
-		color: #fff; 
-	}
-
-	#article-calendar table td {
-		background: #fefefe;
-	}
-
-	#article-calendar table th:first-child {
-		color: #600;
-	}
-
-#article-calendar ul {
-	margin-top: 10px;
+#navigation, 
+#articles > ul > li, 
+#styles > ul > li, 
+#intro-text, 
+#secondary-content > div, 
+#breadcrumbs, 
+#wrapper, 
+#primary-content, 
+#tertiary-content, 
+#footer, 
+#article-calendar table th, 
+#article-calendar table td {
+	border-color: #000;
 }
