@@ -1,3 +1,7 @@
 body {
-	background: url(gfx/body-bg.gif);
+	background: url(gfx/body-bg.png);
+}
+
+#wrapper {
+	background: url(gfx/top-light.png) no-repeat left top;
 }
