@@ -1,0 +1,18 @@
+#search {
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+
+	#search h2 = $a11y-hide;
+
+	#search label = $a11y-hide;
+
+	#q {
+		width: 290px;
+	}
+
+	#search input[type=submit], 
+	#search br {
+		display: none;
+	}
