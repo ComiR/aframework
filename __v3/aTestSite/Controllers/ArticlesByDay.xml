@@ -9,17 +9,17 @@
 			<Articles/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
-			<Search/>
+			<StyleSwitcher/>
+			<QuickAbout/>
 			<PostIt/>
 			<RecentArticles/>
-			<RecentComments/>
 			<ArticleCalendar/>
 			<RandomArticleImages/>
 		</Wrapper>
 		<Wrapper name="tertiary-content">
 			<RandomLinks/>
+			<RecentComments/>
 			<TagCloud/>
-			<StyleSwitcher/>
 		</Wrapper>
 		<Footer/>
 	</Wrapper>
