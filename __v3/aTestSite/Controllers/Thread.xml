@@ -12,8 +12,8 @@
 			<PostThreadReply/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
-			<StyleSwitcher/>
 			<QuickAbout/>
+			<StyleSwitcher/>
 			<PostIt/>
 			<RecentArticles/>
 			<ArticleCalendar/>
