@@ -156,7 +156,8 @@ $separated:last-child {
 #wrapper {
 	position: relative;
 	width: 960px;
-	margin: 90px auto 0;
+	margin: 0 auto;
+	padding-top: 90px;
 }
 
 	#primary-content {

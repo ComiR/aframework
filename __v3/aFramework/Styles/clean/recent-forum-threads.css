@@ -1,6 +1,0 @@
-#primary-content #recent-forum-threads {
-	width: 50%;
-	float: left;
-}
-
-	#recent-forum-threads ol = $forum-threads;
