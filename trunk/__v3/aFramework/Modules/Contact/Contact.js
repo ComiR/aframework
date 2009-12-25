@@ -1,6 +1,7 @@
 aFramework.modules.Contact = {
 	run: function () {
 		this.hijaxForm();
+		$('#contact textarea[name=message]').markItUp(mySettings);
 	}, 
 
 	hijaxForm: function () {
