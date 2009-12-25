@@ -2,14 +2,12 @@
 
 }
 
+	#styles h2 + p = $first-p;
+
 	#styles ul = $plain-list;
 
 		#styles ul li = $self-clear;
-		#styles ul li {
-			margin: 0 0 15px;
-			padding: 0 0 15px;
-			border-bottom: 1px dotted #ccc;
-		}
+		#styles ul li = $separated;
 
 			#styles ul li img {
 				width: 300px;

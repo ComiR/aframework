@@ -1,0 +1,18 @@
+#older-articles {
+	
+}
+
+	#older-articles ol = $self-clear;
+	#older-articles ol {
+		margin: 0;
+		list-style: none;
+	}
+
+		#older-articles ol li {
+			float: left;
+			width: 300px;
+		}
+
+		#older-articles ol li:nth-child(odd) {
+			margin-right: 30px;
+		}

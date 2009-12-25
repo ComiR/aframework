@@ -1,7 +1,7 @@
 #search {
 	position: absolute;
 	right: 0;
-	top: 0;
+	top: 5px;
 }
 
 	#search h2 = $a11y-hide;

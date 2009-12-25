@@ -1,0 +1,17 @@
+#articles {
+	
+}
+
+	#articles h2 + p = $first-p;
+
+	#articles > ul = $plain-list;
+
+		#articles > ul > li = $separated;
+
+		/*	#articles > ul > li h3 + p + p = $first-p; */
+
+			#articles > ul > li > p:last-child {
+				font-weight: bold;
+			}
+
+				#articles > ul > li > p img = $img-large;

@@ -1,9 +1,9 @@
 /***
-@title: aFramework Grunge Style
+@title: Grunge
 @author: Andreas Lagerkvist
 @author-url: http://andreaslagerkvist.com
 @date: 2010-01-01
-@extends: clean
+@extends: basic-960
 ***/
 body::before {
 	content: "Under Construction";
