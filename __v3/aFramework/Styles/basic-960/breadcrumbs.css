@@ -1,6 +1,6 @@
 #breadcrumbs = $small;
 #breadcrumbs {
 	position: absolute;
-	right: 0;
-	top: 40px;
+	left: 0;
+	top: 15px;
 }
