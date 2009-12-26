@@ -124,6 +124,10 @@ a {
 	color: #06c;
 }
 
+	a img {
+		border: 0;
+	}
+
 $small {
 	font-size: 70%;
 	color: #666;
@@ -140,6 +144,16 @@ $img-large {
 }
 
 small = $small;
+
+$white-box {
+	background: #fafafa;
+
+	padding: 15px;
+
+	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); 
+	-moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); 
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); 
+}
 
 $separated {	
 	margin-bottom: 15px;
