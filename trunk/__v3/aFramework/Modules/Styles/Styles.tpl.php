@@ -23,6 +23,7 @@
 			</dl>
 
 			<p>
+				<?php echo escHTML($style['description']); ?><br/>
 				<?php if (aFramework_BaseModule::$tplVars['style'] == $style['name']) { ?>
 					<?php echo Lang::get('This style is currently in use.'); ?>
 				<?php } else { ?>
