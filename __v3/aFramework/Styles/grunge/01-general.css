@@ -147,15 +147,35 @@ a:hover {
 	background: url(gfx/bottom-thing.png?v=1) repeat-x;
 	border: 0;
 	padding-top: 55px;
-	color: #827b56;
 }
 
 #footer {
 	background: #2c2916;
-	color: #827b56;
 }
+
+	#tertiary-content, 
+	#footer {
+		color: #c4c1ad;
+	}
+
+		#tertiary-content a, 
+		#footer a {
+			background: transparent;
+			color: #c4c1ad;
+			text-decoration: underline;
+		}
+
+		#tertiary-content a:hover, 
+		#footer a:hover {
+			text-decoration: none;
+		}
 
 $stain-box {
 	background: rgba(170, 170, 150, .4) url(gfx/stain-box.png) no-repeat -10px -10px;
 	padding: 15px;
+	-moz-border-radius: 10px;
 }
+
+	$stain-box h2 {
+		margin-top: 5px;
+	}

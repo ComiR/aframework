@@ -1,0 +1,10 @@
+#article-calendar = $white-box;
+
+	#article-calendar table {
+		border-collapse: collapse;
+	}
+
+		#article-calendar table th, 
+		#article-calendar table td {
+			border: 1px solid #ccc;
+		}
