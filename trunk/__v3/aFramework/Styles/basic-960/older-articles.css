@@ -16,3 +16,7 @@
 		#older-articles ol li:nth-child(odd) {
 			margin-right: 30px;
 		}
+
+			#older-articles ol li img {
+				display: none;
+			}

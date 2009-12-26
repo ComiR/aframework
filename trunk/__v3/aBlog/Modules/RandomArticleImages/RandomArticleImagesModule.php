@@ -5,7 +5,7 @@
 
 		public static function run () {
 			$images			= Articles::getImages();
-			$numImages		= count($images) > 9 ? 0 : count($images);
+			$numImages		= count($images) > 12 ? 12 : count($images);
 			$randImageIDs	= array_rand($images, $numImages);
 			$randImages		= array();
 

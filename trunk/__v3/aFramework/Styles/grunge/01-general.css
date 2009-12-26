@@ -40,8 +40,9 @@ h4,
 h5, 
 h6 {
 	margin: 15px 0 2px;
-	font: 300%/1.2 "Base 02", sans-serif;
+	font: 300%/1.2 "Base 02", Georgia, serif;
 	letter-spacing: -1px;
+	text-transform: uppercase;
 	color: #600;
 	text-shadow: none;
 }
@@ -178,4 +179,8 @@ $stain-box {
 
 	$stain-box h2 {
 		margin-top: 5px;
+	}
+
+	$stain-box textarea.markItUpEditor {
+		width: 217px !important;
 	}
