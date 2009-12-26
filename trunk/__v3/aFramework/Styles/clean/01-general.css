@@ -1,7 +1,18 @@
 body {
-	background: url(gfx/body-bg.png);
+	background: url(gfx/brushed-metal-dark.png);
+	color: #eee;
 }
 
 #wrapper {
 	background: url(gfx/top-light.png) no-repeat left top;
+}
+
+$glass-box {
+	background: rgba(180, 180, 180, .4);
+
+	padding: 15px;
+
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
 }
