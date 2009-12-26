@@ -1,0 +1,9 @@
+#random-article-image h2 + p {
+	border: 5px solid #fff;
+}
+
+	#random-article-image img {
+		width: 100%;
+		display: block;
+		border: 0;
+	}
