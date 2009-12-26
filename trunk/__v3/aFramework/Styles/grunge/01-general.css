@@ -1,5 +1,9 @@
+html {
+	background: url(gfx/old-paper.png);
+}
+
 body {
-	background: url(gfx/brushed-metal.png);
+	background: url(gfx/stains.png);
 }
 
 #wrapper {
@@ -15,7 +19,7 @@ body {
 	background: #222;
 }
 
-$glass-box {
-	background: url(gfx/glass-box.png) no-repeat -10px -10px;
+$stain-box {
+	background: url(gfx/stain-box.png) no-repeat -10px -10px;
 	padding: 15px;
 }
