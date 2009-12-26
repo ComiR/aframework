@@ -2,3 +2,5 @@
 #recent-comments ol li h3 {
 	color: #f2f2f2;
 }
+
+	#recent-comments ol li h3 a = $underlined;

@@ -1,5 +1,5 @@
 @font-face {
-	font-family: "A Bite";
+	font-family: "Base 02";
 	font-weight: normal;
 	font-style: normal;
 	src: url(gfx/fonts/Base02.ttf);
@@ -11,8 +11,14 @@ html {
 
 body {
 	background: url(gfx/stains.png);
+}
 
+$base-font {
 	color: #413a16;
+}
+
+$separated {
+	border-color: #827b56;
 }
 
 $small {
@@ -29,10 +35,40 @@ $small {
 
 h1, h2, h3, h4, h5, h6 {
 	margin: 15px 0 2px;
-	font: 300%/1.2 "A Bite", sans-serif;
+	font: 300%/1.2 "Base 02", sans-serif;
 	letter-spacing: -1px;
 	color: #600;
 	text-shadow: none;
+}
+
+#secondary-content h2, 
+#tertiary-content h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	color: #4e492b;
+}
+
+h1:after, 
+h2:after, 
+h3:after, 
+h4:after, 
+h5:after, 
+h6:after {
+	content: ".";
+	color: #fc3;
+}
+
+
+
+#secondary-content h2:after, 
+#tertiary-content h2:after, 
+h3:after, 
+h4:after, 
+h5:after, 
+h6:after {
+/*	color: #4e492b; */
 }
 
 	h1:first-letter, 
@@ -44,9 +80,23 @@ h1, h2, h3, h4, h5, h6 {
 		font-size: 130%;
 	}
 
-	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	h1 a, 
+	h2 a, 
+	h3 a, 
+	h4 a, 
+	h5 a, 
+	h6 a {
 		background: transparent;
 		color: #600;
+	}
+
+	#secondary-content h2 a, 
+	#tertiary-content h2 a, 
+	h3 a, 
+	h4 a, 
+	h5 a, 
+	h6 a {
+		color: #4e492b;
 	}
 
 h2 {
