@@ -114,7 +114,7 @@
 	}
 
 	# Redirects to referrer
-	function redirectToReferer ($append) {
+	function redirectToReferrer ($append) {
 		$ref = $_SERVER['HTTP_REFERER'];
 		$ref = (stristr($ref, '?')) ? $ref . '&' : $ref . '?';
 
