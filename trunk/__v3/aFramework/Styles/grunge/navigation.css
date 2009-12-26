@@ -1,9 +1,24 @@
-/*#navigation {
-	border-top: 1px solid #999;
-	border-bottom: 1px solid #eee;
+#navigation {
+	border-top: 1px solid #88846b;
+	border-bottom: 1px solid #e8e6d7;
 }
 
 	#navigation ul {
-		border-top: 1px solid #eee;
-		border-bottom: 1px solid #999;
-	}*/
+		border-top: 1px solid #e8e6d7;
+		border-bottom: 1px solid #88846b;
+	}
+
+		#navigation ul li a {
+			background: transparent;
+			text-shadow: none;
+			-webkit-text-shadow: none;
+			color: #900;
+			font-weight: bold;
+			text-transform: uppercase;
+			font-size: 80%;
+		}
+
+		#navigation ul li strong, 
+		#navigation ul li a:hover {
+			border-color: #600;
+		}

@@ -9,11 +9,22 @@
 		#styles ul li = $self-clear;
 		#styles ul li = $separated;
 
-			#styles ul li img {
+			#styles ul li h3 {
+				
+			}
+
+			#styles ul li h3 + p {
 				width: 290px;
+				height: 200px;
 				border: 5px solid #fff;
 				float: left;
 				margin: 0 30px 0 0;
+				overflow: hidden;
+			}
+
+			#styles ul li img {
+				display: block;
+				width: 600px;
 			}
 
 			#styles ul li dl = $data-definition;
