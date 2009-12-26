@@ -7,7 +7,9 @@
 	#random-article-images ul li {
 		width: 30%;
 		margin-right: 5%;
+		margin-bottom: 10px;
 		display: inline-block;
+		vertical-align: middle;
 	}
 
 	#random-article-images ul li:nth-child(3n) {
@@ -16,7 +18,7 @@
 
 		#random-article-images ul li a {
 			display: block;
-			border: 2px solid #fff;
+			border: 5px solid #fff;
 		}
 
 			#random-article-images ul li a img {
