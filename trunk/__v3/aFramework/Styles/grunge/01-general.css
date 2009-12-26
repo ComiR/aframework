@@ -33,7 +33,12 @@ $small {
 		color: #900;
 	}
 
-h1, h2, h3, h4, h5, h6 {
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
 	margin: 15px 0 2px;
 	font: 300%/1.2 "Base 02", sans-serif;
 	letter-spacing: -1px;
@@ -139,13 +144,14 @@ a:hover {
 }
 
 #tertiary-content {
-	background: #222 url(gfx/bottom-shadow.gif) repeat-x;
-	border-color: #111;
+	background: url(gfx/bottom-thing.png?v=1) repeat-x;
+	border: 0;
+	padding-top: 55px;
 	color: #827b56;
 }
 
 #footer {
-	background: #222;
+	background: #2c2916;
 	color: #827b56;
 }
 
