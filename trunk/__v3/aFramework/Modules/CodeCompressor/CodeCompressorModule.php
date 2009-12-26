@@ -22,10 +22,11 @@
 			self::$type	= (isset($_GET['t']) and array_key_exists($_GET['t'], self::$mimeTypes)) ? $_GET['t'] : 'css';
 
 			# Some vars we need
-			$cacheTime	= ADMIN ? 0 : 3600;
-			$style		= basename($_GET['s']);
-			$styleData	= Styles::getByName($style);
-			$code		= '';
+			$cacheTime		= ADMIN ? 0 : 3600;
+			$style			= basename($_GET['s']);
+			$styleData		= Styles::getByName($style);
+			$code			= '';
+			$includeModules	= true;
 
 			# Set correct content-type and cache
 			header('Content-type: ' . self::$mimeTypes[self::$type] . '; charset=utf-8');
@@ -35,8 +36,13 @@
 			if (isset($styleData['extends'])) {
 				$extends = explode(',', $styleData['extends']);
 
+				self::$debug['extends'] = $extends;
+
 				foreach ($extends as $extend) {
-					$code .= self::getStyleCode(trim($extend), $cacheTime);
+					$code .= self::getStyleCode(trim($extend), $cacheTime, $includeModules, true);
+
+					# Only include module code once, after that just include the style's code.
+					$includeModules	= false;
 				}
 			}
 
@@ -47,10 +53,10 @@
 			self::$debug['cache_time']		= $cacheTime;
 
 			# Now include this style's code
-			self::$tplVars['code'] = $code . self::getStyleCode($style, $cacheTime);
+			self::$tplVars['code'] = $code . self::getStyleCode($style, $cacheTime, $includeModules);
 		}
 
-		private static function getStyleCode ($style, $cacheTime = 3600) {
+		private static function getStyleCode ($style, $cacheTime = 3600, $includeModules = true, $isExtended = false) {
 			$cacheTime		= ADMIN ? 0 : $cacheTime;
 			$cachePath		= DOCROOT . 'aFramework/Cache/' . CURRENT_SITE . '_' . $style . '.' . self::$type;
 			$cacheExists	= file_exists($cachePath);
@@ -58,7 +64,7 @@
 
 			# If the requested style exists in the current site's Style-dir
 			# _or_ it's a hidden style (prefixed with __) it's considered a valid style.
-			if (substr($style, 0, 2) != '__' and !is_dir(CURRENT_SITE_DIR . 'Styles/' . $style . '/')) {
+			if (!$isExtended and substr($style, 0, 2) != '__' and !is_dir(CURRENT_SITE_DIR . 'Styles/' . $style . '/')) {
 				return false;
 			}
 
@@ -88,7 +94,7 @@
 			self::$debug['load_type'] = 'No cache';
 
 			# Get all the code in all the dirs of all the sites
-			$code = self::getAllCodeInAllDirsOfAllSites($style);
+			$code = self::getAllCodeInAllDirsOfAllSites($style, $includeModules);
 
 			# JS gets packed
 			if (self::$type == 'js') {
@@ -171,7 +177,7 @@
 		 *
 		 * Does what it's called; gets all code in all possible directories
 		 */
-		private static function getAllCodeInAllDirsOfAllSites ($style) {
+		private static function getAllCodeInAllDirsOfAllSites ($style, $includeModules = true) {
 			$sites	= explode(' ', SITE_HIERARCHY);
 			$code	= '';
 
@@ -186,20 +192,22 @@
 				}
 
 				# Module dirs
-				$dirs = array();
-				$path = DOCROOT . $site . '/Modules/';
+				if ($includeModules) {
+					$dirs = array();
+					$path = DOCROOT . $site . '/Modules/';
 
-				if (is_dir($path)) {
-					$dh = opendir($path);
+					if (is_dir($path)) {
+						$dh = opendir($path);
 
-					while ($f = readdir($dh)) {
-						if ('.' != $f and '..' != $f and is_dir($path . $f)) {
-							$dirs[] = $path . $f . '/';
+						while ($f = readdir($dh)) {
+							if ('.' != $f and '..' != $f and is_dir($path . $f)) {
+								$dirs[] = $path . $f . '/';
+							}
 						}
 					}
-				}
 
-				$code = self::getCodeInDirs($dirs, $site, $style) . $code;
+					$code = self::getCodeInDirs($dirs, $site, $style) . $code;
+				}
 			}
 
 			return $code;
