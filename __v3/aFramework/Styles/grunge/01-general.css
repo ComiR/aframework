@@ -145,13 +145,15 @@ a:hover {
 }
 
 #tertiary-content {
-	background: url(gfx/bottom-thing.png?v=1) repeat-x;
+	background: url(gfx/bottom-thing.png) repeat-x;
 	border: 0;
-	padding-top: 55px;
+	padding: 55px 0 30px;
 }
 
 #footer {
-	background: #2c2916;
+	background: url(gfx/footer-thing.png) repeat-x;
+	padding-top: 30px;
+	margin-top: -20px;
 }
 
 	#tertiary-content, 
@@ -172,7 +174,7 @@ a:hover {
 		}
 
 $stain-box {
-	background: rgba(170, 170, 150, .4) url(gfx/stain-box.png) no-repeat -10px -10px;
+	background: rgba(170, 170, 150, .4);
 	padding: 15px;
 	-moz-border-radius: 10px;
 }
