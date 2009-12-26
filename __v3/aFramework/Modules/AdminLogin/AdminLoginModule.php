@@ -25,7 +25,7 @@
 				unset($_SESSION[ADMIN_SESSION]);
 				setcookie(ADMIN_SESSION, false, 0, WEBROOT);
 
-				redirect('?logged_out');
+				redirectToReferrer('logged_out');
 			}
 			# An error occurred
 			if (isset($_GET['error'])) {

@@ -7,11 +7,15 @@ body {
 }
 
 #tertiary-content {
-	background: #555 url(gfx/bottom-shadow.gif) repeat-x;
+	background: #222 url(gfx/bottom-shadow.gif) repeat-x;
+	border-color: #111;
+}
+
+#footer {
+	background: #222;
 }
 
 $glass-box {
-
 	background: rgba(50, 100, 100, .2);
 	padding: 15px;
 
