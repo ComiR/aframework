@@ -165,6 +165,7 @@
 	display:block;
 	width:16px; height:16px;
 	text-indent:-10000px;
+	background-color:transparent;
 	background-repeat:no-repeat;
 	padding:3px;
 	margin:0px;

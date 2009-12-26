@@ -88,22 +88,24 @@
 		 * @method replaceConstantDefinitions
 		 */
 		private static function replaceConstantDefinitions() {
-			$matches = array();
-			$find = array();
-			$replace = array();
-			$pattern = '/\s?(\$[^\.:\s]*)(.*?){/';
+			$matches	= array();
+			$find		= array();
+			$replace	= array();
+			$pattern	= '/\s?(\$[^\.:\s]*)(.*?){/';
+			$i			= 0;
 
 			preg_match_all($pattern, self::$code, $matches);
 
-			$i = 0;
 			foreach($matches[1] as $constant) {
-				$find[$i] = trim($constant .$matches[2][$i]);
-				$replace[$i] = array();
+				$find[$i]		= trim($constant . $matches[2][$i]);
+				$replace[$i]	= array();
+
 				if(isset(self::$constantSelectors[$constant])) {
 					foreach(self::$constantSelectors[$constant] as $selector) {
-						$replace[$i][] = trim($selector .$matches[2][$i]);
+						$replace[$i][] = trim($selector . $matches[2][$i]);
 					}
 				}
+
 				$replace[$i] = implode($replace[$i], ',');
 				$i++;
 			}
@@ -112,9 +114,11 @@
 
 			# There's a reason for this... (order of keys and key-values and shit...)
 			$tmp = array();
+
 			foreach($find as $k => $v) {
 				$tmp[$k] = $replace[$k];
 			}
+
 			$replace = $tmp;
 
 			self::$code = str_replace($find, $replace, self::$code);

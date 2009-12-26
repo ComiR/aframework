@@ -22,29 +22,14 @@
 			self::$type	= (isset($_GET['t']) and array_key_exists($_GET['t'], self::$mimeTypes)) ? $_GET['t'] : 'css';
 
 			# Some vars we need
-			$cacheTime		= ADMIN ? 0 : 3600;
 			$style			= basename($_GET['s']);
 			$styleData		= Styles::getByName($style);
-			$code			= '';
+			$cacheTime		= ADMIN ? 0 : 3600;
+			$cachePath		= DOCROOT . 'aFramework/Cache/' . CURRENT_SITE . '_' . $style . '.' . self::$type;
+			$cacheExists	= file_exists($cachePath);
+			$cacheModified	= $cacheExists ? filemtime($cachePath) : 0;
+			$code			= false;
 			$includeModules	= true;
-
-			# Set correct content-type and cache
-			header('Content-type: ' . self::$mimeTypes[self::$type] . '; charset=utf-8');
-			header('Expires: ' . gmdate('D, d M Y H:i:s', time() + $cacheTime) . ' GMT');
-
-			# See if this style extends other styles, if so include them as well
-			if (isset($styleData['extends'])) {
-				$extends = explode(',', $styleData['extends']);
-
-				self::$debug['extends'] = $extends;
-
-				foreach ($extends as $extend) {
-					$code .= self::getStyleCode(trim($extend), $cacheTime, $includeModules, true);
-
-					# Only include module code once, after that just include the style's code.
-					$includeModules	= false;
-				}
-			}
 
 			# Set some debug info
 			self::$debug['type']			= self::$type;
@@ -52,66 +37,95 @@
 			self::$debug['style_data']		= $styleData;
 			self::$debug['cache_time']		= $cacheTime;
 
-			# Now include this style's code
-			self::$tplVars['code'] = $code . self::getStyleCode($style, $cacheTime, $includeModules);
-		}
-
-		private static function getStyleCode ($style, $cacheTime = 3600, $includeModules = true, $isExtended = false) {
-			$cacheTime		= ADMIN ? 0 : $cacheTime;
-			$cachePath		= DOCROOT . 'aFramework/Cache/' . CURRENT_SITE . '_' . $style . '.' . self::$type;
-			$cacheExists	= file_exists($cachePath);
-			$cacheModified	= $cacheExists ? filemtime($cachePath) : 0;
-
 			# If the requested style exists in the current site's Style-dir
 			# _or_ it's a hidden style (prefixed with __) it's considered a valid style.
-			if (!$isExtended and substr($style, 0, 2) != '__' and !is_dir(CURRENT_SITE_DIR . 'Styles/' . $style . '/')) {
-				return false;
+			if (substr($style, 0, 2) != '__' and !is_dir(CURRENT_SITE_DIR . 'Styles/' . $style . '/')) {
+				die("Error: Invalid style; '$style'");
 			}
+
+			# Set correct content-type and cache
+			header('Content-type: ' . self::$mimeTypes[self::$type] . '; charset=utf-8');
+			header('Expires: ' . gmdate('D, d M Y H:i:s', time() + $cacheTime) . ' GMT');
 
 			# If the cache is younger than $cacheTime just load it directly and return
 			if ((time() - $cacheModified) < $cacheTime) {
-				self::$debug['load_type'] = 'Cache - From cache time';
+				self::$debug['load_type']	= "Loading cache '$cachePath' - Cache file was created less than $cacheTime seconds ago";
+				self::$tplVars['code']		= file_get_contents($cachePath);
 
-				return file_get_contents($cachePath);
+				return;
 			}
 
-			# Get the highest last modified date of all the files in all
-			# the dirs and see if cache is younger than all of them
-			$fileLastModified = self::getLastModifiedFile($style);
+			# Cache is too old, see if any file in any dir for any style
+			# (including extended ones) has been modified after the cache was created
+			$includeModules		= true;
+			$fileLastModified	= 0;
+			$allStyles			= array();
+
+			if (isset($styleData['extends'])) {
+				$allStyles = explode(',', $styleData['extends']);
+			}
+
+			$allStyles[] = $style;
+
+			foreach ($allStyles as $styleToBeChecked) {
+				$tmp = self::getLastModifiedFile($styleToBeChecked, $includeModules);
+
+				$includeModules = false;
+
+				if ($tmp > $fileLastModified) {
+					$fileLastModified = $tmp;
+				}
+			}
 
 			if ($cacheModified >= $fileLastModified) {
-				self::$debug['load_type'] = 'Cache - From last modified';
+				self::$debug['load_type'] = "Loading cache '$cachePath' - No file in any style has been modified after cache was created";
 
-				$cachedCode = file_get_contents($cachePath);
+				$code = file_get_contents($cachePath);
 
 				# Rewrite cache so we get som new cacheTime
-				@file_put_contents($cachePath, $cachedCode);
-
-				return $cachedCode;
+				@file_put_contents($cachePath, $code);
 			}
 
-			# No cache or old, generate new
-			self::$debug['load_type'] = 'No cache';
+			# Something has been modified, regenerate code
+			if (!$code) {
+				self::$debug['load_type']	= 'No cache';
+				$includeModules				= true;
 
-			# Get all the code in all the dirs of all the sites
-			$code = self::getAllCodeInAllDirsOfAllSites($style, $includeModules);
+				# See if this style extends other styles, if so include their code as well
+				if (isset($styleData['extends'])) {
+					$extends = explode(',', $styleData['extends']);
 
-			# JS gets packed
-			if (self::$type == 'js') {
-				$code .= Lang::getJSLangCode();
-				$jsPacker = new JavaScriptPacker($code, 0);
-				$code = $jsPacker->pack();
+					self::$debug['extends'] = $extends;
+
+					foreach ($extends as $extend) {
+						$code .= self::getAllCodeInAllDirsOfAllSites(trim($extend), $includeModules);
+
+						# Only include module code once, after that just include the style's code.
+						$includeModules	= false;
+					}
+				}
+
+				# Now include this style's code
+				$code .= self::getAllCodeInAllDirsOfAllSites($style, $includeModules);
+
+				# JS gets packed
+				if (self::$type == 'js') {
+					$code .= Lang::getJSLangCode();
+					$jsPacker = new JavaScriptPacker($code, 0);
+					$code = $jsPacker->pack();
+				}
+				# CSS gets constant-treatment
+				elseif (self::$type == 'css') {
+					$code = CSSConstants::compile($code);
+				}
+
+				# Also create a cache
+				@file_put_contents($cachePath, $code);
 			}
-			# CSS gets constant-treatment
-			elseif (self::$type == 'css') {
-				$code = CSSConstants::compile($code);
-			}
 
-			# Also create a cache
-			@file_put_contents($cachePath, $code);
+			self::$tplVars['code'] = $code;
 
-			# Assign code to template
-			return $code;
+		#	debug(self::$debug);
 		}
 
 		/**
@@ -119,7 +133,7 @@
 		 *
 		 * Gets the last modified file
 		 */
-		private static function getLastModifiedFile ($style) {
+		private static function getLastModifiedFile ($style, $includeModules = true) {
 			$sites	= explode(' ', SITE_HIERARCHY);
 			$dirs	= array();
 
@@ -130,7 +144,7 @@
 				$path	= DOCROOT . $site . '/Modules/';
 
 				# Get module dirs
-				if (is_dir($path)) {
+				if ($includeModules and is_dir($path)) {
 					$dh = opendir($path);
 
 					while ($f = readdir($dh)) {
