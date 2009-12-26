@@ -1,0 +1,8 @@
+#breadcrumbs {
+	left: 270px;
+	top: 70px;
+}
+
+	#breadcrumbs p a:first-child {
+		display: none;
+	}
