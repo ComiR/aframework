@@ -5,11 +5,3 @@
 @date: 2010-01-01
 @extends: basic-960
 ***/
-body::before {
-	content: "Under Construction";
-	display: block;
-	text-align: center;
-	font-size: 400%;
-	font-weight: bold;
-	text-transform: uppercase;
-}
