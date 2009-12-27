@@ -30,6 +30,9 @@ body.admin {
 	}
 
 	#debug a = $underlined;
+	#debug a {
+		background: transparent !important;
+	}
 
 	#debug h2 = $a11y-hide;
 	#debug h2, 
@@ -38,6 +41,18 @@ body.admin {
 		-moz-text-shadow: 0 !important;
 		-webkit-text-shadow: 0 !important;
 		text-shadow: none !important;
+	}
+
+	#debug h2:after, 
+	#debug h3:after, 
+	#debug h4:after {
+		content: "";
+	}
+
+	#debug h2:first-letter, 
+	#debug h3:first-letter, 
+	#debug h4:first-letter {
+		font-size: inherit;
 	}
 
 	#debug > p {
