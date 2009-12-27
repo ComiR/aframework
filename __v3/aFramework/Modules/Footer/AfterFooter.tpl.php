@@ -10,7 +10,7 @@
 		<?php echo Lang::get('is powered by'); ?> 
 		<?php
 			if (CURRENT_SITE == 'aFramework') {
-				echo '<a href="http://aframework.pixlperfik.com">aFramework</a>';
+				echo '<a href="http://a-framework.org">aFramework</a>';
 			}
 			else {
 				$sites		= explode(' ', SITE_HIERARCHY);
@@ -19,7 +19,9 @@
 
 				foreach ($sites as $site) {
 					if ($site != CURRENT_SITE) {
-						echo '<a href="http://' . strtolower($site) . '.pixlperfik.com">' . $site . '</a>';
+						$siteURL = $site == 'aFramework' ? '' : strtolower($site) . '/';
+
+						echo '<a href="http://a-framework.org/' . $siteURL . '">' . $site . '</a>';
 						echo ++$i < $numSites - 1 ? ', ' : ($i < $numSites ? ' ' . Lang::get('and') . ' ' : '');
 					}
 				}
