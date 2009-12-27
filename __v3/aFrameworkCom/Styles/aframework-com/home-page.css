@@ -43,31 +43,31 @@
 				}
 
 	/* Reasons */
-	#aframework-reasons h3.ui-state-default {
+/*	#aframework-reasons h3.ui-state-default {
 		background-image: url(gfx/accordion-red.png);
 	}
 
 	#aframework-reasons h2 {
 		color: #a88;
-	}
+	} */
 
 	/* Features */
-	#aframework-features h3.ui-state-default {
+/*	#aframework-features h3.ui-state-default {
 		background-image: url(gfx/accordion-green.png);
 	}
 
 	#aframework-features h2 {
 		color: #8a8;
-	}
+	} */
 
 	/* Quick Start */
-	#aframework-quick-start h3.ui-state-default {
+/*	#aframework-quick-start h3.ui-state-default {
 		background-image: url(gfx/accordion-blue.png);
 	}
 
 	#aframework-quick-start h2 {
 		color: #88a;
-	}
+	} */
 
 /* Thanks */
 #aframework-thanks {
