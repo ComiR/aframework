@@ -5,13 +5,13 @@
 	#header h1 {
 		background: url(gfx/logo.png);
 
-		margin: 0 0 0 -37px;
-		width: 211px;
+		margin: 0;
+		width: 284px;
 	}
 
 		#header h1 a {
 			display: block;
-			height: 28px;
+			height: 37px;
 
 			text-indent: -10000px;
 			text-decoration: none;
@@ -19,4 +19,6 @@
 		}
 
 	#header p {
+		margin: 0 0 0 2px;
+		color: #999;
 	}
