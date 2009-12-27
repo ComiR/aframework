@@ -149,6 +149,7 @@ body.admin {
 
 					#debug ul.debug > li > ul > li h4:after {
 						content: "\203A";
+						color: inherit;
 						float: right;
 						font-weight: bold;
 					}
