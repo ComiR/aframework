@@ -1,0 +1,10 @@
+#quick-about {
+	
+}
+
+	#quick-about img {
+		float: right;
+		width: 40%;
+		border: 5px solid #fff;
+		margin: 0 0 10px 15px;
+	}
