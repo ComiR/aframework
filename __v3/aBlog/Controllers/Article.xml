@@ -15,6 +15,8 @@
 		<Wrapper name="secondary-content">
 			<StyleSwitcher/>
 			<RecentArticles/>
+			<ArticleCalendar/>
+			<RandomArticleImages/>
 		</Wrapper>
 		<Wrapper name="tertiary-content">
 			<RandomLinks/>
