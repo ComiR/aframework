@@ -131,11 +131,18 @@
 			}
 
 			# 2. Create Controller-files based on selected parent-sites
-			# TODO: Should merge all Home-controller's primary-content, and ALL controller's secondary/tertiary-content
 			mkdir(DOCROOT . $siteName . '/Controllers');
 
+			$notModules			= array('#text', '#comment', '#cdata-section');
+			$baseModules		= array();
+			$controllers		= array();
+			$secondaryModules	= array();
+			$tertiaryModules	= array();
+
+			# Go through all the sites and create merged controllers based on
+			# all controller's primary, secondary and tertiary content
 			foreach ($siteHierarchy as $site) {
-				# Except for aDynAdmin
+				# Ignore dynadmin...
 				if ($site != 'aDynAdmin') {
 					$path = DOCROOT . $site . '/Controllers/';
 
@@ -144,11 +151,109 @@
 
 						while ($f = readdir($dh)) {
 							if ('xml' == end(explode('.', $f))) {
-								file_put_contents(DOCROOT . $siteName . '/Controllers/' . $f, file_get_contents($path . $f));
+								$doc = new DOMDocument();
+								$doc->load($path . $f);
+
+								# Store all the wrappers in this controller
+								$allWrappers = $doc->getElementsByTagName('Wrapper');
+
+								foreach ($allWrappers as $wrapper) {
+									$wrapperName = $wrapper->getAttribute('name');
+
+									# Save all the base modules
+									$headOrFoot = 'head';
+
+									if ($wrapperName == 'wrapper') {
+										foreach ($wrapper->childNodes as $baseMod) {
+											if (!in_array($baseMod->nodeName, array_merge($notModules, array('Wrapper')))) {
+												$baseModules[$headOrFoot][] = $baseMod->nodeName;
+											}
+											elseif ($baseMod->nodeName == 'Wrapper') {
+												$headOrFoot = 'foot';
+											}
+										}
+									}
+									# Save all the primary content modules in $controllers['ControllerName'][]
+									elseif ($wrapperName == 'primary-content') {
+										foreach ($wrapper->childNodes as $primConMod) {
+											if (!in_array($primConMod->nodeName, $notModules)) {
+												$controllers[$f][] = $primConMod->nodeName;
+											}
+										}
+									}
+									# Save all the secondary and tertiary content modules
+									elseif ($wrapperName == 'secondary-content') {
+										foreach ($wrapper->childNodes as $seconConMod) {
+											if (!in_array($seconConMod->nodeName, $notModules)) {
+												$secondaryModules[] = $seconConMod->nodeName;
+											}
+										}
+									}
+									elseif ($wrapperName == 'tertiary-content') {
+										foreach ($wrapper->childNodes as $terConMod) {
+											if (!in_array($terConMod->nodeName, $notModules)) {
+												$tertiaryModules[] = $terConMod->nodeName;
+											}
+										}
+									}
+								}
 							}
 						}
 					}
 				}
+			}
+
+			$headModules		= array_unique($baseModules['head']);
+			$footModules		= array_unique($baseModules['foot']);
+			$secondaryModules	= array_unique($secondaryModules);
+			$tertiaryModules	= array_unique($tertiaryModules);
+
+			# Now that we have all the controller's that should be created
+			# as well as all the merged head, foot, and wrapper modules we can create the actual files
+			foreach ($controllers as $controller => $controllerModules) {
+				$path				= DOCROOT . $siteName . '/Controllers/' . $controller;
+				$doc				= new DOMDocument('1.0');
+				$doc->formatOutput	= true;
+				$base				= $doc->appendChild($doc->createElement('Base'));
+				$wrapperWrapper		= $base->appendChild($doc->createElement('Wrapper'));
+
+				$wrapperWrapper->setAttribute('name', 'wrapper');
+
+				# Append head modules
+				foreach ($headModules as $module) {
+					$wrapperWrapper->appendChild($doc->createElement($module));
+				}
+
+				# Create new wrappers
+				$newWrappers = array();
+
+				foreach (array('primary-content', 'secondary-content', 'tertiary-content') as $wrapper) {
+					$newWrappers[$wrapper] = $wrapperWrapper->appendChild($doc->createElement('Wrapper'));
+
+					$newWrappers[$wrapper]->setAttribute('name', $wrapper);
+				}
+
+				# Append primary content modules
+				foreach ($controllerModules as $module) {
+					$newWrappers['primary-content']->appendChild($doc->createElement($module));
+				}
+
+				# Append secondary content modules
+				foreach ($secondaryModules as $module) {
+					$newWrappers['secondary-content']->appendChild($doc->createElement($module));
+				}
+
+				# Append tertiary content modules
+				foreach ($tertiaryModules as $module) {
+					$newWrappers['tertiary-content']->appendChild($doc->createElement($module));
+				}
+
+				# Append footer modules
+				foreach ($footModules as $module) {
+					$wrapperWrapper->appendChild($doc->createElement($module));
+				}
+
+				file_put_contents($path, $doc->saveXML());
 			}
 
 			# 3. Create Config-files based on selected config
@@ -186,7 +291,7 @@
 			mkdir(DOCROOT . $siteName . '/Styles');
 
 			$styles		= $_POST['styles'];
-			$styles[]	= $_POST['default_style'];
+			$styles[]	= $_POST['config']['general.default_style'];
 			$styles		= array_unique($styles);
 
 			foreach ($_POST['styles'] as $style) {
