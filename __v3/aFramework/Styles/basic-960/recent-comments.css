@@ -1,6 +1,7 @@
 #recent-comments ol li h3 = $base-font;
 #recent-comments ol li h3 {
 	color: #f2f2f2;
+	margin-top: 0;
 }
 
 	#recent-comments ol li h3 a = $underlined;

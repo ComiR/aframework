@@ -1,0 +1,8 @@
+#recent-comments ol li h3 {
+	text-transform: none;
+	color: #C4C1AD;
+}
+
+#recent-comments ol li h3:after {
+	content: "";
+}

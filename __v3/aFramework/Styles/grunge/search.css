@@ -1,3 +1,25 @@
 #search {
 	top: 59px;
 }
+
+#jquery-live-search {
+	font-size: 80%;
+}
+
+	#jquery-live-search h2 {
+		font-size: 150%;
+	}
+
+	#jquery-live-search h3 {
+		font-size: 130%;
+	}
+
+	#jquery-live-search h4 {
+		font-size: 110%;
+	}
+
+	#jquery-live-search h4, 
+	#jquery-live-search h5, 
+	#jquery-live-search h6 {
+		font-size: 100%;
+	}
