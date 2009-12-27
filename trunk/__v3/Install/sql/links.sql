@@ -24,11 +24,11 @@ DROP TABLE IF EXISTS `links`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `links` (
   `links_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `description` longtext NOT NULL,
-  `url` varchar(255) NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `description` longtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `url` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`links_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,7 @@ CREATE TABLE `links` (
 
 LOCK TABLES `links` WRITE;
 /*!40000 ALTER TABLE `links` DISABLE KEYS */;
-INSERT INTO `links` VALUES (1,'aFramework.org','aFramework Documentation, Forums and more','http://aframework.org'),(2,'AndreasLagerkvist.com','The author of aFramework','http://andreaslagerkvist.com');
+INSERT INTO `links` VALUES (10,'a-Framework.org','aFramework documentation, forums and more','http://a-framework.org'),(11,'AndreasLagerkvist.com','The author of aFramework','http://andreaslagerkvist.com');
 /*!40000 ALTER TABLE `links` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2009-12-21 11:25:07
+-- Dump completed on 2009-12-27 20:47:38

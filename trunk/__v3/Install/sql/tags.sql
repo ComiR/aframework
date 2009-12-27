@@ -24,10 +24,10 @@ DROP TABLE IF EXISTS `tags`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tags` (
   `tags_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `url_str` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
+  `url_str` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   PRIMARY KEY (`tags_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=34 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (1,'life','life');
+INSERT INTO `tags` VALUES (33,'life','life');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2009-12-21 11:25:26
+-- Dump completed on 2009-12-27 20:47:53

@@ -300,7 +300,7 @@
 
 			# 5. Create database
 			mysql_connect(Config::get('db.host'), Config::get('db.user'), Config::get('db.pass'));
-			
+
 			if (mysql_select_db(Config::get('db.name'))) {
 				self::$errors[] = 'The database ' . Config::get('db.name') . ' already exists - please insert sql-files manually';
 			}
@@ -312,12 +312,19 @@
 				}
 				else {
 					# 6. Install all SQL-files, prefix "translated_tables"
-					$path	= DOCROOT . 'Install/sql/';
-					$sql	= '';
-					$dh		= opendir($path);
+					$path				= DOCROOT . 'Install/sql/';
+					$sql				= '';
+					$dh					= opendir($path);
+					$translatedTables	= explode(',', Config::get('lang.translated_tables'));
+					$allowedLangs		= explode(',', Config::get('lang.allowed_langs'));
+					$defaultLang		= Config::get('lang.default_lang');
+					$numAllowedLangs	= count($allowedLangs);
 
 					while ($f = readdir($dh)) {
-						if ('sql' == end(explode('.', $f))) {
+						$ext			= end(explode('.', $f));
+						$dbTableName	= substr($f, 0, -4);
+
+						if ('sql' == $ext) {
 							$sqlLines		= file($path . $f);
 							$realSQLLines	= array();
 
@@ -329,7 +336,22 @@
 								}
 							}
 
-							$sql .= implode("\n", $realSQLLines);
+							$thisTablesSQL = implode("\n", $realSQLLines);
+							$langSQL = '';
+
+							# If this table should be translated, duplicate this table's SQL 
+							# for each language, prefixing every table with the language-code
+							if ($numAllowedLangs > 1 and in_array($dbTableName, $translatedTables)) {
+								require_once DOCROOT . 'aFramework/Core/DB.php';
+
+								foreach ($allowedLangs as $allowedLang) {
+									$langSQL .= DB::prefixDBTableNames($thisTablesSQL, $allowedLang . '_', array($dbTableName));
+								}
+
+								$thisTablesSQL = $langSQL;
+							}
+
+							$sql .= $thisTablesSQL;
 						}
 					}
 

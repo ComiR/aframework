@@ -26,14 +26,14 @@ CREATE TABLE `comments` (
   `comments_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `articles_id` int(10) unsigned NOT NULL,
   `karma` tinyint(3) NOT NULL,
-  `ip` varchar(20) NOT NULL,
-  `author` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `website` varchar(255) NOT NULL,
-  `content` longtext NOT NULL,
+  `ip` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `author` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `email` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `website` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `content` longtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `pub_date` datetime NOT NULL,
   PRIMARY KEY (`comments_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=3072 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,7 +42,7 @@ CREATE TABLE `comments` (
 
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (1,1,1,'127.0.0.1','Herr aFramework','admin@aframework.org','http://aframework.org','This is just an example comment. You can [login](::url|AdminLogin::) to edit or delete it.','2009-10-10 13:23:33');
+INSERT INTO `comments` VALUES (3070,18,1,'127.0.0.1','Herr aFramework','admin@aframework.org','http://aframework.org','This is just an example comment. You can [login](/admin/) to edit or delete it.','2009-10-10 13:23:33');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +55,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2009-12-21 11:24:42
+-- Dump completed on 2009-12-27 20:47:27

@@ -24,18 +24,18 @@ DROP TABLE IF EXISTS `articles`;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `articles` (
   `articles_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `url_str` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `content` longtext NOT NULL,
+  `url_str` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `title` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `content` longtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `pub_date` datetime NOT NULL,
   `allow_comments` tinyint(4) NOT NULL,
   `allow_rating` tinyint(4) NOT NULL,
-  `meta_keywords` longtext NOT NULL,
-  `meta_description` longtext NOT NULL,
+  `meta_keywords` longtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
+  `meta_description` longtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `num_hits` int(10) unsigned NOT NULL DEFAULT '0',
   PRIMARY KEY (`articles_id`),
   UNIQUE KEY `articles_id` (`articles_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=21 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -44,7 +44,7 @@ CREATE TABLE `articles` (
 
 LOCK TABLES `articles` WRITE;
 /*!40000 ALTER TABLE `articles` DISABLE KEYS */;
-INSERT INTO `articles` VALUES (1,'example','Example Article','This is just an aBlog example article. You can [login](::url|AdminLogin::) to edit or delete it.\r\n\r\nAlmost everything you create in aFramework is written in Markdown. Markdown is a super-simple markup language that translates to valid and, even more importantly, semantic HTML.\r\n\r\nThe following are some Markdown examples.\r\n\r\n## Markdown Examples\r\n\r\nAbove this paragraph (paragraphs are automatically turned in to <p>aragraphs) is an h1. An h1 is created by starting a line with one hash character. Add more than one hash to create h2s and down.\r\n\r\nIf you want to highlight some text as being more important you can use two asterisk around the word(s) **like this**. If you want to emphasize a word use one underscore on each site; \"but mum, I _have_ washed my hands!\".\r\n\r\nA list is easily created by starting a line with an asterisk:\r\n\r\n**Buy some:**\r\n\r\n* Butter\r\n* Milk\r\n* Bread\r\n* Cheese\r\n* Sauna smoked ham\r\n\r\nTo create a numeric list simply start lines with a number followed by a dot:\r\n\r\n1. Open terminal\r\n2. Type `sudo apt-get install gnome-do`\r\n3. ???\r\n4. Profit\r\n\r\nLinks and images can be inserted using square brackets and parenthesis. The link text is placed in the brackets and the URL is placed in the parenthesis: [like this](http://www.google.com).\r\n\r\nImages are identical except they start with an exclamation point. Since images don\'t have a text what you put in the brackets is used for the alt-attribute.\r\n\r\n![A picture of me](http://andreaslagerkvist.com/AndreasLagerkvist/Files/me.jpg)\r\n\r\nFor more information about Markdown, head over to [the official Markdown website](http://markdown.com).','2009-10-10 13:22:00',1,1,'','',0);
+INSERT INTO `articles` VALUES (18,'welcome-to-aframework','Welcome to aFramework','aFramework is a modular open source PHP web development framework that comes bundled with many useful modules.\r\n\r\n![](/monkey.jpg)\r\n\r\n[del]\r\n![](http://exscale.se/__files/uploads/monkey-con-banana.jpg)\r\n[/del]\r\n\r\nYou can easily create your own site and extend all the functionality from other aFramework sites to rapidly create a unique blog, forum, cms or whatever you can dream of.\r\n\r\nYou\'ll find a [style switcher](#style-switcher) on every page that allows you to switch between the styles aFramework comes bundled with. You can easily create your own style (or extend an existing) simply by creating a folder for your CSS and images in the Styles/ directory of your site.\r\n\r\nIn order to edit content on aFramework powered sites you need to log in. Simply visit [/admin/](/admin/) and enter username: **admin**, password: **1234**. After that articles, pages, comments etc will all become editable, right on the page.\r\n\r\nHope you enjoy aFramework and check [the official site](http://a-framework.org) often for updates. aFramework is constantly under development.\r\n\r\nRegards,  \r\nThe aFramework Team (me, Andreas Lagerkvist :)','2009-12-10 13:22:00',1,1,'','',0),(19,'an-older-article','An Older Article','This article was published before the other one. It\'s only here to fill some of the modules with content.\r\n\r\nToodle Pip!','2009-10-25 16:49:56',1,1,'','',0),(20,'an-even-older-article','An Even Older Article','This one is even _older_ than \"An Older Article\". Lorem ipsum dolor sit amet.\r\n\r\nCiao','2007-12-25 17:00:00',0,0,'','',0);
 /*!40000 ALTER TABLE `articles` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -57,4 +57,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2009-12-21 11:22:52
+-- Dump completed on 2009-12-27 20:46:48
