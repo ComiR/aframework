@@ -17,6 +17,7 @@
 			margin-right: 30px;
 		}
 
-			#older-articles ol li img {
+			#older-articles ol li img, 
+			#older-articles ol li object {
 				display: none;
 			}
