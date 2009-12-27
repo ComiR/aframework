@@ -2,6 +2,7 @@
 <Base>
 	<Wrapper name="wrapper">
 		<SkipNavigation/>
+		<LangSwitcher/>
 		<Header/>
 		<Navigation/>
 		<Search/>

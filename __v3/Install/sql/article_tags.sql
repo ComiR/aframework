@@ -27,7 +27,7 @@ CREATE TABLE `article_tags` (
   `articles_id` int(10) unsigned NOT NULL,
   `tags_id` int(10) unsigned NOT NULL,
   PRIMARY KEY (`article_tags_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=56 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,7 +36,7 @@ CREATE TABLE `article_tags` (
 
 LOCK TABLES `article_tags` WRITE;
 /*!40000 ALTER TABLE `article_tags` DISABLE KEYS */;
-INSERT INTO `article_tags` VALUES (1,1,1);
+INSERT INTO `article_tags` VALUES (55,18,33),(50,19,33),(53,20,33);
 /*!40000 ALTER TABLE `article_tags` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2009-12-21 11:24:31
+-- Dump completed on 2009-12-27 20:47:19
