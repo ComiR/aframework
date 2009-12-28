@@ -1,13 +1,12 @@
 #aframework-users {
 	background: #222 url(gfx/aframework-users-bg.png) repeat-x;
 
-	padding: 20px 0;
+	margin: -70px 0;
+	padding: 101px 0;
 
 	font-size: 140%;
 	font-style: italic;
 	color: #ccc;
-
-	clear: both;
 }
 
 	#aframework-users h2 = $a11y-hide;
