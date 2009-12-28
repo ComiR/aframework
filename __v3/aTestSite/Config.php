@@ -5,6 +5,7 @@
 	Config::set('general.contact_email',		'your@email.com');
 	Config::set('general.default_style',		'clean');
 	Config::set('general.date_format',			'l jS \of F Y');
+	Config::set('general.ga_id',				false); # UA-1823084-10
 
 	Config::set('db.user',						'root');
 	Config::set('db.pass',						'root');
