@@ -37,7 +37,7 @@
 			define('SITE_HIERARCHY', 'aFrameworkCom aCMS aDynAdmin aFramework');
 			break;
 		default : 
-			define('SITE_HIERARCHY', 'AndreasLagerkvist aBlog aCMS aDynAdmin aFramework');
+			define('SITE_HIERARCHY', 'aTestSite aBlog aCMS aDynAdmin aFramework');
 			break;
 	}
 
