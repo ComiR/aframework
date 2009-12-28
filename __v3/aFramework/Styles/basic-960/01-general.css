@@ -167,6 +167,14 @@ $separated:last-child {
 	border-bottom: 0;
 }
 
+	$separated > *:first-child {
+		margin-top: 0;
+	}
+
+	$separated > *:last-child {
+		margin-bottom: 0;
+	}
+
 #wrapper {
 	position: relative;
 	width: 960px;
