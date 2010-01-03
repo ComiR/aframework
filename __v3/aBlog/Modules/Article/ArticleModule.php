@@ -62,6 +62,7 @@
 		private static function deleteArticle ($id) {
 			Articles::delete($id);
 			Tags::deleteTagsForArticle($id);
+			# Comments::deleteCommentsForArticle($id);
 
 			if (!XHR) {
 				redirect(Router::urlFor('AddArticle') . '?deleted_article');
