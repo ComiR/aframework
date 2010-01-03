@@ -219,14 +219,27 @@
 
 			foreach (self::$routes as $match => $controller) {
 				if ($controller == $requestedController) {
-					# Remove variable-definitions and possible regexps
-					$url = str_replace(':', '', $match);
-					$url = preg_replace('/\(.*?\)/', '', $url);
+					# Remove any possile regexp (TODO: Maybe should check that passed in attr matches regexp - else invalid and continues looking (that way more than one type of URL can point to the same controller))
+					$match = preg_replace('/\(.*?\)/', '', $match);
 
-					# May be dangerous to just str_replace here (/:cat_url_str/:url_str.htm will fuck up for example... may have to check each directory individually)
-					foreach ($attrs as $k => $v) {
-						$url = str_replace($k, $v, $url);
+					# Grab all the 'dirs' in this url. /archives/:url_str/ => [archives, :url_str]
+					$dirsInRoute	= explode('/', $match);
+					$dirsInURL		= array();
+
+					# Go through every dir in the URL and replace the variable ones with the passed in args
+					foreach ($dirsInRoute as $dirInRoute) {
+						if (substr($dirInRoute, 0, 1) == ':') {
+							$varInRoute = substr($dirInRoute, 1);
+
+							if (isset($attrs[$varInRoute])) {
+								$dirInRoute = $attrs[$varInRoute];
+							}
+						}
+
+						$dirsInURL[] = $dirInRoute;
 					}
+
+					$url = implode('/', $dirsInURL);
 
 					break;
 				}
