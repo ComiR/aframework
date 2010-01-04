@@ -52,7 +52,6 @@
 		public static function insert ($row) {
 			$fields	= array(
 				'url_str'			=> $row['url_str'], 
-				'pub_date'			=> isset($row['pub_date']) ? $row['pub_date'] : date('Y-m-d H:i:s'), 
 				'in_navigation'		=> $row['in_navigation'] ? 1 : 0, 
 				'priority'			=> (isset($row['priority']) and is_numeric($row['priority'])) ? $row['priority'] : 0, 
 				'title'				=> $row['title'], 
@@ -67,7 +66,6 @@
 		public static function update ($id, $row) {
 			$validFields = array(
 				'url_str', 
-				'pub_date', 
 				'in_navigation', 
 				'priority', 
 				'title', 

@@ -59,7 +59,6 @@
 		private static function updatePage ($row) {
 			$row['url_str']		= empty($row['url_str']) ? $row['title'] : $row['url_str'];
 			$row['url_str']		= Router::urlize($row['url_str']);
-			$row['pub_date']	= empty($row['pub_date']) ? date('Y-m-d H:i:s') : $row['pub_date'];
 
 			# Make sure mandatory fields are filled out
 			if (
