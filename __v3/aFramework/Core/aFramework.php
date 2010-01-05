@@ -41,7 +41,11 @@
 			# Even if a controller was found through the routes it may still call
 			# FourOFour on its own (the Page-module on the Page-controller might not find a page for example)
 			elseif (Router::getController()) {
-				echo HTMLPacker::pack(self::runController(Router::getController()));
+				$theWholePage = HTMLPacker::pack(self::runController(Router::getController()));
+
+				echo $theWholePage;
+
+				CacheManager::createCache($theWholePage);
 
 				# For debugging (first remove 'echo' above)
 			#	header('content-type: text/plain');var_dump(self::$debugInfo);die;
