@@ -44,6 +44,7 @@
 	# Core classes/files
 	require_once 'aFramework/Core/aFramework.php';
 	require_once 'aFramework/Core/AutoLoader.php';
+	require_once 'aFramework/Core/CacheManager.php';
 	require_once 'aFramework/Core/Config.php';
 	require_once 'aFramework/Core/DB.php';
 	require_once 'aFramework/Core/FourOFour.php';
@@ -96,11 +97,17 @@
 	}
 
 	# Set correct lang based on URI (/ => default, /sv/ => swedish, /fo/ => faroese etc..)
-	# Needs to run _after_ config so it knows which langs are allowed/default etc...
+	# Needs to run _after_ config but before DB:connect so it knows which langs are allowed/default etc...
 	LangSwitcher::run();
 
 	# Connect to DB (username etc set in config for each site)
 	DB::connect();
+	DB::qry('SET NAMES "utf8"');
+
+	# Run the CacheManager and die right here if there's a valid cache
+	if ((!isset($_POST) or !count($_POST)) and !ADMIN and ($cachedPage = CacheManager::run())) {
+		die(str_replace('</body>', '<div id="cache-info">Page cached. Loaded in: ' . round(Timer::stop(), 4) . ' second(s)</div></body>', $cachedPage));
+	}
 
 	# Set Router-params based on the requested URI - but remove lang-prefix before (/sv/ for example)
 	$requestedURI = isset($_SERVER['PATH_INFO']) ? str_replace('/' . CURRENT_LANG . '/', '/', $_SERVER['PATH_INFO']) : '/';	
