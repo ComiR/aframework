@@ -10,7 +10,7 @@
 	Config::set('db.user',						'root');
 	Config::set('db.pass',						'root');
 	Config::set('db.host',						'localhost');
-	Config::set('db.name',						'afv3');
+	Config::set('db.name',						'ante_aframework_demo');
 
 	Config::set('admin.user',					'admin');
 	Config::set('admin.pass',					'1234');

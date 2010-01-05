@@ -3,8 +3,8 @@
 		private static $numQueries = 0;
 
 		public static function connect () {
-			mysql_connect(Config::get('db.host'), Config::get('db.user'), Config::get('db.pass')) or die('aFramework Error: Unable to connect to MySQL - Please check your config files');
-			mysql_select_db(Config::get('db.name')) or die('aFramework Error: Unable to select DB - Please check your config files');
+			mysql_connect(Config::get('db.host'), Config::get('db.user'), Config::get('db.pass')) or die('aFramework Error: Unable to connect to MySQL - Please check your config filesfor site: ' . CURRENT_SITE);
+			mysql_select_db(Config::get('db.name')) or die('aFramework Error: Unable to select DB - Please check your config files for site: ' . CURRENT_SITE);
 		}
 
 		public static function qry ($qry) {
