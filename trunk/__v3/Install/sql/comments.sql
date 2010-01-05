@@ -1,8 +1,3 @@
--- MySQL dump 10.13  Distrib 5.1.37, for debian-linux-gnu (i486)
---
--- Host: localhost    Database: afv3
--- ------------------------------------------------------
--- Server version	5.1.37-1ubuntu5
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -14,11 +9,6 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
---
--- Table structure for table `comments`
---
-
 DROP TABLE IF EXISTS `comments`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
@@ -32,17 +22,14 @@ CREATE TABLE `comments` (
   `website` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `content` longtext CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `pub_date` datetime NOT NULL,
+  `ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`comments_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=3072 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
---
--- Dumping data for table `comments`
---
-
 LOCK TABLES `comments` WRITE;
 /*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (3070,18,1,'127.0.0.1','Herr aFramework','admin@aframework.org','http://aframework.org','This is just an example comment. You can [login](/admin/) to edit or delete it.','2009-10-10 13:23:33');
+INSERT INTO `comments` VALUES (3070,18,1,'127.0.0.1','Herr aFramework','admin@aframework.org','http://aframework.org','This is just an example comment. You can [login](/admin/) to edit or delete it.','2009-10-10 13:23:33','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `comments` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -55,4 +42,3 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2009-12-27 20:47:27
