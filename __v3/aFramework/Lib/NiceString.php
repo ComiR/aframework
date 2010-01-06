@@ -230,7 +230,7 @@
 
 				$str = preg_replace($find, $replace, $str);
 
-				# Get rid of <h7>s (and up) (make them strongs)
+				# Get rid of <h7>s (and up) (make them strongs) (TODO: Should remove h10-h13 as well)
 				$str = preg_replace('/h[7-9]+>/', 'strong>', $str);
 			}
 
