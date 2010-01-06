@@ -5,7 +5,8 @@
 
 		public static function run () {
 			$images			= Articles::getImages();
-			$numImages		= count($images) > 12 ? 12 : count($images);
+			$numImages		= Config::get('ablog.num_random_images');
+			$numImages		= count($images) > $numImages ? $numImages : count($images);
 			$randImageIDs	= array_rand($images, $numImages);
 			$randImages		= array();
 
