@@ -2,6 +2,7 @@
 	ini_set('display_errors', false);
 	$tplVars = aFramework::$debugInfo;
 	$tplVars['routes'] = Router::getRoutes();
+	$tplVars['config'] = Config::asArray();
 ?>
 <h2>Debug Information</h2>
 
@@ -58,6 +59,24 @@
 						<?php foreach(Router::$params as $k => $v) { ?>
 							<dt><?php echo $k; ?></dt>
 							<dd><?php echo $v != '' ? $v : '[empty]'; ?></dd>
+						<?php } ?>
+					</dl>
+				</li>
+			<?php } ?>
+		</ul>
+	</li>
+	<li>
+		<h3>Config</h3>
+
+		<ul>
+			<?php foreach ($tplVars['config'] as $config) { ?>
+				<li>
+					<h4><?php echo escHTML($config['info']['title']); ?></h4>
+
+					<dl>
+						<?php foreach ($config['items'] as $item) { ?>
+							<dt><?php echo escHTML($item['name']); ?></dt>
+							<dd><?php echo escHTML($item['value']); ?></dd>
 						<?php } ?>
 					</dl>
 				</li>
