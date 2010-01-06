@@ -15,7 +15,7 @@
 		}
 
 		private static function showThePage () {
-			# Don't allow "hidden" pages
+			# Don't allow "hidden" pages in the URL
 			if (isset(Router::$params['url_str']) and substr(Router::$params['url_str'], 0, 2) == '__') {
 				FourOFour::run();
 			}
@@ -23,18 +23,24 @@
 			# Try to get $get.url_str, else get home-page
 			$page = Pages::getPageByURLStr(isset(Router::$params['url_str']) ? Router::$params['url_str'] : '__home');
 
-			# If no url_str is set and we're admin
+			# If no url_str is set and we're admin on the AddPage-Page
 			if (!isset(Router::$params['url_str']) and Router::getController() == 'AddPage' and ADMIN) {
 				aFramework_BaseModule::$tplVars['html_title'] = Lang::get('Add a Page');
 			}
 			# No page exists
 			elseif (!$page) {
-				FourOFour::run();
+				if (Router::getController() == 'Home') {
+					return self::$tplFile = false;
+				}
+				else {
+					FourOFour::run();
+				}
 			}
 			# We found a page
 			else {
 				self::$tplVars['page'] = $page;
 
+				# Don't change HTML-title on the home-page
 				if (Router::getController() != 'Home') {
 					aFramework_BaseModule::$tplVars['html_title']	= escHTML($page['title']);
 				}
@@ -42,6 +48,7 @@
 				aFramework_BaseModule::$tplVars['meta_description']	= escHTML($page['meta_description']);
 				aFramework_BaseModule::$tplVars['meta_keywords']	= escHTML($page['meta_keywords']);
 
+				# Change body-ID on PagePages (/about/ => #about-page, not #page-page)
 				if (Router::getController() == 'Page') {
 					aFramework_BaseModule::$tplVars['body_id'] = $page['url_str'];
 				}
@@ -67,7 +74,7 @@
 				) {
 				# If a page ID is set, update
 				if (!empty($row['pages_id']) and is_numeric($row['pages_id'])) {
-					Pages::update($row['pages_id'], $_POST);
+					Pages::update($row['pages_id'], $row);
 				}
 				# Not set, insert
 				else {
