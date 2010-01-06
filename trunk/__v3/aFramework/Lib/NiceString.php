@@ -2,7 +2,7 @@
 	require_once 'Markdown.php';
 
 	class NiceString {
-		public static function makeNice ($str, $markdownHeadingLevel = false, $cutMore = false, $subStr = false, $allowHTMLBlocks = false) {
+		public static function makeNice ($str, $maxHeadingLevel = false, $cutMore = false, $subStr = false, $allowHTMLBlocks = false) {
 			$htmlBlocks = array();
 			$codeBlocks = array();
 
@@ -17,8 +17,9 @@
 			$str = self::replaceMarkdownBlockquotes($str);
 			$str = self::stripHTML($str);
 			$str = self::reverseMarkdownBlockquotes($str);
-			$str = self::fixMarkdownHeadingLevels($str, $markdownHeadingLevel);
+		#	$str = self::fixMarkdownHeadingLevels($str, $maxHeadingLevel);
 			$str = self::runMarkdown($str);
+			$str = self::fixHTMLHeadingLevels($str, $maxHeadingLevel);
 		#	$str = self::fixImgWidthHeightAttrs($str);
 			$str = self::autoAbbr($str);
 			$str = self::autoDel($str);
@@ -200,8 +201,44 @@
 			return preg_replace('/(^|\n)\](.*)/', '$1>$2', $str);
 		}
 
-		private static function fixMarkdownHeadingLevels ($str, $markdownHeadingLevel) {
-			if ($markdownHeadingLevel > 0 and $markdownHeadingLevel < 7) {
+		private static function fixHTMLHeadingLevels ($str, $maxHeadingLevel) {
+			if ($maxHeadingLevel > 0 and $maxHeadingLevel < 7) {
+				# Find the highest level in the string
+				for ($highestLevel = 1; $highestLevel < 7; $highestLevel++) {
+					if (preg_match('/<h' . $highestLevel . '>/', $str)) {
+						break;
+					}
+				}
+
+				# No headings or already good
+				if ($highestLevel == 7 or $highestLevel == $maxHeadingLevel) {
+					return $str;
+				}
+
+				$find = '/h([1-6]+)>/e';
+
+				# If highest level is higher than request, increase heading-level (h1 => h2, h4 => h5)
+				if ($highestLevel < $maxHeadingLevel) {
+					$diff		= $maxHeadingLevel - $highestLevel;
+					$replace	= "'h' . ($1 + $diff) . '>'";
+				}
+				# If the highest level is _lower_ than requested, _decrease_ heading-level (h3 => h2, h5 => h4)
+				else {
+					$diff		= $highestLevel - $maxHeadingLevel;
+					$replace	= "'h' . ($1 - $diff) . '>'";
+				}
+
+				$str = preg_replace($find, $replace, $str);
+
+				# Get rid of <h7>s (and up) (make them strongs)
+				$str = preg_replace('/h[7-9]+>/', 'strong>', $str);
+			}
+
+			return $str;
+		}
+
+		private static function fixMarkdownHeadingLevels ($str, $maxHeadingLevel) {
+			if ($maxHeadingLevel > 0 and $maxHeadingLevel < 7) {
 				# Find the highest heading level in the string
 				for ($highestLevel = 1; $highestLevel < 7; $highestLevel++) {
 				#	$match = '/(^|\n)#{' . $highestLevel . ',' . $highestLevel . '} {0,}[^#]*($|\n)/';
@@ -218,8 +255,8 @@
 				}
 
 				# If the highest level is higher (less #) than ours, add x # to each heading
-				if ($highestLevel < $markdownHeadingLevel) {
-					$diff		= $markdownHeadingLevel - $highestLevel;
+				if ($highestLevel < $maxHeadingLevel) {
+					$diff		= $maxHeadingLevel - $highestLevel;
 				#	$find		= '/(^|\n)(#+)( {0,})([^$\n]*)/';
 					$find		= '/(#+)(.*?)\n/';
 				#	$replace	= '$1$2' . str_repeat('#', $diff) . '$3$4';
@@ -227,8 +264,8 @@
 					$str		= preg_replace($find, $replace, $str);
 				}
 				# If the $str's highest level is lower (more #) than ours, subtract X # to all headings
-				elseif ($highestLevel > $markdownHeadingLevel) {
-					$diff		= $highestLevel - $markdownHeadingLevel;
+				elseif ($highestLevel > $maxHeadingLevel) {
+					$diff		= $highestLevel - $maxHeadingLevel;
 				#	$find		= '/(^|\n)(#+)( {0,})([^$\n]*)/e';
 					$find		= '/(#+)(.*?)\n/e';
 				#	$replace	= "'$1' . substr(\"$2\", 0, strlen(\"$2\")-$diff) . '$3$4'";
