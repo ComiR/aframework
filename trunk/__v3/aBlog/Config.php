@@ -3,9 +3,17 @@
 													'title'			=> 'aBlog', 
 													'description'	=> 'General settings for aBlog, used by different aBlog-modules.'
 												));
-	Config::set('ablog.num_recent_stuff',		array(
+	Config::set('ablog.num_recent_comments',	array(
 													'value'			=> 4, 
-													'title'			=> 'Number of recent stuff (eg comments)'
+													'title'			=> 'Number of recent comments'
+												));
+	Config::set('ablog.num_random_images',		array(
+													'value'			=> 12, 
+													'title'			=> 'Number of random images'
+												));
+	Config::set('ablog.num_random_links',		array(
+													'value'			=> 4, 
+													'title'			=> 'Number of random links'
 												));
 	Config::set('ablog.num_recent_articles',	array(
 													'value'			=> 8, 

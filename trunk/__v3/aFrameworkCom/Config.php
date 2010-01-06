@@ -109,7 +109,7 @@
 	##################################################
 
 	# Number of recent stuff (eg comments)
-	Config::set('ablog.num_recent_stuff', '3');
+	Config::set('ablog.num_recent_comments', '3');
 
 	# Number of recent articles on first page
 	Config::set('ablog.num_recent_articles', '8');

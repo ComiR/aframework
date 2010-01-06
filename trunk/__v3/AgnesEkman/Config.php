@@ -15,7 +15,7 @@
 	Config::set('admin.user',					'admin');
 	Config::set('admin.pass',					'1234');
 
-	Config::set('ablog.num_recent_stuff',		3);
+	Config::set('ablog.num_recent_comments',	3);
 	Config::set('ablog.num_recent_articles',	3);
 
 	Config::set('navigation.home',				false);

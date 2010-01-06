@@ -28,5 +28,5 @@
 	Config::set('navigation.styles',			false);
 	Config::set('navigation.archives',			false);
 
-	Config::set('ablog.num_recent_stuff',		3);
+	Config::set('ablog.num_recent_comments',	3);
 ?>
