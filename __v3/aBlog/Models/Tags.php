@@ -40,7 +40,10 @@
 
 			# Insert the new ones
 			foreach ($ids as $id) {
-				DB::qry('INSERT INTO article_tags VALUES ("", "' . escSQL($articlesID) . '", "' . escSQL($id['tags_id']) . '")');
+				DBRow::insert('article_tags', array(
+					'articles_id'	=> $articlesID, 
+					'tags_id'		=> $id['tags_id']
+				));
 			}
 		}
 
@@ -108,7 +111,8 @@
 
 		public static function insert ($row) {
 			$fields	= array(
-				'title' => $row['title']
+				'title' 	=> $row['title'], 
+				'url_str'	=> isset($row['url_str']) ? Router::urlize($row['url_str']) : Router::urlize($row['title'])
 			);
 
 			return DBRow::insert('tags', $fields);
@@ -116,7 +120,8 @@
 
 		public static function update ($id, $row) {
 			$validFields = array(
-				'title'
+				'title', 
+				'url_str'
 			);
 			$fields = array();
 
