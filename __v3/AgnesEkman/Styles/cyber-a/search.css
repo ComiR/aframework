@@ -25,7 +25,7 @@
 	}
 
 		#jquery-live-search > p strong {
-			color: #BA4600;
+			color: #018b08;
 			font-size: 12px;
 			font-weight: bold;
 		}
@@ -51,7 +51,7 @@
 
 		#jquery-live-search > ol > li h3 a = $sh2;
 		#jquery-live-search > ol > li h3 a:hover {
-			color: #C37449;
+			color: #018b08;
 		}
 
 	#jquery-live-search > ul:last-child = $pagination;

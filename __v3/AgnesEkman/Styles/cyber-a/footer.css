@@ -3,8 +3,20 @@
 	width: 570px;
 	text-align: center;
 	padding: 10px 0;
-	color: #fff;
 }
+
+	#footer, 
+	#footer a {
+		color: #00013F;
+	}
+
+	#footer:hover {
+		color: #f7f7f9;
+	}
+
+	#footer:hover a {
+		color: #99ff99;
+	}
 
 	#footer ul = $pipe-menu;
 	#footer ul, 

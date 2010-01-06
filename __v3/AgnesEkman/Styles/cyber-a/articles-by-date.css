@@ -3,13 +3,14 @@
 }
 
 	#articles-by-date h2 {
-	
+		margin-bottom: 30px;
 	}
 
 	/* Tabs */
-	#articles-by-date ul.tabs = $self-clear;
-	#articles-by-date ul.tabs {
-		background: #e4e4e5 url(gfx/arrow-right.gif) no-repeat right 50%;
+	#articles-by-date > ul.tabs = $self-clear;
+	#articles-by-date > ul.tabs {
+	/*	background: #e4e4e5 url(gfx/arrow-right.gif) no-repeat right 50%; */
+		background: #e4e4e5;
 		margin: 0 0 0 -60px;
 		padding: 0 0 0 50px;
 		list-style: none;
@@ -28,17 +29,22 @@
 				text-decoration: none;
 				outline: 0;
 			}
+			
+			#articles-by-date ul.tabs li a:hover {
+				color: #018B08;
+				text-decoration: underline;
+			}
 
 			#articles-by-date ul.tabs li a.selected {
 				background: url(gfx/arrow-down.gif) no-repeat 50% bottom;
 				padding-bottom: 30px;
-				margin-bottom: -30px;
+				margin-bottom: -20px;
 			}
 
 	/* List of months */
 	#articles-by-date > ul {
 		list-style: none;
-		margin: 0;
+		margin: 40px 0 0 0;
 	}
 
 		#articles-by-date > ul > li {
@@ -56,8 +62,8 @@
 
 				#articles-by-date > ul > li > ul > li {
 					background: #e4e4e5;
-					padding: 10px 10px 15px 60px;
-					margin: 20px 0 20px 0;					
+					padding: 10px 40px 15px 60px;
+					margin: 20px 0;			
 				}
 
 					/* Article title */
@@ -66,7 +72,7 @@
 					}
 
 						#articles-by-date > ul > li > ul > li h4 a {
-							color: #c37449;
+							color: #232324;
 						}
 						
 					/* Continue reading */
