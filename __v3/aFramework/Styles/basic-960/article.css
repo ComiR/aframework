@@ -9,6 +9,7 @@
 	#article h2 + p + p = $first-p;
 
 		#article p img = $img-large;
+		#article p img = $nice-img;
 
 	#article > dl:last-child = $small;
 	#article > dl:last-child = $inline-definition;

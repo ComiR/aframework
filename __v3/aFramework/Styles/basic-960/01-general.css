@@ -138,9 +138,17 @@ $small {
 		color: #666;
 	}
 
-$img-large {
-	width: 590px;
+$nice-image {
 	border: 5px solid #fff;
+	border-width: 5px 5px 15px;
+
+	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); 
+	-moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); 
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); 
+}
+
+$img-large {
+	width: 620px;
 }
 
 small = $small;
@@ -150,9 +158,9 @@ $white-box {
 
 	padding: 15px;
 
-	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); 
-	-moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); 
-	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3); 
+	-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+	-moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
+	box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 $separated {	

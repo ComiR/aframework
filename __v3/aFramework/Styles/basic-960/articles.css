@@ -14,4 +14,5 @@
 				font-weight: bold;
 			}
 
+				#articles > ul > li > p img = $nice-img;
 				#articles > ul > li > p img = $img-large;
