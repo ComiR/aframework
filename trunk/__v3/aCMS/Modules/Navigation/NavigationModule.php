@@ -11,10 +11,6 @@
 					aFramework_NavigationModule::addItem($page['title'], Router::urlFor('Page', $page));
 				}
 			}
-
-			if (ADMIN) {
-				aFramework_DebugModule::addItem(Lang::get('Add Page +'), Router::urlFor('AddPage'));
-			}
 		}
 	}
 ?>
