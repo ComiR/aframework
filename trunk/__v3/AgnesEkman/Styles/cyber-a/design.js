@@ -11,8 +11,10 @@
 	// Add pins
 	$('#secondary-content').append('<div class="first-pin"/><div class="second-pin"/>');
 
-	// Make sure content is as tall as secondary-content
+	// Make sure primary-content is as tall as secondary-content
 	window.addEventListener('load', function () {
-		$('#content').css('min-height', $('#secondary-content').height() + 'px');
+		$('#primary-content').css('min-height', $('#secondary-content').height() + 'px');
 	}, false);
 })();
+
+aFramework.modules.PostComment.initMarkItUp = function () {};

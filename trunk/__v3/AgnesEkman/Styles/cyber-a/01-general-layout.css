@@ -30,7 +30,7 @@ h6 {
 	margin: 20px 0 10px;
 
 	font: bold 72px/.8 Georgia, Times New Roman, serif;
-	color: #ba4600;
+	color: #232324;
 	letter-spacing: -.08em;
 }
 
@@ -40,7 +40,7 @@ h6 {
 	h4 a, 
 	h5 a, 
 	h6 a {
-		color: #ba4600;
+		color: #232324;
 		text-decoration: none;
 	}
 
@@ -50,7 +50,6 @@ h6 {
 	h4 a:hover, 
 	h5 a:hover, 
 	h6 a:hover {
-		color: #ba4600;
 		text-decoration: underline;
 	}
 
@@ -96,7 +95,7 @@ p {
 
 $pub-date {
 	font: bold italic 12px/1.2 Georgia, serif;
-	margin: 15px 0 15px -15px;
+	margin: 0px 0 15px -15px;
 }
 
 	$pub-date small {
@@ -188,7 +187,7 @@ form {
 	}
 
 $link-font {
-	color: #c37449;
+	color: #018b08;
 	text-decoration: none;
 }
 
@@ -230,26 +229,21 @@ img {
 }
 
 	#primary-content {
-		background: #f7f7f9;
+		background: url(gfx/texture-content.gif);
 		width: 450px;
 		padding: 55px 60px;
 		float: left;
+		
+		-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+		-moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, .4);
 	}
 
 		#primary-content img {
 			max-width: 100%;
 		}
 
-		#primary-content h2 {
-			margin-bottom: 30px;
-		}
-
-		#primary-content $h2 {
-			margin-bottom: 30px;
-		}
-
 	#secondary-content {
-		background: #f7f7f9;
+		background: url(gfx/texture-content.gif);
 
 		width: 215px;
 		margin: 20px 0 0;
@@ -258,6 +252,9 @@ img {
 		float: right;
 		position: relative;
 		z-index: 2;
+		
+		-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+		-moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, .4);
 	}
 
 		#secondary-content img {

@@ -3,7 +3,7 @@
 }
 
 	#gallery h2 {
-		
+		margin-bottom: 30px;
 	}
 
 	#gallery ol = $self-clear;
@@ -28,9 +28,9 @@
 				font: italic bold 12px/1.2 Georgia;
 				color: #232324;
 
-				-webkit-box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
-				-moz-box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
-				box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.5);
+				-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+				-moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
+				box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
 			}
 
 			#gallery ol li a {

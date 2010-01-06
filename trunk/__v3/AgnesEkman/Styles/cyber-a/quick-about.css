@@ -2,7 +2,13 @@
 
 }
 
-	#quick-about h2 = $a11y-hide;
+	#quick-about h2 {
+		background: #000063;
+		color: #f7f7f9;
+		font: bold italic 16px Georgia, serif;
+		padding: 2px 0 2px 5px;
+		margin-right: 180px;
+	}
 
 	#quick-about p strong {
 		color: #ba4600;
