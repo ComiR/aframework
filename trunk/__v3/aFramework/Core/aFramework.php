@@ -45,7 +45,9 @@
 
 				echo $theWholePage;
 
-				CacheManager::createCache($theWholePage);
+				if (!ADMIN) {
+					CacheManager::createCache($theWholePage);
+				}
 
 				# For debugging (first remove 'echo' above)
 			#	header('content-type: text/plain');var_dump(self::$debugInfo);die;

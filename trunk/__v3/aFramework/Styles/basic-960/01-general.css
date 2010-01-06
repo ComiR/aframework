@@ -138,7 +138,7 @@ $small {
 		color: #666;
 	}
 
-$nice-image {
+$nice-img {
 	border: 5px solid #fff;
 	border-width: 5px 5px 15px;
 
@@ -148,7 +148,8 @@ $nice-image {
 }
 
 $img-large {
-	width: 620px;
+	width: 600px;
+	border-width: 15px 15px 30px;
 }
 
 small = $small;
