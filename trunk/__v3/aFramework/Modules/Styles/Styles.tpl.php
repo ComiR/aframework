@@ -25,7 +25,7 @@
 			<p>
 				<?php echo escHTML($style['description']); ?><br/>
 				<?php if (aFramework_BaseModule::$tplVars['style'] == $style['name']) { ?>
-					<?php echo Lang::get('This style is currently in use.'); ?>
+					<strong><?php echo Lang::get('This style is currently in use.'); ?></strong>
 				<?php } else { ?>
 					<a href="?style=<?php echo $style['name']; ?>">
 						<?php echo Lang::get('Use this style'); ?>
