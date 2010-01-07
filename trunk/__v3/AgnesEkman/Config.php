@@ -2,7 +2,7 @@
 	Config::set('db.user',						'root');
 	Config::set('db.pass',						'root');
 	Config::set('db.host',						'localhost');
-	Config::set('db.name',						'ante_alcom_utf8');
+	Config::set('db.name',						'ante_agcom');
 
 	Config::set('general.default_style',		'cyber-a');
 	Config::set('general.site_author',			'Agnes Ekman');
