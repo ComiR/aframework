@@ -5,7 +5,7 @@
 
 	<head>
 
-		<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 		<meta http-equiv="Content-Style-Type" content="text/css" />
 
 		<meta name="author" content="<?php echo escHTML(Config::get('general.site_author')); ?>" />

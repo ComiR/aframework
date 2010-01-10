@@ -8,6 +8,7 @@
 			$tags		= is_array($tags) ? $tags : explode(',', $tags);
 			$tags		= array_map('trim', $tags);
 			$tags		= array_unique($tags);
+			$tags		= array_filter($tags);
 			$tagsArr	= array();
 
 			# No tags, delete all old tags for this article
