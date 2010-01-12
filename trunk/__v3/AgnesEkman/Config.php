@@ -20,4 +20,6 @@
 
 	Config::set('navigation.home',				false);
 	Config::set('navigation.styles',			false);
+
+	Config::set('ie_support.fallback_style',	Router::urlForStyle('super-simple'));
 ?>
