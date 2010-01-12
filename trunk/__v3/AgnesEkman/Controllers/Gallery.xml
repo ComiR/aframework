@@ -11,7 +11,8 @@
 		<Wrapper name="secondary-content">
 			<Search/>
 			<QuickAbout/>
-			<RandomGalleryImage/>
+			<StyleSwitcher/>
+			<RandomArticleImage/>
 			<TagCloud/>
 		</Wrapper>
 		<Footer/>
