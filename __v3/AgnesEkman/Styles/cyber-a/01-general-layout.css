@@ -229,7 +229,7 @@ img {
 }
 
 	#primary-content {
-		background: url(gfx/texture-content.gif);
+		background: #f7f7f7 url(gfx/texture-content.gif);
 		width: 450px;
 		padding: 55px 60px;
 		float: left;
@@ -243,7 +243,7 @@ img {
 		}
 
 	#secondary-content {
-		background: url(gfx/texture-content.gif);
+		background: #f7f7f7 url(gfx/texture-content.gif);
 
 		width: 215px;
 		margin: 20px 0 0;
@@ -285,6 +285,10 @@ img {
 		#secondary-content div.second-pin {
 			top: auto;
 			bottom: 40px;
+		}
+
+		#secondary-content .markItUpEditor {
+			width: 160px;
 		}
 
 	#footer {
