@@ -24,8 +24,8 @@
 		<?php
 			if (!NAKED_DAY) {
 				$ieStyleSupport 	= Config::get('ie_support.style_support');
-				$linkBlock			= '<link rel="stylesheet" type="text/css" media="screen,projection" href="' . WEBROOT . (USE_MOD_REWRITE ? CURRENT_SITE . '/' . $style . '.css' : Router::urlForModule('CodeCompressor') . '&amp;s=' . $style . '&amp;t=css') . '" />';
-				$universalLinkBlock	= '<link rel="stylesheet" type="text/css" media="screen,projection" href="http://universal-ie6-css.googlecode.com/files/ie6.0.3.css" />';
+				$linkBlock			= '<link rel="stylesheet" type="text/css" media="screen,projection" href="' . Router::urlForStyle($style) . '" />';
+				$universalLinkBlock	= '<link rel="stylesheet" type="text/css" media="screen,projection" href="' . Config::get('ie_support.fallback_style') . '" />';
 
 				if ($ieStyleSupport === true) {
 					echo $linkBlock;
@@ -83,7 +83,7 @@
 
 		<?php
 			if (!NAKED_DAY) {
-				$ieScriptSupport	= Config::get('ie_support.script_support');
+				$ieScriptSupport = Config::get('ie_support.script_support');
 
 				if ($ieScriptSupport === false) {
 					$ie_script_support_before	= '<!--[if !IE]><!-->';
@@ -94,7 +94,7 @@
 					$ie_script_support_after	= '<!--<![endif]-->';
 				}
 
-				echo $ie_script_support_before . '<script type="text/javascript" src="' . WEBROOT . (USE_MOD_REWRITE ? CURRENT_SITE . '/' . $style . '.js' : Router::urlForModule('CodeCompressor') . '&amp;s=' . $style . '&amp;t=js') .'"></script>' . $ie_script_support_after;
+				echo $ie_script_support_before . '<script type="text/javascript" src="' . Router::urlForStyle($style, 'js') .'"></script>' . $ie_script_support_after;
 
 				if ($scripts) {
 					echo "$ie_script_support_before<script type=\"text/javascript\">$scripts</script>$ie_script_support_after";

@@ -189,6 +189,15 @@
 		}
 
 		/**
+		 * urlForStyle
+		 * 
+		 * Returns the URL for a style
+		 **/
+		public static function urlForStyle ($style, $type = 'css') {
+			return (USE_MOD_REWRITE ? WEBROOT . CURRENT_SITE . '/' . $style . '.css' : Router::urlForModule('CodeCompressor') . '&amp;s=' . $style . '&amp;t=' . $type);
+		}
+
+		/**
 		 * urlForLang
 		 * 
 		 * Returns the URL for a lang ('en' => '/root/', 'sv' => '/root/sv/')
