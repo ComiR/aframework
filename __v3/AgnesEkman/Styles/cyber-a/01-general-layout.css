@@ -247,7 +247,7 @@ img {
 
 		width: 215px;
 		margin: 20px 0 0;
-		padding: 40px 25px;
+		padding: 40px 25px 10px;
 
 		float: right;
 		position: relative;
@@ -268,10 +268,6 @@ img {
 
 		#secondary-content > div {
 			margin-bottom: 30px;
-		}
-
-		#secondary-content > div:last-child {
-			margin-bottom: 0;
 		}
 
 		#secondary-content div.first-pin, 

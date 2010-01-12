@@ -4,15 +4,19 @@
 
 	#quick-about h2 {
 		background: #000063;
-		color: #f7f7f9;
 		font: bold italic 16px Georgia, serif;
-		padding: 2px 0 2px 5px;
-		margin-right: 180px;
+		padding: 2px 5px;
+		float: left;
 	}
 
-	#quick-about p strong {
-		color: #ba4600;
-		font: italic bold 20px Georgia, serif;	
+		#quick-about h2, 
+		#quick-about h2 a {
+			color: #f7f7f9;
+		}
+
+	#quick-about h2 + * {
+		clear: left;
+		margin: 0;
 	}
 
 	#quick-about p img {
