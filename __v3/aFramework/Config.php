@@ -76,6 +76,10 @@
 													'title'			=> 'IE Support', 
 													'description'	=> 'Level of Internet Explorer Support for CSS and JS'
 												));
+	Config::set('ie_support.fallback_style',	array(
+													'value'			=> 'http://universal-ie6-css.googlecode.com/files/ie6.0.3.css', 
+													'description'	=> 'Fallback style for unsupported IE-versions'
+												));
 	Config::set('ie_support.style_support',		array(
 													'title'			=> 'CSS Support', 
 													'value'			=> false, 
