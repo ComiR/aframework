@@ -194,7 +194,7 @@
 		 * Returns the URL for a style
 		 **/
 		public static function urlForStyle ($style, $type = 'css') {
-			return (USE_MOD_REWRITE ? WEBROOT . CURRENT_SITE . '/' . $style . '.css' : Router::urlForModule('CodeCompressor') . '&amp;s=' . $style . '&amp;t=' . $type);
+			return (USE_MOD_REWRITE ? WEBROOT . CURRENT_SITE . '/' . $style . '.' . $type : Router::urlForModule('CodeCompressor') . '&amp;s=' . $style . '&amp;t=' . $type);
 		}
 
 		/**
