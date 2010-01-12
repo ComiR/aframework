@@ -1,10 +1,12 @@
 aFramework.modules.PostComment = {
 	run: function () {
 		this.liveValidation();
-
-		$('#post-comment textarea[name=content]').markItUp(mySettings);
-
+		this.initMarkItUp();
 		this.hijaxForm();
+	}, 
+
+	initMarkItUp: function () {
+		$('#post-comment textarea[name=content]').markItUp(mySettings);
 	}, 
 
 	liveValidation: function () {
