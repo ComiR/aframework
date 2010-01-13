@@ -65,7 +65,7 @@
 			<?php } ?>
 		</ul>
 	</li>
-<?php /*	<li>
+	<?php /* <li>
 		<h3>Config</h3>
 
 		<ul>
