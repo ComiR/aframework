@@ -65,7 +65,7 @@
 			<?php } ?>
 		</ul>
 	</li>
-	<li>
+<?php /*	<li>
 		<h3>Config</h3>
 
 		<ul>
@@ -82,7 +82,7 @@
 				</li>
 			<?php } ?>
 		</ul>
-	</li>
+	</li> */ ?>
 	<li>
 		<h3>Modules</h3>
 
