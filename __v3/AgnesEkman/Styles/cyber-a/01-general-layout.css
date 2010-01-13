@@ -238,7 +238,8 @@ img {
 		-moz-box-shadow: 5px 5px 5px rgba(0, 0, 0, .4);
 	}
 
-		#primary-content img {
+		#primary-content img, 
+		#primary-content object {
 			max-width: 100%;
 		}
 
