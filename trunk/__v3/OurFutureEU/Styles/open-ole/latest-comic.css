@@ -1,13 +1,16 @@
 #latest-comic = $white-shadowed-box;
+#latest-comic {
+	position: relative;
+}
 
 	#latest-comic h2 = $a11y-hide;
 
-	#latest-comic p {
+	#latest-comic h2 + p {
 		margin: 0;
 		font-style: italic;
 	}
 
-		#latest-comic p a {
+		#latest-comic h2 + p a {
 			color: inherit;
 		}
 
@@ -24,3 +27,10 @@
 		#latest-comic p br + a {
 			
 		}
+
+	#latest-comic p:last-child {
+		margin: 0;
+		position: absolute;
+		right: 20px;
+		bottom: 20px;
+	}

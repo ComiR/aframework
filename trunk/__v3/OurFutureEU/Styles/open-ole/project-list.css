@@ -22,16 +22,23 @@
 			text-decoration: none;
 		}
 
-			#projects-page-page #project-list ul li a img {
-				position: absolute;
-				left: 10px;
-				top: 11px;
-				border: 0;
-				float: none;
-				margin: 0;
-			}
-
 		#projects-page-page #project-list ul li a:hover {
 			background-color: #1795d0;
 			color: #fdfeff;
+		}
+
+		#projects-page-page #project-list ul li.project-8 a {
+			background-image: url(gfx/icons/people.png);
+		}
+
+		#projects-page-page #project-list ul li.project-9 a {
+			background-image: url(gfx/icons/heart.png);
+		}
+
+		#projects-page-page #project-list ul li.project-10 a {
+			background-image: url(gfx/icons/network.png);
+		}
+
+		#projects-page-page #project-list ul li.project-11 a {
+			background-image: url(gfx/icons/house.png);
 		}
