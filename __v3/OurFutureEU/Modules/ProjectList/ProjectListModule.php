@@ -6,11 +6,17 @@
 		public static function run () {
 			$allPages		= Pages::get('priority');
 			$projectPages	= array();
+			$currPageURL	= currPageURL();
 
 			foreach ($allPages as $page) {
 				if (!$page['in_navigation'] and substr($page['url_str'], 0, 2) != '__') {
-					$projectPages[] = $page;
+					$page['selected']	= strstr($currPageURL, $page['url_str']) ? true : false;
+					$projectPages[]		= $page;
 				}
+			}
+
+			if (Router::getController() == 'ProjectPage') {
+				self::$tplVars['only_first_word'] = true;
 			}
 
 			if (count($projectPages)) {

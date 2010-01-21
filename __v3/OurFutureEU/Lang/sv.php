@@ -5,11 +5,12 @@
 'url.documents' => 'dokument', 
 'url.contact-information' => 'kontaktinformation', 
 'url.news-tag' => 'nyheter', 
+'url.comics' => 'serier', 
 
 # LatestComic.tpl.php
-'The Latest Comic' => 'Senaste strippen', 
+'The Latest Comic' => 'Senaste serienstrippen', 
 'by' => 'av', 
-'Upload a Comic' => 'Ladda upp en strip', 
+'Upload a Comic' => 'Ladda upp en seriestrip', 
 'Select Image' => 'Välj bild', 
 'Upload' => 'Ladda upp', 
 

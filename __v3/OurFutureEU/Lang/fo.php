@@ -6,6 +6,7 @@
 'url.documents' => 'dokument', 
 'url.contact-information' => 'kontaktinformation', 
 'url.news-tag' => 'nyheter', 
+'url.comics' => 'comics', 
 
 # LatestComic.tpl.php
 'The Latest Comic' => 'Senaste strippen', 

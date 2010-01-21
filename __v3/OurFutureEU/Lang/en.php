@@ -5,6 +5,7 @@
 'url.documents' => 'documents', 
 'url.contact-information' => 'contact-information', 
 'url.news-tag' => 'news', 
+'url.comics' => 'comics', 
 
 # LatestComic.tpl.php
 'The Latest Comic' => 'The Latest Comic', 

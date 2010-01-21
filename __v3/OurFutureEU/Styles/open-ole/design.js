@@ -59,7 +59,7 @@
 				+ Lang.get('Contact') 
 				+ '</a></li><li><a href="#documents">' 
 				+ Lang.get('Documents') 
-				+ '</a></li></ul>').prependTo('#primary-content').superSimpleTabs();
+				+ '</a></li></ul>').insertAfter('#project-list').superSimpleTabs();
 
 			// Move the heading above the tabs
 			$('#page h2').prependTo('#primary-content');

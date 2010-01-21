@@ -7,17 +7,14 @@
 		list-style: none;
 	}
 
-		#articles > ul > li {
-			margin: 0 0 20px;
-			padding: 0 0 10px;
-			border-bottom: 1px dashed #15739f;
-		}
+		#articles > ul > li = $separated;
 
-		#articles > ul > li:last-child {
-			padding: 0;
-			border: 0;
-		}
+			#articles > ul > li img = $pretty-image;
+			#articles > ul > li img {
+				float: right;
+			}
 
 			#articles > ul > li > p:last-child {
 				font-weight: bold;
+				clear: both;
 			}

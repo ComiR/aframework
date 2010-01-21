@@ -28,7 +28,7 @@
 			
 		}
 
-	#latest-comic p:last-child {
+	#latest-comic > p:last-of-type {
 		margin: 0;
 		position: absolute;
 		right: 20px;
