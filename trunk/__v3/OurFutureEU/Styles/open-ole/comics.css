@@ -1,0 +1,14 @@
+#comics {
+	
+}
+
+	#comics ul = $plain-list;
+
+		#comics ul li {
+			margin: 0 0 30px;
+		}
+
+			#comics ul li img = $pretty-image;
+			#comics ul li img {
+				width: 570px;
+			}

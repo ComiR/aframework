@@ -5,6 +5,9 @@
 	#partners h2 = $a11y-hide;
 
 	#partners ul = $floated-list;
+	#partners ul {
+		margin: 0;
+	}
 
 		#partners ul li {
 			width: 25%;

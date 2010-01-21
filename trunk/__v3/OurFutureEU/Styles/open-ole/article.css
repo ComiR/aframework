@@ -16,10 +16,19 @@
 
 	#home-page #article > p:last-of-type {
 		font-weight: bold;
+		clear: both;
+	}
+
+	#article img = $pretty-image;
+	#article img {
+		float: right;
 	}
 
 	#article > dl:last-child = $small;
 	#article > dl:last-child = $inline-definition;
+	#article > dl:last-child {
+		clear: both;
+	}
 
 		#article > dl:last-child ul = $comma-list;
 		#article > dl:last-child ul {

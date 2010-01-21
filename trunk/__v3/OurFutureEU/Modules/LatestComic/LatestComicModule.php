@@ -7,43 +7,9 @@
 			if (isset($_POST['upload_image']) and ADMIN) {
 				self::uploadImage();
 			}
-
-			self::showTheLatestComic();
-		}
-
-		private static function showTheLatestComic () {			
-			$dh		= opendir(CURRENT_SITE_DIR . 'Files/comics/');
-			$images	= array();
-
-			while ($f = readdir($dh)) {
-				if (in_array(end(explode('.', $f)), array('jpg', 'jpeg', 'gif', 'png'))) {
-					$images[] = array(
-						'url'	=> WEBROOT . CURRENT_SITE . '/Files/comics/' . $f, 
-						'path'	=> DOCROOT . CURRENT_SITE . '/Files/comics/' . $f
-					);
-				}
-			}
-
-			if (count($images)) {
-				usort($images, array('self', 'sortImagesByDate'));
-
-				self::$tplVars['image']	= $images[0];
-				self::$tplVars['images']= $images;
-			}
-			else {
+			if (!(self::$tplVars['image'] = Comics::getLatestComic())) {
 				self::$tplFile = false;
 			}
-		}
-
-		private static function sortImagesByDate ($a, $b) {
-			$aDate = filemtime($a['path']);
-			$bDate = filemtime($b['path']);
-
-			if($aDate == $bDate) {
-				return 0;
-			}
-
-			return ($aDate > $bDate) ? -1 : 1;
 		}
 
 		private static function uploadImage () {
