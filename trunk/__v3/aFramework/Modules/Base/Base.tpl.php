@@ -60,10 +60,10 @@
 			$str				= 'Your browser doesn\'t support the modern CSS used on this web page, therefore it is served with <a href="http://forabeautifulweb.com/blog/about/universal_internet_explorer_6_css/">the universal IE6 stylesheet</a>. For a richer browsing experience, please consider upgrading to <a href="http://www.getfirefox.com">a better, modern browser</a>.';
 
 			if ($ieStyleSupport === false) {
-				echo "<!--[if IE]><p>$str</p><![endif]-->";
+				echo "<!--[if IE]><p id=\"ie-warning\">$str</p><![endif]-->";
 			}
 			elseif ($ieStyleSupport !== true) {
-				echo "<!--[if lt IE $ieStyleSupport]><p>$str</p><![endif]-->";
+				echo "<!--[if lt IE $ieStyleSupport]><p id=\"ie-warning\">$str</p><![endif]-->";
 			}
 		?>
 

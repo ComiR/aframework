@@ -2,6 +2,7 @@
 #recent-comments ol li h3 {
 	color: #f2f2f2;
 	margin-top: 0;
+	font-size: inherit;
 }
 
 	#recent-comments ol li h3 a = $underlined;
