@@ -74,7 +74,12 @@
 			$tables = array_unique($tables);
 
 			foreach ($tables as $table) {
-				$thisTablesLatestChange = strtotime(mysql_result(DB::qry("SELECT ts FROM $table ORDER BY ts DESC LIMIT 1"), 0));
+				$tsRes = DB::qry("SELECT ts FROM $table ORDER BY ts DESC LIMIT 1");
+				$thisTablesLatestChange = 0;
+
+				if (mysql_num_rows($tsRes)) {
+					$thisTablesLatestChange = strtotime(mysql_result($tsRes, 0));
+				}
 
 				if ($thisTablesLatestChange > $latestChange) {
 					$latestChange = $thisTablesLatestChange;
