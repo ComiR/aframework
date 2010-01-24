@@ -52,7 +52,7 @@ jQuery.fn.imageZoom = function (conf) {
 		speed:			200,	// Animation-speed of zoom
 		dontFadeIn:		1,		// 1 = Do not fade in, 0 = Do fade in
 		hideClicked:	1,		// Whether to hide the image that was clicked to bring up the imgzoom
-		imageMargin:	10,		// Margin from image-edge to window-edge if image is larger than screen
+		imageMargin:	15,		// Margin from image-edge to window-edge if image is larger than screen
 		className:		'jquery-image-zoom', 
 		loading:		'Loading...'
 	}, conf);
