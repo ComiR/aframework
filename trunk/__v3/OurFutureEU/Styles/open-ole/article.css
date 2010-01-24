@@ -22,6 +22,7 @@
 	#article img = $pretty-image;
 	#article img {
 		float: right;
+		margin: 0 0 15px 15px;
 	}
 
 	#article > dl:last-child = $small;
