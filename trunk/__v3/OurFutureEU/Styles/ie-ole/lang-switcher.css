@@ -1,0 +1,17 @@
+#lang-switcher {
+	position: absolute;
+	right: 0;
+	top: 10px;
+	font-size: 12px;
+}
+
+	#lang-switcher ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+		#lang-switcher ul li {
+			display: inline;
+			margin: 0 0 0 10px;
+		}

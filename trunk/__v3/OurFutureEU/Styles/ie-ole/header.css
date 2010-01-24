@@ -1,0 +1,24 @@
+#header = $self-clear;
+#header {
+	padding: 15px 0;
+	_height: 1%;
+}
+
+	#header h1 {
+		background: url(gfx/logo.gif);
+		float: left;
+		margin: 0 15px 0 0;
+		width: 230px;
+	}
+
+		#header h1 a {
+			display: block;
+			height: 87px;
+
+			text-indent: -10000px;
+		}
+
+	#header p {
+		float: left;
+		margin: 35px 0 0 0;
+	}

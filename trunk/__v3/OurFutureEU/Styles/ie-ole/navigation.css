@@ -1,0 +1,17 @@
+#navigation {
+	border: 1px solid #1795d0;
+	border-width: 1px 0;
+	padding: 15px 0;
+	margin: 15px 0;
+}
+
+	#navigation ul {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+		#navigation ul li {
+			margin: 0 15px 0 0;
+			display: inline;
+		}

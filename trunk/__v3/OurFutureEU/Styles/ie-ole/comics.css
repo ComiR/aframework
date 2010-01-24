@@ -1,0 +1,13 @@
+#comics ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+	#comics ul li {
+		margin: 0 0 15px;
+	}
+
+		#comics ul li img {
+			width: 100%;
+		}

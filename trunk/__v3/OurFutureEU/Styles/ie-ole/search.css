@@ -1,0 +1,11 @@
+#search {
+	position: absolute;
+	right: 0;
+	top: 20px;
+}
+
+	#search label = $a11y-hide;
+
+	#search #q {
+		width: 250px;
+	}
