@@ -1,0 +1,110 @@
+/* General */
+body {
+	background: #e0edf6 url(gfx/sky-gradient.gif) repeat-x;
+
+	margin: 0;
+	padding: 0;
+
+	font: 14px/1.4 Arial, sans-serif;
+	color: #333;
+}
+
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	margin: 20px 0 10px;
+
+	font: italic bold 260%/1 Trebuchet MS, sans-serif;
+	color: #15739f;
+}
+
+	h1 a, 
+	h2 a, 
+	h3 a, 
+	h4 a, 
+	h5 a, 
+	h6 a {
+		color: #15739f;
+		text-decoration: none;
+	}
+
+	h1 a:hover, 
+	h2 a:hover, 
+	h3 a:hover, 
+	h4 a:hover, 
+	h5 a:hover, 
+	h6 a:hover {
+		text-decoration: underline;
+	}
+
+h2 {
+	font-size: 220%;
+}
+
+h3 {
+	font-size: 180%;
+}
+
+h4 {
+	font-size: 140%;
+}
+
+h5 {
+	font-size: 120%;
+}
+
+h6 {
+	font-size: 100%;
+}
+
+p {
+	margin: 0 0 10px;
+	line-height: 1.5;
+}
+
+ul, 
+ol {
+	margin: 0 0 10px 30px;
+	padding: 0;
+	line-height: 1.5;
+}
+
+	input.default-value {
+		color: #999 !important;
+	}
+
+a {
+	color: #1795d0;
+}
+
+	a img {
+		border: 0;
+	}
+
+/* Layout */
+#wrapper {
+	width: 960px;
+	margin: 0 auto;
+	position: relative;
+}
+
+	#primary-content {
+		width: 630px;
+		float: left;
+	}
+
+	#secondary-content {
+		width: 300px;
+		float: right;
+	}
+
+	#tertiary-content {
+		clear: both;
+	}
+
+/* Modules */
+#ie-warning = $a11y-hide;
+#skip-navigation = $a11y-hide;

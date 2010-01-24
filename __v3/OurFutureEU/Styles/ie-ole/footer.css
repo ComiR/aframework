@@ -1,0 +1,24 @@
+#footer = $self-clear;
+#footer {
+	padding: 15px 0;
+	text-align: center;
+	font-size: 12px;
+	_height: 1%;
+}
+
+	#footer ul {
+		float: right;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+		#footer ul li {
+			display: inline;
+			margin: 0 0 0 10px;
+		}
+
+	#footer p {
+		float: left;
+		margin: 0;
+	}

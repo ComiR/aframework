@@ -1,0 +1,5 @@
+#latest-comic h2 = $a11y-hide;
+
+#latest-comic img {
+	width: 100%;
+}

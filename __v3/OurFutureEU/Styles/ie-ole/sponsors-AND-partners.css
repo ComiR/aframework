@@ -1,0 +1,16 @@
+#sponsors h2 = $a11y-hide;
+#partners h2 = $a11y-hide;
+
+#sponsors ul, 
+#partners ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-align: center;
+}
+
+	#sponsors ul li, 
+	#partners ul li {
+		display: inline;
+		margin: 10px 15px;
+	}
