@@ -2,6 +2,7 @@
 #footer = $self-clear;
 #footer {
 	padding: 15px 0;
+	clear: both;
 }
 
 	#footer ul = $pipe-menu;
