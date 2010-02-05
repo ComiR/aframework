@@ -1,6 +1,6 @@
 <h3><?php echo Lang::get('Post a Comment'); ?></h3>
 
-<?php if ( $errors ) { ?>
+<?php if ($errors) { ?>
 	<p>
 		<strong>
 			<?php echo Lang::get('The form contains errors.'); ?> 
