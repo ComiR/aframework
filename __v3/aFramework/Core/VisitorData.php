@@ -8,21 +8,27 @@
 		private static $data = array();
 
 		public static function run () {
-			# A form wants to remember its user
-			if (isset($_POST['remember_visitor_data']) and $_POST['remember_visitor_data']) {
-				self::setVisitorData($_POST);
-			}
-			# If not, set self::data if a cookie is set
-			elseif (isset($_COOKIE['visitor_data'])) {
+			# Set self::data if a cookie is set
+			if (isset($_COOKIE['visitor_data'])) {
 				$data = unserialize(stripslashes($_COOKIE['visitor_data']));
 				$data['remembered'] = true;
 
 				self::$data = $data;
 			}
+
+			# A form wants to remember its user
+			if (isset($_POST['remember_visitor_data']) and $_POST['remember_visitor_data']) {
+				self::setVisitorData($_POST);
+			}
 		}
 
 		public static function getVisitorData () {
-			return self::$data;
+			$data = self::$data;
+
+			$data['author']		= $data['name'];
+			$data['website']	= $data['url'];
+
+			return $data;
 		}
 
 		private static function setVisitorData ($data) {

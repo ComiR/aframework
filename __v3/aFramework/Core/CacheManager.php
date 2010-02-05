@@ -46,7 +46,9 @@
 		}
 
 		public static function createCache ($content) {
-			file_put_contents(self::$cachePath . self::$cacheFile, $content);
+			if (self::$cacheFile) {
+				file_put_contents(self::$cachePath . self::$cacheFile, $content);
+			}
 		}
 
 		private static function readCache () {
