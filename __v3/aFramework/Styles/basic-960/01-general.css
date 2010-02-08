@@ -74,7 +74,12 @@ form {
 }
 
 	form label > strong {
-		color: red;
+		color: #900;
+	}
+
+	form label > abbr {
+		border: 0;
+		color: #900;
 	}
 
 	label {
