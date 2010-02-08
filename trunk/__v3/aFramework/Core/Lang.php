@@ -251,7 +251,7 @@
 
 		public static function getJSLangCode () {
 			$langs	= self::getLang();
-			$code	= "Lang.lang = {\n";
+			$code	= "Lang = {};\nLang.lang = {\n";
 			$sites	= explode(' ', SITE_HIERARCHY);
 			$jsLang	= array();
 
