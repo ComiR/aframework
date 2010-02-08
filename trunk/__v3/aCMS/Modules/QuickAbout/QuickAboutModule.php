@@ -4,7 +4,7 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			if (isset($_POST['quick_about_update'])) {
+			if (isset($_POST['quick_about_update']) and ADMIN) {
 				self::updateOrInsertQuickAbout();
 			}
 
