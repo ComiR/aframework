@@ -91,6 +91,10 @@
 				self::$debug['load_type']	= 'No cache';
 				$includeModules				= true;
 
+				if (self::$type == 'js') {
+					$code .= Lang::getJSLangCode();
+				}
+
 				# See if this style extends other styles, if so include their code as well
 				if (isset($styleData['extends'])) {
 					$extends = explode(',', $styleData['extends']);
@@ -110,7 +114,6 @@
 
 				# JS gets packed
 				if (self::$type == 'js') {
-					$code .= Lang::getJSLangCode();
 					$jsPacker = new JavaScriptPacker($code, 0);
 					$code = $jsPacker->pack();
 				}
