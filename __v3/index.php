@@ -34,7 +34,7 @@
 			define('SITE_HIERARCHY', 'aFrameworkCom aCMS aDynAdmin aFramework');
 			break;
 		case 'demo.a-framework.org' : 
-			define('SITE_HIERARCHY', 'aTestSite aCMS aDynAdmin aFramework');
+			define('SITE_HIERARCHY', 'aTestSite aBlog aCMS aDynAdmin aFramework');
 			break;
 		case 'sidkritik.se' : 
 			define('SITE_HIERARCHY', 'Sidkritik aCMS aDynAdmin aFramework');
