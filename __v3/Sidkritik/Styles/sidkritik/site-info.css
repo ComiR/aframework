@@ -1,0 +1,37 @@
+#site-info {
+	position: relative;
+	padding: 0 150px;
+	min-height: 140px;
+}
+
+	#site-info h2 + p = $first-p;
+
+	#site-info p:nth-last-child(2) = $small;
+	#site-info p:nth-last-child(2) {
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+
+		#site-info p:nth-last-child(2) img = $nice-img;
+		#site-info p:nth-last-child(2) img {
+			width: 120px;
+			height: 120px;
+			display: block;
+			margin: 0 0 5px;
+		}
+
+		#site-info p:nth-last-child(2) br {
+			display: none;
+		}
+
+	#site-info p:last-child = $small;
+	#site-info p:last-child = $rating-and-reviews;
+	#site-info p:last-child {
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 130px;
+	}
+
+			#site-info p:last-child a span = $a11y-hide;

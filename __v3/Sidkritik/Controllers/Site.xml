@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<Base>
+  <Wrapper name="wrapper">
+    <Header/>
+    <Navigation/>
+	<QuickAbout/>
+    <Wrapper name="intro-content">
+      <SiteInfo/>
+    </Wrapper>
+    <Wrapper name="primary-content">
+      <Site/>
+      <SiteReviews/>
+      <PostSiteReview/>
+    </Wrapper>
+    <Footer/>
+  </Wrapper>
+</Base>

@@ -1,0 +1,30 @@
+#header {
+	float: left;
+	width: 300px;
+	margin: 0 0 30px;
+}
+
+	#header h1 {
+		width: 300px;
+
+		float: none;
+		margin: 0;
+	}
+
+		#header h1 a {
+			background: url(gfx/logo.png);
+
+			display: block;
+			height: 60px;
+
+			text-indent: -10000px;
+			outline: 0;
+		}
+
+	#header p = $small;
+	#header p {
+		float: none;
+		margin: -5px 0 0;
+		letter-spacing: .27em;
+		white-space: nowrap;
+	}

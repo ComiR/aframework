@@ -1,0 +1,45 @@
+#post-site-review = $white-box;
+#post-site-review {
+	width: 590px;
+	color: #060606;
+}
+
+		#post-site-review form {
+			
+		}
+
+			#post-site-review form div.markItUp {
+				width: 590px;
+			}
+
+				#post-site-review form textarea.markItUpEditor {
+					width: 537px !important;
+					height: 160px;
+				}
+
+			#post-site-review form > p:first-child, 
+			#post-site-review form > p:first-child + p, 
+			#post-site-review form > p:first-child + p + p, 
+			#post-site-review form > p:first-child + p + p + p {
+				text-align: right;
+				padding-right: 185px;
+			}
+
+				#post-site-review form > p:first-child label br, 
+				#post-site-review form > p:first-child + p label br, 
+				#post-site-review form > p:first-child + p + p label br, 
+				#post-site-review form > p:first-child + p + p + p label br {
+					display: none;
+				}
+
+				#post-site-review form > p:first-child label input, 
+				#post-site-review form > p:first-child + p label input, 
+				#post-site-review form > p:first-child + p + p label input {
+					width: 300px;
+					margin: 0 0 0 10px;
+				}
+
+				#post-site-review form > p:first-child + p + p + p label select {
+					width: 100px;
+					margin: 0 210px 0 10px;
+				}

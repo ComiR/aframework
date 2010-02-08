@@ -1,0 +1,41 @@
+#navigation {
+	position: absolute;
+	right: 0;
+	top: 0;
+	border: 0;
+	margin: 0;
+}
+
+	#navigation ul = $pipe-menu;
+	#navigation ul {
+		border: 0;
+	}
+
+		#navigation ul li = $small;
+		#navigation ul li {
+			float: none;
+			margin: 0;
+		}
+
+			#navigation ul li a {
+				display: inline;
+				padding: 0;
+				text-shadow: 0;
+				color: #999;
+			}
+
+			#navigation ul li a:hover {
+				padding: 0;
+				border: 0;
+				color: #06c;
+			}
+
+			#navigation ul li strong {
+				display: inline;
+				border: 0;
+			}
+
+				#navigation ul li strong a {
+					padding: 0;
+					color: #06c;
+				}
