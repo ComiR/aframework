@@ -39,10 +39,11 @@
 			$this->fields[] = array(
 				'title'		=> isset($field['title']) ? $field['title'] : ucwords($field['name']), 
 				'name'		=> $field['name'], 
-				'value'		=> isset($field['value']) ? $field['value'] : (isset($this->values[$field['name']]) ? $this->values[$field['name']] : false), 
+				'value'		=> isset($this->values[$field['name']]) ? $this->values[$field['name']] : (isset($field['value']) ? $field['value'] : false), 
 				'type'		=> isset($field['type']) ? $field['type'] : 'text', 
 				'required'	=> isset($field['required']) ? true : false,
-				'options'	=> isset($field['options']) ? $field['options'] : false
+				'options'	=> isset($field['options']) ? $field['options'] : false, 
+				'checked'	=> isset($field['checked']) ? true : false
 			);
 		}
 
@@ -56,7 +57,7 @@
 					$this->errors[$field['name']] = 'Must not be empty';
 				}
 				elseif (($field['required'] or !empty($_POST[$field['name']])) and isset($this->validators[$field['name']]) and !preg_match($this->validators[$field['name']], $_POST[$field['name']])) {
-					$this->errors[$field['name']] = 'Must be valid';
+					$this->errors[$field['name']] = 'Must be valid (' . $this->validators[$field['name']] . ')';
 				}
 			}
 
@@ -68,8 +69,14 @@
 		}
 
 		public function asHTML ($submitTitle = false) {
-			$fields			= $this->fields;
-			$html			= "<form method=\"{$this->method}\" action=\"{$this->action}\">\n\t";
+			$html	= '';
+			$fields	= $this->fields;
+
+			if (isset($this->errors['__spam'])) {
+				$html .= "<p><strong>The data in the form appears to be spam. Please try with less URLs and/or spammy words.</strong></p>";
+			}
+
+			$html .= "<form method=\"{$this->method}\" action=\"{$this->action}\">\n\t";
 
 			# Add all fields
 			foreach ($fields as $field) {
