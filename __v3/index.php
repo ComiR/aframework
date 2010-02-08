@@ -6,7 +6,7 @@
 	 * the default SITE_HIERARCHY definition if you intend to
 	 * work on your own projects (~line >35).
 	 *
-	 * Copyright: 2006-2009 Andreas Lagerkvist (andreaslagerkvist.com)
+	 * Copyright: 2006-2010 Andreas Lagerkvist (andreaslagerkvist.com)
 	 * License: http://creativecommons.org/licenses/by/3.0/
 	 **/
 	# Start the timer
@@ -30,11 +30,17 @@
 		case 'agnesekman.com' : 
 			define('SITE_HIERARCHY', 'AgnesEkman aBlog aCMS aDynAdmin aFramework');
 			break;
-		case 'ourfuture.eu' : 
-			define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
-			break;
 		case 'a-framework.org' : 
 			define('SITE_HIERARCHY', 'aFrameworkCom aCMS aDynAdmin aFramework');
+			break;
+		case 'demo.a-framework.org' : 
+			define('SITE_HIERARCHY', 'aTestSite aCMS aDynAdmin aFramework');
+			break;
+		case 'sidkritik.se' : 
+			define('SITE_HIERARCHY', 'Sidkritik aCMS aDynAdmin aFramework');
+			break;
+		case 'new.ourfuture.eu' : 
+			define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
 			break;
 		default : 
 			define('SITE_HIERARCHY', 'aTestSite aBlog aCMS aDynAdmin aFramework');
@@ -105,7 +111,7 @@
 	DB::qry('SET NAMES "utf8"');
 
 	# Run the CacheManager and die right here if there's a valid cache
-	if ((!isset($_POST) or !count($_POST)) and !ADMIN and ($cachedPage = CacheManager::run())) {
+	if (!count($_POST) and !ADMIN and ($cachedPage = CacheManager::run())) {
 		die(str_replace('</body>', '<div id="cache-info">Page cached. Loaded in: ' . round(Timer::stop(), 4) . ' second(s)</div></body>', $cachedPage));
 	}
 
