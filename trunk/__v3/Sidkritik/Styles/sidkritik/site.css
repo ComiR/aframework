@@ -1,0 +1,17 @@
+#site {
+	margin: 0 0 30px;
+}
+
+	#site p {
+		
+	}
+
+		#site p a {
+		
+		}
+
+			#site p a img = $nice-img;
+			#site p a img = $img-large;
+			#site p a img {
+				width: 950px;
+			}

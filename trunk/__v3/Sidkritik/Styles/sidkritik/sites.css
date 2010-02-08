@@ -1,0 +1,41 @@
+#sites {
+	
+}
+
+	#sites h2 = $a11y-hide;
+
+	#sites ul = $self-clear;
+	#sites ul {
+		margin: 0;
+		list-style: none;
+	}
+
+		#sites ul li {
+			float: left;
+			width: 300px;
+			margin: 0 30px 15px 0;
+		}
+
+		#sites ul li:nth-child(3n) {
+			margin-right: 0;
+		}
+
+			#sites ul li h3 = $nice-img;
+			#sites ul li h3 {
+				margin: 0 0 10px;
+				height: 200px;
+				overflow: hidden;
+			}
+
+				#sites ul li h3 a {
+					
+				}
+
+					#sites ul li h3 a img {
+						width: 600px;
+						margin: 0 0 0 -50px;
+					}
+
+			#sites ul li p = $small;
+			#sites ul li p = $rating-and-reviews;
+					#sites ul li p a span = $a11y-hide;

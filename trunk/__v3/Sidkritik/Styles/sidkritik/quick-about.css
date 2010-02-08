@@ -1,0 +1,15 @@
+#quick-about {
+	float: right;
+	width: 630px;
+	padding: 3px 0 0 0;
+	margin: 0 0 30px;
+}
+
+	#quick-about .markItUpEditor {
+		width: 576px;
+		height: 80px;
+	}
+
+	#quick-about p:last-child {
+		margin-bottom: 0;
+	}

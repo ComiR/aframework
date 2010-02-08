@@ -1,0 +1,171 @@
+body {
+	background: #060606 url(gfx/gradient-border.png) no-repeat 50% -2px;
+	color: #aaa;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: Arial, sans-serif;
+	color: #f2f2f2;
+}
+
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+		color: #f2f2f2;
+	}
+
+h2 {
+	margin-top: 0;
+	font-weight: bold;
+	font-size: 32px;
+	line-height: 1;
+}
+
+/* h2:first-letter {
+	font-size: 36px;
+} */
+
+a {
+	color: #06c;
+}
+
+$rating-and-reviews {
+	margin: 0;
+	position: relative;
+	overflow: hidden;
+}
+
+	$rating-and-reviews img {
+		position: absolute;
+		left: -3px;
+		top: -2px;
+	}
+
+	$rating-and-reviews a {
+		display: block;
+		min-height: 20px;
+	}
+
+	$rating-and-reviews img + a {
+		background: url(gfx/icons.png) no-repeat left top;
+
+		float: right;
+		width: 20px;
+		height: 18px;
+		min-height: 0;
+		padding: 2px 0 0;
+
+		line-height: 1;
+		color: #aaa;
+		font-weight: bold;
+		text-align: center;
+		text-decoration: none;
+	}
+
+	$rating-and-reviews img + a:hover {
+		background-position: left -20px;
+		color: #fff;
+	}
+
+$nice-img {
+	border: 5px solid #333;
+}
+
+$img-large {
+	border: 5px solid #333;
+}
+
+$white-box {
+	background: #f2f2f2;
+	color: #060606;
+	border: 5px solid #333;
+}
+
+	$white-box h1 {
+		color: #060606;
+		text-shadow: none;
+	}
+	$white-box h2 {
+		color: #060606;
+		text-shadow: none;
+	}
+	$white-box h3 {
+		color: #060606;
+		text-shadow: none;
+	}
+	$white-box h4 {
+		color: #060606;
+		text-shadow: none;
+	}
+	$white-box h5 {
+		color: #060606;
+		text-shadow: none;
+	}
+	$white-box h6 {
+		color: #060606;
+		text-shadow: none;
+	}
+	$white-box h1 a {
+		color: #060606;
+		text-shadow: none;
+	}
+	$white-box h2 a {
+		color: #060606;
+		text-shadow: none;
+	}
+	$white-box h3 a {
+		color: #060606;
+		text-shadow: none;
+	}
+	$white-box h4 a {
+		color: #060606;
+		text-shadow: none;
+	}
+	$white-box h5 a {
+		color: #060606;
+		text-shadow: none;
+	}
+	$white-box h6 a {
+		color: #060606;
+		text-shadow: none;
+	}
+
+	$white-box > *:first-child {
+		margin-top: 0;
+	}
+
+$small {
+	font-size: 10px;
+}
+
+#wrapper {
+	padding-top: 75px;
+}
+
+#intro-content {
+	background: #020202;
+	clear: both;
+	margin: 30px 0;
+	padding: 30px 0;
+	border: 1px solid #333;
+	border-width: 1px 0;
+}
+
+#primary-content {
+	padding: 0;
+	clear: both;
+	width: auto;
+	float: none;
+}
+
+	#primary-content div.markItUp, 
+	#intro-content div.markItUp {
+		width: 630px;
+	}
+
+		#primary-content div.markItUp textarea.markItUpEditor, 
+		#intro-content div.markItUp textarea.markItUpEditor {
+			width: 577px;
+		}
+
+#footer {
+	border-top: 1px solid #333;
+}

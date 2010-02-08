@@ -1,0 +1,49 @@
+#add-site-live-thumb-preview {
+	width: 300px;
+	position: absolute;
+	right: 0;
+	top: 65px;
+}
+
+	#add-site-live-thumb-preview img = $nice-img;
+	#add-site-live-thumb-preview img {
+		width: 290px;
+	}
+
+#add-site-live-thumb-preview.loading {
+	background: url(gfx/ajax-loading.gif) no-repeat 50% 50%;
+	height: 100px;
+}
+
+	#add-site-live-thumb-preview.loading img {
+		display: none;
+	}
+
+#add-site {
+	position: relative;
+}
+
+	#add-site form {
+	
+	}
+
+		#add-site form p {
+			
+		}
+
+			#add-site form p label input {
+				width: 520px;
+			}
+
+		#add-site form > p:first-child {
+			
+		}
+
+			#add-site form > p:first-child input {
+				font-size: 180%;
+				width: 420px;
+			}
+
+			#add-site form > p:nth-last-child(3) input {
+				width: 420px;
+			}

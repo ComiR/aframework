@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<Base>
+  <Wrapper name="wrapper">
+    <Header/>
+    <Navigation/>
+	<QuickAbout/>
+    <Wrapper name="intro-content">
+      <Top5Sites/>
+    </Wrapper>
+    <Wrapper name="primary-content">
+      <Page/>
+    </Wrapper>
+    <Footer/>
+  </Wrapper>
+</Base>
