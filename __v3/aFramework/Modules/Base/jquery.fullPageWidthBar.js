@@ -6,10 +6,11 @@ jQuery.fn.fullPageWidthBar = function (config) {
 	var els = this;
 
 	var bar = function () {
-		var docWidth = $(document).width();
+		var docWidth	= $(document).width();
+		var wrapWidth	= $(conf.wrapper).width();
 
-		if (docWidth > 960) {
-			var distance = (docWidth - $(conf.wrapper).width()) / 2;
+		if (docWidth > wrapWidth) {
+			var distance = (docWidth - wrapWidth) / 2;
 
 			els.css({
 				marginLeft:		'-' + distance + 'px', 
