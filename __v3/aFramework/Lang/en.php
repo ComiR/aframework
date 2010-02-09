@@ -46,7 +46,6 @@
 # ModuleAdmin.tpl.php
 'Module admin' => 'Module admin', 
 'Remove module from controller' => 'Remove module from controller', 
-'Add to' => 'Add to', 
 'Or' => 'Or', 
 'Insert before' => 'Insert before', 
 
@@ -115,12 +114,7 @@
 # Header.tpl.php
 'Home Page' => 'Home Page', 
 
-# Live.js
-'Show live cam' => 'Show live cam', 
-'Hide live cam' => 'Hide live cam', 
-
 # BeforeStyles.tpl.php
-'Styles' => 'Styles', 
 'There are currently' => 'There are currently', 
 'styles to choose from.' => 'styles to choose from.', 
 
@@ -147,7 +141,6 @@
 'Top of Page' => 'Top of Page', 
 'Top' => 'Top', 
 'Contact Me' => 'Contact Me', 
-'Contact' => 'Contact', 
 'Get Firefox!' => 'Get Firefox!', 
 'Valid XHTML 1.0 Strict' => 'Valid XHTML 1.0 Strict', 
 '(Mostly) Valid CSS' => '(Mostly) Valid CSS'

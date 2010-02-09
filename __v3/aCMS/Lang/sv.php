@@ -3,8 +3,19 @@
 # Routes.php
 'url.add-page' => 'lagg-till-sida', 
 
-# NavigationModule.php
+# DebugModule.php
 'Add Page +' => 'Lägg till sida +', 
+
+# IntroTextAdmin.tpl.php
+'Introductionary Text' => 'Introduktionstext', 
+'Save Changes' => 'Spara ändringar', 
+
+# QuickAboutAdmin.tpl.php
+'Short Description of' => 'Kort beskrivning av', 
+
+# Page.js
+'Advanced View' => 'Avancerad vy', 
+'Are you sure?' => 'Är du säker?', 
 
 # PageModule.php
 'Add a Page' => 'Lägg till en sida', 
@@ -22,13 +33,11 @@
 'Meta Keywords' => 'Meta keywords', 
 'Meta Description' => 'Meta description', 
 'Page Content' => 'Sidinnehåll', 
-'Save Changes' => 'Spara ändringar', 
 'Add Page' => 'Lägg till sida', 
 'or' => 'eller', 
 'Delete this Page' => 'Ta bort sidan', 
 
 # BeforePageAdmin.tpl.php
-'Edit Page' => 'Redigera sida', 
-'Add Page' => 'Lägg till sida'
+'Edit Page' => 'Redigera sida'
 
 ); ?>
