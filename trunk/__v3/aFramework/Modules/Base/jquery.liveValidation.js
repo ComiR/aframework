@@ -76,24 +76,24 @@ jQuery('#jquery-live-validation-example').liveValidation({
 ***/
 jQuery.fn.liveValidation = function (conf, addedFields) {
 	var config = jQuery.extend({
-		validIco:		'',													// src to valid icon
-		invalidIco:		'',													// src to invalid ico
-		valid:			'Valid',											// alt for valid icon
-		invalid:		'Invalid',											// alt for invalid icon
-		validClass:		'valid',											// valid class
-		invalidClass:	'invalid',											// invalid class
-		required:		[],													// json/array of required fields
-		optional:		[], 												// json/array of optional fields
-		fields:			{}													// json of fields and regexps
+		validIco:		'',						// src to valid icon
+		invalidIco:		'',						// src to invalid ico
+		valid:			'Valid',				// alt for valid icon
+		invalid:		'Invalid',				// alt for invalid icon
+		validClass:		'valid',				// valid class
+		invalidClass:	'invalid',				// invalid class
+		required:		[],						// json/array of required fields
+		optional:		[], 					// json/array of optional fields
+		fields:			{}						// json of fields and regexps
 	}, conf);
 
 	var fields = jQuery.extend({
-		name: 			/^\S.*$/,											// name (at least one character)
-		content: 		/^\S.*$/m,											// "content" (at least one character)
-		dimensions:		/^\d+x\d+$/,										// dimensions (DIGITxDIGIT)
-		price:			/^\d+$/,											// price (at least one digit)
-	//	url: 			/^(http:\/\/)?(www)?([^ |\.]*?)\.([^ ]+){2,5}$/,	// url
-		email: 			/^.+?@.+?\..{2,4}$/									// email
+		name: 			/^\S.*$/,				// name (at least one character)
+		content: 		/^\S.*$/m,				// "content" (at least one character)
+		dimensions:		/^\d+x\d+$/,			// dimensions (DIGITxDIGIT)
+		price:			/^\d+$/,				// price (at least one digit)
+		url: 			/(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/,	// url
+		email: 			/^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/	// email
 	}, config.fields);
 
 	fields.website = fields.url;
