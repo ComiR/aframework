@@ -1,4 +1,4 @@
-<h2><?php echo Lang::get($title); ?></h2>
+<h2><?php echo $title; ?></h2>
 
 <ul>
 	<?php foreach ($sites as $site) { ?>

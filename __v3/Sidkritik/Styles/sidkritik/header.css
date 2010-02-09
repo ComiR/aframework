@@ -12,7 +12,7 @@
 	}
 
 		#header h1 a {
-			background: url(gfx/logo.png);
+			background: url(gfx/logo.png) no-repeat left -160px;
 
 			display: block;
 			height: 60px;
@@ -25,6 +25,6 @@
 	#header p {
 		float: none;
 		margin: -5px 0 0;
-		letter-spacing: .27em;
+		letter-spacing: 2.7px;
 		white-space: nowrap;
 	}

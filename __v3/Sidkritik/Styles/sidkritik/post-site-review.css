@@ -1,12 +1,9 @@
-#post-site-review = $white-box;
 #post-site-review {
-	width: 590px;
-	color: #060606;
+	width: 630px;
+	clear: both;
 }
 
-		#post-site-review form {
-			
-		}
+		#post-site-review form = $white-box;
 
 			#post-site-review form div.markItUp {
 				width: 590px;

@@ -3,23 +3,33 @@ body {
 	color: #aaa;
 }
 
-h1, h2, h3, h4, h5, h6 {
+#wrapper h1, 
+#wrapper h2, 
+#wrapper h3, 
+#wrapper h4, 
+#wrapper h5, 
+#wrapper h6 {
 	font-family: Arial, sans-serif;
 	color: #f2f2f2;
 }
 
-	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	#wrapper h1 a, 
+	#wrapper h2 a, 
+	#wrapper h3 a, 
+	#wrapper h4 a, 
+	#wrapper h5 a, 
+	#wrapper h6 a {
 		color: #f2f2f2;
 	}
 
-h2 {
+#wrapper h2 {
 	margin-top: 0;
 	font-weight: bold;
 	font-size: 32px;
 	line-height: 1;
 }
 
-/* h2:first-letter {
+/* #wrapper h2:first-letter {
 	font-size: 36px;
 } */
 
@@ -74,83 +84,56 @@ $img-large {
 }
 
 $white-box {
-	background: #f2f2f2;
-	color: #060606;
-	border: 5px solid #333;
+	background: #000;
+	border: 1px solid #333;
 }
-
-	$white-box h1 {
-		color: #060606;
-		text-shadow: none;
-	}
-	$white-box h2 {
-		color: #060606;
-		text-shadow: none;
-	}
-	$white-box h3 {
-		color: #060606;
-		text-shadow: none;
-	}
-	$white-box h4 {
-		color: #060606;
-		text-shadow: none;
-	}
-	$white-box h5 {
-		color: #060606;
-		text-shadow: none;
-	}
-	$white-box h6 {
-		color: #060606;
-		text-shadow: none;
-	}
-	$white-box h1 a {
-		color: #060606;
-		text-shadow: none;
-	}
-	$white-box h2 a {
-		color: #060606;
-		text-shadow: none;
-	}
-	$white-box h3 a {
-		color: #060606;
-		text-shadow: none;
-	}
-	$white-box h4 a {
-		color: #060606;
-		text-shadow: none;
-	}
-	$white-box h5 a {
-		color: #060606;
-		text-shadow: none;
-	}
-	$white-box h6 a {
-		color: #060606;
-		text-shadow: none;
-	}
-
-	$white-box > *:first-child {
-		margin-top: 0;
-	}
 
 $small {
 	font-size: 10px;
 }
 
-#wrapper {
-	padding-top: 75px;
+	$small a {
+		color: #666;
+		text-decoration: none;
+	}
+
+	$small a:hover {
+		color: #aaa;
+		text-decoration: none;
+	}
+
+$black-box {
+	background: #000;
+
+	padding: 5px 10px;
+
+	border: 1px solid #333;
 }
+
+$black-box-link {
+	display: block;
+	outline: 0;
+	text-decoration: none;
+}
+
+$black-box-selected {
+	background: #333;
+	color: #f2f2f2;
+}
+
+#wrapper small = $small;
 
 #intro-content {
 	background: #020202;
 	clear: both;
-	margin: 30px 0;
 	padding: 30px 0;
 	border: 1px solid #333;
 	border-width: 1px 0;
 }
 
 #primary-content {
-	padding: 0;
+	background: url(gfx/gradient-border.png) no-repeat 50% -2px;
+	padding: 30px 0 0;
 	clear: both;
 	width: auto;
 	float: none;

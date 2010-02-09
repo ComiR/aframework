@@ -1,6 +1,7 @@
 body.js-enabled #top-5sites {
 	overflow: hidden;
-	height: 230px;
+	height: 280px;
+	margin: -30px 0;
 }
 
 	#top-5sites h2 = $a11y-hide;
@@ -12,9 +13,8 @@ body.js-enabled #top-5sites {
 
 		#top-5sites > ol > li {
 			position: relative;
-			margin: 0 0 30px;
-			padding: 0 0 0 330px;
-			min-height: 230px;
+			padding: 30px 0 30px 330px;
+			min-height: 250px;
 		}
 
 			#top-5sites ol li h3 {
@@ -22,13 +22,14 @@ body.js-enabled #top-5sites {
 			}
 
 				#top-5sites ol li h3 a {
+
 				}
 
 				#top-5sites ol li h3 + p = $nice-img;
 				#top-5sites ol li h3 + p {				
 					position: absolute;
 					left: 0;
-					top: 0;
+					top: 30px;
 
 					margin: 0;
 					width: 290px;
@@ -49,7 +50,7 @@ body.js-enabled #top-5sites {
 				width: 300px;
 				position: absolute;
 				left: 0;
-				top: 210px;
+				top: 240px;
 			}
 
 				#top-5sites ol li p:last-child span = $a11y-hide;

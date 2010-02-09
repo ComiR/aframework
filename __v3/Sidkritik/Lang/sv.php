@@ -26,32 +26,31 @@
 'Review this Site' => 'Recensera den här sidan', 
 
 # NavigationModule.php
-'Add a Site' => 'Lägg till en sida', 
 'All Sites' => 'Alla sidor', 
+'Add a Site' => 'Lägg till en sida', 
 
 # AddSiteModule.php
 'Site Title' => 'Sidtitel', 
 'URL' => 'URL', 
 'URL to Thumbnail' => 'URL till thumbnail', 
 'Description' => 'Beskrivning', 
-'Your Name' => 'Ditt namn', 
 'And E-mail' => 'Och e-post', 
 
-# AddSite.tpl.php
-'Add Your Own Site' => 'Lägg till din egen hemsida', 
+# Top5Sites.tpl.php
+'Top 5 Sites' => 'Topp 5 Hemsidor', 
 
 # Sites.tpl.php
-'Rating:' => 'Betyg:', 
-'reviews' => 'recensioner', 
-'Be the first to review this site' => 'Bli den första att recensera den här sidan', 
+'The Latest Sites' => 'De senaste sidorna', 
+'All Sites' => 'Alla sidor', 
 
 # SiteReviewsModule.php
-'Your Name' => 'Ditt namn', 
+'Your E-mail' => 'Din e-post', 
 'And Comment' => 'Och kommentar', 
 
 # SiteReviews.tpl.php
 'Reviews for this Site' => 'Recensioner för den här sidan', 
 'Published' => 'Publicerad', 
+'rated this site a' => 'rated this site a', 
 'thumbs up' => 'tummen upp', 
 'Give this review a thumbs up' => 'Ge den här recensionen tummen upp', 
 'thumbs down' => 'tummen ner', 

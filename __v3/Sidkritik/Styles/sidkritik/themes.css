@@ -1,0 +1,59 @@
+/* Blue */
+.blue, .blue #primary-content {
+	background-image: url(gfx/gradient-border-blue.png);
+}
+
+	.blue #header h1 a {
+		background-position: left -160px;
+	}
+
+	.blue a, 
+	.blue #navigation ul li strong a, 
+	.blue #navigation ul li a:hover {
+		color: #06c;
+	}
+
+/* Red */
+.red, .red #primary-content {
+	background-image: url(gfx/gradient-border-red.png);
+}
+
+	.red #header h1 a {
+		background-position: left top;
+	}
+
+	.red a, 
+	.red #navigation ul li strong a, 
+	.red #navigation ul li a:hover {
+		color: #600;
+	}
+
+/* Green */
+.green, .green #primary-content {
+	background-image: url(gfx/gradient-border-green.png);
+}
+
+	.green #header h1 a {
+		background-position: left -80px;
+	}
+
+	.green a, 
+	.green #navigation ul li strong a, 
+	.green #navigation ul li a:hover {
+		color: #360;
+	}
+
+/* Yellow */
+.yellow, .yellow #primary-content {
+	background-image: url(gfx/gradient-border-yellow.png);
+}
+
+	.yellow #header h1 a {
+		background-position: left -240px;
+	}
+
+	.yellow a, 
+	.yellow #navigation ul li strong a, 
+	.yellow #navigation ul li a:hover {
+		color: #fc3;
+	}

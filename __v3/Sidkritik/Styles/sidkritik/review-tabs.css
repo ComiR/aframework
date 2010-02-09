@@ -1,0 +1,20 @@
+#review-tabs {
+	float: right;
+	padding: 0 330px 0 0;
+	margin: 0 0 -30px !important;
+}
+
+	#review-tabs ul = $floated-list;
+	#review-tabs ul {
+		margin: 0;
+	}
+
+		#review-tabs ul li = $small;
+		#review-tabs ul li {
+			margin: 0 0 0 10px;
+		}
+
+			#review-tabs ul li a = $black-box;
+			#review-tabs ul li a = $black-box-links;
+
+			#review-tabs ul li a.selected = $black-box-selected;
