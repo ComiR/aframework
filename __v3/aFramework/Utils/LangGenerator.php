@@ -14,6 +14,7 @@
 	$requestedPath		= "../../$site/Lang/$requestedLang.php";
 	$requestedExists	= file_exists($requestedPath);
 	$allLangs			= Lang::getLangsInDir('../../' . $site);
+	$usedLangs			= array();
 	$requestedLang		= $requestedExists ? include $requestedPath : array();
 	$code				= "<?php return array(\n";
 
@@ -21,14 +22,18 @@
 		$code .= "\n# $file\n";
 
 		foreach ($strings as $k => $v) {
-			if (substr($v, 0, 4) == 'url.') {
-				$v = substr($v, 4);
+			if (!in_array($k, $usedLangs)) {
+				$usedLangs[] = $k;
+
+				if (substr($v, 0, 4) == 'url.') {
+					$v = substr($v, 4);
+				}
+
+				# Translate to requested lang
+				$v = isset($requestedLang[$k]) ? $requestedLang[$k] : $v;
+
+				$code .= "'$k' => '$v', \n";
 			}
-
-			# Translate to requested lang
-			$v = isset($requestedLang[$k]) ? $requestedLang[$k] : $v;
-
-			$code .= "'$k' => '$v', \n";
 		}
 	}
 
