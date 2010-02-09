@@ -40,7 +40,7 @@
 	Config::set('general.contact_email', 'you@yourdomain.com');
 
 	# Google analytics ID (if you use Google Analytics)
-	Config::set('general.ga_id', false);
+	Config::set('general.ga_id', false); # UA-1823084-11
 
 	# Date format used throughout aFramework-sites
 	Config::set('general.date_format', 'l jS F Y');
