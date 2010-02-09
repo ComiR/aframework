@@ -28,7 +28,10 @@
 				$reviews = SiteReviews::get('thumb_score', 'DESC', 0, 1000000, "sites_id = $sitesID");
 
 				if ($reviews) {
-					self::$tplVars['reviews'] = self::buildCommentsForms($reviews);
+					$reviews = self::buildCommentsForms($reviews);
+					$reviews = self::getReviewComments($reviews);
+
+					self::$tplVars['reviews'] = $reviews;
 				}
 				else {
 					self::$tplFile = false;
@@ -37,6 +40,18 @@
 			else {
 				self::$tplFile = false;
 			}
+		}
+
+		private static function getReviewComments ($reviews) {
+			$newReviews = array();
+
+			foreach ($reviews as $review) {
+				$review['comments'] = SiteReviewComments::getBySiteReviewsID($review['site_reviews_id']);
+
+				$newReviews[] = $review;
+			}
+
+			return $newReviews;
 		}
 
 		private static function buildCommentsForms ($reviews) {
@@ -80,7 +95,7 @@
 			# Listen to form submissions
 			if (isset($_POST['site_review_add_comment_submit'])) {
 				if ($forms[$_POST['site_reviews_id']]->validate(true)) {
-				#	SiteReviewComments::insert($_POST);
+					SiteReviewComments::insert($_POST);
 
 					if (!XHR) {
 						redirect('?posted_review_comment');

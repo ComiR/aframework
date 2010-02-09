@@ -6,6 +6,7 @@
 	<QuickAbout/>
     <Wrapper name="intro-content">
       <IntroText/>
+      <SitesForm/>
     </Wrapper>
     <Wrapper name="primary-content">
       <Sites/>

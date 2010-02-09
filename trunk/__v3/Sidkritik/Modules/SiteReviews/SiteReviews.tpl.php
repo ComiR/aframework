@@ -54,23 +54,31 @@
 
 			<?php echo NiceString::makeNice($review['content'], 5); ?>
 
-		<!--	<h5><?php echo Lang::get('Comment on this Review'); ?></h5>
+			<?php if ($review['comments']) { ?>
+				<div class="comments">
 
-			<?php echo $review['post_comment_form_html']; ?>
+					<h5><?php echo Lang::get('Comments on this Review'); ?></h5>
 
-			<?php if (count($review['comments'])) { ?>
-				<h5><?php echo Lang::get('Comments on this Review'); ?></h5>
+					<ol>
+						<?php foreach ($review['comments'] as $comment) { ?>
+							<li>
+								<?php echo NiceString::makeNice($comment['content'], 5); ?><!-- 
+								<?php echo Lang::get('by'); ?> 
+								<?php echo escHTML($comment['author']); ?>-->
+							</li>
+						<?php } ?>
+					</ol>
 
-				<ul>
-					<?php foreach ($review['comments'] as $comment) { ?>
-						<li>
-							<?php echo NiceString::makeNice($comment['content'], 5); ?> 
-							<?php echo Lang::get('by'); ?> 
-							<?php echo escHTML($comment['author']); ?>
-						</li>
-					<?php } ?>
-				</ul>
-			<?php } ?> -->
+				</div>
+			<?php } ?>
+
+			<div class="post-comment">
+
+				<h5><?php echo Lang::get('Comment on this Review'); ?></h5>
+
+				<?php echo $review['post_comment_form_html']; ?>
+
+			</div>
 		</li>
 	<?php } ?>
 </ol>

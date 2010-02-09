@@ -26,32 +26,31 @@
 'Review this Site' => 'Review this Site', 
 
 # NavigationModule.php
-'Add a Site' => 'Add a Site', 
 'All Sites' => 'All Sites', 
+'Add a Site' => 'Add a Site', 
 
 # AddSiteModule.php
 'Site Title' => 'Site Title', 
 'URL' => 'URL', 
 'URL to Thumbnail' => 'URL to Thumbnail', 
 'Description' => 'Description', 
-'Your Name' => 'Your Name', 
 'And E-mail' => 'And E-mail', 
 
-# AddSite.tpl.php
-'Add Your Own Site' => 'Add Your Own Site', 
+# Top5Sites.tpl.php
+'Top 5 Sites' => 'Top 5 Sites', 
 
 # Sites.tpl.php
-'Rating:' => 'Rating:', 
-'reviews' => 'reviews', 
-'Be the first to review this site' => 'Be the first to review this site', 
+'The Latest Sites' => 'The Latest Sites', 
+'All Sites' => 'All Sites', 
 
 # SiteReviewsModule.php
-'Your Name' => 'Your Name', 
+'Your E-mail' => 'Your E-mail', 
 'And Comment' => 'And Comment', 
 
 # SiteReviews.tpl.php
 'Reviews for this Site' => 'Reviews for this Site', 
 'Published' => 'Published', 
+'rated this site a' => 'rated this site a', 
 'thumbs up' => 'thumbs up', 
 'Give this review a thumbs up' => 'Give this review a thumbs up', 
 'thumbs down' => 'thumbs down', 

@@ -1,0 +1,37 @@
+#theme-changer {
+	position: absolute;
+	left: 0;
+	top: 10px;
+}
+
+	#theme-changer ul = $floated-list;
+
+		#theme-changer ul li {
+			margin: 0 5px 0 0;
+		}
+
+			#theme-changer ul li a {
+				display: block;
+				width: 10px;
+				height: 10px;
+
+				text-indent: -10000px;
+				outline: 0;
+				border: 1px solid #333;
+			}
+
+			#theme-changer ul li a[href="#red"] {
+				background: #600;
+			}
+
+			#theme-changer ul li a[href="#green"] {
+				background: #360;
+			}
+
+			#theme-changer ul li a[href="#blue"] {
+				background: #06c;
+			}
+
+			#theme-changer ul li a[href="#yellow"] {
+				background: #fc3;
+			}
