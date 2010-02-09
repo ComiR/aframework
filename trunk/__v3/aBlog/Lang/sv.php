@@ -7,6 +7,9 @@
 # BeforeTagCloud.tpl.php
 'Tag Cloud' => 'Taggmoln', 
 
+# DebugModule.php
+'Add Article +' => 'Lägg till artikel +', 
+
 # BeforePostComment.tpl.php
 'Post a Comment' => 'Posta en kommentar', 
 'The form contains errors.' => 'Formuläret innehåller fel.', 
@@ -28,21 +31,30 @@
 
 # NavigationModule.php
 'Archives' => 'Arkivet', 
-'Add Article +' => 'Lägg till artikel +', 
+
+# RandomArticleImages.js
+'Get some new images' => 'Slumpa några nya bilder', 
+'Loading' => 'Laddar', 
+
+# Article.js
+'Advanced View' => 'Avancerad vy', 
+'Are you sure?' => 'Är du säker?', 
 
 # BeforeArticleAdmin.tpl.php
 'Edit Article' => 'Redigera artikel', 
 'Add Article' => 'Lägg till artikel', 
 
 # ArticleAdmin.tpl.php
-'The article was successfully saved!' => 'Artikeln sparades', 
-'The article was successfully deleted!' => 'Artikeln är raderad', 
+'The article was successfully saved!' => 'Artikeln sparades.', 
+'The article was successfully deleted!' => 'Artikeln är raderad.', 
 'Title' => 'Titel', 
 'Slug' => 'Slug', 
 'Publish Date' => 'Publiceringsdatum', 
 'Meta Keywords' => 'Meta keywords', 
 'Meta Description' => 'Meta description', 
 'Article Content' => 'Artikelinnehåll', 
+'Tags' => 'Taggar', 
+'Use a comma (,) to separate tags' => 'Använd komma (,) för att separera taggar', 
 'Allow Comments' => 'Tillåt kommentarer', 
 'Yes' => 'Ja', 
 'No' => 'Nej', 
@@ -54,7 +66,6 @@
 # Article.tpl.php
 'Published' => 'Publicerad', 
 'Continue Reading' => 'Fortsätt läsa', 
-'Tags' => 'Taggar', 
 'No tags' => 'Inga taggar', 
 'Comments' => 'Kommentarer', 
 'No comments' => 'Inga kommentarer', 
@@ -62,18 +73,28 @@
 # ArticleModule.php
 'Add an Article' => 'Lägg till en artikel', 
 
-# Comments.tpl.php
-'Delete' => 'Radera', 
-'No comments yet, why not' => 'Inga kommentarer än, varför inte', 
-'be the first to post one' => 'posta den första?', 
-'Delete all Spam Comments' => 'Radera alla spam-kommentarer', 
+# BeforeNoComments.tpl.php
 'No Comments' => 'Inga kommentarer', 
+
+# Comments.tpl.php
 'Mark as Ham' => 'Markera som ham (inte spam)', 
 'Mark as Spam' => 'Markera som spam', 
+'Delete' => 'Radera', 
+
+# Comments.js
+'There is no spam.' => 'Det finns ingen spam.', 
+
+# NoComments.tpl.php
+'No comments yet, why not' => 'Inga kommentarer än, varför inte', 
+'be the first to post one' => 'posta den första?', 
+
+# AfterCommentsAdmin.tpl.php
+'Delete all Spam Comments' => 'Radera alla spam-kommentarer', 
+
+# BeforeComments.tpl.php
 
 # RandomLinks.js
 'Get some new links' => 'Slumpa nya länkar', 
-'Loading' => 'Laddar', 
 
 # BeforeRandomLinks.tpl.php
 'Random Links' => 'Slumpade länkar', 
@@ -89,12 +110,24 @@
 'You are currently browsing' => 'Du surfar för närvarande', 
 'articles tagged with' => 'artiklar taggade med', 
 'Archives for' => 'Arkivet för', 
-'articles posted in' => 'artiklar publicerade', 
-'articles posted on' => 'artiklar publicerade', 
+'articles posted on' => 'artiklar postade', 
+'articles posted in' => 'artiklar postade i', 
 'The Latest Articles' => 'De senaste artiklarna', 
+
+# RandomArticleImage.js
+'Get a new image' => 'Slumpa en ny bild', 
 
 # BeforeRecentArticles.tpl.php
 'Recent Articles' => 'Senaste artiklarna', 
+
+# RecentArticles.js
+
+# AfterRecentArticles.tpl.php
+'Newer' => 'Nyare', 
+'Older' => 'Äldre', 
+
+# OlderArticles.tpl.php
+'Continue reading' => 'Fortsätt läsa', 
 
 # BeforeOlderArticles.tpl.php
 'Older Articles' => 'Äldre artiklar', 
@@ -106,11 +139,8 @@
 'Recent Comments' => 'Senaste kommentarerna', 
 
 # RecentComments.js
-'Loading' => 'Laddar', 
 
 # AfterRecentComments.tpl.php
-'Newer' => 'Nyare', 
-'Older' => 'Äldre', 
 
 # ArticleCalendar.tpl.php
 'Sunday' => 'Söndag', 
@@ -125,6 +155,10 @@
 'Friday' => 'Fredag', 
 'F' => 'F', 
 'Saturday' => 'Lördag', 
+
+# ArticleCalendar.js
+
+# ArticlesByDate.tpl.php
 
 # BeforeArticlesByDate.tpl.php
 'Articles by Date' => 'Artiklar efter datum'

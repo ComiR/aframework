@@ -3,8 +3,19 @@
 # Routes.php
 'url.add-page' => 'add-page', 
 
-# NavigationModule.php
+# DebugModule.php
 'Add Page +' => 'Add Page +', 
+
+# IntroTextAdmin.tpl.php
+'Introductionary Text' => 'Introductionary Text', 
+'Save Changes' => 'Save Changes', 
+
+# QuickAboutAdmin.tpl.php
+'Short Description of' => 'Short Description of', 
+
+# Page.js
+'Advanced View' => 'Advanced View', 
+'Are you sure?' => 'Are you sure?', 
 
 # PageModule.php
 'Add a Page' => 'Add a Page', 
@@ -22,13 +33,11 @@
 'Meta Keywords' => 'Meta Keywords', 
 'Meta Description' => 'Meta Description', 
 'Page Content' => 'Page Content', 
-'Save Changes' => 'Save Changes', 
 'Add Page' => 'Add Page', 
 'or' => 'or', 
 'Delete this Page' => 'Delete this Page', 
 
 # BeforePageAdmin.tpl.php
-'Edit Page' => 'Edit Page', 
-'Add Page' => 'Add Page'
+'Edit Page' => 'Edit Page'
 
 ); ?>

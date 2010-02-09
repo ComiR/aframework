@@ -7,7 +7,7 @@
 'url.styles' => 'stilar', 
 
 # SocialBookmarks.tpl.php
-'Add to' => 'Lägg till på', 
+'Add to' => 'Lägg till på/i', 
 
 # BeforeSocialBookmarks.tpl.php
 'Bookmark this URL' => 'Bokmärk den här sidan', 
@@ -46,7 +46,6 @@
 # ModuleAdmin.tpl.php
 'Module admin' => 'Moduladmin', 
 'Remove module from controller' => 'Ta bort modul från kontroller', 
-'Add to' => 'Lägg till på/i', 
 'Or' => 'eller', 
 'Insert before' => 'Lägg till innan', 
 
@@ -115,12 +114,7 @@
 # Header.tpl.php
 'Home Page' => 'Hemsidan', 
 
-# Live.js
-'Show live cam' => 'Visa live-kamera', 
-'Hide live cam' => 'Dölj live-kamera', 
-
 # BeforeStyles.tpl.php
-'Styles' => 'Stilar', 
 'There are currently' => 'Det finns för närvarande', 
 'styles to choose from.' => 'stilar att välja mellan.', 
 
@@ -136,20 +130,19 @@
 
 # AfterFooter.tpl.php
 'Copyright' => 'Copyright', 
-'All contents are released under a CCv3' => 'All contents are released under a CCv3', 
-'Some Rights Reserved.' => 'Some Rights Reserved.', 
-'is powered by' => 'is powered by', 
-'and' => 'and', 
-'seconds' => 'seconds', 
-'queries' => 'queries', 
+'All contents are released under a CCv3' => 'allt innehåll är licenserat under CCv3', 
+'Some Rights Reserved.' => 'Vissa rättigheter reserverade.', 
+'is powered by' => 'drivs av', 
+'and' => 'och', 
+'seconds' => 'sekunder', 
+'queries' => 'db-anrop', 
 
 # Footer.tpl.php
-'Top of Page' => 'Top of Page', 
-'Top' => 'Top', 
-'Contact Me' => 'Contact Me', 
-'Contact' => 'Contact', 
-'Get Firefox!' => 'Get Firefox!', 
+'Top of Page' => 'Toppen av sidan', 
+'Top' => 'Toppen', 
+'Contact Me' => 'Kontakta mig', 
+'Get Firefox!' => 'Skaffa Firefox!', 
 'Valid XHTML 1.0 Strict' => 'Valid XHTML 1.0 Strict', 
-'(Mostly) Valid CSS' => '(Mostly) Valid CSS'
+'(Mostly) Valid CSS' => '(Mestadels) Valid CSS'
 
 ); ?>
