@@ -25,8 +25,8 @@
 		public static function getVisitorData () {
 			$data = self::$data;
 
-			$data['author']		= $data['name'];
-			$data['website']	= $data['url'];
+			$data['author']		= isset($data['name']) ? $data['name'] : false;
+			$data['website']	= isset($data['url']) ? $data['url'] : false;
 
 			return $data;
 		}
