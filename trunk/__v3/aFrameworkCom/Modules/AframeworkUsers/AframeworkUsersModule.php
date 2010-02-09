@@ -32,6 +32,12 @@
 					'title'			=> 'a-Framework.org', 
 					'thumb'			=> WEBROOT . 'aFrameworkCom/Styles/aframework-com/thumb.png', 
 					'description'	=> 'How would it look if aFramework\'s official site _**didn\'t**_ run on aFramework? :)'
+				), 
+				array(
+					'url'			=> 'http://sidkritik.se', 
+					'title'			=> 'Sidkritik.se', 
+					'thumb'			=> WEBROOT . 'Sidkritik/Styles/sidkritik/thumb.png', 
+					'description'	=> 'Sidkritik.se is a Swedish site focused on website reviews. It\'s a little like a CSS-gallery but anyone can add and review sites.'
 				)
 			);
 		}
