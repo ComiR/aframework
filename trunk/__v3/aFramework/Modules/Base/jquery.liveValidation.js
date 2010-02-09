@@ -92,7 +92,7 @@ jQuery.fn.liveValidation = function (conf, addedFields) {
 		content: 		/^\S.*$/m,											// "content" (at least one character)
 		dimensions:		/^\d+x\d+$/,										// dimensions (DIGITxDIGIT)
 		price:			/^\d+$/,											// price (at least one digit)
-		url: 			/^(http:\/\/)?(www)?([^ |\.]*?)\.([^ ]+){2,5}$/,	// url
+	//	url: 			/^(http:\/\/)?(www)?([^ |\.]*?)\.([^ ]+){2,5}$/,	// url
 		email: 			/^.+?@.+?\..{2,4}$/									// email
 	}, config.fields);
 
