@@ -61,6 +61,8 @@
 
 # review-tabs.js
 'Read Reviews' => 'Läs recensioner', 
-'Write a Review' => 'Skriv en recension'
+'Write a Review' => 'Skriv en recension', 
+
+'Toggle Full Size Thumbnail' => 'Växla mellan fullstor thumbnail'
 
 ); ?>
