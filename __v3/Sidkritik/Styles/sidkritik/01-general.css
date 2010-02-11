@@ -103,7 +103,7 @@ $small {
 	}
 
 $black-box {
-	background: #000;
+	background-color: #000;
 
 	padding: 5px 10px;
 
@@ -117,7 +117,7 @@ $black-box-link {
 }
 
 $black-box-selected {
-	background: #333;
+	background-color: #333;
 	color: #f2f2f2;
 }
 

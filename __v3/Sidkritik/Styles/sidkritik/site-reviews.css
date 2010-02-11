@@ -106,6 +106,8 @@
 
 					body.js-enabled #site-reviews > ol > li > div h5 a = $black-box;
 					body.js-enabled #site-reviews > ol > li > div h5 a {
+						background: url(gfx/icons.png) no-repeat 10px top;
+						padding-left: 40px;
 						display: block;
 						outline: 0;
 					}
@@ -125,6 +127,15 @@
 				margin: 30px 0 10px;
 			}
 
+				body.js-enabled #site-reviews ol li div.comments h5 a {
+					background-position: 10px 4px;
+				}
+
+				body.js-enabled #site-reviews ol li div.comments h5 a:hover, 
+				body.js-enabled #site-reviews ol li div.comments.visible h5 a {
+					background-position: 10px -16px;
+				}
+
 				body.js-enabled #site-reviews ol li div.comments ol = $small;
 				body.js-enabled #site-reviews ol li div.comments ol = $plain-list;
 				body.js-enabled #site-reviews ol li div.comments ol = $black-box;
@@ -133,6 +144,15 @@
 			body.js-enabled #site-reviews ol li div.post-comment {
 				
 			}
+
+				body.js-enabled #site-reviews ol li div.post-comment h5 a {
+					background-position: 10px 4px;
+				}
+
+				body.js-enabled #site-reviews ol li div.post-comment h5 a:hover, 
+				body.js-enabled #site-reviews ol li div.post-comment.visible h5 a {
+					background-position: 10px -16px;
+				}
 
 				body.js-enabled #site-reviews ol li div.post-comment form = $small;
 				body.js-enabled #site-reviews ol li div.post-comment form = $black-box;

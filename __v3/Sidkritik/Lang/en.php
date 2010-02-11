@@ -61,6 +61,8 @@
 
 # review-tabs.js
 'Read Reviews' => 'Read Reviews', 
-'Write a Review' => 'Write a Review'
+'Write a Review' => 'Write a Review', 
+
+'Toggle Full Size Thumbnail' => 'Toggle Full Size Thumbnail'
 
 ); ?>

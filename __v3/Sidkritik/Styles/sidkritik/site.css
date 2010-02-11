@@ -2,16 +2,35 @@
 	margin: 0 0 30px;
 }
 
-	#site p {
-		
+	#site p:first-child = $nice-img;
+	#site p:first-child {
+		line-height: 1;
+	}
+	body.js-enabled #site p:first-child {
+		height: 300px;
+		overflow: hidden;
 	}
 
-		#site p a {
+	body.js-enabled #site p:first-child.full {
+		height: auto;
+		overflow: visible;
+	}
+
+		#site p:first-child a {
 		
 		}
 
-			#site p a img = $nice-img;
-			#site p a img = $img-large;
-			#site p a img {
+			#site p:first-child a img {
 				width: 950px;
+				display: block;
 			}
+
+	#site p.full-thumb-toggler = $small;
+	#site p.full-thumb-toggler {
+		text-align: center;
+	}
+
+		#site p.full-thumb-toggler a = $black-box;
+		#site p.full-thumb-toggler a = $black-box-link;
+
+	#site p:first-child.full + p.full-thumb-toggler a = $black-box-selected;

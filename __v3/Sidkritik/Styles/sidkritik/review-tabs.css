@@ -15,6 +15,6 @@
 		}
 
 			#review-tabs ul li a = $black-box;
-			#review-tabs ul li a = $black-box-links;
+			#review-tabs ul li a = $black-box-link;
 
 			#review-tabs ul li a.selected = $black-box-selected;
