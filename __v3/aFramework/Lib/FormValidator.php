@@ -9,7 +9,7 @@
 			'description'	=> '/^\S.*$/s',											// description (atleast one character)
 			'dimensions'	=> '/^\d+x\d+$/',										// dimensions (DIGITxDIGIT)
 			'price'			=> '/^\d+$/',											// price (atleast one digit)
-			'url'			=> '/^(http:\/\/)?(www)?([^ |\.]*?)\.([^ ]){2,5}$/',	// url
+			'url'			=> '/^http:\/\/?www?[^ ]+\.[^ ]{2,5}$/',				// url
 			'email'			=> '/^.+?@.+?\..{2,4}$/'								// email
 		);
 
