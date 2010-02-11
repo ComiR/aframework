@@ -51,6 +51,8 @@
 			if (isset($_POST['add_site_submit']) and $form->validate(true)) {
 				# Add new site
 				Sites::insert(array(
+					'author'		=> $_POST['author'], 
+					'email'			=> $_POST['email'], 
 					'title'			=> $_POST['title'], 
 					'content'		=> $_POST['content'], 
 					'thumb_url'		=> isset($_POST['thumb_url']) ? $_POST['thumb_url'] : '', 
