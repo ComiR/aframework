@@ -26,11 +26,13 @@
 			));
 			$form->addField(array(
 				'name'		=> 'email', 
-				'title'		=> Lang::get('E-mail')
+				'title'		=> Lang::get('E-mail'), 
+				'required'	=> true
 			));
 			$form->addField(array(
 				'name'		=> 'website', 
-				'title'		=> Lang::get('Website')
+				'title'		=> Lang::get('Website'), 
+				'required'	=> true
 			));
 			$form->addField(array(
 				'name'		=> 'rating', 
