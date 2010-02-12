@@ -50,6 +50,7 @@
 		public function validate ($checkSpam = false) {
 			if ($checkSpam and !SpamChecker::getKarma($_POST)) {
 				$this->errors['__spam'] = 'The data in the form appears to be spam. Please remove overflow of links and spammy words.';
+				$this->errors['__spam_info'] = SpamChecker::getInfo();
 			}
 
 			foreach ($this->fields as $field) {
@@ -73,7 +74,14 @@
 			$fields	= $this->fields;
 
 			if (isset($this->errors['__spam'])) {
-				$html .= "<p><strong>The data in the form appears to be spam. Please try with less URLs and/or spammy words.</strong></p>";
+				$html .= "<p><strong>The data in the form appears to be spam. Please try with less URLs and/or spammy words. Here's what the SpamChecker says:</strong></p>";
+				$html .= "<ul>";
+
+				foreach ($this->errors['__spam_info'] as $spamInfo) {
+					$html .= "<li>$spamInfo</li>";
+				}
+
+				$html .= "</ul>";
 			}
 
 			$html .= "<form method=\"{$this->method}\" action=\"{$this->action}\">\n\t";

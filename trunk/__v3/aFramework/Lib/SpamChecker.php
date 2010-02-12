@@ -1,6 +1,9 @@
 <?php
 	class SpamChecker {
+		private static $info = array();
+
 		public static function getKarma ($f) {
+			self::$info	= array();
 			$score		= 0;
 			$fields		= array(
 				'content'	=> isset($f['content'])	? $f['content']	: '', 
@@ -35,18 +38,22 @@
 			# Negative score for more than 2 links
 			if ($count > 2) {
 				$score -= $count;
+				self::$info[] = 'More than 2 links, -1 point for each link';
 			}
 			# Positive score for less than 2 links
 			if ($count < 2) {
 				$score += 2;
+				self::$info[] = 'Less than 2 links, +2 points';
 			}
 			# Positive score for no links long content
 			if ($count == 0 && strlen($fields['content'] > 20)) {
 				$score += 2;
+				self::$info[] = 'No links and content longer than 20 chars, +2 points';
 			}
 			# Negative score for short content
-			if (strlen($fields['content'] < 20)) {
+			if (strlen($fields['content']) < 20) {
 				$score -= 1;
+				self::$info[] = 'Content less than 20 chars, -1 point';
 			}
 
 			#####
@@ -67,6 +74,7 @@
 			foreach($badWords as $word) {
 				if (strpos($str, $word) !== false) {
 					$score--;
+					self::$info[] = '"' . $word . '" found in fields, -1 point';
 				}
 			}
 
@@ -78,17 +86,27 @@
 			foreach($badURLs as $url) {
 				if (strpos($str, $url) !== false) {
 					$score--;
+					self::$info[] = '"' . $url . '" found in URL, -1 point';
 				}
 			}
 
 			# Check for .de or .pl domains since they tend to spam
-			$score -= preg_match('/\.(de|pl|cn)(\/|$)/', $fields['url']) ? 2 : 0;
+			if (preg_match('/\.(de|pl|cn)(\/|$)/', $fields['url'])) {
+				$score -= 2;
+				self::$info[] = '.de, .pl or .cn TLD in URL, -2 points';
+			}
 
 			# Mark this -2 because it's always spam
-			$score -= preg_match('/-.*-.*htm$/', $fields['url']) ? 2 : 0;
+			if (preg_match('/-.*-.*htm$/', $fields['url'])) {
+				$score -= 2;
+				self::$info[] = 'URL matches /-.*-.*htm$/, -2 points';
+			}
 
 			# spam urls are on average 38 chars long
-			$score -= strlen($fields['url']) > 30 ? 1 : 0;
+			if (strlen($fields['url']) > 30) {
+				$score -= 1;
+				self::$info[] = 'URL longer than 30 chars, -1 point';
+			}
 
 			#####
 			# Check spam phrases
@@ -103,12 +121,16 @@
 			foreach($regexps as $regexp) {
 				if (preg_match($regexp, $fields['content'])) {
 					$score -= 10;
+					self::$info[] = 'Content matches "' . $regexpt . '", -10 points';
 				}
 			}
 
 			#####
 			# Check if URL is in author
-			$score -= (substr_count(strtolower($fields['author']), 'http://') * 2);
+			if (($numUrlsInAuthor = substr_count(strtolower($fields['author']), 'http://'))) {
+				$score -= $numURLsInAuthor * 2;
+				self::$info[] = 'http:// found in author, -2 points per occurence';
+			}
 
 			#####
 			# Check if body has been used before
@@ -117,9 +139,17 @@
 			#####
 			# Check if we're coming up with nonsense words
 			preg_match_all('/[bcdfghjklmnpqrstvwxz]{5}/', strtolower($fields['email'] . $fields['author']), $matches);
-			$score -= count($matches[0]);
+
+			if (count($matches[0])) {
+				$score -= count($matches[0]);
+				self::$info[] = 'Nonsense words, -X points';
+			}
 
 			return $score;
+		}
+
+		public static function getInfo () {
+			return count(self::$info) ? self::$info : false;
 		}
 	}
 ?>
