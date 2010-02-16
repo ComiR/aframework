@@ -57,10 +57,11 @@
 			$daysInMonth	= date('t', $firstDayOfMonth);
 			$weeksInMonth	= ceil(($daysInMonth + $blanks) / 7);
 			$actualDays		= 0;
+			$todayDayNum	= date('d');
 
 			for ($week = 0; $week < $weeksInMonth; $week++) {
-				for ($day = 0; $day < 7; $day ++) {
-					if(($week == 0 and ($day < $blanks)) or ($actualDays >= $daysInMonth)) {
+				for ($day = 0; $day < 7; $day++) {
+					if (($week == 0 and ($day < $blanks)) or ($actualDays >= $daysInMonth)) {
 						self::$tplVars['weeks'][$week]['days'][$day]['blank'] = true;
 					}
 					else {
@@ -80,7 +81,8 @@
 						self::$tplVars['weeks'][$week]['days'][$day] = array(
 							'num_articles'	=> $numArticles, 
 							'num'			=> $actualDays,	
-							'url'			=> Router::urlFor('ArticlesByDay', array('year' => $year, 'month' => $month, 'day' => $dayNum))
+							'url'			=> Router::urlFor('ArticlesByDay', array('year' => $year, 'month' => $month, 'day' => $dayNum)), 
+							'today'			=> $dayNum == $todayDayNum ? true : false
 						);
 					}
 				}
