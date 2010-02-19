@@ -25,7 +25,7 @@
 			if (
 				isset($row['author']) and !empty($row['author']) and 
 				isset($row['content']) and !empty($row['content']) and 
-				SpamChecker::getKarma($row) # Never store spam... i'm getting too much of it!!
+				SpamChecker::getKarma($row) > 0
 			) {
 				Comments::insert($row);
 
