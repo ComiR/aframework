@@ -130,7 +130,14 @@
 			}
 		}
 
-		public static function getArticleByURLStr ($urlStr) {
+		public static function getArticleByURLStr ($urlStr, $inTheFuture = false) {
+			if ($inTheFuture) {
+				$where = '1 = 1';
+			}
+			else {
+				$where = 'articles.pub_date <= NOW()';
+			}
+
 			$res = DB::qry('
 				SELECT
 					articles.*, 
@@ -145,7 +152,7 @@
 				GROUP BY
 					articles.articles_id
 				HAVING
-					articles.pub_date <= NOW() AND 
+					' . $where . ' AND 
 					articles.url_str LIKE BINARY "' . escSQL($urlStr) . '"
 				LIMIT 1
 			');

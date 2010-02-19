@@ -31,7 +31,7 @@
 			# Or it's a normal article-display
 			else {
 				# If url_str is set get that article else get latest article
-				$article = isset(Router::$params['url_str']) ? Articles::getArticleByURLStr(Router::$params['url_str']) : Articles::get('pub_date', 'DESC', 0, 1);
+				$article = isset(Router::$params['url_str']) ? Articles::getArticleByURLStr(Router::$params['url_str'], ADMIN) : Articles::get('pub_date', 'DESC', 0, 1);
 
 				# Make sure URL-date is the same as article-date if a particular article is requested
 				if (isset(Router::$params['url_str'])) {
