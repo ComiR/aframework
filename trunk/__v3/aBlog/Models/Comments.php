@@ -116,7 +116,7 @@
 		}
 
 		public static function insert ($row) {
-			$fields	 = array(
+			$fields = array(
 				'articles_id'		=> $row['articles_id'], 
 				'karma'				=> SpamChecker::getKarma($row), 
 				'ip'				=> $_SERVER['REMOTE_ADDR'], 
