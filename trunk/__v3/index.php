@@ -39,7 +39,7 @@
 		case 'sidkritik.se' : 
 			define('SITE_HIERARCHY', 'Sidkritik aCMS aDynAdmin aFramework');
 			break;
-		case 'new.ourfuture.eu' : 
+		case 'ourfuture.eu' : 
 			define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
 			break;
 		default : 
