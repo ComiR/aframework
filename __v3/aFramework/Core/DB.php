@@ -23,7 +23,8 @@
 			# Count the number of queries
 			self::$numQueries++;
 
-			$res = mysql_query($qry) or die(mysql_error() . '<hr /><pre>' . escHTML($qry) . '</pre>');
+		#	$res = mysql_query($qry) or die(mysql_error() . '<hr /><pre>' . escHTML($qry) . '</pre>');
+			$res = mysql_query($qry);
 
 			return $res;
 		}
