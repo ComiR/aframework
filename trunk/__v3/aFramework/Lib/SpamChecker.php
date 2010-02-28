@@ -30,6 +30,68 @@
 				'url>', 
 				'vigrx'
 			);
+			$alwaysSpam	= array(
+				'Best Site good looking', 
+				"Good crew it's cool :)", 
+				'This site is crazy :)', 
+				'Jonny was here', 
+				"Good crew it's cool :)", 
+				'very best job', 
+				'real beauty page', 
+				'Thanks funny site', 
+				'Wonderfull great site', 
+				'perfect design thanks', 
+				'good material thanks', 
+				'Very Good Site', 
+				'Best Site Good Work', 
+				'good material thanks', 
+				'very best job', 
+				"Good crew it's cool :)", 
+				'This site is crazy :)', 
+				'Very interesting tale', 
+				'Excellent work, Nice Design', 
+				'Best Site good looking', 
+				'Thanks funny site', 
+				"It's funny goodluck", 
+				"Good crew it's cool :)", 
+				"It's serious", 
+				'Very Good Site', 
+				'Excellent work, Nice Design', 
+				'Cool site goodluck :)', 
+				'Best Site good looking', 
+				'Best Site Good Work', 
+				'Very interesting tale', 
+				"It's serious", 
+				'magic story very thanks', 
+				'Best Site good looking', 
+				"I'm happy very good site", 
+				'Best Site good looking', 
+				'Very funny pictures', 
+				"It's funny goodluck", 
+				'Cool site goodluck :)', 
+				'Cool site goodluck :)', 
+				'Excellent work, Nice Design', 
+				'perfect design thanks', 
+				'Best Site Good Work', 
+				'this is be cool 8)', 
+				'Wonderfull great site', 
+				"Good crew it's cool :)", 
+				'Hello good day', 
+				'this is be cool 8)', 
+				'Cool site goodluck :)', 
+				"I'm happy very good site", 
+				'this post is fantastic', 
+				'Very interesting tale', 
+				'Gloomy tales', 
+				'Best Site Good Work', 
+				'Thanks funny site', 
+				'perfect design thanks', 
+				'this post is fantastic'
+			);
+
+			if (in_array($fields['content'], $alwaysSpam)) {
+				$score -= 10;
+			}
 
 			#####
 			# Check for link frequency in content
