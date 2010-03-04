@@ -6,6 +6,7 @@
 'url.contact-information' => 'contact-information', 
 'url.news-tag' => 'news', 
 'url.comics' => 'comics', 
+'url.activities-admin' => 'activities-admin', 
 
 # LatestComic.tpl.php
 'The Latest Comic' => 'The Latest Comic', 
@@ -66,6 +67,10 @@
 'Contact' => 'Contact', 
 'Documents' => 'Documents', 
 
-'Elderly care when the older to be decides' => 'Elderly care when the older to be decides'
+'Elderly care when the older to be decides' => 'Elderly care when the older to be decides', 
+
+'Close' => 'Close', 
+
+'Activities for' => 'Activities for'
 
 ); ?>

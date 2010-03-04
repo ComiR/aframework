@@ -52,6 +52,7 @@
 'Type' => 'Typ', 
 'Size' => 'Storlek', 
 'Delete' => 'Radera', 
+'url.activities-admin' => 'aktivitetsadmin', 
 
 # NoDocuments.tpl.php
 'No Documents' => 'Inga dokument', 
@@ -66,6 +67,10 @@
 'Contact' => 'Kontakt', 
 'Documents' => 'Dokument', 
 
-'Elderly care when the older to be decides' => 'Framtidens äldrevård när våra blivande äldre får bestämma'
+'Elderly care when the older to be decides' => 'Framtidens äldrevård när våra blivande äldre får bestämma', 
+
+'Close' => 'Stäng', 
+
+'Activities for' => 'Händelser'
 
 ); ?>
