@@ -6,7 +6,7 @@
 
 	Config::set('lang.allowed_langs',			'en,sv');
 	Config::set('lang.default_lang',			'en');
-	Config::set('lang.translated_tables',		'articles,pages,tags,article_tags,comments');
+	Config::set('lang.translated_tables',		'articles,pages,tags,article_tags,comments,activities');
 
 	Config::set('general.default_style',		'open-ole');
 
@@ -30,4 +30,7 @@
 	Config::set('navigation.archives',			false);
 
 	Config::set('ablog.num_recent_comments',	3);
+
+	Config::set('activities_admin.username',	'admin');
+	Config::set('activities_admin.password',	'1234');
 ?>
