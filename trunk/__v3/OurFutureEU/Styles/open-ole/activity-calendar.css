@@ -1,0 +1,62 @@
+#activity-calendar #activities = $white-shadowed-box;
+#activity-calendar #activities {
+	position: absolute;
+	left: 0;
+	top: 0;
+
+	width: 280px;
+	overflow: auto;
+
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+	#activity-calendar #activities h2 {
+		font-size: 140%;
+	}
+
+	#activity-calendar #activities ol = $plain-list;
+
+	#activity-calendar #activities h3 {
+		font-size: 120%;
+	}
+
+	#activity-calendar #activities a.close = $small;
+	#activity-calendar #activities a.close {
+		position: absolute;
+		right: 20px;
+		bottom: 20px;
+	}
+
+#activity-calendar = $white-shadowed-box;
+#activity-calendar {
+	position: relative;
+}
+
+	#activity-calendar h2 {
+		margin: 0 0 15px;
+	}
+
+	#activity-calendar table {
+		width: 100%;
+		border-spacing: 0;
+		border-collapse: collapse;
+	}
+
+		#activity-calendar table th, 
+		#activity-calendar table td {
+			padding: 2px 5px;
+			border: 1px solid #ccc;
+			text-align: center;
+		}
+
+		#activity-calendar table th:first-child, 
+		#activity-calendar table td:first-child {
+			color: red;
+		}
+
+	#activity-calendar ul = $previous-next-menu;
+	#activity-calendar ul {
+		margin: 10px 0 0;
+	}

@@ -1,56 +1,70 @@
-(function () {
-	$('#tertiary-content, #footer').fullPageWidthBar();
+OpenOLEStyle = {
+	run: function () {
+		this.fullWidthBottom();
+		this.documentsIcons();
+		this.movingSun();
 
-	// Give documents-type same bg as links
-	$('#documents tr').each(function (i) {
-		// Skip first row
-		if (i) {
-			var tr		= $(this);
-			var tds		= tr.find('td');
-			var link	= tds.eq(0).find('a');
-			var span	= tds.eq(1).wrapInner('<span/>').find('span');
-			var bgPos	= link.css('background-position').replace('0%', '100%');
+		window.onload = function () {
+			OpenOLEStyle.selfClearPositionAbsolute();
+			OpenOLEStyle.projectTabs();
+		};
+	}, 
 
-			span.css({
-				backgroundImage:	link.css('background-image'), 
-				backgroundPosition:	bgPos, 
-				backgroundRepeat:	link.css('background-repeat'), 
-				paddingTop:			link.css('padding-top'), 
-				paddingRight:		link.css('padding-left'), 
-				paddingBottom:		link.css('padding-bottom'), 
-				paddingLeft:		link.css('padding-right')
-			});
-		}
-	});
+	fullWidthBottom: function () {
+		$('#tertiary-content, #footer').fullPageWidthBar();
+	}, 
 
-	// Move the sun onscroll
-	var win			= $(window);
-	var wrapper		= $('#wrapper');
-	var pageHeight	= $(document).height();
-	var maxScroll	= pageHeight - $(window).height();
+	documentsIcons: function () {
+		$('#documents tr').each(function (i) {
+			// Skip first row
+			if (i) {
+				var tr		= $(this);
+				var tds		= tr.find('td');
+				var link	= tds.eq(0).find('a');
+				var span	= tds.eq(1).wrapInner('<span/>').find('span');
+				var bgPos	= link.css('background-position').replace('0%', '100%');
 
-	var updateSunPosition	= function () {
-		var scrollTop		= win.scrollTop();
-		var percentScrolled	= scrollTop / maxScroll; // pageHeight;
-		var sunPos			= Math.round(400 * percentScrolled - 400);
-		//	sunPos			= sunPos > 0 ? 0 : sunPos;
+				span.css({
+					backgroundImage:	link.css('background-image'), 
+					backgroundPosition:	bgPos, 
+					backgroundRepeat:	link.css('background-repeat'), 
+					paddingTop:			link.css('padding-top'), 
+					paddingRight:		link.css('padding-left'), 
+					paddingBottom:		link.css('padding-bottom'), 
+					paddingLeft:		link.css('padding-right')
+				});
+			}
+		});
+	}, 
 
-		wrapper.css('background-position', '60% ' + sunPos + 'px');
-	};
+	movingSun: function () {
+		var win			= $(window);
+		var wrapper		= $('#wrapper');
+		var pageHeight	= $(document).height();
+		var maxScroll	= pageHeight - $(window).height();
 
-	updateSunPosition();
-	win.scroll(updateSunPosition);
+		var updateSunPosition	= function () {
+			var scrollTop		= win.scrollTop();
+			var percentScrolled	= scrollTop / maxScroll; // pageHeight;
+			var sunPos			= Math.round(400 * percentScrolled - 400);
+			//	sunPos			= sunPos > 0 ? 0 : sunPos;
 
-	// Things that need to happen after images have loaded
-	window.onload = function () {
-		// "Self-clear" absolutely positioned images
+			wrapper.css('background-position', '60% ' + sunPos + 'px');
+		};
+
+		updateSunPosition();
+		win.scroll(updateSunPosition);
+	}, 
+
+	selfClearPositionAbsolute: function () {
 		$('#contact-persons li').each(function () {
 			var minHeight = parseInt($(this).find('img').outerHeight(), 10) + 35;
 
 			$(this).css('min-height', minHeight + 'px');
 		});
+	}, 
 
-		// Tabs on project pages
+	projectTabs: function () {
 		if (document.getElementById('project-page-page')) {
 			// Add tab-list
 			$('<ul id="project-tabs"><li><a href="#page">' 
@@ -64,5 +78,7 @@
 			// Move the heading above the tabs
 			$('#page h2').prependTo('#primary-content');
 		}
-	};
-})();
+	}
+};
+
+OpenOLEStyle.run();
