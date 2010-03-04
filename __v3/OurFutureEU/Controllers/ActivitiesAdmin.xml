@@ -8,8 +8,7 @@
 		<Search/>
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
-			<Page/>
-			<ContactPersons/>
+			<ActivitiesAdmin/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<LatestComic/>

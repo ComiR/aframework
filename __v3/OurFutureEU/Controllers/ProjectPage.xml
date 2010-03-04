@@ -16,7 +16,7 @@
 		<Wrapper name="secondary-content">
 			<LatestComic/>
 			<RandomLinks/>
-			<ArticleCalendar/>
+			<ActivityCalendar/>
 			<RecentComments/>
 		</Wrapper>
 		<Wrapper name="tertiary-content">
