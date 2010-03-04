@@ -1,0 +1,28 @@
+/***
+@title: Our Life as Elderly "Clean"
+@author: Andreas Lagerkvist
+@date: 2010-03-03 (started)
+@extends: open-ole
+***/
+body, 
+#wrapper {
+	background: none;
+}
+
+#tertiary-content {
+	background: #0a2c46 url(gfx/gradient.gif) repeat-x;
+}
+
+#footer {
+	background: #0a2c46;
+}
+
+#footer, 
+#footer a {
+	color: #4c7a9d;
+}
+
+#footer:hover, 
+#footer:hover a {
+	color: #abc;
+}

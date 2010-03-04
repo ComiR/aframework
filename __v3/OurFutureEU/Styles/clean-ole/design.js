@@ -1,0 +1,1 @@
+OpenOLEStyle.movingSun = function () {};

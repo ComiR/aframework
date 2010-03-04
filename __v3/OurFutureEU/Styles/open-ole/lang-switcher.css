@@ -8,6 +8,7 @@
 	#lang-switcher ul = $small;
 	#lang-switcher ul {
 		margin: 0;
+		white-space: nowrap;
 	}
 
 		#lang-switcher ul li {
