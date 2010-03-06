@@ -6,23 +6,27 @@
 ***/
 body, 
 #wrapper {
-	background: none;
+/*	background: none;*/
 }
 
 #tertiary-content {
 	background: #0a2c46 url(gfx/gradient.gif) repeat-x;
+	background: none;
 }
 
 #footer {
 	background: #0a2c46;
+	background: none;
 }
 
 #footer, 
 #footer a {
 	color: #4c7a9d;
+	color: inherit;
 }
 
 #footer:hover, 
 #footer:hover a {
 	color: #abc;
+	color: inherit;
 }
