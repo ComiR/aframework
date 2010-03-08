@@ -1,0 +1,49 @@
+#project-tabs = $self-clear;
+#project-tabs {
+	margin: 0;
+	list-style: none;
+}
+
+	#project-tabs li {
+		float: left;
+		margin: 0 15px 0 0;
+	}
+
+		#project-tabs li a = $small;
+		#project-tabs li a = $tab;
+		#project-tabs li a {
+			border-width: 0 1px 1px 1px;
+			-moz-border-radius: 0 0 5px 5px;
+			-webkit-border-radius: 0 0 5px 5px;
+			border-radius: 0 0 5px 5px;
+		}
+
+/*#project-tabs {
+	background: url(gfx/tab-border.png) no-repeat right top;
+
+	width: 99px;
+	min-height: 250px;
+	margin: 0;
+	padding: 50px 1px 0 0;
+
+	position: absolute;
+	left: -125px;
+	top: 50px;
+
+	list-style: none;
+}
+
+	#project-tabs li = $self-clear;
+	#project-tabs li {
+		margin: 0 0 10px 0;
+	}
+
+		#project-tabs li a = $small;
+		#project-tabs li a = $tab;
+		#project-tabs li a {
+			float: right;
+			border-width: 1px 0 1px 1px;
+			-moz-border-radius: 5px 0 0 5px;
+			-webkit-border-radius: 5px 0 0 5px;
+			border-radius: 5px 0 0 5px;
+		}*/

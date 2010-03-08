@@ -1,0 +1,46 @@
+#comments {
+	
+}
+
+	#comments h3 {
+		
+	}
+
+	#comments > ol {
+		margin-left: 0;
+		list-style: none;
+	}
+
+		#comments > ol > li = $white-round-box;
+		#comments > ol > li {
+			margin: 0 0 20px;
+			position: relative;
+			padding-left: 124px;
+		}
+
+			#comments ol li h4 {
+				margin: 10px 0 0;
+			}
+
+				#comments ol li h4 img {
+					position: absolute;
+					left: 20px;
+					top: 20px;
+
+					width: 80px;
+					height: 80px;
+
+					border: 2px solid #15739F;
+				}
+
+			#comments ol li p {
+
+			}
+
+				#comments ol li p small {
+
+				}
+
+					#comments ol li p small a {
+						text-decoration: none;
+					}

@@ -1,0 +1,302 @@
+/***
+@title: Our Life as Elderly "Boxy"
+@author: Andreas Lagerkvist
+@date: 2010-03-04 (started)
+@extends: base-ole
+***/
+/*
+	=== Constants ===
+*/
+$main-heading {
+	background: #2f95fb url(gfx/nav-hover.gif) repeat-x left bottom;
+	background: #eaeaea url(gfx/nav.gif) repeat-x left bottom;
+	background: #06c;
+	background: #2f95fb url(gfx/nav-hover.gif) repeat-x left bottom;
+
+	margin: -15px -15px 10px;
+	padding: 10px 15px;
+
+	color: #fff;
+
+	-moz-border-radius: 5px 5px 0 0;
+	-webkit-border-radius: 5px 5px 0 0;
+	border-radius: 5px 5px 0 0;
+}
+
+	$main-heading a {
+		color: #fff;
+	}
+
+$separated {
+	margin: 0;
+	padding: 0;
+	border: 0;
+}
+
+$separated::after {
+	display: block;
+	clear: both;
+	text-align: center;
+	content: url(gfx/module-separator.png);
+	margin: 15px 0;
+}
+
+$separated:last-child::after {
+	display: none;
+}
+
+$white-content-box {
+	background: #f9f9f9 url(gfx/content-box-gradient.gif) repeat-x;
+	padding: 14px;
+	border: 1px solid #fefefe;
+
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+
+	-moz-box-shadow: 2px 2px 3px rgba(0, 50, 100, .5);
+	-webkit-box-shadow: 2px 2px 3px rgba(0, 50, 100, .5);
+	box-shadow: 2px 2px 3px rgba(0, 50, 100, .5);
+}
+
+$white-shadowed-box {
+	background: none;
+	padding: 0;
+	border: 0;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+$pretty-image {
+	background: none;
+	padding: 0;
+	border: 0;
+	-moz-box-shadow: 2px 2px 3px rgba(0, 50, 100, .5);
+	-webkit-box-shadow: 2px 2px 3px rgba(0, 50, 100, .5);
+	box-shadow: 2px 2px 3px rgba(0, 50, 100, .5);
+}
+
+/*
+	=== Base Layout and Backgrounds ===
+*/
+html {
+	background: #e0edf6 url(gfx/sky-gradient.gif) repeat-x;
+}
+
+body {
+	background: url(gfx/clouds.png) no-repeat 50% top;
+}
+
+#wrapper {
+	padding: 30px 0 0;
+}
+
+		#primary-content = $white-content-box;
+		#primary-content {
+			width: 600px;
+		}
+
+			body.main-heading #primary-content > div:first-child > h2:first-of-type = $main-heading;
+
+			#primary-content .markItUp textarea {
+				width: 547px !important;
+			}
+
+		#secondary-content = $white-content-box;
+		#secondary-content {
+			width: 270px;
+		}
+
+			#secondary-content > div = $separated;
+
+			#latest-comic > p:last-of-type {
+				right: 0;
+				bottom: 34px; /* based on separator height (hack) */
+			}
+
+		#tertiary-content = $white-content-box;
+		#tertiary-content {
+
+		}
+
+/*
+	=== Breadcrumbs ===
+*/
+#breadcrumbs {
+	left: 0;
+	top: 5px;
+	right: auto;
+	z-index: 3;
+}
+
+
+/*
+	=== Lang Switcher ===
+*/
+#lang-switcher {
+	top: 5px;
+	z-index: 3;
+}
+
+/*
+	=== Header ===
+*/
+#header {
+	background: #003366 url(gfx/header-gradient.gif) repeat-x;
+
+	position: relative;
+	z-index: 2;
+
+	padding: 30px 0;
+	margin: 0;
+
+	border: 1px solid #000;
+	border-width: 1px 0;
+
+	-moz-box-shadow: 0 2px 0 rgba(0, 50, 100, .5);
+	-webkit-box-shadow: 0 2px 3px rgba(0, 50, 100, .5);
+	box-shadow: 0 2px 3px rgba(0, 50, 100, .5);
+}
+
+	#header h1 {
+		background-image: url(gfx/new-logo.png);
+	}
+
+	#header p {
+		margin-top: 34px;
+	}
+
+/*
+	=== Search ===
+*/
+#search {
+	top: 90px;
+	z-index: 3;
+}
+
+	#search p #q {
+		width: 290px;
+	}
+
+/*
+	=== Navigation ===
+*/
+#navigation {
+	background: none;
+
+	position: relative;
+	z-index: 1;
+
+	margin: 0 0 30px;
+	padding: 0;
+
+	border: 0;
+}
+
+	#navigation ul {
+		background: none;
+		margin: 0;
+		padding: 0;
+		border: 0;
+	}
+
+		#navigation ul li {
+			background: none;
+			margin: 0 10px 0 0;
+			padding: 0;
+			border: 0;
+		}
+
+			#navigation ul li a {
+				background: #eaeaea url(gfx/nav.gif) repeat-x left bottom;
+
+				padding: 8px 10px;
+
+				font: bold 12px/1 Arial, sans-serif;
+				color: #666;
+				text-decoration: none;
+				outline: 0;
+
+				-moz-border-radius: 0 0 4px 5px;
+				-webkit-border-radius: 0 0 4px 5px;
+				border-radius: 0 0 4px 5px;
+
+				-moz-box-shadow: 2px 2px 3px rgba(0, 50, 100, .5);
+				-webkit-box-shadow: 2px 2px 3px rgba(0, 50, 100, .5);
+				box-shadow: 2px 2px 3px rgba(0, 50, 100, .5);
+			}
+
+			#navigation ul li a:hover {
+				/* TODO: webkit animate padding-top */
+				padding: 18px 10px 8px;
+				border: 0;
+				font-weight: bold;
+				margin-bottom: -10px;
+			}
+
+			#navigation ul li strong {
+				display: inline;
+				padding: 0;
+				border: 0;
+				font-weight: bold;
+			}
+
+				#navigation ul li strong a {
+					background: #2f95fb url(gfx/nav-hover.gif) repeat-x left bottom;
+					color: #fdfeff;
+					padding: 18px 10px 8px;
+					margin-bottom: -10px;
+				}
+
+/*
+	=== Activities AJAX ===
+*/
+#activities {
+	background: #f9f9f9;
+}
+
+/*
+	=== Latest Comic ===
+*/
+#latest-comic p a img = $pretty-image;
+#latest-comic p a img {
+	width: 270px;
+}
+
+/*
+	=== Contact Persons ===
+*/
+#contact-persons ul li {
+	padding: 15px 15px 15px 185px;
+	margin: 0 -15px;
+}
+
+#contact-persons ul li:nth-child(odd) {
+	background: rgba(220, 220, 220, .5);
+}
+
+	#contact-persons ul li h4 {
+		margin-top: 0;
+	}
+
+	#contact-persons ul li img {
+		left: 15px;
+		top: 50px;
+	}
+
+/*
+	=== Documents ===
+*/
+#documents tr:hover td {
+	background: rgba(220, 220, 220, .5);
+}
+
+#project-page-page #project-list ul {
+	margin: 0 -15px;
+	padding: 0 15px;
+}
+
+#comics ul li img {
+	width: 600px;
+}
