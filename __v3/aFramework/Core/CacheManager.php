@@ -2,36 +2,45 @@
 	class CacheManager {
 		private static $cacheFile;
 		private static $cachePath;
+		private static $info;
 
 		public static function run () {
 			$currentStyle = isset($_COOKIE['style']) ? $_COOKIE['style'] : Config::get('general.default_style');
 
-			self::$cachePath = DOCROOT . 'aFramework/Cache/';
-			self::$cacheFile = md5(CURRENT_SITE . $currentStyle . currPageURL());
+			self::$info['cache_path'] = self::$cachePath = DOCROOT . 'aFramework/Cache/';
+			self::$info['cache_file'] = self::$cacheFile = md5(CURRENT_SITE . $currentStyle . currPageURL());
 
 			# Only check once every 10 minutes
 			$cacheTime = 0; # 600
 
 			# If no cache exists we can't do shit so just return
 			if (!self::cacheExists()) {
+				self::$info['load_info'] = 'No cache exists';
 				return false;
 			}
 
 			# Get the creation date of the cache (we will compare it to changes on the site)
-			$cacheCreated = self::getCacheCreationDate();
+			self::$info['cache_created'] = $cacheCreated = self::getCacheCreationDate();
 
 			# Only check DB and file-changes if cache was created more than $cacheTime seconds ago
 			if ((time() - $cacheCreated) < $cacheTime) {
+				self::$info['load_info'] = 'Cache exists, not checking changes because cache was created less than ' . $cacheTime . ' seconds ago';
 				return self::readCache();
 			}
 
 			# If any DB-table has been changed after cache was generated, return false
-			if ($cacheCreated < self::getLatestDBChange()) {
+			self::$info['last_db_change'] = $latestDBChange = self::getLatestDBChange();
+
+			if ($cacheCreated < $latestDBChange) {
+				self::$info['load_info'] = 'Cache exists but changes have been made in DB since creation';
 				return false;
 			}
 
 			# If any file in the current site's Files/ directory has changed also return false
-			if ($cacheCreated < self::getLatestFileChange()) {
+			self::$info['last_file_change'] = $latestFileChange = self::getLatestFileChange();
+
+			if ($cacheCreated < $latestFileChange) {
+				self::$info['load_info'] = 'Cache exists but changes have been made in files since creation';
 				return false;
 			}
 
@@ -42,7 +51,13 @@
 			# Also create new cache so that we get new $cacheTime (otherwise it will be more than $cacheTime seconds ago the cache was created next run as well, even though we JUST checked the DB and files)
 			self::createCache($cachedPage);
 
+			self::$info['load_info'] = 'No changes have been made and cache exists, rewrite it and return';
+
 			return $cachedPage;
+		}
+
+		public static function getInfo () {
+			return count(self::$info) ? self::$info : false;
 		}
 
 		public static function createCache ($content) {
