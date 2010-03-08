@@ -1,11 +1,13 @@
 /* Presentation */
-#presentation-page #page > ol {
+#presentation-page #page > ol, 
+#kunning-page #page > ol {
 	font-weight: bold;
 }
 
 /* Organization */
 #organization-page #page > p img, 
-#organisation-page #page > p img {
+#organisation-page #page > p img, 
+#bygnaour-page #page > p img {
 	float: none;
 	margin: 0;
 	border: 0;
@@ -20,14 +22,18 @@
 /* Participating Partners */
 #participating-partners-page #page > ul = $self-clear;
 #deltagande-partners-page #page > ul = $self-clear;
+#luttakarar-page #page > ul = $self-clear;
+
 #participating-partners-page #page > ul, 
-#deltagande-partners-page #page > ul {
+#deltagande-partners-page #page > ul, 
+#luttakarar-page #page > ul {
 	margin: 0;
 	list-style: none;
 }
 
 	#participating-partners-page #page > ul li, 
-	#deltagande-partners-page #page > ul li {
+	#deltagande-partners-page #page > ul li, 
+	#luttakarar-page #page > ul li {
 		position: relative;
 		padding: 0 0 0 80px;
 		min-height: 60px;
@@ -37,7 +43,8 @@
 	}
 
 		#participating-partners-page #page > ul li img, 
-		#deltagande-partners-page #page > ul li img {
+		#deltagande-partners-page #page > ul li img, 
+		#luttakarar-page #page > ul li img {
 			position: absolute;
 			left: 0;
 			top: 0;
