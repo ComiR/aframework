@@ -68,7 +68,7 @@
 		<input type="hidden" name="pages_id" value="<?php echo $page['pages_id']; ?>" />
 		<input type="hidden" name="page_submit" value="1" />
 		<input type="submit" name="insert" value="<?php echo $page['pages_id'] ? Lang::get('Save Changes') : Lang::get('Add Page'); ?>" />
-		<?php if ($page['pages_id']) { ?>
+		<?php if ($page['pages_id'] and SU) { ?>
 			 <?php echo Lang::get('or'); ?> 
 			<input type="submit" name="page_delete" value="<?php echo Lang::get('Delete this Page'); ?>" />
 		<?php } ?>
