@@ -18,8 +18,8 @@
 #	setlocale(LC_ALL, 'en_GB.UTF8');
 
 	# While deving
-	error_reporting(0);
-	ini_set('display_errors', false);
+	error_reporting(E_ALL);
+	ini_set('display_errors', true);
 
 	# Determine which site(s) to run
 	# Add your own domains and site hierarchies here
@@ -43,7 +43,7 @@
 			define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
 			break;
 		default : 
-			define('SITE_HIERARCHY', 'aTestSite aBlog aCMS aDynAdmin aFramework');
+			define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
 			break;
 	}
 
@@ -75,8 +75,10 @@
 	# Misc
 	define('NAKED_DAY',			is_naked_day(9));
 	define('XHR',				isset($_SERVER['HTTP_X_REQUESTED_WITH']));
+	define('SU_SESSION',		'su');
 	define('ADMIN_SESSION',		'admin');
-	define('ADMIN',				isset($_COOKIE[ADMIN_SESSION]) or isset($_SESSION[ADMIN_SESSION]));
+	define('SU',				isset($_COOKIE[SU_SESSION]) or isset($_SESSION[SU_SESSION]));
+	define('ADMIN',				SU or isset($_COOKIE[ADMIN_SESSION]) or isset($_SESSION[ADMIN_SESSION]));
 	define('CONTROLLER_ADMIN',	ADMIN and (isset($_SESSION['controller_admin']) or isset($_GET['controller_admin'])) and !isset($_GET['no_controller_admin']));
 	define('AUTO_HR',			false);
 	define('USE_MOD_REWRITE',	true);
@@ -112,7 +114,19 @@
 
 	# Run the CacheManager and die right here if there's a valid cache
 	if (!count($_POST) and !ADMIN and ($cachedPage = CacheManager::run())) {
-		die(str_replace('</body>', '<div id="cache-info">Page cached. Loaded in: ' . round(Timer::stop(), 4) . ' second(s)</div></body>', $cachedPage));
+		$cacheInfo		= CacheManager::getInfo();
+		$cacheInfoHTML	= '<div id="cache-info">Page cached. Loaded in: ' 
+						. round(Timer::stop(), 4) 
+						. ' second(s). Last DB change: ' 
+						. date(Config::get('general.date_format'), $cacheInfo['last_db_change']) 
+						. ', Last file change: ' 
+						. date(Config::get('general.date_format'), $cacheInfo['last_file_change'])
+						. ', Cache created: ' 
+						. date(Config::get('general.date_format'), $cacheInfo['cache_created']) 
+						. '</div>';
+		$newHTML		= str_replace('</body>', $cacheInfoHTML . '</body>', $cachedPage);
+
+		die($newHTML);
 	}
 
 	# Set Router-params based on the requested URI - but remove lang-prefix before (/sv/ for example)
