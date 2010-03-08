@@ -7,19 +7,42 @@ aFramework.modules.ActivityCalendar = {
 
 	hijaxDayLinks: function () {
 		var activityCalendar	= $('#activity-calendar');
-		var activitiesBox		= $('<div id="activities"/>').appendTo(activityCalendar).css('height', activityCalendar.height() + 'px').slideUp(0);
+		var calendarTable		= activityCalendar.find('table');
+		var calendarTableDim	= calendarTable.offset();
+			calendarTableDim	= {
+			left:	calendarTableDim.left, 
+			top:	calendarTableDim.top, 
+			width:	calendarTable.width(), 
+			height:	calendarTable.height()
+		};
+		var activitiesBox		= $('<div id="activities"/>')
+									.appendTo(document.body)
+									.css({
+										width:	calendarTableDim.width + 'px', 
+										height:	calendarTableDim.height + 'px', 
+										left:	calendarTableDim.left + 'px', 
+										top:	calendarTableDim.top + 'px'
+									})
+									.slideUp(0);
 
 		// When clicking day - ajax in activities and slide down box
 		$('#activity-calendar td a').click(function () {
 			$.get($(this).attr('href'), function (data) {
 				activitiesBox
 					.html(data)
-					.slideDown(500)
+					.slideDown(200)
 					.append('<a href="#" class="close">' + Lang.get('Close') + '</a>')
 						.find('a.close').click(function () {
+							calendarTableDim.height = calendarTable.height();
+
 							activitiesBox
-								.css('height', activityCalendar.height() + 'px')
-								.slideUp(500);
+								.css({
+									width:	calendarTableDim.width + 'px', 
+									height:	calendarTableDim.height + 'px', 
+									left:	calendarTableDim.left + 'px', 
+									top:	calendarTableDim.top + 'px'
+								})
+								.slideUp(200);
 
 							return false;
 						});
@@ -32,11 +55,15 @@ aFramework.modules.ActivityCalendar = {
 	}, 
 
 	highlightToday: function () {
-		var date = new Date().getDate();
+		var date		= new Date();
+		var monthYear	= $('#activity-calendar h2').text(); // date.getMonth() + ' ' + date.getYear();
+		var day			= date.getDate();
 
-		$('#activity-calendar td').filter(function () {
-			return parseInt($(this).text(), 10) == date;
-		}).wrapInner('<strong/>');
+		if ($('#activity-calendar h2').text() == monthYear) {
+			$('#activity-calendar td').filter(function () {
+				return parseInt($(this).text(), 10) == day;
+			}).wrapInner('<strong/>');
+		}
 	}, 
 
 	hijaxPrevNextLinks: function () {

@@ -4,6 +4,10 @@
 		public static $tplFile = true;
 
 		public static function run () {
+			self::showTheCalendar();
+		}
+
+		private static function showTheCalendar () {
 			# Get the year/month the user is browsing
 			if (isset(Router::$params['year']) and isset(Router::$params['month'])) {
 				$year	= Router::$params['year'];
