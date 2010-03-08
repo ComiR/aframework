@@ -16,7 +16,7 @@
 			<th>
 				<?php echo Lang::get('Size'); ?>
 			</th>
-			<?php if (ADMIN) { ?>
+			<?php if (SU) { ?>
 				<th>
 					<?php echo Lang::get('Delete'); ?>
 				</th>
@@ -35,7 +35,7 @@
 				<td>
 					<?php echo round($document['size']/1024/1024, 2); ?> mb
 				</td>
-				<?php if (ADMIN) { ?>
+				<?php if (SU) { ?>
 					<td>
 						<form method="post" action="">
 							<p>
