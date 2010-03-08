@@ -24,6 +24,8 @@
 
 	Config::set('admin.user',					'admin');
 	Config::set('admin.pass',					'1234');
+	Config::set('su.user',						'su');
+	Config::set('su.pass',						'4321');
 
 	Config::set('navigation.home',				true);
 	Config::set('navigation.styles',			false);
