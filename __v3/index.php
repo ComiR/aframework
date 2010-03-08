@@ -18,8 +18,8 @@
 #	setlocale(LC_ALL, 'en_GB.UTF8');
 
 	# While deving
-	error_reporting(E_ALL);
-	ini_set('display_errors', true);
+	error_reporting(0);
+	ini_set('display_errors', false);
 
 	# Determine which site(s) to run
 	# Add your own domains and site hierarchies here
