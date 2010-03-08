@@ -4,7 +4,7 @@
 	Config::set('db.host',						'localhost');
 	Config::set('db.name',						'ante_ole');
 
-	Config::set('lang.allowed_langs',			'en,sv');
+	Config::set('lang.allowed_langs',			'en,sv,fo');
 	Config::set('lang.default_lang',			'en');
 	Config::set('lang.translated_tables',		'articles,pages,tags,article_tags,comments,activities');
 
