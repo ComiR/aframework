@@ -4,7 +4,7 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			if (!ADMIN) {
+			if (!SU) {
 				FourOFour::run();
 			}
 

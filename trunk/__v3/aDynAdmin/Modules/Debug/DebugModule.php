@@ -4,7 +4,9 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			aFramework_DebugModule::addItem('aDynAdmin', Router::urlFor('DynAdmin'));
+			if (SU) {
+				aFramework_DebugModule::addItem('aDynAdmin', Router::urlFor('DynAdmin'));
+			}
 		}
 	}
 ?>
