@@ -1,0 +1,38 @@
+#styles {
+
+}
+
+	#styles h2 + p = $first-p;
+
+	#styles ul = $plain-list;
+
+		#styles ul li = $separated;
+		#styles ul li {
+			overflow: hidden;
+		}
+
+			#styles ul li h3 {
+				
+			}
+
+			#styles ul li h3 + p = $pretty-image;
+			#styles ul li h3 + p {
+				width: 270px;
+				height: 200px;
+				border-width: 15px 15px 30px;
+				float: left;
+				margin: 0 30px 15px 0;
+				overflow: hidden;
+			}
+
+			#styles ul li p img {
+				display: block;
+				width: 600px;
+			}
+
+			#styles ul li dl = $data-definition;
+			#styles ul li dl {
+				float: left;
+				width: 300px;
+				margin: 0 0 15px;
+			}

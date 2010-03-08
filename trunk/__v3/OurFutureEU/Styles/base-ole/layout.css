@@ -1,0 +1,50 @@
+#wrapper {
+	width: 960px;
+	margin: 0 auto;
+	position: relative;
+}
+
+#primary-content {
+	width: 600px;
+	margin: 0 0 20px;
+	padding: 0;
+	float: left;
+}
+
+/*	#primary-content h2 {
+		background-image: url(gfx/flower.gif);
+		background-repeat: no-repeat;
+		background-position: left 5px;
+		margin-left: -35px;
+		padding-left: 35px;
+	} */
+
+	#primary-content .markItUp textarea {
+		width: 547px !important;
+	}
+
+	#home-page #primary-content > div = $separated;
+
+#secondary-content {
+	width: 320px;
+	margin: 0 0 20px;
+	padding: 0;
+	float: right;
+}
+
+	#secondary-content > div {
+		margin: 0 0 30px;
+	}
+
+		#secondary-content h2 {
+			font-size: 160%;
+		}
+
+	#secondary-content .markItUp textarea {
+		width: 267px !important;
+	}
+
+#tertiary-content {
+	padding: 20px 0;
+	clear: both;
+}

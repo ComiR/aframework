@@ -1,0 +1,16 @@
+#footer = $small;
+#footer {
+	overflow: hidden;
+	padding: 10px 0;
+}
+
+	#footer p {
+		margin: 0;
+		float: left;
+	}
+
+	#footer ul = $pipe-menu;
+	#footer ul {
+		margin: 0;
+		float: right;
+	}

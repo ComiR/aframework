@@ -1,0 +1,11 @@
+#breadcrumbs = $small;
+#breadcrumbs {
+	position: absolute;
+	top: 103px;
+	right: 0;
+	opacity: .5;
+}
+
+#breadcrumbs:hover {
+	opacity: 1;
+}

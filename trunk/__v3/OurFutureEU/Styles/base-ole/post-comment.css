@@ -1,0 +1,27 @@
+#post-comment {
+	
+}
+
+	#post-comment form {
+		
+	}
+
+		#post-comment form p:first-child {
+			width: 45%;
+		}
+
+		#post-comment form p:first-child + p, 
+		#post-comment form p:first-child + p + p {
+			width: 45%;
+			float: left;
+			margin-right: 5%;
+		}
+
+			#post-comment form input[type=text] {
+				width: 80%;
+			}
+
+			#post-comment form textarea {
+				width: 550px;
+				height: 200px;
+			}

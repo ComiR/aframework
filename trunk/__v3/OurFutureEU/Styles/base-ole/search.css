@@ -1,0 +1,23 @@
+#search {
+	position: absolute;
+	right: 0;
+	top: 60px;
+}
+
+	#search p {
+		margin: 0;
+	}
+
+		#search p label = $a11y-hide;
+
+		#search p input[type=submit], 
+		#search p br {
+			display: none;
+		}
+
+		#search p #q {
+			width: 310px;
+			-moz-border-radius: 8px;
+			-webkit-border-radius: 8px;
+			border-radius: 8px;
+		}
