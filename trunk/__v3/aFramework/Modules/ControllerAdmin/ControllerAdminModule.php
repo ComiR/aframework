@@ -39,7 +39,7 @@
 		 *
 		 **/
 		public static function run () {
-			self::$tplFile = ADMIN ? true : false;
+			self::$tplFile = SU ? true : false;
 
 			if (isset($_GET['controller_admin'])) {
 				$_SESSION['controller_admin'] = true;
