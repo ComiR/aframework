@@ -26,7 +26,7 @@
 			}
 
 			# Handle delete, mark as spam and mark as ham
-			if (isset($_POST['comments_delete']) and ADMIN) {
+			if (isset($_POST['comments_delete']) and SU) {
 				self::deleteComment($_POST['comments_id']);
 			}
 			if (isset($_POST['comments_spam']) and ADMIN) {
@@ -35,7 +35,7 @@
 			if (isset($_POST['comments_ham']) and ADMIN) {
 				self::hamComment($_POST['comments_id']);
 			}
-			if (isset($_POST['comments_delete_all_spam'])) {
+			if (isset($_POST['comments_delete_all_spam']) and SU) {
 				Comments::deleteAllSpamForArticle($articlesID);
 
 				if (!XHR) {
