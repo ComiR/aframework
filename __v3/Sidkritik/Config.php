@@ -85,6 +85,16 @@
 	Config::set('admin.pass', '1234');
 
 	##################################################
+	# SU Admin
+	##################################################
+
+	# Username
+	Config::set('su.user', 'su');
+
+	# Password
+	Config::set('su.pass', '4321');
+
+	##################################################
 	# Navigation Items
 	# Which navigation items should aFramework add?
 	##################################################
