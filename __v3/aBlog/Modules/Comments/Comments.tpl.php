@@ -31,9 +31,11 @@
 							<input type="submit" name="comments_ham" value="<?php echo Lang::get('Mark as Ham'); ?>" />
 						<?php } else { ?>
 							<input type="submit" name="comments_spam" value="<?php echo Lang::get('Mark as Spam'); ?>" />
-						<?php } ?> 
-						<?php echo Lang::get('or'); ?> 
-						<input type="submit" name="comments_delete" value="<?php echo Lang::get('Delete'); ?>" />
+						<?php } ?>
+						<?php if (SU) { ?>
+							 <?php echo Lang::get('or'); ?> 
+							<input type="submit" name="comments_delete" value="<?php echo Lang::get('Delete'); ?>" />
+						<?php } ?>
 					</p>
 				</form>
 			<?php } ?>

@@ -108,7 +108,7 @@
 		<input type="hidden" name="articles_id" value="<?php echo $article['articles_id']; ?>" />
 		<input type="hidden" name="article_submit" value="1" />
 		<input type="submit" name="insert" value="<?php echo $article['articles_id'] ? Lang::get('Save Changes') : Lang::get('Add Article'); ?>" />
-		<?php if ($article['articles_id']) { ?>
+		<?php if ($article['articles_id'] and SU) { ?>
 			 <?php echo Lang::get('or'); ?> 
 			<input type="submit" name="article_delete" value="<?php echo Lang::get('Delete this Article'); ?>" />
 		<?php } ?>

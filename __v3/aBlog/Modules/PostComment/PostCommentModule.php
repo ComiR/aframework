@@ -31,8 +31,7 @@
 				));
 				$form->addField(array(
 					'name'		=> 'website', 
-					'title'		=> Lang::get('Website'), 
-					'required'	=> true
+					'title'		=> Lang::get('Website')
 				));
 				$form->addField(array(
 					'name'		=> 'content', 
