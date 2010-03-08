@@ -69,11 +69,24 @@ var aFramework = {
 		});
 	}, 
 
-	modules: []
+	runStyles: function () {
+		for (var style in aFramework.styles) {
+			if ( 
+				typeof(aFramework.styles[style]) != 'undefined' && 
+				typeof(aFramework.styles[style].run) == 'function' 
+			) {
+				aFramework.styles[style].run();
+			}
+		}
+	}, 
+
+	modules: [], 
+	styles: []
 };
 
 jQuery(function () {
 	aFramework.run();
 	aFramework.runModules();
+	aFramework.runStyles();
 	// aFramework.ajaxRun();
 });

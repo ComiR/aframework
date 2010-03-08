@@ -94,7 +94,7 @@
 	# Admin
 	Config::set('admin',						array(
 													'title'			=> 'Administration', 
-													'description'	=> 'Logged in as admin you can customize the page you\'re at as well as administrate your site\'s content.'
+													'description'	=> 'Logged in as admin you can administrate your site\'s content.'
 												));
 	Config::set('admin.user',					array(
 													'title'			=> 'Username', 
@@ -103,6 +103,20 @@
 	Config::set('admin.pass',					array(
 													'title'			=> 'Password', 
 													'value'			=> '1234'
+												));
+
+	# Super User
+	Config::set('su',							array(
+													'title'			=> 'SU Admin', 
+													'description'	=> 'Logged in as SU you can customize the page you\'re at as well as add or delete your site\'s content.'
+												));
+	Config::set('su.user',						array(
+													'title'			=> 'Username', 
+													'value'			=> 'su'
+												));
+	Config::set('su.pass',						array(
+													'title'			=> 'Password', 
+													'value'			=> '4321'
 												));
 
 	# Navigation
