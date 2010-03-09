@@ -1,19 +1,19 @@
 <?php return array(
 
 # Routes.php
-'url.our-projects' => 'our-projects', 
+'url.comics' => 'comics', 
 'url.documents' => 'documents', 
 'url.contact-information' => 'contact-information', 
-'url.news-tag' => 'news', 
-'url.comics' => 'comics', 
-'url.activities-admin' => 'activities-admin', 
+'url.our-projects' => 'our-projects', 
+
+# AfterLatestComicAdmin.tpl.php
+'Upload a Comic' => 'Upload a Comic', 
+'Select Image' => 'Select Image', 
 
 # LatestComic.tpl.php
 'The Latest Comic' => 'The Latest Comic', 
 'by' => 'by', 
-'Upload a Comic' => 'Upload a Comic', 
-'Select Image' => 'Select Image', 
-'Upload' => 'Upload', 
+'More comics' => 'More comics', 
 
 # Partners.tpl.php
 'Partners' => 'Partners', 
@@ -27,8 +27,12 @@
 'Contact Persons Grouped by Country' => 'Contact Persons Grouped by Country', 
 'Participating Partners and their Contact Persons' => 'Participating Partners and their Contact Persons', 
 
+# Comics.tpl.php
+'All Published Comics' => 'All Published Comics', 
+
 # NavigationModule.php
 'News' => 'News', 
+'url.news-tag' => 'news', 
 
 # BeforeRandomLinks.tpl.php
 'Project Links' => 'Project Links', 
@@ -37,26 +41,50 @@
 'Sponsors' => 'Sponsors', 
 
 # BeforeArticles.tpl.php
-'News' => 'News', 
 
 # AfterFooter.tpl.php
 'Copyright' => 'Copyright', 
 'All contents are released under a CCv3' => 'All contents are released under a CCv3', 
 'Some Rights Reserved.' => 'Some Rights Reserved.', 
 
-# Documents.js
+# Activities.tpl.php
+'Activities for' => 'Activities for', 
+'Delete' => 'Delete', 
+
+# ActivityCalendarModule.php
+'Title' => 'Title', 
+'Content' => 'Content', 
+'Date' => 'Date', 
+
+# ActivityCalendar.tpl.php
+'Sunday' => 'Sunday', 
+'S' => 'S', 
+'Monday' => 'Monday', 
+'M' => 'M', 
+'Tuesday' => 'Tuesday', 
+'T' => 'T', 
+'Wednesday' => 'Wednesday', 
+'W' => 'W', 
+'Thursday' => 'Thursday', 
+'Friday' => 'Friday', 
+'F' => 'F', 
+'Saturday' => 'Saturday', 
+'Add Activity' => 'Add Activity', 
+
+# ActivityCalendar.js
 'Are you sure?' => 'Are you sure?', 
+'Close' => 'Close', 
+'Loading' => 'Loading', 
+
+# Documents.js
 
 # Documents.tpl.php
+'No Documents' => 'No Documents', 
+'No documents have been uploaded. Please check back later.' => 'No documents have been uploaded. Please check back later.', 
 'Reports and Documents' => 'Reports and Documents', 
 'Name' => 'Name', 
 'Type' => 'Type', 
 'Size' => 'Size', 
-'Delete' => 'Delete', 
-
-# NoDocuments.tpl.php
-'No Documents' => 'No Documents', 
-'No documents have been uploaded. Please check back later.' => 'No documents have been uploaded. Please check back later.', 
 
 # AfterDocumentsAdmin.tpl.php
 'Upload a Document' => 'Upload a Document', 
@@ -65,12 +93,6 @@
 # design.js
 'About' => 'About', 
 'Contact' => 'Contact', 
-'Documents' => 'Documents', 
-
-'Elderly care when the older to be decides' => 'Elderly care when the older to be decides', 
-
-'Close' => 'Close', 
-
-'Activities for' => 'Activities for'
+'Documents' => 'Documents'
 
 ); ?>

@@ -1,18 +1,19 @@
 <?php return array(
 
 # Routes.php
-'url.our-projects' => 'vara-projekt', 
+'url.comics' => 'serier', 
 'url.documents' => 'dokument', 
 'url.contact-information' => 'kontaktinformation', 
-'url.news-tag' => 'nyheter', 
-'url.comics' => 'serier', 
+'url.our-projects' => 'vara-projekt', 
+
+# AfterLatestComicAdmin.tpl.php
+'Upload a Comic' => 'Ladda upp en seriestrip', 
+'Select Image' => 'Välj bild', 
 
 # LatestComic.tpl.php
 'The Latest Comic' => 'Senaste serienstrippen', 
 'by' => 'av', 
-'Upload a Comic' => 'Ladda upp en seriestrip', 
-'Select Image' => 'Välj bild', 
-'Upload' => 'Ladda upp', 
+'More comics' => 'More comics', 
 
 # Partners.tpl.php
 'Partners' => 'Partners', 
@@ -26,8 +27,12 @@
 'Contact Persons Grouped by Country' => 'Kontaktpersoner grupperade efter land', 
 'Participating Partners and their Contact Persons' => 'Deltagande partners och deras kontaktpersoner', 
 
+# Comics.tpl.php
+'All Published Comics' => 'All Published Comics', 
+
 # NavigationModule.php
 'News' => 'Nyheter', 
+'url.news-tag' => 'nyheter', 
 
 # BeforeRandomLinks.tpl.php
 'Project Links' => 'Projektlänkar', 
@@ -36,27 +41,50 @@
 'Sponsors' => 'Sponsorer', 
 
 # BeforeArticles.tpl.php
-'News' => 'Nyheter', 
 
 # AfterFooter.tpl.php
 'Copyright' => 'Copyright', 
 'All contents are released under a CCv3' => 'All contents are released under a CCv3', 
 'Some Rights Reserved.' => 'Some Rights Reserved.', 
 
-# Documents.js
+# Activities.tpl.php
+'Activities for' => 'Händelser', 
+'Delete' => 'Radera', 
+
+# ActivityCalendarModule.php
+'Title' => 'Title', 
+'Content' => 'Content', 
+'Date' => 'Date', 
+
+# ActivityCalendar.tpl.php
+'Sunday' => 'Sunday', 
+'S' => 'S', 
+'Monday' => 'Monday', 
+'M' => 'M', 
+'Tuesday' => 'Tuesday', 
+'T' => 'T', 
+'Wednesday' => 'Wednesday', 
+'W' => 'W', 
+'Thursday' => 'Thursday', 
+'Friday' => 'Friday', 
+'F' => 'F', 
+'Saturday' => 'Saturday', 
+'Add Activity' => 'Add Activity', 
+
+# ActivityCalendar.js
 'Are you sure?' => 'Är du säker?', 
+'Close' => 'Stäng', 
+'Loading' => 'Loading', 
+
+# Documents.js
 
 # Documents.tpl.php
+'No Documents' => 'Inga dokument', 
+'No documents have been uploaded. Please check back later.' => 'Inga dokument har laddats upp. Vänligen försök igen senare.', 
 'Reports and Documents' => 'Dokument, broschyrer och nedladdningar', 
 'Name' => 'Namn', 
 'Type' => 'Typ', 
 'Size' => 'Storlek', 
-'Delete' => 'Radera', 
-'url.activities-admin' => 'aktivitetsadmin', 
-
-# NoDocuments.tpl.php
-'No Documents' => 'Inga dokument', 
-'No documents have been uploaded. Please check back later.' => 'Inga dokument har laddats upp. Vänligen försök igen senare.', 
 
 # AfterDocumentsAdmin.tpl.php
 'Upload a Document' => 'Ladda upp ett dokument', 
@@ -65,12 +93,6 @@
 # design.js
 'About' => 'Om', 
 'Contact' => 'Kontakt', 
-'Documents' => 'Dokument', 
-
-'Elderly care when the older to be decides' => 'Framtidens äldrevård när våra blivande äldre får bestämma', 
-
-'Close' => 'Stäng', 
-
-'Activities for' => 'Händelser'
+'Documents' => 'Dokument'
 
 ); ?>

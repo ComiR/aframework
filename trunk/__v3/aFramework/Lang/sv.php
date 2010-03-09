@@ -6,6 +6,9 @@
 'url.search' => 'sok', 
 'url.styles' => 'stilar', 
 
+# Debug.tpl.php
+'Logged in as' => 'Inloggad som', 
+
 # SocialBookmarks.tpl.php
 'Add to' => 'Lägg till på/i', 
 
@@ -58,17 +61,15 @@
 # BeforeContact.tpl.php
 'Contact' => 'Kontakt', 
 
-# Contact.tpl.php
-'The form contains errors.' => 'Formuläret innehåller fel.', 
-'Please make sure you have filled out everything correctly.' => 'Vänligen kontrollera att alla fält är korrekt ifyllda.', 
+# MsgSent.tpl.php
+'Thank you.' => 'Tack.', 
+
+# ContactModule.php
+'Send' => 'Skicka', 
 'Your Name' => 'Ditt namn', 
 'E-mail' => 'E-post', 
 'And Message' => 'Och meddelande', 
 'Remember Me' => 'Kom ihåg mig', 
-'Send' => 'Skicka', 
-
-# MsgSent.tpl.php
-'Thank you.' => 'Tack.', 
 
 # SearchResults.tpl.php
 'Read more' => 'Läs mer', 
@@ -143,6 +144,21 @@
 'Contact Me' => 'Kontakta mig', 
 'Get Firefox!' => 'Skaffa Firefox!', 
 'Valid XHTML 1.0 Strict' => 'Valid XHTML 1.0 Strict', 
-'(Mostly) Valid CSS' => '(Mestadels) Valid CSS'
+'(Mostly) Valid CSS' => '(Mestadels) Valid CSS', 
+
+# OurFutureEU_boxy-ole.js
+'Advanced View' => 'Avancerad vy', 
+'Are you sure?' => 'Är du säker?', 
+'Loading' => 'Laddar', 
+'Mark as Ham' => 'Markera som "ham" (inte spam)', 
+'Mark as Spam' => 'Markera som spam', 
+'There is no spam.' => 'Det finns ingen spam.', 
+'Posting' => 'Postar', 
+'Get a new image' => 'Slumpa en ny bild', 
+'Get some new images' => 'Slumpa några nya bilder', 
+'Get some new links' => 'Slumpa några nya länkar', 
+'Close' => 'Stäng', 
+'About' => 'Om', 
+'Documents' => 'Dokument'
 
 ); ?>

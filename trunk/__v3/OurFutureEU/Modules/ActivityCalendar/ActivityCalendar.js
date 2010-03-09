@@ -5,6 +5,12 @@ aFramework.modules.ActivityCalendar = {
 		this.hijaxDayLinks();
 	}, 
 
+	confirmDelete: function () {
+		$('#activities form').submit(function () {
+			return confirm(Lang.get('Are you sure?'));
+		});
+	}, 
+
 	hijaxDayLinks: function () {
 		var activityCalendar	= $('#activity-calendar');
 		var calendarTable		= activityCalendar.find('table');
@@ -46,6 +52,8 @@ aFramework.modules.ActivityCalendar = {
 
 							return false;
 						});
+
+				aFramework.modules.ActivityCalendar.confirmDelete();
 			});
 
 			return false;

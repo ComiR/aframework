@@ -12,19 +12,17 @@
 
 # BeforePostComment.tpl.php
 'Post a Comment' => 'Post a Comment', 
-'The form contains errors.' => 'The form contains errors.', 
-'Please make sure you have filled out everything correctly.' => 'Please make sure you have filled out everything correctly.', 
 
-# PostComment.js
-'Posting' => 'Posting', 
-
-# PostComment.tpl.php
+# PostCommentModule.php
+'Post Comment' => 'Post Comment', 
 'Your Name' => 'Your Name', 
 'E-mail' => 'E-mail', 
 'Website' => 'Website', 
 'And Comment' => 'And Comment', 
 'Remember Me' => 'Remember Me', 
-'Post Comment' => 'Post Comment', 
+
+# PostComment.js
+'Posting' => 'Posting', 
 
 # BeforeSocialBookmarks.tpl.php
 'Bookmark this Article' => 'Bookmark this Article', 
@@ -45,6 +43,8 @@
 'Add Article' => 'Add Article', 
 
 # ArticleAdmin.tpl.php
+'The form contains errors.' => 'The form contains errors.', 
+'Please make sure you have filled out everything correctly.' => 'Please make sure you have filled out everything correctly.', 
 'The article was successfully saved!' => 'The article was successfully saved!', 
 'The article was successfully deleted!' => 'The article was successfully deleted!', 
 'Title' => 'Title', 

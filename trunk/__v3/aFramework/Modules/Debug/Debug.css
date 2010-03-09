@@ -1,4 +1,4 @@
-body.admin {
+body.su {
 	margin-top: 24px; /* 10px (padding-top/bottom) + 12px (font-size (line-height: 1)) + 2px (border-top/bottom) */
 }
 
@@ -15,6 +15,24 @@ body.admin {
 
 	border-bottom: 1px solid #aaa;
 }
+
+body:not(.su) #debug {
+	background: rgba(0, 100, 200, .8);
+
+	width: auto;
+	left: auto;
+	right: 0;
+
+	border: 1px solid #def;
+	border-width: 0 0 1px 1px;
+	-moz-border-radius: 0 0 0 5px;
+	-webkit-border-radius: 0 0 0 5px;
+	border-radius: 0 0 0 5px;
+}
+
+	body:not(.su) #debug * {
+		color: #def !important;
+	}
 
 	#debug, 
 	#debug * {

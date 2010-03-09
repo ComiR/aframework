@@ -40,6 +40,18 @@
 			font-size: 160%;
 		}
 
+		#secondary-content h3 {
+			font-size: 140%;
+		}
+
+		#secondary-content h4 {
+			font-size: 120%;
+		}
+
+		#secondary-content h5 {
+			font-size: 100%;
+		}
+
 	#secondary-content .markItUp textarea {
 		width: 267px !important;
 	}

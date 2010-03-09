@@ -47,7 +47,9 @@ $separated:last-child::after {
 
 $white-content-box {
 	background: #f9f9f9 url(gfx/content-box-gradient.gif) repeat-x;
+
 	padding: 14px;
+
 	border: 1px solid #fefefe;
 
 	-moz-border-radius: 5px;
@@ -85,7 +87,7 @@ html {
 }
 
 body {
-	background: url(gfx/clouds.png) no-repeat 50% top;
+	background: url(gfx/clouds.png) no-repeat 50% 150px;
 }
 
 #wrapper {
@@ -97,7 +99,8 @@ body {
 			width: 600px;
 		}
 
-			body.main-heading #primary-content > div:first-child > h2:first-of-type = $main-heading;
+			#primary-content > div:first-child > h2:first-of-type = $main-heading;
+			#primary-content > h2:first-of-type = $main-heading;
 
 			#primary-content .markItUp textarea {
 				width: 547px !important;
