@@ -5,6 +5,14 @@
 
 		public static function run () {
 			self::showTheCalendar();
+
+			if (ADMIN) {
+				self::handleAddActivity();
+
+				if (SU) {
+					self::handleDeleteActivity();
+				}
+			}
 		}
 
 		private static function showTheCalendar () {
@@ -90,6 +98,57 @@
 						);
 					}
 				}
+			}
+		}
+
+		private static function handleAddActivity () {
+			$form = new FormHandler();
+
+			$form->addValuesArray($_POST);
+			$form->addValuesArray(array('pub_date' => date('Y-m-d H:i:s')));
+
+			$form->addField(array(
+				'name'		=> 'title', 
+				'title'		=> Lang::get('Title'),
+				'required'	=> true
+			));
+			$form->addField(array(
+				'name'		=> 'content', 
+				'title'		=> Lang::get('Content'), 
+				'type'		=> 'textarea',
+				'required'	=> true
+			));
+			$form->addField(array(
+				'name'		=> 'pub_date', 
+				'title'		=> Lang::get('Date'), 
+				'required'	=> true
+			));
+			$form->addField(array(
+				'name'		=> 'add_activity', 
+				'type'		=> 'hidden', 
+				'value'		=> '1'
+			));
+
+			if (isset($_POST['add_activity']) and $form->validate()) {
+				Activities::insert(array(
+					'title'			=> $_POST['title'], 
+					'content'		=> $_POST['content'], 
+					'pub_date'		=> $_POST['pub_date']
+				));
+
+				# Redirect after POST
+				redirect('?added_activity');
+			}
+
+			self::$tplVars['form_html'] = $form->asHTML();
+		}
+
+		private static function handleDeleteActivity () {
+			if (isset($_POST['delete_activity'])) {
+				Activities::delete($_POST['activities_id']);
+
+				# Redirect after POST
+				redirect('?deleted_activity');
 			}
 		}
 	}

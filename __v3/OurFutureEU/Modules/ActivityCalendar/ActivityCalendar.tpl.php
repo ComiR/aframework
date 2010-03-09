@@ -48,3 +48,9 @@
 		<?php } ?>
 	</tbody>
 </table>
+
+<?php if (ADMIN) { ?>
+	<h3><?php echo Lang::get('Add Activity'); ?></h3>
+
+	<?php echo $form_html; ?>
+<?php } ?>

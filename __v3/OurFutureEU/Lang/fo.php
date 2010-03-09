@@ -1,401 +1,228 @@
 <?php return array(
 
-## OurFutureEU ##
+### OurFutureEU ###
+
 # Routes.php
-'url.our-projects' => 'vara-projekt', 
-'url.documents' => 'dokument', 
-'url.contact-information' => 'kontaktinformation', 
-'url.news-tag' => 'nyheter', 
 'url.comics' => 'comics', 
+'url.documents' => 'documents', 
+'url.contact-information' => 'contact-information', 
+'url.our-projects' => 'our-projects', 
+
+# AfterLatestComicAdmin.tpl.php
+'Upload a Comic' => 'Upload a Comic', 
+'Select Image' => 'Select Image', 
 
 # LatestComic.tpl.php
-'The Latest Comic' => 'Senaste strippen', 
-'by' => 'av', 
-'Upload a Comic' => 'Ladda upp en strip', 
-'Select Image' => 'Välj bild', 
-'Upload' => 'Ladda upp', 
+'The Latest Comic' => 'The Latest Comic', 
+'by' => 'by', 
+'More comics' => 'More comics', 
 
 # Partners.tpl.php
 'Partners' => 'Partners', 
 
 # ContactPersons.tpl.php
-'Observational Partners' => 'Observationspartners', 
-'Telephone' => 'Telefon', 
-'E-mail' => 'E-post', 
+'Observational Partners' => 'Observational Partners', 
+'Telephone' => 'Telephone', 
+'E-mail' => 'E-mail', 
 
 # ContactPersonsModule.php
-'Contact Persons Grouped by Country' => 'Kontaktpersoner grupperade efter land', 
-'Participating Partners and their Contact Persons' => 'Deltagande partners och deras kontaktpersoner', 
+'Contact Persons Grouped by Country' => 'Contact Persons Grouped by Country', 
+'Participating Partners and their Contact Persons' => 'Participating Partners and their Contact Persons', 
+
+# Comics.tpl.php
+'All Published Comics' => 'All Published Comics', 
 
 # NavigationModule.php
-'News' => 'Nyheter', 
+'News' => 'News', 
+'url.news-tag' => 'news', 
 
 # BeforeRandomLinks.tpl.php
-'Project Links' => 'Projektlänkar', 
+'Project Links' => 'Project Links', 
 
 # Sponsors.tpl.php
-'Sponsors' => 'Sponsorer', 
+'Sponsors' => 'Sponsors', 
 
 # BeforeArticles.tpl.php
-'News' => 'Nyheter', 
 
 # AfterFooter.tpl.php
 'Copyright' => 'Copyright', 
 'All contents are released under a CCv3' => 'All contents are released under a CCv3', 
 'Some Rights Reserved.' => 'Some Rights Reserved.', 
 
+# Activities.tpl.php
+'Activities for' => 'Activities for', 
+'Delete' => 'Delete', 
+
+# ActivityCalendarModule.php
+'Title' => 'Title', 
+'Content' => 'Content', 
+'Date' => 'Date', 
+
+# ActivityCalendar.tpl.php
+'Sunday' => 'Sunday', 
+'S' => 'S', 
+'Monday' => 'Monday', 
+'M' => 'M', 
+'Tuesday' => 'Tuesday', 
+'T' => 'T', 
+'Wednesday' => 'Wednesday', 
+'W' => 'W', 
+'Thursday' => 'Thursday', 
+'Friday' => 'Friday', 
+'F' => 'F', 
+'Saturday' => 'Saturday', 
+'Add Activity' => 'Add Activity', 
+
+# ActivityCalendar.js
+'Are you sure?' => 'Are you sure?', 
+'Close' => 'Close', 
+'Loading' => 'Loading', 
+
 # Documents.js
-'Are you sure?' => 'Är du säker?', 
 
 # Documents.tpl.php
-'Reports and Documents' => 'Dokument, broschyrer och nedladdningar', 
-'Name' => 'Namn', 
-'Type' => 'Typ', 
-'Size' => 'Storlek', 
-'Delete' => 'Radera', 
-
-# NoDocuments.tpl.php
-'No Documents' => 'Inga dokument', 
-'No documents have been uploaded. Please check back later.' => 'Inga dokument har laddats upp. Vänligen försök igen senare.', 
+'No Documents' => 'No Documents', 
+'No documents have been uploaded. Please check back later.' => 'No documents have been uploaded. Please check back later.', 
+'Reports and Documents' => 'Reports and Documents', 
+'Name' => 'Name', 
+'Type' => 'Type', 
+'Size' => 'Size', 
 
 # AfterDocumentsAdmin.tpl.php
-'Upload a Document' => 'Ladda upp ett dokument', 
-'Select document' => 'Välj dokument', 
+'Upload a Document' => 'Upload a Document', 
+'Select document' => 'Select document', 
 
 # design.js
-'About' => 'Om', 
-'Contact' => 'Kontakt', 
-'Documents' => 'Dokument', 
+'About' => 'About', 
+'Contact' => 'Contact', 
+'Documents' => 'Documents', 
 
-'Elderly care when the older to be decides' => 'Framtidens äldrevård när våra blivande äldre får bestämma', 
+### aFramework ###
 
-## aBlog ##
-# Routes.php
-'url.add-article' => 'lagg-till-artikel', 
-'url.archives' => 'arkivet', 
-
-# BeforeTagCloud.tpl.php
-'Tag Cloud' => 'Taggmoln', 
-
-# BeforePostComment.tpl.php
-'Post a Comment' => 'Posta en kommentar', 
-'The form contains errors.' => 'Formuläret innehåller fel.', 
-'Please make sure you have filled out everything correctly.' => 'Vänligen kontrollera att du fyllt i alla fält korrekt.', 
-
-# PostComment.js
-'Posting' => 'Postar...', 
-
-# PostComment.tpl.php
-'Your Name' => 'Ditt namn', 
-'E-mail' => 'E-post', 
-'Website' => 'Hemsida', 
-'And Comment' => 'Och kommentar', 
-'Remember Me' => 'Kom ihåg mig', 
-'Post Comment' => 'Posta kommentar', 
-
-# BeforeSocialBookmarks.tpl.php
-'Bookmark this Article' => 'Bokmärk den här artikeln', 
-
-# NavigationModule.php
-'Archives' => 'Arkivet', 
-'Add Article +' => 'Lägg till artikel +', 
-
-# BeforeArticleAdmin.tpl.php
-'Edit Article' => 'Redigera Artikel', 
-'Add Article' => 'Lägg till artikel', 
-
-# ArticleAdmin.tpl.php
-'The article was successfully saved!' => 'Artikeln sparades', 
-'The article was successfully deleted!' => 'Artikeln är raderad', 
-'Title' => 'Titel', 
-'Slug' => 'Slug', 
-'Publish Date' => 'Publiceringsdatum', 
-'Meta Keywords' => 'Meta keywords', 
-'Meta Description' => 'Meta description', 
-'Article Content' => 'Artikelinnehåll', 
-'Allow Comments' => 'Tillåt kommentarer', 
-'Yes' => 'Ja', 
-'No' => 'Nej', 
-'Allow Rating' => 'Tillåt betygsättning', 
-'Save Changes' => 'Spara ändringar', 
-'or' => 'eller', 
-'Delete this Article' => 'Radera artikeln', 
-
-# Article.tpl.php
-'Published' => 'Publicerad', 
-'Continue Reading' => 'Fortsätt läsa', 
-'Tags' => 'Taggar', 
-'No tags' => 'Inga taggar', 
-'Comments' => 'Kommentarer', 
-'No comments' => 'Inga kommentarer', 
-
-# ArticleModule.php
-'Add an Article' => 'Lägg till en artikel', 
-
-# Comments.tpl.php
-'Delete' => 'Radera', 
-'No comments yet, why not' => 'Inga kommentarer än, varför inte', 
-'be the first to post one' => 'posta den första?', 
-'No Comments' => 'Inga kommentarer', 
-'Mark as Ham' => 'Markera som ham (inte spam)', 
-'Mark as Spam' => 'Markera som spam', 
-
-# RandomLinks.js
-'Get some new links' => 'Slumpa nya länkar', 
-'Loading' => 'Laddar', 
-
-# BeforeRandomLinks.tpl.php
-'Random Links' => 'Slumpade länkar', 
-
-# Articles.tpl.php
-'Join' => 'Häng på', 
-'others and' => 'andra och', 
-'Be the first to' => 'Bli den första att', 
-'post a comment' => 'posta en kommentar', 
-
-# ArticlesModule.php
-'Articles Tagged with' => 'Artiklar taggade med', 
-'You are currently browsing' => 'Du surfar för närvarande', 
-'articles tagged with' => 'artiklar taggade med', 
-'Archives for' => 'Arkivet för', 
-'articles posted ' => 'artiklar postade ', 
-'The Latest Articles' => 'De senaste artiklarna', 
-
-# BeforeRecentArticles.tpl.php
-'Recent Articles' => 'Senaste artiklarna', 
-
-# BeforeOlderArticles.tpl.php
-'Older Articles' => 'Äldre artiklar', 
-
-# RecentComments.tpl.php
-'on' => 'på', 
-
-# BeforeRecentComments.tpl.php
-'Recent Comments' => 'Senaste kommentarerna', 
-
-# RecentComments.js
-'Loading' => 'Laddar', 
-
-# AfterRecentComments.tpl.php
-'Newer' => 'Nyare', 
-'Older' => 'Äldre', 
-
-# ArticleCalendar.tpl.php
-'Sunday' => 'Söndag', 
-'S' => 'S', 
-'Monday' => 'Måndag', 
-'M' => 'M', 
-'Tuesday' => 'Tisdag', 
-'T' => 'T', 
-'Wednesday' => 'Onsdag', 
-'W' => 'W', 
-'Thursday' => 'Torsdag', 
-'Friday' => 'Fredag', 
-'F' => 'F', 
-'Saturday' => 'Lördag', 
-
-# BeforeArticlesByDate.tpl.php
-'Articles by Date' => 'Artiklar efter datum', 
-
-## aCMS ##
-# Routes.php
-'url.add-page' => 'lagg-till-sida', 
-
-# NavigationModule.php
-'Add Page +' => 'Lägg till sida +', 
-
-# PageModule.php
-'Add a Page' => 'Lägg till en sida', 
-
-# PageAdmin.tpl.php
-'The form contains errors.' => 'Formuläret innehåller fel.', 
-'Please make sure you have filled out everything correctly.' => 'Vänligen kontrollera att alla fält är korrekt ifyllda.', 
-'Page Title' => 'Sidtitel', 
-'Slug' => 'Slug', 
-'Show in Navigation' => 'Visa i navigationen', 
-'Yes' => 'Ja', 
-'No' => 'Nej', 
-'Priority' => 'Prioritet', 
-'A lower number places page early in the list' => 'Ett lägre nummer placerar sidan tidigt i listan', 
-'Meta Keywords' => 'Meta keywords', 
-'Meta Description' => 'Meta description', 
-'Page Content' => 'Sidinnehåll', 
-'Save Changes' => 'Spara ändringar', 
-'Add Page' => 'Lägg till sida', 
-'or' => 'eller', 
-'Delete this Page' => 'Ta bort sidan', 
-
-# BeforePageAdmin.tpl.php
-'Edit Page' => 'Redigera sida', 
-'Add Page' => 'Lägg till sida', 
-
-## aDynAdmin ##
-# Routes.php
-'url.dynadmin' => 'dynadmin', 
-
-# DynItem.tpl.php
-'Save' => 'Spara', 
-'Add' => 'Lägg till', 
-
-# BeforeDynItem.tpl.php
-'Edit' => 'Redigera', 
-
-# DynNavModule.php
-'Browse' => 'Bläddra', 
-
-# RecentDynItems.tpl.php
-'new' => 'ny', 
-
-# BeforeRecentDynItems.tpl.php
-"What's New" => "Det senaste", 
-
-# DynTables.tpl.php
-'Home' => 'Hem', 
-'Config' => 'Konfiguration', 
-'Tools' => 'Verktyg', 
-
-# NoItems.tpl.php
-"It appears you don't have any" => "Du verkar inte ha några", 
-'yet, why not' => 'än, varför inte', 
-'add some' => 'lägga till några', 
-
-# AfterDynItems.tpl.php
-'Previous' => 'Föregående', 
-'Next' => 'Nästa', 
-
-# DynItems.tpl.php
-'Delete' => 'Radera', 
-
-## aFramework ##
 # Routes.php
 'url.admin' => 'admin', 
-'url.contact' => 'kontakt', 
-'url.search' => 'sok', 
-'url.styles' => 'stilar', 
+'url.contact' => 'contact', 
+'url.search' => 'search', 
+'url.styles' => 'styles', 
+
+# Debug.tpl.php
+'Logged in as' => 'Logged in as', 
 
 # SocialBookmarks.tpl.php
-'Add to' => 'Lägg till på', 
+'Add to' => 'Add to', 
 
 # BeforeSocialBookmarks.tpl.php
-'Bookmark this URL' => 'Bokmärk den här sidan', 
-'Add this URL to your favourite bookmarking service.' => 'Lägg till den här sidan till din favorit-bokmärkningsservice.', 
+'Bookmark this URL' => 'Bookmark this URL', 
+'Add this URL to your favourite bookmarking service.' => 'Add this URL to your favourite bookmarking service.', 
 
 # AdminLoginAdmin.tpl.php
-'You are Logged In' => 'Du är inloggad', 
-'What would you like to do?' => 'Vad vill du göra?', 
-'Log out' => 'Logga ut', 
-'Go to aDynAdmin' => 'Gå till aDynAdmin', 
-'Go to Home Page' => 'Gå till förstasidan', 
+'You are Logged In' => 'You are Logged In', 
+'What would you like to do?' => 'What would you like to do?', 
+'Log out' => 'Log out', 
+'Go to aDynAdmin' => 'Go to aDynAdmin', 
+'Go to Home Page' => 'Go to Home Page', 
 
 # AdminLogin.tpl.php
-'Please Sign In' => 'Vänligen logga in', 
-'Wrong username or password.' => 'Fel användarnamn eller lösenord.', 
-'Please try again.' => 'Vänligen försök igen.', 
-'Username' => 'Användarnamn', 
-'Password' => 'Lösenord', 
-'Remember me' => 'Kom ihåg mig', 
-'Login' => 'Logga in', 
+'Please Sign In' => 'Please Sign In', 
+'Wrong username or password.' => 'Wrong username or password.', 
+'Please try again.' => 'Please try again.', 
+'Username' => 'Username', 
+'Password' => 'Password', 
+'Remember me' => 'Remember me', 
+'Login' => 'Login', 
 
 # StyleSwitcher.tpl.php
-'Select Style' => 'Välj stil', 
-'Go' => 'Kör', 
+'Select Style' => 'Select Style', 
+'Go' => 'Go', 
 
 # BeforeStyleSwitcher.tpl.php
-'Change Style' => 'Byt stil', 
+'Change Style' => 'Change Style', 
 
 # BeforeNavigation.tpl.php
 'Navigation' => 'Navigation', 
 
 # NavigationModule.php
-'Home' => 'Hem', 
-'Styles' => 'Stilar', 
+'Home' => 'Home', 
+'Styles' => 'Styles', 
 
 # ModuleAdmin.tpl.php
-'Module admin' => 'Moduladmin', 
-'Remove module from controller' => 'Ta bort modul från kontroller', 
-'Add to' => 'Lägg till på/i', 
-'Or' => 'eller', 
-'Insert before' => 'Lägg till innan', 
+'Module admin' => 'Module admin', 
+'Remove module from controller' => 'Remove module from controller', 
+'Or' => 'Or', 
+'Insert before' => 'Insert before', 
 
 # Contact.js
-'Sending' => 'Skickar', 
+'Sending' => 'Sending', 
 
 # BeforeMsgSent.tpl.php
-'Thanks' => 'Tack', 
+'Thanks' => 'Thanks', 
 
 # BeforeContact.tpl.php
-'Contact' => 'Kontakt', 
-
-# Contact.tpl.php
-'The form contains errors.' => 'Formuläret innehåller fel.', 
-'Please make sure you have filled out everything correctly.' => 'Vänligen kontrollera att alla fält är korrekt ifyllda.', 
-'Your Name' => 'Ditt namn', 
-'E-mail' => 'E-post', 
-'And Message' => 'Och meddelande', 
-'Remember Me' => 'Kom ihåg mig', 
-'Send' => 'Skicka', 
+'Contact' => 'Contact', 
 
 # MsgSent.tpl.php
-'Thank you.' => 'Tack.', 
+'Thank you.' => 'Thank you.', 
+
+# ContactModule.php
+'Send' => 'Send', 
+'Your Name' => 'Your Name', 
+'E-mail' => 'E-mail', 
+'And Message' => 'And Message', 
+'Remember Me' => 'Remember Me', 
 
 # SearchResults.tpl.php
-'Read more' => 'Läs mer', 
+'Read more' => 'Read more', 
 
 # BeforeNoQuery.tpl.php
-'No Query' => 'Ingen sökterm', 
+'No Query' => 'No Query', 
 
 # AfterSearchResults.tpl.php
-'Previous' => 'Föregående', 
-'Next' => 'Nästa', 
+'Previous' => 'Previous', 
+'Next' => 'Next', 
 
 # NoResults.tpl.php
-'Suggestions' => 'Förslag', 
-'Make sure all your words are spelled correctly' => 'Kontrollera att alla ord är rättstavade', 
-'Try different keywords' => 'Försök med andra sökord', 
-'Try more general keywords' => 'Försök mer generella sökord', 
-'Happy hunting!' => 'Lycka till!', 
+'Suggestions' => 'Suggestions', 
+'Make sure all your words are spelled correctly' => 'Make sure all your words are spelled correctly', 
+'Try different keywords' => 'Try different keywords', 
+'Try more general keywords' => 'Try more general keywords', 
+'Happy hunting!' => 'Happy hunting!', 
 
 # BeforeSearchResults.tpl.php
-'Search Results for' => 'Sökresultat för', 
-'Results' => 'Resultat', 
-'of about' => 'av omkring', 
-'for' => 'för', 
+'Search Results for' => 'Search Results for', 
+'Results' => 'Results', 
+'of about' => 'of about', 
+'for' => 'for', 
 
 # NoQuery.tpl.php
-'Please Enter a Search Query' => 'Vänligen ange några sökord', 
+'Please Enter a Search Query' => 'Please Enter a Search Query', 
 
 # BeforeNoResults.tpl.php
-'No Search Results for' => 'Inga sökresultat för', 
-'Your search' => 'Din sökning', 
-'did not match any documents.' => 'matchade inga dokument.', 
+'No Search Results for' => 'No Search Results for', 
+'Your search' => 'Your search', 
+'did not match any documents.' => 'did not match any documents.', 
 
 # SkipNavigation.tpl.php
-'Skip to ' => 'Hoppa till ', 
+'Skip to ' => 'Skip to ', 
 
 # BeforeSearch.tpl.php
-'Search' => 'Sök', 
+'Search' => 'Search', 
 
 # Search.tpl.php
-'Search Terms' => 'Sökord', 
-'Find' => 'Hitta', 
+'Search Terms' => 'Search Terms', 
+'Find' => 'Find', 
 
 # Header.tpl.php
-'Home Page' => 'Hemsidan', 
-
-# Live.js
-'Show live cam' => 'Visa live-kamera', 
-'Hide live cam' => 'Dölj live-kamera', 
+'Home Page' => 'Home Page', 
 
 # BeforeStyles.tpl.php
-'Styles' => 'Stilar', 
-'There are currently' => 'Det finns för närvarande', 
-'styles to choose from.' => 'stilar att välja mellan.', 
+'There are currently' => 'There are currently', 
+'styles to choose from.' => 'styles to choose from.', 
 
 # Styles.tpl.php
-'Author' => 'Skapare', 
-'Date' => 'Datum', 
-'This style is currently in use.' => 'Den här stilen används för närvarande.', 
-'Use this style' => 'Använd den här stilen', 
+'Author' => 'Author', 
+'Date' => 'Date', 
+'This style is currently in use.' => 'This style is currently in use.', 
+'Use this style' => 'Use this style', 
 
 # aFramework.js
 'Valid' => 'Valid', 
@@ -414,9 +241,228 @@
 'Top of Page' => 'Top of Page', 
 'Top' => 'Top', 
 'Contact Me' => 'Contact Me', 
-'Contact' => 'Contact', 
 'Get Firefox!' => 'Get Firefox!', 
 'Valid XHTML 1.0 Strict' => 'Valid XHTML 1.0 Strict', 
-'(Mostly) Valid CSS' => '(Mostly) Valid CSS'
+'(Mostly) Valid CSS' => '(Mostly) Valid CSS', 
+
+# OurFutureEU_boxy-ole.js
+'Advanced View' => 'Advanced View', 
+'Are you sure?' => 'Are you sure?', 
+'Loading' => 'Loading', 
+'Mark as Ham' => 'Mark as Ham', 
+'Mark as Spam' => 'Mark as Spam', 
+'There is no spam.' => 'There is no spam.', 
+'Posting' => 'Posting', 
+'Get a new image' => 'Get a new image', 
+'Get some new images' => 'Get some new images', 
+'Get some new links' => 'Get some new links', 
+'Close' => 'Close', 
+'About' => 'About', 
+'Documents' => 'Documents', 
+
+### aCMS ###
+
+# Routes.php
+'url.add-page' => 'add-page', 
+
+# DebugModule.php
+'Add Page +' => 'Add Page +', 
+
+# IntroTextAdmin.tpl.php
+'Introductionary Text' => 'Introductionary Text', 
+'Save Changes' => 'Save Changes', 
+
+# QuickAboutAdmin.tpl.php
+'Short Description of' => 'Short Description of', 
+
+# Page.js
+'Advanced View' => 'Advanced View', 
+'Are you sure?' => 'Are you sure?', 
+
+# PageModule.php
+'Add a Page' => 'Add a Page', 
+
+# PageAdmin.tpl.php
+'The form contains errors.' => 'The form contains errors.', 
+'Please make sure you have filled out everything correctly.' => 'Please make sure you have filled out everything correctly.', 
+'Page Title' => 'Page Title', 
+'Slug' => 'Slug', 
+'Show in Navigation' => 'Show in Navigation', 
+'Yes' => 'Yes', 
+'No' => 'No', 
+'Priority' => 'Priority', 
+'A lower number places page early in the list' => 'A lower number places page early in the list', 
+'Meta Keywords' => 'Meta Keywords', 
+'Meta Description' => 'Meta Description', 
+'Page Content' => 'Page Content', 
+'Add Page' => 'Add Page', 
+'or' => 'or', 
+'Delete this Page' => 'Delete this Page', 
+
+# BeforePageAdmin.tpl.php
+'Edit Page' => 'Edit Page', 
+
+### aBlog ###
+# Routes.php
+'url.add-article' => 'add-article', 
+'url.archives' => 'archives', 
+
+# BeforeTagCloud.tpl.php
+'Tag Cloud' => 'Tag Cloud', 
+
+# DebugModule.php
+'Add Article +' => 'Add Article +', 
+
+# BeforePostComment.tpl.php
+'Post a Comment' => 'Post a Comment', 
+
+# PostCommentModule.php
+'Post Comment' => 'Post Comment', 
+'Your Name' => 'Your Name', 
+'E-mail' => 'E-mail', 
+'Website' => 'Website', 
+'And Comment' => 'And Comment', 
+'Remember Me' => 'Remember Me', 
+
+# PostComment.js
+'Posting' => 'Posting', 
+
+# BeforeSocialBookmarks.tpl.php
+'Bookmark this Article' => 'Bookmark this Article', 
+
+# NavigationModule.php
+'Archives' => 'Archives', 
+
+# RandomArticleImages.js
+'Get some new images' => 'Get some new images', 
+'Loading' => 'Loading', 
+
+# Article.js
+'Advanced View' => 'Advanced View', 
+'Are you sure?' => 'Are you sure?', 
+
+# BeforeArticleAdmin.tpl.php
+'Edit Article' => 'Edit Article', 
+'Add Article' => 'Add Article', 
+
+# ArticleAdmin.tpl.php
+'The form contains errors.' => 'The form contains errors.', 
+'Please make sure you have filled out everything correctly.' => 'Please make sure you have filled out everything correctly.', 
+'The article was successfully saved!' => 'The article was successfully saved!', 
+'The article was successfully deleted!' => 'The article was successfully deleted!', 
+'Title' => 'Title', 
+'Slug' => 'Slug', 
+'Publish Date' => 'Publish Date', 
+'Meta Keywords' => 'Meta Keywords', 
+'Meta Description' => 'Meta Description', 
+'Article Content' => 'Article Content', 
+'Tags' => 'Tags', 
+'Use a comma (,) to separate tags' => 'Use a comma (,) to separate tags', 
+'Allow Comments' => 'Allow Comments', 
+'Yes' => 'Yes', 
+'No' => 'No', 
+'Allow Rating' => 'Allow Rating', 
+'Save Changes' => 'Save Changes', 
+'or' => 'or', 
+'Delete this Article' => 'Delete this Article', 
+
+# Article.tpl.php
+'Published' => 'Published', 
+'Continue Reading' => 'Continue Reading', 
+'No tags' => 'No tags', 
+'Comments' => 'Comments', 
+'No comments' => 'No comments', 
+
+# ArticleModule.php
+'Add an Article' => 'Add an Article', 
+
+# BeforeNoComments.tpl.php
+'No Comments' => 'No Comments', 
+
+# Comments.tpl.php
+'Mark as Ham' => 'Mark as Ham', 
+'Mark as Spam' => 'Mark as Spam', 
+'Delete' => 'Delete', 
+
+# Comments.js
+'There is no spam.' => 'There is no spam.', 
+
+# NoComments.tpl.php
+'No comments yet, why not' => 'No comments yet, why not', 
+'be the first to post one' => 'be the first to post one', 
+
+# AfterCommentsAdmin.tpl.php
+'Delete all Spam Comments' => 'Delete all Spam Comments', 
+
+# BeforeComments.tpl.php
+
+# RandomLinks.js
+'Get some new links' => 'Get some new links', 
+
+# BeforeRandomLinks.tpl.php
+'Random Links' => 'Random Links', 
+
+# Articles.tpl.php
+'Join' => 'Join', 
+'others and' => 'others and', 
+'Be the first to' => 'Be the first to', 
+'post a comment' => 'post a comment', 
+
+# ArticlesModule.php
+'Articles Tagged with' => 'Articles Tagged with', 
+'You are currently browsing' => 'You are currently browsing', 
+'articles tagged with' => 'articles tagged with', 
+'Archives for' => 'Archives for', 
+'articles posted ' => 'articles posted ', 
+'The Latest Articles' => 'The Latest Articles', 
+
+# RandomArticleImage.js
+'Get a new image' => 'Get a new image', 
+
+# BeforeRecentArticles.tpl.php
+'Recent Articles' => 'Recent Articles', 
+
+# RecentArticles.js
+
+# AfterRecentArticles.tpl.php
+'Newer' => 'Newer', 
+'Older' => 'Older', 
+
+# OlderArticles.tpl.php
+'Continue reading' => 'Continue reading', 
+
+# BeforeOlderArticles.tpl.php
+'Older Articles' => 'Older Articles', 
+
+# RecentComments.tpl.php
+'on' => 'on', 
+
+# BeforeRecentComments.tpl.php
+'Recent Comments' => 'Recent Comments', 
+
+# RecentComments.js
+
+# AfterRecentComments.tpl.php
+
+# ArticleCalendar.tpl.php
+'Sunday' => 'Sunday', 
+'S' => 'S', 
+'Monday' => 'Monday', 
+'M' => 'M', 
+'Tuesday' => 'Tuesday', 
+'T' => 'T', 
+'Wednesday' => 'Wednesday', 
+'W' => 'W', 
+'Thursday' => 'Thursday', 
+'Friday' => 'Friday', 
+'F' => 'F', 
+'Saturday' => 'Saturday', 
+
+# ArticleCalendar.js
+
+# ArticlesByDate.tpl.php
+
+# BeforeArticlesByDate.tpl.php
+'Articles by Date' => 'Articles by Date'
 
 ); ?>

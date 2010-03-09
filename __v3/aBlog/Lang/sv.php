@@ -12,19 +12,17 @@
 
 # BeforePostComment.tpl.php
 'Post a Comment' => 'Posta en kommentar', 
-'The form contains errors.' => 'Formuläret innehåller fel.', 
-'Please make sure you have filled out everything correctly.' => 'Vänligen kontrollera att du fyllt i alla fält korrekt.', 
 
-# PostComment.js
-'Posting' => 'Postar...', 
-
-# PostComment.tpl.php
+# PostCommentModule.php
+'Post Comment' => 'Posta kommentar', 
 'Your Name' => 'Ditt namn', 
 'E-mail' => 'E-post', 
 'Website' => 'Hemsida', 
 'And Comment' => 'Och kommentar', 
 'Remember Me' => 'Kom ihåg mig', 
-'Post Comment' => 'Posta kommentar', 
+
+# PostComment.js
+'Posting' => 'Postar...', 
 
 # BeforeSocialBookmarks.tpl.php
 'Bookmark this Article' => 'Bokmärk den här artikeln', 
@@ -45,6 +43,8 @@
 'Add Article' => 'Lägg till artikel', 
 
 # ArticleAdmin.tpl.php
+'The form contains errors.' => 'Formuläret innehåller fel.', 
+'Please make sure you have filled out everything correctly.' => 'Vänligen kontrollera att du fyllt i alla fält korrekt.', 
 'The article was successfully saved!' => 'Artikeln sparades.', 
 'The article was successfully deleted!' => 'Artikeln är raderad.', 
 'Title' => 'Titel', 
@@ -110,8 +110,8 @@
 'You are currently browsing' => 'Du surfar för närvarande', 
 'articles tagged with' => 'artiklar taggade med', 
 'Archives for' => 'Arkivet för', 
-'articles posted on' => 'artiklar postade', 
-'articles posted in' => 'artiklar postade i', 
+'articles posted on' => 'artiklar publicerade', 
+'articles posted in' => 'artiklar publicerade', 
 'The Latest Articles' => 'De senaste artiklarna', 
 
 # RandomArticleImage.js
