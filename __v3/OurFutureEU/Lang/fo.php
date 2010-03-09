@@ -4,9 +4,9 @@
 
 # Routes.php
 'url.comics' => 'comics', 
-'url.documents' => 'documents', 
-'url.contact-information' => 'contact-information', 
-'url.our-projects' => 'our-projects', 
+'url.documents' => 'skjol', 
+'url.contact-information' => 'samskifti', 
+'url.our-projects' => 'okkara-verkatlanir', 
 
 # AfterLatestComicAdmin.tpl.php
 'Upload a Comic' => 'Upload a Comic', 
@@ -33,8 +33,8 @@
 'All Published Comics' => 'All Published Comics', 
 
 # NavigationModule.php
-'News' => 'News', 
-'url.news-tag' => 'news', 
+'News' => 'Tíðindi', 
+'url.news-tag' => 'tioindi', 
 
 # BeforeRandomLinks.tpl.php
 'Project Links' => 'Project Links', 
