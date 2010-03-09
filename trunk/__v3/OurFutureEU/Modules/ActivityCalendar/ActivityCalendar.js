@@ -3,6 +3,11 @@ aFramework.modules.ActivityCalendar = {
 		this.hijaxPrevNextLinks();
 		this.highlightToday();
 		this.hijaxDayLinks();
+		this.initMarkItUp();
+	}, 
+
+	initMarkItUp: function () {
+		$('#activity-calendar textarea[name=content]').markItUp(mySettings);
 	}, 
 
 	confirmDelete: function () {
