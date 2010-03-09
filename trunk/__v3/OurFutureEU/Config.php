@@ -32,7 +32,4 @@
 	Config::set('navigation.archives',			false);
 
 	Config::set('ablog.num_recent_comments',	3);
-
-	Config::set('activities_admin.username',	'admin');
-	Config::set('activities_admin.password',	'1234');
 ?>
