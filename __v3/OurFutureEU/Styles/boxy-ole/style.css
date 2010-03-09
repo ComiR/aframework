@@ -118,6 +118,10 @@ body {
 				bottom: 34px; /* based on separator height (hack) */
 			}
 
+			#secondary-content .markItUp textarea {
+				width: 217px !important;
+			}
+
 		#tertiary-content = $white-content-box;
 		#tertiary-content {
 
@@ -295,10 +299,33 @@ body {
 	background: rgba(220, 220, 220, .5);
 }
 
-#project-page-page #project-list ul {
-	margin: 0 -15px;
-	padding: 0 15px;
+#project-page-page #project-list {
+	background: #06c;
+	margin: -10px -15px 0;
+	padding: 10px 0 0;
 }
+
+	#project-page-page #project-list ul {
+		padding: 0 15px;
+		border-color: #05b;
+		border-width: 1px;
+	}
+
+	$tab {
+		background: #9ce;
+		border-color: #05b;
+		color: #06c;
+	}
+
+	$tab:hover {
+		background: #9ce;
+		color: #fdfeff;
+	}
+
+	$tab.selected {
+		background: #39f;
+		color: #fdfeff;
+	}
 
 #comics ul li img {
 	width: 600px;
