@@ -26,8 +26,7 @@
 				));
 				$form->addField(array(
 					'name'		=> 'email', 
-					'title'		=> Lang::get('E-mail'), 
-					'required'	=> true
+					'title'		=> Lang::get('E-mail')
 				));
 				$form->addField(array(
 					'name'		=> 'website', 
