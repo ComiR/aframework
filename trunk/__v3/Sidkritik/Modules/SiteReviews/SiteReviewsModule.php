@@ -9,7 +9,7 @@
 				SiteReviews::thumbUpReview($_POST['site_reviews_id']);
 
 				if (!XHR) {
-					redirect('?thumbed_up_review');
+					redirect(msg('Thumbed Up Review', 'The review was successfully thumbed up.'));
 				}
 			}
 
@@ -18,7 +18,7 @@
 				SiteReviews::thumbDownReview($_POST['site_reviews_id']);
 
 				if (!XHR) {
-					redirect('?thumbed_down_review');
+					redirect(msg('Thumbed Down Review', 'The review was successfully thumbed down.'));
 				}
 			}
 
@@ -98,7 +98,7 @@
 					SiteReviewComments::insert($_POST);
 
 					if (!XHR) {
-						redirect('?posted_review_comment');
+						redirect(msg('Inserted Review Comment', 'The review comment was successfully inserted.'));
 					}
 				}
 				else {
