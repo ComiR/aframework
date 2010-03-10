@@ -17,10 +17,10 @@
 			$path = Router::urlForFile('comics/' . $name, 'OurFutureEU', DOCROOT);
 
 			if (move_uploaded_file($_FILES['image']['tmp_name'], $path)) {
-				redirect('?uploaded_image');
+				redirect(msg('Uploaded Image', 'The image was successfully uploaded.'));
 			}
 			else {
-				redirect('?fail');
+				redirect(msg('Error Uploading Image', 'An error occurred while uploading the image. Please try again.', true));
 			}			
 		}
 	}

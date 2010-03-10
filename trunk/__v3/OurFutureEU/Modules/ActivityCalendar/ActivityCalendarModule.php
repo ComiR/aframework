@@ -137,7 +137,7 @@
 				));
 
 				# Redirect after POST
-				redirect('?added_activity');
+				redirect(msg('Inserted Activity', 'The activity was successfully inserted.'));
 			}
 
 			self::$tplVars['form_html'] = $form->asHTML();
@@ -148,7 +148,7 @@
 				Activities::delete($_POST['activities_id']);
 
 				# Redirect after POST
-				redirect('?deleted_activity');
+				redirect(msg('Deleted Activity', 'The activity was successfully deleted.'));
 			}
 		}
 	}

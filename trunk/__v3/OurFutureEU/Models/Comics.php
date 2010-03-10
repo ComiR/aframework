@@ -8,7 +8,8 @@
 				if (in_array(end(explode('.', $f)), array('jpg', 'jpeg', 'gif', 'png'))) {
 					$images[] = array(
 						'url'	=> WEBROOT . CURRENT_SITE . '/Files/comics/' . $f, 
-						'path'	=> DOCROOT . CURRENT_SITE . '/Files/comics/' . $f
+						'path'	=> DOCROOT . CURRENT_SITE . '/Files/comics/' . $f, 
+						'name'	=> $f
 					);
 				}
 			}
