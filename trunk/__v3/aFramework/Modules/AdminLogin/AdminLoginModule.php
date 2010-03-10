@@ -15,7 +15,7 @@
 							$_SESSION[ADMIN_SESSION] = true;
 						}
 
-						redirect('?logged_in');
+						redirect(msg('Logged In', 'You were successfully logged in as admin.'));
 					}
 					elseif ($_POST['username'] == Config::get('su.user') and $_POST['password'] == Config::get('su.pass')) {
 						if (isset($_POST['remember_login'])) {
@@ -25,10 +25,10 @@
 							$_SESSION[SU_SESSION] = true;
 						}
 
-						redirect('?logged_in_su');
+						redirect(msg('Logged In', 'You were successfully logged in as SU.'));
 					}
 					else {
-						redirect('?error');
+						redirect(msg('Error Logging In', 'There was an error logging in. Please try again.', true));
 					}
 				}
 			}
@@ -39,11 +39,7 @@
 				unset($_SESSION[SU_SESSION]);
 				setcookie(SU_SESSION, false, 0, WEBROOT);
 
-				redirectToReferrer('logged_out');
-			}
-			# An error occurred
-			if (isset($_GET['error'])) {
-				self::$tplVars['error'] = true;
+				redirectToReferrer(msg('Logged Out', 'You were successfully logged out.'));
 			}
 		}
 	}

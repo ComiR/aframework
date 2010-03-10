@@ -1,0 +1,46 @@
+#msg {
+	background: rgba(30, 30, 30, .8);
+
+	padding: 15px;
+
+	width: 320px;
+
+	position: fixed;
+	right: 15px;
+	top: 15px;
+	z-index: 100;
+
+	font: 12px/1.2 Arial, sans-serif;
+	color: #f9f9f9;
+
+	-moz-box-shadow: 0 0 5px rgba(20, 20, 20, .4);
+	-webkit-box-shadow: 0 0 5px rgba(20, 20, 20, .4);
+	box-shadow: 0 0 5px rgba(20, 20, 20, .4);
+
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+body.js-enabled #msg {
+	display: none;
+}
+
+body.admin #msg {
+	top: 30px;
+}
+
+#msg.error {
+	background: #rgba(150, 0, 0, .8);
+}
+
+	#msg h2 {
+		font: bold 14px/1 Arial, sans-serif;
+		letter-spacing: 0;
+		color: #f9f9f9;
+		margin: 0 0 5px;
+	}
+
+	#msg p {
+		margin: 0;
+	}
