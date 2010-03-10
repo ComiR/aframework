@@ -39,7 +39,7 @@
 				Comments::deleteAllSpamForArticle($articlesID);
 
 				if (!XHR) {
-					redirect('?deleted_all_spam');
+					redirect(msg('Deleted All Spam', 'All spam was successfully deleted.'));
 				}
 			}
 
@@ -55,7 +55,7 @@
 			Comments::delete($id);
 
 			if (!XHR) {
-				redirect('?deleted_comment');
+				redirect(msg('Deleted Comment', 'The comment was successfully deleted.'));
 			}
 		}
 
@@ -63,7 +63,7 @@
 			Comments::update($id, array('karma' => 0));
 
 			if (!XHR) {
-				redirect('?spammed_comment');
+				redirect(msg('Spammed Comment', 'The comment was successfully marked as spam.'));
 			}
 		}
 
@@ -71,7 +71,7 @@
 			Comments::update($id, array('karma' => 1));
 
 			if (!XHR) {
-				redirect('?hammed_comment');
+				redirect(msg('Hammed Comment', 'The comment was successfully marked as ham.'));
 			}
 		}
 	}

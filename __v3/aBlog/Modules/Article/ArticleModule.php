@@ -65,7 +65,7 @@
 			# Comments::deleteCommentsForArticle($id);
 
 			if (!XHR) {
-				redirect(Router::urlFor('AddArticle') . '?deleted_article');
+				redirect(Router::urlFor('AddArticle') . msg('Deleted Article', 'The article was successfully deleted.'));
 			}
 		}
 
@@ -73,6 +73,7 @@
 			$row['url_str']		= empty($row['url_str']) ? $row['title'] : $row['url_str'];
 			$row['url_str']		= Router::urlize($row['url_str']);
 			$row['pub_date']	= empty($row['pub_date']) ? date('Y-m-d H:i:s') : $row['pub_date'];
+			$new				= false;
 
 			# Make sure mandatory fields are filled out
 			if (
@@ -89,28 +90,23 @@
 				else {
 					Articles::insert($row);
 
+					$new = true;
 					$row['articles_id']	= mysql_insert_id();
 
 					Tags::updateTagsForArticle($row['articles_id'], $_POST['tags']);
 				}
-			}
-			# Errors in form
-			else {
-				self::$tplVars['errors'] = true;
 
-				return;
-			}
+				$row['year']	= isset($row['year']) ? $row['year'] : substr($row['pub_date'], 0, 4);
+				$row['month']	= isset($row['month']) ? $row['month'] : substr($row['pub_date'], 5, 2);
+				$row['day']		= isset($row['day']) ? $row['day'] : substr($row['pub_date'], 8, 2);
 
-			$row['year']	= isset($row['year']) ? $row['year'] : substr($row['pub_date'], 0, 4);
-			$row['month']	= isset($row['month']) ? $row['month'] : substr($row['pub_date'], 5, 2);
-			$row['day']		= isset($row['day']) ? $row['day'] : substr($row['pub_date'], 8, 2);
-
-			if (!XHR) {
-				if (substr($row['url_str'], 0, 2) == '__') {
-					redirect('?saved_article');
-				}
-				else {
-					redirect(Router::urlFor('Article', $row) . '?saved_article');
+				if (!XHR) {
+					if ($new) {
+						redirect(Router::urlFor('Article', $row) . msg('Inserted Article', 'The article was successfully inserted.'));
+					}
+					else {
+						redirect(Router::urlFor('Article', $row) . msg('Updated Article', 'The article was successfully updated.'));
+					}
 				}
 			}
 		}

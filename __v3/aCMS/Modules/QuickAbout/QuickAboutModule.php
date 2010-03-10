@@ -28,14 +28,14 @@
 				);
 
 				if (!XHR) {
-					redirect('?inserted_quick_about');
+					redirect(msg('Inserted Quick About', 'The quick about was successfully inserted.'));
 				}
 			}
 			else {
 				Pages::update($page['pages_id'], array('content' => $_POST['content']));
 
 				if (!XHR) {
-					redirect('?updated_quick_about');
+					redirect(msg('Updated Quick About', 'The quick about was successfully updated.'));
 				}
 			}
 		}
