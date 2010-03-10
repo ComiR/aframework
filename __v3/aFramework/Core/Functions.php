@@ -4,6 +4,25 @@
 	 *
 	 * Random handy functions
 	 **/
+	# Helps build a msg url
+	function msg ($title, $str = false, $error = false) {
+		if ($str == false) {
+			$str = Lang::get($title);
+		}
+		else {
+			$str = Lang::get($title, false) . '|' . Lang::get($str, false);
+		}
+
+		if ($error) {
+			$str .= '&type=error';
+		}
+		else {
+			$str .= '&type=info';
+		}
+
+		return appendToQryStr('msg=' . $str, false);
+	}
+
 	# Like mysql_real_escape_string
 	function escSQL ($str) {
 		return mysql_real_escape_string(stripslashes($str));
@@ -78,7 +97,7 @@
 		$port		= (isset($_SERVER['SERVER_PORT']) && ((!$isHTTPS && $_SERVER['SERVER_PORT'] != "80") || ($isHTTPS && $_SERVER['SERVER_PORT'] != '443')));
 		$port		= ($port) ? ':' . $_SERVER['SERVER_PORT'] : '';
 		$url		= ($isHTTPS ? 'https://' : 'http://') . $_SERVER['SERVER_NAME'] . $port . $_SERVER['REQUEST_URI'];
-		$url		= $noQry ? preg_replace('/\?' . $_SERVER['QUERY_STRING'] . '$/', '', $url) : $url;
+		$url		= $noQry ? preg_replace('/\?*$/', '', $url) : $url;
 
 		return $url;
 	}
