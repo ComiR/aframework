@@ -53,7 +53,7 @@
 				unlink($path);
 
 				if (!XHR) {
-					redirect('?deleted_document');
+					redirect(msg('Deleted Document', 'The document was successfully deleted.'));
 				}
 			}
 		}
@@ -63,10 +63,10 @@
 			$path = Router::urlForFile('documents/' . Router::$params['url_str'] . '/' . $name, 'OurFutureEU', DOCROOT);
 
 			if (move_uploaded_file($_FILES['doc']['tmp_name'], $path)) {
-				redirect('?uploaded_document');
+				redirect(msg('Uploaded Document', 'The document was successfully uploaded.'));
 			}
 			else {
-				redirect('?fail');
+				redirect(msg('Error Uploading Document', 'An error occurred while uploading the document. Please try again.', true));
 			}			
 		}
 	}
