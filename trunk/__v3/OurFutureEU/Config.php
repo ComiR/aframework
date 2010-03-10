@@ -8,7 +8,7 @@
 	Config::set('lang.default_lang',			'en');
 	Config::set('lang.translated_tables',		'articles,pages,tags,article_tags,comments,activities');
 
-	Config::set('general.default_style',		'open-ole');
+	Config::set('general.default_style',		'boxy-ole');
 
 	Config::set('general.site_author',			'Our Life as Elderly');
 	Config::set('general.site_title',			'Our Life as Elderly');
