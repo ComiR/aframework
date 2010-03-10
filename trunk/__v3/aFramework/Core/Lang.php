@@ -192,7 +192,7 @@
 			'zu' => 'Zulu'
 		);
 
-		public static function get ($str) {
+		public static function get ($str, $escHTML = true, $vars = false) {
 			# Load every language for every site if not already loaded
 			if (self::$lang === false) {
 				self::loadLang();
@@ -200,16 +200,22 @@
 
 			# If the string exists in the CURRENT_LANG use that
 			if (isset(self::$lang[CURRENT_LANG][$str])) {
-				return escHTML(self::$lang[CURRENT_LANG][$str]);
+				$str = self::$lang[CURRENT_LANG][$str];
 			}
 			# Else, try default lang
 			elseif (isset(self::$lang[Config::get('lang.default_lang')][$str])) {
-				return escHTML(self::$lang[Config::get('lang.default_lang')][$str]);
+				$str = self::$lang[Config::get('lang.default_lang')][$str];
 			}
 			# Else, just return the string
-			else {
-				return escHTML($str);
+
+			# Replace variables
+			if (is_array($vars)) {
+				foreach ($vars as $k => $v) {
+					$str = str_replace('%' . $k, $v, $str);
+				}
 			}
+
+			return $escHTML ? escHTML($str) : $str;
 		}
 
 		public static function getLang () {
