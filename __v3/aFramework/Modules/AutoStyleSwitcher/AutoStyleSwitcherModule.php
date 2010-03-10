@@ -17,7 +17,7 @@
 			# See if user wants to change style
 			$tmp = array_merge($_GET, $_POST);
 
-			if (isset($tmp['style'])) {
+			if (isset($tmp['style']) and !empty($tmp['style'])) {
 				self::setStyle($tmp['style']);
 			}
 		}
@@ -43,10 +43,12 @@
 			$style = basename($style);
 
 			if (is_dir(CURRENT_SITE_DIR . 'Styles/' . $style . '/')) {
+				$oldStyle = isset($_COOKIE['style']) ? $_COOKIE['style'] : Config::get('general.default_style');
+
 				setcookie('style', $style, time() + 31536000, WEBROOT);
 
 				if (!XHR) {
-					redirect('?changed_style');
+					redirect(msg('Style Switcher', "You successfully changed style. If you don't like it you can always [change back](/styles/).") . '&style=');
 				}
 			}
 		}

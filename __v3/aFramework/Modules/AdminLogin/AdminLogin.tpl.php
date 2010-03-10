@@ -1,14 +1,5 @@
 <h2><?php echo Lang::get('Please Sign In'); ?></h2>
 
-<?php if ($error) { ?>
-	<p>
-		<strong>
-			<?php echo Lang::get('Wrong username or password.'); ?> 
-			<?php echo Lang::get('Please try again.'); ?>
-		</strong>
-	</p>
-<?php } ?>
-
 <form method="post" action="">
 
 	<p>
