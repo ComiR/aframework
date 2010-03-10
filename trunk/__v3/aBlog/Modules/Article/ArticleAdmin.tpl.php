@@ -5,18 +5,6 @@
 			<?php echo Lang::get('Please make sure you have filled out everything correctly.'); ?>
 		</strong>
 	</p>
-<?php } elseif ($inserted) { ?>
-	<p>
-		<strong>
-			<?php echo Lang::get('The article was successfully saved!'); ?>
-		</strong>
-	</p>
-<?php } elseif ($deleted) { ?>
-	<p>
-		<strong>
-			<?php echo Lang::get('The article was successfully deleted!'); ?>
-		</strong>
-	</p>
 <?php } ?>
 
 <form method="post" action="">

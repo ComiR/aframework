@@ -63,7 +63,7 @@
 					Comments::insert($_POST);
 
 					if (!XHR) {
-						redirect('?added_comment');
+						redirect(msg('Inserted Comment', 'The comment was successfully inserted.'));
 					}
 				}
 

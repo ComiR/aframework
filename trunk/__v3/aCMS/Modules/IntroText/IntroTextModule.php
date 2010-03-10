@@ -8,7 +8,9 @@
 				self::updateOrInsertIntroText();
 			}
 
-			if (!(self::$tplVars['page'] = Pages::getPageByURLStr('__' . md5($_SERVER['PATH_INFO'])))) {
+			$pathInfo = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/';
+
+			if (!(self::$tplVars['page'] = Pages::getPageByURLStr('__' . md5($pathInfo)))) {
 				if (!ADMIN) {
 					self::$tplFile = false;
 				}
@@ -16,7 +18,8 @@
 		}
 
 		private static function updateOrInsertIntroText () {
-			$url = '__' . md5($_SERVER['PATH_INFO']);
+			$pathInfo = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/';
+			$url = '__' . md5($pathInfo);
 
 			if (!($page = Pages::getPageByURLStr($url))) {
 				Pages::insert(array(
@@ -29,14 +32,14 @@
 				);
 
 				if (!XHR) {
-					redirect('?inserted_intro_text');
+					redirect(msg('Inserted Intro Text', 'The intro text was successfully inserted.'));
 				}
 			}
 			else {
 				Pages::update($page['pages_id'], array('content' => $_POST['content']));
 
 				if (!XHR) {
-					redirect('?updated_intro_text');
+					redirect(msg('Updated Intro Text', 'The intro text was successfully updated.'));
 				}
 			}
 		}

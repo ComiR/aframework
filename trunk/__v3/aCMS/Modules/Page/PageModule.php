@@ -59,13 +59,14 @@
 			Pages::delete($id);
 
 			if (!XHR) {
-				redirect(Router::urlFor('AddPage') . '?deleted_page');
+				redirect(Router::urlFor('AddPage') . msg('Deleted Page', 'The page was successfully deleted.'));
 			}
 		}
 
 		private static function updatePage ($row) {
-			$row['url_str']		= empty($row['url_str']) ? $row['title'] : $row['url_str'];
-			$row['url_str']		= Router::urlize($row['url_str']);
+			$new			= false;
+			$row['url_str']	= empty($row['url_str']) ? $row['title'] : $row['url_str'];
+			$row['url_str']	= Router::urlize($row['url_str']);
 
 			# Make sure mandatory fields are filled out
 			if (
@@ -79,6 +80,7 @@
 				# Not set, insert
 				else {
 					Pages::insert($row);
+					$new = true;
 				}
 			}
 			# Errors in form
@@ -87,11 +89,13 @@
 			}
 
 			if (!XHR) {
-				if (substr($row['url_str'], 0, 2) == '__') {
-					redirect('?saved_page');
+				$prefix = (substr($row['url_str'], 0, 2) != '__') ? Router::urlFor('Page', $row) : '';
+
+				if ($new) {
+					redirect($prefix . msg('Inserted Page', 'The page was successfully inserted.'));
 				}
 				else {
-					redirect(Router::urlFor('Page', $row) . '?saved_page');
+					redirect($prefix . msg('Updated Page', 'The page was successfully updated.'));
 				}
 			}
 		}
