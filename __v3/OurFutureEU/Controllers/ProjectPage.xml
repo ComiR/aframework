@@ -15,13 +15,9 @@
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<LatestComic/>
-			<RandomLinks/>
 			<ActivityCalendar/>
+			<RandomLinks/>
 			<RecentComments/>
-		</Wrapper>
-		<Wrapper name="tertiary-content">
-			<Sponsors/>
-			<Partners/>
 		</Wrapper>
 		<Footer/>
 	</Wrapper>
