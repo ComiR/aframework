@@ -21,7 +21,7 @@
 					DynItem::update(Router::$params['table_name'], $_POST[Router::$params['table_name'] . '_id'], $_POST);
 
 					if (!XHR) {
-						redirect('?updated_item');
+						redirect(msg('Updated Item', 'The item was successfully updated.'));
 					}
 				}
 			}
