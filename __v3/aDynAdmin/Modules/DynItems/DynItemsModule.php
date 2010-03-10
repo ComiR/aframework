@@ -19,7 +19,7 @@
 			DynItem::delete($tableName, $id);
 
 			if (!XHR) {
-				redirect(appendToQryStr('deleted_item=', false));
+				redirect(msg('Deleted Item', 'The item was successfully deleted.');
 			}
 		}
 
