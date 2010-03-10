@@ -1,5 +1,6 @@
 #footer = $small;
 #footer {
+	clear: both;
 	overflow: hidden;
 	padding: 10px 0;
 }
