@@ -25,3 +25,8 @@
 	#activity-calendar ul {
 		margin: 10px 0 0;
 	}
+
+	#activity-calendar textarea {
+		width: 90%;
+		height: 40px;
+	}

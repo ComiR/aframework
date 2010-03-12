@@ -33,9 +33,12 @@
 					<?php } else { ?>
 						<td>
 							<?php /* if ($day['today']) { ?><strong><?php } */ ?>
-							<?php if ($day['num_activities'] > 0) { ?>
+							<?php if ($day['num_activities'] > 0 or ADMIN) { ?>
 								<a href="<?php echo $day['url']; ?>">
 									<?php echo $day['num']; ?>
+									<?php if (ADMIN and $day['num_activities'] < 1) { ?>
+										<small>+</small>
+									<?php } ?>
 								</a>
 							<?php } else { ?>
 								<?php echo $day['num']; ?>
@@ -49,8 +52,8 @@
 	</tbody>
 </table>
 
-<?php if (ADMIN) { ?>
+<?php /* if (ADMIN) { ?>
 	<h3><?php echo Lang::get('Add Activity'); ?></h3>
 
 	<?php echo $form_html; ?>
-<?php } ?>
+<?php } */ ?>

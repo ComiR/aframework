@@ -4,61 +4,43 @@ aFramework.modules.ActivityCalendar = {
 		this.highlightToday();
 		this.hijaxDayLinks();
 		this.initMarkItUp();
+
+		// For styling
+		$('#activity-calendar td a:has(small)').addClass('insert');
 	}, 
 
 	initMarkItUp: function () {
-		$('#activity-calendar textarea[name=content]').markItUp(mySettings);
-	}, 
-
-	confirmDelete: function () {
-		$('#activities form').submit(function () {
-			return confirm(Lang.get('Are you sure?'));
-		});
+	//	$('#activity-calendar textarea[name=content]').markItUp(mySettings);
 	}, 
 
 	hijaxDayLinks: function () {
 		var activityCalendar	= $('#activity-calendar');
 		var calendarTable		= activityCalendar.find('table');
-		var calendarTableDim	= calendarTable.offset();
-			calendarTableDim	= {
-			left:	calendarTableDim.left, 
-			top:	calendarTableDim.top, 
-			width:	calendarTable.width(), 
-			height:	calendarTable.height()
-		};
-		var activitiesBox		= $('<div id="activities"/>')
-									.appendTo(document.body)
-									.css({
-										width:	calendarTableDim.width + 'px', 
-										height:	calendarTableDim.height + 'px', 
-										left:	calendarTableDim.left + 'px', 
-										top:	calendarTableDim.top + 'px'
-									})
-									.slideUp(0);
+		var activitiesBox		= $('<div id="activities"/>').appendTo(document.body).fadeOut(0);
+
+		$(document.body).click(function (e) {
+			var clicked = $(e.target);
+
+			if (!(clicked.is('#activities') || clicked.parents('#activities').length)) {
+				activitiesBox.fadeOut(200);
+			}
+		});
 
 		// When clicking day - ajax in activities and slide down box
 		$('#activity-calendar td a').click(function () {
-			$.get($(this).attr('href'), function (data) {
+			var clicked			= $(this);
+			var clickedOffset	= clicked.offset();
+
+			$.get(clicked.attr('href'), function (data) {
 				activitiesBox
 					.html(data)
-					.slideDown(200)
-					.append('<a href="#" class="close">' + Lang.get('Close') + '</a>')
-						.find('a.close').click(function () {
-							calendarTableDim.height = calendarTable.height();
+					.css({
+						left:		(clickedOffset.left - activitiesBox.width()) + 'px', 
+						top:		(clickedOffset.top - activitiesBox.height()) + 'px'
+					})
+					.fadeIn(200);
 
-							activitiesBox
-								.css({
-									width:	calendarTableDim.width + 'px', 
-									height:	calendarTableDim.height + 'px', 
-									left:	calendarTableDim.left + 'px', 
-									top:	calendarTableDim.top + 'px'
-								})
-								.slideUp(200);
-
-							return false;
-						});
-
-				aFramework.modules.ActivityCalendar.confirmDelete();
+				aFramework.modules.Activities.run();
 			});
 
 			return false;

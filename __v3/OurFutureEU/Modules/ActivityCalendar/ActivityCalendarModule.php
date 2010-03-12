@@ -7,11 +7,25 @@
 			self::showTheCalendar();
 
 			if (ADMIN) {
-				self::handleAddActivity();
+			#	self::handleAddActivity();
+				self::handleAddActivityNoForm();
 
 				if (SU) {
 					self::handleDeleteActivity();
 				}
+			}
+		}
+
+		private static function handleAddActivityNoForm () {
+			if (isset($_POST['add_activity']) and isset($_POST['content']) and !empty($_POST['content'])) {
+				Activities::insert(array(
+					'title'			=> '', 
+					'content'		=> $_POST['content'], 
+					'pub_date'		=> $_POST['pub_date']
+				));
+
+				# Redirect after POST
+				redirect(msg('Inserted Activity', 'The activity was successfully inserted.'));
 			}
 		}
 

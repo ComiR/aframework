@@ -10,6 +10,7 @@
 				return self::$tplFile = false;
 			}
 
+			self::$tplVars['ymdate']		= date('Y-m-d H:i:s', strtotime($date));
 			self::$tplVars['date']			= date(Config::get('general.date_format'), strtotime($date));
 			self::$tplVars['activities']	= Activities::get('pub_date', 'ASC', 0, 1000000, "DATE_FORMAT(pub_date, '%Y-%m-%d') = '$date'");
 		}
