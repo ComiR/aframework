@@ -1,18 +1,25 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.2.1deb1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Mar 12, 2010 at 10:59 AM
+-- Server version: 5.1.37
+-- PHP Version: 5.2.10-2ubuntu6.4
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-DROP TABLE IF EXISTS `comments`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `comments` (
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `ante_aframework_demo`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE IF NOT EXISTS `comments` (
   `comments_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `articles_id` int(10) unsigned NOT NULL,
   `karma` tinyint(3) NOT NULL,
@@ -24,21 +31,12 @@ CREATE TABLE `comments` (
   `pub_date` datetime NOT NULL,
   `ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`comments_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3072 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3092 ;
 
-LOCK TABLES `comments` WRITE;
-/*!40000 ALTER TABLE `comments` DISABLE KEYS */;
-INSERT INTO `comments` VALUES (3070,18,1,'127.0.0.1','Herr aFramework','admin@aframework.org','http://aframework.org','This is just an example comment. You can [login](/admin/) to edit or delete it.','2009-10-10 13:23:33','0000-00-00 00:00:00');
-/*!40000 ALTER TABLE `comments` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+--
+-- Dumping data for table `comments`
+--
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+INSERT INTO `comments` (`comments_id`, `articles_id`, `karma`, `ip`, `author`, `email`, `website`, `content`, `pub_date`, `ts`) VALUES
+(3070, 18, 1, '127.0.0.1', 'Herr aFramework', 'admin@aframework.org', 'http://aframework.org', 0x54686973206973206a75737420616e206578616d706c6520636f6d6d656e742e20596f752063616e205b6c6f67696e5d282f61646d696e2f2920746f2065646974206f722064656c6574652069742e, '2009-10-10 13:23:33', '0000-00-00 00:00:00');
 

@@ -1,38 +1,38 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.2.1deb1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Mar 12, 2010 at 10:59 AM
+-- Server version: 5.1.37
+-- PHP Version: 5.2.10-2ubuntu6.4
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
-/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
-/*!40103 SET TIME_ZONE='+00:00' */;
-/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
-/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
-/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
-/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-DROP TABLE IF EXISTS `article_tags`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `article_tags` (
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `ante_aframework_demo`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `article_tags`
+--
+
+CREATE TABLE IF NOT EXISTS `article_tags` (
   `article_tags_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `articles_id` int(10) unsigned NOT NULL,
   `tags_id` int(10) unsigned NOT NULL,
   `ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`article_tags_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=59 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=63 ;
 
-LOCK TABLES `article_tags` WRITE;
-/*!40000 ALTER TABLE `article_tags` DISABLE KEYS */;
-INSERT INTO `article_tags` VALUES (56,4294967295,33,'0000-00-00 00:00:00'),(57,19,33,'0000-00-00 00:00:00'),(58,20,33,'0000-00-00 00:00:00');
-/*!40000 ALTER TABLE `article_tags` ENABLE KEYS */;
-UNLOCK TABLES;
-/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+--
+-- Dumping data for table `article_tags`
+--
 
-/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
-/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
-/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+INSERT INTO `article_tags` (`article_tags_id`, `articles_id`, `tags_id`, `ts`) VALUES
+(62, 18, 33, '2010-02-19 05:21:17'),
+(57, 19, 33, '0000-00-00 00:00:00'),
+(58, 20, 33, '0000-00-00 00:00:00');
 
