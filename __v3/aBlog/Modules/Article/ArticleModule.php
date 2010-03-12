@@ -45,7 +45,7 @@
 				# Article exists and URL-date is either correct or not set - display article
 				else {
 					self::$tplVars['article']			= $article;
-					self::$tplVars['article']['tags']	= Tags::getTagsByArticlesID(self::$tplVars['article']['articles_id']);
+					self::$tplVars['article']['tags']	= Tags::getTagsByArticlesID($article['articles_id']);
 					self::$tplVars['more_cut']			= true;
 
 					if (isset(Router::$params['url_str'])) {
@@ -88,10 +88,9 @@
 				}
 				# Not set, insert
 				else {
-					Articles::insert($row);
+					$row['articles_id']	= Articles::insert($row);
 
 					$new = true;
-					$row['articles_id']	= mysql_insert_id();
 
 					Tags::updateTagsForArticle($row['articles_id'], $_POST['tags']);
 				}
@@ -105,7 +104,7 @@
 						redirect(Router::urlFor('Article', $row) . msg('Inserted Article', 'The article was successfully inserted.'));
 					}
 					else {
-						redirect(Router::urlFor('Article', $row) . msg('Updated Article', 'The article was successfully updated.'));
+						redirect(Router::urlFor('Article', $row) . msg('Updated Article', 'The article was successfully updated.') . '&revision=');
 					}
 				}
 			}

@@ -12,42 +12,42 @@
 	<p>
 		<label>
 			<strong>*</strong> <?php echo Lang::get('Title'); ?><br />
-			<input type="text" name="title" value="<?php echo escHTML($article['title']); ?>" />
+			<input type="text" name="title" value="<?php echo escHTML($article['title']); ?>"<?php if (!SU and $article['articles_id']) { ?> readonly="readonly"<?php } ?>/>
 		</label>
 	</p>
 
 	<p>
 		<label>
 			<?php echo Lang::get('Slug'); ?><br />
-			<input type="text" name="url_str" value="<?php echo escHTML($article['url_str']); ?>" />
+			<input type="text" name="url_str" value="<?php echo escHTML($article['url_str']); ?>"<?php if (!SU and $article['articles_id']) { ?> readonly="readonly"<?php } ?>/>
 		</label>
 	</p>
 
 	<p>
 		<label>
 			<?php echo Lang::get('Publish Date'); ?><br />
-			<input type="text" name="pub_date" value="<?php echo empty($article['pub_date']) ? date('Y-m-d H:i:s') : $article['pub_date']; ?>" />
+			<input type="text" name="pub_date" value="<?php echo empty($article['pub_date']) ? date('Y-m-d H:i:s') : $article['pub_date']; ?>"<?php if (!SU and $article['articles_id']) { ?> readonly="readonly"<?php } ?>/>
 		</label>
 	</p>
 
 	<p>
 		<label>
 			<?php echo Lang::get('Meta Keywords'); ?><br />
-			<input type="text" name="meta_keywords" value="<?php echo escHTML($article['meta_keywords']); ?>" />
+			<input type="text" name="meta_keywords" value="<?php echo escHTML($article['meta_keywords']); ?>"<?php if (!SU and $article['articles_id']) { ?> readonly="readonly"<?php } ?>/>
 		</label>
 	</p>
 
 	<p>
 		<label>
 			<?php echo Lang::get('Meta Description'); ?><br />
-			<textarea name="meta_description" rows="3" cols="40"><?php echo escHTML($article['meta_description']); ?></textarea>
+			<textarea name="meta_description" rows="3" cols="40"<?php if (!SU and $article['articles_id']) { ?> readonly="readonly"<?php } ?>><?php echo escHTML($article['meta_description']); ?></textarea>
 		</label>
 	</p>
 
 	<p>
 		<label>
 			<strong>*</strong> <?php echo Lang::get('Article Content'); ?><br />
-			<textarea name="content" rows="20" cols="60"><?php echo escHTML($article['content']); ?></textarea>
+			<textarea name="content" rows="20" cols="60"<?php if (!SU and $article['articles_id']) { ?> readonly="readonly"<?php } ?>><?php echo escHTML($article['content']); ?></textarea>
 		</label>
 	</p>
 
@@ -64,18 +64,18 @@
 	<p>
 		<label>
 			<?php echo Lang::get('Tags'); ?> <small>(<?php echo Lang::get('Use a comma (,) to separate tags'); ?>)</small><br />
-			<input type="text" name="tags" value="<?php echo escHTML($tags); ?>" />
+			<input type="text" name="tags" value="<?php echo escHTML($tags); ?>"<?php if (!SU and $article['articles_id']) { ?> readonly="readonly"<?php } ?>/>
 		</label>
 	</p>
 
 	<p>
 		<?php echo Lang::get('Allow Comments'); ?><br />
 		<label>
-			<input type="radio" name="allow_comments" value="1"<?php if ($article['allow_comments']) { ?> checked="checked"<?php } ?> /> 
+			<input type="radio" name="allow_comments" value="1"<?php if ($article['allow_comments']) { ?> checked="checked"<?php } ?><?php if (!SU and $article['articles_id']) { ?> disabled="disabled"<?php } ?>/> 
 			<?php echo Lang::get('Yes'); ?>
 		</label> 
 		<label>
-			<input type="radio" name="allow_comments" value="0"<?php if (!$article['allow_comments']) { ?> checked="checked"<?php } ?> /> 
+			<input type="radio" name="allow_comments" value="0"<?php if (!$article['allow_comments']) { ?> checked="checked"<?php } ?><?php if (!SU and $article['articles_id']) { ?> disabled="disabled"<?php } ?>/> 
 			<?php echo Lang::get('No'); ?>
 		</label>
 	</p>
@@ -83,11 +83,11 @@
 	<p>
 		<?php echo Lang::get('Allow Rating'); ?><br />
 		<label>
-			<input type="radio" name="allow_rating" value="1"<?php if ($article['allow_rating']) { ?> checked="checked"<?php } ?> /> 
+			<input type="radio" name="allow_rating" value="1"<?php if ($article['allow_rating']) { ?> checked="checked"<?php } ?><?php if (!SU and $article['articles_id']) { ?> disabled="disabled"<?php } ?>/> 
 			<?php echo Lang::get('Yes'); ?>
 		</label> 
 		<label>
-			<input type="radio" name="allow_rating" value="0"<?php if (!$article['allow_rating']) { ?> checked="checked"<?php } ?> /> 
+			<input type="radio" name="allow_rating" value="0"<?php if (!$article['allow_rating']) { ?> checked="checked"<?php } ?><?php if (!SU and $article['articles_id']) { ?> disabled="disabled"<?php } ?>/> 
 			<?php echo Lang::get('No'); ?>
 		</label>
 	</p>
