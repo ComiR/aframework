@@ -6,7 +6,7 @@
 
 	Config::set('lang.allowed_langs',			'en,sv,fo');
 	Config::set('lang.default_lang',			'en');
-	Config::set('lang.translated_tables',		'articles,pages,tags,article_tags,comments,activities');
+	Config::set('lang.translated_tables',		'articles,pages,tags,article_tags,comments,activities,revisions');
 
 	Config::set('general.default_style',		'boxy-ole');
 

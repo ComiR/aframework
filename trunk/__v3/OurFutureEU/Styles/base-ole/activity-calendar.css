@@ -1,22 +1,23 @@
-#activities = $white-shadowed-box;
 #activities {
 	position: absolute;
 	left: 0;
 	top: 0;
+	z-index: 100;
 
-	padding: 0;
-	overflow: auto;
+	width: 300px;
+
+	padding: 10px;
+	margin: -20px 0 0 -20px;
 	font-size: 13px;
 
-	-moz-box-shadow: none;
-	-webkit-box-shadow: none;
-	box-shadow: none;
-}
+	-moz-box-shadow: 0 0 10px rgba(0, 50, 100, .6);
+	-webkit-box-shadow: 0 0 10px rgba(0, 50, 100, .4);
+	box-shadow: 0 0 10px rgba(0, 30, 30, .4);
 
-	#activities > * {
-		margin-left: 10px !important;
-		margin-right: 10px !important;
-	}
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
 
 	#activities h2 = $base-font;
 	#activities h3 = $base-font;
@@ -33,10 +34,8 @@
 
 	#activities ol = $plain-list;
 
-	#activities a.close = $small;
-	#activities a.close {
-		display: block;
-		margin: 5px 0 0;
+	#activities textarea {
+		width: 290px;
 	}
 
 #activity-calendar = $white-shadowed-box;
@@ -59,12 +58,37 @@
 			padding: 2px 5px;
 			border: 1px solid #ccc;
 			text-align: center;
+			position: relative;
 		}
 
 		#activity-calendar table th:first-child, 
 		#activity-calendar table td:first-child {
 			color: red;
 		}
+
+			#activity-calendar td a {
+				display: block;
+				padding: 2px 5px;
+				margin: -2px -5px;
+			}
+
+			#activity-calendar table td a.insert {
+				color: inherit;
+				text-decoration: none;
+				position: relative;
+			}
+
+				#activity-calendar table td a.insert small {
+					position: absolute;
+					right: 1px;
+					top: 0;
+					display: none;
+					color: red;
+				}
+
+				#activity-calendar table td a.insert:hover small {
+					display: inline;
+				}
 
 	#activity-calendar ul = $previous-next-menu;
 	#activity-calendar ul {
