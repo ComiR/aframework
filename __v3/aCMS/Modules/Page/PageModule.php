@@ -95,7 +95,7 @@
 					redirect($prefix . msg('Inserted Page', 'The page was successfully inserted.'));
 				}
 				else {
-					redirect($prefix . msg('Updated Page', 'The page was successfully updated.'));
+					redirect($prefix . msg('Updated Page', 'The page was successfully updated.') . '&revision=');
 				}
 			}
 		}

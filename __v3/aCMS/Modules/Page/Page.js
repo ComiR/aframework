@@ -5,11 +5,16 @@ aFramework.modules.Page = {
 		this.confirmDelete();
 		this.advancedToggler();
 		this.autoSlug();
+		this.indicateUnsaved();
+	},   
+
+	indicateUnsaved: function () {
+		$('#page').indicateUnsaved();
 	},   
 
 	autoSlug: function () {
 		$('#page input[name=title]').keyup(function () {
-			$('#page input[name=url_str]').val(Router.urlize($('#page input[name=title]').val()));
+			$('#page input[name=url_str]').val(Router.urlize($('#page input[name=title]').val())).change();
 		});
 	}, 
 
