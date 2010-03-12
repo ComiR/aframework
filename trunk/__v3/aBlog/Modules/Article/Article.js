@@ -5,11 +5,21 @@ aFramework.modules.Article = {
 		this.confirmDelete();
 		this.advancedToggler();
 		this.autoSlug();
+		this.indicateUnsaved();
+		this.autoCompleteTags();
 	},   
+
+	autoCompleteTags: function () {
+		// todo...
+	}, 
+
+	indicateUnsaved: function () {
+		$('#article').indicateUnsaved();
+	}, 
 
 	autoSlug: function () {
 		$('#article input[name=title]').keyup(function () {
-			$('#article input[name=url_str]').val(Router.urlize($('#article input[name=title]').val()));
+			$('#article input[name=url_str]').val(Router.urlize($('#article input[name=title]').val())).change();
 		});
 	}, 
 

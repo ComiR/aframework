@@ -238,7 +238,16 @@
 				'num_hits'			=> 0
 			);
 
-			return DBRow::insert('articles', $fields);
+			$fields['id'] = DBRow::insert('articles', $fields);
+
+			Revisions::insert(array(
+				'table_id'		=> $fields['id'], 
+				'table_name'	=> 'articles', 
+				'pub_date'		=> date('Y-m-d H:i:s'), 
+				'content'		=> $fields['content']
+			));
+
+			return $fields['id'];
 		}
 
 		public static function update ($id, $row) {
@@ -261,6 +270,13 @@
 					$fields[$col] = $val;
 				}
 			}
+
+			Revisions::insert(array(
+				'table_id'		=> $id, 
+				'table_name'	=> 'articles', 
+				'pub_date'		=> date('Y-m-d H:i:s'), 
+				'content'		=> $fields['content']
+			));
 
 			return DBRow::update('articles', $id, $fields);
 		}
