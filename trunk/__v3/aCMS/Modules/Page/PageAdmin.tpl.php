@@ -12,25 +12,25 @@
 	<p>
 		<label>
 			<strong>*</strong> <?php echo Lang::get('Page Title'); ?><br />
-			<input type="text" name="title" value="<?php echo escHTML($page['title']); ?>" />
+			<input type="text" name="title" value="<?php echo escHTML($page['title']); ?>"<?php if (!SU and $page['pages_id']) { ?> readonly="readonly"<?php } ?>/>
 		</label>
 	</p>
 
 	<p>
 		<label>
 			<strong>*</strong> <?php echo Lang::get('Slug'); ?><br />
-			<input type="text" name="url_str" value="<?php echo escHTML($page['url_str']); ?>" />
+			<input type="text" name="url_str" value="<?php echo escHTML($page['url_str']); ?>"<?php if (!SU and $page['pages_id']) { ?> readonly="readonly"<?php } ?>/>
 		</label>
 	</p>
 
 	<p>
 		<?php echo Lang::get('Show in Navigation'); ?><br />
 		<label>
-			<input type="radio" name="in_navigation" value="1"<?php if ($page['priority']) { ?> checked="checked"<?php } ?> /> 
+			<input type="radio" name="in_navigation" value="1"<?php if ($page['priority']) { ?> checked="checked"<?php } ?><?php if (!SU and $page['pages_id']) { ?> disabled="disabled"<?php } ?>/> 
 			<?php echo Lang::get('Yes'); ?>
 		</label> 
 		<label>
-			<input type="radio" name="in_navigation" value="0"<?php if (!$page['priority']) { ?> checked="checked"<?php } ?> /> 
+			<input type="radio" name="in_navigation" value="0"<?php if (!$page['priority']) { ?> checked="checked"<?php } ?><?php if (!SU and $page['pages_id']) { ?> disabled="disabled"<?php } ?>/> 
 			<?php echo Lang::get('No'); ?>
 		</label>
 	</p>
@@ -38,21 +38,21 @@
 	<p>
 		<label>
 			<?php echo Lang::get('Priority'); ?> <small>(<?php echo Lang::get('A lower number places page early in the list'); ?>)</small><br />
-			<input type="text" name="priority" value="<?php echo escHTML($page['priority']); ?>" />
+			<input type="text" name="priority" value="<?php echo escHTML($page['priority']); ?>"<?php if (!SU and $page['pages_id']) { ?> readonly="readonly"<?php } ?>/>
 		</label>
 	</p>
 
 	<p>
 		<label>
 			<?php echo Lang::get('Meta Keywords'); ?><br />
-			<input type="text" name="meta_keywords" value="<?php echo escHTML($page['meta_keywords']); ?>" />
+			<input type="text" name="meta_keywords" value="<?php echo escHTML($page['meta_keywords']); ?>"<?php if (!SU and $page['pages_id']) { ?> readonly="readonly"<?php } ?>/>
 		</label>
 	</p>
 
 	<p>
 		<label>
 			<?php echo Lang::get('Meta Description'); ?><br />
-			<textarea name="meta_description" rows="3" cols="60"><?php echo escHTML($page['meta_description']); ?></textarea>
+			<textarea name="meta_description" rows="3" cols="60"<?php if (!SU and $page['pages_id']) { ?> readonly="readonly"<?php } ?>><?php echo escHTML($page['meta_description']); ?></textarea>
 		</label>
 	</p>
 

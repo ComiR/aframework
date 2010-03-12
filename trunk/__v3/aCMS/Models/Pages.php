@@ -60,7 +60,16 @@
 				'content'			=> $row['content']
 			);
 
-			return DBRow::insert('pages', $fields);
+			$fields['id'] = DBRow::insert('pages', $fields);
+
+			Revisions::insert(array(
+				'table_id'		=> $fields['id'], 
+				'table_name'	=> 'pages', 
+				'pub_date'		=> date('Y-m-d H:i:s'), 
+				'content'		=> $fields['content']
+			));
+
+			return $fields['id'];
 		}
 
 		public static function update ($id, $row) {
@@ -80,6 +89,13 @@
 					$fields[$col] = $val;
 				}
 			}
+
+			Revisions::insert(array(
+				'table_id'		=> $id, 
+				'table_name'	=> 'pages', 
+				'pub_date'		=> date('Y-m-d H:i:s'), 
+				'content'		=> $fields['content']
+			));
 
 			return DBRow::update('pages', $id, $fields);
 		}
