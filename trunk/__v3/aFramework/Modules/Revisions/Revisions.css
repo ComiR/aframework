@@ -1,0 +1,90 @@
+#revisions {
+	
+}
+
+	#revisions h3 {
+		
+	}
+
+	#revisions ul {
+		
+	}
+
+		#revisions ul li {
+			
+		}
+
+			#revisions ul li h4 {
+				margin: 0;
+				padding: 0 0 5px;
+			}
+
+			#revisions ul li p {
+				margin: 0;
+			}
+
+			body.js-enabled #revisions ul li p {
+				display: none;
+			}
+
+				#revisions ul li p textarea {
+					width: 90%;
+				}
+
+ul.revision-list = $self-clear;
+ul.revision-list {
+	margin: -10px 0 0;
+	list-style: none;
+	float: right;
+	font: 10px/1 Arial, sans-serif;
+	text-transform: uppercase;
+	color: #999;
+}
+
+ul.revision-list::before {
+	content: "Revisions: ";
+	float: left;
+	display: block;
+	margin: 3px 5px 0 0;
+}
+
+	ul.revision-list li {
+		float: left;
+		margin: 0 !important;
+	}
+
+		ul.revision-list li a {
+			background: #fff url(common_gfx/jquery-markitup/bg-container.png);
+
+			position: relative;
+			z-index: 1;
+
+			display: block;
+			padding: 2px 5px;
+
+			font-weight: bold;
+			color: #999;
+			text-decoration: none;
+			outline: 0;
+
+			border: 1px solid #999;
+			border-width: 1px 1px 0;
+			-moz-border-radius: 5px 5px 0 0;
+			-webkit-border-radius: 5px 5px 0 0;
+			border-radius: 5px 5px 0 0;
+		}
+
+		ul.revision-list li.selected a {
+			background: #06c;
+			color: #fff;
+			border-color: #369;
+			z-index: 2;
+		}
+
+ul.revision-list + * {
+	clear: right;
+}
+
+ul.revision-list + div div.markItUp {
+	margin-top: 0;
+}
