@@ -9,6 +9,7 @@
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
 			<Page/>
+			<Revisions/>
 			<Documents/>
 		</Wrapper>
 		<Wrapper name="secondary-content">

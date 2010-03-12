@@ -8,6 +8,7 @@
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
 			<Page/>
+			<Revisions/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<QuickAbout/>

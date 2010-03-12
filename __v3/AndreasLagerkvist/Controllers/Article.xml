@@ -8,6 +8,7 @@
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
 			<Article/>
+			<Revisions/>
 			<SocialBookmarks/>
 			<GoogleAdsWide/>
 			<Comments/>

@@ -9,6 +9,7 @@
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
 			<Article/>
+			<Revisions/>
 			<Comments/>
 			<PostComment/>
 		</Wrapper>

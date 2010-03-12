@@ -9,6 +9,7 @@
     </Wrapper>
     <Wrapper name="primary-content">
       <Page/>
+      <Revisions/>
     </Wrapper>
     <Footer/>
   </Wrapper>
