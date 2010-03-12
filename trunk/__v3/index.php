@@ -117,11 +117,11 @@
 		$cacheInfo		= CacheManager::getInfo();
 		$cacheInfoHTML	= '<div id="cache-info">Page cached. Loaded in: ' 
 						. round(Timer::stop(), 4) 
-						. ' second(s). Last DB change: ' 
+						. ' second(s).<br/>Last DB change: ' 
 						. date(Config::get('general.date_format'), $cacheInfo['last_db_change']) 
-						. ', Last file change: ' 
+						. '<br/>Last file change: ' 
 						. date(Config::get('general.date_format'), $cacheInfo['last_file_change'])
-						. ', Cache created: ' 
+						. '<br/>Cache created: ' 
 						. date(Config::get('general.date_format'), $cacheInfo['cache_created']) 
 						. '</div>';
 		$newHTML		= str_replace('</body>', $cacheInfoHTML . '</body>', $cachedPage);
