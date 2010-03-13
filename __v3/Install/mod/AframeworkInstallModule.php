@@ -370,6 +370,13 @@
 
 			unlink(DOCROOT . 'index.php');
 			file_put_contents(DOCROOT . 'index.php', $newIndexCode);
+
+			# 8. Modify .htaccess' RewriteBase-definition to reflect users WEBROOT
+			$htaccessCode		= file_get_contents(DOCROOT . '.htaccess');
+			$newHtaccessCode	= preg_replace('/RewriteBase \//', 'RewriteBase ' . WEBROOT, $htaccessCode);
+
+			unlink(DOCROOT . '.htaccess');
+			file_put_contents(DOCROOT . '.htaccess', $newHtaccessCode);
 		}
 	}
 ?>
