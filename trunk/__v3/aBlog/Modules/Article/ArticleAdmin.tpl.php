@@ -47,7 +47,7 @@
 	<p>
 		<label>
 			<strong>*</strong> <?php echo Lang::get('Article Content'); ?><br />
-			<textarea name="content" rows="20" cols="60"<?php if (!SU and $article['articles_id']) { ?> readonly="readonly"<?php } ?>><?php echo escHTML($article['content']); ?></textarea>
+			<textarea name="content" rows="20" cols="60"><?php echo escHTML($article['content']); ?></textarea>
 		</label>
 	</p>
 
