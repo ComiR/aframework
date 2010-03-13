@@ -1,0 +1,76 @@
+body.js-disabled div[title], 
+body.help div[title] {
+	cursor: help;
+}
+
+#help-box = $little-corner-chrome-box;
+#help-box {
+	position: absolute;
+	bottom: auto;
+
+	border-width: 1px;
+
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-border-radius: 5px;
+}
+
+#help = $little-corner-chrome-box;
+#help {
+	display: none;
+
+	left: auto;
+	bottom: auto;
+	right: 0;
+	top: 50%;
+	margin: -50px 0 0;
+
+	border-width: 1px 0 1px 1px;
+
+	-moz-border-radius: 5px 0 0 5px;
+	-webkit-border-radius: 5px 0 0 5px;
+	-border-radius: 5px 0 0 5px;
+}
+
+body.js-enabled #help {
+	
+}
+
+/*	#help h2 = $little-corner-chrome-box; */
+	#help h2 {
+		margin: 0;
+/*		height: 20px;
+		margin: 0;
+
+		position: absolute;
+		left: 0;
+		top: 0;
+*/
+		font: bold 14px/1 Arial, sans-serif;
+		color: #fff;
+	}
+
+		#help h2 a {
+			color: #fff;
+		}
+
+	#help noscript {
+		
+	}
+
+		#help noscript p {
+			margin-bottom: 0;
+		}
+
+	#help p {
+		width: 180px;
+		margin: 5px 0 0;
+	}
+
+	body.js-enabled #help p {
+		display: none;
+	}
+
+	body.help #help p {
+		display: block;
+	}
