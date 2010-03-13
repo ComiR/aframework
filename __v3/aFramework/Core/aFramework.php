@@ -6,7 +6,7 @@
 	 **/
 	final class aFramework {
 		public static $debugInfo = array();
-		public static $autorunModules = array('Debug', 'ControllerAdmin', 'AutoStyleSwitcher', 'Msg');
+		public static $autorunModules = array('Debug', 'ControllerAdmin', 'AutoStyleSwitcher', 'Msg', 'Help');
 
 		/**
 		 * run
@@ -183,8 +183,7 @@
 						$id = $isWrapper ? strtolower(ccFix($module->getAttribute('name'))) : strtolower(ccFix($module->nodeName));
 
 						# Module creators may include a info.txt-file in their module-dirs
-						$title = false;
-					#	$title = self::fetchModuleDescription($module->nodeName);
+						$title = self::fetchModuleDescription($module->nodeName);
 
 						# We store this here, most of the module debug-info
 						# is stored in self::fetchModule()
@@ -266,10 +265,15 @@
 			$sites = explode(' ', SITE_HIERARCHY);
 
 			foreach ($sites as $site) {
-				$txtPath = DOCROOT . $site . '/Modules/' . $module . '/info.txt';
+				$txtPath	= DOCROOT . $site . '/Modules/' . $module . '/';
+				$infoPath	= $txtPath . 'info.txt';
+				$adminPath	= $txtPath . 'info-admin.txt';
 
-				if (file_exists($txtPath)) {
-					return file_get_contents($txtPath);
+				if (ADMIN and file_exists($adminPath)) {
+					return file_get_contents($adminPath);
+				}
+				elseif (file_exists($infoPath)) {
+					return file_get_contents($infoPath);
 				}
 			}
 
