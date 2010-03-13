@@ -386,7 +386,7 @@ $plain-list {
  * One of those small boxes in the corner that Chrome uses
  */
 $little-corner-chrome-box {	
-	background: rgba(0, 100, 200, .8);
+	background: rgba(0, 100, 200, .6);
 
 	padding: 5px;
 
@@ -396,13 +396,17 @@ $little-corner-chrome-box {
 	z-index: 100;
 
 	font: 12px/1 Arial, sans-serif;
-	color: #fff;
+	color: #f0f6fc;
 
-	border: 1px solid #def;
+	border: 1px solid #f0f6fc;
 	border-width: 1px 1px 0 0;
 	-moz-border-radius: 0 5px 0 0;
 	-webkit-border-radius: 0 5px 0 0;
 	border-radius: 0 5px 0 0;
+
+	-moz-box-shadow: 2px 2px 3px rgba(0, 100, 200, .5);
+	-webkit-box-shadow: 2px 2px 3px rgba(0, 100, 200, .5);
+	box-shadow: 2px 2px 3px rgba(0, 100, 200, .5);
 }
 
 $little-corner-chrome-box-tr {
