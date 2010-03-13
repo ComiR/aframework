@@ -27,7 +27,7 @@ body.js-enabled #msg {
 }
 
 body.admin #msg {
-	top: 30px;
+	top: 40px;
 }
 
 #msg.error {
