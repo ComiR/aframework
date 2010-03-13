@@ -13,7 +13,7 @@
 			if (isset(aBlog_ArticleModule::$tplVars['article']['articles_id'])) {
 				$article = aBlog_ArticleModule::$tplVars['article'];
 
-				self::$tplVars['revisions']	= Revisions::get('pub_date', 'DESC', 1, 5, 'table_name = "articles" AND table_id = ' . $article['articles_id']);
+				self::$tplVars['revisions']	= Revisions::get('pub_date', 'DESC', 0, 5, 'table_name = "articles" AND table_id = ' . $article['articles_id']);
 				self::$tplVars['type']		= 'Article';
 
 				# If a revision is set - use that for content instead
@@ -29,7 +29,7 @@
 			elseif (isset(aCMS_PageModule::$tplVars['page']['pages_id'])) {
 				$page = aCMS_PageModule::$tplVars['page'];
 
-				self::$tplVars['revisions'] = Revisions::get('pub_date', 'DESC', 1, 5, 'table_name = "pages" AND table_id = ' . $page['pages_id']);
+				self::$tplVars['revisions'] = Revisions::get('pub_date', 'DESC', 0, 5, 'table_name = "pages" AND table_id = ' . $page['pages_id']);
 				self::$tplVars['type']		= 'Page';
 
 				# If a revision is set - use that for content instead
