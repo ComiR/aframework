@@ -64,6 +64,11 @@ body.admin #article {
 				width: 90%;
 			}
 
+			body.admin.js-enabled #article form > p input[name=tags] + br, 
+			body.admin.js-enabled #article form > p input[name=tags] + br + span {
+				display: none;
+			}
+
 		/* Comments/Rating */
 		body.admin #article form > p:nth-last-child(-n+3) {
 			float: left;
