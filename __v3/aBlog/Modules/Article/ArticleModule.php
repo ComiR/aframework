@@ -18,7 +18,7 @@
 		}
 
 		private static function showTheArticle () {
-			# If no particular article is requested and we're admin
+			# If no particular article is requested and we're admin and not on the home-page
 			if (!isset(Router::$params['url_str']) and ADMIN) {
 				if (Router::getController() != 'Home') {
 					aFramework_BaseModule::$tplVars['html_title'] = Lang::get('Add an Article');
@@ -54,6 +54,17 @@
 						aFramework_BaseModule::$tplVars['meta_keywords']	= $article['meta_keywords'];
 
 						self::$tplVars['more_cut'] = false;
+					}
+
+					if (ADMIN) {
+						$availableTags = Tags::get();
+						$avTags = array();
+
+						foreach ($availableTags as $avTag) {
+							$avTags[] = $avTag['title'];
+						}
+
+						self::$tplVars['available_tags'] = implode(', ', $avTags);
 					}
 				}
 			}
