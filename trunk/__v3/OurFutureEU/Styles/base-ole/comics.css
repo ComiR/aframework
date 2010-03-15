@@ -12,3 +12,12 @@
 			#comics ul li img {
 				width: 570px;
 			}
+
+	#comics form {
+		margin: 15px 0;
+	}
+
+		#comics form p {
+			display: inline;
+			margin: 0 10px 0 0;
+		}

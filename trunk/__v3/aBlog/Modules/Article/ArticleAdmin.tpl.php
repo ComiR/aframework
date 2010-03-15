@@ -75,11 +75,11 @@
 	<p>
 		<?php echo Lang::get('Allow Comments'); ?><br />
 		<label>
-			<input type="radio" name="allow_comments" value="1"<?php if ($article['allow_comments']) { ?> checked="checked"<?php } ?><?php if (!SU and $article['articles_id']) { ?> disabled="disabled"<?php } ?>/> 
+			<input type="radio" name="allow_comments" value="1"<?php if ($article['allow_comments'] or !$article['articles_id']) { ?> checked="checked"<?php } ?><?php if (!SU and $article['articles_id']) { ?> disabled="disabled"<?php } ?>/> 
 			<?php echo Lang::get('Yes'); ?>
 		</label> 
 		<label>
-			<input type="radio" name="allow_comments" value="0"<?php if (!$article['allow_comments']) { ?> checked="checked"<?php } ?><?php if (!SU and $article['articles_id']) { ?> disabled="disabled"<?php } ?>/> 
+			<input type="radio" name="allow_comments" value="0"<?php if (!$article['allow_comments'] and $article['articles_id']) { ?> checked="checked"<?php } ?><?php if (!SU and $article['articles_id']) { ?> disabled="disabled"<?php } ?>/> 
 			<?php echo Lang::get('No'); ?>
 		</label>
 	</p>
@@ -87,11 +87,11 @@
 	<p>
 		<?php echo Lang::get('Allow Rating'); ?><br />
 		<label>
-			<input type="radio" name="allow_rating" value="1"<?php if ($article['allow_rating']) { ?> checked="checked"<?php } ?><?php if (!SU and $article['articles_id']) { ?> disabled="disabled"<?php } ?>/> 
+			<input type="radio" name="allow_rating" value="1"<?php if ($article['allow_rating'] or !$article['articles_id']) { ?> checked="checked"<?php } ?><?php if (!SU and $article['articles_id']) { ?> disabled="disabled"<?php } ?>/> 
 			<?php echo Lang::get('Yes'); ?>
 		</label> 
 		<label>
-			<input type="radio" name="allow_rating" value="0"<?php if (!$article['allow_rating']) { ?> checked="checked"<?php } ?><?php if (!SU and $article['articles_id']) { ?> disabled="disabled"<?php } ?>/> 
+			<input type="radio" name="allow_rating" value="0"<?php if (!$article['allow_rating'] and $article['articles_id']) { ?> checked="checked"<?php } ?><?php if (!SU and $article['articles_id']) { ?> disabled="disabled"<?php } ?>/> 
 			<?php echo Lang::get('No'); ?>
 		</label>
 	</p>

@@ -26,11 +26,11 @@
 	<p>
 		<?php echo Lang::get('Show in Navigation'); ?><br />
 		<label>
-			<input type="radio" name="in_navigation" value="1"<?php if ($page['priority']) { ?> checked="checked"<?php } ?><?php if (!SU and $page['pages_id']) { ?> disabled="disabled"<?php } ?>/> 
+			<input type="radio" name="in_navigation" value="1"<?php if ($page['priority'] or !$page['pages_is']) { ?> checked="checked"<?php } ?><?php if (!SU and $page['pages_id']) { ?> disabled="disabled"<?php } ?>/> 
 			<?php echo Lang::get('Yes'); ?>
 		</label> 
 		<label>
-			<input type="radio" name="in_navigation" value="0"<?php if (!$page['priority']) { ?> checked="checked"<?php } ?><?php if (!SU and $page['pages_id']) { ?> disabled="disabled"<?php } ?>/> 
+			<input type="radio" name="in_navigation" value="0"<?php if (!$page['priority'] and $page['pages_is']) { ?> checked="checked"<?php } ?><?php if (!SU and $page['pages_id']) { ?> disabled="disabled"<?php } ?>/> 
 			<?php echo Lang::get('No'); ?>
 		</label>
 	</p>
