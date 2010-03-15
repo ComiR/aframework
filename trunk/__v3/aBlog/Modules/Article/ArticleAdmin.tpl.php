@@ -64,7 +64,11 @@
 	<p>
 		<label>
 			<?php echo Lang::get('Tags'); ?> <small>(<?php echo Lang::get('Use a comma (,) to separate tags'); ?>)</small><br />
-			<input type="text" name="tags" value="<?php echo escHTML($tags); ?>"<?php if (!SU and $article['articles_id']) { ?> readonly="readonly"<?php } ?>/>
+			<input type="text" name="tags" value="<?php echo escHTML($tags); ?>"<?php if (!SU and $article['articles_id']) { ?> readonly="readonly"<?php } ?>/><br/>
+			<span>
+				<?php echo Lang::get('Available tags:'); ?> 
+				<strong><?php echo escHTML($available_tags); ?></strong>
+			</span>
 		</label>
 	</p>
 
