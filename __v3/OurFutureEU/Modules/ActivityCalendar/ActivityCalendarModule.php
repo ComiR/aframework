@@ -17,15 +17,20 @@
 		}
 
 		private static function handleAddActivityNoForm () {
-			if (isset($_POST['add_activity']) and isset($_POST['content']) and !empty($_POST['content'])) {
-				Activities::insert(array(
-					'title'			=> '', 
-					'content'		=> $_POST['content'], 
-					'pub_date'		=> $_POST['pub_date']
-				));
+			if (isset($_POST['add_activity'])) {
+				if (isset($_POST['content']) and !empty($_POST['content'])) {
+					Activities::insert(array(
+						'title'			=> '', 
+						'content'		=> $_POST['content'], 
+						'pub_date'		=> $_POST['pub_date']
+					));
 
-				# Redirect after POST
-				redirect(msg('Inserted Activity', 'The activity was successfully inserted.'));
+					# Redirect after POST
+					redirect(msg('Inserted Activity', 'The activity was successfully inserted.'));
+				}
+				else {
+					redirect(msg('Error Inserting Activity', 'There was an error inserting the activity. The content field appears to be empty. Please try again.', true));
+				}
 			}
 		}
 

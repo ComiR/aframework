@@ -4,7 +4,7 @@ aFramework.modules.Comics = {
 	}, 
 
 	confirmDelete: function () {
-		$('#comics form').submit(function () {
+		$('#comics li form').submit(function () {
 			return confirm(Lang.get('Are you sure?'));
 		});
 	}
