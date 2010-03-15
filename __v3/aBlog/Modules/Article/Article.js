@@ -1,16 +1,24 @@
 aFramework.modules.Article = {
 	run: function () {
-		$('#article textarea[name=content]').markItUp(mySettings);
+		if ($(document.body).is('.admin')) {
+			$('#article textarea[name=content]').markItUp(mySettings);
 
-		this.confirmDelete();
-		this.advancedToggler();
-		this.autoSlug();
-		this.indicateUnsaved();
-		this.autoCompleteTags();
+			this.confirmDelete();
+			this.advancedToggler();
+			this.autoSlug();
+			this.indicateUnsaved();
+			this.autoCompleteTags();
+		}
 	},   
 
 	autoCompleteTags: function () {
-		// todo...
+		var tagsField		= $('#article input[name=tags]');
+		var availableTags	= tagsField.nextAll('span').find('strong').text();
+
+		tagsField.autocomplete(availableTags.split(', '), {
+			multiple: true, 
+			multipleSeparator: ','
+		});
 	}, 
 
 	indicateUnsaved: function () {
