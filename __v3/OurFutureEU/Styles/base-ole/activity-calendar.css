@@ -25,7 +25,7 @@
 	#activities h2, 
 	#activities h3 {
 		font-weight: bold;
-		margin: 5px 0 0;
+		margin: 5px 0;
 	}
 
 	#activities h3 {
@@ -37,8 +37,18 @@
 		#activities ol li {
 			padding: 0 0 5px;
 			margin: 0 0 5px;
-			border-bottom: 1px dotted #06c;
+			border-bottom: 1px dashed #ccc;
 		}
+
+			#activities ol li > * {
+				display: inline;
+				margin: 0 5px 0 0;
+			}
+
+			#activities ol li h3 {
+				color: #999;
+				font-size: 13px;
+			}
 
 		#activities ol li:last-child {
 			padding: 0;
