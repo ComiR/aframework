@@ -17,8 +17,15 @@ aFramework.modules.Revisions = {
 		revisions.hide();
 
 		// Add the latest revision as one of the revisions
-		$('<li><h4>' + Lang.get('Latest Revision') + '</h4><p><textarea name="revision_latest" rows="10" cols="40">' + textarea.val() + '</textarea></p></li>')
+		$('<li><h4>' + Lang.get('This Revision') + '</h4><p><textarea name="revision_latest" rows="10" cols="40">' + textarea.val() + '</textarea></p></li>')
 			.prependTo(revisions.find('ul'));
+
+		// Update its contents when the content-textarea's content is updated
+		textarea.change(function () {
+			if (revisionList.find('li.selected:first-child').length) {
+				revisions.find('textarea[name=revision_latest]').html($(this).val());
+			}
+		});
 
 		// Create revision list that toggles revision
 		var revisionList = $('<ul class="revision-list"/>').insertBefore(insertAround);
@@ -32,9 +39,10 @@ aFramework.modules.Revisions = {
 				.appendTo(revisionList)
 				.find('a')
 					.click(function () {
-						textarea.val(revTxt.val()).change();
 						revisionList.find('li').removeClass('selected');
 						$(this).parent().addClass('selected');
+
+						textarea.val(revTxt.val()).change();
 
 						return false;
 					});
