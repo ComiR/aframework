@@ -4,7 +4,7 @@
 	<ol>
 		<?php foreach ($activities as $activity) { ?>
 			<li>
-				<h3><?php echo escHTML($activity['title']); ?></h3>
+				<h3><?php echo date('H:i', strtotime($activity['pub_date'])); ?></h3>
 
 				<?php echo NiceString::makeNice($activity['content'], 4); ?>
 
@@ -28,6 +28,13 @@
 	<h3><?php echo Lang::get('Add Activity'); ?></h3>
 
 	<form method="post" action="">
+
+		<p>
+			<label>
+				<?php echo Lang::get('Time'); ?><br/>
+				<input type="text" name="pub_time" value="<?php echo $ymtime; ?>"/>
+			</label>
+		</p>
 
 		<p>
 			<label>

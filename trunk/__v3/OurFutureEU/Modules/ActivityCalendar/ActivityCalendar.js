@@ -16,7 +16,11 @@ aFramework.modules.ActivityCalendar = {
 	hijaxDayLinks: function () {
 		var activityCalendar	= $('#activity-calendar');
 		var calendarTable		= activityCalendar.find('table');
-		var activitiesBox		= $('<div id="activities"/>').appendTo(document.body).fadeOut(0);
+		var activitiesBox		= $('#activities');
+
+		if (!activitiesBox.length) {
+			activitiesBox = $('<div id="activities"/>').appendTo(document.body).fadeOut(0);
+		}
 
 		$(document.body).click(function (e) {
 			var clicked = $(e.target);

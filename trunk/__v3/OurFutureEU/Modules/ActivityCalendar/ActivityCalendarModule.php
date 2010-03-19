@@ -22,7 +22,7 @@
 					Activities::insert(array(
 						'title'			=> '', 
 						'content'		=> $_POST['content'], 
-						'pub_date'		=> $_POST['pub_date']
+						'pub_date'		=> $_POST['pub_date'] . ' ' . $_POST['pub_time'] . ':00'
 					));
 
 					# Redirect after POST
