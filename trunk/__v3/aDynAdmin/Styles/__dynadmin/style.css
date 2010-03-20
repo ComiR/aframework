@@ -3,8 +3,17 @@
 @author: Andreas Lagerkvist
 @date: 2009-11-03 23:30:00
 ***/
+$body-bg-color {
+	color: #1371ff !important;
+}
+
 body {
-	background: #ace;
+	background-color: #1371ff;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #07439d, #1371ff);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1371ff), color-stop(1, #07439d));
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#07439d', endColorstr='#1371ff');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#07439d', endColorstr='#1371ff')";
 
 	margin: 0;
 	padding: 0;
@@ -58,6 +67,11 @@ a {
 		border: 0;
 	}
 
+#wrapper = $self-clear;
+#wrapper {
+	padding: 0 0 50px;
+}
+
 #header {
 	padding: 50px 20px;
 }
@@ -95,19 +109,30 @@ a {
 				text-decoration: none;
 			}
 
+			#dyn-tables ul li strong = $body-bg-color;
 			#dyn-tables ul li strong {
 				background: #f3f3f3;
-				color: #ace;
 				-moz-border-radius: 5px 0 0 5px;
+				-webkit-border-radius: 5px 0 0 5px;
+				border-radius: 5px 0 0 5px;
 			}
 
 #primary-content {
-	background: #f3f3f3;
+	background-color: #fafafa;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #eaeaea, #fafafa);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fafafa), color-stop(1, #eaeaea));
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#eaeaea', endColorstr='#fafafa');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#eaeaea', endColorstr='#fafafa')";
+
 	float: left;
 	position: relative;
-	margin: 0 0 20px;
+
 	width: 87%;
+
 	-moz-border-radius: 20px 0 0 20px;
+	-webkit-border-radius: 20px 0 0 20px;
+	border-radius: 20px 0 0 20px;
 }
 
 	#primary-content > div {
@@ -131,17 +156,23 @@ a {
 			float: left;
 			margin: 0 10px 0 0;
 		}
-
+			
+			#dyn-nav ul li a = $body-bg-color;
+			#dyn-nav ul li strong = $body-bg-color;
 			#dyn-nav ul li a, 
 			#dyn-nav ul li strong {
-				background: #f3f3f3;
-				color: #ace;
-				text-decoration: none;
-				font-weight: bold;
+				background: #eaeaea;
+
 				display: block;
 				height: 20px;
 				padding: 5px 10px;
+
+				text-decoration: none;
+				font-weight: bold;
+
 				-moz-border-radius: 5px 5px 0 0;
+				-webkit-border-radius: 5px 5px 0 0;
+				border-radius: 5px 5px 0 0;
 			}
 
 			#dyn-nav ul li a {
