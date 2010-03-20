@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Base>
+	<Wrapper name="wrapper">
+		<Header/>
+		<Breadcrumbs/>
+		<Wrapper name="primary-content">
+			<Projects/>
+			<Task/>
+		</Wrapper>
+		<Footer/>
+	</Wrapper>
+</Base>

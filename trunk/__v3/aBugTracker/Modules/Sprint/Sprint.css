@@ -1,0 +1,128 @@
+#sprint {
+	
+}
+
+	#sprint h2 {
+		margin-bottom: 0;
+	}
+
+		#sprint h2 strong {
+		
+		}
+
+	#sprint > p {
+		line-height: 1;
+	}
+
+		#sprint > p small {
+		
+		}
+
+	#sprint h3 = $a11y-hide;
+	#sprint h3 {
+		
+	}
+
+	#sprint > ol = $plain-list;
+	#sprint > ol {
+		
+	}
+
+	body.js-enabled #sprint > ol {
+		display: none;
+	}
+
+	#sprint > ul = $plain-list;
+	#sprint > ul {
+		
+	}
+
+		#sprint > ul li {
+			margin: 0 0 5px;
+		}
+
+			#sprint > ul li a {
+				background: url(common_gfx/icons/blue.png) no-repeat left -2189px;
+				padding: 2px 0 2px 29px;
+				width: 30%;
+				display: inline-block;
+			}
+
+			#sprint > ul li a:last-child {
+				background: url(common_gfx/icons/red.png) no-repeat left -1433px;
+			}
+
+			#sprint > ul li.done a:last-child {
+				background: url(common_gfx/icons/green.png) no-repeat left -3755px;
+			}
+
+	body.js-enabled #sprint > ul {
+		display: none;
+	}
+
+	#sprint div.sprint-table {
+		display: table;
+		width: 100%;
+		border-spacing: 0;
+		border-collapse: collapse;
+	}
+
+		#sprint div.sprint-table ol = $plain-list;
+		#sprint div.sprint-table ol {
+			display: table-row;
+			margin: 0;
+		}
+
+			#sprint div.sprint-table ol li {
+				background: #f9f9f9;
+
+				display: table-cell;
+				height: 200px;
+				padding: 5px 0;
+
+				vertical-align: bottom;
+				text-align: center;
+				font-size: 10px;
+
+				border: 1px solid #ddd;
+			}
+
+			#sprint div.sprint-table ol li:nth-child(odd) {
+				background: #eee;
+			}
+
+			#sprint div.sprint-table ol li.not-happened {
+				opacity: .5;
+				border-color: #eee;
+			}
+
+				#sprint div.sprint-table ol li a, 
+				#sprint div.sprint-table ol li strong {
+					background: url(common_gfx/icons/blue.png) no-repeat left -462px;
+
+					display: block;
+					width: 24px;
+					height: 24px;
+					margin: 0 auto;
+
+					text-indent: -10000px;
+					outline: 0;
+					text-decoration: none;
+				}
+
+				#sprint div.sprint-table ol li strong {
+					background: none;
+				}
+
+	#sprint a.tasks-toggler {
+		background: #f9f9f9;
+
+		display: block;
+		margin: 10px 0;
+		padding: 5px;
+
+		text-align: center;
+		outline: 0;
+
+		border: 1px solid #ddd;
+	}
