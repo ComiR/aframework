@@ -32,7 +32,9 @@
 				# Translate to requested lang
 				$v = isset($requestedLang[$k]) ? $requestedLang[$k] : $v;
 
-				$code .= "'$k' => '$v', \n";
+				$kq = strstr($k, "'") ? '"' : "'";
+				$vq = strstr($v, "'") ? '"' : "'";
+				$code .= "$kq$k$kq => $vq$v$vq, \n";
 			}
 		}
 	}

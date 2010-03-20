@@ -6,7 +6,7 @@
 	 **/
 	final class aFramework {
 		public static $debugInfo = array();
-		public static $autorunModules = array('Debug', 'ControllerAdmin', 'AutoStyleSwitcher', 'Msg', 'Help');
+		public static $autorunModules = array('Debug', 'ControllerAdmin', 'AutoStyleSwitcher', 'Msg');
 
 		/**
 		 * run

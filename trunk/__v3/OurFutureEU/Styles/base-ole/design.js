@@ -5,13 +5,13 @@ aFramework.styles.BaseOLE = {
 		this.onWindowOnload.push(aFramework.styles.BaseOLE.selfClearPositionAbsolute);
 		this.onWindowOnload.push(aFramework.styles.BaseOLE.projectTabs);
 
-		window.onload = function () {
+		$(window).load(function () {
 			for (var func in aFramework.styles.BaseOLE.onWindowOnload) {
 				if (typeof(aFramework.styles.BaseOLE.onWindowOnload[func]) == 'function') {
 					aFramework.styles.BaseOLE.onWindowOnload[func]();
 				}
 			}
-		};
+		});
 	}, 
 
 	onWindowOnload: [], 

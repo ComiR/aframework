@@ -1,3 +1,5 @@
 (function () {
-	$('#tertiary-content, #footer').fullPageWidthBar();
+	$(window).load(function () {
+		$('#tertiary-content, #footer').fullPageWidthBar();
+	});
 })();
