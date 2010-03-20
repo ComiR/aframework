@@ -193,6 +193,11 @@
 		);
 
 		public static function get ($str, $escHTML = true, $vars = false) {
+			if (is_array($escHTML)) {
+				$vars = $escHTML;
+				$escHTML = true;
+			}
+
 			# Load every language for every site if not already loaded
 			if (self::$lang === false) {
 				self::loadLang();
@@ -283,7 +288,9 @@
 				foreach ($translations as $k => $v) {
 					# Only include the ones that are used in the .js-files
 					if (isset($jsLang[$k])) {
-						$code .= "\t\t'$k': '$v', \n";
+						$kq = strstr($k, "'") ? '"' : "'";
+						$vq = strstr($v, "'") ? '"' : "'";
+						$code .= "\t\t$kq$k$kq: $vq$v$vq, \n";
 						$numJSLangs++;
 					}
 				}
@@ -316,12 +323,12 @@
 							$ext = end(explode('.', $f));
 
 							if (in_array($ext, $validExts)) {
-								$pattern	= '/Lang(::|\.)get\(\'(.*?)\'(.*?)\)/';
+								$pattern	= '/Lang(::|\.)get\((\'|")(.*?)\\2(.*?)\)/';
 								$matches	= array();
 								$contents	= file_get_contents($dir . '/' . $f);
 
 								if (preg_match_all($pattern, $contents, $matches)) {
-									foreach ($matches[2] as $key) {
+									foreach ($matches[3] as $key) {
 										$langs[$f][$key] = $key; # ucfirst(str_replace('_', ' ', $key));
 									}
 								}

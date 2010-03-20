@@ -52,9 +52,9 @@ With the HTML in place simply run the plug-in on a container of the ul.
 
 @exampleJS:
 // Wait for images to load...
-window.onload = function () {
+$(window).load(function () {
 	$('#jquery-slide-presentation-example').slidePresentation();
-};
+});
 ***/
 jQuery.fn.slidePresentation = function () {
 	return this.each(function () {
