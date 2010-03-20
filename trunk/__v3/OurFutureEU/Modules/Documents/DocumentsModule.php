@@ -67,7 +67,7 @@
 			}
 			else {
 				redirect(msg('Error Uploading Document', 'An error occurred while uploading the document. Please try again.', true));
-			}			
+			}
 		}
 	}
 ?>
