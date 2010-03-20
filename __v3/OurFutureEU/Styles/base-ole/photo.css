@@ -1,0 +1,8 @@
+#photo {
+	
+}
+
+	#photo img = $pretty-image;
+	#photo img {
+		width: 100%;
+	}
