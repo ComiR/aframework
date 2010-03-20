@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Base>
+	<Wrapper name="wrapper">
+		<SkipNavigation/>
+		<LangSwitcher/>
+		<Header/>
+		<Navigation/>
+		<Search/>
+		<Breadcrumbs/>
+		<Wrapper name="primary-content">
+			<Photo/>
+		</Wrapper>
+		<Wrapper name="secondary-content">
+			<StyleSwitcher/>
+		</Wrapper>
+		<Footer/>
+	</Wrapper>
+</Base>
