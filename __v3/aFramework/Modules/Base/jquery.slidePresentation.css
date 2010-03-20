@@ -1,0 +1,59 @@
+.jquery-slide-presentation {
+	width: 700px;
+	height: 700px;
+
+	margin: 0 auto 30px;
+
+	clear: both;
+	overflow: hidden;
+
+	border: 10px solid #333;
+}
+
+	.jquery-slide-presentation ul = $plain-list;
+	.jquery-slide-presentation ul {
+		margin: 0;
+	}
+
+		.jquery-slide-presentation ul li {
+			position: relative;
+			overflow: hidden;
+			border-bottom: 200px dashed #111;
+		}
+
+		.jquery-slide-presentation ul li:last-child {
+			border: 0;
+		}
+
+			.jquery-slide-presentation ul li img {
+				width: 100%;
+			}
+
+			.jquery-slide-presentation ul li p {
+				background: rgba(20, 20, 20, .8);
+
+				position: absolute;
+				top: 10000px;
+				left: 50%;
+
+				width: 380px;
+				margin: -50px 0 0 -200px;
+				padding: 10px;
+
+				font: 16px/1.4 Arial, sans-serif;
+				font-style: italic;
+				text-align: center;
+				color: #f2f2f2;
+
+				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+				border-radius: 5px;
+
+				-moz-box-shadow: 0 0 5px rgba(20, 20, 20, .8);
+				-webkit-box-shadow: 0 0 5px rgba(20, 20, 20, .8);
+				box-shadow: 0 0 5px rgba(20, 20, 20, .8);
+			}
+
+			.jquery-slide-presentation.scrolling-fast ul li p {
+				display: none;
+			}

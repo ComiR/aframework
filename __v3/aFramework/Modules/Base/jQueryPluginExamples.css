@@ -144,3 +144,11 @@ $jquery-example-box {
 #jquery-colour-picker-example img {
 	border: 0;
 }
+
+/*
+	=== Slide Presentation ===
+*/
+#jquery-slide-presentation-example {
+	width: 550px;
+	height: 400px;
+}

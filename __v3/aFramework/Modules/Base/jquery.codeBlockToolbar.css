@@ -80,6 +80,7 @@ ul.jquery-code-block-toolbar:after {
 .code-block {
 	max-height: 400px;
 	background: #fff;
+	white-space: nowrap;
 	overflow: auto;
 	border: 1px solid #000;
 	padding: 10px;
