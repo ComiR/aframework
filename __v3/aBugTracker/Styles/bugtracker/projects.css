@@ -1,0 +1,36 @@
+#home-page #projects {
+}
+
+	#projects h2 = $a11y-hide;
+
+	#projects ul = $plain-list;
+	#projects ul {
+		margin: 0 -15px;
+	}
+
+		#projects ul li {
+			display: inline-block;
+			text-align: center;
+			white-space: nowrap;
+			margin: 15px;
+			width: 135px;
+			color: #999;
+		}
+
+		#home-page #projects ul li {
+			width: 135px;
+		}
+
+			#home-page #projects ul li a {
+				font-weight: bold;
+			}
+
+				#projects ul li a img {
+					display: block;
+					width: 100%;
+					margin: 0 0 5px;
+				}
+
+				#projects ul li a br {
+					display: none;
+				}

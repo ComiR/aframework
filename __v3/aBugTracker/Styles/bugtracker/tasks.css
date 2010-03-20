@@ -1,0 +1,93 @@
+#tasks {
+	
+}
+
+	#tasks h2 {
+		
+	}
+
+	#tasks p {
+		display: inline;
+		margin: 0;
+	}
+
+	#tasks h2 + p + p::before {
+		content: " | ";
+	}
+
+	#tasks table {
+		margin: 15px 0;
+		width: 100%;
+		border-spacing: 0;
+		border-collapse: collapse;
+	}
+
+		#tasks table tr {
+		
+		}
+
+		body.js-enabled #tasks table tr {
+			cursor: pointer;
+		}
+
+			#tasks table tr th, 
+			#tasks table tr td {
+				background: #111;
+
+				padding: 10px 15px;
+
+				color: #aaa;
+				text-align: center;
+				font-weight: normal;
+				vertical-align: middle;
+				white-space: nowrap;
+
+				border: 1px solid #ddd;
+			}
+
+			#tasks table tr th {
+				
+			}
+
+			#tasks table tr td {
+				background: #f9f9f9;
+				color: inherit;
+			}
+
+			#tasks table tr:hover td {
+				background: #eee;
+			}
+
+			#tasks table tr th:first-child, 
+			#tasks table tr th:first-child + th, 
+			#tasks table tr td:first-child, 
+			#tasks table tr td:first-child + td {
+				text-align: left;
+			}
+
+				#tasks table tr td a {
+					padding: 12px 0 12px 29px;
+					background: url(common_gfx/icons/red.png) no-repeat left -1423px;
+				}
+
+				body.js-enabled #tasks table tr td a {
+					color: inherit;
+					text-decoration: none;
+				}
+
+			#tasks table tr td:first-child + td {
+				white-space: normal;
+			}
+
+		#tasks table tr.done {
+			opacity: .2;
+		}
+
+		body.js-enabled #tasks table tr.done {
+			display: none;
+			opacity: 1;
+		}
+
+				body.js-enabled #tasks table tr.done td a {
+					background: url(common_gfx/icons/green.png) no-repeat left -3745px;
+				}

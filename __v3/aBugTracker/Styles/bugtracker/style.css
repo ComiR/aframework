@@ -1,0 +1,15 @@
+/***
+@title: Bug Tracker
+@author: Andreas Lagerkvist
+@date: 2010-03-20
+@extends: basic-960
+***/
+#wrapper {
+	padding: 60px 0 0;
+}
+
+#primary-content {
+	padding-top: 30px;
+	width: auto;
+	float: none;
+}
