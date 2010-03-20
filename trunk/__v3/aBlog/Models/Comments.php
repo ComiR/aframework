@@ -4,6 +4,10 @@
 			DB::qry('DELETE FROM comments WHERE articles_id = ' . escSQL($articlesID) . ' AND karma < 1');
 		}
 
+		public static function deleteCommentsForArticle ($articlesID) {
+			DB::qry('DELETE FROM comments WHERE articles_id = ' . escSQL($articlesID));
+		}
+
 		public static function getCommentsByArticleID ($id, $spam = false) {
 			$karma = $spam ? '' : ' AND comments.karma > 0 ';
 			$res = DB::qry('

@@ -1,6 +1,6 @@
 <?php
 	class Tags {
-		public static function deleteTagsForArticle ($articlesID) {			
+		public static function deleteTagsForArticle ($articlesID) {
 			DB::qry('DELETE FROM article_tags WHERE articles_id = ' . escSQL($articlesID));
 		}
 
