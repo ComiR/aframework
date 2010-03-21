@@ -25,6 +25,8 @@
 
 				border: 3px solid #39e;
 				-moz-border-radius: 5px;
+				-webkit-border-radius: 5px;
+				border-radius: 5px;
 			}
 
 			#aframework-download ul li a:hover {
