@@ -3,16 +3,12 @@
 }
 
 	#tasks h2 {
-		
+		float: left;
 	}
 
 	#tasks p {
-		display: inline;
-		margin: 0;
-	}
-
-	#tasks h2 + p + p::before {
-		content: " | ";
+		float: right;
+		margin: 20px 0 0 15px;
 	}
 
 	#tasks table {
@@ -54,8 +50,12 @@
 				color: inherit;
 			}
 
+			#tasks table tr:nth-child(odd) td {
+				background: #f2f2f2;
+			}
+
 			#tasks table tr:hover td {
-				background: #eee;
+				background: #f0f6fc;
 			}
 
 			#tasks table tr th:first-child, 
@@ -80,14 +80,13 @@
 			}
 
 		#tasks table tr.done {
-			opacity: .2;
+			opacity: .5;
 		}
 
-		body.js-enabled #tasks table tr.done {
-			display: none;
-			opacity: 1;
-		}
-
-				body.js-enabled #tasks table tr.done td a {
+				#tasks table tr.done td a {
 					background: url(common_gfx/icons/green.png) no-repeat left -3745px;
 				}
+
+		body.js-enabled #tasks table tr.done {
+			opacity: 1;
+		}

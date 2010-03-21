@@ -8,6 +8,10 @@
 		margin: 0 -15px;
 	}
 
+	body.js-enabled #projects ul {
+		display: none;
+	}
+
 		#projects ul li {
 			display: inline-block;
 			text-align: center;
@@ -21,8 +25,14 @@
 			width: 135px;
 		}
 
-			#home-page #projects ul li a {
+			#projects ul li a {
 				font-weight: bold;
+				color: #666;
+				text-decoration: none;
+			}
+
+			#projects ul li a:hover {
+				color: #06c;
 			}
 
 				#projects ul li a img {

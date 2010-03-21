@@ -1,3 +1,27 @@
+div.sprint-day-bubble {
+	width: 300px;
+}
+
+	div.sprint-day-bubble h4 {
+		
+	}
+
+	div.sprint-day-bubble p {
+		font-style: italic;
+		color: #999;
+	}
+
+	div.sprint-day-bubble ul = $plain-list;
+	div.sprint-day-bubble ul {
+		font-size: 12px;
+		font-weight: bold;
+	}
+
+		div.sprint-day-bubble ul li {
+			padding: 12px 0 12px 29px;
+			background: url(common_gfx/icons/green.png) no-repeat left -3748px;
+		}
+
 #sprint {
 	
 }
@@ -77,7 +101,7 @@
 				background: #f9f9f9;
 
 				display: table-cell;
-				height: 200px;
+				height: 250px;
 				padding: 5px 0;
 
 				vertical-align: bottom;
@@ -98,16 +122,21 @@
 
 				#sprint div.sprint-table ol li a, 
 				#sprint div.sprint-table ol li strong {
-					background: url(common_gfx/icons/blue.png) no-repeat left -462px;
+					background: url(gfx/sprint-day.png) no-repeat;
 
 					display: block;
-					width: 24px;
-					height: 24px;
+					width: 16px;
+					height: 16px;
 					margin: 0 auto;
 
+					cursor: default;
 					text-indent: -10000px;
 					outline: 0;
 					text-decoration: none;
+				}
+
+				#sprint div.sprint-table ol li a:hover {
+					background-position: left -16px;
 				}
 
 				#sprint div.sprint-table ol li strong {
