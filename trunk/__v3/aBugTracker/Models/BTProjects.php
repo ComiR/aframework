@@ -9,7 +9,8 @@
 				SELECT
 					bt_projects.*, 
 					COUNT(bt_tasks_id) as num_tasks, 
-					CONCAT("' . WEBROOT . '", bt_projects.title, "/thumb.png") AS thumb_src
+					CONCAT("' . WEBROOT . '", bt_projects.title, "/thumb.png") AS thumb_src, 
+					CONCAT("' . DOCROOT . '", bt_projects.title, "/thumb.png") AS thumb_path
 				FROM
 					bt_projects
 				LEFT JOIN

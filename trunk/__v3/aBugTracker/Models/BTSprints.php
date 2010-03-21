@@ -12,7 +12,7 @@
 			$i			= 0;
 			$numTasks	= count($tasks);
 
-			while (++$i) {
+			while (true) {
 				$thisDay = date('Y-m-d', mktime(0, 0, 0, $startMonth, $startDay + $i, $startYear));
 
 				if ($thisDay <= $end) {
@@ -46,6 +46,8 @@
 				else {
 					break;
 				}
+
+				$i++;
 			}
 
 			return $days;

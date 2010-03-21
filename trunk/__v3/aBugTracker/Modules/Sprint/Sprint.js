@@ -2,6 +2,16 @@ aFramework.modules.Sprint = {
 	run: function () {
 		this.createSprintTable();
 		this.togglableTasks();
+		this.bubbleTips();
+	}, 
+
+	bubbleTips: function () {
+		$('#sprint div.sprint-table li a').each(function (i) {
+			var link	= $(this).attr('id', 'jquery-bubble-tip-mandatory-id-' + i);
+			var content	= '<div id="jquery-bubble-tip-mandatory-id-2-' + i + '" class="sprint-day-bubble">' + $('#sprint > ol > li').eq(link.attr('href').substr(1) - 1).html() + '</div>';
+
+			link.bubbletip(content);
+		});
 	}, 
 
 	togglableTasks: function () {
@@ -33,11 +43,11 @@ aFramework.modules.Sprint = {
 			else {
 				var percent = parseInt(thisDay.find('p').text(), 10);
 
-				newDay.append('<a href="#">' + Lang.get('NUM% on day NUM', [percent, dayNum]) + '</a>').find('a').css('margin-bottom', Math.round(percent * 2) + 'px').click(function () {
-					alert(thisDay.html());
-
-					return false;
-				});
+				newDay
+					.append('<a href="#' + dayNum + '">' + Lang.get('NUM% on day NUM', [percent, dayNum]) + '</a>')
+					.find('a')
+						.css('margin-bottom', Math.round(percent * 2 + 10) + 'px')
+						.click(function () {return false;});
 			}
 
 			newDay.append(Lang.get('Day NUM', [dayNum]));

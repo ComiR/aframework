@@ -4,7 +4,17 @@
 @date: 2010-03-20
 @extends: basic-960
 ***/
+body {	
+	background-color: #f2f2f2;
+	background-repeat: repeat-x;
+	background-image: -moz-linear-gradient(top, #e0e0e0, #f2f2f2);
+	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f2f2f2), color-stop(1, #e0e0e0));
+	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#e0e0e0', endColorstr='#f2f2f2');
+	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#e0e0e0', endColorstr='#f2f2f2')";
+}
+
 #wrapper {
+	background: url(gfx/top-light.png) no-repeat left top;
 	padding: 60px 0 0;
 }
 
@@ -12,4 +22,12 @@
 	padding-top: 30px;
 	width: auto;
 	float: none;
+}
+
+#header p {
+	color: #666;
+}
+
+a {
+	color: #06c;
 }
