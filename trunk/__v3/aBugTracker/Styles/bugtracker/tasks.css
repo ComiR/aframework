@@ -12,6 +12,7 @@
 	}
 
 	#tasks table {
+		clear: both;
 		margin: 15px 0;
 		width: 100%;
 		border-spacing: 0;
