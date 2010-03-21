@@ -4,6 +4,10 @@
 @date: 2010-03-20
 @extends: basic-960
 ***/
+html {
+	background: #f2f2f2;
+}
+
 body {	
 	background-color: #f2f2f2;
 	background-repeat: repeat-x;
@@ -28,6 +32,6 @@ body {
 	color: #666;
 }
 
-a {
-	color: #06c;
+#footer {
+	background: none;
 }

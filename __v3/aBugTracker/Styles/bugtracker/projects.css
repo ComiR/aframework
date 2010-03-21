@@ -1,4 +1,5 @@
-#home-page #projects {
+body.js-enabled #projects {
+	
 }
 
 	#projects h2 = $a11y-hide;
