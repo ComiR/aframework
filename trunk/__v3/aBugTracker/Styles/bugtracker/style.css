@@ -28,9 +28,15 @@ body {
 	float: none;
 }
 
-#header p {
-	color: #666;
+#header {
+	text-align: center;
 }
+
+	#header h1 {
+		float: none;
+	}
+
+	#header p = $a11y-hide;
 
 #footer {
 	background: none;

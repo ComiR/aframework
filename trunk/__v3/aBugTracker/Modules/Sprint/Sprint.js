@@ -17,15 +17,16 @@ aFramework.modules.Sprint = {
 	togglableTasks: function () {
 		var tasks = $('#sprint > ul').hide();
 
-		$('<a href="#" class="tasks-toggler">' + Lang.get('Toggle Tasks') + '</a>').insertAfter('#sprint div.sprint-table').click(function () {
-			tasks.toggle();
+		$('<p><label><input type="checkbox"/>' + Lang.get('Show tasks in this sprint') + '</label></p>')
+			.insertAfter('#sprint div.sprint-table')
+			.find('input')
+			.click(function () {
+				tasks.toggle();
 
-			if (tasks.is(':visible')) {
-				$(window).scrollTo(tasks);
-			}
-
-			return false;
-		});
+				if (tasks.is(':visible')) {
+					$(window).scrollTo(tasks);
+				}
+			});
 	}, 
 
 	createSprintTable: function () {

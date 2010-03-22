@@ -1,6 +1,7 @@
 <?php
 	return array(
-		'/:bt_projects_id([0-9]+)/'							=> 'Tasks', 
-		'/:bt_projects_id([0-9]+)/:bt_tasks_id([0-9]+)/'	=> 'Task'
+		'/:project_url_str/'									=> 'Tasks', 
+		'/:project_url_str/' . Lang::get('url.add-task') . '/'	=> 'AddTask', 
+		'/:project_url_str/:task_url_str/'						=> 'Task'
 	);
 ?>
