@@ -1,7 +1,11 @@
 <?php
 	class BTTasks {
-		public static function getByProjectsID ($id) {
-			return self::get('pub_date', 'DESC', 0, 1000000, 'bt_projects_id = ' . escSQL($id));
+		public static function getByURLStr ($urlStr) {
+			return self::get('title', 'ASC', 0, 1, 'bt_tasks.url_str = "' . escSQL($urlStr) . '"');
+		}
+
+		public static function getByProjectsID ($id, $sort = 'pub_date', $order = 'DESC') {
+			return self::get($sort, $order, 0, 1000000, 'bt_projects_id = ' . escSQL($id));
 		}
 
 		public static function getBySprintsID ($id) {
@@ -16,8 +20,9 @@
 			$res = DB::qry('
 				SELECT
 					bt_tasks.*, 
-					bt_categories.title AS category_title, 
+					bt_tasks.url_str AS task_url_str, 
 					bt_projects.title AS project_title, 
+					bt_projects.url_str AS project_url_str, 
 					bt_sprints.title AS sprint_title, 
 					bt_sprints.start_date AS sprint_start_date, 
 					bt_sprints.end_date AS sprint_end_date, 
@@ -27,8 +32,6 @@
 					DATE_FORMAT(pub_date, "%d") AS day
 				FROM
 					bt_tasks
-				LEFT JOIN
-					bt_categories USING (bt_categories_id)
 				LEFT JOIN
 					bt_projects USING (bt_projects_id)
 				LEFT JOIN
@@ -63,12 +66,14 @@
 		public static function insert ($row) {
 			$fields	= array(
 				'bt_projects_id'	=> $row['bt_projects_id'], 
-				'bt_categories_id'	=> $row['bt_categories_id'], 
 				'title'				=> $row['title'], 
+				'author'			=> $row['author'], 
+				'assigned'			=> isset($row['assigned']) ? $row['assigned'] : '', 
 				'content'			=> $row['content'], 
 				'priority'			=> $row['priority'], 
 				'state'				=> $row['state'], 
-				'pub_date'			=> (isset($row['pub_date']) and !empty($row['pub_date'])) ? $row['pub_date'] : date('Y-m-d H:i:s')
+				'pub_date'			=> (isset($row['pub_date']) and !empty($row['pub_date'])) ? $row['pub_date'] : date('Y-m-d H:i:s'), 
+				'url_str'			=> (isset($row['url_str']) and !empty($row['url_str'])) ? Router::urlize($row['url_str']) : Router::urlize($row['title'])
 			);
 
 			return DBRow::insert('bt_tasks', $fields);
@@ -77,12 +82,14 @@
 		public static function update ($id, $row) {
 			$validFields = array(
 				'bt_projects_id', 
-				'bt_categories_id', 
 				'title', 
+				'author', 
+				'assigned', 
 				'content', 
 				'priority', 
 				'state', 
-				'pub_date'
+				'pub_date', 
+				'url_str'
 			);
 			$fields = array();
 

@@ -43,7 +43,8 @@
 				'type'		=> isset($field['type']) ? $field['type'] : 'text', 
 				'required'	=> isset($field['required']) ? true : false,
 				'options'	=> isset($field['options']) ? $field['options'] : false, 
-				'checked'	=> isset($field['checked']) ? true : false
+				'checked'	=> isset($field['checked']) ? true : false, 
+				'validation'	=> isset($field['validation']) ? $field['validation'] : $field['name']
 			);
 		}
 
@@ -57,11 +58,10 @@
 				if ($field['required'] and (!isset($_POST[$field['name']]) or empty($_POST[$field['name']]))) {
 					$this->errors[$field['name']] = 'Must not be empty';
 				}
-				elseif (($field['required'] or !empty($_POST[$field['name']])) and isset($this->validators[$field['name']]) and !preg_match($this->validators[$field['name']], $_POST[$field['name']])) {
-					$this->errors[$field['name']] = 'Must be valid (' . $this->validators[$field['name']] . ')';
+				elseif (($field['required'] or !empty($_POST[$field['name']])) and isset($this->validators[$field['validation']]) and !preg_match($this->validators[$field['validation']], $_POST[$field['name']])) {
+					$this->errors[$field['name']] = 'Must be valid (' . $this->validators[$field['validation']] . ')';
 				}
 			}
-
 			if (count($this->errors)) {
 				return false;
 			}

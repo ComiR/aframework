@@ -22,7 +22,7 @@ aFramework.modules.Tasks = {
 
 		$('<p><label><input type="checkbox" checked="checked"/> ' + Lang.get('Hide finished tasks') + '</label></p>')
 			.insertAfter('#tasks h2 + p')
-			.find(':checkbox')
+			.find('input')
 				.click(function () {
 					if ($(this).is(':checked')) {
 						tableNoFinished.show();

@@ -1,6 +1,6 @@
 <h2>
 	<a href="<?php echo Router::urlFor('Tasks', $task); ?>">
-		<?php echo escHTML($task['project_title']); ?>
+		<?php echo Lang::get('Tasks for PROJECT', array($task['project_title'])); ?>
 	</a> &rarr; <?php echo escHTML($task['title']); ?>
 </h2>
 

@@ -1,0 +1,53 @@
+#add-task {
+	
+}
+
+	#add-task h2 {
+		
+	}
+
+	#add-task form {
+		
+	}
+
+		#add-task form {
+			width: 630px;
+		}
+
+			#add-task form > p {
+		
+			}
+
+				#add-task form > p input:not([type=submit]) {
+					width: 300px;
+				}
+
+				#add-task form > p select {
+					width: 200px;
+				}
+
+			#add-task form > p:first-child {
+		
+			}
+
+				#add-task form > p:first-child input {
+					font-size: 160%;
+					width: 500px;
+				}
+
+			#add-task form > p:first-child + p, 
+			#add-task form > p:first-child + p + p {
+				float: left;
+				margin-right: 15px;
+			}
+
+				#add-task form > p:first-child + p select, 
+				#add-task form > p:first-child + p + p select {
+					float: left;
+					margin-right: 15px;
+				}
+
+			#add-task form > p:first-child + p + p + p {
+				clear: both;
+			}
+			}

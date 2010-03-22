@@ -4,7 +4,7 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			if (!(self::$tplVars['task'] = BTTasks::getById(Router::$params['bt_tasks_id']))) {
+			if (!(self::$tplVars['task'] = BTTasks::getByURLStr(Router::$params['task_url_str']))) {
 				FourOFour::run();
 			}
 		}
