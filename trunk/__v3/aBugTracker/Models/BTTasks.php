@@ -21,8 +21,11 @@
 				SELECT
 					bt_tasks.*, 
 					bt_tasks.url_str AS task_url_str, 
+					MD5(bt_tasks.author) AS author_email_md5, 
+					IF(bt_tasks.assigned = "", "", MD5(bt_tasks.assigned)) AS assigned_email_md5, 
 					bt_projects.title AS project_title, 
 					bt_projects.url_str AS project_url_str, 
+					bt_sprints.bt_sprints_id AS sprint_id, 
 					bt_sprints.title AS sprint_title, 
 					bt_sprints.start_date AS sprint_start_date, 
 					bt_sprints.end_date AS sprint_end_date, 
