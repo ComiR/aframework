@@ -112,9 +112,10 @@
 							$html .= "<select name=\"{$field['name']}\">";
 
 							foreach ($field['options'] as $k => $v) {
-								$html .= "\n\t\t\t\t<option value=\"$k\">$v</option>";
+								$html .= "\n\t\t\t\t<option value=\"$k\"";
+								$html .= ($k == $field['value']) ? ' selected="selected"' : '';
+								$html .= ">$v</option>";
 							}
-
 							$html .= "\n\t\t\t</select>";
 
 							break;
