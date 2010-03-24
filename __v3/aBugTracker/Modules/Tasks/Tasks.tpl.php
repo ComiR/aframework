@@ -1,6 +1,6 @@
 <h2>
 	<?php echo Lang::get('Tasks for PROJECT', array($project['title'])); ?> 
-	(<?php echo count($project['tasks']); ?>)
+	(<?php echo $project['tasks'] ? count($project['tasks']) : 0; ?>)
 </h2>
 
 <p>
