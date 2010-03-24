@@ -13,8 +13,12 @@
 
 	#tasks table {
 		clear: both;
+
 		margin: 15px 0;
 		width: 100%;
+
+		color: #333;
+
 		border-spacing: 0;
 		border-collapse: collapse;
 	}
@@ -29,34 +33,33 @@
 
 			#tasks table tr th, 
 			#tasks table tr td {
-				background: #111;
+				background-color: #666;
+				background-repeat: repeat-x;
+				background-image: -moz-linear-gradient(top, #666, #111);
+				background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #111), color-stop(1, #666));
 
 				padding: 10px 15px;
 
-				color: #aaa;
+				color: #eee;
 				text-align: center;
 				font-weight: normal;
 				vertical-align: middle;
 				white-space: nowrap;
 
-				border: 1px solid #ddd;
+				border-bottom: 1px solid #ccc;
+				border-top: 1px solid #eee;
 			}
 
 			#tasks table tr th {
 				
 			}
 
-			#tasks table tr td {
-				background: #f9f9f9;
+			#tasks table tr:not(:hover) td {
+				background-color: #f2f2f2;
+				background-repeat: repeat-x;
+				background-image: -moz-linear-gradient(top, #e0e0e0, #f2f2f2);
+				background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f2f2f2), color-stop(1, #e0e0e0));
 				color: inherit;
-			}
-
-			#tasks table tr:nth-child(odd) td {
-				background: #f2f2f2;
-			}
-
-			#tasks table tr:hover td {
-				background: #f0f6fc;
 			}
 
 			#tasks table tr th:first-child, 
@@ -67,8 +70,9 @@
 			}
 
 				#tasks table tr td a {
+					font-weight: bold;
 					padding: 12px 0 12px 29px;
-					background: url(common_gfx/icons/red.png) no-repeat left -1423px;
+					background: url(common_gfx/icons/red.png) no-repeat left -1426px;
 				}
 
 				body.js-enabled #tasks table tr td a {
@@ -78,14 +82,20 @@
 
 			#tasks table tr td:first-child + td {
 				white-space: normal;
+				font-style: italic;
+				color: #666;
 			}
+
+				#tasks table tr:hover td:first-child + td {
+					color: #999;
+				}
 
 		#tasks table tr.done {
 			opacity: .5;
 		}
 
 				#tasks table tr.done td a {
-					background: url(common_gfx/icons/green.png) no-repeat left -3745px;
+					background: url(common_gfx/icons/green.png) no-repeat left -3748px;
 				}
 
 		body.js-enabled #tasks table tr.done {

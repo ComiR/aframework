@@ -1,5 +1,9 @@
 <?php
 	class BTSprints {
+		public static function updateTaskFixedDate ($sprintID, $taskID, $date) {
+			return DB::qry('UPDATE bt_sprint_tasks SET date_fixed = "' . escSQL($date) . '" WHERE bt_sprints_id = ' . escSQL($sprintID) . ' AND bt_tasks_id = ' . escSQL($taskID));
+		}
+
 		public static function getSprintDays ($sprint, $tasks) {
 			$startTS	= strtotime($sprint['start_date']);
 			$startYear	= date('Y', $startTS);
@@ -20,13 +24,15 @@
 					$day = array(
 						'num'			=> $i, 
 						'date'			=> $thisDay, 
-						'has_happened'	=> $thisDay < $today
+						'has_happened'	=> $thisDay <= $today
 					);
 
-					foreach ($tasks as $task) {
-						if (date('Y-m-d', strtotime($task['date_fixed'])) == $thisDay) {
-							$day['finished_tasks'][] = $task;
-							$numFinishedTasksUpToThisDay++;
+					if (is_array($tasks) and count($tasks)) {
+						foreach ($tasks as $task) {
+							if (date('Y-m-d', strtotime($task['date_fixed'])) == $thisDay) {
+								$day['finished_tasks'][] = $task;
+								$numFinishedTasksUpToThisDay++;
+							}
 						}
 					}
 

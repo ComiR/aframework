@@ -1,0 +1,102 @@
+#task {
+	width: 630px;
+	min-height: 330px;
+	position: relative;
+}
+
+	#task h2 {
+		width: 960px;
+		margin-bottom: 0;
+	}
+
+	#task h2 + p {
+		
+	}
+
+	#task dl = $white-box;
+	#task dl = $data-definition;
+	#task dl {
+		width: 270px;
+		margin: 0;
+		padding-top: 185px;
+
+		position: absolute;
+		top: 60px;
+		right: -330px;
+	}
+
+		/* Created by & Assigned to */
+		#task dl dt:first-child, 
+		#task dl dt:first-child + dd + dt {
+			position: absolute;
+			left: 0;
+			top: 0;
+
+			margin: 0;
+			width: 135px;
+			padding: 15px;
+		}
+
+		#task dl dt:first-child + dd + dt {
+			left: 50%;
+		}
+
+		#task dl dt:first-child + dd, 
+		#task dl dt:first-child + dd + dt + dd {
+			margin: 0;
+			position: absolute;
+			left: 15px;
+			top: 45px;
+			width: 120px;
+		}
+
+		#task dl dt:first-child + dd + dt + dd {
+			left: auto;
+			right: 15px;
+		}
+
+			#task dl dd img = $nice-img;
+			#task dl dd img {
+				width: 110px;
+				height: 110px;
+			}
+
+	#task dl + p = $first-p;
+
+	#task h3 {
+		clear: left;
+	}
+
+		#task h3 img = $nice-img;
+		#task h3 img {
+			width: 80px;
+			height: 80px;
+			float: left;
+			margin: 0 15px 15px 0;
+		}
+
+	#task form {
+		
+	}
+
+		#task form > p {
+		
+		}
+
+			#task form > p input:not([type=submit]) {
+				width: 300px;
+			}
+
+			#task form > p select {
+				width: 200px;
+			}
+
+		#task form > p:first-child, 
+		#task form > p:first-child + p {
+			float: left;
+			margin-right: 10px;
+		}
+
+		#task form > p:first-child + p + p {
+			clear: both;
+		}

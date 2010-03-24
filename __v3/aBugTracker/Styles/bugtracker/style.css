@@ -13,8 +13,6 @@ body {
 	background-repeat: repeat-x;
 	background-image: -moz-linear-gradient(top, #e0e0e0, #f2f2f2);
 	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f2f2f2), color-stop(1, #e0e0e0));
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#e0e0e0', endColorstr='#f2f2f2');
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#e0e0e0', endColorstr='#f2f2f2')";
 }
 
 #wrapper {
@@ -34,7 +32,22 @@ body {
 
 	#header h1 {
 		float: none;
+		margin: 0 auto;
 	}
+
+	#header h1 {
+		background: url(gfx/logo.png);
+		width: 598px;
+	}
+
+		#header h1 a {
+			display: block;
+			height: 53px;
+
+			text-decoration: none;
+			outline: 0;
+			text-indent: -1000000px;
+		}
 
 	#header p = $a11y-hide;
 
