@@ -1,5 +1,6 @@
 <h2>
-	<?php echo Lang::get('Tasks for PROJECT', array($project['title'])); ?>
+	<?php echo Lang::get('Tasks for PROJECT', array($project['title'])); ?> 
+	(<?php echo count($project['tasks']); ?>)
 </h2>
 
 <p>
@@ -18,7 +19,7 @@
 	<?php foreach ($project['tasks'] as $task) { ?>
 		<tr<?php if ($task['state'] == 'Done') { ?> class="done"<?php } ?>>
 			<td><a href="<?php echo Router::urlFor('Task', $task); ?>"><?php echo escHTML($task['title']); ?></a></td>
-			<td><?php echo escHTML(substr($task['content'], 0, 80)); ?></td>
+			<td><?php echo escHTML(substr($task['content'], 0, 50)); ?>...</td>
 			<td><?php echo Lang::get($task['priority']); ?></td>
 			<td><?php echo Lang::get($task['state']); ?></td>
 		</tr>
