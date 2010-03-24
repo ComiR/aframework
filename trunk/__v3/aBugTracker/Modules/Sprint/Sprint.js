@@ -47,11 +47,11 @@ aFramework.modules.Sprint = {
 				newDay
 					.append('<a href="#' + dayNum + '">' + Lang.get('NUM% on day NUM', [percent, dayNum]) + '</a>')
 					.find('a')
-						.css('margin-bottom', Math.round(percent * 2 + 10) + 'px')
+						.css('margin-bottom', Math.round(percent * 2.65 + 10) + 'px') // height of table = 300, height of bottom-text + 10 (little margin from text beneat) = 35, area for diagram = 265
 						.click(function () {return false;});
 			}
 
-			newDay.append(Lang.get('Day NUM', [dayNum]));
+			newDay.append('<span>' + Lang.get('Day NUM', [dayNum]) + '</span>');
 		});
 	}
 };

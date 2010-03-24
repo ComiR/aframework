@@ -19,7 +19,7 @@
 			while (true) {
 				$thisDay = date('Y-m-d', mktime(0, 0, 0, $startMonth, $startDay + $i, $startYear));
 
-				if ($thisDay <= $end) {
+				if ($thisDay < $end) {
 					$numFinishedTasksUpToThisDay = 0;
 					$day = array(
 						'num'			=> $i, 

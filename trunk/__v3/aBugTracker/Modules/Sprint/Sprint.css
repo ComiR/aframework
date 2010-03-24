@@ -151,6 +151,14 @@ div.sprint-day-bubble {
 					background: none;
 				}
 
+				#sprint div.sprint-table ol li span {
+					display: block;
+					width: 20px;
+					height: 25px;
+					margin: 0 auto;
+					text-align: center;
+				}
+
 	#sprint a.tasks-toggler {
 		background: #f9f9f9;
 
