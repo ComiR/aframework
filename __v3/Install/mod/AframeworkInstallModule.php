@@ -8,7 +8,6 @@
 			'aSimplePortfolio', 
 			'aDynAdmin', 
 			'AndreasLagerkvist', 
-			'aBugTracker', 
 			'aFrameworkCom', 
 			'aForum', 
 			'AgnesEkman', 
@@ -54,7 +53,7 @@
 		 **/
 		private static function getSelectedSitesConfig ($sites) {
 			$selectedSites	= array_unique(array_filter($sites));
-			$sitesReversed	= array_reverse($selectedSites);
+		#	$sitesReversed	= array_reverse($selectedSites);
 
 			foreach ($selectedSites as $site) {
 				$path = DOCROOT . $site . '/Config.php';
@@ -302,7 +301,7 @@
 			mysql_connect(Config::get('db.host'), Config::get('db.user'), Config::get('db.pass'));
 
 			if (mysql_select_db(Config::get('db.name'))) {
-				self::$errors[] = 'The database ' . Config::get('db.name') . ' already exists - please insert sql-files manually';
+				self::$errors[] = 'The database ' . Config::get('db.name') . ' already exists - please insert sql-files (from /Install/sql/) manually';
 			}
 			else {
 				mysql_query('CREATE DATABASE ' . Config::get('db.name') . ' CHARACTER SET utf8 COLLATE utf8_general_ci');
