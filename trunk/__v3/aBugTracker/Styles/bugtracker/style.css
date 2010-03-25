@@ -25,15 +25,17 @@ body {
 	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #f2f2f2), color-stop(1, #e0e0e0));
 }
 
+form label {
+	font-weight: bold;
+}
+
+	form label * {
+		font-weight: normal;
+	}
+
 #wrapper {
 	background: url(gfx/top-light.png) no-repeat left top;
 	padding: 60px 0 0;
-}
-
-#primary-content {
-	padding-top: 30px;
-	width: auto;
-	float: none;
 }
 
 #header {
@@ -60,6 +62,17 @@ body {
 		}
 
 	#header p = $a11y-hide;
+
+	#primary-content {
+		padding-top: 30px;
+		width: auto;
+		float: none;
+	}
+
+		#primary-content > div:first-child + div > h2:first-child {
+			background: url(common_gfx/icons/gray.png) no-repeat left -241px;
+			padding-left: 30px;
+		}
 
 #footer {
 	background: none;
