@@ -24,7 +24,12 @@
 		clear: both;
 	}
 
-	#tasks h2 + p + p + p = $first-p;
+	#tasks > p:last-child = $first-p;
+	#tasks > p:last-child {
+		clear: both;
+		float: none;
+		margin: 0;
+	}
 
 	#tasks h3 {
 		background: #666 url(common_gfx/icons/gray.png) no-repeat 15px -1426px;
