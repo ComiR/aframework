@@ -32,8 +32,8 @@ aFramework.modules.PostComment = {
 			}, 
 			success: function (data) {
 				jQuery.get(Router.urlForModule('Comments') + '&articles_id=' + postComment.find('input[name=articles_id]').val(), function (newComments) {
-					jQuery('#comments').html(newComments);
-					aFramework.modules.Comments.run(); // Should use custom events...
+					jQuery('#comments').html(newComments).find('> ol > li:last-child').hide().show(500);
+					aFramework.modules.Comments.run();
 				});
 
 				postComment.html(data);

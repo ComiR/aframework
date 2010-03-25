@@ -80,6 +80,10 @@
 			return self::get('pub_date', 'DESC', 0, 1, 'articles.url_str LIKE BINARY "' . escSQL($urlStr) . '"', $future);
 		}
 
+		public static function getArticleByID ($id, $future = false) {
+			return self::get('pub_date', 'DESC', 0, 1, 'articles.articles_id = ' . escSQL($id), $future);
+		}
+
 		public static function getImages () {
 			$articles	= Articles::get();
 			$matches	= array();

@@ -60,6 +60,7 @@
 					self::$tplVars['article']['tags']	= Tags::getTagsByArticlesID($article['articles_id']);
 					self::$tplVars['more_cut']			= true;
 
+					# If we're on a particular article
 					if (isset(Router::$params['url_str'])) {
 						aFramework_BaseModule::$tplVars['html_title']		= $article['title'];
 						aFramework_BaseModule::$tplVars['meta_description']	= $article['meta_description'];
