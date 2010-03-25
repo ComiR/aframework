@@ -1,6 +1,6 @@
-<h2>
+<h2 class="<?php echo strtolower(str_replace(' ', '-', $task['priority'])); ?> <?php echo strtolower(str_replace(' ', '-', $task['state'])); ?>">
 	<a href="<?php echo Router::urlFor('Tasks', $task); ?>">
-		<?php echo Lang::get('Tasks for PROJECT', array($task['project_title'])); ?>
+		<?php echo escHTML($task['project_title']); ?>
 	</a> &rarr; <?php echo escHTML($task['title']); ?>
 </h2>
 

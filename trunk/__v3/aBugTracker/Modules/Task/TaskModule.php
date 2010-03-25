@@ -4,9 +4,13 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			if (!(self::$tplVars['task'] = BTTasks::getByURLStr(Router::$params['task_url_str']))) {
+			if (!(self::$tplVars['task'] = BTTasks::getByURLStr(Router::$params['task_url_str'], Router::$params['project_url_str']))) {
 				FourOFour::run();
 			}
+
+			# HTML title
+			aFramework_BaseModule::$tplVars['html_title'] = self::$tplVars['task']['title'] . ' - ' . self::$tplVars['task']['project_title'];
+
 			self::setUpEditForm();
 		}
 
@@ -14,6 +18,14 @@
 			$taskMod = self::$tplVars['task'];
 
 			$taskMod['content'] = $taskMod['author'] = '';
+
+			# Get all the sprints
+			$sprints = BTSprints::get('title', 'ASC');
+			$availableSprints = array('0' => '-- ' . Lang::get('No Sprint') . ' --');
+
+			foreach ($sprints as $sprint) {
+				$availableSprints[$sprint['bt_sprints_id']] = $sprint['title'];
+			}
 
 			# Create the form (give all the fields values from POST)
 			$form = new FormHandler();
@@ -27,11 +39,10 @@
 				'title'		=> Lang::get('Priority'),
 				'type'		=> 'select', 
 				'options'	=> array(
-					'Idea'			=> Lang::get('Idea'), 
-					'Must Have'		=> Lang::get('Must Have'), 
-					'Immediately'	=> Lang::get('Immediately')
-				), 
-				'required'	=> true
+					'Idea'		=> Lang::get('Idea'), 
+					'Must Have'	=> Lang::get('Must Have'), 
+					'Urgent'	=> Lang::get('Urgent')
+				)
 			));
 			$form->addField(array(
 				'name'		=> 'state', 
@@ -41,7 +52,13 @@
 					'New'			=> Lang::get('New'), 
 					'In Progress'	=> Lang::get('In Progress'), 
 					'Done'			=> Lang::get('Done')
-				), 
+				)
+			));
+			$form->addField(array(
+				'name'		=> 'sprint_id', 
+				'title'		=> Lang::get('Sprint'),
+				'type'		=> 'select', 
+				'options'	=> $availableSprints, 
 				'required'	=> true
 			));
 			$form->addField(array(
@@ -92,18 +109,31 @@
 					# If it's changed to 'Done' and is also part of a sprint, 
 					# change the sprint_tasks fixed_date to today
 					if ($_POST['state'] == 'Done' and self::$tplVars['task']['sprint_id']) {
-						BTSprints::updateTaskFixedDate(self::$tplVars['task']['sprint_id'], self::$tplVars['task']['bt_tasks_id'], date('Y-m-d H:i:s'));
+						BTSprints::updateTaskFixedDate(self::$tplVars['task']['bt_tasks_id'], date('Y-m-d H:i:s'));
 					}
 
 					# If it _used to be_ done then remove date_fixed
 					if (self::$tplVars['task']['state'] == 'Done') {
-						BTSprints::updateTaskFixedDate(self::$tplVars['task']['sprint_id'], self::$tplVars['task']['bt_tasks_id'], '0000-00-00 00:00:00');
+						BTSprints::updateTaskFixedDate(self::$tplVars['task']['bt_tasks_id'], '0000-00-00 00:00:00');
 					}
 				}
 
 				# Keep track of priority changes
 				if (self::$tplVars['task']['priority'] != $_POST['priority']) {
 					$newContent .= "\n\nChanged priority from \"" . self::$tplVars['task']['priority'] . '" to "' . $_POST['priority'] . '".';
+				}
+
+				# Keep track fo sprint-changes
+				if (self::$tplVars['task']['sprint_id'] != $_POST['sprint_id']) {
+					# Delete old sprint_task
+					BTSprints::removeTaskFromSprints(self::$tplVars['task']['bt_tasks_id']);
+
+					# Add task to new sprint
+					if ($_POST['sprint_id'] != 0) {
+						BTSprints::addTaskToSprint(self::$tplVars['task']['bt_tasks_id'], $_POST['sprint_id']);
+					}
+
+					$newContent .= "\n\nChanged sprint from \"" . self::$tplVars['task']['sprint_id'] . '" to "' . $_POST['sprint_id'] . '".';
 				}
 
 				$_POST['content'] = $newContent;

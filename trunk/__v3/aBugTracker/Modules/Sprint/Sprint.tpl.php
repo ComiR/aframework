@@ -21,12 +21,12 @@
 			<h4><?php echo date('l jS \of F', strtotime($day['date'])); ?></h4>
 
 			<?php if ($day['has_happened']) { ?>
-				<p><?php echo Lang::get('NUM% completed on day NUM with NUM fixed tasks (NUM fixed in total now).', array($day['percent'], $i, $day['num_finished_tasks'], $day['num_finished_tasks_total'])); ?></p>
+				<p><?php echo Lang::get('NUM% completed on day NUM with NUM fixed tasks. NUM/NUM fixed in total now.', array($day['percent'], $i, $day['num_finished_tasks'], $day['num_finished_tasks_total'], count($sprint['tasks']))); ?></p>
 
 				<?php if ($day['finished_tasks']) { ?>
 					<ul>
 						<?php foreach ($day['finished_tasks'] as $task) { ?>
-							<li><?php echo escHTML($task['title']); ?> GTG</li>
+							<li><?php echo escHTML($task['project_title']); ?>: <?php echo escHTML($task['title']); ?></li>
 						<?php } ?>
 					</ul>
 				<?php } ?>
@@ -40,14 +40,15 @@
 <h3><?php echo Lang::get('Tasks to be Completed'); ?></h3>
 
 <ul>
-	<?php foreach ($sprint['tasks'] as $task) { ?>
+	<?php foreach ($sprint['tasks'] as $task) { if ($task['state'] != 'Done') { ?>
 		<li<?php if ($task['state'] == 'Done') { ?> class="done"<?php } ?>>
 			<a href="<?php echo Router::urlFor('Tasks', $task); ?>">
+				<img src="<?php echo file_exists($task['project_thumb_path']) ? $task['project_thumb_src'] : WEBROOT . 'aFramework/generic.png'; ?>" alt=""/> 
 				<?php echo escHTML($task['project_title']); ?>
 			</a> &rarr; 
 			<a href="<?php echo Router::urlFor('Task', $task); ?>">
 				<?php echo escHTML($task['title']); ?>
 			</a> (<?php echo Lang::get($task['state']); ?>)
 		</li>
-	<?php } ?>
+	<?php } } ?>
 </ul>
