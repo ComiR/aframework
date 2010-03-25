@@ -18,7 +18,7 @@
 				color: #000;
 			}
 
-				body {
+				#wrapper {
 					background: #fff url(chrome://global/skin/icons/warning-large.png) no-repeat 30px 30px;
 
 					width: 550px;
@@ -54,7 +54,7 @@
 						margin: 0 0 5px;
 					}
 
-					body > p:last-child {
+					#wrapper > p:last-child {
 						padding: 10px 0 0 0;
 						border-top: 1px solid #ccc;
 					}
@@ -87,39 +87,48 @@
 					}
 
 					/* Search Results Pagination */
-					h2 + ol + ul {
+					#wrapper h2 + ol + ul {
 						margin-left: 0;
 						padding-left: 0;
 						list-style: none;
 						text-align: center;
 					}
 
-						h2 + ol + ul > li {
+						#wrapper h2 + ol + ul > li {
 							display: inline;
 						}
 
-						h2 + ol + ul > li:after {
+						#wrapper h2 + ol + ul > li:after {
 							content: " | ";
 						}
 
-						h2 + ol + ul > li:last-child:after {
+						#wrapper h2 + ol + ul > li:last-child:after {
 							content: "";
 						}
 
-							h2 + ol + ul > li:first-child a:before {
+							#wrapper h2 + ol + ul > li:first-child a:before {
 								content: "< ";
 							}
 
-							h2 + ol + ul > li:last-child a:after {
+							#wrapper h2 + ol + ul > li:last-child a:after {
 								content: " >";
 							}
+			<?php
+				if (SU) {
+					$constantsCSS = fetch(DOCROOT . 'aFramework/Modules/Base/0Constants.css');
+					$debugCSS = fetch(DOCROOT . 'aFramework/Modules/Debug/Debug.css');
 
+					echo CSSConstants::compile($constantsCSS . $debugCSS);
+				}
+			?>
 		</style>
 
 		<title>Error: 404 - Page Not Found - <?php echo Config::get('general.site_title'); ?></title>
 
 	</head>
 
-	<body>
+	<body class="<?php if (ADMIN) { ?>admin<?php } if (SU) { ?> su<?php } ?>">
 
-		<h1>Error: 404 - Page Not Found</h1>
+		<div id="wrapper">
+
+			<h1>Error: 404 - Page Not Found</h1>

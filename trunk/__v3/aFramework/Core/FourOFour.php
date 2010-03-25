@@ -64,7 +64,13 @@
 
 			echo str_replace('</h2>', ' on ' . Config::get('general.site_title') .'</h2>', aFramework::fetchModule('SearchResults'));
 
-			include DOCROOT . 'aFramework/Files/404-stuff/foot.php';
+			$foot = fetch(DOCROOT . 'aFramework/Files/404-stuff/foot.php');
+
+			if (SU) {
+				$foot = str_replace('{DEBUG}', '<div id="debug">' . fetch(DOCROOT . 'aFramework/Modules/Debug/Debug.tpl.php') . '</div>', $foot);
+			}
+
+			echo $foot;
 
 			die;
 		}
