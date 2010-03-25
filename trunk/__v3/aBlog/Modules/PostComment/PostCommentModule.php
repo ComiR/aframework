@@ -10,6 +10,14 @@
 			$articlesID = isset($_POST['articles_id']) ? $_POST['articles_id'] : (isset(aBlog_ArticleModule::$tplVars['article']['articles_id']) ? aBlog_ArticleModule::$tplVars['article']['articles_id'] : false);
 
 			if ($articlesID) {
+				# We need the article in order to check if comments are even allowed
+				$article = isset(aBlog_ArticleModule::$tplVars['article']) ? aBlog_ArticleModule::$tplVars['article'] : Articles::getArticleByID($articlesID, ADMIN);
+
+				# Now make sure articles are allowed
+				if (!$article['allow_comments']) {
+					return self::$tplFile = 'CommentsClosed';
+				}
+
 				$visitorData = VisitorData::getVisitorData();
 
 				# Create the form (give all the fields values from POST or visitorData)
@@ -66,15 +74,8 @@
 					}
 				}
 
-				# Form has been submitted
-				if (isset($_GET['added_comment'])) {
-				#	self::$tplFile = 'ThankYou';
-				}
-				# Form has NOT been submitted
-				else {
-					# Assign form HTML to template vars
-					self::$tplVars['form_html'] = $form->asHTML();
-				}
+				# Assign form HTML to template vars
+				self::$tplVars['form_html'] = $form->asHTML();
 			}
 			else {
 				self::$tplFile = false;

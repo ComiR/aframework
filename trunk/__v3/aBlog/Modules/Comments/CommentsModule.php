@@ -18,12 +18,14 @@
 			}
 
 			# Make sure we know which article we're on
-			if ($articlesID) {
-				self::$tplVars['articles_id'] = $articlesID;
+			if (!$articlesID) {
+				return self::$tplFile = false;
 			}
-			else {
-				self::$tplFile = false;
-			}
+
+			self::$tplVars['articles_id'] = $articlesID;
+
+			# We need the article in order to check if comments are even allowed
+			$article = isset(aBlog_ArticleModule::$tplVars['article']) ? aBlog_ArticleModule::$tplVars['article'] : Articles::getArticleByID($articlesID, ADMIN);
 
 			# Handle delete, mark as spam and mark as ham
 			if (isset($_POST['comments_delete']) and SU) {
@@ -46,9 +48,15 @@
 			# Grab the comments for this article
 			self::$tplVars['comments'] = Comments::getCommentsByArticleID($articlesID, ADMIN);
 
-			if (!self::$tplVars['comments']) {
+			# If there are no comments and comments are closed, don't show nothing
+			if (!self::$tplVars['comments'] and !$article['allow_comments']) {
+				return self::$tplFile = false;
+			}
+			# If there are no comments but comments are allowed
+			elseif (!self::$tplVars['comments'] and $article['allow_comments']) {
 				self::$tplFile = 'NoComments';
 			}
+			# There are comments, regardless if comments are allowed display the ones already posted
 		}
 
 		private static function deleteComment ($id) {
