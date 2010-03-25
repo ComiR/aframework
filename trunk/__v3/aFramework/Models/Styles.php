@@ -44,7 +44,9 @@
 
 						foreach (array('jpg', 'png', 'gif') as $ext) {
 							if (file_exists(DOCROOT . $site . '/Styles/' . $style . '/thumb.' . $ext)) {
-								$data['thumb'] = WEBROOT . $site . '/Styles/' . $style . '/thumb.' . $ext;
+								$thumbPath				= $site . '/Styles/' . $style . '/thumb.' . $ext;
+								$data['thumb']			= WEBROOT . $thumbPath;
+								$data['thumb_thumb']	= WEBROOT . 'aFramework/Lib/phpThumb/phpThumb.php?src=' . DOCROOT . $thumbPath . '&amp;w=320';
 
 								break;
 							}

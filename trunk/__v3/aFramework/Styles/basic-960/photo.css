@@ -3,6 +3,7 @@
 }
 
 	#photo img = $nice-img;
+	#photo img = $img-large;
 	#photo img {
-		width: 100%;
+		width: 600px;
 	}

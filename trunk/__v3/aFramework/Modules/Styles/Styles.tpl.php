@@ -10,7 +10,7 @@
 			<?php if ($style['thumb']) { ?>
 				<p>
 					<a href="<?php echo $style['thumb']; ?>">
-						<img src="<?php echo $style['thumb']; ?>" alt=""/>
+						<img src="<?php echo $style['thumb_thumb']; ?>" alt=""/>
 					</a>
 				</p>
 			<?php } ?>
