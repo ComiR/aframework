@@ -5,7 +5,7 @@
 
 		public static function run() {
 			self::$tplVars['body_id']			= strtolower(ccFix(Router::getController(), '-'));
-			self::$tplVars['html_title']		= Router::getController() == 'Home' ? Config::get('general.site_tagline') : ccFix(Router::getController(), ' ');
+			self::$tplVars['html_title']		= Router::getController() == 'Home' ? Config::get('general.site_tagline') : Lang::get(ccFix(Router::getController(), ' '));
 			self::$tplVars['meta_description']	= '';
 			self::$tplVars['meta_keywords']		= '';
 			self::$tplVars['style']				= isset($_COOKIE['style']) ? $_COOKIE['style'] : Config::get('general.default_style');
