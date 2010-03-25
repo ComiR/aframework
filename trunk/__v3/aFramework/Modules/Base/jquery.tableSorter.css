@@ -1,0 +1,10 @@
+th.headerSortUp::after, 
+th.headerSortDown::after {
+	content: url(common_gfx/icons/arrow-desc-black.gif);
+	vertical-align: top;
+	margin: 0 0 0 5px;
+}
+
+th.headerSortDown::after {
+	content: url(common_gfx/icons/arrow-asc-black.gif);
+}

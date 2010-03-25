@@ -4,7 +4,7 @@ body.js-enabled #tasks.hide-done table tr.done {
 }
 
 /* Only show 5 first tasks */
-body.js-enabled #tasks:not(.show-all) tr.hidden {
+body.js-enabled #tasks:not(.show-all) tbody tr:nth-child(1n+5) {
 	display: none;
 }
 

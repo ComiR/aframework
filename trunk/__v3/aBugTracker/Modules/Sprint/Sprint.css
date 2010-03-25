@@ -128,7 +128,7 @@ div.sprint-day-bubble {
 
 	#sprint div.sprint-table {
 		display: table;
-		margin: 0 0 15px;
+		margin: 0 0 45px;
 		width: 100%;
 		border-spacing: 0;
 		border-collapse: collapse;
@@ -145,7 +145,6 @@ div.sprint-day-bubble {
 
 				display: table-cell;
 				height: 300px;
-				padding: 5px 0;
 
 				vertical-align: bottom;
 				text-align: center;
@@ -189,8 +188,9 @@ div.sprint-day-bubble {
 				#sprint div.sprint-table ol li span {
 					display: block;
 					width: 20px;
-					height: 25px;
-					margin: 0 auto;
+					height: 30px;
+					margin: 0 auto -35px;
+					padding: 5px 0 0;
 					text-align: center;
 				}
 
