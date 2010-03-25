@@ -45,8 +45,6 @@
 # ArticleAdmin.tpl.php
 'The form contains errors.' => 'The form contains errors.', 
 'Please make sure you have filled out everything correctly.' => 'Please make sure you have filled out everything correctly.', 
-'The article was successfully saved!' => 'The article was successfully saved!', 
-'The article was successfully deleted!' => 'The article was successfully deleted!', 
 'Title' => 'Title', 
 'Slug' => 'Slug', 
 'Publish Date' => 'Publish Date', 
@@ -55,6 +53,7 @@
 'Article Content' => 'Article Content', 
 'Tags' => 'Tags', 
 'Use a comma (,) to separate tags' => 'Use a comma (,) to separate tags', 
+'Available tags:' => 'Available tags:', 
 'Allow Comments' => 'Allow Comments', 
 'Yes' => 'Yes', 
 'No' => 'No', 
@@ -125,6 +124,10 @@
 # AfterRecentArticles.tpl.php
 'Newer' => 'Newer', 
 'Older' => 'Older', 
+
+# ArticleImages.tpl.php
+'Images Published in Articles' => 'Images Published in Articles', 
+'Published DATE in' => 'Published %0 in', 
 
 # OlderArticles.tpl.php
 'Continue reading' => 'Continue reading', 

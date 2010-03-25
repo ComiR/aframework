@@ -88,9 +88,13 @@
 			foreach ($articles as $article) {
 				if (preg_match_all('/!\[(.*?)\]\((.*?)\)/', $article['content'], $matches)) {
 					foreach ($matches[0] as $k => $v) {
+						$src		= $matches[2][$k];
+						$srcThumb	= substr($src, 0, 4) == 'http' ? $src : DOCROOT . $src;
+
 						$images[] = array(
-							'title'		=> ucwords(str_replace(array('-', '.jpg', '.gif', '.png'), array(' ', ''), basename($matches[2][$k]))),
-							'src'		=> $matches[2][$k],
+							'title'		=> ucwords(str_replace(array('-', '.jpg', '.gif', '.png'), array(' ', ''), basename($src))),
+							'src'		=> $src,
+							'src_thumb'	=> WEBROOT . 'aFramework/Lib/phpThumb/phpThumb.php?src=' . $srcThumb . '&amp;w=160', 
 							'article'	=> $article
 						);
 					}

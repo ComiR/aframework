@@ -45,8 +45,6 @@
 # ArticleAdmin.tpl.php
 'The form contains errors.' => 'Formuläret innehåller fel.', 
 'Please make sure you have filled out everything correctly.' => 'Vänligen kontrollera att du fyllt i alla fält korrekt.', 
-'The article was successfully saved!' => 'Artikeln sparades.', 
-'The article was successfully deleted!' => 'Artikeln är raderad.', 
 'Title' => 'Titel', 
 'Slug' => 'Slug', 
 'Publish Date' => 'Publiceringsdatum', 
@@ -55,6 +53,7 @@
 'Article Content' => 'Artikelinnehåll', 
 'Tags' => 'Taggar', 
 'Use a comma (,) to separate tags' => 'Använd komma (,) för att separera taggar', 
+'Available tags:' => 'Available tags:', 
 'Allow Comments' => 'Tillåt kommentarer', 
 'Yes' => 'Ja', 
 'No' => 'Nej', 
@@ -110,8 +109,8 @@
 'You are currently browsing' => 'Du surfar för närvarande', 
 'articles tagged with' => 'artiklar taggade med', 
 'Archives for' => 'Arkivet för', 
-'articles posted on' => 'artiklar publicerade', 
-'articles posted in' => 'artiklar publicerade', 
+'articles posted ' => 'artiklar publicerade', 
+'articles posted ' => 'artiklar publicerade', 
 'The Latest Articles' => 'De senaste artiklarna', 
 
 # RandomArticleImage.js
@@ -125,6 +124,10 @@
 # AfterRecentArticles.tpl.php
 'Newer' => 'Nyare', 
 'Older' => 'Äldre', 
+
+# ArticleImages.tpl.php
+'Images Published in Articles' => 'Bilder publicerade i artiklar', 
+'Published DATE in' => 'Publicerade %0 i', 
 
 # OlderArticles.tpl.php
 'Continue reading' => 'Fortsätt läsa', 

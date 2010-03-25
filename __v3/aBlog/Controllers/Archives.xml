@@ -9,6 +9,7 @@
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
 			<ArticlesByDate/>
+			<ArticleImages/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<StyleSwitcher/>
