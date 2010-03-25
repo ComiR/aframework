@@ -38,8 +38,7 @@ body.js-enabled #top-5sites {
 				}
 
 					#top-5sites ol li h3 + p img {
-						width: 600px;
-						margin: 0 0 0 -50px;
+						width: 320px;
 					}
 
 				#top-5sites ol li h3 + p + p = $first-p;

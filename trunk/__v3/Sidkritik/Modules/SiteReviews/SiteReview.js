@@ -6,7 +6,7 @@ aFramework.modules.SiteReviews = {
 	hijaxThumbsUpDown: function () {
 		$('#site-reviews > ol > li').each(function () {
 			var review			= $(this);
-			var thumbsUpDown	= review.find('ul:first-of-kind > li');
+			var thumbsUpDown	= review.find('ul:eq(0) > li');
 			var thumbsUp		= thumbsUpDown.eq(0);
 			var thumbsDown		= thumbsUpDown.eq(1);
 			var thumbsUpTxt		= thumbsUp.find('input[type=submit]').val();
