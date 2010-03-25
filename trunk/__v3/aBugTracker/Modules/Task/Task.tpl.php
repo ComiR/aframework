@@ -1,7 +1,8 @@
 <h2 class="<?php echo strtolower(str_replace(' ', '-', $task['priority'])); ?> <?php echo strtolower(str_replace(' ', '-', $task['state'])); ?>">
 	<a href="<?php echo Router::urlFor('Tasks', $task); ?>">
 		<?php echo escHTML($task['project_title']); ?>
-	</a> &rarr; <?php echo escHTML($task['title']); ?>
+	</a> &rarr; <?php echo escHTML($task['title']); ?> 
+	(#<?php echo $task['bt_tasks_id']; ?>)
 </h2>
 
 <p>
