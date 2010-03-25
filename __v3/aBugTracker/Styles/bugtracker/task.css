@@ -5,8 +5,25 @@
 }
 
 	#task h2 {
+		background: url(common_gfx/icons/gray.png) no-repeat left -1428px !important;
 		width: 960px;
 		margin-bottom: 0;
+	}
+
+	#task h2.urgent {
+		background-image: url(common_gfx/icons/red.png) !important;
+	}
+
+	#task h2.must-have {
+		background-image: url(common_gfx/icons/yellow.png) !important;
+	}
+
+	#task h2.idea {
+		background-image: url(common_gfx/icons/blue.png) !important;
+	}
+
+	#task h2.done {
+					background: url(common_gfx/icons/green.png) no-repeat left -3748px !important;
 	}
 
 	#task h2 + p {
@@ -92,11 +109,12 @@
 			}
 
 		#task form > p:first-child, 
-		#task form > p:first-child + p {
+		#task form > p:first-child + p, 
+		#task form > p:first-child + p + p {
 			float: left;
 			margin-right: 10px;
 		}
 
-		#task form > p:first-child + p + p {
+		#task form > p:first-child + p + p + p {
 			clear: both;
 		}

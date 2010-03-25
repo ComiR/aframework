@@ -1,27 +1,63 @@
 #tasks {
-	
+	min-height: 400px;
 }
 
 	#tasks h2 {
+		background-position: left -1428px !important;
 		float: left;
 	}
 
-	#tasks p {
+	#tasks h2 + p, 
+	#tasks h2 + p + p {
 		float: right;
 		margin: 20px 0 0 15px;
 	}
 
-	#tasks table {
+		#tasks h2 + p a, 
+		#tasks h2 + p + p a {
+			font-weight: bold;
+			padding: 12px 0 12px 29px;
+			background: url(common_gfx/icons/green.png) no-repeat left -775px;
+		}
+
+	#tasks h2 + p + p + * {
 		clear: both;
+	}
 
-		margin: 15px 0;
+	#tasks h2 + p + p + p = $first-p;
+
+	#tasks h3 {
+		background: #666 url(common_gfx/icons/gray.png) no-repeat 15px -1426px;
+
+		margin: 15px 0 -1px;
+		padding: 10px 30px 11px 44px;
+
+		clear: both;
+		float: left;
+		position: relative;
+
+		font-size: 16px;
+		color: #eee;
+		letter-spacing: 0;
+
+		-moz-border-radius: 5px 5px 0 0;
+		-webkit-border-radius: 5px 5px 0 0;
+		border-radius: 5px 5px 0 0;
+	}
+
+	#tasks h3 + * {
+		clear: left;
+	}
+
+	#tasks table {
 		width: 100%;
+		margin: 0 0 30px;
 
+		clear: left;
 		color: #333;
 		font-size: 80%;
 
 		border-spacing: 0;
-		border-collapse: collapse;
 	}
 
 		#tasks table tr {
@@ -43,16 +79,21 @@
 
 				color: #eee;
 				text-align: center;
-				font-weight: normal;
 				vertical-align: middle;
 				white-space: nowrap;
 
 				border-bottom: 1px solid #ccc;
-				border-top: 1px solid #eee;
+				border-top: 1px solid #fff;
 			}
 
 			#tasks table tr th {
-				
+				 border: 0;
+			}
+
+			#tasks table tr th:last-child {
+				-moz-border-radius: 0 5px 0 0;
+				-webkit-border-radius: 0 5px 0 0;
+				border-radius: 0 5px 0 0;
 			}
 
 			#tasks table tr:not(:hover) td {
@@ -63,17 +104,30 @@
 				color: inherit;
 			}
 
-			#tasks table tr th:first-child, 
-			#tasks table tr th:first-child + th, 
-			#tasks table tr td:first-child, 
-			#tasks table tr td:first-child + td {
-				text-align: left;
+			#tasks table tr.done:not(:hover) td {
+				color: #999;
 			}
 
 				#tasks table tr td a {
 					font-weight: bold;
 					padding: 12px 0 12px 29px;
-					background: url(common_gfx/icons/red.png) no-repeat left -1426px;
+					background: url(common_gfx/icons/yellow.png) no-repeat left -1426px;
+				}
+
+				#tasks table.urgent tr td a {
+					background-image: url(common_gfx/icons/red.png);
+				}
+
+				#tasks table.must-have tr td a {
+					background-image: url(common_gfx/icons/yellow.png);
+				}
+
+				#tasks table.ideas tr td a {
+					background-image: url(common_gfx/icons/blue.png);
+				}
+
+				#tasks table tr.done td a {
+					background: url(common_gfx/icons/green.png) no-repeat left -3748px;
 				}
 
 				body.js-enabled #tasks table tr td a {
@@ -81,24 +135,23 @@
 					text-decoration: none;
 				}
 
+			#tasks table tr th:first-child, 
+			#tasks table tr th:first-child + th + th, 
+			#tasks table tr td:first-child, 
+			#tasks table tr td:first-child + td + td {
+				text-align: left;
+			}
+
 			#tasks table tr td:first-child + td {
+				font-weight: bold;
+			}
+
+			#tasks table tr td:first-child + td + td {
 				white-space: normal;
 				font-style: italic;
 				color: #666;
 			}
 
-				#tasks table tr:hover td:first-child + td {
-					color: #999;
-				}
-
-		#tasks table tr.done {
-			opacity: .5;
-		}
-
-				#tasks table tr.done td a {
-					background: url(common_gfx/icons/green.png) no-repeat left -3748px;
-				}
-
-		body.js-enabled #tasks table tr.done {
-			opacity: 1;
-		}
+			#tasks table tr:hover td:first-child + td + td {
+				color: #999;
+			}

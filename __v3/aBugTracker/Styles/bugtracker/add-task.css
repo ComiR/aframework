@@ -3,8 +3,20 @@
 }
 
 	#add-task h2 {
-		
+		background: url(common_gfx/icons/green.png) no-repeat left -780px !important;
 	}
+
+	#add-task > div = $white-box;
+	#add-task > div {
+		width: 270px;
+		float: right;
+	}
+
+		#add-task h3 {
+			background: url(common_gfx/icons/yellow.png) no-repeat left -3969px;
+			margin: inherit;
+			padding: 0 0 0 30px;
+		}
 
 	#add-task form {
 		
@@ -36,17 +48,12 @@
 				}
 
 			#add-task form > p:first-child + p, 
-			#add-task form > p:first-child + p + p {
+			#add-task form > p:first-child + p + p, 
+			#add-task form > p:first-child + p + p + p {
 				float: left;
-				margin-right: 15px;
+				margin-right: 10px;
 			}
 
-				#add-task form > p:first-child + p select, 
-				#add-task form > p:first-child + p + p select {
-					float: left;
-					margin-right: 15px;
-				}
-
-			#add-task form > p:first-child + p + p + p {
-				clear: both;
+			#add-task form > p:first-child + p + p + p + p {
+				clear: left;
 			}
