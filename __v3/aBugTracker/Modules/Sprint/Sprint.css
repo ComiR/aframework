@@ -22,6 +22,11 @@ div.sprint-day-bubble {
 			background: url(common_gfx/icons/green.png) no-repeat left -3753px;
 		}
 
+			div.sprint-day-bubble ul li a:not(:hover) {
+				text-decoration: none;
+				color: inherit;
+			}
+
 #sprint {
 	
 }

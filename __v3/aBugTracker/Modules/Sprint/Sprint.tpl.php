@@ -27,7 +27,14 @@
 				<?php if ($day['finished_tasks']) { ?>
 					<ul>
 						<?php foreach ($day['finished_tasks'] as $task) { ?>
-							<li><?php echo escHTML($task['project_title']); ?>: <?php echo escHTML($task['title']); ?></li>
+							<li>
+								<a href="<?php echo Router::urlFor('Tasks', $task); ?>">
+									<?php echo escHTML($task['project_title']); ?>
+								</a> &rarr; 
+								<a href="<?php echo Router::urlFor('Task', $task); ?>">
+									<?php echo escHTML($task['title']); ?>
+								</a>
+							</li>
 						<?php } ?>
 					</ul>
 				<?php } ?>
