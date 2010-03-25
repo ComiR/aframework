@@ -4,8 +4,8 @@
 			
 		}
 
-		public static function getArticlesGroupedByMonth () {
-			$articles	= self::get('pub_date', 'DESC');
+		public static function getArticlesGroupedByMonth ($future = false) {
+			$articles	= self::get('pub_date', 'DESC', 0, 100000000, '1 = 1', $future);
 			$dates		= array();
 			$currDate	= false;
 
@@ -30,7 +30,7 @@
 			return count($dates) ? $dates : false;
 		}
 
-		public static function getArticlesByPubDate ($pubDate) {
+		public static function getArticlesByPubDate ($pubDate, $future = false) {
 			if (!is_numeric($pubDate)) {
 				return false;
 			}
@@ -54,115 +54,30 @@
 				return false;
 			}
 
-			$res = DB::qry('
-				SELECT
-					articles.*, 
-					DATE_FORMAT(articles.pub_date, "' . $dateFormatA . '") AS compare_date, 
-					DATE_FORMAT(articles.pub_date, "' . $dateFormatB . '") AS show_date,
-					DATE_FORMAT(articles.pub_date, "%Y") AS year, 
-					DATE_FORMAT(articles.pub_date, "%m") AS month, 
-					DATE_FORMAT(articles.pub_date, "%d") AS day, 
-					COUNT(comments_id) as num_comments
-				FROM 
-					articles 
-				LEFT JOIN
-					comments USING(articles_id)
-				GROUP BY
-					articles.articles_id
-				HAVING
-					articles.pub_date <= NOW() AND 
-					DATE_FORMAT(articles.pub_date, "' . $dateFormatA . '") = ' . $pubDate . '
-				ORDER BY 
-					articles.pub_date DESC
-			');
-
-			if (mysql_num_rows($res)) {
-				$rows = array();
-
-				while ($row = mysql_fetch_assoc($res)) {
-					$rows[] = $row;
-				}
-
-				return $rows;
-			}
-			else {
-				return false;
-			}
+			return self::get(
+							'pub_date', 
+							'DESC', 
+							0, 
+							1000000000, 
+							'DATE_FORMAT(articles.pub_date, "' 
+								. $dateFormatA 
+								. '") = "' 
+								. $pubDate 
+								.'"', 
+							$future, 
+							'DATE_FORMAT(articles.pub_date, "' 
+								. $dateFormatA 
+								. '") AS compare_date, DATE_FORMAT(articles.pub_date, "' 
+								. $dateFormatB . '") AS show_date'
+					);
 		}
 
-		public static function getArticlesByTagURLStr ($urlStr) {
-			$res = DB::qry('
-				SELECT
-					articles.*, 
-					tags.url_str AS tags_url_str, 
-					DATE_FORMAT(articles.pub_date, "%Y") AS year, 
-					DATE_FORMAT(articles.pub_date, "%m") AS month, 
-					DATE_FORMAT(articles.pub_date, "%d") AS day, 
-					COUNT(comments_id) as num_comments
-				FROM
-					articles
-				LEFT JOIN
-					article_tags USING(articles_id)
-				LEFT JOIN
-					comments USING(articles_id)
-				LEFT JOIN
-					tags USING(tags_id)
-				WHERE
-					articles.pub_date <= NOW() AND 
-					tags.url_str LIKE BINARY "' . escSQL($urlStr) . '"
-				GROUP BY
-					articles.articles_id
-				ORDER BY
-					articles.pub_date DESC
-			');
-
-			if (mysql_num_rows($res)) {
-				$rows = array();
-
-				while ($row = mysql_fetch_assoc($res)) {
-					$rows[] = $row;
-				}
-
-				return $rows;
-			}
-			else {
-				return false;
-			}
+		public static function getArticlesByTagURLStr ($urlStr, $future = false) {
+			return self::get('pub_date', 'DESC', 0, 10000000, 'tags.url_str LIKE BINARY "' . escSQL($urlStr) . '"', $future);
 		}
 
-		public static function getArticleByURLStr ($urlStr, $inTheFuture = false) {
-			if ($inTheFuture) {
-				$where = '1 = 1';
-			}
-			else {
-				$where = 'articles.pub_date <= NOW()';
-			}
-
-			$res = DB::qry('
-				SELECT
-					articles.*, 
-					DATE_FORMAT(articles.pub_date, "%Y") AS year, 
-					DATE_FORMAT(articles.pub_date, "%m") AS month, 
-					DATE_FORMAT(articles.pub_date, "%d") AS day, 
-					COUNT(comments_id) as num_comments
-				FROM
-					articles
-				LEFT JOIN
-					comments USING(articles_id)
-				GROUP BY
-					articles.articles_id
-				HAVING
-					' . $where . ' AND 
-					articles.url_str LIKE BINARY "' . escSQL($urlStr) . '"
-				LIMIT 1
-			');
-
-			if (mysql_num_rows($res)) {
-				return mysql_fetch_assoc($res);
-			}
-			else {
-				return false;
-			}
+		public static function getArticleByURLStr ($urlStr, $future = false) {
+			return self::get('pub_date', 'DESC', 0, 1, 'articles.url_str LIKE BINARY "' . escSQL($urlStr) . '"', $future);
 		}
 
 		public static function getImages () {
@@ -185,22 +100,29 @@
 			return count($images) ? $images : false;
 		}
 
-		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000, $where = '1 = 1') {
+		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000, $where = '1 = 1', $future = false, $select = '1') {
+			$where .= $future ? '' : " AND articles.pub_date <= NOW()";
+
 			$res = DB::qry('
 				SELECT
 					articles.*, 
 					DATE_FORMAT(articles.pub_date, "%Y") AS year, 
 					DATE_FORMAT(articles.pub_date, "%m") AS month, 
 					DATE_FORMAT(articles.pub_date, "%d") AS day, 
-					COUNT(comments_id) as num_comments
+					tags.url_str AS tags_url_str, 
+					COUNT(comments_id) as num_comments, 
+					' . $select . '
 				FROM
 					articles
 				LEFT JOIN
 					comments USING(articles_id)
+				LEFT JOIN
+					article_tags USING(articles_id)
+				LEFT JOIN
+					tags USING(tags_id)
 				GROUP BY
 					articles.articles_id
 				HAVING
-					articles.pub_date <= NOW() AND 
 					' . $where . '
 				ORDER BY
 					articles.' . escSQL($sort) . ' ' . escSQL($order) . '

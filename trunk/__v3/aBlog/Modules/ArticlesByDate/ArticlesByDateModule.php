@@ -4,7 +4,7 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			self::$tplVars['dates'] = Articles::getArticlesGroupedByMonth();
+			self::$tplVars['dates'] = Articles::getArticlesGroupedByMonth(ADMIN);
 		}
 	}
 ?>
