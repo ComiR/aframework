@@ -89,8 +89,8 @@
 								$styles[] = array(
 									'name'		=> $sF, 
 									'title'		=> escHTML($sF), 
-									'thumb_url'	=> WEBROOT . $f . '/Styles/' . $sF . '/thumb.png', 
-									'img_url'	=> WEBROOT . $f . '/Styles/' . $sF . '/thumb.png'
+									'thumb_url'	=> WEBROOT . 'aFramework/Lib/phpThumb/phpThumb.php?src=' . DOCROOT . $thumbPath . '&amp;w=320', 
+									'img_url'	=> WEBROOT . $thumbPath
 								);
 							}
 						}
