@@ -7,9 +7,9 @@
 		<Search/>
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
-			<ArticleNavigation/>
 			<Article/>
 			<Revisions/>
+			<ArticleNavigation/>
 			<SocialBookmarks/>
 			<RelatedArticles/>
 			<Comments/>

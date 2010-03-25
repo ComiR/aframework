@@ -10,6 +10,7 @@
 		<Wrapper name="primary-content">
 			<Article/>
 			<Revisions/>
+			<ArticleNavigation/>
 			<Comments/>
 			<PostComment/>
 		</Wrapper>
