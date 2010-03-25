@@ -28,6 +28,8 @@
 			if (!(self::$tplVars['album'] = PhotoAlbums::getByName(Router::$params['album_name']))) {
 				FourOFour::run();
 			}
+
+			aFramework_BaseModule::$tplVars['html_title'] = self::$tplVars['album']['title'] . ' - ' . Lang::get('All Photo Albums');
 		}
 	}
 ?>
