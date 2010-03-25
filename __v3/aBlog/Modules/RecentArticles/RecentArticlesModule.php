@@ -4,13 +4,10 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			$numArticles = Config::get('ablog.num_recent_articles');
+			$numArticles	= Config::get('ablog.num_recent_articles');
+			$start			= (isset($_GET['recent_articles_start']) and is_numeric($_GET['recent_articles_start']) and $_GET['recent_articles_start'] > 0) ? $_GET['recent_articles_start'] : 0;
 
-			self::$tplVars['articles'] = Articles::get('pub_date', 'DESC', 0, $numArticles);
-
-			$start = (isset($_GET['recent_articles_start']) and is_numeric($_GET['recent_articles_start']) and $_GET['recent_articles_start'] > 0) ? $_GET['recent_articles_start'] : 0;
-
-			if (!(self::$tplVars['articles'] = Articles::get('pub_date', 'DESC', $start, $numArticles))) {
+			if (!(self::$tplVars['articles'] = Articles::get('pub_date', 'DESC', $start, $numArticles, '1 = 1', ADMIN))) {
 				self::$tplFile = false;
 			}
 			else {

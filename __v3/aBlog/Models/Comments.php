@@ -9,43 +9,16 @@
 		}
 
 		public static function getCommentsByArticleID ($id, $spam = false) {
-			$karma = $spam ? '' : ' AND comments.karma > 0 ';
-			$res = DB::qry('
-				SELECT
-					comments.*, 
-					DATE_FORMAT(articles.pub_date, "%Y") AS year, 
-					DATE_FORMAT(articles.pub_date, "%m") AS month, 
-					DATE_FORMAT(articles.pub_date, "%d") AS day, 
-					articles.url_str, 
-					articles.title AS article_title, 
-					MD5(comments.email) AS email_md5
-				FROM
-					comments
-				LEFT JOIN
-					articles USING(articles_id)
-				WHERE
-					articles.articles_id = "' . escSQL($id) . '"
-					' . $karma . '
-				ORDER BY
-					comments.pub_date ASC
-			');
-
-			if (mysql_num_rows($res)) {
-				$rows = array();
-
-				while ($row = mysql_fetch_assoc($res)) {
-					$rows[] = $row;
-				}
-
-				return $rows;
-			}
-			else {
-				return false;
-			}
+			return self::get('pub_date', 'DESC', 0, 10000000000, $spam, 'articles.articles_id = "' . escSQL($id) . '"');
 		}
 
 		public static function getCommentsByArticleURLStr ($urlStr, $spam = false) {
-			$karma = $spam ? '' : ' AND comments.karma > 0 ';
+			return self::get('pub_date', 'DESC', 0, 10000000000, $spam, 'articles.url_str LIKE BINARY "' . escSQL($urlStr) . '"');
+		}
+
+		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000, $spam = false, $where = '1 = 1', $select = '1') {
+			$where .= $spam ? '' : ' AND comments.karma > 0';
+
 			$res = DB::qry('
 				SELECT
 					comments.*, 
@@ -54,48 +27,14 @@
 					DATE_FORMAT(articles.pub_date, "%d") AS day, 
 					articles.url_str, 
 					articles.title AS article_title, 
-					MD5(comments.email) AS email_md5
+					MD5(comments.email) AS email_md5, 
+					' . $select . '
 				FROM
 					comments
 				LEFT JOIN
 					articles USING(articles_id)
 				WHERE
-					articles.url_str = "' . escSQL($urlStr) . '"
-					' . $karma . '
-				ORDER BY
-					comments.pub_date ASC
-			');
-
-			if (mysql_num_rows($res)) {
-				$rows = array();
-
-				while ($row = mysql_fetch_assoc($res)) {
-					$rows[] = $row;
-				}
-
-				return $rows;
-			}
-			else {
-				return false;
-			}
-		}
-
-		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000, $spam = false) {
-			$karma = $spam ? '' : ' WHERE comments.karma > 0 ';
-			$res = DB::qry('
-				SELECT
-					comments.*, 
-					DATE_FORMAT(articles.pub_date, "%Y") AS year, 
-					DATE_FORMAT(articles.pub_date, "%m") AS month, 
-					DATE_FORMAT(articles.pub_date, "%d") AS day, 
-					articles.url_str, 
-					articles.title AS article_title, 
-					MD5(comments.email) AS email_md5
-				FROM
-					comments
-				LEFT JOIN
-					articles USING(articles_id)
-				' . $karma . '
+					' . $where . '
 				ORDER BY
 					comments.' . escSQL($sort) . ' ' . escSQL($order) . '
 				LIMIT

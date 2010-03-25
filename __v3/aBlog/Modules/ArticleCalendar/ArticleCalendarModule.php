@@ -44,13 +44,13 @@
 					'title'	=> date('F Y', $previousMonth['ts'])
 				), 
 				'next_month'	=> array(
-					'url'	=> $year . $month >= date('Ym') ? false : Router::urlFor('ArticlesByMonth', array('year' => $nextMonth['year'], 'month' => $nextMonth['month'])), 
+					'url'	=> ($year . $month >= date('Ym') and !ADMIN) ? false : Router::urlFor('ArticlesByMonth', array('year' => $nextMonth['year'], 'month' => $nextMonth['month'])), 
 					'title'	=> date('F Y', $nextMonth['ts'])
 				)
 			);
 
 			# Now get all the articles for this month
-			$articles = Articles::get('pub_date', 'ASC', 0, 100000, "year = '$year' AND month = '$month'");
+			$articles = Articles::get('pub_date', 'ASC', 0, 100000000, "year = '$year' AND month = '$month'", ADMIN);
 
 			# And build the week/day array
 			$blanks			= date('w', $firstDayOfMonth);
