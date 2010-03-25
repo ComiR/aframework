@@ -15,7 +15,11 @@
 
 <p>
 	<strong>
-		Please have a look at the "<a href="#jquery-plugin-other-resources">Other Resources</a>" for bug reports or further help on jQuery. <em>Do not</em> post bug reports or feature requests as comments to unrelated articles. If bug reporting on jquery.com fails, <a href="/contact/">e-mail me</a>.
+		Please have a look at the "<a href="#jquery-plugin-other-resources">Other Resources</a>" 
+		for bug reports or further help on jQuery. <em>Do not</em> post bug reports or feature 
+		requests as comments to unrelated articles. If bug reporting on 
+		<a href="http://bugtracker.a-framework.org/jquery-plug-ins/add-task/">bugtracker.a-framework.org</a> 
+		fails, <a href="/contact/">e-mail me</a>.
 	</strong>
 </p>
 
@@ -148,11 +152,32 @@
 	<h3><?php echo Lang::get('Other Resources'); ?></h3>
 
 	<ul>
-		<li><a href="http://www.jquery.com">jQuery.com</a></li>
-		<li><a href="http://plugins.jquery.com/project/<?php echo $plugin['url_str']; ?>">This plug-in on jQuery.com</a></li>
-		<li><a href="http://code.google.com/p/aframework/source/browse/trunk/__v3/aFramework/Modules/Base/<?php echo $plugin['file_name']; ?>">This plug-in on Google Code</a></li>
-		<li><a href="<?php echo Router::urlFor('Page', array('url_str' => 'how-to-include-a-jquery-plug-in')); ?>">How to Include a jQuery Plug-in</a></li>
-		<li><a href="http://plugins.jquery.com/project/issues/<?php echo $plugin['url_str']; ?>?category=bug">Report a bug!</a></li>
+		<li>
+			<a href="http://www.jquery.com">
+				jQuery.com
+			</a>
+		</li>
+		<li>
+			<a href="http://plugins.jquery.com/project/<?php echo $plugin['url_str']; ?>">
+				This plug-in on jQuery.com
+			</a>
+		</li>
+		<li>
+			<a href="http://code.google.com/p/aframework/source/browse/trunk/__v3/aFramework/Modules/Base/<?php echo $plugin['file_name']; ?>">
+				This plug-in on Google Code
+			</a>
+		</li>
+		<li>
+			<a href="<?php echo Router::urlFor('Page', array('url_str' => 'how-to-include-a-jquery-plug-in')); ?>">
+				How to Include a jQuery Plug-in
+			</a>
+		</li>
+		<li>
+		<!--<a href="http://plugins.jquery.com/project/issues/<?php echo $plugin['url_str']; ?>?category=bug">-->
+			<a href="http://bugtracker.a-framework.org/jquery-plug-ins/add-task/">
+				Report a bug!
+			</a>
+		</li>
 	</ul>
 
 </div>

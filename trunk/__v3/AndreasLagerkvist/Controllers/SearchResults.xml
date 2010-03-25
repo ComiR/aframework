@@ -8,6 +8,7 @@
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
 			<SearchResults/>
+			<Pagination/>
 			<GoogleAdsWide/>
 			<RandomJqueryPlugins/>
 		</Wrapper>

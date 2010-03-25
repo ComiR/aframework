@@ -9,6 +9,7 @@
     </Wrapper>
     <Wrapper name="primary-content">
       <SearchResults/>
+      <Pagination/>
     </Wrapper>
     <Footer/>
   </Wrapper>
