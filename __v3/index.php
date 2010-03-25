@@ -34,10 +34,10 @@
 			define('SITE_HIERARCHY', 'aFrameworkCom aCMS aDynAdmin aFramework');
 			break;
 		case 'demo.a-framework.org' : 
-			define('SITE_HIERARCHY', 'aTestSite aBlog aCMS aDynAdmin aFramework');
+			define('SITE_HIERARCHY', 'aTestSite aBlog aCMS aPhotoAlbum aDynAdmin aFramework');
 			break;
 		case 'bugtracker.a-framework.org' : 
-			define('SITE_HIERARCHY', 'aBugTracker aDynAdmin aFramework');
+			define('SITE_HIERARCHY', 'aBugTracker aFramework');
 			break;
 		case 'sidkritik.se' : 
 			define('SITE_HIERARCHY', 'Sidkritik aCMS aDynAdmin aFramework');
@@ -46,7 +46,7 @@
 			define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
 			break;
 		default : 
-			define('SITE_HIERARCHY', 'aTestSite aBlog aCMS aDynAdmin aFramework');
+			define('SITE_HIERARCHY', 'aBugTracker aFramework');
 			break;
 	}
 
