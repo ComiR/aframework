@@ -44,7 +44,8 @@
 # Sprint.tpl.php
 'In Progress:' => 'In Progress:', 
 'Old Sprint:' => 'Old Sprint:', 
-'From START to END' => 'From %0 to %1', 
+'From START to END.' => 'From %0 to %1.', 
+'NUM (of NUM) tasks finished on day NUM (of NUM).' => '%0 (of %1) tasks finished on day %2 (of %3).', 
 'Days in Sprint' => 'Days in Sprint', 
 'NUM% completed on day NUM with NUM fixed tasks. NUM/NUM fixed in total now.' => '%0% completed on day %1 with %2 fixed tasks. %3/%4 fixed in total now.', 
 'Tasks to be Completed' => 'Tasks to be Completed', 

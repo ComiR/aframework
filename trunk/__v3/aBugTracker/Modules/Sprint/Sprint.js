@@ -31,7 +31,7 @@ aFramework.modules.Sprint = {
 	togglableTasks: function () {
 		var tasks = $('#sprint > ul').hide();
 
-		var checkbox = $('<p><label><input type="checkbox"/>' + Lang.get('Show unfinished tasks in this sprint') + '</label></p>')
+		var checkbox = $('<p><label><input type="checkbox"/>' + Lang.get('Show unfinished tasks in this sprint') + ' (' + tasks.find('> li').length + ')</label></p>')
 			.insertAfter('#sprint div.sprint-table')
 			.find('input');
 

@@ -80,11 +80,18 @@
 		public static function get ($sort = 'start_date', $order = 'ASC', $start = 0, $limit = 10000000, $where = '1 = 1') {
 			$res = DB::qry('
 				SELECT
-					*, 
-					IF (start_date > NOW() AND end_date < NOW(), "true", "false") AS in_progress
+					bt_sprints.*, 
+					IF (start_date < NOW() AND end_date > NOW(), 1, 0) AS in_progress, 
+					COUNT(bt_sprint_tasks_id) AS num_total_tasks, 
+					(DATEDIFF(NOW(), start_date) + 1) AS today_num, 
+					DATEDIFF(end_date, start_date) AS num_total_days
 				FROM
 					bt_sprints
-				WHERE 
+				LEFT JOIN
+					bt_sprint_tasks USING(bt_sprints_id)
+				GROUP BY
+					bt_sprints_id
+				HAVING
 					' . $where . '
 				ORDER BY
 					' . escSQL($sort) . ' ' . escSQL($order) . '

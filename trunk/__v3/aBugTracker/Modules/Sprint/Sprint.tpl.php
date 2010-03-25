@@ -9,7 +9,8 @@
 
 <p>
 	<small>
-		<?php echo Lang::get('From START to END', array(date(Config::get('general.date_format'), strtotime($sprint['start_date'])), date(Config::get('general.date_format'), strtotime($sprint['end_date'])))); ?>
+		<?php echo Lang::get('From START to END.', array(date(Config::get('general.date_format'), strtotime($sprint['start_date'])), date(Config::get('general.date_format'), strtotime($sprint['end_date'])))); ?> 
+		<strong><?php echo Lang::get('NUM (of NUM) tasks finished on day NUM (of NUM).', array($sprint['num_finished_tasks'], $sprint['num_total_tasks'], $sprint['today_num'], $sprint['num_total_days'])); ?></strong>
 	</small>
 </p>
 
