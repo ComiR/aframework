@@ -1,7 +1,7 @@
 <?php
 	class BTTasks {
-		public static function getByURLStr ($urlStr) {
-			return self::get('title', 'ASC', 0, 1, 'bt_tasks.url_str = "' . escSQL($urlStr) . '"');
+		public static function getByURLStr ($taskURLStr, $projectURLStr) {
+			return self::get('title', 'ASC', 0, 1, 'bt_tasks.url_str = "' . escSQL($taskURLStr) . '" AND bt_projects.url_str = "' . escSQL($projectURLStr) . '"');
 		}
 
 		public static function getByProjectsID ($id, $sort = 'pub_date', $order = 'DESC') {
@@ -9,7 +9,7 @@
 		}
 
 		public static function getBySprintsID ($id) {
-			return self::get('pub_date', 'ASC', 0, 1000000, 'bt_sprints_id = ' . escSQL($id));
+			return self::get('project_title, state', 'ASC', 0, 1000000, 'bt_sprints_id = ' . escSQL($id));
 		}
 
 		public static function getByID ($id) {
@@ -25,6 +25,8 @@
 					IF(bt_tasks.assigned = "", "", MD5(bt_tasks.assigned)) AS assigned_email_md5, 
 					bt_projects.title AS project_title, 
 					bt_projects.url_str AS project_url_str, 
+					CONCAT("' . WEBROOT . '", bt_projects.title, "/thumb.png") AS project_thumb_src, 
+					CONCAT("' . DOCROOT . '", bt_projects.title, "/thumb.png") AS project_thumb_path, 
 					bt_sprints.bt_sprints_id AS sprint_id, 
 					bt_sprints.title AS sprint_title, 
 					bt_sprints.start_date AS sprint_start_date, 
@@ -74,7 +76,7 @@
 				'assigned'			=> isset($row['assigned']) ? $row['assigned'] : '', 
 				'content'			=> $row['content'], 
 				'priority'			=> $row['priority'], 
-				'state'				=> $row['state'], 
+				'state'				=> isset($row['state']) ? $row['state'] : 'New', 
 				'pub_date'			=> (isset($row['pub_date']) and !empty($row['pub_date'])) ? $row['pub_date'] : date('Y-m-d H:i:s'), 
 				'url_str'			=> (isset($row['url_str']) and !empty($row['url_str'])) ? Router::urlize($row['url_str']) : Router::urlize($row['title'])
 			);

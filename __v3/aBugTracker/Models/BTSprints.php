@@ -1,7 +1,21 @@
 <?php
 	class BTSprints {
-		public static function updateTaskFixedDate ($sprintID, $taskID, $date) {
-			return DB::qry('UPDATE bt_sprint_tasks SET date_fixed = "' . escSQL($date) . '" WHERE bt_sprints_id = ' . escSQL($sprintID) . ' AND bt_tasks_id = ' . escSQL($taskID));
+		public static function removeTaskFromSprints ($taskID) {
+			return DB::qry('DELETE FROM bt_sprint_tasks WHERE bt_tasks_id = ' . escSQL($taskID));
+		}
+
+		public static function addTaskToSprint ($taskID, $sprintID) {
+			$fields	= array(
+				'bt_sprints_id'		=> $sprintID, 
+				'bt_tasks_id'		=> $taskID, 
+				'date_fixed'		=> '0000-00-00 00:00:00'
+			);
+
+			return DBRow::insert('bt_sprint_tasks', $fields);
+		}
+
+		public static function updateTaskFixedDate ($taskID, $date) {
+			return DB::qry('UPDATE bt_sprint_tasks SET date_fixed = "' . escSQL($date) . '" WHERE bt_tasks_id = ' . escSQL($taskID));
 		}
 
 		public static function getSprintDays ($sprint, $tasks) {
