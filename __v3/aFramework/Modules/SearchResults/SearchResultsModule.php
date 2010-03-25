@@ -5,13 +5,21 @@
 
 		public static function run () {
 			if (isset($_GET['q'])) {
-				$start = (isset($_GET['start']) and is_numeric($_GET['start']) and $_GET['start'] > 0) ? $_GET['start'] : 0;
+				$page	= (isset($_GET['page']) and is_numeric($_GET['page']) and $_GET['page'] > 0) ? $_GET['page'] : 1;
+				$limit	= 8;
+				$start	= ($page - 1) * $limit;
 
 				if (!(self::$tplVars = self::getSearchResults($_GET['q'], $start))) {
 					self::$tplFile = 'NoResults';
 				}
 				else {
 					self::$tplVars['start']	= $start + 1;
+
+					# Set up Pagination
+					aFramework_PaginationModule::$tplVars['page']		= $page;
+					aFramework_PaginationModule::$tplVars['limit']		= $limit;
+					aFramework_PaginationModule::$tplVars['num_items']	= self::$tplVars['total_num_results'];
+					aFramework_PaginationModule::$tplVars['url']		= Router::urlFor('SearchResults') . '?q=' . urlencode($_GET['q']) . '&amp;page=%s';
 				}
 			}
 			else {
