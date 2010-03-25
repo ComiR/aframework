@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Base>
+	<Wrapper name="wrapper">
+		<SkipNavigation/>
+		<LangSwitcher/>
+		<Header/>
+		<Navigation/>
+		<Search/>
+		<Breadcrumbs/>
+		<Wrapper name="primary-content">
+			<PhotoAlbum/>
+		</Wrapper>
+		<Wrapper name="secondary-content">
+			<QuickAbout/>
+			<StyleSwitcher/>
+			<PostIt/>
+			<RecentArticles/>
+			<ArticleCalendar/>
+			<RandomArticleImages/>
+		</Wrapper>
+		<Wrapper name="tertiary-content">
+			<RandomLinks/>
+			<RecentComments/>
+			<TagCloud/>
+		</Wrapper>
+		<Footer/>
+	</Wrapper>
+</Base>
