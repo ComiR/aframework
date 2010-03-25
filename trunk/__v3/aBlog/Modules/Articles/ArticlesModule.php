@@ -24,6 +24,10 @@
 				self::showLatestArticles();
 			}
 
+			if (!isset(self::$tplVars['title'])) {
+				return self::$tplFile = false;
+			}
+
 			aFramework_BaseModule::$tplVars['html_title'] = self::$tplVars['title'];
 
 			if (isset($_GET['rss'])) {
@@ -56,10 +60,19 @@
 		}
 
 		private static function showLatestArticles () {
-			if (!(self::$tplVars['articles'] = Articles::get('pub_date', 'DESC', 0, Config::get('ablog.num_recent_articles')))) {
-				FourOFour::run();
+			if (!($articles = Articles::get('pub_date', 'DESC'))) {
+				return false;
 			}
 			else {
+				$page	= (isset($_GET['page']) and is_numeric($_GET['page']) and $_GET['page'] > 0) ? $_GET['page'] : 1;
+				$limit	= Config::get('ablog.num_recent_articles');
+				$start	= ($page - 1) * $limit;
+
+				aFramework_PaginationModule::$tplVars['num_items']	= count($articles);
+				aFramework_PaginationModule::$tplVars['page']		= $page;
+				aFramework_PaginationModule::$tplVars['limit']		= $limit;
+
+				self::$tplVars['articles']		= array_splice($articles, $start, $limit);
 				self::$tplVars['title']			= Lang::get('The Latest Articles');
 				self::$tplVars['description']	= '';
 			}
