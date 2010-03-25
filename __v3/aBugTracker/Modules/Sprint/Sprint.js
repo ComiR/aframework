@@ -3,6 +3,20 @@ aFramework.modules.Sprint = {
 		this.createSprintTable();
 		this.togglableTasks();
 		this.bubbleTips();
+		this.onlyShowSiteNameOnce();
+	}, 
+
+	onlyShowSiteNameOnce: function () {
+		var tasks = $('#sprint > ul li');
+
+		tasks.each(function (i) {
+			var site		= $(this).find('a').eq(0).text();
+			var prevSite	= tasks.eq(i - 1).find('a').eq(0).text();
+
+			if (i > 0 && prevSite == site) {
+				$(this).addClass('repeated-site');
+			}
+		});
 	}, 
 
 	bubbleTips: function () {
@@ -17,7 +31,7 @@ aFramework.modules.Sprint = {
 	togglableTasks: function () {
 		var tasks = $('#sprint > ul').hide();
 
-		$('<p><label><input type="checkbox"/>' + Lang.get('Show tasks in this sprint') + '</label></p>')
+		$('<p><label><input type="checkbox"/>' + Lang.get('Show unfinished tasks in this sprint') + '</label></p>')
 			.insertAfter('#sprint div.sprint-table')
 			.find('input')
 			.click(function () {
@@ -45,7 +59,7 @@ aFramework.modules.Sprint = {
 				var percent = parseInt(thisDay.find('p').text(), 10);
 
 				newDay
-					.append('<a href="#' + dayNum + '">' + Lang.get('NUM% on day NUM', [percent, dayNum]) + '</a>')
+					.append('<a href="#' + dayNum + '">' + percent + '%</a>')
 					.find('a')
 						.css('margin-bottom', Math.round(percent * 2.65 + 10) + 'px') // height of table = 300, height of bottom-text + 10 (little margin from text beneat) = 35, area for diagram = 265
 						.click(function () {return false;});

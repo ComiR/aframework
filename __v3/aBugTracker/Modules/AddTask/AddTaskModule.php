@@ -9,6 +9,17 @@
 				return self::$tplFile = false;
 			}
 
+			# Get all the sprints
+			$sprints = BTSprints::get('title', 'ASC');
+			$availableSprints = array('0' => '-- ' . Lang::get('No Sprint') . ' --');
+
+			foreach ($sprints as $sprint) {
+				$availableSprints[$sprint['bt_sprints_id']] = $sprint['title'];
+			}
+
+			# HTML title
+			aFramework_BaseModule::$tplVars['html_title'] .= ' - ' . $project['title'];
+
 			# Create the form (give all the fields values from POST)
 			$form = new FormHandler();
 
@@ -25,13 +36,12 @@
 				'title'		=> Lang::get('Priority'),
 				'type'		=> 'select', 
 				'options'	=> array(
-					'Idea'			=> Lang::get('Idea'), 
-					'Must Have'		=> Lang::get('Must Have'), 
-					'Immediately'	=> Lang::get('Immediately')
-				), 
-				'required'	=> true
+					'Idea'		=> Lang::get('Idea'), 
+					'Must Have'	=> Lang::get('Must Have'), 
+					'Urgent'	=> Lang::get('Urgent')
+				)
 			));
-			$form->addField(array(
+		/*	$form->addField(array(
 				'name'		=> 'state', 
 				'title'		=> Lang::get('State'),
 				'type'		=> 'select', 
@@ -39,8 +49,13 @@
 					'New'			=> Lang::get('New'), 
 					'In Progress'	=> Lang::get('In Progress'), 
 					'Done'			=> Lang::get('Done')
-				), 
-				'required'	=> true
+				)
+			)); */
+			$form->addField(array(
+				'name'		=> 'sprint_id', 
+				'title'		=> Lang::get('Sprint'),
+				'type'		=> 'select', 
+				'options'	=> $availableSprints
 			));
 			$form->addField(array(
 				'name'		=> 'content', 
@@ -69,22 +84,20 @@
 			# Make sure form is valid (true => check for spam as well)
 			if (isset($_POST['add_task_submit']) and $form->validate(true)) {
 				# Add new task
-				BTTasks::insert($_POST);
+				$id = BTTasks::insert($_POST);
 
-				# Redirect after POST
-				redirect('?added_site');
+				# Add task to new sprint
+				if ($_POST['sprint_id'] != 0) {
+					BTSprints::addTaskToSprint($id, $_POST['sprint_id']);
+				}
+
+				# Redirect to new task
+				redirect(Router::urlFor('Task', BTTasks::getByID($id)));
 			}
 
-			# Form has been submitted
-			if (isset($_GET['added_site'])) {
-				self::$tplFile = 'ThankYou';
-			}
-			# Form has NOT been submitted
-			else {
-				# Assign form HTML to template vars
-				self::$tplVars['project']	= $project;
-				self::$tplVars['form_html']	= $form->asHTML();
-			}
+			# Assign form HTML to template vars
+			self::$tplVars['project']	= $project;
+			self::$tplVars['form_html']	= $form->asHTML();
 		}
 	}
 ?>

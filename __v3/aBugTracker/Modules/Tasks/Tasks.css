@@ -1,0 +1,13 @@
+/* Finished Tasks */
+body.js-enabled #tasks.hide-done table tr.done {
+	display: none;
+}
+
+/* Only show 5 first tasks */
+body.js-enabled #tasks:not(.show-all) tr.hidden {
+	display: none;
+}
+
+#tasks table + p {
+	margin: -25px 0 30px;
+}

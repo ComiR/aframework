@@ -9,7 +9,7 @@
 			}
 
 			self::$tplVars['sprint']['tasks'] = BTTasks::getBySprintsID(self::$tplVars['sprint']['bt_sprints_id']);
-			self::$tplVars['sprint']['days'] = BTSprints::getSprintDays (self::$tplVars['sprint'], self::$tplVars['sprint']['tasks']);
+			self::$tplVars['sprint']['days'] = BTSprints::getSprintDays(self::$tplVars['sprint'], self::$tplVars['sprint']['tasks']);
 		}
 	}
 ?>
