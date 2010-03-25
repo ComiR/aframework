@@ -1,0 +1,8 @@
+#photo {
+	
+}
+
+	#photo img = $nice-img;
+	#photo img {
+		width: 100%;
+	}
