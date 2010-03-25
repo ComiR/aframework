@@ -1,0 +1,3 @@
+aBugTracker is a very simple bugtracking web app with basic sprint support.
+
+aBugTracker should preferably be run on its own. Not along with aCMS, aBlog or anything else.

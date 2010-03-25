@@ -2,6 +2,25 @@ aFramework.modules.AframeworkInstall = {
 	run: function () {
 		this.addPrevNextButtons();
 		$('#aframework-install').checkedCheckboxParent();
+	//	this.bubbleTips();
+	}, 
+
+	// Bugs out with display table and that
+	bubbleTips: function () {		
+		$('#aframework-install form > ol > li:eq(1) li').each(function (i) {
+			var li = $(this);
+
+			if (li.attr('title').length) {
+				li
+					.attr('id', 'jquery-bubble-tip-mandatory-id-' + i)
+					.bubbletip('<div id="jquery-bubble-tip-mandatory-id-2-' 
+								+ i 
+								+ '" class="site-info-bubble">' 
+								+ li.attr('title') 
+								+ '</div>'
+					);
+			}
+		});
 	}, 
 
 	ajaxifyStylesSelection: function () {

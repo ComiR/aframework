@@ -76,7 +76,7 @@
 
 						<ul>
 							<?php foreach ($sites as $s) { if ($s['name'] != 'aFramework') { ?>
-								<li>
+								<li<?php if ($s['info']) { ?> title="<?php echo escHTML($s['info']); ?>"<?php } ?>>
 									<label>
 										<img src="<?php echo $s['thumb_url']; ?>" alt="" /><br />
 										<input type="checkbox" name="site_hierarchy[]" value="<?php echo $s['name']; ?>"<?php if (isset($selected_sites) and in_array($s['name'], $selected_sites)) { ?> checked="checked"<?php } ?> /> 
