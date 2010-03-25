@@ -31,16 +31,22 @@ aFramework.modules.Sprint = {
 	togglableTasks: function () {
 		var tasks = $('#sprint > ul').hide();
 
-		$('<p><label><input type="checkbox"/>' + Lang.get('Show unfinished tasks in this sprint') + '</label></p>')
+		var checkbox = $('<p><label><input type="checkbox"/>' + Lang.get('Show unfinished tasks in this sprint') + '</label></p>')
 			.insertAfter('#sprint div.sprint-table')
-			.find('input')
-			.click(function () {
-				tasks.toggle();
+			.find('input');
 
-				if (tasks.is(':visible')) {
-					$(window).scrollTo(tasks);
-				}
-			});
+		var toggleTasks = function () {
+			if (checkbox.is(':checked')) {
+				tasks.show();
+				$(window).scrollTo(tasks);
+			}
+			else {
+				tasks.hide();
+			}
+		};
+
+		toggleTasks();
+		checkbox.click(toggleTasks);
 	}, 
 
 	createSprintTable: function () {
