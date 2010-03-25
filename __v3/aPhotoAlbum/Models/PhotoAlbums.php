@@ -11,7 +11,7 @@
 			$albums = array();
 
 			while ($f = readdir($dh)) {
-				if ('..' != $f and '.' != $f and is_dir($path . $f)) {
+				if (!in_array($f, array('.', '..', '.svn')) and is_dir($path . $f)) {
 					$albums[] = self::getByName($f);
 				}
 			}
