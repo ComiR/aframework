@@ -9,7 +9,7 @@
 		}
 
 		public static function getCommentsByArticleID ($id, $spam = false) {
-			return self::get('pub_date', 'DESC', 0, 10000000000, $spam, 'articles.articles_id = "' . escSQL($id) . '"');
+			return self::get('pub_date', 'ASC', 0, 10000000000, $spam, 'articles.articles_id = "' . escSQL($id) . '"');
 		}
 
 		public static function getCommentsByArticleURLStr ($urlStr, $spam = false) {
