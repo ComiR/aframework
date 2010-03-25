@@ -11,7 +11,7 @@
 			return $cols;
 		}
 
-		public static function getFullTable ($tableName, $sort = '1', $order = 'ASC', $start = 0, $allowedLangs = false) {
+		public static function getFullTable ($tableName, $sort = '1', $order = 'ASC', $start = 0, $limit = 1000000000, $allowedLangs = false) {
 			$res = DB::qry('
 				SELECT 
 					* 
@@ -19,7 +19,7 @@
 					' . escSQL($tableName) . ' 
 				ORDER BY 
 					' . escSQL($sort) . ' ' . escSQL($order) . ' 
-				LIMIT ' . escSQL($start) . ', ' . Config::get('adynadmin.num_items_per_page')
+				LIMIT ' . escSQL($start) . ', ' . escSQL($limit)
 			);
 
 			$i					= 0;

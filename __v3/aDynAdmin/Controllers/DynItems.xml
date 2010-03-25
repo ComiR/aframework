@@ -6,6 +6,7 @@
 		<Wrapper name="primary-content">
 			<DynNav/>
 			<DynItems/>
+			<Pagination/>
 		</Wrapper>
 	</Wrapper>
 </Base>
