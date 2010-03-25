@@ -14,7 +14,8 @@
 			'OurFutureEU', 
 			'phpmyadmin', 
 			'aModPack', 
-			'aTestSite'
+			'aTestSite', 
+			'Sidkritik'
 		);
 		private static $errors = array();
 
@@ -86,6 +87,8 @@
 						# Grab this site's styles
 						while ($sF = readdir($sDH)) {
 							if (!in_array($sF, self::$notSites) and is_dir($sDir . $sF) and '__' != substr($sF, 0, 2) and file_exists($sDir . $sF . '/style.css')) {
+								$thumbPath = "$f/Styles/$sF/thumb.png";
+
 								$styles[] = array(
 									'name'		=> $sF, 
 									'title'		=> escHTML($sF), 
@@ -99,6 +102,7 @@
 					$sites[] = array(
 						'name'		=> $f, 
 						'title'		=> escHTML($f), 
+						'info'		=> file_exists(DOCROOT . $f . '/info.txt') ? file_get_contents(DOCROOT . $f . '/info.txt') : false, 
 						'styles'	=> $styles, 
 						'thumb_url'	=> WEBROOT . $f . '/thumb.png', 
 						'img_url'	=> WEBROOT . $f . '/thumb.png'
