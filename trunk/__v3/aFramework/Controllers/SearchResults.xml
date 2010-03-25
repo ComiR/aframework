@@ -9,6 +9,7 @@
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
 			<SearchResults/>
+			<Pagination/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<StyleSwitcher/>

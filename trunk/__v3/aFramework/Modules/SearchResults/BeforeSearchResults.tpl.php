@@ -5,7 +5,7 @@
 
 <p>
 	<?php echo Lang::get('Results'); ?> 
-	<strong><?php echo "$start - $num_results"; ?></strong> 
+	<strong><?php echo "$start - " . ($start + $num_results); ?></strong> 
 	<?php echo Lang::get('of about'); ?> 
 	<strong><?php echo $total_num_results; ?></strong> 
 	<?php echo Lang::get('for'); ?> 
