@@ -90,6 +90,14 @@
 				 border: 0;
 			}
 
+			#tasks table tr th.headerSortUp::after {
+				content: url(common_gfx/icons/arrow-desc-white.gif);
+			}
+
+			#tasks table tr th.headerSortDown::after {
+				content: url(common_gfx/icons/arrow-asc-white.gif);
+			}
+
 			#tasks table tr th:last-child {
 				-moz-border-radius: 0 5px 0 0;
 				-webkit-border-radius: 0 5px 0 0;

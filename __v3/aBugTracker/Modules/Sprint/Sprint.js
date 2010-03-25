@@ -61,7 +61,7 @@ aFramework.modules.Sprint = {
 				newDay
 					.append('<a href="#' + dayNum + '">' + percent + '%</a>')
 					.find('a')
-						.css('margin-bottom', Math.round(percent * 2.65 + 10) + 'px') // height of table = 300, height of bottom-text + 10 (little margin from text beneat) = 35, area for diagram = 265
+						.css('margin-bottom', Math.round(percent * 2.7 + 5) + 'px')
 						.click(function () {return false;});
 			}
 

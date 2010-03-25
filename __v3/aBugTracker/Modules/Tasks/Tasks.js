@@ -3,19 +3,24 @@ aFramework.modules.Tasks = {
 		this.togglableDones();
 		this.clickableTRs();
 		this.togglableAllTasks();
+		this.sortableTasks();
+	}, 
+
+	sortableTasks: function () {
+		$('#tasks table').tablesorter({sortList: [[3, 1]]});
 	}, 
 
 	togglableAllTasks: function () {
 		$('#tasks table').each(function () {
 			var show		= 5;
 			var table		= $(this);
-			var trs			= table.find('tr');
-			var numTasks	= trs.length - 1;
+			var trs			= table.find('tbody tr');
+			var numTasks	= trs.length;
 			var numDone		= trs.filter('.done').length;
 
 			if (numTasks > show) {
-				table.find('tr').each(function (i) {
-					if (i > show) {
+				trs.each(function (i) {
+					if (i >= show) {
 						$(this).addClass('hidden');
 					}
 				});
