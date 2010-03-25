@@ -5,7 +5,7 @@
 		<li>
 			<h3>
 				<a href="<?php echo Router::urlFor('Site', $site); ?>">
-					<img src="<?php echo empty($site['thumb_url']) ? Router::urlForFile('no-thumb.png') : $site['thumb_url']; ?>" alt="<?php echo escHTML($site['title']); ?>"/>
+					<img src="<?php echo empty($site['thumb_url']) ? Router::urlForFile('no-thumb.png') : $site['thumb_thumb_url']; ?>" alt="<?php echo escHTML($site['title']); ?>"/>
 				</a>
 			</h3>
 

@@ -18,7 +18,8 @@
 					COUNT(site_reviews_id) AS num_reviews, 
 					MD5(sites.email) AS email_md5, 
 					SUM(rating) AS total_rating, 
-					SUM(rating) / COUNT(site_reviews_id) AS avg_rating
+					SUM(rating) / COUNT(site_reviews_id) AS avg_rating, 
+					CONCAT("' . WEBROOT . 'aFramework/Lib/phpThumb/phpThumb.php?src=", sites.thumb_url, "&amp;w=320") AS thumb_thumb_url
 				FROM
 					sites
 				LEFT JOIN
