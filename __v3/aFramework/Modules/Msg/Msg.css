@@ -1,5 +1,5 @@
 #msg {
-	background: rgba(30, 30, 30, .8) url(gfx/info.png) no-repeat 15px 15px;
+	background: rgba(30, 30, 30, .8) url(common_gfx/icons/info.png) no-repeat 15px 15px;
 
 	padding: 15px 15px 15px 61px;
 
@@ -31,7 +31,7 @@ body.admin #msg {
 }
 
 #msg.error {
-	background-image: url(gfx/error.png);
+	background-image: url(common_gfx/icons/error.png);
 }
 
 	#msg h2 {
