@@ -73,7 +73,7 @@
 		}
 
 		public static function getArticlesByTagURLStr ($urlStr, $future = false) {
-			return self::get('pub_date', 'DESC', 0, 10000000, 'tags.url_str LIKE BINARY "' . escSQL($urlStr) . '"', $future);
+			return self::get('pub_date', 'DESC', 0, 10000000, '1=1', $future, '1', 'tags.url_str LIKE BINARY "' . escSQL($urlStr) . '"');
 		}
 
 		public static function getArticleByURLStr ($urlStr, $future = false) {
@@ -108,8 +108,8 @@
 			return count($images) ? $images : false;
 		}
 
-		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000, $where = '1 = 1', $future = false, $select = '1') {
-			$where .= $future ? '' : " AND articles.pub_date <= NOW()";
+		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000, $having = '1 = 1', $future = false, $select = '1', $where = '1 = 1') {
+			$having .= $future ? '' : " AND articles.pub_date <= NOW()";
 
 			$res = DB::qry('
 				SELECT
@@ -118,7 +118,10 @@
 					DATE_FORMAT(articles.pub_date, "%m") AS month, 
 					DATE_FORMAT(articles.pub_date, "%d") AS day, 
 					tags.url_str AS tags_url_str, 
-					COUNT(comments_id) as num_comments, 
+					COUNT(DISTINCT(comments_id)) AS num_comments, 
+					COUNT(DISTINCT(tags_id)) AS num_tags, 
+					SUM(IF(comments.karma > 0, 1, 0)) AS num_not_spam, 
+					tags.url_str AS tags_url_str, 
 					' . $select . '
 				FROM
 					articles
@@ -128,10 +131,12 @@
 					article_tags USING(articles_id)
 				LEFT JOIN
 					tags USING(tags_id)
+				WHERE
+					' . $where . '
 				GROUP BY
 					articles.articles_id
 				HAVING
-					' . $where . '
+					' . $having . '
 				ORDER BY
 					articles.' . escSQL($sort) . ' ' . escSQL($order) . '
 				LIMIT
@@ -139,12 +144,20 @@
 			);
 
 			if (mysql_num_rows($res) === 1) {
-				return $limit === 1 ? mysql_fetch_assoc($res) : array(mysql_fetch_assoc($res));
+				$row = mysql_fetch_assoc($res);
+
+				$numTagsNotZero			= $row['num_tags'] ? $row['num_tags'] : 1;
+				$row['num_comments']	= ADMIN ? $row['num_comments'] : $row['num_not_spam'] / $numTagsNotZero;
+
+				return $limit === 1 ? $row : array($row);
 			}
 			elseif (mysql_num_rows($res) > 1) {
 				$rows = array();
 
 				while ($row = mysql_fetch_assoc($res)) {
+					$numTagsNotZero			= $row['num_tags'] ? $row['num_tags'] : 1;
+					$row['num_comments']	= ADMIN ? $row['num_comments'] : $row['num_not_spam'] / $numTagsNotZero;
+
 					$rows[] = $row;
 				}
 

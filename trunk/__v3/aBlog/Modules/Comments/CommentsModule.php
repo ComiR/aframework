@@ -54,7 +54,7 @@
 			}
 			# If there are no comments but comments are allowed
 			elseif (!self::$tplVars['comments'] and $article['allow_comments']) {
-				self::$tplFile = 'NoComments';
+				return self::$tplFile = 'NoComments';
 			}
 			# There are comments, regardless if comments are allowed display the ones already posted
 		}

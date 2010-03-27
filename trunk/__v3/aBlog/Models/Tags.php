@@ -80,7 +80,7 @@
 			$res = DB::qry('
 				SELECT
 					tags.*, 
-					COUNT(articles_id) as num_articles
+					COUNT(DISTINCT(articles_id)) as num_articles
 				FROM
 					tags
 				LEFT JOIN
