@@ -28,6 +28,7 @@
 					articles.url_str, 
 					articles.title AS article_title, 
 					MD5(comments.email) AS email_md5, 
+					IF(comments.website != "" AND SUBSTR(comments.website, 0, 4) != "http", CONCAT("http://", comments.website), comments.website) AS clean_website, 
 					' . $select . '
 				FROM
 					comments

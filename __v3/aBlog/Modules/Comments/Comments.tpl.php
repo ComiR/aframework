@@ -4,7 +4,7 @@
 			<h4>
 				<img src="http://www.gravatar.com/avatar.php?gravatar_id=<?php echo $c['email_md5']; ?>" alt="" /> 
 				<?php if($c['website']) { ?>
-					<a href="<?php echo $c['website']; ?>">
+					<a href="<?php echo $c['clean_website']; ?>">
 						<?php echo escHTML($c['author']); ?>
 					</a>
 				<?php } else { ?>
