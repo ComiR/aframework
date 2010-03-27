@@ -8,7 +8,7 @@
 
 			$start = (isset($_GET['recent_comments_start']) and is_numeric($_GET['recent_comments_start']) and $_GET['recent_comments_start'] > 0) ? $_GET['recent_comments_start'] : 0;
 
-			if (!(self::$tplVars['comments'] = Comments::get('pub_date', 'DESC', $start, $numComments, ADMIN))) {
+			if (!(self::$tplVars['comments'] = Comments::get('pub_date', 'DESC', $start, $numComments))) {
 				self::$tplFile = false;
 			}
 			else {

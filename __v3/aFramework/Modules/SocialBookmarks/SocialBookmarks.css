@@ -1,1 +1,5 @@
 #social-bookmarks ul = $inline-menu;
+
+	#social-bookmarks ul li img {
+		border: 0;
+	}

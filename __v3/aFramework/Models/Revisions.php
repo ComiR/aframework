@@ -1,31 +1,17 @@
 <?php
 	class Revisions {
 		public static function getByID ($id) {
-			$res = DB::qry('
-				SELECT
-					*
-				FROM
-					revisions
-				WHERE
-					revisions_id = ' . escSQL($id) . '
-				LIMIT 1'
-			);
-
-			if (mysql_num_rows($res)) {
-				return mysql_fetch_assoc($res);
-			}
-			else {
-				return false;
-			}
+			return self::get('1', 'ASC', 0, 1, 'revisions_id=' . escSQL($id));
 		}
 
-		public static function get ($sort = 'pub_date', $order = 'ASC', $start = 0, $limit = 10000000, $where = '1 = 1') {
+		public static function get ($sort = '1', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1') {
 			$res = DB::qry('
 				SELECT
 					*, 
 					DATE_FORMAT(pub_date, "%Y") AS year, 
 					DATE_FORMAT(pub_date, "%m") AS month, 
-					DATE_FORMAT(pub_date, "%d") AS day
+					DATE_FORMAT(pub_date, "%d") AS day, 
+					' . $select . '
 				FROM
 					revisions
 				WHERE 

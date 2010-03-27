@@ -4,7 +4,7 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			$pages = Pages::getPagesInNavigation();
+			$pages = Pages::getInNavigation();
 
 			if ($pages) {
 				foreach ($pages as $page) {

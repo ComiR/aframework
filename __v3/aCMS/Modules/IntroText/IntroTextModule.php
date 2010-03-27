@@ -10,7 +10,7 @@
 
 			$pathInfo = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/';
 
-			if (!(self::$tplVars['page'] = Pages::getPageByURLStr('__' . md5($pathInfo)))) {
+			if (!(self::$tplVars['page'] = Pages::getByURLStr('__' . md5($pathInfo)))) {
 				if (!ADMIN) {
 					self::$tplFile = false;
 				}
@@ -21,7 +21,7 @@
 			$pathInfo = isset($_SERVER['PATH_INFO']) ? $_SERVER['PATH_INFO'] : '/';
 			$url = '__' . md5($pathInfo);
 
-			if (!($page = Pages::getPageByURLStr($url))) {
+			if (!($page = Pages::getByURLStr($url))) {
 				Pages::insert(array(
 						'url_str'			=> $url, 
 						'in_navigation'		=> 0, 

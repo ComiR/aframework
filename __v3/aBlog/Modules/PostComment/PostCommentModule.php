@@ -11,7 +11,7 @@
 
 			if ($articlesID) {
 				# We need the article in order to check if comments are even allowed
-				$article = isset(aBlog_ArticleModule::$tplVars['article']) ? aBlog_ArticleModule::$tplVars['article'] : Articles::getArticleByID($articlesID, ADMIN);
+				$article = isset(aBlog_ArticleModule::$tplVars['article']) ? aBlog_ArticleModule::$tplVars['article'] : Articles::getByID($articlesID);
 
 				# Now make sure articles are allowed
 				if (!$article['allow_comments']) {

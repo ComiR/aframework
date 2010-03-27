@@ -25,7 +25,7 @@
 			self::$tplVars['articles_id'] = $articlesID;
 
 			# We need the article in order to check if comments are even allowed
-			$article = isset(aBlog_ArticleModule::$tplVars['article']) ? aBlog_ArticleModule::$tplVars['article'] : Articles::getArticleByID($articlesID, ADMIN);
+			$article = isset(aBlog_ArticleModule::$tplVars['article']) ? aBlog_ArticleModule::$tplVars['article'] : Articles::getByID($articlesID);
 
 			# Handle delete, mark as spam and mark as ham
 			if (isset($_POST['comments_delete']) and SU) {
@@ -46,7 +46,7 @@
 			}
 
 			# Grab the comments for this article
-			self::$tplVars['comments'] = Comments::getCommentsByArticleID($articlesID, ADMIN);
+			self::$tplVars['comments'] = Comments::getByArticleID($articlesID, ADMIN);
 
 			# If there are no comments and comments are closed, don't show nothing
 			if (!self::$tplVars['comments'] and !$article['allow_comments']) {
@@ -68,7 +68,7 @@
 		}
 
 		private static function spamComment ($id) {
-			Comments::update($id, array('karma' => 0));
+			Comments::update($id, array('karma' => -1));
 
 			if (!XHR) {
 				redirect(msg('Spammed Comment', 'The comment was successfully marked as spam.'));

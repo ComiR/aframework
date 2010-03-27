@@ -39,7 +39,7 @@
 
 		# Shows articles based on a tag url
 		private static function showArticlesByTagURLStr ($urlStr) {
-			if (!(self::$tplVars['articles'] = Articles::getArticlesByTagURLStr($urlStr, ADMIN))) {
+			if (!(self::$tplVars['articles'] = Articles::getByTagURLStr($urlStr))) {
 				FourOFour::run();
 			}
 			else {
@@ -50,7 +50,7 @@
 
 		# Shows articles based on a date
 		private static function showArticlesByDate ($pubDate) {
-			if (!(self::$tplVars['articles'] = Articles::getArticlesByPubDate($pubDate, ADMIN))) {
+			if (!(self::$tplVars['articles'] = Articles::getByPubDate($pubDate))) {
 				FourOFour::run();
 			}
 			else {
@@ -63,7 +63,7 @@
 
 		# Shows the latest articles with pagination
 		private static function showLatestArticles () {
-			if (!($articles = Articles::get('pub_date', 'DESC', 0, 1000000000, '1=1', ADMIN))) {
+			if (!($articles = Articles::get('pub_date', 'DESC'))) {
 				return false;
 			}
 			else {

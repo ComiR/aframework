@@ -1,11 +1,11 @@
 <?php
 	class Articles {
-		public static function getArticlesGroupedByWeek ($month, $year) {
+		public static function getGroupedByWeek ($month, $year) {
 			
 		}
 
-		public static function getArticlesGroupedByMonth ($future = false) {
-			$articles	= self::get('pub_date', 'DESC', 0, 100000000, '1 = 1', $future);
+		public static function getGroupedByMonth () {
+			$articles	= self::get('pub_date', 'DESC');
 			$dates		= array();
 			$currDate	= false;
 
@@ -30,7 +30,7 @@
 			return count($dates) ? $dates : false;
 		}
 
-		public static function getArticlesByPubDate ($pubDate, $future = false) {
+		public static function getByPubDate ($pubDate, $future = false) {
 			if (!is_numeric($pubDate)) {
 				return false;
 			}
@@ -58,13 +58,12 @@
 							'pub_date', 
 							'DESC', 
 							0, 
-							1000000000, 
+							INFINITY, 
 							'DATE_FORMAT(articles.pub_date, "' 
 								. $dateFormatA 
 								. '") = "' 
 								. $pubDate 
 								.'"', 
-							$future, 
 							'DATE_FORMAT(articles.pub_date, "' 
 								. $dateFormatA 
 								. '") AS compare_date, DATE_FORMAT(articles.pub_date, "' 
@@ -72,20 +71,20 @@
 					);
 		}
 
-		public static function getArticlesByTagURLStr ($urlStr, $future = false) {
-			return self::get('pub_date', 'DESC', 0, 10000000, '1=1', $future, '1', 'tags.url_str LIKE BINARY "' . escSQL($urlStr) . '"');
+		public static function getByTagURLStr ($urlStr, $future = false) {
+			return self::get('pub_date', 'DESC', 0, INFINITY, 'tags.url_str LIKE BINARY "' . escSQL($urlStr) . '"');
 		}
 
-		public static function getArticleByURLStr ($urlStr, $future = false) {
-			return self::get('pub_date', 'DESC', 0, 1, 'articles.url_str LIKE BINARY "' . escSQL($urlStr) . '"', $future);
+		public static function getByURLStr ($urlStr) {
+			return self::get('1', 'ASC', 0, 1, 'articles.url_str LIKE BINARY "' . escSQL($urlStr) . '"');
 		}
 
-		public static function getArticleByID ($id, $future = false) {
-			return self::get('pub_date', 'DESC', 0, 1, 'articles.articles_id = ' . escSQL($id), $future);
+		public static function getByID ($id) {
+			return self::get('1', 'ASC', 0, 1, 'articles.articles_id = ' . escSQL($id));
 		}
 
 		public static function getImages () {
-			$articles	= Articles::get();
+			$articles	= self::get('pub_date', 'DESC');
 			$matches	= array();
 			$images		= array();
 
@@ -108,8 +107,8 @@
 			return count($images) ? $images : false;
 		}
 
-		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000, $having = '1 = 1', $future = false, $select = '1', $where = '1 = 1') {
-			$having .= $future ? '' : " AND articles.pub_date <= NOW()";
+		public static function get ($sort = '1', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1', $having = '1 = 1') {
+			$having .= ADMIN ? '' : " AND articles.pub_date <= NOW()";
 
 			$res = DB::qry('
 				SELECT
@@ -138,7 +137,7 @@
 				HAVING
 					' . $having . '
 				ORDER BY
-					articles.' . escSQL($sort) . ' ' . escSQL($order) . '
+					' . escSQL($sort) . ' ' . escSQL($order) . '
 				LIMIT
 					' . escSQL($start) . ', ' . escSQL($limit)
 			);
