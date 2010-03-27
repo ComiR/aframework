@@ -48,47 +48,28 @@
 			}
 		}
 
-		public static function getTagsByArticlesID ($articlesID) {
-			if (is_numeric($articlesID)) {
-				$res = DB::qry('
-					SELECT
-						tags.*
-					FROM
-						article_tags
-					LEFT JOIN
-						tags USING(tags_id)
-					WHERE
-						articles_id = ' . $articlesID
-				);
-
-				if (mysql_num_rows($res)) {
-					$rows = array();
-
-					while ($row = mysql_fetch_assoc($res)) {
-						$rows[] = $row;
-					}
-
-					return $rows;
-				}
-				else {
-					return false;
-				}
-			}
+		public static function getByArticlesID ($articlesID) {
+			return self::get('1', 'ASC', 0, INFINITY, 'articles_id = ' . escSQL($articlesID));
 		}
 
-		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000) {
+		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1', $having = '1 = 1') {
 			$res = DB::qry('
 				SELECT
 					tags.*, 
-					COUNT(DISTINCT(articles_id)) as num_articles
+					COUNT(DISTINCT(articles_id)) as num_articles, 
+					' . $select . '
 				FROM
 					tags
 				LEFT JOIN
 					article_tags USING(tags_id)
+				WHERE
+					' . $where . '
 				GROUP BY
 					tags.tags_id
+				HAVING
+					' . $having . '
 				ORDER BY
-					tags.' . escSQL($sort) . ' ' . escSQL($order) . '
+					' . escSQL($sort) . ' ' . escSQL($order) . '
 				LIMIT
 					' . escSQL($start) . ', ' . escSQL($limit)
 			);

@@ -7,7 +7,7 @@
 			$numArticles	= Config::get('ablog.num_recent_articles');
 			$start			= (isset($_GET['recent_articles_start']) and is_numeric($_GET['recent_articles_start']) and $_GET['recent_articles_start'] > 0) ? $_GET['recent_articles_start'] : 0;
 
-			if (!(self::$tplVars['articles'] = Articles::get('pub_date', 'DESC', $start, $numArticles, '1 = 1', ADMIN))) {
+			if (!(self::$tplVars['articles'] = Articles::get('pub_date', 'DESC', $start, $numArticles))) {
 				self::$tplFile = false;
 			}
 			else {

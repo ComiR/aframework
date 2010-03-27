@@ -50,7 +50,7 @@
 			);
 
 			# Now get all the articles for this month
-			$articles = Articles::get('pub_date', 'ASC', 0, 100000000, "year = '$year' AND month = '$month'", ADMIN);
+			$articles = Articles::get('pub_date', 'ASC', 0, INFINITY, '1 = 1', '1', "year = '$year' AND month = '$month'");
 
 			# And build the week/day array
 			$blanks			= date('w', $firstDayOfMonth);

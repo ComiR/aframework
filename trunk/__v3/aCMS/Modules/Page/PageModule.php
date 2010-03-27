@@ -21,7 +21,7 @@
 			}
 
 			# Try to get $get.url_str, else get home-page
-			$page = Pages::getPageByURLStr(isset(Router::$params['url_str']) ? Router::$params['url_str'] : '__home');
+			$page = Pages::getByURLStr(isset(Router::$params['url_str']) ? Router::$params['url_str'] : '__home');
 
 			# If no url_str is set and we're admin on the AddPage-Page
 			if (!isset(Router::$params['url_str']) and Router::getController() == 'AddPage' and ADMIN) {

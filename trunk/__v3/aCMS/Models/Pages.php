@@ -1,52 +1,15 @@
 <?php
 	class Pages {
-		public static function getPageByURLStr ($urlStr) {
-			$res = DB::qry('
-				SELECT
-					*
-				FROM
-					pages
-				WHERE
-					url_str LIKE BINARY "' . escSQL($urlStr) . '"
-				LIMIT 1
-			');
-
-			if (mysql_num_rows($res)) {
-				return mysql_fetch_assoc($res);
-			}
-			else {
-				return false;
-			}
+		public static function getByURLStr ($urlStr) {
+			return self::get('1', 'ASC', 0, 1, 'url_str LIKE BINARY "' . escSQL($urlStr) . '"');
 		}
 
-		public static function getPagesInNavigation () {
-			$res = DB::qry('
-				SELECT
-					*
-				FROM
-					pages
-				WHERE
-					in_navigation = 1
-				ORDER BY
-					priority ASC
-			');
-
-			if (mysql_num_rows($res)) {
-				$rows = array();
-				
-				while ($row = mysql_fetch_assoc($res)) {
-					$rows[] = $row;
-				}
-
-				return $rows;
-			}
-			else {
-				return false;
-			}
+		public static function getInNavigation () {
+			return self::get('priority', 'ASC', 0, INFINITY, 'in_navigation = 1');
 		}
 
-		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000) {
-			return DBRow::get('pages', $sort, $order, $start, $limit);
+		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1') {
+			return DBRow::get('pages', $sort, $order, $start, $limit, $where, $select);
 		}
 
 		public static function insert ($row) {

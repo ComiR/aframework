@@ -1,11 +1,14 @@
 <?php
 	class DBRow {
-		public static function get ($tableName, $sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000) {
+		public static function get ($tableName, $sort = '1', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1') {
 			$res = DB::qry('
 				SELECT
-					*
+					*, 
+					' . $select . '
 				FROM
 					' . $tableName . '
+				WHERE 
+					' . $where . '
 				ORDER BY
 					' . escSQL($sort) . ' ' . escSQL($order) . '
 				LIMIT

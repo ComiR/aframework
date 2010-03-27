@@ -8,16 +8,16 @@
 			DB::qry('DELETE FROM comments WHERE articles_id = ' . escSQL($articlesID));
 		}
 
-		public static function getCommentsByArticleID ($id, $spam = false) {
-			return self::get('pub_date', 'ASC', 0, 10000000000, $spam, 'articles.articles_id = "' . escSQL($id) . '"');
+		public static function getByArticleID ($id) {
+			return self::get('pub_date', 'DESC', 0, INFINITY, 'articles.articles_id = "' . escSQL($id) . '"');
 		}
 
-		public static function getCommentsByArticleURLStr ($urlStr, $spam = false) {
-			return self::get('pub_date', 'DESC', 0, 10000000000, $spam, 'articles.url_str LIKE BINARY "' . escSQL($urlStr) . '"');
+		public static function getByArticleURLStr ($urlStr) {
+			return self::get('pub_date', 'DESC', 0, INFINITY, 'articles.url_str LIKE BINARY "' . escSQL($urlStr) . '"');
 		}
 
-		public static function get ($sort = 'pub_date', $order = 'DESC', $start = 0, $limit = 10000000, $spam = false, $where = '1 = 1', $select = '1') {
-			$where .= $spam ? '' : ' AND comments.karma > 0';
+		public static function get ($sort = '1', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1') {
+			$where .= ADMIN ? '' : ' AND comments.karma > 0';
 
 			$res = DB::qry('
 				SELECT
@@ -37,7 +37,7 @@
 				WHERE
 					' . $where . '
 				ORDER BY
-					comments.' . escSQL($sort) . ' ' . escSQL($order) . '
+					' . escSQL($sort) . ' ' . escSQL($order) . '
 				LIMIT
 					' . escSQL($start) . ', ' . escSQL($limit)
 			);

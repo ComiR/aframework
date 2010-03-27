@@ -85,6 +85,7 @@
 	define('CONTROLLER_ADMIN',	ADMIN and (isset($_SESSION['controller_admin']) or isset($_GET['controller_admin'])) and !isset($_GET['no_controller_admin']));
 	define('AUTO_HR',			false);
 	define('USE_MOD_REWRITE',	true);
+	define('INFINITY',			1000000000); # erm... for some SQL-query limits
 
 	# Register autoloader
 	spl_autoload_register('AutoLoader::load');

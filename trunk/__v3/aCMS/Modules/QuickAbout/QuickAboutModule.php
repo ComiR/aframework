@@ -8,7 +8,7 @@
 				self::updateOrInsertQuickAbout();
 			}
 
-			if (!($page = Pages::getPageByURLStr('__quickabout'))) {
+			if (!($page = Pages::getByURLStr('__quickabout'))) {
 				self::$tplVars['content'] = Lang::get("# About us\n\nNothing here yet.");
 			}
 			else {
@@ -17,7 +17,7 @@
 		}
 
 		private static function updateOrInsertQuickAbout () {
-			if (!($page = Pages::getPageByURLStr('__quickabout'))) {
+			if (!($page = Pages::getByURLStr('__quickabout'))) {
 				Pages::insert(array(
 						'url_str'			=> '__quickabout', 
 						'in_navigation'		=> 0, 

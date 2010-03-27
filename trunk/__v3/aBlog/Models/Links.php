@@ -1,7 +1,7 @@
 <?php
 	class Links {
-		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000) {
-			return DBRow::get('links', $sort, $order, $start, $limit);
+		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1') {
+			return DBRow::get('links', $sort, $order, $start, $limit, $where, $select);
 		}
 
 		public static function insert ($row) {

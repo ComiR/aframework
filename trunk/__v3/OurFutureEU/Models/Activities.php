@@ -1,25 +1,10 @@
 <?php
 	class Activities {
 		public static function getByID ($id) {
-			$res = DB::qry('
-				SELECT
-					*
-				FROM
-					activities
-				WHERE
-					activities_id = ' . escSQL($id) . '
-				LIMIT 1'
-			);
-
-			if (mysql_num_rows($res)) {
-				return mysql_fetch_assoc($res);
-			}
-			else {
-				return false;
-			}
+			return self::get('1', 'ASC', 0, 1, 'activities_id = ' . escSQL($id));
 		}
 
-		public static function get ($sort = 'pub_date', $order = 'ASC', $start = 0, $limit = 10000000, $where = '1 = 1') {
+		public static function get ($sort = 'pub_date', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1') {
 			$res = DB::qry('
 				SELECT
 					*, 
