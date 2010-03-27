@@ -9,11 +9,11 @@
 		}
 
 		public static function getByArticleID ($id) {
-			return self::get('pub_date', 'DESC', 0, INFINITY, 'articles.articles_id = "' . escSQL($id) . '"');
+			return self::get('pub_date', 'ASC', 0, INFINITY, 'articles.articles_id = "' . escSQL($id) . '"');
 		}
 
 		public static function getByArticleURLStr ($urlStr) {
-			return self::get('pub_date', 'DESC', 0, INFINITY, 'articles.url_str LIKE BINARY "' . escSQL($urlStr) . '"');
+			return self::get('pub_date', 'ASC', 0, INFINITY, 'articles.url_str LIKE BINARY "' . escSQL($urlStr) . '"');
 		}
 
 		public static function get ($sort = '1', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1') {
