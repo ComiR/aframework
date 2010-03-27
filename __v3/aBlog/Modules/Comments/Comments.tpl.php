@@ -26,7 +26,8 @@
 			<?php if (ADMIN) { ?>
 				<form method="post" action="">
 					<p>
-						<input type="hidden" name="comments_id" value="<?php echo $c['comments_id']; ?>" />
+						<input type="hidden" name="comments_id" value="<?php echo $c['comments_id']; ?>"/>
+						<input type="hidden" name="articles_id" value="<?php echo $articles_id; ?>"/>
 						<?php if ($c['karma'] < 1) { ?>
 							<input type="submit" name="comments_ham" value="<?php echo Lang::get('Mark as Ham'); ?>" />
 						<?php } else { ?>
