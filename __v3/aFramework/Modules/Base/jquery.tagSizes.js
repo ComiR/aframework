@@ -50,9 +50,12 @@ jQuery.fn.tagSizes = function (numberElement, maxSize, minSize) {
 		var middle;
 
 		jQuery(this).find('li').each(function () {
-			var numEl		= numberElement ? jQuery(this).find(numberElement) : jQuery(this);
+			var li			= jQuery(this);
+			var numEl		= numberElement ? li.find(numberElement) : li;
 			var weight		= parseInt(numEl.text().replace(/[^0-9]*/g, ''), 10) || 1;
 			var logWeight	= Math.log(weight);
+
+			li.attr('title', weight);
 
 			jQuery.data(this, 'tagsizes', {
 				logWeight:	logWeight, 
