@@ -65,6 +65,13 @@
 		border-spacing: 0;
 	}
 
+	#tasks table + p {
+		margin: -25px 0 30px !important;
+		font-style: inherit !important;
+		font-size: inherit !important;
+		color: inherit !important;
+	}
+
 		#tasks table tr {
 		
 		}

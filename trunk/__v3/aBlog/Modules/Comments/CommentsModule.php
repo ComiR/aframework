@@ -4,6 +4,8 @@
 		public static $tplFile = true;
 
 		public static function run () {
+			$articlesID = false;
+
 			# Work out the article ID, GET on certain ajax-requests
 			if (isset($_GET['articles_id'])) {
 				$articlesID = $_GET['articles_id'];
