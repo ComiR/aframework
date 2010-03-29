@@ -12,6 +12,7 @@ aFramework.modules.Tasks = {
 
 	togglableAllTasks: function () {
 		$('#tasks table').each(function () {
+			var tasks		= $('#tasks').addClass('show-all');
 			var show		= 5;
 			var table		= $(this);
 			var trs			= table.find('tbody tr');
@@ -19,22 +20,16 @@ aFramework.modules.Tasks = {
 			var numDone		= trs.filter('.done').length;
 
 			if (numTasks > show) {
-				trs.each(function (i) {
-					if (i >= show) {
-						$(this).addClass('hidden');
-					}
-				});
-
-				$('<p><label><input type="checkbox"/> ' + Lang.get('Show all tasks') + ' (' + numTasks + ')</label></p>')
+				$('<p><label><input type="checkbox" checked="checked"/> ' + Lang.get('Show all tasks') + ' (' + numTasks + ')</label></p>')
 					.insertAfter(table)
 					.find('input')
 						.click(function () {
 							if ($(this).is(':checked')) {
-								$('#tasks').addClass('show-all');
+								tasks.addClass('show-all');
 							//	$('#tasks :checkbox[name=hide_done]').attr('checked', false).click().attr('checked', false);
 							}
 							else {
-								$('#tasks').removeClass('show-all');
+								tasks.removeClass('show-all');
 							}
 						});
 			}
@@ -53,17 +48,18 @@ aFramework.modules.Tasks = {
 
 	togglableDones: function () {
 		var numFinishedTasks = $('#tasks tr.done').length;
+		var tasks = $('#tasks').addClass('hide-done');
 
 		if (numFinishedTasks) {
-			$('<p><label><input type="checkbox" name="hide_done"/> ' + Lang.get('Hide finished tasks') + ' (' + numFinishedTasks + ')</label></p>')
+			$('<p><label><input type="checkbox" name="hide_done" checked="checked"/> ' + Lang.get('Hide finished tasks') + ' (' + numFinishedTasks + ')</label></p>')
 				.insertAfter('#tasks h2 + p')
 				.find('input')
 					.click(function () {
 						if ($(this).is(':checked')) {
-							$('#tasks').addClass('hide-done');
+							tasks.addClass('hide-done');
 						}
 						else {
-							$('#tasks').removeClass('hide-done');
+							tasks.removeClass('hide-done');
 						}
 					});
 		}

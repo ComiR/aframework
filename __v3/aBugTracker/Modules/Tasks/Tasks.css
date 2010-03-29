@@ -7,7 +7,3 @@ body.js-enabled #tasks.hide-done table tr.done {
 body.js-enabled #tasks:not(.show-all) tbody tr:nth-child(1n+6) {
 	display: none;
 }
-
-#tasks table + p {
-	margin: -25px 0 30px;
-}
