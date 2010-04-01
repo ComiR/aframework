@@ -48,20 +48,24 @@
 			);
 		}
 
-		public function validate ($checkSpam = false) {
-			if ($checkSpam and !SpamChecker::getKarma($_POST)) {
-				$this->errors['__spam'] = 'The data in the form appears to be spam. Please remove overflow of links and spammy words.';
-				$this->errors['__spam_info'] = SpamChecker::getInfo();
+		public function validate ($checkSpam = false, $row = false) {
+			$row = $row ? $row : $_POST;
+
+			if ($checkSpam and ($karma = SpamChecker::getKarma($row)) < 1) {
+				$this->errors['__spam']			= 'The data in the form appears to be spam. Please remove overflow of links and spammy words.';
+				$this->errors['__spam_info']	= SpamChecker::getInfo();
+				$this->errors['__spam_karma']	= $karma;
 			}
 
 			foreach ($this->fields as $field) {
-				if ($field['required'] and (!isset($_POST[$field['name']]) or empty($_POST[$field['name']]))) {
+				if ($field['required'] and (!isset($row[$field['name']]) or empty($row[$field['name']]))) {
 					$this->errors[$field['name']] = 'Must not be empty';
 				}
-				elseif (($field['required'] or !empty($_POST[$field['name']])) and isset($this->validators[$field['validation']]) and !preg_match($this->validators[$field['validation']], $_POST[$field['name']])) {
+				elseif (($field['required'] or !empty($row[$field['name']])) and isset($this->validators[$field['validation']]) and !preg_match($this->validators[$field['validation']], $row[$field['name']])) {
 					$this->errors[$field['name']] = 'Must be valid (' . $this->validators[$field['validation']] . ')';
 				}
 			}
+
 			if (count($this->errors)) {
 				return false;
 			}
