@@ -58,8 +58,7 @@
 				'name'		=> 'sprint_id', 
 				'title'		=> Lang::get('Sprint'),
 				'type'		=> 'select', 
-				'options'	=> $availableSprints, 
-				'required'	=> true
+				'options'	=> $availableSprints
 			));
 			$form->addField(array(
 				'name'		=> 'content', 
