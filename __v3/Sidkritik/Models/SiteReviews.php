@@ -65,7 +65,7 @@
 		public static function insert ($row) {
 			$fields	 = array(
 				'sites_id'			=> $row['sites_id'], 
-				'karma'				=> SpamChecker::getKarma($row), 
+				'karma'				=> isset($row['karma']) ? $row['karma'] : SpamChecker::getKarma($row), 
 				'ip'				=> $_SERVER['REMOTE_ADDR'], 
 				'author'			=> $row['author'], 
 				'email'				=> $row['email'], 
