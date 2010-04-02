@@ -15,8 +15,7 @@
 			<p>
 				<small>
 					<a href="<?php echo Router::urlFor('Article', $c); ?>#comment-<?php echo $c['comments_id']; ?>">
-						<?php echo Lang::get('Published'); ?> 
-						<?php echo date(Config::get('general.date_format'), strtotime($c['pub_date'])); ?>
+						<?php echo Lang::get('Published %0', array(date(Config::get('general.date_format'), strtotime($c['pub_date'])))); ?>
 					</a>
 				</small>
 			</p>

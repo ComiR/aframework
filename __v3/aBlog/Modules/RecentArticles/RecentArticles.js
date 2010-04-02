@@ -8,7 +8,7 @@ aFramework.modules.RecentArticles = {
 			var clicked = jQuery(this);
 			var oldText = clicked.text();
 
-			clicked.text(Lang.get('Loading') + '...');
+			clicked.text(Lang.get('Loading...'));
 
 			jQuery.get(Router.urlForModule('RecentArticles') + '&' + clicked.attr('href').substr(1), function (data) {
 				if (data == '') {

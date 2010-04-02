@@ -13,7 +13,7 @@ aFramework.modules.Comments = {
 
 			// Mark as Spam
 			if (type == 'comments_spam') {
-				btn.val(Lang.get('Loading') + '...');
+				btn.val(Lang.get('Loading...'));
 
 				$.post(
 					Router.urlForModule('Comments'), 
@@ -30,7 +30,7 @@ aFramework.modules.Comments = {
 			}
 			// Mark as Ham
 			else if (type == 'comments_ham') {
-				btn.val(Lang.get('Loading') + '...');
+				btn.val(Lang.get('Loading...'));
 
 				$.post(
 					Router.urlForModule('Comments'), 
@@ -48,7 +48,7 @@ aFramework.modules.Comments = {
 			// Delete
 			else if (type == 'comments_delete') {
 				if (confirm(Lang.get('Are you sure?'))) {
-					btn.val(Lang.get('Loading') + '...');
+					btn.val(Lang.get('Loading...'));
 
 					$.post(
 						Router.urlForModule('Comments'), 
@@ -73,7 +73,7 @@ aFramework.modules.Comments = {
 					alert(Lang.get('There is no spam.'));
 				}
 				else if (confirm(Lang.get('Are you sure?'))) {
-					btn.val(Lang.get('Loading') + '...');
+					btn.val(Lang.get('Loading...'));
 
 					$.post(
 						Router.urlForModule('Comments'), 

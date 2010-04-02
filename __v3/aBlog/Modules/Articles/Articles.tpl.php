@@ -9,8 +9,7 @@
 
 			<p>
 				<small>
-					<?php echo Lang::get('Published'); ?> 
-					<?php echo date(Config::get('general.date_format'), strtotime($a['pub_date'])); ?>
+					<?php echo Lang::get('Published %0', array(date(Config::get('general.date_format'), strtotime($a['pub_date'])))); ?>
 				</small>
 			</p>
 
@@ -18,9 +17,7 @@
 
 			<p>
 				<?php if ($a['num_comments']) { ?>
-					<?php echo Lang::get('Join'); ?> 
-					<?php echo $a['num_comments']; ?> 
-					<?php echo Lang::get('others and'); ?> 
+					<?php echo Lang::get('Join %0 others and', array($a['num_comments'])); ?> 
 				<?php } else { ?>
 					<?php echo Lang::get('Be the first to'); ?> 
 				<?php } ?>

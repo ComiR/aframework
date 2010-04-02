@@ -9,8 +9,8 @@
 
 <p>
 	<small>
-		<?php echo Lang::get('From START to END.', array(date(Config::get('general.date_format'), strtotime($sprint['start_date'])), date(Config::get('general.date_format'), strtotime($sprint['end_date'])))); ?> 
-		<strong><?php echo Lang::get('NUM (of NUM) tasks finished on day NUM (of NUM).', array($sprint['num_finished_tasks'], $sprint['num_total_tasks'], $sprint['today_num'], $sprint['num_total_days'])); ?></strong>
+		<?php echo Lang::get('From %0 to %1.', array(date(Config::get('general.date_format'), strtotime($sprint['start_date'])), date(Config::get('general.date_format'), strtotime($sprint['end_date'])))); ?> 
+		<strong><?php echo Lang::get('%0 (of %1) tasks finished on day %2 (of %3).', array($sprint['num_finished_tasks'], $sprint['num_total_tasks'], $sprint['today_num'], $sprint['num_total_days'])); ?></strong>
 	</small>
 </p>
 
@@ -22,7 +22,16 @@
 			<h4><?php echo date('l jS \of F', strtotime($day['date'])); ?></h4>
 
 			<?php if ($day['has_happened']) { ?>
-				<p><?php echo Lang::get('NUM% completed on day NUM with NUM fixed tasks. NUM/NUM fixed in total now.', array($day['percent'], $i, $day['num_finished_tasks'], $day['num_finished_tasks_total'], count($sprint['tasks']))); ?></p>
+				<p>
+					<?php
+						echo Lang::get('%0% completed on day %1 with %2 fixed tasks. %3/%4 fixed in total now.', array(
+								$day['percent'], 
+								$i, 
+								$day['num_finished_tasks'], 
+								$day['num_finished_tasks_total'], 
+								count($sprint['tasks'])));
+					?>
+				</p>
 
 				<?php if ($day['finished_tasks']) { ?>
 					<ul>

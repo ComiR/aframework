@@ -1,5 +1,3 @@
-<h2>Random Images</h2>
-
 <ul>
 	<?php foreach ($images as $image) { ?>
 		<li>

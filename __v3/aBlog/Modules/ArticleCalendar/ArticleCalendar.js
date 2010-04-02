@@ -19,7 +19,7 @@ aFramework.modules.ArticleCalendar = {
 			var year	= clicked.attr('href').substr(-8).substr(0, 4);
 			var month	= clicked.attr('href').substr(-3).substr(0, 2);
 
-			clicked.text(Lang.get('Loading') + '...');
+			clicked.text(Lang.get('Loading...'));
 
 			jQuery.get(Router.urlForModule('ArticleCalendar') + '&year=' + year + '&month=' + month, function (data) {
 				if (data == '') {

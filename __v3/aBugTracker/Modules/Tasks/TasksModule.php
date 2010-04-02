@@ -11,7 +11,7 @@
 			$tasks = BTTasks::getByProjectsID(self::$tplVars['project']['bt_projects_id'], 'pub_date', 'DESC');
 
 			# HTML title
-			aFramework_BaseModule::$tplVars['html_title'] = Lang::get('Tasks for PROJECT', array(self::$tplVars['project']['title']));
+			aFramework_BaseModule::$tplVars['html_title'] = Lang::get('Tasks for %0', array(self::$tplVars['project']['title']));
 
 			# Divide the tasks into groups of priority
 			$urgentTasks	= array();
