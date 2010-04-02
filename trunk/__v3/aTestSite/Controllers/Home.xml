@@ -15,7 +15,6 @@
 		<Wrapper name="secondary-content">
 			<QuickAbout/>
 			<StyleSwitcher/>
-			<PostIt/>
 			<RecentArticles/>
 			<ArticleCalendar/>
 			<RandomArticleImages/>

@@ -34,7 +34,7 @@
 			define('SITE_HIERARCHY', 'aFrameworkCom aCMS aDynAdmin aFramework');
 			break;
 		case 'demo.a-framework.org' : 
-			define('SITE_HIERARCHY', 'aTestSite aBlog aCMS aPhotoAlbum aDynAdmin aFramework');
+			define('SITE_HIERARCHY', 'aTestSite aBlog aCMS aPhotoAlbum aModPack aDynAdmin aFramework');
 			break;
 		case 'bugtracker.a-framework.org' : 
 			define('SITE_HIERARCHY', 'aBugTracker aFramework');
@@ -118,19 +118,10 @@
 
 	# Run the CacheManager and die right here if there's a valid cache
 	if (!count($_POST) and !ADMIN and ($cachedPage = CacheManager::run())) {
-		$cacheInfo		= CacheManager::getInfo();
-		$cacheInfoHTML	= '<div id="cache-info">Page cached. Loaded in: ' 
-						. round(Timer::stop(), 4) 
-						. ' second(s).<br/>Last DB change: ' 
-						. date(Config::get('general.date_format'), $cacheInfo['last_db_change']) 
-						. '<br/>Last file change: ' 
-						. date(Config::get('general.date_format'), $cacheInfo['last_file_change'])
-						. '<br/>Cache created: ' 
-						. date(Config::get('general.date_format'), $cacheInfo['cache_created']) 
-						. '</div>';
-		$newHTML		= str_replace('</body>', $cacheInfoHTML . '</body>', $cachedPage);
+		$cacheInfoHTML	= CacheManager::getInfoHTML();
+		$cachedPage		= str_replace('</body>', $cacheInfoHTML . '</body>', $cachedPage);
 
-		die($newHTML);
+		die($cachedPage);
 	}
 
 	# Set Router-params based on the requested URI - but remove lang-prefix before (/sv/ for example)
