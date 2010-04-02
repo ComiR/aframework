@@ -60,6 +60,21 @@
 			return count(self::$info) ? self::$info : false;
 		}
 
+		public static function getInfoHTML () {
+			$cacheInfo		= self::getInfo();			
+			$cacheInfoHTML	= '<div id="cache-info">Page cached. Loaded in: ' 
+							. round(Timer::stop(), 4) 
+							. ' second(s).<br/>Last DB change: ' 
+							. date('Y-m-d H:i:s', $cacheInfo['last_db_change']) 
+							. '<br/>Last file change: ' 
+							. date('Y-m-d H:i:s', $cacheInfo['last_file_change'])
+							. '<br/>Cache created: ' 
+							. date('Y-m-d H:i:s', $cacheInfo['cache_created']) 
+							. '</div>';
+
+			return $cacheInfoHTML;
+		}
+
 		public static function createCache ($content) {
 			if (self::$cacheFile) {
 				file_put_contents(self::$cachePath . self::$cacheFile, $content);
