@@ -4,7 +4,7 @@ aFramework.modules.RandomArticleImages = {
 			.appendTo('#random-article-images')
 			.find('a')
 				.click(function () {
-					$(this).text(Lang.get('Loading') + '...');
+					$(this).text(Lang.get('Loading...'));
 
 					$('#random-article-images').load(Router.urlForModule('RandomArticleImages'), function () {
 						aFramework.modules.RandomArticleImages.run();

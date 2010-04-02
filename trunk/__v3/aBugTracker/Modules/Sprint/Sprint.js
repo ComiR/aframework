@@ -71,7 +71,7 @@ aFramework.modules.Sprint = {
 						.click(function () {return false;});
 			}
 
-			newDay.append('<span>' + Lang.get('Day NUM', [dayNum]) + '</span>');
+			newDay.append('<span>' + Lang.get('Day %0', [dayNum]) + '</span>');
 		});
 	}
 };

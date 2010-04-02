@@ -1,11 +1,11 @@
 <h2>
-	<?php echo Lang::get('Tasks for PROJECT', array($project['title'])); ?> 
+	<?php echo Lang::get('Tasks for %0', array($project['title'])); ?> 
 	(<?php echo $all_tasks ? count($all_tasks) : 0; ?>)
 </h2>
 
 <p>
 	<a href="<?php echo Router::urlFor('AddTask', $project); ?>">
-		<?php echo Lang::get('Add a Task to PROJECT', array($project['title'])); ?>
+		<?php echo Lang::get('Add a Task to %0', array($project['title'])); ?>
 	</a>
 </p>
 

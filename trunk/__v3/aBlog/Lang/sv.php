@@ -10,6 +10,10 @@
 # DebugModule.php
 'Add Article +' => 'Lägg till artikel +', 
 
+# CommentsClosed.tpl.php
+'Comments Closed' => 'Kommentarer avstängda', 
+'Comments for this article are closed.' => 'Kommentarer för den här artikeln är avstängda.', 
+
 # BeforePostComment.tpl.php
 'Post a Comment' => 'Posta en kommentar', 
 
@@ -22,7 +26,7 @@
 'Remember Me' => 'Kom ihåg mig', 
 
 # PostComment.js
-'Posting' => 'Postar...', 
+'Posting...' => 'Postar...', 
 
 # BeforeSocialBookmarks.tpl.php
 'Bookmark this Article' => 'Bokmärk den här artikeln', 
@@ -30,9 +34,15 @@
 # NavigationModule.php
 'Archives' => 'Arkivet', 
 
+# ArticleNavigation.tpl.php
+'No previous article' => 'Ingen tidigare artikel', 
+
 # RandomArticleImages.js
 'Get some new images' => 'Slumpa några nya bilder', 
-'Loading' => 'Laddar', 
+'Loading...' => 'Laddar...', 
+
+# BeforeRandomArticleImages.tpl.php
+'Random Images from Articles' => 'Slumpade bilder från artiklar', 
 
 # Article.js
 'Advanced View' => 'Avancerad vy', 
@@ -53,7 +63,7 @@
 'Article Content' => 'Artikelinnehåll', 
 'Tags' => 'Taggar', 
 'Use a comma (,) to separate tags' => 'Använd komma (,) för att separera taggar', 
-'Available tags:' => 'Available tags:', 
+'Available tags:' => 'Tillgängliga taggar:', 
 'Allow Comments' => 'Tillåt kommentarer', 
 'Yes' => 'Ja', 
 'No' => 'Nej', 
@@ -63,10 +73,11 @@
 'Delete this Article' => 'Radera artikeln', 
 
 # Article.tpl.php
-'Published' => 'Publicerad', 
+'Published %0' => 'Publicerad %0', 
 'Continue Reading' => 'Fortsätt läsa', 
 'No tags' => 'Inga taggar', 
 'Comments' => 'Kommentarer', 
+'%0 comments' => '%0 kommentarer', 
 'No comments' => 'Inga kommentarer', 
 
 # ArticleModule.php
@@ -99,19 +110,19 @@
 'Random Links' => 'Slumpade länkar', 
 
 # Articles.tpl.php
-'Join' => 'Häng på', 
-'others and' => 'andra och', 
+'Join %0 others and' => 'Häng på %0 andra och', 
 'Be the first to' => 'Bli den första att', 
 'post a comment' => 'posta en kommentar', 
 
 # ArticlesModule.php
-'Articles Tagged with' => 'Artiklar taggade med', 
-'You are currently browsing' => 'Du surfar för närvarande', 
-'articles tagged with' => 'artiklar taggade med', 
-'Archives for' => 'Arkivet för', 
-'articles posted ' => 'artiklar publicerade', 
-'articles posted ' => 'artiklar publicerade', 
+'Articles Tagged with %0' => 'Artiklar taggade med %0', 
+'You are currently browsing %0 articles tagged with %1.' => 'Du surfar just nu %0 artiklar taggade med %1.', 
+'Archives for %0' => 'Arkivet för %0', 
+'You are currently browsing %0 articles posted %1.' => 'Du surfar just nu %0 artiklar publicerade %1.', 
 'The Latest Articles' => 'De senaste artiklarna', 
+
+# BeforeRandomArticleImage.tpl.php
+'A Random Image from an Article' => 'En slumpad bild från en artikel', 
 
 # RandomArticleImage.js
 'Get a new image' => 'Slumpa en ny bild', 
@@ -126,8 +137,8 @@
 'Older' => 'Äldre', 
 
 # ArticleImages.tpl.php
-'Images Published in Articles' => 'Bilder publicerade i artiklar', 
-'Published DATE in' => 'Publicerade %0 i', 
+'All Images Published in Articles' => 'Alla bilder publicerade i artiklar', 
+'Published %0 in' => 'Publicerad %0 i', 
 
 # OlderArticles.tpl.php
 'Continue reading' => 'Fortsätt läsa', 

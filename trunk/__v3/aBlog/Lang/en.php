@@ -10,6 +10,10 @@
 # DebugModule.php
 'Add Article +' => 'Add Article +', 
 
+# CommentsClosed.tpl.php
+'Comments Closed' => 'Comments Closed', 
+'Comments for this article are closed.' => 'Comments for this article are closed.', 
+
 # BeforePostComment.tpl.php
 'Post a Comment' => 'Post a Comment', 
 
@@ -22,7 +26,7 @@
 'Remember Me' => 'Remember Me', 
 
 # PostComment.js
-'Posting' => 'Posting', 
+'Posting...' => 'Posting...', 
 
 # BeforeSocialBookmarks.tpl.php
 'Bookmark this Article' => 'Bookmark this Article', 
@@ -30,9 +34,15 @@
 # NavigationModule.php
 'Archives' => 'Archives', 
 
+# ArticleNavigation.tpl.php
+'No previous article' => 'No previous article', 
+
 # RandomArticleImages.js
 'Get some new images' => 'Get some new images', 
-'Loading' => 'Loading', 
+'Loading...' => 'Loading...', 
+
+# BeforeRandomArticleImages.tpl.php
+'Random Images from Articles' => 'Random Images from Articles', 
 
 # Article.js
 'Advanced View' => 'Advanced View', 
@@ -63,10 +73,11 @@
 'Delete this Article' => 'Delete this Article', 
 
 # Article.tpl.php
-'Published' => 'Published', 
+'Published %0' => 'Published %0', 
 'Continue Reading' => 'Continue Reading', 
 'No tags' => 'No tags', 
 'Comments' => 'Comments', 
+'%0 comments' => '%0 comments', 
 'No comments' => 'No comments', 
 
 # ArticleModule.php
@@ -99,19 +110,19 @@
 'Random Links' => 'Random Links', 
 
 # Articles.tpl.php
-'Join' => 'Join', 
-'others and' => 'others and', 
+'Join %0 others and' => 'Join %0 others and', 
 'Be the first to' => 'Be the first to', 
 'post a comment' => 'post a comment', 
 
 # ArticlesModule.php
-'Articles Tagged with' => 'Articles Tagged with', 
-'You are currently browsing' => 'You are currently browsing', 
-'articles tagged with' => 'articles tagged with', 
-'Archives for' => 'Archives for', 
-'articles posted on' => 'articles posted on', 
-'articles posted in' => 'articles posted in', 
+'Articles Tagged with %0' => 'Articles Tagged with %0', 
+'You are currently browsing %0 articles tagged with %1.' => 'You are currently browsing %0 articles tagged with %1.', 
+'Archives for %0' => 'Archives for %0', 
+'You are currently browsing %0 articles posted %1.' => 'You are currently browsing %0 articles posted %1.', 
 'The Latest Articles' => 'The Latest Articles', 
+
+# BeforeRandomArticleImage.tpl.php
+'A Random Image from an Article' => 'A Random Image from an Article', 
 
 # RandomArticleImage.js
 'Get a new image' => 'Get a new image', 
@@ -126,8 +137,8 @@
 'Older' => 'Older', 
 
 # ArticleImages.tpl.php
-'Images Published in Articles' => 'Images Published in Articles', 
-'Published DATE in' => 'Published %0 in', 
+'All Images Published in Articles' => 'All Images Published in Articles', 
+'Published %0 in' => 'Published %0 in', 
 
 # OlderArticles.tpl.php
 'Continue reading' => 'Continue reading', 

@@ -6,8 +6,7 @@
 
 <p>
 	<small>
-		<?php echo Lang::get('Published'); ?> 
-		<?php echo date(Config::get('general.date_format'), strtotime($article['pub_date'])); ?>
+		<?php echo Lang::get('Published %0', array(date(Config::get('general.date_format'), strtotime($article['pub_date'])))); ?>
 	</small>
 </p>
 
@@ -41,7 +40,7 @@
 	<dt><?php echo Lang::get('Comments'); ?></dt>
 	<dd>
 		<a href="<?php echo Router::urlFor('Article', $article); ?>#comments">
-			<?php echo $article['num_comments'] ? $article['num_comments'] . ' ' . Lang::get('Comments') : Lang::get('No comments'); ?>
+			<?php echo $article['num_comments'] ? Lang::get('%0 comments', array($article['num_comments'])) : Lang::get('No comments'); ?>
 		</a>
 	</dd>
 </dl>

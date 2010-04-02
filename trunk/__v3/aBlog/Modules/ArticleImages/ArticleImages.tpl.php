@@ -1,4 +1,4 @@
-<h2><?php echo Lang::get('Images Published in Articles'); ?></h2>
+<h2><?php echo Lang::get('All Images Published in Articles'); ?></h2>
 
 <ol>
 	<?php foreach ($images as $image) { ?>
@@ -10,7 +10,7 @@
 			</a>
 
 			<p>
-				<?php echo Lang::get('Published DATE in', array(date('j F', strtotime($image['article']['pub_date'])))); ?> 
+				<?php echo Lang::get('Published %0 in', array(date('j F', strtotime($image['article']['pub_date'])))); ?> 
 				<a href="<?php echo Router::urlFor('Article', $image['article']); ?>">
 					<?php echo escHTML($image['article']['title']); ?>
 				</a>

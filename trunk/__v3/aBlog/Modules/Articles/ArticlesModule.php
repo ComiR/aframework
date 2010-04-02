@@ -43,8 +43,8 @@
 				FourOFour::run();
 			}
 			else {
-				self::$tplVars['title']			= Lang::get('Articles Tagged with') . ' "' . $urlStr . '"';
-				self::$tplVars['description']	= Lang::get('You are currently browsing') . ' ' . count(self::$tplVars['articles']) . ' ' . Lang::get('articles tagged with') . ' "' . $urlStr . '".';
+				self::$tplVars['title']			= Lang::get('Articles Tagged with %0', array($urlStr));
+				self::$tplVars['description']	= Lang::get('You are currently browsing %0 articles tagged with %1.', array(count(self::$tplVars['articles']), $urlStr));
 			}
 		}
 
@@ -56,8 +56,8 @@
 			else {
 				$inon = (strlen($pubDate) == 8) ? 'on' : 'in';
 
-				self::$tplVars['title']			= Lang::get('Archives for') . ' ' . self::$tplVars['articles'][0]['show_date'];
-				self::$tplVars['description']	= Lang::get('You are currently browsing') . ' ' . count(self::$tplVars['articles']) . ' ' . Lang::get('articles posted ' . $inon) . ' ' . self::$tplVars['articles'][0]['show_date'] . '.';
+				self::$tplVars['title']			= Lang::get('Archives for %0', array(self::$tplVars['articles'][0]['show_date']));
+				self::$tplVars['description']	= Lang::get('You are currently browsing %0 articles posted %1.', array(count(self::$tplVars['articles']), self::$tplVars['articles'][0]['show_date']));
 			}
 		}
 

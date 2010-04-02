@@ -16,7 +16,7 @@ aFramework.modules.RandomLinks = {
 			.appendTo('#random-links')
 			.find('a')
 			.click(function () {
-				jQuery(this).text(Lang.get('Loading') + '...');
+				jQuery(this).text(Lang.get('Loading...'));
 
 				jQuery('#random-links').load(Router.urlForModule('RandomLinks'), function () {
 					aFramework.modules.RandomLinks.run();

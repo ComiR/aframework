@@ -23,7 +23,7 @@ aFramework.modules.PostComment = {
 			url: Router.urlForModule('PostComment'), 
 			beforeSubmit: function () {
 				if (!postComment.find('img[alt=' + aFramework.jQueryLiveValidation.invalid + ']').length) {
-					postComment.find('input[type=submit]').val(Lang.get('Posting') + '...');
+					postComment.find('input[type=submit]').val(Lang.get('Posting...'));
 
 					return true;
 				}

@@ -9,8 +9,7 @@
 
 			<p>
 				<small>
-					<?php echo Lang::get('Published'); ?> 
-					<?php echo date(Config::get('general.date_format'), strtotime($a['pub_date'])); ?>
+					<?php echo Lang::get('Published %0', array(date(Config::get('general.date_format'), strtotime($a['pub_date'])))); ?>
 				</small>
 			</p>
 
