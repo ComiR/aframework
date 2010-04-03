@@ -15,7 +15,10 @@
 			'bt_tasks', 
 			'activities', 
 			'contact_person_relations', 
-			'contact_persons'
+			'contact_persons', 
+			'sites', 
+			'site_reviews', 
+			'site_review_comments'
 		);
 
 		public static function connect () {
