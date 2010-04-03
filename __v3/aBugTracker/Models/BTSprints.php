@@ -1,7 +1,7 @@
 <?php
 	class BTSprints {
 		public static function removeTaskFromSprints ($taskID) {
-			return DB::qry('DELETE FROM bt_sprint_tasks WHERE bt_tasks_id = ' . escSQL($taskID));
+			return DB::qry('DELETE FROM {bt_sprint_tasks} WHERE bt_tasks_id = ' . escSQL($taskID));
 		}
 
 		public static function addTaskToSprint ($taskID, $sprintID) {
@@ -15,7 +15,7 @@
 		}
 
 		public static function updateTaskFixedDate ($taskID, $date) {
-			return DB::qry('UPDATE bt_sprint_tasks SET date_fixed = "' . escSQL($date) . '" WHERE bt_tasks_id = ' . escSQL($taskID));
+			return DBRow::update('bt_sprint_tasks', $taskID, array('date_fixed' => $date));
 		}
 
 		public static function getSprintDays ($sprint, $tasks) {
@@ -80,15 +80,15 @@
 		public static function get ($sort = 'start_date', $order = 'ASC', $start = 0, $limit = 10000000, $where = '1 = 1') {
 			$res = DB::qry('
 				SELECT
-					bt_sprints.*, 
+					{bt_sprints}.*, 
 					IF (start_date < NOW() AND end_date > NOW(), 1, 0) AS in_progress, 
 					COUNT(bt_sprint_tasks_id) AS num_total_tasks, 
 					(DATEDIFF(NOW(), start_date) + 1) AS today_num, 
 					DATEDIFF(end_date, start_date) AS num_total_days
 				FROM
-					bt_sprints
+					{bt_sprints}
 				LEFT JOIN
-					bt_sprint_tasks USING(bt_sprints_id)
+					{bt_sprint_tasks} USING(bt_sprints_id)
 				GROUP BY
 					bt_sprints_id
 				HAVING

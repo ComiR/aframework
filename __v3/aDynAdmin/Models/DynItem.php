@@ -1,7 +1,7 @@
 <?php
 	class DynItem {
 		public static function getTableColumns ($tableName) {
-			$res	= DB::qry('SHOW COLUMNS FROM ' . escSQL($tableName));
+			$res	= DB::qry('SHOW COLUMNS FROM {' . escSQL($tableName) . '}');
 			$cols	= array();
 
 			while ($row = mysql_fetch_assoc($res)) {
@@ -16,7 +16,7 @@
 				SELECT 
 					* 
 				FROM 
-					' . escSQL($tableName) . ' 
+					{' . escSQL($tableName) . '} 
 				ORDER BY 
 					' . escSQL($sort) . ' ' . escSQL($order) . ' 
 				LIMIT ' . escSQL($start) . ', ' . escSQL($limit)
@@ -106,7 +106,7 @@
 
 		public static function getByID ($tableName, $id, $allowedLangs = false) {
 			$idCol	= $allowedLangs ? preg_replace('/^(' . implode('|', $allowedLangs) . ')_/', '', $tableName) . '_id' : $tableName . '_id';
-			$res	= DB::qry('SELECT * FROM ' . escSQL($tableName) . ' WHERE ' . escSQL($idCol) . ' = ' . escSQL($id) . ' LIMIT 1');
+			$res	= DB::qry('SELECT * FROM {' . escSQL($tableName) . '} WHERE ' . escSQL($idCol) . ' = ' . escSQL($id) . ' LIMIT 1');
 			$row	= mysql_fetch_assoc($res);
 			$cols	= self::getTableColumns($tableName);
 			$nRow	= array();

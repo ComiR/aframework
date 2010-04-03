@@ -6,7 +6,7 @@
 					*, 
 					' . $select . '
 				FROM
-					' . $tableName . '
+					{' . $tableName . '}
 				WHERE 
 					' . $where . '
 				ORDER BY
@@ -44,15 +44,15 @@
 			$insertVals = substr($insertVals, 0, -1);
 			$insertCols = substr($insertCols, 0, -1);
 
-			DB::qry("
+			DB::qry('
 				INSERT INTO
-					$tableName (
-						$insertCols
+					{' . $tableName . '} (
+						' . $insertCols . '
 					)
 				VALUES (
-					$insertVals
+					' . $insertVals . '
 				)
-			");
+			');
 
 			return mysql_insert_id();
 		}
@@ -66,27 +66,27 @@
 
 			$updateStr = substr($updateStr, 0, -1);
 
-			DB::qry("
+			DB::qry('
 				UPDATE
-					$tableName
+					{' . $tableName . '}
 				SET
-					$updateStr
+					' . $updateStr . '
 				WHERE
-					{$tableName}_id = " . escSQL($id) . "
+					' . $tableName . '_id = ' . escSQL($id) . '
 				LIMIT 1
-			");
+			');
 
 			return true;
 		}
 		
 		public static function delete ($tableName, $id) {
-			DB::qry("
+			DB::qry('
 				DELETE FROM
-					$tableName
+					{' . $tableName . '}
 				WHERE
-					{$tableName}_id = " . escSQL($id) . "
+					' . $tableName . '_id = ' . escSQL($id) . '
 				LIMIT 1
-			");
+			');
 
 			return true;
 		}

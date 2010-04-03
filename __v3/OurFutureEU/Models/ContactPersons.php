@@ -5,9 +5,9 @@
 				SELECT
 					*
 				FROM
-					contact_person_relations
+					{contact_person_relations}
 				LEFT JOIN
-					contact_persons USING (contact_persons_id)
+					{contact_persons} USING (contact_persons_id)
 				WHERE
 					pages_id = ' . escSQL($pagesID)
 			);

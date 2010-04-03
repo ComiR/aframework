@@ -1,7 +1,7 @@
 <?php
 	class Tags {
 		public static function deleteTagsForArticle ($articlesID) {
-			DB::qry('DELETE FROM article_tags WHERE articles_id = ' . escSQL($articlesID));
+			DB::qry('DELETE FROM {article_tags} WHERE articles_id = ' . escSQL($articlesID));
 		}
 
 		public static function updateTagsForArticle ($articlesID, $tags) {
@@ -13,14 +13,14 @@
 
 			# No tags, delete all old tags for this article
 			if (!count($tags)) {
-				DB::qry('DELETE FROM article_tags WHERE articles_id = ' . escSQL($articlesID));
+				DB::qry('DELETE FROM {article_tags} WHERE articles_id = ' . escSQL($articlesID));
 
 				return;
 			}
 
 			# Insert new tags
 			foreach ($tags as $tag) {
-				if (!mysql_num_rows(DB::qry('SELECT tags_id FROM tags WHERE title = "' . escSQL($tag) . '"'))) {
+				if (!mysql_num_rows(DB::qry('SELECT tags_id FROM {tags} WHERE title = "' . escSQL($tag) . '"'))) {
 					Tags::insert(array(
 						'url_str'	=> Router::urlize($tag), 
 						'title'		=> $tag
@@ -29,7 +29,7 @@
 			}
 
 			# Grab all the tags for this article's IDs
-			$res = DB::qry('SELECT tags_id FROM tags WHERE title IN ("' . implode('","', $tags) . '")');
+			$res = DB::qry('SELECT tags_id FROM {tags} WHERE title IN ("' . implode('","', $tags) . '")');
 			$ids = array();
 
 			while ($row = mysql_fetch_assoc($res)) {
@@ -55,17 +55,17 @@
 		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1', $having = '1 = 1') {
 			$res = DB::qry('
 				SELECT
-					tags.*, 
+					{tags}.*, 
 					COUNT(DISTINCT(articles_id)) as num_articles, 
 					' . $select . '
 				FROM
-					tags
+					{tags}
 				LEFT JOIN
-					article_tags USING(tags_id)
+					{article_tags} USING(tags_id)
 				WHERE
 					' . $where . '
 				GROUP BY
-					tags.tags_id
+					{tags}.tags_id
 				HAVING
 					' . $having . '
 				ORDER BY

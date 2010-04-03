@@ -12,7 +12,7 @@
 					DATE_FORMAT(pub_date, "%m") AS month, 
 					DATE_FORMAT(pub_date, "%d") AS day
 				FROM
-					activities
+					{activities}
 				WHERE 
 					' . $where . '
 				ORDER BY

@@ -1,34 +1,11 @@
 <?php
 	class SiteReviewComments {
 		public static function getBySiteReviewsID ($id) {
-			$res = DB::qry('
-				SELECT
-					*, 
-					MD5(email) AS email_md5
-				FROM
-					site_review_comments
-				WHERE
-					site_reviews_id = ' . escSQL($id) . '
-				ORDER BY
-					pub_date ASC
-			');
-
-			if (mysql_num_rows($res)) {
-				$rows = array();
-
-				while ($row = mysql_fetch_assoc($res)) {
-					$rows[] = $row;
-				}
-
-				return $rows;
-			}
-			else {
-				return false;
-			}
+			return self::get('pub_date', 'ASC', 0, 1, 'site_reviews_id = ' . escSQL($id), 'MD5(email) AS email_md5');
 		}
 
-		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000) {
-			return DBRow::get('site_review_comments', $sort, $order, $start, $limit);
+		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1') {
+			return DBRow::get('site_review_comments', $sort, $order, $start, $limit, $where, $select);
 		}
 
 		public static function insert ($row) {

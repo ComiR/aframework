@@ -8,20 +8,20 @@
 			return self::get('title', 'ASC', 0, 1, 'url_str = "' . escSQL($urlStr) . '"');
 		}
 
-		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000, $where = '1 = 1') {
+		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1') {
 			$res = DB::qry('
 				SELECT
-					bt_projects.*, 
-					bt_projects.url_str AS project_url_str, 
+					{bt_projects}.*, 
+					{bt_projects}.url_str AS project_url_str, 
 					COUNT(bt_tasks_id) as num_tasks, 
-					CONCAT("' . WEBROOT . '", bt_projects.title, "/thumb.png") AS thumb_src, 
-					CONCAT("' . DOCROOT . '", bt_projects.title, "/thumb.png") AS thumb_path
+					CONCAT("' . WEBROOT . '", {bt_projects}.title, "/thumb.png") AS thumb_src, 
+					CONCAT("' . DOCROOT . '", {bt_projects}.title, "/thumb.png") AS thumb_path
 				FROM
-					bt_projects
+					{bt_projects}
 				LEFT JOIN
-					bt_tasks USING(bt_projects_id)
+					{bt_tasks} USING(bt_projects_id)
 				GROUP BY
-					bt_projects.bt_projects_id
+					{bt_projects}.bt_projects_id
 				HAVING 
 					' . $where . '
 				ORDER BY

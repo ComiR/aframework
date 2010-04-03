@@ -1,5 +1,13 @@
 <?php
 	class Articles {
+		public static function getPrevious ($date) {
+			return self::get('pub_date', 'DESC', 0, 1, 'DATE_FORMAT({articles}.pub_date, "%Y-%m-%d") < "' . $date . '"');
+		}
+
+		public static function getNext ($date) {
+			return self::get('pub_date', 'ASC', 0, 1, 'DATE_FORMAT({articles}.pub_date, "%Y-%m-%d") > "' . $date . '"');
+		}
+
 		public static function getGroupedByWeek ($month, $year) {
 			
 		}
@@ -59,28 +67,28 @@
 							'DESC', 
 							0, 
 							INFINITY, 
-							'DATE_FORMAT(articles.pub_date, "' 
+							'DATE_FORMAT({articles}.pub_date, "' 
 								. $dateFormatA 
 								. '") = "' 
 								. $pubDate 
 								.'"', 
-							'DATE_FORMAT(articles.pub_date, "' 
+							'DATE_FORMAT({articles}.pub_date, "' 
 								. $dateFormatA 
-								. '") AS compare_date, DATE_FORMAT(articles.pub_date, "' 
+								. '") AS compare_date, DATE_FORMAT({articles}.pub_date, "' 
 								. $dateFormatB . '") AS show_date'
 					);
 		}
 
 		public static function getByTagURLStr ($urlStr, $future = false) {
-			return self::get('pub_date', 'DESC', 0, INFINITY, 'tags.url_str LIKE BINARY "' . escSQL($urlStr) . '"');
+			return self::get('pub_date', 'DESC', 0, INFINITY, '{tags}.url_str LIKE BINARY "' . escSQL($urlStr) . '"');
 		}
 
 		public static function getByURLStr ($urlStr) {
-			return self::get('1', 'ASC', 0, 1, 'articles.url_str LIKE BINARY "' . escSQL($urlStr) . '"');
+			return self::get('1', 'ASC', 0, 1, '{articles}.url_str LIKE BINARY "' . escSQL($urlStr) . '"');
 		}
 
 		public static function getByID ($id) {
-			return self::get('1', 'ASC', 0, 1, 'articles.articles_id = ' . escSQL($id));
+			return self::get('1', 'ASC', 0, 1, '{articles}.articles_id = ' . escSQL($id));
 		}
 
 		public static function getImages () {
@@ -108,32 +116,33 @@
 		}
 
 		public static function get ($sort = '1', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1', $having = '1 = 1') {
-			$having .= ADMIN ? '' : " AND articles.pub_date <= NOW()";
+			$having .= ADMIN ? '' : " AND {articles}.pub_date <= NOW()";
 
 			$res = DB::qry('
 				SELECT
-					articles.*, 
-					DATE_FORMAT(articles.pub_date, "%Y") AS year, 
-					DATE_FORMAT(articles.pub_date, "%m") AS month, 
-					DATE_FORMAT(articles.pub_date, "%d") AS day, 
-					tags.url_str AS tags_url_str, 
+					{articles}.*, 
+					DATE_FORMAT({articles}.pub_date, "%Y") AS year, 
+					DATE_FORMAT({articles}.pub_date, "%m") AS month, 
+					DATE_FORMAT({articles}.pub_date, "%d") AS day, 
+					IF({articles}.pub_date > NOW(), 1, 0) AS future, 
+					{tags}.url_str AS tags_url_str, 
 					COUNT(DISTINCT(comments_id)) AS num_comments, 
 					COUNT(DISTINCT(tags_id)) AS num_tags, 
-					SUM(IF(comments.karma > 0, 1, 0)) AS num_not_spam, 
-					tags.url_str AS tags_url_str, 
+					SUM(IF({comments}.karma > 0, 1, 0)) AS num_not_spam, 
+					{tags}.url_str AS tags_url_str, 
 					' . $select . '
 				FROM
-					articles
+					{articles}
 				LEFT JOIN
-					comments USING(articles_id)
+					{comments} USING(articles_id)
 				LEFT JOIN
-					article_tags USING(articles_id)
+					{article_tags} USING(articles_id)
 				LEFT JOIN
-					tags USING(tags_id)
+					{tags} USING(tags_id)
 				WHERE
 					' . $where . '
 				GROUP BY
-					articles.articles_id
+					{articles}.articles_id
 				HAVING
 					' . $having . '
 				ORDER BY
