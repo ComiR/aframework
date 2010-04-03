@@ -1,39 +1,39 @@
 <?php
 	class Comments {
 		public static function deleteAllSpamForArticle ($articlesID) {
-			DB::qry('DELETE FROM comments WHERE articles_id = ' . escSQL($articlesID) . ' AND karma < 1');
+			DB::qry('DELETE FROM {comments} WHERE articles_id = ' . escSQL($articlesID) . ' AND karma < 1');
 		}
 
 		public static function deleteCommentsForArticle ($articlesID) {
-			DB::qry('DELETE FROM comments WHERE articles_id = ' . escSQL($articlesID));
+			DB::qry('DELETE FROM {comments} WHERE articles_id = ' . escSQL($articlesID));
 		}
 
 		public static function getByArticleID ($id) {
-			return self::get('pub_date', 'ASC', 0, INFINITY, 'articles.articles_id = "' . escSQL($id) . '"');
+			return self::get('pub_date', 'ASC', 0, INFINITY, '{articles}.articles_id = ' . escSQL($id));
 		}
 
 		public static function getByArticleURLStr ($urlStr) {
-			return self::get('pub_date', 'ASC', 0, INFINITY, 'articles.url_str LIKE BINARY "' . escSQL($urlStr) . '"');
+			return self::get('pub_date', 'ASC', 0, INFINITY, '{articles}.url_str LIKE BINARY "' . escSQL($urlStr) . '"');
 		}
 
 		public static function get ($sort = '1', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1') {
-			$where .= ADMIN ? '' : ' AND comments.karma > 0';
+			$where .= ADMIN ? '' : ' AND {comments}.karma > 0';
 
 			$res = DB::qry('
 				SELECT
-					comments.*, 
-					DATE_FORMAT(articles.pub_date, "%Y") AS year, 
-					DATE_FORMAT(articles.pub_date, "%m") AS month, 
-					DATE_FORMAT(articles.pub_date, "%d") AS day, 
-					articles.url_str, 
-					articles.title AS article_title, 
-					MD5(comments.email) AS email_md5, 
-					IF(comments.website != "" AND SUBSTR(comments.website, 0, 4) != "http", CONCAT("http://", comments.website), comments.website) AS clean_website, 
+					{comments}.*, 
+					DATE_FORMAT({articles}.pub_date, "%Y") AS year, 
+					DATE_FORMAT({articles}.pub_date, "%m") AS month, 
+					DATE_FORMAT({articles}.pub_date, "%d") AS day, 
+					{articles}.url_str, 
+					{articles}.title AS article_title, 
+					MD5({comments}.email) AS email_md5, 
+					IF({comments}.website != "" AND SUBSTR({comments}.website, 0, 4) != "http", CONCAT("http://", {comments}.website), {comments}.website) AS clean_website, 
 					' . $select . '
 				FROM
-					comments
+					{comments}
 				LEFT JOIN
-					articles USING(articles_id)
+					{articles} USING(articles_id)
 				WHERE
 					' . $where . '
 				ORDER BY

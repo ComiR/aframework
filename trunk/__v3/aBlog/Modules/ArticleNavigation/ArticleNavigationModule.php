@@ -10,8 +10,8 @@
 
 			$date = Router::$params['year'] . '-' . Router::$params['month'] . '-' . Router::$params['day'] . '';
 
-			self::$tplVars['previous_article']	= Articles::get('pub_date', 'DESC', 0, 1, 'DATE_FORMAT(articles.pub_date, "%Y-%m-%d") < "' . $date . '"');
-			self::$tplVars['next_article']		= Articles::get('pub_date', 'ASC', 0, 1, 'DATE_FORMAT(articles.pub_date, "%Y-%m-%d") > "' . $date . '"');
+			self::$tplVars['previous_article']	= Articles::getPrevious($date);
+			self::$tplVars['next_article']		= Articles::getNext($date);
 		}
 	}
 ?>

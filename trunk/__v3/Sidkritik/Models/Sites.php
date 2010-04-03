@@ -11,21 +11,21 @@
 			'pub_date'
 		);
 
-		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000, $where = '1 = 1') {
+		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1') {
 			$res = DB::qry('
 				SELECT
-					sites.*, 
+					{sites}.*, 
 					COUNT(site_reviews_id) AS num_reviews, 
-					MD5(sites.email) AS email_md5, 
+					MD5({sites}.email) AS email_md5, 
 					SUM(rating) AS total_rating, 
 					SUM(rating) / COUNT(site_reviews_id) AS avg_rating, 
-					CONCAT("' . WEBROOT . 'aFramework/Lib/phpThumb/phpThumb.php?src=", sites.thumb_url, "&amp;w=320") AS thumb_thumb_url
+					CONCAT("' . WEBROOT . 'aFramework/Lib/phpThumb/phpThumb.php?src=", {sites}.thumb_url, "&amp;w=320") AS thumb_thumb_url
 				FROM
-					sites
+					{sites}
 				LEFT JOIN
-					site_reviews USING(sites_id)
+					{site_reviews} USING(sites_id)
 				GROUP BY
-					sites.sites_id
+					{sites}.sites_id
 				HAVING
 					' . $where . '
 				ORDER BY

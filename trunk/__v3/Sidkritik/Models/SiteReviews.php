@@ -3,7 +3,7 @@
 		public static function thumbUpReview ($id) {
 			DB::qry('
 				UPDATE
-					site_reviews
+					{site_reviews}
 				SET
 					thumbs_up = thumbs_up + 1
 				WHERE
@@ -15,7 +15,7 @@
 		public static function thumbDownReview ($id) {
 			DB::qry('
 				UPDATE
-					site_reviews
+					{site_reviews}
 				SET
 					thumbs_down = thumbs_down + 1
 				WHERE
@@ -24,19 +24,19 @@
 			');
 		}
 
-		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = 10000000, $where = '1 = 1') {
+		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1') {
 			$res = DB::qry('
 				SELECT
-					site_reviews.*, 
-					MD5(site_reviews.email) as email_md5, 
-					sites.url_str, 
+					{site_reviews}.*, 
+					MD5({site_reviews}.email) as email_md5, 
+					{sites}.url_str, 
 					IFNULL(thumbs_up, 0) - IFNULL(thumbs_down, 0) as thumb_score
 				FROM
-					site_reviews
+					{site_reviews}
 				LEFT JOIN
-					sites USING(sites_id)
+					{sites} USING(sites_id)
 				GROUP BY
-					site_reviews.site_reviews_id
+					{site_reviews}.site_reviews_id
 				HAVING
 					' . $where . '
 				ORDER BY

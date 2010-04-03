@@ -13,7 +13,7 @@
 					DATE_FORMAT(pub_date, "%d") AS day, 
 					' . $select . '
 				FROM
-					revisions
+					{revisions}
 				WHERE 
 					' . $where . '
 				ORDER BY

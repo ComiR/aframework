@@ -106,7 +106,7 @@
 			$tables = array_unique($tables);
 
 			foreach ($tables as $table) {
-				$tsRes = DB::qry("SELECT ts FROM $table ORDER BY ts DESC LIMIT 1");
+				$tsRes = DB::qry('SELECT ts FROM {' . $table . '} ORDER BY ts DESC LIMIT 1');
 				$thisTablesLatestChange = 0;
 
 				if (mysql_num_rows($tsRes)) {
