@@ -23,28 +23,4 @@
 			<?php } ?>
 		</li>
 	<?php } ?>
-	<!--
-	<li>
-		<?php if (Router::getController() == 'ConfigAdmin') { ?>
-			<strong>
-				<?php echo Lang::get('Config'); ?>
-			</strong>
-		<?php } else { ?>
-			<a href="<?php echo Router::urlFor('ConfigAdmin'); ?>">
-				<?php echo Lang::get('Config'); ?>
-			</a>
-		<?php } ?>
-	</li>
-	<li>
-		<?php if (Router::getController() == 'DatabaseAdmin') { ?>
-			<strong>
-				<?php echo Lang::get('Tools'); ?>
-			</strong>
-		<?php } else { ?>
-			<a href="<?php echo Router::urlFor('DatabaseAdmin'); ?>">
-				<?php echo Lang::get('Tools'); ?>
-			</a>
-		<?php } ?>
-	</li>
-	-->
 </ul>
