@@ -21,7 +21,8 @@
 				'dimensions'	=> '/^\d+x\d+$/',										// dimensions (DIGITxDIGIT)
 				'price'			=> '/^\d+$/',											// price (atleast one digit)
 				'url'			=> '/^http:\/\/?(www)?[^ ]+\.[^ ]{2,5}$/',				// url
-				'email'			=> '/^.+?@.+?\..{2,4}$/'								// email
+				'email'			=> '/^.+?@.+?\..{2,4}$/',								// email
+				'sql_table_name'=> '/^[a-z_]+$/'
 			);
 
 			$commonValidators['title'] = $commonValidators['author'] = $commonValidators['name'];
@@ -44,7 +45,7 @@
 				'required'	=> isset($field['required']) ? true : false,
 				'options'	=> isset($field['options']) ? $field['options'] : false, 
 				'checked'	=> isset($field['checked']) ? true : false, 
-				'validation'	=> isset($field['validation']) ? $field['validation'] : $field['name']
+				'validation'=> isset($field['validation']) ? $field['validation'] : $field['name']
 			);
 		}
 
