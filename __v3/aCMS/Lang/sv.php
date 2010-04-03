@@ -11,7 +11,10 @@
 'Save Changes' => 'Spara ändringar', 
 
 # QuickAboutAdmin.tpl.php
-'Short Description of' => 'Kort beskrivning av', 
+'Short Description of %0' => 'Kort beskrivning av %0', 
+
+# QuickAboutModule.php
+'# About us\n\nNothing here yet.' => '# Om oss\n\nInget här ännu.', 
 
 # Page.js
 'Advanced View' => 'Avancerad vy', 

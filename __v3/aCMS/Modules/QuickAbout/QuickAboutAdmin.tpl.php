@@ -2,7 +2,7 @@
 
 	<p>
 		<label>
-			<?php echo Lang::get('Short Description of'); ?> <?php echo escHTML(Config::get('general.site_title')); ?><br/>
+			<?php echo Lang::get('Short Description of %0', array(Config::get('general.site_title'))); ?><br/>
 			<textarea name="content" rows="10" cols="60"><?php echo escHTML($content); ?></textarea>
 		</label>
 	</p>
