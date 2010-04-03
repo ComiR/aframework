@@ -15,7 +15,7 @@
 		}
 
 		public static function updateTaskFixedDate ($taskID, $date) {
-			return DBRow::update('bt_sprint_tasks', $taskID, array('date_fixed' => $date));
+			return DB::qry('UPDATE bt_sprint_tasks SET date_fixed = "' . escSQL($date) . '" WHERE bt_tasks_id = ' . escSQL($taskID));
 		}
 
 		public static function getSprintDays ($sprint, $tasks) {
