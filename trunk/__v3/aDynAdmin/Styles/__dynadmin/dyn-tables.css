@@ -1,0 +1,28 @@
+#dyn-tables {
+	float: left;
+	width: 13%;
+}
+
+	#dyn-tables ul {
+		margin: 0;
+		padding: 20px 0 0 10px;
+		list-style: none;
+	}
+
+		#dyn-tables ul li {
+		}
+
+			#dyn-tables ul li a, 
+			#dyn-tables ul li strong {
+				display: block;
+				padding: 5px 10px;
+				color: #f2f2f2;
+				text-decoration: none;
+			}
+
+			#dyn-tables ul li strong = $body-bg-color;
+			#dyn-tables ul li strong {
+				background: #f2f2f2;
+				-moz-border-radius: 5px 0 0 5px;
+				border-radius: 5px 0 0 5px;
+			}

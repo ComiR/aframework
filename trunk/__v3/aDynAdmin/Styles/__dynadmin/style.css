@@ -12,40 +12,38 @@ body {
 	background-repeat: repeat-x;
 	background-image: -moz-linear-gradient(top, #07439d, #1371ff);
 	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #1371ff), color-stop(1, #07439d));
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#07439d', endColorstr='#1371ff');
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#07439d', endColorstr='#1371ff')";
 
 	margin: 0;
 	padding: 0;
 
-	font: 100%/1.4 Verdana, sans-serif;
-	color: #333;
+	font: 16px/1.4 Arial, sans-serif;
+	color: #111;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	font: bold 200%/1.2 Helvetica, Arial, serif;
-	letter-spacing: -2px;
+	font: bold 24px/1.2 Helvetica, Arial, serif;
+	letter-spacing: -1px;
 	margin: 10px 0 0;
 }
 
 h2 {
-	font-size: 180%;
+	font-size: 22px;
 }
 
 h3 {
-	font-size: 160%;
+	font-size: 20px;
 }
 
 h4 {
-	font-size: 160%;
+	font-size: 18px;
 }
 
 h5 {
-	font-size: 140%;
+	font-size: 16px;
 }
 
 h6 {
-	font-size: 120%;
+	font-size: 14px;
 }
 
 p {
@@ -72,184 +70,18 @@ a {
 	padding: 0 0 50px;
 }
 
-#header {
-	padding: 50px 20px;
-}
-
-	#header h1 {
-		margin: 0;
-	}
-
-		#header h1 a {
-			color: #f3f3f3;
-			text-decoration: none;
-		}
-
-	#header p = $a11y-hide;
-
-#dyn-tables {
-	float: left;
-	width: 13%;
-}
-
-	#dyn-tables ul {
-		margin: 0;
-		padding: 20px 0 0 10px;
-		list-style: none;
-	}
-
-		#dyn-tables ul li {
-		}
-
-			#dyn-tables ul li a, 
-			#dyn-tables ul li strong {
-				display: block;
-				padding: 5px 10px;
-				color: #f3f3f3;
-				text-decoration: none;
-			}
-
-			#dyn-tables ul li strong = $body-bg-color;
-			#dyn-tables ul li strong {
-				background: #f3f3f3;
-				-moz-border-radius: 5px 0 0 5px;
-				-webkit-border-radius: 5px 0 0 5px;
-				border-radius: 5px 0 0 5px;
-			}
-
 #primary-content {
-	background-color: #fafafa;
-	background-repeat: repeat-x;
-	background-image: -moz-linear-gradient(top, #eaeaea, #fafafa);
-	background-image: -webkit-gradient(linear, left bottom, left top, color-stop(0, #fafafa), color-stop(1, #eaeaea));
-	filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#eaeaea', endColorstr='#fafafa');
-	-ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorstr='#eaeaea', endColorstr='#fafafa')";
+	background-color: #f2f2f2;
 
 	float: left;
 	position: relative;
 
 	width: 87%;
 
-	-moz-border-radius: 20px 0 0 20px;
-	-webkit-border-radius: 20px 0 0 20px;
-	border-radius: 20px 0 0 20px;
+	-moz-border-radius: 5px 0 0 5px;
+	border-radius: 5px 0 0 5px;
 }
 
 	#primary-content > div {
 		padding: 20px;
 	}
-
-#dyn-nav {
-	position: absolute;
-	left: 40px;
-	top: -30px;
-	padding: 0 !important;
-}
-
-	#dyn-nav ul = $self-clear;
-	#dyn-nav ul {
-		margin: 0;
-		list-style: none;
-	}
-
-		#dyn-nav ul li {
-			float: left;
-			margin: 0 10px 0 0;
-		}
-			
-			#dyn-nav ul li a = $body-bg-color;
-			#dyn-nav ul li strong = $body-bg-color;
-			#dyn-nav ul li a, 
-			#dyn-nav ul li strong {
-				background: #eaeaea;
-
-				display: block;
-				height: 20px;
-				padding: 5px 10px;
-
-				text-decoration: none;
-				font-weight: bold;
-
-				-moz-border-radius: 5px 5px 0 0;
-				-webkit-border-radius: 5px 5px 0 0;
-				border-radius: 5px 5px 0 0;
-			}
-
-			#dyn-nav ul li a {
-				opacity: .7;
-			}
-
-#dyn-items {
-	
-}
-
-	#dyn-items table {
-		width: 100%;
-		border-spacing: 0;
-		font-size: 75%;
-		border-bottom: 1px solid #fff;
-	}
-
-		#dyn-items table th {
-			text-align: left;
-			text-transform: uppercase;
-			vertical-align: bottom;
-			padding: 5px 10px 5px 0;
-			border-bottom: 1px solid #ddd;
-		}
-
-		#dyn-items table td {
-			padding: 5px 10px 5px 0;
-			border-top: 1px solid #fff;
-			border-bottom: 1px solid #ddd;
-		}
-
-		#dyn-items tr:hover td {
-			background: rgba(0, 100, 200, .1);
-		}
-
-			#dyn-items tr td p {
-				margin: 0;
-			}
-
-	#dyn-items ul = $previous-next-menu;
-
-#dyn-item = $self-clear;
-#dyn-item {
-	
-}
-
-	#dyn-item form {
-		float: left;
-	}
-
-		#dyn-item form p {
-			text-align: right;
-		}
-
-			#dyn-item form p label {
-	
-			}
-
-				#dyn-item form p label br {
-					display: none;
-				}
-
-				#dyn-item form p label input, 
-				#dyn-item form p label textarea {
-					width: 500px;
-					margin-left: 10px;
-					vertical-align: top;
-				}
-
-				#dyn-item form p label select {
-					width: 250px;
-					margin-right: 250px;
-					margin-left: 10px;
-					vertical-align: top;
-				}
-
-				#dyn-item form p label input {
-					width: 400px;
-					margin-right: 100px;
-				}
