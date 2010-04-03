@@ -11,7 +11,10 @@
 'Save Changes' => 'Save Changes', 
 
 # QuickAboutAdmin.tpl.php
-'Short Description of' => 'Short Description of', 
+'Short Description of %0' => 'Short Description of %0', 
+
+# QuickAboutModule.php
+'# About us\n\nNothing here yet.' => '# About us\n\nNothing here yet.', 
 
 # Page.js
 'Advanced View' => 'Advanced View', 
