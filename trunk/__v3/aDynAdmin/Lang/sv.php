@@ -2,6 +2,8 @@
 
 # Routes.php
 'url.dynadmin' => 'dynadmin', 
+'url.config' => 'konfiguration', 
+'url.tools' => 'verktyg', 
 
 # DynItem.tpl.php
 'Save' => 'Spara', 
