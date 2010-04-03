@@ -9,7 +9,7 @@
 
 			<ul>
 				<?php foreach ($d['articles'] as $a) { ?>
-					<li>
+					<li<?php if ($a['future']) { ?> class="future"<?php } ?>>
 						<h4>
 							<a href="<?php echo Router::urlFor('Article', $a); ?>">
 								<?php echo escHTML($a['title']); ?>

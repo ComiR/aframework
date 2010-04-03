@@ -2,7 +2,7 @@
 
 <ol>
 	<?php foreach ($images as $image) { ?>
-		<li>
+		<li<?php if ($image['article']['future']) { ?> class="future"<?php } ?>>
 			<h3><?php echo escHTML($image['title']); ?></h3>
 
 			<a href="<?php echo $image['src']; ?>">

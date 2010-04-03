@@ -29,12 +29,4 @@
 			top: -22px;
 		}
 
-		#recent-comments ol li.spam {
-			opacity: .4;
-		}
-
-		#recent-comments ol li.spam:hover {
-			opacity: 1;
-		}
-
 #recent-comments ul = $previous-next-menu;
