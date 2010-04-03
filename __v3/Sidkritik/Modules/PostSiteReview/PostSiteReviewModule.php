@@ -44,8 +44,7 @@
 					'3'		=> 'Good', 
 					'2'		=> 'Avarage', 
 					'1'		=> 'Bad'
-				), 
-				'required'	=> true
+				)
 			));
 			$form->addField(array(
 				'name'		=> 'content', 
