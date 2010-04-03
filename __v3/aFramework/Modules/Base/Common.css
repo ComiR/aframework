@@ -1,4 +1,17 @@
 /*
+	=== Common Super-Generic Classes ===
+*/
+div[id*=comment] .spam, 
+div[id*=article] .future {
+	opacity: .5;
+}
+
+div[id*=comment] .spam:hover, 
+div[id*=article] .future:hover {
+	opacity: 1;
+}
+
+/*
 	=== Cache Info ===
 */
 #cache-info = $little-corner-chrome-box;
