@@ -1,0 +1,39 @@
+#dyn-item = $self-clear;
+#dyn-item {
+	
+}
+
+	#dyn-item form {
+		float: left;
+	}
+
+		#dyn-item form p {
+			text-align: right;
+		}
+
+			#dyn-item form p label {
+	
+			}
+
+				#dyn-item form p label br {
+					display: none;
+				}
+
+				#dyn-item form p label input, 
+				#dyn-item form p label textarea {
+					width: 500px;
+					margin-left: 10px;
+					vertical-align: top;
+				}
+
+				#dyn-item form p label select {
+					width: 250px;
+					margin-right: 250px;
+					margin-left: 10px;
+					vertical-align: top;
+				}
+
+				#dyn-item form p label input {
+					width: 400px;
+					margin-right: 100px;
+				}

@@ -1,0 +1,34 @@
+#dbadmin {
+
+}
+
+	#dbadmin form {
+		max-width: 600px;
+	}
+
+		#dbadmin form > p {
+			width: 50%;
+			display: inline-block;
+			vertical-align: top;
+		}
+
+			#dbadmin form > p input[type=text], 
+			#dbadmin form > p select {
+				width: 80%;
+			}
+
+		#dbadmin form > p:first-child {
+			width: auto;
+			display: block;
+		}
+
+			#dbadmin form > p:first-child input[type=text] {
+				font-size: 160%;
+				width: 80%;
+			}
+
+		#dbadmin form > p:last-child {
+			width: auto;
+			float: none;
+			clear: both;
+		}
