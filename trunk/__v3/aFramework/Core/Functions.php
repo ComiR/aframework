@@ -104,6 +104,8 @@
 
 	# Determines whether it's naked day
 	function is_naked_day ($d) {
+		return false;
+
 		$start	= date('U', mktime(-12, 0, 0, 04, $d, date('Y')));
 		$end	= date('U', mktime(36, 0, 0, 04, $d, date('Y')));
 		$z		= date('Z') * -1;
