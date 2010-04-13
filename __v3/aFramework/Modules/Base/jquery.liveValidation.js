@@ -107,7 +107,7 @@ jQuery.fn.liveValidation = function (conf, addedFields) {
 	}
 
 	for (var i in formControls) {
-		formControls[i] = ':input[name=' + formControls[i] + ']:not([disabled])';
+		formControls[i] = ':input[name="' + formControls[i] + '"]:not([disabled])';
 	}
 
 	formControls = formControls.join(',');
