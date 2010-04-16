@@ -44,7 +44,8 @@ setInterval(function () {
 ***/
 jQuery.fn.ajaxLoader = function (conf) {
 	var config = jQuery.extend({
-		className:	'jquery-ajax-loader'
+		className:		'jquery-ajax-loader', 
+		fadeDuration:	500
 	}, conf);
 
 	return this.each(function () {
@@ -68,7 +69,7 @@ jQuery.fn.ajaxLoader = function (conf) {
 			}).appendTo(document.body).hide();
 		}
 
-		this.ajaxLoaderObject.fadeIn(500);
+		this.ajaxLoaderObject.fadeIn(config.fadeDuration);
 	});
 };
 
