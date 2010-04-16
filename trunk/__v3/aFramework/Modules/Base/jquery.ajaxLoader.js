@@ -50,7 +50,7 @@ jQuery.fn.ajaxLoader = function (conf) {
 	return this.each(function () {
 		var t = jQuery(this);
 
-		if (!this.ajaxLoader) {
+		if (!this.ajaxLoaderObject) {
 			var offset = t.offset();
 			var dim = {
 				left:	offset.left, 
@@ -59,7 +59,7 @@ jQuery.fn.ajaxLoader = function (conf) {
 				height:	t.outerHeight()
 			};
 
-			this.ajaxLoader = jQuery('<div class="' + config.className + '"></div>').css({
+			this.ajaxLoaderObject = jQuery('<div class="' + config.className + '"></div>').css({
 				position:	'absolute', 
 				left:		dim.left + 'px', 
 				top:		dim.top + 'px',
@@ -68,14 +68,14 @@ jQuery.fn.ajaxLoader = function (conf) {
 			}).appendTo(document.body).hide();
 		}
 
-		this.ajaxLoader.fadeIn(500);
+		this.ajaxLoaderObject.fadeIn(500);
 	});
 };
 
 jQuery.fn.ajaxLoaderRemove = function () {
 	return this.each(function () {
-		if (this.ajaxLoader) {
-			this.ajaxLoader.fadeOut(500);
+		if (this.ajaxLoaderObject) {
+			this.ajaxLoaderObject.fadeOut(500);
 		}
 	});
 };
