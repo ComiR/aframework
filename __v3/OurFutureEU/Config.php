@@ -12,7 +12,7 @@
 
 	Config::set('general.site_author',			'Our Life as Elderly');
 	Config::set('general.site_title',			'Our Life as Elderly');
-	Config::set('general.site_tagline',			'Elderly care when the older to be decides');
+	Config::set('general.site_tagline',			'Elderly care with the future elderly as the decision makers');
 
 	Config::set('general.contact_email',		'info@ourfuture.eu');
 	Config::set('general.date_format',			'l jS \of F Y');
