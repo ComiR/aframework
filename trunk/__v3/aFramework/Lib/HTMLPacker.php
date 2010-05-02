@@ -22,11 +22,19 @@
 			# Now re-insert all the ignored blocks
 			foreach ($ignoredBlocks as $tag => $matches) {
 				foreach ($matches[0] as $block) {
-					$html = str_replace_once('___[EX_' . $tag . '_BLOCK]__', $block, $html);
+					$html = self::strReplaceOnce('___[EX_' . $tag . '_BLOCK]__', $block, $html);
 				}
 			}
 
 			return $html;
+		}
+
+		private static function strReplaceOnce ($needle, $replace, $haystack) {
+			if ($pos = strpos($haystack, $needle)) {
+				return substr_replace($haystack, $replace, $pos, strlen($needle));
+			}
+
+			return $haystack;
 		}
 	}
 ?>
