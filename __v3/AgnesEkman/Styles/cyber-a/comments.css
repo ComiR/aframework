@@ -38,7 +38,8 @@
 			#comments > ol > li h4 + p = $pub-date;
 
 				#comments > ol > li h4 + p a {
-					color: #232324;
+					color: #b2b2b2;
+					text-decoration: none;
 				}
 
 			#comments > ol > li > *:last-child {

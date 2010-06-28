@@ -1,8 +1,13 @@
 /*
 	=== General stuff ===
 */
+@font-face {
+	font-family: "BEBAS";
+	src: url(gfx/BEBAS___.TTF);
+}
+
 html {
-	background: #000013 url(gfx/blue-gradient.png) repeat-x;
+	background: #000 url(gfx/clouds.png) no-repeat 50% top;
 
 	margin: 0;
 	padding: 0;
@@ -13,11 +18,11 @@ body {
 	background: url(gfx/moon-stars.png) no-repeat 50% top;
 
 	margin: 0;
-	padding: 40px 0;
+	padding: 35px 0;
 }
 
 $base-font {
-	font: 12px/1.5 Verdana, sans-serif;
+	font: 12px/1.5 Helvetica, sans-serif;
 	color: #232324;
 }
 
@@ -29,9 +34,9 @@ h5,
 h6 {
 	margin: 20px 0 10px;
 
-	font: bold 72px/.8 Georgia, Times New Roman, serif;
-	color: #232324;
-	letter-spacing: -.08em;
+	font: bold 72px/.8 Helvetica, sans-serif;
+	color: #8da37f;
+	letter-spacing: -.05em;
 }
 
 	h1 a, 
@@ -40,7 +45,7 @@ h6 {
 	h4 a, 
 	h5 a, 
 	h6 a {
-		color: #232324;
+		color: #8da37f;
 		text-decoration: none;
 	}
 
@@ -56,11 +61,11 @@ h6 {
 h2 = $h2;
 $h2 {
 	font-size: 36px;
-	letter-spacing: -.02em;
+	letter-spacing: -.06em;
 }
 
 $sh2 {
-	color: #232324;
+	color: #616c5a;
 	font-size: 14px;
 }
 
@@ -92,9 +97,15 @@ p {
 	margin: 0 0 10px;
 	line-height: 1.5;
 }
+	
+	p strong {
+		font-size: 14px;
+		font-weight: bold;
+	}
 
 $pub-date {
 	font: bold italic 12px/1.2 Georgia, serif;
+	color: #b2b2b2;
 	margin: 0px 0 15px -15px;
 }
 
@@ -187,12 +198,12 @@ form {
 	}
 
 $link-font {
-	color: #018b08;
-	text-decoration: none;
+	color: #ba2de3;
+	text-decoration: underline;
 }
 
 $link-font:hover {
-	text-decoration: underline;
+	text-decoration: none;
 }
 /*
 $link-font:visited {
@@ -217,6 +228,7 @@ a = $link-font;
 
 img {
 	vertical-align: middle;
+	margin: 10px 0;
 }
 
 /*
@@ -229,9 +241,9 @@ img {
 }
 
 	#primary-content {
-		background: #f7f7f7 url(gfx/texture-content.gif);
+		background: #f7f7f7 url(gfx/texture-content.jpg);
 		width: 450px;
-		padding: 55px 60px;
+		padding: 35px 60px;
 		float: left;
 		
 		-webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.4);
@@ -244,7 +256,7 @@ img {
 		}
 
 	#secondary-content {
-		background: #f7f7f7 url(gfx/texture-content.gif);
+		background: #f7f7f7 url(gfx/texture-content.jpg);
 
 		width: 215px;
 		margin: 20px 0 0;
