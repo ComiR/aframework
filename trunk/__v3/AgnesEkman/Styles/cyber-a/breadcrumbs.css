@@ -1,7 +1,7 @@
 #breadcrumbs {
 	position: absolute;
 	left: 0;
-	top: 82px;
+	top: 90px;
 
 	width: 550px;
 	margin: 0;
@@ -20,10 +20,10 @@
 	}
 
 		#breadcrumbs p a {
-			color: #72bd77;
+			color: #b2b2b2;
 		}
 
 		#breadcrumbs p strong {
-			color: #018b08;
+			color: #616c5a;
 			font-weight: normal;
 		}

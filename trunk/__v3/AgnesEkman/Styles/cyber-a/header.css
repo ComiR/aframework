@@ -1,14 +1,12 @@
 #header {
-	background: url(gfx/header.png) no-repeat left bottom;
 	width: 595px;
-	margin: 0 0 -2px -1px;
+	margin: 0;
 }
 
 	#header h1 {
-		background: url(gfx/logo2.png) no-repeat;
+		background: url(gfx/logo3.png) no-repeat;
 
-		width: 330px;
-		margin: 0 0 0 -20px;
+		margin: 0;
 
 		text-indent: -10000px;
 		font-size: 1px;

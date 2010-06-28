@@ -5,18 +5,6 @@
 	z-index: 1;
 }
 
-	#navigation span {
-		background: url(gfx/bottom-grass.png);
-
-		display: block;
-		width: 22px;
-		height: 30px;
-
-		position: absolute;
-		right: 0;
-		bottom: 2px;
-	}
-
 	#navigation ul = $self-clear;
 	#navigation ul {
 		list-style: none;
@@ -30,25 +18,22 @@
 			padding: 0 0 30px; /* Height of "sticks" */
 		}
 
-		#navigation ul li:first-child {
-			background: url(gfx/stick-grass.png) no-repeat 50% 15px;
-		}
 
 		#navigation ul li:last-child {
 			margin-right: 0;
 		}
 
 			#navigation ul li a {
-				background: url(gfx/texture-content.gif);
+				background: url(gfx/texture-content.jpg);
 
 				display: block;
 				padding: 5px 10px;
 				position: relative;
 
-				font: 18px Georgia;
-				color: #72bd77;
+				font: 16px "BEBAS", Helvetica;
+				color: #616c5a;
 				text-decoration: none;
-				text-transform: lowercase;
+				text-transform: uppercase;
 				outline: 0;
 
 				-moz-box-shadow: 4px 4px 4px rgba(0, 0, 0, .6);
@@ -84,31 +69,31 @@
 			}
 
 			#navigation ul li a:hover {
-				color: #018b08;
+				color: #8c00a0;
 			}
 
-				/* Worms n stuff */
+				/* Bird */
 				#navigation ul li a span {
-					background: url(gfx/top-grass.png);
+					background: url(gfx/bird.png) no-repeat;
 
 					display: block;
-					width: 19px;
-					height: 9px;
+					width: 30px;
+					height: 31px;
 
 					position: absolute;
-					right: 0;
-					top: -9px;
+					left: 32px;
+					top: -29px;
 					bottom: auto;
+					
+					z-index: 0;
 				}
 
-				#navigation ul li:first-child a span {
-					background: url(gfx/happy-worm.png);
-					width: 31px;
-					height: 16px;
-					top: -16px;
-				}
 
 				#navigation ul li:last-child a span {
+					display: none;
+				}
+				
+				#navigation ul li:first-child a span {
 					display: none;
 				}
 
@@ -118,5 +103,6 @@
 			}
 
 				#navigation ul li strong a {
-					color: #018b08;
+					color: #8c00a0;
+					text-decoration: underline;
 				}

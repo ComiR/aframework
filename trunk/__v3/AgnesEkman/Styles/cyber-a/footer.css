@@ -7,7 +7,7 @@
 
 	#footer, 
 	#footer a {
-		color: #00013F;
+		color: #474747;
 	}
 
 	#footer:hover {
@@ -15,7 +15,7 @@
 	}
 
 	#footer:hover a {
-		color: #99ff99;
+		color: #f8f8b7;
 	}
 
 	#footer ul = $pipe-menu;

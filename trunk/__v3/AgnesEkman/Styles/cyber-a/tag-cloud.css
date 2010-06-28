@@ -1,3 +1,9 @@
 #tag-cloud a {
-	color: #000063;
+	color: #760286;
+	text-decoration: none;
+	text-transform: uppercase;
 }
+
+	#tag-cloud a:hover {
+		font-weight: bold;
+	}
