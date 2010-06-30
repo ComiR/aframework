@@ -1,11 +1,11 @@
 <?php
 	class Articles {
 		public static function getPrevious ($date) {
-			return self::get('pub_date', 'DESC', 0, 1, 'DATE_FORMAT({articles}.pub_date, "%Y-%m-%d") < "' . $date . '"');
+			return self::get('pub_date', 'DESC', 0, 1, 'DATE_FORMAT({articles}.pub_date, "%Y-%m-%d %H:%i:%s") < "' . $date . '"');
 		}
 
 		public static function getNext ($date) {
-			return self::get('pub_date', 'ASC', 0, 1, 'DATE_FORMAT({articles}.pub_date, "%Y-%m-%d") > "' . $date . '"');
+			return self::get('pub_date', 'ASC', 0, 1, 'DATE_FORMAT({articles}.pub_date, "%Y-%m-%d %H:%i:%s") > "' . $date . '"');
 		}
 
 		public static function getGroupedByWeek ($month, $year) {
