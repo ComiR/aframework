@@ -1,0 +1,25 @@
+#recent-comments ol {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+	#recent-comments ol li {
+		margin: 0 0 5px -25px;
+		padding: 0 0 5px 25px;
+		border-bottom: 1px dashed #bfbfbf;
+	}
+
+		#recent-comments ol li img {
+			display: none;
+		}
+
+		#recent-comments ol li p {
+				margin: 0 0 5px;
+		}
+
+		#recent-comments ol li p:last-child {
+			margin: 0;
+		}
+
+#recent-comments ul = $previous-next-menu;
