@@ -13,8 +13,8 @@
 	}
 
 		#comments > ol > li {
-			background: #dbdbdc;
 			padding: 20px 20px 20px 60px;
+			border-top: 1px dashed #bfbfbf;
 		}
 
 		#comments > ol > li:nth-child(2n) {
@@ -24,12 +24,16 @@
 			#comments > ol > li h4 {
 				margin-top: 0;
 				font-size: 24px;
-				color: #232324;
+				color: #616C5A;
 			}
 
 				#comments > ol > li h4 a {
-					color: #232324;
+					color: #616C5A;
 				}
+				
+				#comments > ol > li h4 a:hover {
+					color: #8DA37F;
+				} 
 
 				#comments > ol > li h4 img {
 					display: none;
@@ -42,6 +46,6 @@
 					text-decoration: none;
 				}
 
-			#comments > ol > li > *:last-child {
-				margin-bottom: 0;
+			#comments > ol > li:last-child {
+				border-bottom: 1px dashed #bfbfbf;
 			}

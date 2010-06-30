@@ -1,59 +1,31 @@
 #articles-by-date {
-	
+	background: url(gfx/orbits.png) no-repeat top right;
 }
 
 	#articles-by-date h2 {
 		margin-bottom: 30px;
 	}
 
-	/* Tabs */
-	#articles-by-date > ul.tabs = $self-clear;
-	#articles-by-date > ul.tabs {
-	/*	background: #e4e4e5 url(gfx/arrow-right.gif) no-repeat right 50%; */
-		background: #e4e4e5;
-		margin: 0 0 0 -60px;
-		padding: 0 0 0 50px;
-		list-style: none;
-	}
-
-		#articles-by-date ul.tabs li {
-			float: left;
-		}
-
-			#articles-by-date ul.tabs li a {
-				display: block;
-				padding: 10px;
-
-				font: bold 14px/1 Georgia, serif;
-				color: #232324;
-				text-decoration: none;
-				outline: 0;
-			}
-			
-			#articles-by-date ul.tabs li a:hover {
-				color: #018B08;
-				text-decoration: underline;
-			}
-
-			#articles-by-date ul.tabs li a.selected {
-				background: url(gfx/arrow-down.gif) no-repeat 50% bottom;
-				padding-bottom: 30px;
-				margin-bottom: -20px;
-			}
 
 	/* List of months */
 	#articles-by-date > ul {
 		list-style: none;
-		margin: 40px 0 0 0;
+		margin: 0;
 	}
 
 		#articles-by-date > ul > li {
 			
 		}
 
-			/* Month title */
-			body.js-enabled #articles-by-date > ul > li h3 = $a11y-hide;
-
+			#articles-by-date > ul > li > h3 = $purple-boxy-heading;
+			
+			#articles-by-date > ul > li > h3 {
+				background-color: #616c5a;
+			}
+			
+				#articles-by-date > ul > li > h3 > a:hover {
+					}
+				
 			/* List of articles in a month */
 			#articles-by-date > ul > li > ul {
 				list-style: none;
@@ -61,9 +33,9 @@
 			}
 
 				#articles-by-date > ul > li > ul > li {
-					background: #e4e4e5;
-					padding: 10px 40px 15px 60px;
-					margin: 20px 0;			
+					padding: 0 40px 0 60px;
+					margin: 25px 0;	
+					border-top: 1px dashed #bfbfbf;		
 				}
 
 					/* Article title */
@@ -72,7 +44,11 @@
 					}
 
 						#articles-by-date > ul > li > ul > li h4 a {
-							color: #232324;
+							color: #616c5a;
+						}
+						
+						#articles-by-date > ul > li > ul > li h4 a:hover {
+							color: #8DA37F;
 						}
 						
 					/* Continue reading */
