@@ -58,6 +58,30 @@ h6 {
 		text-decoration: underline;
 	}
 
+
+
+$purple-boxy-heading {
+	background: #ba2de3;
+	color: #f7f7f9;
+	font: bold italic 16px Georgia, serif;
+	padding: 2px 5px;
+	float: left;
+}
+
+	$purple-boxy-heading a {
+		color: #f7f7f9;
+		text-decoration: none;
+	}
+
+		$purple-boxy-heading a:hover {
+			text-decoration: none;
+		}
+
+$purple-boxy-heading + * {
+	clear: left;
+	margin: 0;
+}
+
 h2 = $h2;
 $h2 {
 	font-size: 36px;

@@ -2,22 +2,7 @@
 
 }
 
-	#quick-about h2 {
-		background: #ba2de3;
-		font: bold italic 16px Georgia, serif;
-		padding: 2px 5px;
-		float: left;
-	}
-
-		#quick-about h2, 
-		#quick-about h2 a {
-			color: #f7f7f9;
-		}
-
-	#quick-about h2 + * {
-		clear: left;
-		margin: 0;
-	}
+	#secondary-content #quick-about h2 = $purple-boxy-heading;
 
 	#quick-about p img {
 		float: right;
