@@ -4,11 +4,11 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			if (!isset(Router::$params['year']) or !isset(Router::$params['month']) or !isset(Router::$params['day'])) {
+			if (!isset(aBlog_ArticleModule::$tplVars['article'])) {
 				return self::$tplFile = false;
 			}
 
-			$date = Router::$params['year'] . '-' . Router::$params['month'] . '-' . Router::$params['day'] . '';
+			$date = date('Y-m-d H:i:s', strtotime(aBlog_ArticleModule::$tplVars['article']['pub_date']));
 
 			self::$tplVars['previous_article']	= Articles::getPrevious($date);
 			self::$tplVars['next_article']		= Articles::getNext($date);
