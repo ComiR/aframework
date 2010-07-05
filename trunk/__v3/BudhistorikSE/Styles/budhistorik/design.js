@@ -2,7 +2,6 @@ BudhistorikStyle = {
 	run: function () {
 		this.clickableCTO();
 		this.scrollNavigation();
-		this.addIconCred();
 	}, 
 	
 	clickableCTO: function () {
@@ -32,10 +31,6 @@ BudhistorikStyle = {
 			
 			return false;
 		});
-	}, 
-	
-	addIconCred: function () {
-		$('<br/><small>Icons by <a href="http://dryicons.com">http://dryicons.com</a></small>').appendTo('#footer p');
 	}
 };
 
