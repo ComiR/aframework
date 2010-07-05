@@ -45,8 +45,11 @@
 		case 'ourfuture.eu' : 
 			define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
 			break;
+		case 'bh.a-framework.org' : 
+			define('SITE_HIERARCHY', 'BudhistorikSE aCMS aDynAdmin aFramework');
+			break;
 		default : 
-			define('SITE_HIERARCHY', 'aBugTracker aFramework');
+			define('SITE_HIERARCHY', 'BudhistorikSE aCMS aDynAdmin aFramework');
 			break;
 	}
 
