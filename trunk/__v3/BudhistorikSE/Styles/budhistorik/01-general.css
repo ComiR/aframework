@@ -20,6 +20,7 @@ h1, h2, h3, h4, h5, h6 {
 
 	font: 64px/1.2 Georgia, serif;
 	letter-spacing: 0;
+	color: #111;
 
 	-webkit-text-shadow: 1px 1px 2px rgba(40, 40, 40, 0.3);
 	text-shadow: 1px 1px 2px rgba(40, 40, 40, 0.3);
