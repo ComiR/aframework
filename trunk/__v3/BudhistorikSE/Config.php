@@ -7,9 +7,9 @@
 	Config::set('lang.allowed_langs',			'sv');
 	Config::set('lang.default_lang',			'sv');
 
-	Config::set('general.default_style',		'default');
+	Config::set('general.default_style',		'budhistorik');
 
-	Config::set('general.site_author',			'Erik Byström');
+	Config::set('general.site_author',			'Budhistorik.se');
 	Config::set('general.site_title',			'Budhistorik.se');
 	Config::set('general.site_tagline',			'Här blir det någon form av tagline');
 

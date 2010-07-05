@@ -13,63 +13,14 @@
 		margin: 30px -20px 0 0;
 		list-style: none;
 	}
-
+		
+		#quick-about > ul:last-child li = $cta-box;
 		#quick-about > ul:last-child li {
-			background: #fefefe;
 			float: left;
-			position: relative;
 			width: 98px;
 			margin: 0 20px 0 0;
-			padding: 20px 20px 20px 80px;
-			border: 1px solid #999;
-			-moz-border-radius: 4px;
-			-webkit-border-radius: 4px;
-			-o-border-radius: 4px;
-			border-radius: 4px;
-			-moz-box-shadow: 0 0 6px rgba(40, 40, 40, .5);
-			-webkit-box-shadow: 0 0 6px rgba(40, 40, 40, .5);
-			box-shadow: 0 0 6px rgba(40, 40, 40, .5);
 		}
 		
 		body.js-enabled #quick-about > ul:last-child li {
 			cursor: pointer;
 		}
-		
-		body.js-enabled #quick-about > ul:last-child li:hover {
-			background: #fff;
-			border-color: #06c;
-			-moz-box-shadow: 0 0 6px rgba(0, 90, 200, .5);
-			-webkit-box-shadow: 0 0 6px rgba(0, 90, 200, .5);
-			box-shadow: 0 0 6px rgba(0, 90, 200, .5);
-		}
-		
-			#quick-about > ul:last-child li h3 {
-				font: bold 18px/1.2 Arial, sans-serif;
-				margin: 0 0 5px;
-			}
-
-				#quick-about > ul:last-child li h3 a {
-					text-decoration: none;
-				}
-		
-				body.js-enabled #quick-about > ul:last-child li:hover a {
-					color: #06c;
-				}
-
-					#quick-about > ul:last-child li h3 a strong {
-						color: #06c;
-					}
-			
-			#quick-about > ul:last-child li p = $small;
-			#quick-about > ul:last-child li p {
-				margin: 0;
-				color: #999;
-			}
-			
-				#quick-about > ul:last-child li p img {
-					position: absolute;
-					left: 5px;
-					top: 12px;
-					float: none;
-					margin: 0;
-				}
