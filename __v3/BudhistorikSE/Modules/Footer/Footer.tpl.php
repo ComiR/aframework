@@ -1,0 +1,1 @@
+<p>Copyright &copy; 2010 Budhistorik.se.<br/><small>Icons by <a href="http://dryicons.com">dryicons.com</a>.</small></p>
