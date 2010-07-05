@@ -1,0 +1,209 @@
+body = $base-font;
+body {
+	background: #fefefe;
+
+	margin: 0;
+	padding: 0;
+}
+
+$base-font {
+	font: 14px/1.4 Arial, sans-serif;
+	color: #333;
+	letter-spacing: 0;
+
+	-webkit-text-shadow: 0;
+	text-shadow: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	margin: 15px 0 5px;
+
+	font: 64px/1.2 Georgia, serif;
+	letter-spacing: 0;
+
+	-webkit-text-shadow: 1px 1px 2px rgba(40, 40, 40, 0.3);
+	text-shadow: 1px 1px 2px rgba(40, 40, 40, 0.3);
+}
+
+	h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+		color: #111;
+		text-decoration: none;
+	}
+
+	h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover {
+		text-decoration: underline;
+	}
+
+h2 {
+	font-size: 42px;
+}
+
+h3 {
+	font-size: 36px;
+}
+
+h4 {
+	font-size: 32px;
+}
+
+h5 {
+	font-size: 28px;
+}
+
+h6 {
+	font-size: 24px;
+}
+
+p {
+	margin: 0 0 10px;
+}
+
+$first-p {
+	font-size: 140%;
+	font-style: italic;
+}
+
+ul, ol {
+	margin: 0 0 10px 30px;
+	padding: 0;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+	form label > strong {
+		color: #900;
+	}
+
+	form label > abbr {
+		border: 0;
+		color: #900;
+	}
+
+	label {
+		cursor: pointer;
+	}
+
+	input, 
+	select {
+		vertical-align: middle;
+	}
+
+	input[type="text"], 
+	textarea, 
+	input[type="password"] {
+		background: #f5f5f5;
+
+		margin: 5px 0 0 0;
+		padding: 4px;
+
+		color: #333;
+
+		border: 1px solid #fff;
+		border-top-color: #000;
+		border-left-color: #000;
+		border-right-color: #999;
+		border-bottom-color: #999;
+	}
+
+	input[type="text"]:focus, 
+	textarea:focus, 
+	input[type="password"]:focus {
+		
+	}
+
+	input[type="checkbox"], 
+	input[type="radio"] {
+		margin-right: 5px;
+	}
+
+	input[type="submit"] {
+		cursor: pointer;
+	}
+
+a = $underlined;
+
+a {
+	color: #06c;
+}
+
+	a img {
+		border: 0;
+	}
+
+$small {
+	font-size: 10px;
+	color: #333;
+	text-transform: uppercase;
+}
+
+	$small a {
+		color: #333;
+	}
+
+$nice-img {
+	border: 5px solid #fff;
+	border-width: 5px 5px 15px;
+
+	-webkit-box-shadow: 2px 2px 3px rgba(40, 40, 40, 0.3); 
+	-moz-box-shadow: 2px 2px 3px rgba(40, 40, 40, 0.3); 
+	box-shadow: 2px 2px 3px rgba(40, 40, 40, 0.3); 
+}
+
+$img-large {
+	width: 600px;
+	border-width: 15px 15px 30px;
+}
+
+small = $small;
+
+$white-box {
+	background: #fafafa;
+
+	padding: 15px;
+
+	-webkit-box-shadow: 2px 2px 3px rgba(40, 40, 40, 0.3);
+	-moz-box-shadow: 2px 2px 3px rgba(40, 40, 40, 0.3);
+	box-shadow: 2px 2px 3px rgba(40, 40, 40, 0.3);
+}
+
+$separated {	
+	margin-bottom: 15px;
+	padding-bottom: 15px;
+	border-bottom: 1px dotted #ccc;
+}
+
+$separated:last-child {
+	margin-bottom: 0;
+	padding-bottom: 0;
+	border-bottom: 0;
+}
+
+	$separated > *:first-child {
+		margin-top: 0;
+	}
+
+	$separated > *:last-child {
+		margin-bottom: 0;
+	}
+
+#wrapper {
+	position: relative;
+	width: 640px;
+	margin: 0 auto;
+	padding: 60px 0;
+}
+
+body > noscript = $a11y-hide;
+
+#primary-content > div {
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+
+.markItUpEditor {
+	width: 587px;
+	height: 220px;
+}

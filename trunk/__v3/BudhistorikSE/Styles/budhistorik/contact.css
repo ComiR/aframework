@@ -1,0 +1,49 @@
+#contact {
+	
+}
+
+	#contact h2 + p = $first-p;
+
+	#contact > p img {
+		float: right;
+		margin: -30px -15px 0 15px;
+	}
+
+	#contact form = $self-clear;
+	#contact form {
+		clear: both;
+	}
+	
+		#contact form p {
+			position: relative;
+		}
+	
+		#contact form p:first-child, 
+		#contact form p:first-child + p {
+			width: 40%;
+			margin-right: 10%;
+			float: left;
+		}
+		
+		#contact form p:first-child + p + p {
+			clear: left;
+		}
+		
+		#contact form p:first-child + p + p + p {
+			float: left;
+		}
+		
+		#contact form p:first-child + p + p + p + p {
+			float: right;
+		}
+		
+			#contact form p input[type=text] {
+				width: 95%;
+			}
+			
+			#contact form p img {
+				position: absolute;
+				right: -10px;
+				top: 15px;
+				z-index: 99;
+			}

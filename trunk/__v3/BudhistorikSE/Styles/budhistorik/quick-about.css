@@ -1,0 +1,52 @@
+#quick-about {
+}
+
+	#quick-about ul = $self-clear;
+	#quick-about ul {
+		margin: 0;
+		list-style: none;
+		position: fixed;
+		left: 10px;
+		top: 0;
+		z-index: 99;
+	}
+	
+		#quick-about ul li {
+			float: left;
+			margin: 0 5px 0 0;
+			border: 1px solid #333;
+			border-top: 0;
+			-moz-border-radius: 0 0 4px 4px;
+			-webkit-border-radius: 0 0 4px 4px;
+			border-radius: 0 0 4px 4px;
+			-moz-box-shadow: 1px 1px 2px rgba(40, 40, 40, .3);
+			-webkit-box-shadow: 1px 1px 2px rgba(40, 40, 40, .3);
+			box-shadow: 1px 1px 2px rgba(40, 40, 40, .3);
+		}
+		
+			#quick-about ul li a {
+				background: #111;
+				display: block;
+				padding: 5px 15px;
+				font: bold 10px/1.2 Arial, sans-serif;
+				text-transform: uppercase;
+				color: #eee;
+				text-decoration: none;
+				border: 1px solid #eee;
+				border-top: 0;
+				outline: 0;
+				-moz-border-radius: 0 0 4px 4px;
+				-webkit-border-radius: 0 0 4px 4px;
+				border-radius: 0 0 4px 4px;
+			}
+	
+			#quick-about ul li a.selected {
+				padding-top: 15px;
+			}
+	
+	#quick-about h2 + p = $first-p;
+	
+	#quick-about img {
+		float: right;
+		margin: 0 0 0 30px;
+	}
