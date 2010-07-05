@@ -22,7 +22,7 @@ body.admin #page {
 					
 				}
 
-				body.admin #page form > p label textarea {
+				body.admin #page form > p label textarea:not(.markItUpEditor) {
 					width: 90%;
 				}
 
