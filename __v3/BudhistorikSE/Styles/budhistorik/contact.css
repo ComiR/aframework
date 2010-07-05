@@ -4,6 +4,8 @@
 
 	#contact h2 + p = $first-p;
 
+	#contact > p img = $rotating-hover-img;
+	#contact:hover > p img = $rotating-hover-img-hover;
 	#contact > p img {
 		float: right;
 		margin: -30px -15px 0 15px;
