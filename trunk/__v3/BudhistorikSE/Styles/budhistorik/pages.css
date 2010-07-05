@@ -5,7 +5,36 @@
 
 /*	#home-page #page img = $rotating-hover-img;
 	#home-page #page:hover img = $rotating-hover-img-hover; */
-	#home-page #page img {
+	#home-page #page > p img {
 		float: right;
 		margin: -30px -80px 0 0;
 	}
+	
+	#home-page #page > ul:last-child {
+		text-align: center;
+		margin: 30px 0 0;
+		list-style: none;
+	}
+	
+		#home-page #page > ul:last-child li {
+			display: inline;
+			margin: 0 10px;
+		}
+		
+			#home-page #page > ul:last-child li img = $rotating-hover-img;
+			
+			#home-page #page > ul:last-child li:first-child img:hover, 
+			#home-page #page > ul:last-child li:first-child + li + li img:hover {
+				-moz-transform: rotate(-15deg);
+				-webkit-transform: rotate(-15deg);
+				-o-transform: rotate(-15deg);
+				transform: rotate(-15deg);
+			}
+			
+			#home-page #page > ul:last-child li:first-child + li img:hover, 
+			#home-page #page > ul:last-child li:first-child + li + li + li img:hover {
+				-moz-transform: rotate(15deg);
+				-webkit-transform: rotate(15deg);
+				-o-transform: rotate(15deg);
+				transform: rotate(15deg);
+			}
