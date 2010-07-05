@@ -5,7 +5,7 @@ BudhistorikStyle = {
 	}, 
 	
 	clickableCTO: function () {
-		$('#cto li').each(function () {
+		$('#page > ul:last-child li').each(function () {
 			$(this).click(function () {
 				window.location = $(this).find('a').attr('href');
 			});
@@ -13,7 +13,7 @@ BudhistorikStyle = {
 	}, 
 	
 	scrollNavigation: function () {
-		var ul = $('#quick-about ul').eq(0);
+		var ul = $('#in-page-navigation ul').eq(0);
 		
 		ul.find('a').eq(0).addClass('selected');
 		
@@ -34,4 +34,6 @@ BudhistorikStyle = {
 	}
 };
 
-BudhistorikStyle.run();
+$(function () {
+	BudhistorikStyle.run();
+});
