@@ -1,0 +1,49 @@
+#in-page-navigation {
+	position: fixed;
+	left: 10px;
+	top: 0;
+	z-index: 1;
+}
+
+body.su #in-page-navigation {
+	top: 11px;
+}
+
+	#in-page-navigation ul = $self-clear;
+	#in-page-navigation ul {
+		margin: 0;
+		list-style: none;
+	}
+
+		#in-page-navigation ul li {
+			float: left;
+			margin: 0 5px 0 0;
+			border: 1px solid #333;
+			border-top: 0;
+			-moz-border-radius: 0 0 4px 4px;
+			-webkit-border-radius: 0 0 4px 4px;
+			border-radius: 0 0 4px 4px;
+			-moz-box-shadow: 0 0 6px rgba(40, 40, 40, .5);
+			-webkit-box-shadow: 0 0 6px rgba(40, 40, 40, .5);
+			box-shadow: 0 0 6px rgba(40, 40, 40, .5);
+		}
+	
+			#in-page-navigation ul li a {
+				background: #111;
+				display: block;
+				padding: 5px 15px;
+				font: bold 10px/1.2 Arial, sans-serif;
+				text-transform: uppercase;
+				color: #eee;
+				text-decoration: none;
+				border: 1px solid #eee;
+				border-top: 0;
+				outline: 0;
+				-moz-border-radius: 0 0 4px 4px;
+				-webkit-border-radius: 0 0 4px 4px;
+				border-radius: 0 0 4px 4px;
+			}
+
+			#in-page-navigation ul li a.selected {
+				padding-top: 15px;
+			}

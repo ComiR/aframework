@@ -2,9 +2,9 @@
 <Base>
 	<Wrapper name="wrapper">
 		<Header/>
+		<InPageNavigation/>
 		<Wrapper name="primary-content">
 			<QuickAbout/>
-			<CTO/>
 			<Page/>
 			<Revisions/>
 			<Contact/>

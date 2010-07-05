@@ -7,6 +7,13 @@
 		margin: 0;
 		float: left;
 	}
+
+		#header h1 a {
+			background: url(gfx/logo.png) no-repeat left 50%;
+			display: block;
+			padding-left: 60px;
+			margin-left: -60px;
+		}
 	
 	#header p = $small;
 	#header p {

@@ -1,48 +1,5 @@
 #quick-about {
 }
-
-	#quick-about ul = $self-clear;
-	#quick-about ul {
-		margin: 0;
-		list-style: none;
-		position: fixed;
-		left: 10px;
-		top: 0;
-		z-index: 99;
-	}
-	
-		#quick-about ul li {
-			float: left;
-			margin: 0 5px 0 0;
-			border: 1px solid #333;
-			border-top: 0;
-			-moz-border-radius: 0 0 4px 4px;
-			-webkit-border-radius: 0 0 4px 4px;
-			border-radius: 0 0 4px 4px;
-			-moz-box-shadow: 1px 1px 2px rgba(40, 40, 40, .3);
-			-webkit-box-shadow: 1px 1px 2px rgba(40, 40, 40, .3);
-			box-shadow: 1px 1px 2px rgba(40, 40, 40, .3);
-		}
-		
-			#quick-about ul li a {
-				background: #111;
-				display: block;
-				padding: 5px 15px;
-				font: bold 10px/1.2 Arial, sans-serif;
-				text-transform: uppercase;
-				color: #eee;
-				text-decoration: none;
-				border: 1px solid #eee;
-				border-top: 0;
-				outline: 0;
-				-moz-border-radius: 0 0 4px 4px;
-				-webkit-border-radius: 0 0 4px 4px;
-				border-radius: 0 0 4px 4px;
-			}
-	
-			#quick-about ul li a.selected {
-				padding-top: 15px;
-			}
 	
 	#quick-about h2 + p = $first-p;
 	
@@ -50,3 +7,69 @@
 		float: right;
 		margin: 0 0 0 30px;
 	}
+	
+	#quick-about > ul:last-child = $self-clear;
+	#quick-about > ul:last-child {
+		margin: 30px -20px 0 0;
+		list-style: none;
+	}
+
+		#quick-about > ul:last-child li {
+			background: #fefefe;
+			float: left;
+			position: relative;
+			width: 98px;
+			margin: 0 20px 0 0;
+			padding: 20px 20px 20px 80px;
+			border: 1px solid #999;
+			-moz-border-radius: 4px;
+			-webkit-border-radius: 4px;
+			-o-border-radius: 4px;
+			border-radius: 4px;
+			-moz-box-shadow: 0 0 6px rgba(40, 40, 40, .5);
+			-webkit-box-shadow: 0 0 6px rgba(40, 40, 40, .5);
+			box-shadow: 0 0 6px rgba(40, 40, 40, .5);
+		}
+		
+		body.js-enabled #quick-about > ul:last-child li {
+			cursor: pointer;
+		}
+		
+		body.js-enabled #quick-about > ul:last-child li:hover {
+			background: #fff;
+			border-color: #06c;
+			-moz-box-shadow: 0 0 6px rgba(0, 90, 200, .5);
+			-webkit-box-shadow: 0 0 6px rgba(0, 90, 200, .5);
+			box-shadow: 0 0 6px rgba(0, 90, 200, .5);
+		}
+		
+			#quick-about > ul:last-child li h3 {
+				font: bold 18px/1.2 Arial, sans-serif;
+				margin: 0 0 5px;
+			}
+
+				#quick-about > ul:last-child li h3 a {
+					text-decoration: none;
+				}
+		
+				body.js-enabled #quick-about > ul:last-child li:hover a {
+					color: #06c;
+				}
+
+					#quick-about > ul:last-child li h3 a strong {
+						color: #06c;
+					}
+			
+			#quick-about > ul:last-child li p = $small;
+			#quick-about > ul:last-child li p {
+				margin: 0;
+				color: #999;
+			}
+			
+				#quick-about > ul:last-child li p img {
+					position: absolute;
+					left: 5px;
+					top: 12px;
+					float: none;
+					margin: 0;
+				}
