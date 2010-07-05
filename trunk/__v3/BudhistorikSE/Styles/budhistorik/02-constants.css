@@ -1,7 +1,21 @@
+$rotating-hover-img {
+	-moz-transition: all 0.3s ease-out;  /* FF3.7+ */
+	-o-transition: all 0.3s ease-out;  /* Opera 10.5 */
+	-webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+	transition: all 0.3s ease-out;
+}
+	
+$rotating-hover-img-hover {
+	-moz-transform: rotate(8deg);
+	-o-transform: rotate(8deg);
+	-webkit-transform: rotate(8deg);
+	transform: rotate(8deg);
+}
+
 $cta-box {
 	background: #fefefe;
-	background-image: -moz-linear-gradient(top, #f9f9f9, #fefefe);
-	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f9f9f9),color-stop(1, #fefefe));
+	background-image: -moz-linear-gradient(top, #fefefe, #f9f9f9);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #fefefe),color-stop(1, #f9f9f9));
 
 	position: relative;
 
@@ -20,8 +34,8 @@ $cta-box {
 
 $cta-box:hover {
 	background: #fff;
-	background-image: -moz-linear-gradient(top, #fefefe, #f9f9f9);
-	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #fefefe),color-stop(1, #f9f9f9));
+	background-image: -moz-linear-gradient(top, #f9f9f9, #fefefe);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, #f9f9f9),color-stop(1, #fefefe));
 
 	border-color: #06c;
 
@@ -58,6 +72,18 @@ $cta-box:hover {
 			position: absolute;
 			left: 5px;
 			top: 12px;
+
 			float: none;
 			margin: 0;
+			
+			-moz-transition: all 0.3s ease-out;  /* FF3.7+ */
+			-o-transition: all 0.3s ease-out;  /* Opera 10.5 */
+			-webkit-transition: all 0.3s ease-out;  /* Saf3.2+, Chrome */
+		}
+	
+		$cta-box:hover p img {
+			-moz-transform: rotate(15deg);
+			-o-transform: rotate(15deg);
+			-webkit-transform: rotate(15deg);
+			transform: rotate(15deg);
 		}
