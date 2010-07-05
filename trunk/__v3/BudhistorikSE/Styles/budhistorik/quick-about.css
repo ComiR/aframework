@@ -3,8 +3,8 @@
 	
 	#quick-about h2 + p = $first-p;
 	
-	#quick-about > p img = $rotating-hover-img;
-	#quick-about:hover > p img = $rotating-hover-img-hover;
+/*	#quick-about > p img = $rotating-hover-img;
+	#quick-about:hover > p img = $rotating-hover-img-hover; */
 	#quick-about > p img {
 		float: right;
 		margin: 0 0 0 30px;
