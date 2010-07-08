@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Base>
+	<Wrapper name="wrapper">
+		<Header/>
+		<Wrapper name="primary-content">
+			<UserLogin/>
+		</Wrapper>
+		<Footer/>
+	</Wrapper>
+</Base>
