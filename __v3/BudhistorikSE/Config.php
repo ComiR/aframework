@@ -1,8 +1,8 @@
 <?php
 	Config::set('db.user',						'root');
-	Config::set('db.pass',						'root');
+	Config::set('db.pass',						'tord');
 	Config::set('db.host',						'localhost');
-	Config::set('db.name',						'ante_budhistorik');
+	Config::set('db.name',						'budhistorik');
 
 	Config::set('lang.allowed_langs',			'sv');
 	Config::set('lang.default_lang',			'sv');
