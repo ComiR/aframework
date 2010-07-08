@@ -24,7 +24,7 @@
 		}
 
 		public static function showTheItems () {
-			$page		= isset($_GET['page']) ? $_GET['page'] : 0;
+			$page		= isset($_GET['page']) ? $_GET['page'] : 1;
 			$limit		= Config::get('adynadmin.num_items_per_page');
 			$start		= ($page - 1) * $limit;
 			$sort		= isset($_GET['sort']) ? $_GET['sort'] : 1;
