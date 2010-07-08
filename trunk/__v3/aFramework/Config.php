@@ -104,6 +104,11 @@
 													'title'			=> 'Password', 
 													'value'			=> '1234'
 												));
+	Config::set('admin.salt',					array(
+													'title'			=> 'MD5-Salt', 
+													'description'		=> 'A random string of characters used to "salt" your password', 
+													'value'			=> ''
+									));
 
 	# Super User
 	Config::set('su',							array(

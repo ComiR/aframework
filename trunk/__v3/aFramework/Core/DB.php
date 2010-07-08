@@ -18,7 +18,11 @@
 			'contact_persons', 
 			'sites', 
 			'site_reviews', 
-			'site_review_comments'
+			'site_review_comments', 
+			'users', 
+			'objects', 
+			'bids', 
+			'offices'
 		);
 
 		public static function connect () {
