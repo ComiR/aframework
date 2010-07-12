@@ -1,0 +1,13 @@
+#user-login {
+	
+}
+
+	#user-login img {
+		float: right;
+		margin: -30px -15px 0 15px;
+	}
+
+	#user-login label input {
+		width: 320px;
+		font-size: 150%;
+	}
