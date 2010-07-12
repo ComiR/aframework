@@ -3,8 +3,11 @@
 	<Wrapper name="wrapper">
 		<Header/>
 		<Navigation/>
+		<InPageNavigation/>
 		<Wrapper name="primary-content">
-			<UserLogin/>
+			<Office/>
+			<OfficeUsers/>
+			<OfficeObjects/>
 		</Wrapper>
 		<Footer/>
 	</Wrapper>

@@ -2,6 +2,7 @@
 <Base>
 	<Wrapper name="wrapper">
 		<Header/>
+		<Navigation/>
 		<InPageNavigation/>
 		<Wrapper name="primary-content">
 			<QuickAbout/>
