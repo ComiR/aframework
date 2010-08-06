@@ -3,11 +3,17 @@
 -- http://www.phpmyadmin.net
 --
 -- Värd: localhost
--- Skapad: 08 juli 2010 kl 22:59
+-- Skapad: 06 augusti 2010 kl 14:28
 -- Serverversion: 5.1.41
 -- PHP-version: 5.3.2-1ubuntu4.2
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
 
 --
 -- Databas: `budhistorik`
@@ -27,17 +33,20 @@ CREATE TABLE IF NOT EXISTS `bids` (
   `last_name` varchar(255) NOT NULL,
   `id_number` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
-  `bid` int(10) unsigned NOT NULL,
+  `amount` int(10) unsigned NOT NULL,
   `active` tinyint(4) NOT NULL,
   `pub_date` datetime NOT NULL,
   `ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`bids_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Data i tabell `bids`
 --
 
+INSERT INTO `bids` (`bids_id`, `users_id`, `objects_id`, `first_name`, `last_name`, `id_number`, `phone`, `amount`, `active`, `pub_date`, `ts`) VALUES
+(1, 1, 3, 'Pernilla', 'Gudrunson', '19570610-4582', '08-1874932', 1750000, 1, '2010-08-06 14:26:32', '2010-08-06 14:27:31'),
+(2, 2, 2, 'Joel', 'Andersson', '19780315-8956', '0920-648399', 1600000, 1, '2010-08-07 14:27:26', '2010-08-06 14:27:31');
 
 -- --------------------------------------------------------
 
@@ -60,12 +69,16 @@ CREATE TABLE IF NOT EXISTS `objects` (
   `url` varchar(255) NOT NULL,
   `ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`objects_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Data i tabell `objects`
 --
 
+INSERT INTO `objects` (`objects_id`, `users_id`, `address`, `postal_code`, `city`, `apartment_num`, `starting_price`, `start_date`, `end_date`, `sold`, `description`, `url`, `ts`) VALUES
+(1, 2, 'Kungsgatan 27', '11354', 'Stockholm', '6', 1000000, '2010-08-09 14:22:13', '2010-09-23 14:22:18', 0, 'Fin lägga vid bäcken som rinner genom byn', 'http:/claes.gorans.se/obj/34764', '2010-08-06 14:24:09'),
+(2, 2, 'Kungsgatan 63', '13354', 'Stockholm', '7', 1500000, '2010-08-19 14:23:32', '2010-10-11 14:23:37', 0, 'Lorem ipsum', 'http:/claes.gorans.se/obj/3285', '2010-08-06 14:24:09'),
+(3, 1, 'Ringvägen 13', '13472', 'Stockholm', '1952', 1250000, '2010-08-01 14:24:49', '2011-09-01 14:24:54', 0, 'Liten beskrivning', 'http://aftonhoran.se', '2010-08-06 14:25:24');
 
 -- --------------------------------------------------------
 
@@ -87,14 +100,15 @@ CREATE TABLE IF NOT EXISTS `offices` (
   `official_id` int(10) unsigned NOT NULL,
   `ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`offices_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
 -- Data i tabell `offices`
 --
 
 INSERT INTO `offices` (`offices_id`, `title`, `description`, `address`, `postal_code`, `city`, `phone`, `fax`, `email`, `website`, `official_id`, `ts`) VALUES
-(1, 'Erik Olsson', 'Lorem ipsum dolor sit amet. Consequeteur lipsumus dolirumus.', 'Blomgatan 12', '113 54', 'Stockholm', '08 545 321', '08 545 320', 'hej@erikolsson.se', 'http://erikolsson.se', 12, '2010-07-08 21:28:12');
+(1, 'Erik Olsson', 'Lorem ipsum dolor sit amet. Consequeteur lipsumus dolirumus.', 'Blomgatan 12', '113 54', 'Stockholm', '08 545 321', '08 545 320', 'hej@erikolsson.se', 'http://erikolsson.se', 12, '2010-07-08 21:28:12'),
+(2, 'Claes Görans', 'En liten beskrivning av firman', 'Ninjavägen 23', '98462', 'Tammerfors', '0624730528', '0624730528', 'info@claes.gorans.se', 'claes.gorans.se', 9306, '2010-08-06 14:18:48');
 
 -- --------------------------------------------------------
 
@@ -185,12 +199,13 @@ CREATE TABLE IF NOT EXISTS `users` (
   `offcial_id` int(10) unsigned NOT NULL,
   `ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`users_id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
 
 --
 -- Data i tabell `users`
 --
 
 INSERT INTO `users` (`users_id`, `offices_id`, `username`, `password`, `first_name`, `last_name`, `description`, `phone`, `email`, `city`, `offcial_id`, `ts`) VALUES
-(1, 1, 'erik', 'detloservi', 'Erik', 'Olsson', 'Han är king', '0702452232', 'erik@erikolsson.se', 'Stockholm', 45, '2010-07-08 22:27:10');
-
+(1, 1, 'erik', 'detloservi', 'Erik', 'Olsson', 'Han är king', '0702452232', 'erik@erikolsson.se', 'Stockholm', 45, '2010-07-08 22:27:10'),
+(2, 2, 'claes', 'claes', 'Claes', 'Ohlsson', 'Har två varningar', '0624730528', 'claes@claes.gorans.se', 'Tammerfors', 1235, '2010-08-06 14:21:06'),
+(3, 2, 'goran', 'goran', 'Göran', 'Ohlsson', '', '060-3486717', 'goran@claes.goran.se', 'Tammerfors', 1251, '2010-08-06 14:21:06');
