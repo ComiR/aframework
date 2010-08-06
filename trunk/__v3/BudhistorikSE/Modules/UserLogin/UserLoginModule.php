@@ -14,7 +14,7 @@
 							'users_id' => $user['users_id']
 						);
 
-						redirect(msg('Logged In', 'You were successfully logged in as admin.'));
+						redirect(Router::urlFor('UserObjectsAdmin') . msg('Logged In', 'You were successfully logged in.'));
 					}
 					else {
 						redirect(msg('Error Logging In', 'There was an error logging in. Please try again.', true));
@@ -27,6 +27,9 @@
 				setcookie(USER_SESSION, false, 0, WEBROOT);
 
 				redirectToReferrer(msg('Logged Out', 'You were successfully logged out.'));
+			}
+			if (USER) {
+				self::$tplFile = 'LoggedIn';
 			}
 		}
 	}

@@ -8,6 +8,10 @@
 	}
 
 	class Objects {
+		public static function getByUsersID ($id, $limit = 3) {
+			return self::get('start_date', 'DESC', 0, $limit, 'users_id = ' . escSQL($id));
+		}
+
 		public static function getByOfficesID ($id, $limit = 3) {
 			return self::get('start_date', 'DESC', 0, $limit, 'users_id = (SELECT users_id FROM users WHERE offices_id = ' . escSQL($id) . ' LIMIT 1)');
 		}

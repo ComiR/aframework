@@ -7,7 +7,14 @@
 			aFramework_NavigationModule::addItem('Mäklarkontor', Router::urlFor('Offices'));
 			aFramework_NavigationModule::addItem('Mäklare', Router::urlFor('Users'));
 			aFramework_NavigationModule::addItem('Objekt', Router::urlFor('Objects'));
-			aFramework_NavigationModule::addItem('Logga in', Router::urlFor('UserLogin'));
+
+			if (!USER) {
+				aFramework_NavigationModule::addItem('Logga in', Router::urlFor('UserLogin'));
+			}
+			else {
+				aFramework_NavigationModule::addItem('Mitt konto', Router::urlFor('UserObjectsAdmin'));
+				aFramework_NavigationModule::addItem('Logga ut', Router::urlFor('UserLogin') . '?logout');
+			}
 		}
 	}
 ?>
