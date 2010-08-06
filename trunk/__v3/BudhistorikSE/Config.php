@@ -9,7 +9,7 @@
 
 	Config::set('general.default_style',		'budhistorik');
 
-	Config::set('general.site_author',			'Budhistorik.se');
+	Config::set('general.site_author',			'Svensk Budcertifiering AB');
 	Config::set('general.site_title',			'Budhistorik.se');
 	Config::set('general.site_tagline',			'Här blir det någon form av tagline');
 
@@ -27,7 +27,4 @@
 
 	Config::set('navigation.home',				true);
 	Config::set('navigation.styles',			false);
-	Config::set('navigation.archives',			false);
-
-	Config::set('ablog.num_recent_comments',	3);
 ?>
