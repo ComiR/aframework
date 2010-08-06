@@ -1,5 +1,9 @@
 <?php
 	class Offices {
+		public static function getByUsersID ($id) {
+			return self::get('title', 'ASC', 0, 1, 'offices_id = (SELECT offices_id FROM users WHERE users_id = ' . escSQL($id) . ' LIMIT 1)');
+		}
+
 		public static function getById ($id) {
 			return self::get('title', 'ASC', 0, 1, 'offices_id = ' . escSQL($id));
 		}
