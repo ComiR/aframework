@@ -12,6 +12,10 @@
 			return self::get('first_name', 'ASC', 0, 1, 'username = "' . escSQL($username) . '" AND password = "' . escSQL($password) . '"');
 		}
 
+		public static function getById($id) {
+			return self::get('first_name', 'ASC', 0, INFINITY, 'users_id = ' . $id);
+		}
+
 		public static function get ($sort = 'first_name', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1') {
 			return DBRow::get('users', $sort, $order, $start, $limit, $where, $select);
 		}
