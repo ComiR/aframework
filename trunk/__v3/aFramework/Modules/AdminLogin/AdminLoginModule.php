@@ -9,20 +9,20 @@
 				if (isset($_POST['username']) and isset($_POST['password'])) {
 					if ($_POST['username'] == Config::get('admin.user') and $_POST['password'] == Config::get('admin.pass')) {
 						if (isset($_POST['remember_login'])) {
-							setcookie(ADMIN_SESSION, true, time()+60*60*24*365, WEBROOT);
+							setcookie(ADMIN_SESSION, md5(Config::get('admin.salt') . Config::get('admin.pass')), time()+60*60*24*365, WEBROOT);
 						}
 						else {
-							$_SESSION[ADMIN_SESSION] = true;
+							$_SESSION[ADMIN_SESSION] = md5(Config::get('admin.salt') . Config::get('admin.pass'));
 						}
 
 						redirect(msg('Logged In', 'You were successfully logged in as admin.'));
 					}
 					elseif ($_POST['username'] == Config::get('su.user') and $_POST['password'] == Config::get('su.pass')) {
 						if (isset($_POST['remember_login'])) {
-							setcookie(SU_SESSION, true, time()+60*60*24*365, WEBROOT);
+							setcookie(SU_SESSION, md5(Config::get('admin.salt') . Config::get('su.pass')), time()+60*60*24*365, WEBROOT);
 						}
 						else {
-							$_SESSION[SU_SESSION] = true;
+							$_SESSION[SU_SESSION] = md5(Config::get('admin.salt') . Config::get('su.pass'));
 						}
 
 						redirect(msg('Logged In', 'You were successfully logged in as SU.'));
