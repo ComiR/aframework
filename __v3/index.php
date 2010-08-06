@@ -115,6 +115,7 @@
 
 	define('SU',				(isset($_COOKIE[SU_SESSION]) and $_COOKIE[SU_SESSION] == $saltSUPassMD5) or (isset($_SESSION[SU_SESSION]) and $_SESSION[SU_SESSION] == $saltSUPassMD5));
 	define('ADMIN',				SU or (isset($_COOKIE[ADMIN_SESSION]) and $_COOKIE[ADMIN_SESSION] == $saltAdminPassMD5) or (isset($_SESSION[ADMIN_SESSION]) and $_SESSION[ADMIN_SESSION] == $saltAdminPassMD5));
+	define('USER',				isset($_SESSION[USER_SESSION]));
 
 	define('CONTROLLER_ADMIN',	ADMIN and (isset($_SESSION['controller_admin']) or isset($_GET['controller_admin'])) and !isset($_GET['no_controller_admin']));
 
@@ -127,7 +128,7 @@
 	DB::qry('SET NAMES "utf8"');
 
 	# Run the CacheManager and die right here if there's a valid cache
-	if (!count($_POST) and !ADMIN and ($cachedPage = CacheManager::run())) {
+	if (!count($_POST) and !ADMIN and !USER and ($cachedPage = CacheManager::run())) {
 		$cacheInfoHTML	= CacheManager::getInfoHTML();
 		$cachedPage		= str_replace('</body>', $cacheInfoHTML . '</body>', $cachedPage);
 
