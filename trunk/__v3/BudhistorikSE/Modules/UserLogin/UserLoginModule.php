@@ -7,7 +7,7 @@
 			# User is trying to log in
 			if (isset($_POST['user_login_submit'])) {
 				if (isset($_POST['username']) and isset($_POST['password'])) {
-					if (($user = Users::getByUsernamePassword($_POST['username'], $_POST['password']))) {
+					if (($user = Users::getByUsernamePassword($_POST['username'], md5(Config::get('admin.salt') . $_POST['password'])))) {
 						$_SESSION[USER_SESSION] = array(
 							'password' => md5(Config::get('admin.salt') . $user['password']), 
 							'username' => $user['username']
