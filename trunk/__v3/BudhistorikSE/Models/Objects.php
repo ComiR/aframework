@@ -8,6 +8,10 @@
 			return self::get($sort, $order, $start, $limit, 'sold != 0');
 		}
 
+		public static function getById ($id) {
+			return self::get("address", "ASC", 0, 1, "objects_id=".$id);
+		}
+
 		public static function get ($sort = 'address', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1') {
 			return DBRow::get('objects', $sort, $order, $start, $limit, $where, $select);
 		}
