@@ -81,15 +81,15 @@
 	# Misc
 	define('NAKED_DAY',			is_naked_day(9));
 	define('XHR',				isset($_SERVER['HTTP_X_REQUESTED_WITH']));
-	define('SU_SESSION',		'su');
-	define('ADMIN_SESSION',		'admin');
-	define('USER_SESSION',		'user');
-	define('SU',				isset($_COOKIE[SU_SESSION]) or isset($_SESSION[SU_SESSION]));
-	define('ADMIN',				SU or isset($_COOKIE[ADMIN_SESSION]) or isset($_SESSION[ADMIN_SESSION]));
-	define('CONTROLLER_ADMIN',	ADMIN and (isset($_SESSION['controller_admin']) or isset($_GET['controller_admin'])) and !isset($_GET['no_controller_admin']));
 	define('AUTO_HR',			false);
 	define('USE_MOD_REWRITE',	true);
 	define('INFINITY',			1000000000); # erm... for some SQL-query limits
+
+	define('SU_SESSION',		'su');
+	define('ADMIN_SESSION',		'admin');
+	define('USER_SESSION',		'user');
+
+	define('CONTROLLER_ADMIN',	ADMIN and (isset($_SESSION['controller_admin']) or isset($_GET['controller_admin'])) and !isset($_GET['no_controller_admin']));
 
 	# Register autoloader
 	spl_autoload_register('AutoLoader::load');
@@ -111,6 +111,12 @@
 	if (empty($allowedLangs)) {
 		Config::set('lang.allowed_langs', Config::get('lang.default_lang'));
 	}
+	
+	$saltSUPassMD5				= md5(Config::get('admin.salt') . Config::get('su.pass'));
+	$saltAdminPassMD5			= md5(Config::get('admin.salt') . Config::get('admin.pass'));
+
+	define('SU',				(isset($_COOKIE[SU_SESSION]) and $_COOKIE[SU_SESSION] == $saltSUPassMD5) or (isset($_SESSION[SU_SESSION]) and $_SESSION[SU_SESSION] == $saltSUPassMD5));
+	define('ADMIN',				SU or (isset($_COOKIE[ADMIN_SESSION]) and $_COOKIE[ADMIN_SESSION] == $saltAdminPassMD5) or (isset($_SESSION[ADMIN_SESSION]) and $_SESSION[ADMIN_SESSION] == $saltAdminPassMD5));
 
 	# Set correct lang based on URI (/ => default, /sv/ => swedish, /fo/ => faroese etc..)
 	# Needs to run _after_ config but before DB:connect so it knows which langs are allowed/default etc...
