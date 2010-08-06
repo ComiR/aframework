@@ -89,8 +89,6 @@
 	define('ADMIN_SESSION',		'admin');
 	define('USER_SESSION',		'user');
 
-	define('CONTROLLER_ADMIN',	ADMIN and (isset($_SESSION['controller_admin']) or isset($_GET['controller_admin'])) and !isset($_GET['no_controller_admin']));
-
 	# Register autoloader
 	spl_autoload_register('AutoLoader::load');
 
@@ -117,6 +115,8 @@
 
 	define('SU',				(isset($_COOKIE[SU_SESSION]) and $_COOKIE[SU_SESSION] == $saltSUPassMD5) or (isset($_SESSION[SU_SESSION]) and $_SESSION[SU_SESSION] == $saltSUPassMD5));
 	define('ADMIN',				SU or (isset($_COOKIE[ADMIN_SESSION]) and $_COOKIE[ADMIN_SESSION] == $saltAdminPassMD5) or (isset($_SESSION[ADMIN_SESSION]) and $_SESSION[ADMIN_SESSION] == $saltAdminPassMD5));
+
+	define('CONTROLLER_ADMIN',	ADMIN and (isset($_SESSION['controller_admin']) or isset($_GET['controller_admin'])) and !isset($_GET['no_controller_admin']));
 
 	# Set correct lang based on URI (/ => default, /sv/ => swedish, /fo/ => faroese etc..)
 	# Needs to run _after_ config but before DB:connect so it knows which langs are allowed/default etc...
