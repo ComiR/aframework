@@ -3,7 +3,7 @@
 <?php echo NiceString::makeNice($office['description'], 3, false, 150); ?>
 
 <dl>
-	<dt>Adress:</dt>
+	<dt>Postadress:</dt>
 	<dd><?php echo escHTML($office['address']);?></dd>
 	<dd><?php echo escHTML($office['postal_code']) . ' ' . escHTML($office['city']); ?></dd>
 
@@ -21,3 +21,5 @@
 		<dd><?php echo $office['fax']; ?></dd>
 	<?php } ?>
 </dl>
+
+<a href="http://klara.maklarsamfundet.se/pubweb/searchbroker/sok_maklare_office.aspx?OfficeID=<?php echo $office['official_id']; ?>">Till Mäklarsamfundet</a>
