@@ -8,6 +8,10 @@
 	}
 
 	class Objects {
+		public static function getByOfficesID ($id, $limit = 3) {
+			return self::get('start_date', 'DESC', 0, $limit, 'users_id = (SELECT users_id FROM users WHERE offices_id = ' . escSQL($id) . ' LIMIT 1)');
+		}
+
 		public static function getNotEnded ($sort = 'start_date', $order = 'ASC', $start = 0, $limit = INFINITY) {
 			return self::get($sort, $order, $start, $limit, 'end_date > NOW() OR ISNULL(end_date)');
 		}
@@ -16,8 +20,8 @@
 			return self::get($sort, $order, $start, $limit, 'sold != 0');
 		}
 
-		public static function getById ($id) {
-			return self::get("address", "ASC", 0, 1, "objects_id=" . escSQL($id));
+		public static function getByID ($id) {
+			return self::get('address', "ASC", 0, 1, "objects_id=" . escSQL($id));
 		}
 
 		public static function get ($sort = 'address', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1') {
