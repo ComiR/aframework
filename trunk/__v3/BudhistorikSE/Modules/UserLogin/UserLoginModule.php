@@ -10,7 +10,8 @@
 					if (($user = Users::getByUsernamePassword($_POST['username'], md5(Config::get('admin.salt') . $_POST['password'])))) {
 						$_SESSION[USER_SESSION] = array(
 							'password' => md5(Config::get('admin.salt') . $user['password']), 
-							'username' => $user['username']
+							'username' => $user['username'], 
+							'users_id' => $user['users_id']
 						);
 
 						redirect(msg('Logged In', 'You were successfully logged in as admin.'));
