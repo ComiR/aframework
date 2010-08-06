@@ -196,7 +196,7 @@ CREATE TABLE IF NOT EXISTS `users` (
   `phone` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
   `city` varchar(255) NOT NULL,
-  `offcial_id` int(10) unsigned NOT NULL,
+  `official_id` int(10) unsigned NOT NULL,
   `ts` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`users_id`)
 ) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=4 ;
@@ -205,7 +205,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 -- Data i tabell `users`
 --
 
-INSERT INTO `users` (`users_id`, `offices_id`, `username`, `password`, `first_name`, `last_name`, `description`, `phone`, `email`, `city`, `offcial_id`, `ts`) VALUES
+INSERT INTO `users` (`users_id`, `offices_id`, `username`, `password`, `first_name`, `last_name`, `description`, `phone`, `email`, `city`, `official_id`, `ts`) VALUES
 (1, 1, 'erik', 'detloservi', 'Erik', 'Olsson', 'Han är king', '0702452232', 'erik@erikolsson.se', 'Stockholm', 45, '2010-07-08 22:27:10'),
 (2, 2, 'claes', 'claes', 'Claes', 'Ohlsson', 'Har två varningar', '0624730528', 'claes@claes.gorans.se', 'Tammerfors', 1235, '2010-08-06 14:21:06'),
 (3, 2, 'goran', 'goran', 'Göran', 'Ohlsson', '', '060-3486717', 'goran@claes.goran.se', 'Tammerfors', 1251, '2010-08-06 14:21:06');
