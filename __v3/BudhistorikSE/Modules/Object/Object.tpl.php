@@ -10,6 +10,20 @@
 
 		<?php echo NiceString::makeNice($object['description'], 4, false, 150); ?>
 
-		<p><a href="<?php echo Router::urlFor('Object', $object); ?>">Läs mer &raquo;</a></p>
+		<dl>
+			<dt>Adress:</dt>
+			<dd><?php echo Object::address($object); ?></dd>
+
+			<dt>Utgångspris:</dt>
+			<dd><?php echo escHTML($object['starting_price']); ?> kr</dd>
+
+			<dt>Budgivningsstart:</dt>
+			<dd><?php echo $object['start_date']; ?></dd>
+
+			<?php if ($object['sold']) {?>
+				<dt>Budgivning avslutad:</dt>
+				<dd><?php echo $object['end_date']; ?></dd>
+			<?php } ?>
+		</dl>
 	</li>
 </ul>

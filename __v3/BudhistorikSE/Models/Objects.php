@@ -1,4 +1,12 @@
 <?php
+	class Object {
+		public static function address($object) {
+			$num = escHTML($object['apartment_num']);
+			$apartment = empty($num) ? '' : ('lgh ' . $num . ', ');
+			return	escHTML($object['address']) . ', ' . $apartment . escHTML($object['postal_code']) . ' ' . escHTML($object['city']);
+		}
+	}
+
 	class Objects {
 		public static function getNotEnded ($sort = 'start_date', $order = 'ASC', $start = 0, $limit = INFINITY) {
 			return self::get($sort, $order, $start, $limit, 'end_date > NOW() OR ISNULL(end_date)');
