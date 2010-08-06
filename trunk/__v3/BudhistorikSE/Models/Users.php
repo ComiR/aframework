@@ -1,7 +1,11 @@
 <?php
 	class Users {
+		public static function getByOfficesID ($id) {
+			return self::get('first_name', 'ASC', 0, INFINITY, 'offices_id = ' . escSQL($id));
+		}
+
 		public static function getByObjectsID ($id) {
-			return self::get('first_name', 'ASC', 0, 1, 'users_id = (SELECT users_id FROM objects WHERE objects_id = ' . escSQL($id) . ')');
+			return self::get('first_name', 'ASC', 0, 1, 'users_id = (SELECT users_id FROM objects WHERE objects_id = ' . escSQL($id) . ' LIMIT 1)');
 		}
 
 		public static function getByUsernamePassword ($username, $password) {
