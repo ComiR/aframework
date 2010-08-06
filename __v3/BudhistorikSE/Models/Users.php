@@ -1,5 +1,9 @@
 <?php
 	class Users {
+		public static function getByObjectsID ($id) {
+			return self::get('first_name', 'ASC', 0, 1, 'users_id = (SELECT users_id FROM objects WHERE objects_id = ' . escSQL($id) . ')');
+		}
+
 		public static function getByUsernamePassword ($username, $password) {
 			return self::get('first_name', 'ASC', 0, 1, 'username = "' . escSQL($username) . '" AND password = "' . escSQL($password) . '"');
 		}
