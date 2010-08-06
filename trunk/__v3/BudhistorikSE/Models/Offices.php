@@ -1,5 +1,9 @@
 <?php
 	class Offices {
+		public static function getById ($id) {
+			return self::get('title', 'ASC', 0, 1, 'offices_id = ' . escSQL($id));
+		}
+
 		public static function get ($sort = 'title', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1') {
 			return DBRow::get('offices', $sort, $order, $start, $limit, $where, $select);
 		}

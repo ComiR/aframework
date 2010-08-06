@@ -17,7 +17,7 @@
 		}
 
 		public static function getById ($id) {
-			return self::get("address", "ASC", 0, 1, "objects_id=".$id);
+			return self::get("address", "ASC", 0, 1, "objects_id=" . escSQL($id));
 		}
 
 		public static function get ($sort = 'address', $order = 'ASC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1') {
