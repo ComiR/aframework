@@ -4,7 +4,6 @@
 		<Header/>
 		<Navigation/>
 		<Wrapper name="primary-content">
-			<IntroText/>
 			<UserObjectAdmin/>
 		</Wrapper>
 		<Footer/>

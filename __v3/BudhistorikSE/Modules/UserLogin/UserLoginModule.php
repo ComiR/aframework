@@ -26,7 +26,7 @@
 				unset($_SESSION[USER_SESSION]);
 				setcookie(USER_SESSION, false, 0, WEBROOT);
 
-				redirectToReferrer(msg('Logged Out', 'You were successfully logged out.'));
+				redirect(msg('Logged Out', 'You were successfully logged out.'));
 			}
 			if (USER) {
 				self::$tplFile = 'LoggedIn';

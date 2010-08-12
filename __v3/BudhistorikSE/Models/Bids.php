@@ -1,5 +1,9 @@
 <?php
 	class Bids {
+		public static function getByID ($id) {
+			return self::get('pub_date', 'DESC', 0, 1, 'bids_id = ' . escSQL($id));
+		}
+
 		public static function getByObjectsID ($id) {
 			return self::get('pub_date', 'ASC', 0, INFINITY, 'objects_id = ' . escSQL($id));
 		}
@@ -17,7 +21,7 @@
 				'id_number'		=> $row['id_number'], 
 				'phone'			=> $row['phone'], 
 				'amount'		=> $row['amount'], 
-				'active'		=> $row['active'] ? 1 : 0,
+				'active'		=> (!isset($row['active']) or $row['active']) ? 1 : 0,
 				'pub_date'		=> (isset($row['pub_date']) and strlen($row['pub_date'])) ? $row['pub_date'] : date('Y-m-d H:i:s')
 			);
 
