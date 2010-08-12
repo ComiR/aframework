@@ -5,7 +5,7 @@ BudhistorikStyle = {
 	}, 
 	
 	clickableCTO: function () {
-		$('#page > ul:last-child li').each(function () {
+		$('#quick-about > ul:last-child li').each(function () {
 			$(this).click(function () {
 				window.location = $(this).find('a').attr('href');
 			});

@@ -5,13 +5,13 @@
 		<?php foreach ($bids as $bid) { ?>
 			<li>
 				<?php echo number_format($bid['amount'], 0, ',', ' '); ?> SEK 
-				<small><?php echo date(Config::get('general.date_format'), strtotime($bid['pub_date'])); ?></small> 
+				<small><?php echo date(Config::get('general.date_format'), strtotime($bid['pub_date'])); ?></small>
 				<?php if (!$bid['active']) { ?>
-					<strong>Tillbakadragen</strong>
+					 <strong>Tillbakadragen</strong>
 				<?php } ?>
 			</li>
 		<?php } ?>
 	</ol>
 <?php } else { ?>
-	<p>Inga bud!</p>
+	<p>Inga bud.</p>
 <?php } ?>
