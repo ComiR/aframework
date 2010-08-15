@@ -1,6 +1,6 @@
 <?php
 	Config::set('db.user',						'root');
-	Config::set('db.pass',						'root');
+	Config::set('db.pass',						'tord');
 	Config::set('db.host',						'localhost');
 	Config::set('db.name',						'budhistorik');
 
@@ -27,4 +27,5 @@
 
 	Config::set('navigation.home',				true);
 	Config::set('navigation.styles',			false);
+
 ?>

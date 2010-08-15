@@ -5,7 +5,7 @@
 		}
 
 		public static function getByObjectsID ($id) {
-			return self::get('pub_date', 'ASC', 0, INFINITY, 'objects_id = ' . escSQL($id));
+			return self::get('pub_date', 'DESC', 0, INFINITY, 'objects_id = ' . escSQL($id));
 		}
 
 		public static function get ($sort = 'amount', $order = 'DESC', $start = 0, $limit = INFINITY, $where = '1 = 1', $select = '1') {

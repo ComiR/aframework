@@ -8,6 +8,7 @@
 	<tr>
 		<th>ID</th>
 		<th>Adress</th>
+		<th>Högsta bud</th>
 		<th>Bud</th>
 		<th>Såld</th>
 		<th>Redigera</th>
@@ -23,8 +24,19 @@
 				</a>
 			</td>
 			<td>
+				<?php 
+					$bid = $bids[$object['objects_id']]; 
+					if (!$bid) {
+						echo "Inga bud";
+					} else {
+						echo number_format($bid['amount'], 0, ',', ' ') . ' SEK<br/>';
+						echo '<small>'.$bid['first_name'] . ' ' . $bid['last_name'].'</small>';
+					}
+				?>
+			</td>
+			<td>
 				<a href="<?php echo Router::urlFor('UserObjectAdmin', $object); ?>#object-bids-admin">
-					Lägg till ett bud
+					Registrera nytt bud
 				</a>
 			</td>
 			<td>
