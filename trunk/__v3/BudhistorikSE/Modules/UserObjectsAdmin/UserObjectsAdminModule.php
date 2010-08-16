@@ -8,18 +8,13 @@
 				FourOFour::run();
 			}
 
-			self::$tplVars['objects'] = Objects::getByUsersID($_SESSION[USER_SESSION]['users_id']);
+			# Grab all the user's objects
+			$objects = Objects::getByUsersID($_SESSION[USER_SESSION]['users_id']);
 
-			foreach(self::$tplVars['objects'] as $object) {
-				$id = $object['objects_id'];
-				$bestBid = false;
-				foreach(Bids::getByObjectsId($id) as $bid) {
-					if ($bid['active'] == 1) {
-						$bestBid = $bid;
-						break;
-					}
-				}
-				self::$tplVars['bids'][$id] = $bestBid;
+			# And their highest bids
+			foreach ($objects as $object) {
+				$object['highest_bid']		= Bids::getHighestBidByObjectsID($object['objects_id']);
+				self::$tplVars['objects'][]	= $object;
 			}
 
 			# Mark an object as sold/not sold

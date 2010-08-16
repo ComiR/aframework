@@ -25,12 +25,12 @@
 			</td>
 			<td>
 				<?php 
-					$bid = $bids[$object['objects_id']]; 
-					if (!$bid) {
+					if (!$object['highest_bid']) {
 						echo "Inga bud";
-					} else {
-						echo number_format($bid['amount'], 0, ',', ' ') . ' SEK<br/>';
-						echo '<small>'.$bid['first_name'] . ' ' . $bid['last_name'].'</small>';
+					}
+					else {
+						echo number_format($object['highest_bid']['amount'], 0, ',', ' ') . ' SEK<br/>';
+						echo $object['highest_bid']['first_name'] . ' ' . $object['highest_bid']['last_name'];
 					}
 				?>
 			</td>
@@ -44,7 +44,7 @@
 					<p>
 						<input type="hidden" name="objects_id" value="<?php echo $object['objects_id']; ?>"/>
 						<input type="hidden" name="toggle_sold" value="1"/>
-						<input type="submit" value="<?php echo $object['sold'] ? 'Markera som osåld' : 'Markera som såld'; ?>"/>
+						<input type="submit" value="<?php echo $object['sold'] ? 'Osåld' : 'Såld'; ?>"/>
 					</p>
 				</form>
 			</td>

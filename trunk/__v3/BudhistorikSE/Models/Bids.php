@@ -4,6 +4,10 @@
 			return self::get('pub_date', 'DESC', 0, 1, 'bids_id = ' . escSQL($id));
 		}
 
+		public static function getHighestBidByObjectsID ($id) {
+			return self::get('amount', 'DESC', 0, 1, 'objects_id = ' . escSQL($id));
+		}
+
 		public static function getByObjectsID ($id) {
 			return self::get('pub_date', 'DESC', 0, INFINITY, 'objects_id = ' . escSQL($id));
 		}
