@@ -1,7 +1,5 @@
 <h2><?php echo Lang::get('Please Sign In'); ?></h2>
 
-
-
 <p><img src="<?php echo Router::urlForFile('decorative/lock.png'); ?>" alt=""/> Ange ditt användarnamn och lösenord för att logga in.</p>
 
 <form method="post" action="">

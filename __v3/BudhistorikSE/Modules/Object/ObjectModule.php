@@ -4,8 +4,7 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			$id = Router::$params['objects_id'];
-			self::$tplVars['object'] = Objects::getById($id);
+			self::$tplVars['object'] = Objects::getById(Router::$params['objects_id']);
 		}
 	}
 ?>
