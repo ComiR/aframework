@@ -2,7 +2,7 @@
 	Config::set('db.user',						'root');
 	Config::set('db.pass',						'');
 	Config::set('db.host',						'localhost');
-	Config::set('db.name',						'budhistorik_se');
+	Config::set('db.name',						'budhistorik');
 
 	Config::set('general.default_style',				'budhistorik');
 	Config::set('general.site_author',				'Erik Byström');
