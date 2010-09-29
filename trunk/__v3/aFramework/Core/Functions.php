@@ -248,4 +248,19 @@
 		
 		return $str;
 	}
+
+	# Extracts key/value pairs from $str
+	function extractKeyValArray ($str) {
+		$regexp		= '/@(.*?) ([^@]*)/is';
+		$data		= array();
+		$i			= 0;
+
+		preg_match_all($regexp, $str, $matches);
+
+		foreach ($matches[1] as $property) {
+			$data[$property] = trim($matches[2][$i++]);
+		}
+
+		return $data;
+	}
 ?>
