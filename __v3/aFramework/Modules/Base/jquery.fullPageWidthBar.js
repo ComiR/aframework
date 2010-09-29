@@ -1,4 +1,4 @@
-/***
+/*
 @title:
 Full Page width Bar
 
@@ -36,7 +36,7 @@ jQuery('#header, #footer').fullPageWidthBar();
 
 @exampleJS:
 jQuery('#jquery-full-page-width-bar-example div').fullPageWidthBar();
-***/
+*/
 jQuery.fn.fullPageWidthBar = function (config) {
 	var conf = $.extend({
 		wrapper:	'#wrapper'
