@@ -13,7 +13,7 @@
 	}
 
 		#gallery ol li {
-			float: left;
+			display: inline-block;
 			position: relative;
 			margin: 0 60px 10px 0;
 			width: 110px;
