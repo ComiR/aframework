@@ -1,0 +1,115 @@
+#page = $self-clear;
+#page {
+	margin: 0 0 30px;
+
+	_zoom: 1;
+}
+
+	#page h2 {
+		color: #099;
+		margin: 0 0 20px;
+	}
+
+	#page img.right {
+		float: right;
+		margin: 0 0 15px 15px;
+	}
+
+	#page img.left {
+		float: left;
+		margin: 0 15px 15px 0;
+	}
+
+	/* Two column page (first col) */
+	#page div.primary {
+		background: url(gfx/faded-border.gif) no-repeat right top;
+		width: 440px;
+		padding-right: 40px;
+		float: left;
+	}
+
+	/* ..second */
+	#page div.secondary {
+		width: 190px;
+		float: right;
+		font-size: 12px;
+	}
+
+		#page div.secondary h3 {
+			color: #099;
+			margin-top: 0;
+		}
+
+	/* Intro box with image */
+	#page div.intro = $intro-box;
+	#page div.intro {
+		background-image: url(gfx/page-intro-box-bg-1.jpg);
+		height: 160px;
+		padding: 90px 30px 0;
+	}
+
+	#page div.intro-1 {
+		background-image: url(gfx/page-intro-box-bg-1.jpg);
+	}
+
+	#page div.intro-2 {
+		background-image: url(gfx/page-intro-box-bg-2.jpg);
+	}
+
+	#page div.intro-3 {
+		background-image: url(gfx/page-intro-box-bg-3.jpg);
+	}
+
+	#page div.intro-4 {
+		background-image: url(gfx/page-intro-box-bg-4.jpg);
+	}
+
+	#page div.intro-5 {
+		background-image: url(gfx/page-intro-box-bg-5.jpg);
+	}
+
+	#page div.intro-large-1 {
+		background-image: url(gfx/page-intro-box-bg-large-1.jpg);
+		height: 260px;
+	}
+
+	#page div.intro-large-2 {
+		background-image: url(gfx/page-intro-box-bg-large-2.jpg);
+		height: 260px;
+	}
+
+	#page div.intro-large-3 {
+		background-image: url(gfx/page-intro-box-bg-large-3.jpg);
+		height: 260px;
+	}
+
+	#page div.intro-large-4 {
+		background-image: url(gfx/page-intro-box-bg-large-4.jpg);
+		height: 260px;
+	}
+
+	#page div.intro-large-5 {
+		background-image: url(gfx/page-intro-box-bg-large-5.jpg);
+		height: 260px;
+	}
+
+		#page div.intro h2 {
+			font-size: 30px;
+		}
+
+		#page div.intro p.h2p {
+			font-size: 16px;
+		}
+
+	/* Content border box */
+	#page div.content = $medium-border-box;
+	#page div.content {
+		margin-bottom: 0;
+	}
+
+		#page div.content h2 = $medium-border-box-head;
+
+		#page div.content .last-child, 
+		#page div.content > *:last-child {
+			margin-bottom: 0;
+		}

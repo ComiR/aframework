@@ -1,0 +1,16 @@
+#faq-categories {
+	
+}
+
+	#faq-categories ul {
+		margin-left: 10px;
+		list-style: none;
+	}
+
+		#faq-categories ul li {
+			margin: 0 0 5px;
+		}
+
+			#faq-categories ul li a {
+				color: #333;
+			}

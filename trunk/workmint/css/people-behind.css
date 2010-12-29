@@ -1,0 +1,23 @@
+body.page-peoplebehindworkmint #page ul, 
+body.page-pressreleases #page ul {
+	margin: 0;
+	list-style: none;
+}
+
+	body.page-peoplebehindworkmint #page ul li, 
+	body.page-pressreleases #page ul li {
+		position: relative;
+		min-height: 240px;
+		_height: 240px;
+		padding-left: 200px;
+		margin: 0 0 30px;
+	}
+
+		body.page-peoplebehindworkmint #page ul li img, 
+		body.page-pressreleases #page ul li img {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 180px;
+			height: 235px;
+		}

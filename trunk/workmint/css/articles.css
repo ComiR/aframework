@@ -1,0 +1,24 @@
+#articles {
+	
+}
+
+	#articles h2 {
+		margin: 0 0 15px;
+		font-size: 26px;
+		color: #099;
+	}
+
+	#articles ul {
+		margin: 0;
+		list-style: none;
+	}
+
+		#articles ul li = $medium-border-box;
+		#articles ul li {
+			
+		}
+
+			#articles ul li h3 = $medium-border-box-head;
+			#articles ul li h3 {
+				margin-bottom: 0;
+			}

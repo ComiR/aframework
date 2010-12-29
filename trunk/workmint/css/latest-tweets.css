@@ -1,0 +1,12 @@
+#latest-tweets = $fancy-list;
+
+	#latest-tweets i {
+		color: #099;
+		font-style: normal;
+		display: none;
+	}
+
+	#latest-tweets p {
+		padding: 7px 8px;
+		line-height: 1;
+	}

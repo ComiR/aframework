@@ -1,0 +1,115 @@
+#page-navigation {
+	margin: 0 0 20px;
+}
+
+	#page-navigation ul {
+		margin: 0;
+		list-style: none;
+
+		_height: 1%;
+	}
+
+		#page-navigation ul li {
+			margin: 2px 0;
+
+			_height: 1%;
+		}
+
+			/* Normal, first level items */
+			#page-navigation ul li a = $tiny-rounded-box;
+			#page-navigation ul li a {
+				color: #333;
+
+				_height: 1%;
+				_cursor: pointer;
+			}
+
+				#page-navigation ul li a span = $tiny-rounded-box-inner;
+				#page-navigation ul li a span {
+					_height: 1%;
+				}
+
+			/* Hovered/selected, first level items */
+			#page-navigation ul li a:hover = $tiny-rounded-box-hover;
+			#page-navigation ul li.current_page_item a = $tiny-rounded-box-hover;
+
+			#page-navigation ul li a:hover, 
+			#page-navigation ul li.current_page_item a {
+				color: #fff;
+			}
+
+				#page-navigation ul li a:hover span = $tiny-rounded-box-inner-hover;
+				#page-navigation ul li.current_page_item a span = $tiny-rounded-box-inner-hover;
+
+			/* Normal, second level items */
+			#page-navigation ul li ul li {
+			}
+
+			#page-navigation ul li ul li.last-child {
+				_margin-bottom: 0;
+			}
+
+				#page-navigation ul li ul li a = $tiny-rounded-box;
+				#page-navigation ul li.current_page_item ul li a, 
+				#page-navigation ul li.current_page_ancestor ul li a {
+					color: #333;
+				}
+
+					#page-navigation ul li ul li a span = $tiny-rounded-box-inner;
+					#page-navigation ul li.current_page_item ul li a span, 
+					#page-navigation ul li.current_page_ancestor ul li a span {
+						font-weight: normal;
+					}
+
+				/*	#page-navigation ul li ul li a span::before {
+						content: "- ";
+					} */
+
+				/* Hovered/selected, second level items */
+				#page-navigation ul li ul li a:hover = $tiny-rounded-box-hover-alt;
+				#page-navigation ul li.current_page_item ul li a:hover = $tiny-rounded-box-hover-alt;
+				#page-navigation ul li.current_page_ancestor ul li a:hover = $tiny-rounded-box-hover-alt;
+				#page-navigation ul li ul li.current_page_item a = $tiny-rounded-box-hover-alt;
+				#page-navigation ul li.current_page_item ul li.current_page_item a = $tiny-rounded-box-hover-alt;
+				#page-navigation ul li.current_page_ancestor ul li.current_page_item a = $tiny-rounded-box-hover-alt;
+
+				#page-navigation ul li ul li a:hover, 
+				#page-navigation ul li.current_page_item ul li a:hover, 
+				#page-navigation ul li.current_page_ancestor ul li a:hover, 
+				#page-navigation ul li ul li.current_page_item a, 
+				#page-navigation ul li.current_page_item ul li.current_page_item a, 
+				#page-navigation ul li.current_page_ancestor ul li.current_page_item a {
+					color: #fff;
+				}
+
+					#page-navigation ul li ul li a:hover span = $tiny-rounded-box-inner-hover-alt;
+					#page-navigation ul li.current_page_item ul li a:hover span = $tiny-rounded-box-inner-hover-alt;
+					#page-navigation ul li.current_page_ancestor ul li a:hover span = $tiny-rounded-box-inner-hover-alt;
+					#page-navigation ul li ul li.current_page_item a span = $tiny-rounded-box-inner-hover-alt;
+					#page-navigation ul li.current_page_item ul li.current_page_item a span = $tiny-rounded-box-inner-hover-alt;
+					#page-navigation ul li.current_page_ancestor ul li.current_page_item a span = $tiny-rounded-box-inner-hover-alt;
+
+				/* Override first-level hover styling on second level items */
+				#page-navigation ul li.current_page_item ul li a = $tiny-rounded-box;
+				#page-navigation ul li.current_page_ancestor ul li a = $tiny-rounded-box;
+
+					#page-navigation ul li.current_page_item ul li a span = $tiny-rounded-box-inner;
+					#page-navigation ul li.current_page_ancestor ul li a span = $tiny-rounded-box-inner;
+
+	/* Faq info */
+	#page-navigation p = $tiny-rounded-box;
+	#page-navigation p {
+		
+	}
+
+		#page-navigation p span.inner = $tiny-rounded-box-inner;
+		#page-navigation p span.inner {
+			color: #666;
+			font-size: 11px;
+		}
+
+			#page-navigation p span.inner span.inner-inner {
+				background: url(gfx/faq-bg.gif) no-repeat right top;
+				display: block;
+				padding-right: 60px;
+			}

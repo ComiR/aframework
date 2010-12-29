@@ -1,0 +1,11 @@
+#comments = $medium-border-box;
+#comments {
+	
+}
+
+	#comments h3 = $medium-border-box-head;
+	#comments h3 {
+		font-size: 18px;
+	}
+
+	#comments ol = $listing;
