@@ -1,0 +1,25 @@
+#breadcrumbs {
+	background: url(gfx/wide-border-box-bottom.gif) no-repeat left bottom;
+	clear: both;
+	margin: 0 0 34px;
+	font-size: 12px;
+	color: #999;
+
+	*zoom: 1;
+}
+
+	#breadcrumbs p {
+		background: url(gfx/wide-border-box-top.gif) no-repeat left top;
+		margin: 0;
+		padding: 16px 7px;
+		line-height: 1;
+	}
+
+		#breadcrumbs p a {
+			color: #999;
+		}
+
+		#breadcrumbs p img {
+			margin: 0 5px;
+			vertical-align: 1px;
+		}

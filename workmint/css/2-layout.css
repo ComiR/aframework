@@ -1,0 +1,86 @@
+#wrapper {
+	
+}
+
+	#top = $self-clear;
+	#top {
+		background: #323232 url(gfx/top-bg.gif) repeat-x left bottom;
+		color: #ccc;
+		padding: 13px 0 0;
+		border-bottom: 5px solid #e5e5e5;
+	}
+
+		#top-inner {
+			width: 941px;
+			margin: 0 auto;
+		}
+
+		#top h2 {
+			color: #ccc;
+		}
+
+	#content = $self-clear;
+	#content {
+		width: 941px;
+		margin: 0 auto;
+		font-size: 14px;
+	}
+
+		#primary-content {
+			clear: both;
+			width: 710px;
+			float: right;
+		}
+
+		#secondary-content {
+			width: 190px;
+			float: left;
+			font-size: 12px;
+		}
+
+			#secondary-content h2 {
+				font-size: 20px;
+				color: #099;
+				margin: 0 0 10px;
+			}
+
+		body.page-faq #primary-content {
+			float: left;
+		}
+
+		body.page-faq #secondary-content {
+			float: right;
+		}
+
+	#bottom = $self-clear;
+	#bottom {
+		background: #000 url(gfx/bottom-bg.gif) repeat-x;
+		color: #ccc;
+		clear: both;
+		font-size: 11px;
+		padding: 0 0 100px;
+		border-top: 5px solid #e5e5e5;
+	}
+
+		#bottom-inner = $self-clear;
+		#bottom-inner {
+			width: 941px;
+			margin: 0 auto;
+		}
+
+			#bottom-inner div {
+				width: 161px;
+				float: left;
+				margin: 0 15px 0 0;
+			}
+
+		#bottom h2 {
+			color: #ccc;
+			font-weight: normal;
+			letter-spacing: 0;
+			font-size: 22px;
+		}
+
+		#bottom a {
+			color: #ccc;
+		}

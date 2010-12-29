@@ -1,0 +1,31 @@
+#post-comment = $medium-border-box;
+#post-comment {
+	
+}
+
+	#post-comment h3 = $medium-border-box-head;
+	#post-comment h3 {
+		font-size: 18px;
+	}
+
+	#post-comment form = $self-clear;
+	#post-comment form {
+		
+	}
+
+		#post-comment form p {
+			float: left;
+			width: 30%;
+			margin-right: 2%;
+		}
+
+		#post-comment form p.comment, 
+		#post-comment form p.submit {
+			float: none;
+			width: auto;
+			clear: both;
+		}
+
+			#post-comment form p.comment textarea {
+				width: 650px;
+			}

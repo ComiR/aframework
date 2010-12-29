@@ -1,0 +1,39 @@
+body.page-faq #page {
+	
+}
+
+	body.page-faq #page h3 {
+		margin-bottom: 10px;
+	}
+
+	body.page-faq #page h4 {
+		margin: 0 0 15px 10px;
+	}
+
+	body.page-faq #page ul {
+		margin: 0 0 20px 20px;
+		list-style: none;
+	}
+
+		body.page-faq #page ul li {
+			margin: 0 0 10px;
+		}
+
+			body.page-faq #page ul li h5 {
+				font-size: 14px;
+				font-weight: normal;
+				margin: 0 0 5px;
+				color: #f63;
+			}
+
+				body.page-faq #page ul li h5 a {
+					outline: 0;
+				}
+
+			body.page-faq #page ul li p {
+				margin-left: 10px;
+			}
+
+			body.page-faq.js-enabled #page ul li > p {
+				display: none;
+			}

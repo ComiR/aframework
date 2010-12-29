@@ -1,0 +1,20 @@
+#header {
+	padding: 0 49px 0 0;
+	float: left;
+}
+
+	#header h1 {
+		background: url(gfx/logo.gif);
+		background: url(gfx/logo.png);
+		margin: 0;
+		width: 190px;
+		width: 178px;
+	}
+
+		#header h1 a {
+			display: block;
+			height: 57px;
+			height: 48px;
+			text-indent: -1000000px;
+			outline: 0;
+		}

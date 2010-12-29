@@ -1,0 +1,81 @@
+#cta-box {
+/*	background: url(gfx/cta-box-bottom.gif) no-repeat left bottom; */
+	margin: 0 0 60px;
+	clear: both;
+}
+
+	#cta-box-inner = $self-clear;
+	#cta-box-inner {
+	/*	background: url(gfx/cta-box-top.gif) no-repeat; */
+		padding: 1px 1px 50px;
+	}
+
+		#cta-box-inner div.cta {
+			padding: 15px 25px 150px;
+			float: left;
+			width: 263px;
+			position: relative;
+		}
+
+			#cta-box-inner div.cta h2 {
+				color: #099;
+				margin-top: 0;
+			}
+
+				#cta-box-inner div.cta h2 span {
+					color: #111;
+					display: block;
+				}
+
+			#cta-box-inner div.cta div {
+				background: url(gfx/magnify.png) no-repeat;
+				width: 144px;
+				height: 95px;
+
+				position: absolute;
+				left: 50%;
+				bottom: 20px;
+				margin-left: -72px;
+			}
+
+			#cta-box-inner div.cta div.magnify {
+				background-image: url(gfx/ico-magnify.png);
+				width: 144px;
+				height: 95px;
+				margin-left: -72px;
+			}
+
+			#cta-box-inner div.cta div.question {
+				background-image: url(gfx/ico-question.png);
+				width: 198px;
+				height: 118px;
+				margin-left: -99px;
+			}
+
+			#cta-box-inner div.cta div.mail {
+				background-image: url(gfx/ico-mail.png);
+				width: 177px;
+				height: 112px;
+				margin-left: -89px;
+			}
+
+			#cta-box-inner div.cta div.candidate {
+				background-image: url(gfx/ico-candidate.jpg);
+				width: 144px;
+				height: 95px;
+				margin-left: -72px;
+			}
+
+			#cta-box-inner div.cta div.cooperation {
+				background-image: url(gfx/ico-cooperation.jpg);
+				width: 170px;
+				height: 113px;
+				margin-left: -85px;
+			}
+
+			#cta-box-inner div.cta div.recruit {
+				background-image: url(gfx/ico-recruit.jpg);
+				width: 144px;
+				height: 108px;
+				margin-left: -72px;
+			}

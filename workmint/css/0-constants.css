@@ -1,0 +1,516 @@
+/*
+	=== General ===
+*/
+/**
+ * Img replace
+ * Hides text so that bg image shows
+ */
+$img-replace {
+	display: block;
+	text-indent: -10000px;
+	text-decoration: none;
+	outline: 0;
+}
+
+/**
+ * A11y hide
+ * Hides an element in an accessible way
+ */
+$a11y-hide {
+	position: absolute;
+	left: -10000px;
+	top: -10000px;
+}
+
+/**
+ * Self Clear
+ * Classic self-clear
+ */
+$self-clear {
+	_height: 1%;
+	*display: inline-block;
+	_display: block;
+}
+
+$self-clear:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+/**
+ * Underlined
+ * Makes element underlined and removes on :hover
+ */
+$underlined {
+	text-decoration: underline;
+}
+
+$underlined:hover {
+	text-decoration: none;
+}
+
+/**
+ * Not Underlined
+ * Makes element not underlined and removes on :hover
+ */
+$not-underlined {
+	text-decoration: none;
+}
+
+$not-underlined:hover {
+	text-decoration: underline;
+}
+
+/*
+	=== Definition Lists ===
+*/
+/**
+ * Data Definition List
+ * Used on DLs to turn them into Key: Val
+ * Bold key with : after
+ */
+$data-definition {
+	margin-left: 0;
+	padding-left: 0;
+
+	_height: 1%;
+	*display: inline-block;
+	_display: block;
+}
+
+$data-definition:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+	$data-definition > dt {
+		float: left;
+		clear: left;
+		font-weight: bold;
+		margin: 0 5px 5px 0;
+	}
+
+	$data-definition > dt:after {
+		content: ": ";
+	}
+
+	$data-definition > dd {
+		margin: 0 0 5px;
+	}
+
+/**
+ * Inline definition
+ * Turns a DL into foo bar   zaz baz
+ */
+$inline-definition {
+	
+}
+
+	$inline-definition > dt {
+		display: inline;
+		margin: 0 0 0 10px;
+	}
+
+	$inline-definition > dt:first-child {
+		margin: 0;
+	}
+
+	$inline-definition > dd {
+		display: inline;
+		margin: 0 0 0 5px;
+	}
+
+/**
+ * Plain definition
+ * No margin or padding or nothin
+ */
+$plain-definition {
+	
+}
+
+	$plain-definition > dt {
+		margin: 0;
+		padding: 0;
+	}
+
+	$plain-definition > dd {
+		margin: 0;
+		padding: 0;
+	}
+
+/*
+	=== Horizontal Lists ===
+*/
+/**
+ * Pipe Menu
+ * Turns a UL into foo | bar | zaz
+ */
+$pipe-menu {
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+}
+
+	$pipe-menu > li {
+		display: inline;
+	}
+
+	$pipe-menu > li:after {
+		content: " | ";
+	}
+
+	$pipe-menu > li:last-child:after {
+		content: "";
+	}	
+
+/**
+ * Dash Menu
+ * Turns a UL into foo - bar - zaz
+ */
+$dash-menu {
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+}
+
+	$dash-menu > li {
+		display: inline;
+	}
+
+	$dash-menu > li:after {
+		content: " - ";
+	}
+
+	$dash-menu > li:last-child:after {
+		content: "";
+	}
+
+/**
+ * Comma list
+ * Turns a UL into foo, bar, zaz
+ */
+$comma-list {
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+}
+
+	$comma-list > li {
+		display: inline;
+	}
+
+	$comma-list > li:after {
+		content: ", ";
+	}
+
+	$comma-list > li:last-child:after {
+		content: "";
+	}
+
+/**
+ * Pagination
+ * Turns a UL into < prev | 1 | 2 | 3 | next >
+ */
+$pagination {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+	text-align: center;
+}
+
+	$pagination > li {
+		display: inline;
+		margin: 0 5px;
+	}
+
+	$pagination > li::after {
+	/*	content: " | "; */
+	}
+
+	$pagination > li:last-child::after {
+		content: "";
+	}
+
+	$pagination > li:first-child {
+		margin-right: 15px;
+	}
+
+	$pagination > li:last-child {
+		margin-left: 15px;
+	}
+
+		$pagination > li:first-child a::before {
+			content: "< ";
+		}
+
+		$pagination > li:last-child a::after {
+			content: " >";
+		}
+
+		$pagination li abbr {
+			border: 0;
+		}
+
+		$pagination li strong {
+			background: rgba(250, 250, 250, .5);
+			padding: 0 4px;
+			margin: 0 -4px;
+			border: 1px solid rgba(60, 60, 60, .5);
+		}
+
+/**
+ * Previous/Next Menu
+ * Turns a UL with 2 LIs into < prev | next >
+ * (Should add support for $constant = $constant)
+ * (to avoid duplicate self-clear-styling)
+ */
+$previous-next-menu {
+	_height: 1%;
+	*display: inline-block;
+	_display: block;
+}
+
+$previous-next-menu:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+$previous-next-menu {
+	margin-left: 0;
+	padding-left: 0;
+	list-style-type: none;
+}
+
+	$previous-next-menu > li {
+		float: right;
+	}
+
+	$previous-next-menu > li:first-child {
+		float: left;
+	}
+
+		$previous-next-menu > li > a:after {
+			content: " >";
+		}
+
+		$previous-next-menu > li:first-child > a:after {
+			content: "";
+		}
+
+		$previous-next-menu > li:first-child > a:before {
+			content: "< ";
+		}
+
+/**
+ * Inline menu
+ * A ul without margin, padding or bullets displayed inline
+ */
+$inline-menu {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+	$inline-menu li {
+		display: inline;
+	}
+
+/**
+ * Floated list
+ * A self-cleared, floated list
+ */
+$floated-list {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+	
+	_height: 1%;
+	*display: inline-block;
+	_display: block;
+}
+
+$floated-list:after {
+	content: ".";
+	display: block;
+	height: 0;
+	visibility: hidden;
+	clear: both;
+}
+
+	$floated-list > li {
+		float: left;
+	}
+
+/*
+	=== Vertical Lists ===
+*/
+/**
+ * Arrow-list
+ * Prepends an arrow to every list-item
+ */
+$arrow-list {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+	$arrow-list > li {
+		margin-bottom: 5px;
+	}
+
+	$arrow-list > li:before {
+		content: "> ";
+		font-size: 8px;
+	}
+
+/**
+ * Dash-list
+ * Prepends a dash to every list-item
+ */
+$dash-list {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+	$dash-list > li {
+		margin-bottom: 5px;
+	}
+
+	$dash-list > li:before {
+		content: "- ";
+		font-size: 8px;
+	}
+
+/**
+ * Plain list
+ * A list without margin, padding or bullets
+ */
+$plain-list {
+	margin-left: 0;
+	padding-left: 0;
+	list-style: none;
+}
+
+/**
+ * Little Corner Chrome Box
+ * One of those small boxes in the corner that Chrome uses
+ */
+$little-corner-chrome-box {	
+	background: rgba(0, 100, 200, .6);
+
+	padding: 5px;
+
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	z-index: 100;
+
+	font: 12px/1 Arial, sans-serif;
+	color: #f0f6fc;
+
+	border: 1px solid #f0f6fc;
+	border-width: 1px 1px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+	border-radius: 0 5px 0 0;
+
+/*	-moz-box-shadow: 2px 2px 3px rgba(0, 100, 200, .5);
+	-webkit-box-shadow: 2px 2px 3px rgba(0, 100, 200, .5);
+	box-shadow: 2px 2px 3px rgba(0, 100, 200, .5); */
+}
+
+$little-corner-chrome-box-tr {
+	left: auto;
+	bottom: auto;
+	right: 0;
+	top: 0;
+
+	border-width: 0 0 1px 1px;
+	-moz-border-radius: 0 0 0 5px;
+	-webkit-border-radius: 0 0 0 5px;
+	border-radius: 0 0 0 5px;
+}
+
+/**
+ * One 9th Boxes
+ * A list of "boxes" (white border, shadow) that fit 9 in width over 960px
+ */
+$one-9th-boxes {
+	margin-left: -15px;
+	margin-right: -15px;
+	padding: 0;
+	list-style: none;
+}
+
+	$one-9th-boxes li {
+		display: inline-block;
+		vertical-align: middle;
+
+		width: 70px;
+		height: 70px;
+		overflow: hidden;
+
+		margin: 15px;
+
+		border: 5px solid #fff;
+
+		-moz-box-shadow: 2px 2px 3px rgba(40, 40, 40, .3);
+		-webkit-box-shadow: 2px 2px 3px rgba(40, 40, 40, .3);
+		box-shadow: 2px 2px 3px rgba(40, 40, 40, .3);
+	}
+
+		$one-9th-boxes li a {
+			
+		}
+
+			$one-9th-boxes li a img {
+				border: 0;
+				width: 120px;
+			}
+
+/**
+ * One 6th Boxes
+ * A list of "boxes" (white border, shadow) that fit 6 in width over 960px
+ */
+$one-6th-boxes {
+	margin-left: -15px;
+	margin-right: -15px;
+	padding: 0;
+	list-style: none;
+}
+
+	$one-6th-boxes li {
+		display: inline-block;
+		vertical-align: middle;
+
+		width: 125px;
+		height: 125px;
+		overflow: hidden;
+
+		margin: 15px;
+
+		border: 5px solid #fff;
+
+		-moz-box-shadow: 2px 2px 3px rgba(40, 40, 40, .3);
+		-webkit-box-shadow: 2px 2px 3px rgba(40, 40, 40, .3);
+		box-shadow: 2px 2px 3px rgba(40, 40, 40, .3);
+	}
+
+		$one-6th-boxes li a {
+			
+		}
+
+			$one-6th-boxes li a img {
+				border: 0;
+				width: 180px;
+			}

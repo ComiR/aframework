@@ -1,0 +1,36 @@
+#latest-news-expanded = $tiny-rounded-box;
+#latest-news-expanded {
+	margin: 0 0 20px;
+}
+	#latest-news-expanded div.inner = $tiny-rounded-box-inner;
+
+		#latest-news-expanded div.inner h2 {
+			margin: 0 0 10px;
+			font-size: 12px;
+			letter-spacing: 0;
+			color: #099;
+		}
+
+		#latest-news-expanded div.inner ul {
+			margin: 0;
+			list-style: none;
+		}
+
+			#latest-news-expanded div.inner ul li {
+				margin: 0 0 10px;
+			}
+
+				#latest-news-expanded div.inner ul li h3 {
+					margin: 0 0 5px;
+					font-size: 12px;
+				}
+
+				#latest-news-expanded div.inner ul li a {
+					color: #666;
+				}
+
+		#latest-news-expanded div.inner p {
+			background: url(gfx/border-on-gray-bg.gif) repeat-x left top;
+			margin: 0;
+			padding: 10px 0 0;
+		}
