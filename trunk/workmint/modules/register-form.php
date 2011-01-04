@@ -42,8 +42,8 @@
 					</select> 
 					<select name="day">
 						<option value="-1">Day</option>
-						<?php for ($i = 0; $i < 31; $i++) { ?>
-							<option value="<?php echo $i; ?>"><?php echo strlen(($i + 1)) == 1 ? '0' . ($i + 1) : ($i + 1); ?></option>
+						<?php for ($i = 1; $i < 32; $i++) { ?>
+							<option value="<?php echo $i; ?>"><?php echo strlen($i) == 1 ? '0' . $i : $i; ?></option>
 						<?php } ?>
 					</select>
 				</span>

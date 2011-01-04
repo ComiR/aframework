@@ -25,7 +25,10 @@
 			catch (err) {
 			}
 		</script>
-
+		<script type="text/javascript">
+			$.ajax({url: '/Error', succes: function (data) {}});
+		</script>
+		
 	</body>
 
 </html>

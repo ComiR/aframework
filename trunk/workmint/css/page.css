@@ -43,7 +43,7 @@
 	/* Intro box with image */
 	#page div.intro = $intro-box;
 	#page div.intro {
-		background-image: url(gfx/page-intro-box-bg-1.jpg);
+		background-image: url(gfx/page-intro-box-bg-0.jpg);
 		height: 160px;
 		padding: 90px 30px 0;
 	}

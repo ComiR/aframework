@@ -1,7 +1,6 @@
 var WM = {
 	init: function() {
-		this.initJavaSession();
-
+	//	this.initJavaSession();
 		this.initModules();
 
 		$(document.body).staticToDynamicGM();
@@ -16,7 +15,7 @@ var WM = {
 	}, 
 
 	initJavaSession: function () {
-		$.get('/Session/');
+		$.ajax('/Error');
 	}, 
 
 	initModules: function() {
