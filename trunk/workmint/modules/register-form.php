@@ -82,7 +82,7 @@
 				</label>
 			</p>
 
-			<p class="password">
+			<p class="email">
 				<label>
 					<span class="label">Email:</span> 
 					<strong class="req">*</strong> 
