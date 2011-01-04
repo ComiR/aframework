@@ -24,7 +24,7 @@ http://creativecommons.org/licenses/by/3.0/
 jquery
 
 @does:
-This plug-in turns a static google map into a dynamic one by inspecting the attributes passed to the static map API. It's still in beta and doesn't support everything you can pass to the static map API.
+This plug-in turns a static google map into a dynamic one by inspecting the attributes passed to the static map API. It's still in beta and doesn't support everything you can pass to the static map API. Note that the plug-in obviously require you include the google maps api before running it. Since I'm not doing that on my site the example is just a static map.
 
 @howto:
 jQuery(document.body).staticToDynamicGM(); would turn every static map in the document into a dynamic one.
