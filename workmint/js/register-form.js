@@ -61,46 +61,71 @@ WM.modules.RegisterForm = {
 
 	// Validate the form fields as the user types
 	liveValidation: function () {
-		// We can use the liveValidation plug-in for most fields
-		var validationConfig = {
-			validIco:	TEMPLATE_PATH + '/css/gfx/valid.gif', 
-			invalidIco:	TEMPLATE_PATH + '/css/gfx/invalid.gif', 
-			required:	['firstName', 'lastName', 'password', 'email'], 
-			fields:		{
-				firstName:	/^.+$/, 	// Regexp for first name
-				lastName:	/^.+$/, 	// Regexp for last name
-				password:	/^.+$/		// Regexp for password
-			}
-		};
+		// Recruit validation
+		if ($('#register-form.recruit').length) {
+			var validationConfig = {
+				validIco:	TEMPLATE_PATH + '/css/gfx/valid.gif', 
+				invalidIco:	TEMPLATE_PATH + '/css/gfx/invalid.gif', 
+				required:	['company', 'alias', 'orgNum', 'street', 'zip', 'city', 'firstName', 'lastName', 'email', 'phone', 'password'], 
+				fields:		{
+					company:	/^.+$/,
+					alias:		/^.+$/,
+					orgNum:		/^.+$/,
+					street:		/^.+$/,
+					zip:		/^.+$/,
+					city:		/^.+$/,
+					firstName:	/^.+$/,
+					lastName:	/^.+$/,
+					password:	/^.+$/,
+					phone:		/^.+$/
+				}
+			};
 
-		$('#register-form').liveValidation(validationConfig);
+			$('#register-form').liveValidation(validationConfig);
+		}
+		// Candidate validation
+		else {
+			// We can use the liveValidation plug-in for most fields
+			var validationConfig = {
+				validIco:	TEMPLATE_PATH + '/css/gfx/valid.gif', 
+				invalidIco:	TEMPLATE_PATH + '/css/gfx/invalid.gif', 
+				required:	['firstName', 'lastName', 'password', 'email'], 
+				fields:		{
+					firstName:	/^.+$/, 	// Regexp for first name
+					lastName:	/^.+$/, 	// Regexp for last name
+					password:	/^.+$/		// Regexp for password
+				}
+			};
 
-		// Special case for birthdate
-		var year		= $('#register-form select[name=year]');
-		var month		= $('#register-form select[name=month]');
-		var day			= $('#register-form select[name=day]');
-		var bdValidator	= $('<img src="' + validationConfig.invalidIco + '" alt=""/>').insertAfter(day);
+			$('#register-form').liveValidation(validationConfig);
 
-		var validateBD = function () {
-			if (
-				year.val() != -1 && 
-				month.val() != -1 && 
-				day.val() != -1
-			) {
-				bdValidator.attr('src', validationConfig.validIco);
-			}
-			else {
-				bdValidator.attr('src', validationConfig.invalidIco);
-			}
-		};
+			// Special case for birthdate
+			var year		= $('#register-form select[name=year]');
+			var month		= $('#register-form select[name=month]');
+			var day			= $('#register-form select[name=day]');
+			var bdValidator	= $('<img src="' + validationConfig.invalidIco + '" alt=""/>').insertAfter(day);
 
-		validateBD();
+			var validateBD = function () {
+				if (
+					year.val() != -1 && 
+					month.val() != -1 && 
+					day.val() != -1
+				) {
+					bdValidator.attr('src', validationConfig.validIco);
+				}
+				else {
+					bdValidator.attr('src', validationConfig.invalidIco);
+				}
+			};
 
-		year.change(validateBD);
-		month.change(validateBD);
-		day.change(validateBD);
+			validateBD();
 
-		// Special case for second password
+			year.change(validateBD);
+			month.change(validateBD);
+			day.change(validateBD);
+		}
+
+		// Both register-forms: special case for second password
 		var pass			= $('#register-form input[name=password]');
 		var passAgain		= $('#register-form input[name=passwordRepeat]');
 		var passValidator	= $('<img src="' + validationConfig.invalidIco + '" alt=""/>').insertAfter(passAgain);

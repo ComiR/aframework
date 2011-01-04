@@ -20,6 +20,10 @@
 				color: #099;
 			}
 
+			#register.recruit #page h2 span {
+				color: #f63;
+			}
+
 		#register #page p {
 			margin: 0;
 			font-size: 12px;
