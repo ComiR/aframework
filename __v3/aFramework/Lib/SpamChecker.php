@@ -76,12 +76,14 @@
 
 			if (in_array($fields['content'], $alwaysSpam)) {
 				$score -= 10;
+				self::$info[] = 'This content is always spam, -10 points';
 			}
 
 			#####
 			# Since I use markdown regular links are very likely spam
-			if (preg_match('/<a href=".*?">.*?<\/a>/', $fields['content'])) {
+			if (preg_match('/<a href=.*?>/', $fields['content'])) {
 				$score -= 5;
+				self::$info[] = 'HTML a elements found, -5 points';
 			}
 
 			#####
