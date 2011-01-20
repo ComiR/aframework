@@ -45,7 +45,7 @@
 
 				echo $theWholePage;
 
-				if (!USER and !ADMIN and !count($_POST)) {
+				if (false and !USER and !ADMIN and !count($_POST)) {
 					CacheManager::createCache($theWholePage);
 				}
 
