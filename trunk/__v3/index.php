@@ -128,7 +128,7 @@
 	DB::qry('SET NAMES "utf8"');
 
 	# Run the CacheManager and die right here if there's a valid cache
-	if (!count($_POST) and !ADMIN and !USER and ($cachedPage = CacheManager::run())) {
+	if (false and !count($_POST) and !ADMIN and !USER and ($cachedPage = CacheManager::run())) {
 		$cacheInfoHTML	= CacheManager::getInfoHTML();
 		$cachedPage		= str_replace('</body>', $cacheInfoHTML . '</body>', $cachedPage);
 
