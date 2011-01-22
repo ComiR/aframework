@@ -13,13 +13,22 @@
 	require_once 'aFramework/Core/Timer.php';
 	Timer::start();
 
+	# Debug(?)
+	define('DEBUG', false);
+
 	# UTF-8 FTW
 	header('Content-Type: text/html; charset=utf-8');
 #	setlocale(LC_ALL, 'en_GB.UTF8');
 
-	# While deving
-	error_reporting(0);
-	ini_set('display_errors', false);
+	# Error reporting
+	if (DEBUG) {
+		error_reporting(E_ALL);
+		ini_set('display_errors', true);
+	}
+	else {
+		error_reporting(0);
+		ini_set('display_errors', false);
+	}
 
 	# Determine which site(s) to run
 	# Add your own domains and site hierarchies here
@@ -128,7 +137,7 @@
 	DB::qry('SET NAMES "utf8"');
 
 	# Run the CacheManager and die right here if there's a valid cache
-	if (false and !count($_POST) and !ADMIN and !USER and ($cachedPage = CacheManager::run())) {
+	if (!count($_POST) and !ADMIN and !USER and ($cachedPage = CacheManager::run())) {
 		$cacheInfoHTML	= CacheManager::getInfoHTML();
 		$cachedPage		= str_replace('</body>', $cacheInfoHTML . '</body>', $cachedPage);
 
