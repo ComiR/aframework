@@ -23,7 +23,7 @@
 				) or 
 				(
 					isset($_SERVER['PATH_INFO']) and 
-					$_SERVER['PATH_INFO'] == '/' . CURRENT_LANG . '/' and 
+					($_SERVER['PATH_INFO'] == '/' . CURRENT_LANG . '/' or $_SERVER['PATH_INFO'] == '/') and 
 					isset($_GET['module'])
 				)
 			) {

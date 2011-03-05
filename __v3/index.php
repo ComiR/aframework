@@ -58,7 +58,7 @@
 			define('SITE_HIERARCHY', 'BudhistorikSE aCMS aDynAdmin aFramework');
 			break;
 		default : 
-			define('SITE_HIERARCHY', 'BudhistorikSE aCMS aDynAdmin aFramework');
+			define('SITE_HIERARCHY', 'AndreasLagerkvist aBlog aCMS aDynAdmin aFramework');
 			break;
 	}
 
@@ -92,6 +92,7 @@
 	define('XHR',				isset($_SERVER['HTTP_X_REQUESTED_WITH']));
 	define('AUTO_HR',			false);
 	define('USE_MOD_REWRITE',	true);
+	define('USE_CACHE',			true);
 	define('INFINITY',			1000000000); # erm... for some SQL-query limits
 
 	define('SU_SESSION',		'su');
@@ -118,7 +119,7 @@
 	if (empty($allowedLangs)) {
 		Config::set('lang.allowed_langs', Config::get('lang.default_lang'));
 	}
-	
+
 	$saltSUPassMD5				= md5(Config::get('admin.salt') . Config::get('su.pass'));
 	$saltAdminPassMD5			= md5(Config::get('admin.salt') . Config::get('admin.pass'));
 
@@ -137,7 +138,7 @@
 	DB::qry('SET NAMES "utf8"');
 
 	# Run the CacheManager and die right here if there's a valid cache
-	if (!count($_POST) and !ADMIN and !USER and ($cachedPage = CacheManager::run())) {
+	if (USE_CACHE and !count($_POST) and !ADMIN and !USER and ($cachedPage = CacheManager::run())) {
 		$cacheInfoHTML	= CacheManager::getInfoHTML();
 		$cachedPage		= str_replace('</body>', $cacheInfoHTML . '</body>', $cachedPage);
 
