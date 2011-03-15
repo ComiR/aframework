@@ -1,0 +1,48 @@
+/***
+@title: aFramework Dark
+@author: Andreas Lagerkvist
+@author-url: http://andreaslagerkvist.com
+@date: 2010-03-15
+@description: ...
+@extends: aframework-com
+***/
+/*
+	=== General Stuff ===
+*/
+body {
+	background: #111;
+	color: #eee;
+}
+
+#wrapper {
+	width: 960px;
+	padding: 30px 0;
+}
+
+/*
+	=== Header ===
+*/
+#header {
+	margin: 0 0 30px;
+}
+
+	#header h1 {
+		background-image: url(gfx/logo.png);
+		background: #fff;
+		width: 320px;
+	}
+
+		#header h1 a {
+			height: 80px;
+		}
+/*
+	=== Download ===
+*/
+#aframework-download {
+	margin: 0 0 30px;
+}
+
+
+/*
+	=== Footer ===
+*/
