@@ -12,9 +12,25 @@
 	# RewriteCond %{HTTP_USER_AGENT} = ""
 	# RewriteRule .* - [F,L]
 
-	# Prevent www-access (you should change the yourdomain-bit)
+	# Prevent www-access (you should obviously change the domain)
 	RewriteCond %{HTTP_HOST} ^www\.andreaslagerkvist\.com$ [NC]
 	RewriteRule ^(.*)$ http://andreaslagerkvist\.com/$1 [R=301,L]
+
+	RewriteCond %{HTTP_HOST} ^www\.a-framework\.org$ [NC]
+	RewriteRule ^(.*)$ http://a-framework.org/$1 [R=301,L]
+
+	RewriteCond %{HTTP_HOST} ^www\.ourfuture\.eu$ [NC]
+	RewriteRule ^(.*)$ http://ourfuture\.eu/$1 [R=301,L]
+
+	RewriteCond %{HTTP_HOST} ^www\.agnesekman\.com$ [NC]
+	RewriteRule ^(.*)$ http://agnesekman\.com/$1 [R=301,L]
+
+	RewriteCond %{HTTP_HOST} ^www\.sidkritik\.se [NC]
+	RewriteRule ^(.*)$ http://sidkritik.se [R=301,L]
+
+	RewriteCond %{HTTP_HOST} ^www\.ourfuture\.eu [NC]
+	RewriteRule ^(.*)$ http://ourfuture.eu [R=301,L]
+
 
 	# Force a trailing slash for dirs
 	RewriteRule !\..{2,4}$ - [C]
