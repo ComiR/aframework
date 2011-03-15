@@ -1,23 +1,132 @@
+@font-face {
+	font-family: "Bebas";
+	src: url(gfx/bebas.eot);
+	src: url(gfx/bebas.eot?iefix) format("eot"),
+		 url(gfx/bebas.woff) format("woff"),
+		 url(gfx/bebas.ttf) format("truetype"),
+		 url(gfx/bebas.svg#webfontz74mjHKa) format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "Aller";
+	src: url(gfx/aller.eot);
+	src: url(gfx/aller.eot?iefix) format("eot"),
+		 url(gfx/aller.woff) format("woff"),
+		 url(gfx/aller.ttf) format("truetype"),
+		 url(gfx/aller.svg#webfontWGzQqp08) format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
 body {
-	background: #dacfb1;
+	background: #111;
 
-	
+	font: 14px/1.6 Aller, Arial, sans-serif;
+	color: #999;
 }
 
-/* TEMP */
-#wrapper {
-	width: 960px;
-	margin: 0 auto;
+h1, 
+h2, 
+h3, 
+h4, 
+h5, 
+h6 {
+	font: bold 80px/1.2 Bebas, Trebuchet MS, sans-serif;
+	color: #030303;
+	margin: 15px 0 10px;
+	letter-spacing: -.08em;
+	word-spacing: .18em;
+	text-shadow: 1px 1px 1px #333, -1px -1px 1px #000;
 }
 
-div {
-	display: none;
-}
+/* h1::after, 
+h2::after, 
+h3::after, 
+h4::after, 
+h5::after, 
+h6::after {
+	content: ".";
+	color: #06c;
+	font-family: Arial;
+} */
 
-#wrapper, #primary-content, #article {
-	display: block;
-}
-
-	#article {
-		width: 640px;
+	h1 a, 
+	h2 a, 
+	h3 a, 
+	h4 a, 
+	h5 a, 
+	h6 a {
+		color: #030303; /* propval(h1, color); */
+		text-decoration: none;
 	}
+
+h2 {
+	font-size: 56px;
+}
+
+h3 {
+	font-size: 48px;
+}
+
+h4 {
+	font-size: 36px;
+}
+
+h5 {
+	font-size: 32px;
+}
+
+h6 {
+	font-size: 28px;
+}
+
+p {
+	margin: 0 0 15px;
+}
+
+ul, 
+ol {
+	margin: 0 0 15px 30px;
+}
+
+a {
+	color: #06c;
+	text-decoration: underline;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+img {
+	border: 15px solid #030303;
+	-moz-box-shadow: 1px 1px 1px #333, -1px -1px 1px #000;
+	-webkit-box-shadow: 1px 1px 1px #333, -1px -1px 1px #000;
+	box-shadow: 1px 1px 1px #333, -1px -1px 1px #000;
+}
+
+/* img {
+	border: 15px solid #fafafa;
+	border-width: 15px 15px 60px;
+	-moz-box-shadow: 2px 2px 4px #000;
+} */
+
+$small {
+	font-size: 12px;
+	text-transform: uppercase;
+	color: #666;
+}
+
+small = $small;
+
+$first-p {
+	font-size: 20px;
+	font-style: italic;
+	line-height: 1.4;
+}
+
+$first-p::first-line {
+	font-weight: bold;
+}

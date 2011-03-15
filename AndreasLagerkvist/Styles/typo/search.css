@@ -1,0 +1,17 @@
+#search {
+	float: right;
+}
+
+	#search form {
+		
+	}
+
+		#search form p {
+			
+		}
+
+			#search form p label = $a11y-hide;
+
+			#search form p br {
+				display: none;
+			}
