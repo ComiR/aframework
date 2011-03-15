@@ -1,6 +1,7 @@
 #random-jquery-plugins = $3-col-listing;
 #random-jquery-plugins {
-	clear: both; /* comments / post-comment (and maybe more...) */
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 	#random-jquery-plugins h2:after {
@@ -33,6 +34,6 @@
 			}
 
 			body.js-enabled #random-jquery-plugins > p:last-child a {
-					background-image: url(gfx/icons/green.png);
+				background-image: url(gfx/icons/green.png);
 				background-position: left -4019px;
 			}
