@@ -1,0 +1,21 @@
+#article {
+	
+}
+
+	/* Title */
+	#article h2 {
+		margin-bottom: -10px;
+	}
+
+	/* Date */
+	#article h2 + p {
+		margin-bottom: 15px;
+	}
+
+	/* First Pragraph */
+	#article h2 + p + p = $first-p;
+
+
+	#article img {
+		max-width: 90%;
+	}

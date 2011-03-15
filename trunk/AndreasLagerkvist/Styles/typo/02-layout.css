@@ -1,0 +1,39 @@
+#wrapper {
+	width: 960px;
+	margin: 90px auto;
+}
+
+#primary-content {
+	width: 640px;
+	float: left;
+	font-size: 16px;
+}
+
+	#primary-content h2 {
+		font-size: 80px;
+	}
+
+	#primary-content h3 {
+		font-size: 64px;
+	}
+
+	#primary-content h4 {
+		font-size: 56px;
+	}
+
+	#primary-content h5 {
+		font-size: 52px;
+	}
+
+	#primary-content h6 {
+		font-size: 48px;
+	}
+
+#secondary-content {
+	width: 320px;
+	float: right;
+}
+
+#tertiary-content {
+	clear: both;
+}
