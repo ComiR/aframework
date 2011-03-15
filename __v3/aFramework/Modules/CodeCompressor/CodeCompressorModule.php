@@ -38,7 +38,7 @@
 			self::$debug['cache_time']		= $cacheTime;
 
 			# If the requested style exists in the current site's Style-dir
-			# _or_ it's a hidden style (prefixed with __) it's considered a valid style.
+			# _and_ it's not a hidden style (prefixed with __) it's considered a valid style.
 			if (substr($style, 0, 2) != '__' and !is_dir(CURRENT_SITE_DIR . 'Styles/' . $style . '/')) {
 				die("Error: Invalid style; '$style'");
 			}
@@ -48,7 +48,7 @@
 			header('Expires: ' . gmdate('D, d M Y H:i:s', time() + $cacheTime) . ' GMT');
 
 			# If the cache is younger than $cacheTime just load it directly and return
-			if ((time() - $cacheModified) < $cacheTime) {
+			if (USE_CACHE and (time() - $cacheModified) < $cacheTime) {
 				self::$debug['load_type']	= "Loading cache '$cachePath' - Cache file was created less than $cacheTime seconds ago";
 				self::$tplVars['code']		= file_get_contents($cachePath);
 
