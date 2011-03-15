@@ -1,0 +1,23 @@
+body {
+	background: #dacfb1;
+
+	
+}
+
+/* TEMP */
+#wrapper {
+	width: 960px;
+	margin: 0 auto;
+}
+
+div {
+	display: none;
+}
+
+#wrapper, #primary-content, #article {
+	display: block;
+}
+
+	#article {
+		width: 640px;
+	}
