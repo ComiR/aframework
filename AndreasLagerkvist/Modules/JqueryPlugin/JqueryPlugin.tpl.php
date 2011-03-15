@@ -163,7 +163,7 @@
 			</a>
 		</li>
 		<li>
-			<a href="http://code.google.com/p/aframework/source/browse/trunk/__v3/aFramework/Modules/Base/<?php echo $plugin['file_name']; ?>">
+			<a href="http://code.google.com/p/aframework/source/browse/trunk/aFramework/Modules/Base/<?php echo $plugin['file_name']; ?>">
 				This plug-in on Google Code
 			</a>
 		</li>
