@@ -8,13 +8,13 @@
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
 			<Article/>
-			<OlderArticles/>
-			<RandomJqueryPlugins/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<QuickAbout/>
 		</Wrapper>
 		<Wrapper name="tertiary-content">
+			<OlderArticles/>
+			<RandomJqueryPlugins/>
 			<RandomLinks/>
 			<RecentComments/>
 			<TagCloud/>

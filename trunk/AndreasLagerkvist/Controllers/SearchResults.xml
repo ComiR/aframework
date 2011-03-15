@@ -10,12 +10,12 @@
 			<SearchResults/>
 			<Pagination/>
 			<GoogleAdsWide/>
-			<RandomJqueryPlugins/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<GoogleAds/>
 		</Wrapper>
 		<Wrapper name="tertiary-content">
+			<RandomJqueryPlugins/>
 			<RandomLinks/>
 			<RecentComments/>
 			<TagCloud/>

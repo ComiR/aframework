@@ -442,7 +442,9 @@ $box-tabs {
 				margin-top: 38px;
 			}
 
-		#tertiary-content > div = $one-third-box;
+		#tertiary-content #random-links = $one-third-box;
+		#tertiary-content #recent-comments = $one-third-box;
+		#tertiary-content #tag-cloud = $one-third-box;
 
 	$3-col-listing {
 		width: 930px;

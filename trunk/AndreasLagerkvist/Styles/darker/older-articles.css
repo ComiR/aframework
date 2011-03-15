@@ -1,6 +1,7 @@
 #older-articles = $3-col-listing;
 #older-articles {
-
+	padding-left: 15px;
+	padding-right: 15px;
 }
 
 	#older-articles h2:after {
