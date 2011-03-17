@@ -32,7 +32,7 @@
 						<td></td>
 					<?php } else { ?>
 						<td>
-							<?php /* if ($day['today']) { ?><strong><?php } */ ?>
+							<?php if ($day['today']) { ?><strong><?php } ?>
 							<?php if ($day['num_activities'] > 0 or ADMIN) { ?>
 								<a href="<?php echo $day['url']; ?>">
 									<?php echo $day['num']; ?>
@@ -43,7 +43,7 @@
 							<?php } else { ?>
 								<?php echo $day['num']; ?>
 							<?php } ?>
-							<?php /* if ($day['today']) { ?></strong><?php } */ ?>
+							<?php if ($day['today']) { ?></strong><?php } ?>
 						</td>
 					<?php } ?>
 				<?php } ?>

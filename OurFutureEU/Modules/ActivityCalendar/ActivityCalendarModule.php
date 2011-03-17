@@ -113,7 +113,7 @@
 							'num_activities'	=> $numActivities, 
 							'num'				=> $actualDays,	
 							'url'				=> Router::urlForModule('Activities') . "&date=$year-$month-$dayNum", 
-							'today'				=> $dayNum == $todayDayNum ? true : false
+							'today'				=> ($year == date('Y') and $month == date('m') and $actualDays == $todayDayNum) ? true : false
 						);
 					}
 				}
