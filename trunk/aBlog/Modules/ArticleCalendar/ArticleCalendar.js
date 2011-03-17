@@ -1,15 +1,6 @@
 aFramework.modules.ArticleCalendar = {
 	run: function () {
 		this.hijaxPrevNextLinks();
-		this.highlightToday();
-	}, 
-
-	highlightToday: function () {
-		var date = new Date().getDate();
-
-		$('#article-calendar td').filter(function () {
-			return parseInt($(this).text(), 10) == date;
-		}).wrapInner('<strong/>');
 	}, 
 
 	hijaxPrevNextLinks: function () {
