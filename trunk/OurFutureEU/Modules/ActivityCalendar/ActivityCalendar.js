@@ -1,7 +1,6 @@
 aFramework.modules.ActivityCalendar = {
 	run: function () {
 		this.hijaxPrevNextLinks();
-		this.highlightToday();
 		this.hijaxDayLinks();
 		this.initMarkItUp();
 
@@ -51,18 +50,6 @@ aFramework.modules.ActivityCalendar = {
 		});
 
 		// Create close link and close box onclick
-	}, 
-
-	highlightToday: function () {
-		var date		= new Date();
-		var monthYear	= $('#activity-calendar h2').text(); // date.getMonth() + ' ' + date.getYear();
-		var day			= date.getDate();
-
-		if ($('#activity-calendar h2').text() == monthYear) {
-			$('#activity-calendar td').filter(function () {
-				return parseInt($(this).text(), 10) == day;
-			}).wrapInner('<strong/>');
-		}
 	}, 
 
 	hijaxPrevNextLinks: function () {
