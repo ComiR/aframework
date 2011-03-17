@@ -82,7 +82,7 @@
 							'num_articles'	=> $numArticles, 
 							'num'			=> $actualDays,	
 							'url'			=> Router::urlFor('ArticlesByDay', array('year' => $year, 'month' => $month, 'day' => $dayNum)), 
-							'today'			=> $dayNum == $todayDayNum ? true : false
+							'today'			=> ($year == date('Y') and $month == date('m') and $actualDays == $todayDayNum) ? true : false
 						);
 					}
 				}
