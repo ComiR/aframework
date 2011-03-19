@@ -18,6 +18,7 @@ div#search {
 
 	#search #q {
 		width: 140px;
+		margin: 0;
 	}
 
 	/* body.js-disabled */#search #q:focus {
