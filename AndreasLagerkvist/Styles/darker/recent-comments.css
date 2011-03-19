@@ -18,7 +18,7 @@
 
 			#recent-comments ol li h3 a = $link-font;
 
-		#recent-comments ul li a = $icon;
+		#recent-comments > ul li a = $icon;
 
 		#recent-comments > ul li:first-child a {
 			background-image: url(gfx/icons/green.png);
@@ -34,4 +34,8 @@
 
 		#recent-comments ol li img {
 			border-color: #fff;
+		}
+
+		#recent-comments ol li ul.jquery-code-block-toolbar {
+			display: none;
 		}
