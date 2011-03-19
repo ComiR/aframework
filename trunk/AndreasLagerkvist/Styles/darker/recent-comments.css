@@ -2,10 +2,10 @@
 
 }
 
-	#recent-comments ul li a:after, 
-	#recent-comments ul li a:before, 
-	#recent-comments ul li:after, 
-	#recent-comments ul li:before {
+	#recent-comments > ul > li a:after, 
+	#recent-comments > ul > li a:before, 
+	#recent-comments > ul > li:after, 
+	#recent-comments > ul > li:before {
 		content: "" !important; /* override default style for this module */
 	}
 
@@ -20,12 +20,12 @@
 
 		#recent-comments ul li a = $icon;
 
-		#recent-comments ul li:first-child a {
+		#recent-comments > ul li:first-child a {
 			background-image: url(gfx/icons/green.png);
 			background-position: left -3533px;
 		}
 
-		#recent-comments ul li:last-child a {
+		#recent-comments > ul li:last-child a {
 			background-image: url(gfx/icons/green.png);
 			background-position: right -3587px;
 			padding-left: 0;
