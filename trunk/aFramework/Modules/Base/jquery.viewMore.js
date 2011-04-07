@@ -31,14 +31,14 @@ Run the plug-in on the element that should be collapsed, tell it which (child) e
 
 @exampleHTML:
 <ul>
-	<li><h2>Item 1</h2><p>Content 1</p></li>
-	<li><h2>Item 2</h2><p>Content 2</p></li>
-	<li><h2>Item 3</h2><p>Content 3</p></li>
-	<li><h2>Item 4</h2><p>Content 4</p></li>
+	<li><strong>Item 1</strong><p>Content 1</p></li>
+	<li><strong>Item 2</strong><p>Content 2</p></li>
+	<li><strong>Item 3</strong><p>Content 3</p></li>
+	<li><strong>Item 4</strong><p>Content 4</p></li>
 </ul>
 
 @exampleJS:
-jQuery('#jquery-view-more-example li').viewMore({toggler: 'h2'});
+jQuery('#jquery-view-more-example li').viewMore({toggler: 'strong', open: 1});
 ***/
 (function ($) {
 	$.fn.viewMore = function (conf) {
