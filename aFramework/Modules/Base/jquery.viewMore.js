@@ -55,7 +55,7 @@ jQuery('#jquery-view-more-example li').viewMore({toggler: 'strong', open: 1});
 
 		return this.each(function (i) {
 			var wrapper = $(this).addClass(config.jqClass);
-			var toggler = wrapper.find(config.toggler).eq(0).addClass(config.jqClass + '-toggler').wrapInner('<a href="#"></a>');
+			var toggler = wrapper.find(config.toggler).eq(0).addClass(config.jqClass + '-toggler');
 
 			if (config.open) {
 				if (isNaN(parseInt(config.open, 10))) {
@@ -79,8 +79,6 @@ jQuery('#jquery-view-more-example li').viewMore({toggler: 'strong', open: 1});
 					config.openCallback(wrapper);
 					config.bothCallback(wrapper);
 				}
-
-				return false;
 			});
 		});
 	};
