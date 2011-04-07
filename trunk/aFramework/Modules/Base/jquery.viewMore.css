@@ -1,0 +1,17 @@
+/* Handles hiding and showing content */
+.jquery-view-more:not(.open) > * {
+	display: none;
+}
+
+.jquery-view-more:not(.open) > .jquery-view-more-toggler {
+	display: block;
+}
+
+/* Example code for displaying up/down arrows */
+.jquery-view-more .jquery-view-more-toggler {
+	background: url(gfx/arrow-down.png) no-repeat right 50%;
+}
+
+.jquery-view-more.open .jquery-view-more-toggler {
+	background: url(gfx/arrow-up.png) no-repeat right 50%;
+}
