@@ -155,7 +155,7 @@
 			$langPrefix	= '';
 			$urlPrefix	= '';
 
-			if (CURRENT_LANG != Config::get('lang.default_lang')) {
+			if (defined('CURRENT_LANG') and CURRENT_LANG != Config::get('lang.default_lang')) {
 				$langPrefix = CURRENT_LANG . '/';
 			}
 
