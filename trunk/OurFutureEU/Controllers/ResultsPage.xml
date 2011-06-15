@@ -8,19 +8,13 @@
 		<Search/>
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
-			<Page/>
-			<Revisions/>
-			<Article/>
+			<Results/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<LatestComic/>
 			<ActivityCalendar/>
 			<RandomLinks/>
 			<RecentComments/>
-		</Wrapper>
-		<Wrapper name="tertiary-content">
-			<Sponsors/>
-			<Partners/>
 		</Wrapper>
 		<Footer/>
 	</Wrapper>
