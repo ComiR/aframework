@@ -4,7 +4,7 @@
 		public static $tplFile = true;
 
 		public static function run () {
-			$results = self::getResults(Router::urlForFile('documents/results/', 'OurFutureEU', DOCROOT), Router::urlForFile('documents/results/', 'OurFutureEU', WEBROOT));
+			$results = self::getResults(Router::urlForFile('results/', 'OurFutureEU', DOCROOT), Router::urlForFile('results/', 'OurFutureEU', WEBROOT));
 
 			self::$tplVars['results'] = self::renderResults($results);
 		}
