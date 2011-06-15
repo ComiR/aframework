@@ -5,6 +5,7 @@
 'url.documents' => 'documents', 
 'url.contact-information' => 'contact-information', 
 'url.our-projects' => 'our-projects', 
+'url.results' => 'results', 
 
 # AfterLatestComicAdmin.tpl.php
 'Upload a Comic' => 'Upload a Comic', 

@@ -5,6 +5,7 @@
 'url.documents' => 'dokument', 
 'url.contact-information' => 'kontaktinformation', 
 'url.our-projects' => 'vara-projekt', 
+'url.results' => 'resultat', 
 
 # AfterLatestComicAdmin.tpl.php
 'Upload a Comic' => 'Ladda upp en seriestrip', 
