@@ -8,6 +8,8 @@
 		<Search/>
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
+			<Page/>
+			<Revisions/>
 			<Results/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
