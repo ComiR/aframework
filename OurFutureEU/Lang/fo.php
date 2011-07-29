@@ -7,7 +7,7 @@
 'url.documents' => 'skjol', 
 'url.contact-information' => 'samskifti', 
 'url.our-projects' => 'okkara-verkatlanir', 
-'url.results' => 'results', 
+'url.results' => 'urslit', 
 
 # AfterLatestComicAdmin.tpl.php
 'Upload a Comic' => 'Upload a Comic', 
