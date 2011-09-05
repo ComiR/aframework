@@ -31,7 +31,6 @@
 	RewriteCond %{HTTP_HOST} ^www\.ourfuture\.eu [NC]
 	RewriteRule ^(.*)$ http://ourfuture.eu [R=301,L]
 
-
 	# Force a trailing slash for dirs
 	RewriteRule !\..{2,4}$ - [C]
 	RewriteCond %{REQUEST_URI} !^.*/$
