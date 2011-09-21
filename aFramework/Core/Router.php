@@ -221,7 +221,7 @@
 		 * 
 		 * Uses the $routes and $attrs passed by user to construct
 		 * a proper URL for a particular controller
-		 * <a href="<?=Router::urlFor('Article', $article);?>"><?=$article['title'];? ></a>
+		 * <a href="<?= Router::urlFor('Article', $article) ?>"><?= $article['title'] ?></a>
 		 **/
 		public static function urlFor ($requestedController, $attrs = array()) {
 			$url = false;
