@@ -1,5 +1,5 @@
 <?php
-	Class Lang {
+	class Lang {
 		private static $lang = false;
 		private static $lc2cc = array(
 			'sv' => 'se', 
