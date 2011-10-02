@@ -58,7 +58,7 @@
 			define('SITE_HIERARCHY', 'BudhistorikSE aCMS aDynAdmin aFramework');
 			break;
 		default : 
-			define('SITE_HIERARCHY', 'OurFutureEU aBlog aCMS aDynAdmin aFramework');
+			define('SITE_HIERARCHY', 'AndreasLagerkvist aBlog aCMS aDynAdmin aFramework');
 			break;
 	}
 
@@ -91,7 +91,7 @@
 	define('NAKED_DAY',			is_naked_day(9));
 	define('XHR',				isset($_SERVER['HTTP_X_REQUESTED_WITH']));
 	define('AUTO_HR',			false);
-	define('USE_MOD_REWRITE',	false);
+	define('USE_MOD_REWRITE',	true);
 	define('USE_CACHE',			false);
 	define('INFINITY',			1000000000); # erm... for some SQL-query limits
 
