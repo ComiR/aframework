@@ -22,4 +22,5 @@
 	Config::set('ablog.num_older_articles',		3);
 
 	Config::set('navigation.styles',			false);
+	Config::set('disqus.shortname',				'andreaslagerkvistcom');
 ?>
