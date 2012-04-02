@@ -52,7 +52,7 @@ jQuery.fn.imageZoom = function (conf) {
 		speed:			200,	// Animation-speed of zoom
 		dontFadeIn:		1,		// 1 = Do not fade in, 0 = Do fade in
 		hideClicked:	1,		// Whether to hide the image that was clicked to bring up the imgzoom
-		imageMargin:	15,		// Margin from image-edge to window-edge if image is larger than screen
+		imageMargin:	30,		// Margin from image-edge to window-edge if image is larger than screen
 		className:		'jquery-image-zoom', 
 		loading:		'Loading...'
 	}, conf);
@@ -97,7 +97,7 @@ jQuery.fn.imageZoom = function (conf) {
 			}
 
 			// This function is run once the displayImgSrc-img has loaded (below)
-			var preloadOnload = function () {
+			var preloadOnload = function (pload) {
 				// The clicked-link is faded out during loading, fade it back in
 				clickedLink.setNotLoadingImg();
 
@@ -112,10 +112,10 @@ jQuery.fn.imageZoom = function (conf) {
 					top:		offset.top/*, 
 					opacity:	config.dontFadeIn*/
 				};
-				var imgzoom			= jQuery('<div><img src="' + displayImgSrc + '" alt="" /></div>').css('position', 'absolute').appendTo(document.body); // We don't want any class-name or any other contents part from the image when we calculate the new dimensions of the imgzoom
+				var imgzoom			= jQuery('<div><img src="' + displayImgSrc + '" alt=""/></div>').css('position', 'absolute').appendTo(document.body); // We don't want any class-name or any other contents part from the image when we calculate the new dimensions of the imgzoom
 				var imgzoomAfter	= { // The dimensions of the imgzoom _after_ it is zoomed out
-					width:		imgzoom.outerWidth(), 
-					height:		imgzoom.outerHeight()/*, 
+					width:		pload.width, 
+					height:		pload.height/*, 
 					opacity:	1*/
 				};
 				var windowDim = {
@@ -168,14 +168,18 @@ jQuery.fn.imageZoom = function (conf) {
 
 			// Preload image
 			var preload = new Image();
-				preload.src = displayImgSrc;
+
+			preload.src = displayImgSrc;
 
 			if (preload.complete) {
-				preloadOnload();
+				preloadOnload(preload);
 			}
 			else {
 				clickedLink.setLoadingImg();
-				preload.onload = preloadOnload;
+
+				preload.onload = function () {
+					preloadOnload(preload);
+				};
 			}
 
 			// Finally return false from the click so the browser doesn't actually follow the link...
