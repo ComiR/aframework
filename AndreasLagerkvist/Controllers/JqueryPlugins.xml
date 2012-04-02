@@ -15,7 +15,6 @@
 		</Wrapper>
 		<Wrapper name="tertiary-content">
 			<RandomLinks/>
-			<RecentComments/>
 			<TagCloud/>
 		</Wrapper>
 		<Footer/>

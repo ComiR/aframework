@@ -12,8 +12,7 @@
 			<ArticleNavigation/>
 			<SocialBookmarks/>
 			<GoogleAdsWide/>
-			<Comments/>
-			<PostComment/>
+			<Disqus/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<GoogleAds/>
@@ -21,7 +20,6 @@
 		<Wrapper name="tertiary-content">
 			<RandomJqueryPlugins/>
 			<RandomLinks/>
-			<RecentComments/>
 			<TagCloud/>
 		</Wrapper>
 		<Footer/>

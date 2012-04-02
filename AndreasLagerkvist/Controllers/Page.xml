@@ -17,7 +17,6 @@
 		<Wrapper name="tertiary-content">
 			<RandomJqueryPlugins/>
 			<RandomLinks/>
-			<RecentComments/>
 			<TagCloud/>
 		</Wrapper>
 		<Footer/>
