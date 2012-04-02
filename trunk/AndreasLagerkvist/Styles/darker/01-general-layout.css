@@ -444,6 +444,7 @@ $box-tabs {
 
 		#tertiary-content #random-links = $one-third-box;
 		#tertiary-content #recent-comments = $one-third-box;
+		#tertiary-content #disqus-widget = $one-third-box;
 		#tertiary-content #tag-cloud = $one-third-box;
 		#tertiary-content #tag-cloud {
 			float: right;

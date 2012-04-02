@@ -15,6 +15,7 @@
 		</Wrapper>
 		<Wrapper name="tertiary-content">
 			<RandomLinks/>
+			<DisqusWidget/>
 			<TagCloud/>
 		</Wrapper>
 		<Footer/>

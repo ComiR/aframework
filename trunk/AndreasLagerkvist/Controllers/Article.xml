@@ -20,6 +20,7 @@
 		<Wrapper name="tertiary-content">
 			<RandomJqueryPlugins/>
 			<RandomLinks/>
+			<DisqusWidget/>
 			<TagCloud/>
 		</Wrapper>
 		<Footer/>
