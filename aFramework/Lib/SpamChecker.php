@@ -28,7 +28,8 @@
 				'ringtone',
 				'pharmacy',
 				'url>', 
-				'vigrx'
+				'vigrx', 
+				'quotes'
 			);
 			$alwaysSpam	= array(
 				'Best Site good looking', 
