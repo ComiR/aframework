@@ -16,6 +16,7 @@
 			<OlderArticles/>
 			<RandomJqueryPlugins/>
 			<RandomLinks/>
+			<DisqusWidget/>
 			<TagCloud/>
 		</Wrapper>
 		<Footer/>
