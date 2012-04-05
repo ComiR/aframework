@@ -7,6 +7,7 @@
 			$shortname = Config::get('disqus.shortname');
 
 			if ($shortname) {
+				self::$tplVars['num_items'] = Config::get('ablog.num_recent_comments');
 				self::$tplVars['shortname'] = $shortname;
 			}
 			else {
