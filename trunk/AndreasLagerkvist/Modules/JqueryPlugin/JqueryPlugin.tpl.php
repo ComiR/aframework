@@ -13,7 +13,7 @@
 	</small>
 </p>
 
-<p>
+<?php /* <p>
 	<strong>
 		Please have a look at the "<a href="#jquery-plugin-other-resources">Other Resources</a>" 
 		for bug reports or further help on jQuery. <em>Do not</em> post bug reports or feature 
@@ -21,7 +21,7 @@
 		<a href="http://bugtracker.a-framework.org/jquery-plug-ins/add-task/">bugtracker.a-framework.org</a> 
 		fails, <a href="/contact/">e-mail me</a>.
 	</strong>
-</p>
+</p> */ ?>
 
 <div id="jquery-plugin-what">
 
