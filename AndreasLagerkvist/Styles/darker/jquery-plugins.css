@@ -28,10 +28,9 @@
 			#jquery-plugins ul li dl = $plain-definition;
 			#jquery-plugins ul li dl = $small;
 			#jquery-plugins ul li dl {
-				width: 85px;
 				position: absolute;
 				right: 20px;
-				top: 32px;
+				top: 20px;
 			}
 
 				#jquery-plugins ul li dl dt {
