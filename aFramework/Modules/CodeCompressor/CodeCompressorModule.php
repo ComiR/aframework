@@ -168,7 +168,9 @@
 					# Loop through all the files
 					while ($f = readdir($dh)) {
 						# Check if the file extention is what is being asked for (css/js)
-						if (self::$type == end(explode('.', $f))) {
+						$tmp = explode('.', $f);
+
+						if (self::$type == end($tmp)) {
 							$tmpFlm = filemtime($dir . $f);
 
 							self::$debug['last_modified_files'][] = array(
@@ -246,7 +248,9 @@
 
 				if ($dh) {
 					while ($f = readdir($dh)) {
-						if (self::$type == end(explode('.', $f)) and !in_array($f, self::$exclude) and substr($f, 0, 2) != '__') {
+						$tmp = explode('.', $f);
+
+						if (self::$type == end($tmp) and !in_array($f, self::$exclude) and substr($f, 0, 2) != '__') {
 							$files["$dir$f"] = strtolower($dir . $f);
 						}
 					}
