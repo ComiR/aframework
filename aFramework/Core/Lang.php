@@ -239,8 +239,9 @@
 
 					while ($f = readdir($dh)) {
 						$lc = substr($f, 0, -4);
+						$tmp = explode('.', $f);
 
-						if ('php' == end(explode('.', $f))) {
+						if ('php' == end($tmp)) {
 							if (!isset(self::$lang[$lc])) {
 								self::$lang[$lc] = array();
 							}
