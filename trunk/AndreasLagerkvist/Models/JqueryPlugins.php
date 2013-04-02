@@ -141,7 +141,8 @@
 
 			foreach ($reqs as $req) {
 				$req = trim($req);
-				$ext = end(explode('.', $req));
+				$tmp = explode('.', $req);
+				$ext = end($tmp);
 
 				if ('css' == $ext and file_exists(DOCROOT . 'aFramework/Modules/Base/' . $req)) {
 					$pluginFiles[] = array(

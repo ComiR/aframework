@@ -32,7 +32,7 @@
 			array_splice(self::$tplVars['nav_items'], $pos, 1);
 		}
 
-		public function setSelectedNavigationItem () {
+		public static function setSelectedNavigationItem () {
 			$url			= $_SERVER['REQUEST_URI'];
 			$url			= explode('?', $url);
 			$url			= $url[0];
