@@ -1,3 +1,11 @@
+#article-page #primary-content > div {
+	margin-bottom: 30px;
+}
+
+#article-page #primary-content > div:last-child {
+	margin-bottom: 0;
+}
+
 #article {
 }
 
@@ -30,13 +38,14 @@
 		#article > dl:last-child dt = $icon;
 		#article > dl:last-child dt {
 			background-position: left -1754px;
-			display: inline;
+			display: none; /* Hide Comments */
 			margin: 0 0 0 20px;
 		}
 
 		#article > dl:last-child dt:first-child {
 			background-position: left -2348px;
 			margin-left: 0;
+			display: inline;
 		}
 
 		#article > dl:last-child dt:after {
@@ -46,6 +55,10 @@
 		#article > dl:last-child dd {
 			display: inline;
 			margin: 0;
+		}
+
+		#article > dl:last-child dd:last-child {
+			display: none; /* Hide Comments */
 		}
 
 			#article > dl:last-child dd ul {
