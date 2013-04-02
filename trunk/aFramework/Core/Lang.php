@@ -321,7 +321,8 @@
 							$langs = $newLangs !== false ? array_merge($langs, $newLangs) : $langs;
 						}
 						else {
-							$ext = end(explode('.', $f));
+							$tmp = explode('.', $f);
+							$ext = end($tmp);
 
 							if (in_array($ext, $validExts)) {
 								$pattern	= '/Lang(::|\.)get\((\'|")(.*?)\\2(.*?)\)/';
