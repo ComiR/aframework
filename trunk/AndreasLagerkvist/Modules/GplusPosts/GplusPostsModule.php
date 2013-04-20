@@ -8,7 +8,7 @@
 				return self::$tplFile = false;
 			}
 
-			$limit	= 5;
+			$limit	= 10;
 			$url	= 'https://www.googleapis.com/plus/v1/people/' . Config::get('google.plus_id') . '/activities/public?alt=json&pp=1&key=' . Config::get('google_api.api_key') . '&maxResults=' . $limit . '&pageToken=';
 			$res	= file_get_contents($url);
 			$posts	= array();
