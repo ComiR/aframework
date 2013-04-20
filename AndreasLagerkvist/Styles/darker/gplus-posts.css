@@ -1,6 +1,63 @@
 #gplus-posts {
+	position: relative;
 }
 
-	#gplus-posts h2 + p = $first-p;
+	#gplus-posts > ul {
+		margin: 0;
+		list-style: none;
+	}
 
-	#gplus-posts img = $img-large;
+		#gplus-posts > ul > li {
+			
+		}
+
+			#gplus-posts h2 + p = $first-p;
+
+			#gplus-posts img = $img-large;
+
+#gplus-posts-nav {
+	position: absolute;
+	left: 0;
+	top: 0;
+	z-index: 1000;
+
+	margin: 0;
+	padding: 0;
+
+	text-align: center;
+	line-height: 1;
+	font-size: 1px;
+}
+
+	#gplus-posts-nav a {
+		background: rgba(160, 160, 160, .5);
+
+		display: inline-block;
+		position: relative;
+
+		width: 12px;
+		height: 12px;
+		margin: 0 5px;
+
+		text-indent: -1000000px;
+
+		box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .6);
+		border-radius: 6px;
+	}
+
+	a.activeSlide:before {
+		background: #eee;
+
+		display: block;
+		content: "\0020";
+
+		width: 8px;
+		height: 8px;
+
+		position: absolute;
+		left: 2px;
+		top: 2px;
+
+		box-shadow: inset 1px 1px 1px rgba(255, 255, 255, .6);
+		border-radius: 4px;
+	}

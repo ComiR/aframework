@@ -1,6 +1,6 @@
 <?php
 	Config::set('db.user',						'root');
-	Config::set('db.pass',						'root');
+	Config::set('db.pass',						'bamsepuck');
 	Config::set('db.host',						'localhost');
 	Config::set('db.name',						'ante_alcom');
 
@@ -24,8 +24,9 @@
 	Config::set('navigation.styles',			false);
 	Config::set('disqus.shortname',				'andreaslagerkvistcom');
 
-	Config::set('google.plus_id',				false);
-	Config::set('google_api.api_key',			false);
-	Config::set('google_api.client_id',			false);
-	Config::set('google_api.client_secret',		false);
+	Config::set('google.plus_id',				'110924672377553496476');
+	Config::set('google_api.api_key',			'AIzaSyAl7ZuSxY1AJufxkHFAzpPRMdlAKtgszVQ');
+	Config::set('google_api.client_id',			'144132856256.apps.googleusercontent.com');
+	Config::set('google_api.client_secret',		'xC6mtHOYu57YLwrCU-Z38hrC');
+
 ?>
