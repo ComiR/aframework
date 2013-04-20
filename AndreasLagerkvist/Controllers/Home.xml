@@ -7,7 +7,7 @@
 		<Search/>
 		<Breadcrumbs/>
 		<Wrapper name="primary-content">
-			<Article/>
+			<GplusPosts/>
 		</Wrapper>
 		<Wrapper name="secondary-content">
 			<QuickAbout/>

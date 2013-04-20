@@ -1,0 +1,6 @@
+#gplus-posts {
+}
+
+	#gplus-posts h2 + p = $first-p;
+
+	#gplus-posts img = $img-large;
