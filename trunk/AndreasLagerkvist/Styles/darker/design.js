@@ -3,6 +3,23 @@ DarkerStyle = {
 		this.collapsableArticleByDateMonths();
 		this.fadedFooter();
 	//	this.postCommentHints();
+		this.slidingGPPosts();
+	}, 
+
+	slidingGPPosts: function () {
+		$(window).load(function () {
+			var container = $('#gplus-posts').find('> ul');
+			var pager = $('<div id="gplus-posts-nav"></div>').appendTo('#gplus-posts');
+
+			container.cycle({
+				timeout:	0, 
+				fx:			'fade', 
+				pager:		'#gplus-posts-nav', 
+				before:		function () {
+					container.height($(this).outerHeight());
+				}
+			});
+		});
 	}, 
 
 	fadedFooter: function () {

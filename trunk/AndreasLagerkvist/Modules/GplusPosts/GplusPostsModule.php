@@ -8,7 +8,7 @@
 				return self::$tplFile = false;
 			}
 
-			$limit	= 1;
+			$limit	= 5;
 			$url	= 'https://www.googleapis.com/plus/v1/people/' . Config::get('google.plus_id') . '/activities/public?alt=json&pp=1&key=' . Config::get('google_api.api_key') . '&maxResults=' . $limit . '&pageToken=';
 			$res	= file_get_contents($url);
 			$posts	= array();
@@ -19,6 +19,10 @@
 				foreach ($res->items as $item) {
 					$posts[] = $item;
 				}
+			}
+
+			if (!count($posts)) {
+				return self::$tplFile = false;
 			}
 
 			self::$tplVars['posts'] = $posts;
