@@ -24,6 +24,8 @@
 	Config::set('navigation.styles',			false);
 	Config::set('disqus.shortname',				'andreaslagerkvistcom');
 
+	Config::set('google.plus_id',				false);
+	Config::set('google_api.api_key',			false);
 	Config::set('google_api.client_id',			false);
 	Config::set('google_api.client_secret',		false);
 ?>
