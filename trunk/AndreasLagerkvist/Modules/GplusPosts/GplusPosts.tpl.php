@@ -7,6 +7,14 @@
 				</a>
 			</h2>
 
+			<?php if ($post->annotation) : ?>
+				<p><?php echo $post->annotation ?></p>
+			<?php endif ?>
+
+			<?php if ($post->object->actor) : ?>
+				<p><?php echo Lang::get('Originally posted by %0', false, array('<a href="' . $post->object->actor->url . '">' . $post->object->actor->displayName . '</a>')) ?></p>
+			<?php endif ?>
+
 			<p><?php echo str_replace('<br /><br />', '</p><p>', $post->object->content) ?></p>
 
 			<?php if ($post->object->attachments) : ?>
